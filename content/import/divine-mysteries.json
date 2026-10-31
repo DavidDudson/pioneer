@@ -71,15 +71,6 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.g3HTg0z3doXZZzAV",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "predicate": ["class:oracle"],
-            "uuid": "Compendium.pf2e.feats-srd.Item.Whispers of Weakness"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
         },
@@ -103,39 +94,8 @@
             "key": "ItemAlteration",
             "mode": "override",
             "predicate": ["item:slug:divine-font"],
-            "property": "description",
-            "value": [
-              {
-                "text": "PF2E.SpecificRule.Cleric.BattleHarbinger.DivineFont"
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:divine-font"],
             "property": "name",
             "value": "PF2E.SpecificRule.Cleric.BattleHarbinger.BattleFont.Label"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "battleHarbingerDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Battle Harbinger Dedication"
           }
         },
         {
@@ -177,15 +137,6 @@
       "slug": "class-feature:blight",
       "foundry": "Compendium.pf2e.classfeatures.Item.1PHDn7WJFtR3NgTr",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "predicate": ["class:oracle"],
-            "uuid": "Compendium.pf2e.feats-srd.Item.Whispers of Weakness"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd]"
@@ -404,21 +355,6 @@
       "slug": "class-feature:palatine-detective",
       "foundry": "Compendium.pf2e.classfeatures.Item.ppGGpc3Iv2NpAhys",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "palatineDetectiveDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Palatine Detective Dedication"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[feats-srd]"
@@ -2612,22 +2548,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-call-upon-razmirs-benevolence",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.iOBkeWz0gTzplbXJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.origin.level*2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-consult-the-spirits",
       "foundry": "Compendium.pf2e.feat-effects.Item.sEv8H8PrMd0C3wJ7",
       "gaps": [
@@ -2791,16 +2711,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "{item|flags.system.rulesSelections.rune}"
-          }
         }
       ]
     },
@@ -2879,23 +2789,6 @@
             "predicate": ["sanctification:unholy"],
             "property": "traits",
             "value": "unholy"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:effect-invoke-defense",
-      "foundry": "Compendium.pf2e.feat-effects.Item.32QaXCRgU5l5lMIa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": "floor(@actor.level / 2)"
           }
         }
       ]
@@ -3006,23 +2899,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:effect-pale-horse",
-      "foundry": "Compendium.pf2e.feat-effects.Item.21P9Xc6DslCjfq0Y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:effect-shield-the-faithful",
       "foundry": "Compendium.pf2e.feat-effects.Item.JMkGtyRU4bTSL2sB",
       "gaps": [
@@ -3040,63 +2916,6 @@
             "key": "Aura",
             "predicate": ["self:signature:{item|origin.signature}"],
             "radius": 10
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "spirit",
-            "value": "ternary(gte(@item.origin.level,20),15,10)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-adaptive-ablation",
-      "foundry": "Compendium.pf2e.spell-effects.Item.6GAztnHuQSwAp1k1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "adaptiveAblation",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.adaptiveAblation}",
-            "value": "5 + 5*floor((@item.level -4)/2)"
           }
         }
       ]
@@ -3206,37 +3025,6 @@
             "property": "damage-type",
             "selectors": ["spell-damage"],
             "value": "{item|flags.system.rulesSelections.draconicBarrage}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-entreat-spirit",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Fms3IfhXqHiKAxlC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:curse",
-                  "item:trait:death",
-                  "item:trait:emotion",
-                  "item:trait:fear",
-                  {
-                    "not": "check:type:saving-throw"
-                  }
-                ]
-              }
-            ],
-            "selector": ["saving-throw", "{item|flags.system.rulesSelections.skill}"],
-            "type": "status",
-            "value": "ternary(gte(@item.level,8),3,ternary(gte(@item.level,4),2,1))"
           }
         }
       ]

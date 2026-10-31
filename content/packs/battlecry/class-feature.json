@@ -3053,6 +3053,16 @@
         "key": "Proficiency",
         "selector": "defense:medium",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8752468f-1f4c-5e6f-929c-ad47b3986d84",
+        "flag": "spellshot-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

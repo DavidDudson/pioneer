@@ -1347,6 +1347,43 @@
             "predicate": ["parent:trait:wood"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": ["parent:trait:air"]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": ["parent:trait:earth"]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": ["parent:trait:fire"]
+          },
+          {
+            "value": "metal",
+            "label": "Metal",
+            "predicate": ["parent:trait:metal"]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": ["parent:trait:water"]
+          },
+          {
+            "value": "wood",
+            "label": "Wood",
+            "predicate": ["parent:trait:wood"]
+          }
+        ],
+        "rollOption": "effect-resonance-element"
       }
     ],
     "externalIds": {

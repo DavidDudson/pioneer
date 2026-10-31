@@ -250,6 +250,11 @@
         "key": "Proficiency",
         "selector": "skill:occultism",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7903c634-07b8-5ea7-ae20-eea28d41e580",
+        "predicate": ["class:oracle"]
       }
     ],
     "externalIds": {
@@ -1973,6 +1978,33 @@
             "gte": ["self:level", 19]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat", "item:slug:divine-font"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Instead of preparing Heal or Harm spells with your divine font, you instead gain the battle font, which allows you to prepare battle aura spells. You gain 4 additional spell slots each day at your highest rank of cleric spell slots. You can prepare only Bane or Bless in these slots. Any feats and effects that refer to a battle aura refers to these spells, regardless of whether they were cast with your standard spell slots or your divine font spell slots. At 5th level, the number of additional slots increases to 5, and at 15th level, the total number of additional slots increases to 6. Your battle auras use your class DC instead of your spell DC."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "bdacee24-4321-5d51-abe4-aba27a68215a",
+        "flag": "battle-harbinger-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -2233,6 +2265,11 @@
         "key": "Proficiency",
         "selector": "skill:nature",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7903c634-07b8-5ea7-ae20-eea28d41e580",
+        "predicate": ["class:oracle"]
       }
     ],
     "externalIds": {
@@ -3067,6 +3104,16 @@
           "prefix": "skill"
         },
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "67a9fb63-d2e4-5e9d-91b3-f5817723117b",
+        "flag": "palatine-detective-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

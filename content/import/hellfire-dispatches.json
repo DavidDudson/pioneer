@@ -889,24 +889,6 @@
     {
       "type": "entry",
       "pack": "hellfire-dispatches",
-      "slug": "effect:stance-golden-erinys-stance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.8yoq65YOI36Tv4c0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "punctureFlesh",
-            "key": "GrantItem",
-            "predicate": ["feat:cruel-piercing"],
-            "uuid": "Compendium.pf2e.actionspf2e.Item.Puncture Flesh"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "hellfire-dispatches",
       "slug": "equipment:signifers-mask",
       "foundry": "Compendium.pf2e.equipment-srd.Item.XlmoKh60WMF9ou3J",
       "gaps": [
@@ -1774,37 +1756,6 @@
             "mode": "add",
             "path": "flags.system.hellknightArchetype.featCount",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "value": "slashing"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.damageType}",
-            "value": "@actor.flags.system.hellknightArchetype.featCount"
           }
         }
       ]

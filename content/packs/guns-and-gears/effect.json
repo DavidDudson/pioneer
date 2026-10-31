@@ -1134,6 +1134,27 @@
       {
         "key": "GrantItem",
         "item": "64278392-4910-5a32-b819-56f6e54952dd"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-core-cannon",
+        "choices": [
+          {
+            "value": "82afe015-7220-56b4-8094-e59d1adb1ba1",
+            "label": "Weapon Potency (+1)"
+          },
+          {
+            "value": "d6f4e7dd-2622-5f32-b443-a928c2f293ec",
+            "label": "Weapon Potency (+2)"
+          },
+          {
+            "value": "8a080291-0d9a-5ed1-b2d1-f98bd7eb4c55",
+            "label": "Weapon Potency (+3)"
+          }
+        ],
+        "prompt": "Select a Rune.",
+        "rollOption": "core-cannon:potency-rune",
+        "optional": true
       }
     ],
     "externalIds": {
@@ -1504,7 +1525,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "energy",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "effect-energized-cartridge-energy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.UjXwDvLoSe9infGg"
     },
@@ -1691,7 +1737,84 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "fulminating-shot",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "effect-fulminating-shot-fulminating-shot"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 12), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": [
+          {
+            "or": ["item:group:firearm", "item:group:crossbow"]
+          },
+          "effect-fulminating-shot-fulminating-shot:acid"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 12), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "cold",
+        "predicate": [
+          {
+            "or": ["item:group:firearm", "item:group:crossbow"]
+          },
+          "effect-fulminating-shot-fulminating-shot:cold"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 12), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": [
+          {
+            "or": ["item:group:firearm", "item:group:crossbow"]
+          },
+          "effect-fulminating-shot-fulminating-shot:electricity"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": "ternary(gte(@level, 18), 3, ternary(gte(@level, 12), 2, 1))",
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          {
+            "or": ["item:group:firearm", "item:group:crossbow"]
+          },
+          "effect-fulminating-shot-fulminating-shot:fire"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.UE0yky6aW0WCF0Qg"
     },
@@ -2062,7 +2185,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Yes"
+          },
+          {
+            "value": "1",
+            "label": "No"
+          }
+        ],
+        "prompt": "Does your weapon have the parry trait?",
+        "rollOption": "effect-living-fortification-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["effect-living-fortification-bonus:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["effect-living-fortification-bonus:1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.fRlvmul3LbLo2xvR"
     },
@@ -2113,7 +2267,49 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "number",
+        "choices": [
+          {
+            "value": "2",
+            "label": "One Action"
+          },
+          {
+            "value": "3",
+            "label": "Two Actions"
+          },
+          {
+            "value": "4",
+            "label": "Two Actions (Legendary)"
+          }
+        ],
+        "prompt": "Select the number of actions",
+        "rollOption": "effect-lock-on-number"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:mark:lock-on", "effect-lock-on-number:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["target:mark:lock-on", "effect-lock-on-number:3"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["target:mark:lock-on", "effect-lock-on-number:4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.xtqOIXCe0Nsd0QCt"
     },
@@ -2540,6 +2736,42 @@
         "mode": "upgrade",
         "value": 2,
         "predicate": ["camouflage-suit:camouflage-suit-superb"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-prepared-camouflage-suit",
+        "choices": [
+          {
+            "value": "91b78267-79da-5fb5-b836-ecf0da3435f7",
+            "label": "Camouflage Suit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:camouflage-suit",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b4284b21-a887-53e8-aa77-6abef74dc975",
+            "label": "Camouflage Suit (Superb)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:camouflage-suit-superb",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "camouflage-suit"
       }
     ],
     "externalIds": {

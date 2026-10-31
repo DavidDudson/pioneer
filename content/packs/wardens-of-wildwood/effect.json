@@ -81,7 +81,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weakness",
+        "choices": [
+          {
+            "value": "3",
+            "label": "Failure"
+          },
+          {
+            "value": "5",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-aggravating-aura-weakness"
+      },
+      {
+        "key": "Weakness",
+        "type": ["all"],
+        "value": 3,
+        "predicate": ["effect-aggravating-aura-weakness:3"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["all"],
+        "value": 5,
+        "predicate": ["effect-aggravating-aura-weakness:5"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.WQsMv2KlURI9OKQQ"
     },
@@ -267,6 +296,56 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["clay-sphere:clay-sphere-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-clay-sphere-armor",
+        "choices": [
+          {
+            "value": "17e75e93-b9d7-5f4c-81ff-a74997817a90",
+            "label": "Clay Sphere",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:clay-sphere",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "970b4b7e-6b7f-586c-a54d-700159629ce2",
+            "label": "Clay Sphere (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:clay-sphere-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "dcc19d30-2db5-5f9a-ae7b-7b70c2a99c78",
+            "label": "Clay Sphere (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:clay-sphere-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "clay-sphere"
       }
     ],
     "externalIds": {
@@ -790,6 +869,70 @@
         "type": ["acid", "fire", "slashing"],
         "value": 4,
         "predicate": ["inflammation-flask:inflammation-flask-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-inflammation-flask",
+        "choices": [
+          {
+            "value": "a89b013f-b5fc-5b27-9a76-4f6ec8b03701",
+            "label": "Inflammation Flask (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:inflammation-flask-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ef0c2511-8239-5cc8-b567-310a1dbf85a6",
+            "label": "Inflammation Flask (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:inflammation-flask-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "92b37069-beb3-580d-87fe-7bd31c5c60dc",
+            "label": "Inflammation Flask (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:inflammation-flask-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3102302a-3ca9-550d-a702-9d2370fb2cb4",
+            "label": "Inflammation Flask (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:inflammation-flask-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "inflammation-flask"
       }
     ],
     "externalIds": {

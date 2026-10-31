@@ -88,40 +88,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Intimidation",
-                "value": "intimidation"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "society"
-              },
-              {
-                "label": "PF2E.SpecificLore.Warfare",
-                "value": "warfare-lore"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -2758,78 +2724,6 @@
     {
       "type": "entry",
       "pack": "spore-war",
-      "slug": "effect:effect-antifungal-salve",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.MN7OSIN1oeRfV0h6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:antifungal-salve-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:antifungal-salve-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:antifungal-salve-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:antifungal-salve-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Antifungal Salve (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "antifungal"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "spore-war",
       "slug": "effect:effect-call-upon-the-ancients",
       "foundry": "Compendium.pf2e.campaign-effects.Item.6ReMiLTAc70nbzAC",
       "gaps": [
@@ -2933,40 +2827,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Deception",
-                "value": "deception"
-              },
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "occultism"
-              },
-              {
-                "label": "PF2E.Skill.Performance",
-                "value": "performance"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -2983,40 +2843,6 @@
       "slug": "equipment:guiding-star-orb-heroic",
       "foundry": "Compendium.pf2e.equipment-srd.Item.F5dQEQTyOpSBeXDJ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Arcana",
-                "value": "arcana"
-              },
-              {
-                "label": "PF2E.SpecificLore.Architecture",
-                "value": "architecture-lore"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "society"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -3182,40 +3008,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.SpecificLore.Demon",
-                "value": "demon-lore"
-              },
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "diplomacy"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "religion"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -3272,40 +3064,6 @@
         },
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Nature",
-                "value": "nature"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "religion"
-              },
-              {
-                "label": "PF2E.Skill.Survival",
-                "value": "survival"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -3330,40 +3088,6 @@
       "slug": "weapon:wintershot-heroic",
       "foundry": "Compendium.pf2e.equipment-srd.Item.xEVWp9oaeF0yPseK",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "diplomacy"
-              },
-              {
-                "label": "PF2E.Skill.Intimidation",
-                "value": "intimidation"
-              },
-              {
-                "label": "PF2E.Skill.Survival",
-                "value": "survival"
-              }
-            ],
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "type": "item",
-            "value": 4
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",

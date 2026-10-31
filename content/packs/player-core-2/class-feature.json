@@ -14202,6 +14202,27 @@
         "mode": "upgrade",
         "value": 18,
         "predicate": ["class:barbarian", "feature:greater-weapon-specialization", "item:oversized"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select an energy type for Raging Resistance.",
+        "rollOption": "giant-instinct-energy",
+        "predicate": ["feature:giant-instinct", "class:barbarian"]
       }
     ],
     "externalIds": {

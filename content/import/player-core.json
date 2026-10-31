@@ -166,23 +166,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "action:fast-movement",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.BXssJhTJjKrfojwG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "{item|flags.system.rulesSelections.speed}",
-            "value": 40
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "action:gather-information",
       "foundry": "Compendium.pf2e.actionspf2e.Item.plBGdZhqq5JBl1D8",
       "gaps": [
@@ -337,23 +320,6 @@
         {
           "type": "markup",
           "markup": "section"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "action:skilled",
-      "foundry": "Compendium.pf2e.familiar-abilities.Item.jevzf9JbJJibpqaI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.skill}",
-            "value": "@actor.masterAttributeModifier"
-          }
         }
       ]
     },
@@ -2539,40 +2505,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:voice-of-nature",
-      "foundry": "Compendium.pf2e.classfeatures.Item.d5BFFHXFJYKs5LXr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Animal Empathy"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Plant Empathy"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.LevelOneClassFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:weapon-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.9XLUh9iMepZesdmc",
       "gaps": [
@@ -3378,67 +3310,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-assisting-shot",
-      "foundry": "Compendium.pf2e.feat-effects.Item.zcJii1XyOne9EvMr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.success",
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:context:check:outcome:2",
-                      {
-                        "not": {
-                          "gte": ["parent:context:check:outcome", 0]
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "value": 1
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.criticalSuccess",
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:context:check:outcome:3",
-                      {
-                        "not": {
-                          "gte": ["parent:context:check:outcome", 0]
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "value": 2
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "attack",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-attitude",
       "foundry": "Compendium.pf2e.campaign-effects.Item.kTnRp6zfI32iqjHc",
       "gaps": [
@@ -3756,17 +3627,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["{item|flags.system.rulesSelections.element}"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -3843,46 +3703,6 @@
             "phase": "beforeDerived",
             "predicate": ["self:trait:fiend"],
             "value": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-divine-rebuttal",
-      "foundry": "Compendium.pf2e.feat-effects.Item.jMQi2kDirzGgddti",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.success",
-                "value": 2
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.criticalSuccess",
-                "value": 3
-              }
-            ],
-            "flag": "outcome",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:magical"],
-            "removeAfterRoll": true,
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.outcome"
           }
         }
       ]
@@ -4179,59 +3999,6 @@
           "type": "rule",
           "key": "ChoiceSet",
           "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "damage",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": "d6"
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": "d4"
-              }
-            ],
-            "flag": "dieSize",
-            "key": "ChoiceSet",
-            "predicate": ["emblazon-energy:item:weapon"],
-            "prompt": "PF2E.SpecificRule.Cleric.EmblazonEnergy.MatchingDomainPrompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
             "choices": {
               "ownedItems": true,
               "types": ["shield"]
@@ -4254,29 +4021,6 @@
             "key": "ChoiceSet",
             "predicate": ["emblazon-energy:item:weapon"],
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["emblazon-energy:item:shield", "item:damage:type:{item|flags.system.rulesSelections.damage}"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": "@actor.heldShield.acBonus"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "{item|flags.system.rulesSelections.damage}",
-            "diceNumber": 1,
-            "dieSize": "{item|flags.system.rulesSelections.dieSize}",
-            "key": "DamageDice",
-            "predicate": ["emblazon-energy:item:weapon"],
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
           }
         }
       ]
@@ -4369,85 +4113,6 @@
           "type": "rule",
           "key": "ChoiceSet",
           "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Skill.Acrobatics",
-                "value": "acrobatics"
-              },
-              {
-                "label": "PF2E.Skill.Arcana",
-                "value": "arcana"
-              },
-              {
-                "label": "PF2E.Skill.Athletics",
-                "value": "athletics"
-              },
-              {
-                "label": "PF2E.Skill.Crafting",
-                "value": "crafting"
-              },
-              {
-                "label": "PF2E.Skill.Deception",
-                "value": "deception"
-              },
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "diplomacy"
-              },
-              {
-                "label": "PF2E.Skill.Intimidation",
-                "value": "intimidation"
-              },
-              {
-                "label": "PF2E.Skill.Medicine",
-                "value": "medicine"
-              },
-              {
-                "label": "PF2E.Skill.Nature",
-                "value": "nature"
-              },
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "occultism"
-              },
-              {
-                "label": "PF2E.Skill.Performance",
-                "value": "performance"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "religion"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "society"
-              },
-              {
-                "label": "PF2E.Skill.Stealth",
-                "value": "stealth"
-              },
-              {
-                "label": "PF2E.Skill.Survival",
-                "value": "survival"
-              },
-              {
-                "label": "PF2E.Skill.Thievery",
-                "value": "thievery"
-              },
-              {
-                "label": "PF2E.SkillLore",
-                "value": "lore"
-              }
-            ],
-            "flag": "followTheExpertSkill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
             "actorFlag": true,
             "choices": [
               {
@@ -4470,76 +4135,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.FollowTheExpert.Prompt",
             "rollOption": "follow-the-expert:proficiency:rank"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.followTheExpertSkill}",
-            "slug": "follow-the-expert-proficiency",
-            "type": "proficiency",
-            "value": "@actor.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.followTheExpertSkill}",
-            "slug": "follow-the-expert-circumstance",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.followTheExpertProficiency"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-forcible-energy",
-      "foundry": "Compendium.pf2e.feat-effects.Item.0Ai0u9kNJrEudPnN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "{item|flags.system.rulesSelections.damageType}",
-            "value": 5
           }
         }
       ]
@@ -4826,48 +4421,6 @@
               }
             ],
             "value": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-raise-menhir",
-      "foundry": "Compendium.pf2e.feat-effects.Item.AggnVD5loQHLb7zj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "arcane"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "divine"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "occult"
-              }
-            ],
-            "flag": "raiseMenhirTradition",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Tradition"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["{item|flags.system.rulesSelections.raiseMenhirTradition}"],
-            "selector": "saving-throw",
-            "type": "status",
-            "value": 2
           }
         }
       ]
@@ -5528,46 +5081,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:effect-vicious-debilitations",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Rgt9hH3W1oh9dvku",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "value": "slashing"
-              }
-            ],
-            "flag": "viciousDebilitations",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "{item|flags.system.rulesSelections.viciousDebilitations}",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:effect-vigorous-anthem",
       "foundry": "Compendium.pf2e.feat-effects.Item.7AzGhIOx4Df5Cicr",
       "gaps": [
@@ -5673,25 +5186,6 @@
             "key": "Aura",
             "predicate": ["self:signature:{item|origin.signature}"],
             "radius": "5 + @item.badge.value * 10"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-blood-ward",
-      "foundry": "Compendium.pf2e.spell-effects.Item.aDOL3OAEWf3ka9oT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["origin:trait:{item|flags.system.rulesSelections.blood}"],
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": "ternary(gte(@item.level,5),2,1)"
           }
         }
       ]
@@ -5992,58 +5486,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-elemental-betrayal",
-      "foundry": "Compendium.pf2e.spell-effects.Item.y4y0nusC97R7ZDL5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAir",
-                "value": "air"
-              },
-              {
-                "label": "PF2E.TraitEarth",
-                "value": "earth"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitMetal",
-                "value": "metal"
-              },
-              {
-                "label": "PF2E.TraitWater",
-                "value": "water"
-              },
-              {
-                "label": "PF2E.TraitWood",
-                "value": "wood"
-              }
-            ],
-            "flag": "elementalBetrayal",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Element"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "{item|flags.system.rulesSelections.elementalBetrayal}",
-            "value": "ceil(@item.level/2)+1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-elemental-form",
       "foundry": "Compendium.pf2e.spell-effects.Item.Qp0dlhJaCzXIx73r",
       "gaps": [
@@ -6081,50 +5523,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.BattleForm.Note.Shove",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-energy-absorption",
-      "foundry": "Compendium.pf2e.spell-effects.Item.lEU3DH1tGjAigpEt",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.energyAbsorption}",
-            "value": "5*(@item.level - 1)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              }
-            ],
-            "flag": "energyAbsorption",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
           }
         }
       ]
@@ -6407,72 +5805,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-fortissimo-composition",
-      "foundry": "Compendium.pf2e.spell-effects.Item.rAW5o8MjjuIhYhLg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
-                "value": 3
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.success",
-                "value": 2
-              }
-            ],
-            "flag": "fortissimoBonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": [
-              {
-                "and": [
-                  "bonus:type:status",
-                  {
-                    "or": [
-                      {
-                        "and": [
-                          "bonus:slug:courageous-anthem",
-                          "courageous-anthem:origin:signature:{item|origin.signature}"
-                        ]
-                      },
-                      {
-                        "and": [
-                          "bonus:slug:rallying-anthem",
-                          "rallying-anthem:origin:signature:{item|origin.signature}"
-                        ]
-                      },
-                      {
-                        "and": [
-                          "bonus:slug:song-of-strength",
-                          "song-of-strength:origin:signature:{item|origin.signature}"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selectors": ["ac", "saving-throw", "attack-roll", "damage", "athletics", "fortitude", "reflex"],
-            "value": "@item.flags.system.rulesSelections.fortissimoBonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-ghostly-weapon",
       "foundry": "Compendium.pf2e.spell-effects.Item.EScdpppYsf9KhG4D",
       "gaps": [
@@ -6668,120 +6000,6 @@
             "predicate": ["action:recall-knowledge"],
             "removeAfterRoll": true,
             "selector": "skill-check"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:spell-effect-magics-vessel-resistance",
-      "foundry": "Compendium.pf2e.spell-effects.Item.FxB7DS6CFPhd2hBr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.SpellRank.First",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Second",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 3]
-                  }
-                ],
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Third",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 5]
-                  }
-                ],
-                "value": 3
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Fourth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 7]
-                  }
-                ],
-                "value": 4
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Fifth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 9]
-                  }
-                ],
-                "value": 5
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Sixth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 11]
-                  }
-                ],
-                "value": 6
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Seventh",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 13]
-                  }
-                ],
-                "value": 7
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Eighth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 15]
-                  }
-                ],
-                "value": 8
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Ninth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 17]
-                  }
-                ],
-                "value": 9
-              },
-              {
-                "label": "PF2E.SpecificRule.SpellRank.Tenth",
-                "predicate": [
-                  {
-                    "gte": ["parent:origin:level", 19]
-                  }
-                ],
-                "value": 10
-              }
-            ],
-            "flag": "magicsVesselRank",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SpellRank.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "spells",
-            "value": "@item.flags.system.rulesSelections.magicsVesselRank"
           }
         }
       ]
@@ -7082,54 +6300,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-resist-energy",
-      "foundry": "Compendium.pf2e.spell-effects.Item.con2Hzt47JjpuUej",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "resistEnergyType",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistEnergyType}",
-            "value": "ternary(gte(@item.level,7),15,ternary(gte(@item.level,4),10,5))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-runic-body",
       "foundry": "Compendium.pf2e.spell-effects.Item.MqZ6FScbfGtXB8tt",
       "gaps": [
@@ -7409,50 +6579,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-travelers-transit",
-      "foundry": "Compendium.pf2e.spell-effects.Item.Ig9p2rDXGYHpEuTx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Actor.Speed.Type.Climb",
-                "value": "climb"
-              },
-              {
-                "label": "PF2E.Actor.Speed.Type.Swim",
-                "value": "swim"
-              },
-              {
-                "label": "PF2E.Actor.Speed.Type.Fly",
-                "predicate": [
-                  {
-                    "gte": ["{item|level}", 5]
-                  }
-                ],
-                "value": "fly"
-              }
-            ],
-            "flag": "traveler",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "{item|flags.system.rulesSelections.traveler}",
-            "value": "@actor.system.movement.speeds.land.value"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-triple-time",
       "foundry": "Compendium.pf2e.spell-effects.Item.HtaDbgTIzdiTiKLX",
       "gaps": [
@@ -7516,41 +6642,6 @@
             },
             "predicate": ["feat:untamed-form"],
             "uuid": "{item|flags.system.rulesSelections.formEffect}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "value": "poison"
-              }
-            ],
-            "flag": "dragonShapeResistance",
-            "key": "ChoiceSet",
-            "predicate": [
-              "feat:dragon-shape",
-              {
-                "not": "self:effect:dragon-form"
-              }
-            ],
-            "prompt": "PF2E.SpecificRule.Prompt.Resistance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["feat:dragon-shape"],
-            "type": "{item|flags.system.rulesSelections.dragonShapeResistance}",
-            "value": 5
           }
         }
       ]
@@ -7764,35 +6855,6 @@
       "slug": "effect:stance-twinned-defense",
       "foundry": "Compendium.pf2e.feat-effects.Item.3eHMqVx30JGiJqtM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 1
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": 2
-              }
-            ],
-            "flag": "acBonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.TwinnedDefense.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.acBonus"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[feats-srd] Pathfinder Advanced Player's Guide"
@@ -8812,40 +7874,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[feat-effects] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:beast-trainer",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wtTye8OrC9cuK7YP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Pet"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Train Animal"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
         }
       ]
     },
@@ -12997,54 +12025,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:nephilim-resistance",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8CSewrCVEmL8sjnk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              }
-            ],
-            "flag": "featCelestialResistance",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.CelestialResistance.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.featCelestialResistance}",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:nonlethal-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.6QOcQ8ooP1vjQACX",
       "gaps": [
@@ -14936,25 +13916,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:terrain-expertise",
-      "foundry": "Compendium.pf2e.feats-srd.Item.4tTkRyOQ0VuRBac3",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["terrain:{item|flags.system.rulesSelections.terrain}"],
-            "selector": "survival",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:terrified-retreat",
       "foundry": "Compendium.pf2e.feats-srd.Item.dc8X2Mbtwq6kGp7F",
       "gaps": [
@@ -15646,64 +14607,6 @@
       "slug": "feat:virtuosic-performer",
       "foundry": "Compendium.pf2e.feats-srd.Item.lFwfUvH2708rl6i3",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Acting",
-                "value": "acting"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Comedy",
-                "value": "comedy"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Dance",
-                "value": "dance"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Keyboards",
-                "value": "keyboards"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Oratory",
-                "value": "oratory"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Percussion",
-                "value": "percussion"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Singing",
-                "value": "singing"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Strings",
-                "value": "strings"
-              },
-              {
-                "label": "PF2E.SpecificRule.VirtuosicPerformer.Winds",
-                "value": "winds"
-              }
-            ],
-            "flag": "performanceType",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.VirtuosicPerformer.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:perform:{item|flags.system.rulesSelections.performanceType}"],
-            "selector": "performance",
-            "type": "circumstance",
-            "value": "ternary(gte(@actor.system.skills.performance.rank,3),2,1)"
-          }
-        },
         {
           "type": "markup",
           "markup": "table[class]"

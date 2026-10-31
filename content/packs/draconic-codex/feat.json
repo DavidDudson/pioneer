@@ -226,6 +226,117 @@
             "not": "feature:draconic-benefactor"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "non-physical-resistance",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "benefactor-s-resistance-non-physical-resistance",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "floor(@level / 2)",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          },
+          "benefactor-s-resistance-non-physical-resistance:acid"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "floor(@level / 2)",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          },
+          "benefactor-s-resistance-non-physical-resistance:cold"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@level / 2)",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          },
+          "benefactor-s-resistance-non-physical-resistance:fire"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "floor(@level / 2)",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          },
+          "benefactor-s-resistance-non-physical-resistance:electricity"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "floor(@level / 2)",
+        "predicate": [
+          {
+            "or": [
+              "draconic-benefactor:breath-damage:bludgeoning",
+              "draconic-benefactor:breath-damage:piercing",
+              "draconic-benefactor:breath-damage:slashing"
+            ]
+          },
+          "benefactor-s-resistance-non-physical-resistance:sonic"
+        ]
       }
     ],
     "externalIds": {

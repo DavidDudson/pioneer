@@ -186,7 +186,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-cerebral-barbell-weapon",
+        "choices": [
+          {
+            "value": "f94bb3e8-7bc6-55a2-9e40-e7c46f4d61f9",
+            "label": "Cerebral Barbell",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cerebral-barbell",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "7230603d-7011-5e26-8baf-0ed10949f317",
+            "label": "Cerebral Barbell (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cerebral-barbell-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "12f1fb3c-90d0-5098-83f5-c39a9673c1a9",
+            "label": "Cerebral Barbell (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cerebral-barbell-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "cerebral-barbell"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.zXoezc8AxZkh0aFB"
     },
@@ -403,6 +454,56 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["cheery-chime:cheery-chime-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-cheery-chime-armor",
+        "choices": [
+          {
+            "value": "53022867-4d28-5738-81e5-242bdb2f4d04",
+            "label": "Cheery Chime",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6164e238-5ce5-5c67-83a5-412ee73db1bb",
+            "label": "Cheery Chime (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2da76d8e-986a-580a-9e8a-d2a5155a30d6",
+            "label": "Cheery Chime (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "cheery-chime"
       }
     ],
     "externalIds": {
@@ -470,7 +571,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-cheery-chime-weapon",
+        "choices": [
+          {
+            "value": "53022867-4d28-5738-81e5-242bdb2f4d04",
+            "label": "Cheery Chime",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6164e238-5ce5-5c67-83a5-412ee73db1bb",
+            "label": "Cheery Chime (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2da76d8e-986a-580a-9e8a-d2a5155a30d6",
+            "label": "Cheery Chime (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:cheery-chime-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "cheery-chime"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Zlic4FK23xUjUR0i"
     },
@@ -868,7 +1020,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-energizing-vial-weapon",
+        "choices": [
+          {
+            "value": "cff13e70-74cb-544b-9c8b-1abf11493d03",
+            "label": "Energizing Vial",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:energizing-vial",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a36148a4-9cf5-584a-8af4-64dbfb2a7ac5",
+            "label": "Energizing Vial (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:energizing-vial-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b1e159f4-727f-53d7-b0d8-5e62343360f4",
+            "label": "Energizing Vial (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:energizing-vial-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "energizing-vial"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.UPeHUz2pBR3cd980"
     },
@@ -956,6 +1159,133 @@
           }
         ],
         "prompt": "Select a resistance."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-energy-shield-tunic",
+        "choices": [
+          {
+            "value": "35a3abb2-a4a3-587f-8d93-48d965175bff",
+            "label": "Energy Shield Tunic",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:energy-shield-tunic",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ed8b1084-0fa8-5f9f-b9ff-1daf04a2aa9f",
+            "label": "Energy Shield Tunic (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:energy-shield-tunic-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "energy-shield-tunic"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "effect-energy-shield-tunic-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 10,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic", "effect-energy-shield-tunic-resistance:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 10,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic", "effect-energy-shield-tunic-resistance:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic", "effect-energy-shield-tunic-resistance:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic", "effect-energy-shield-tunic-resistance:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 10,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic", "effect-energy-shield-tunic-resistance:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 15,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic-greater", "effect-energy-shield-tunic-resistance:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 15,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic-greater", "effect-energy-shield-tunic-resistance:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 15,
+        "predicate": [
+          "energy-shield-tunic:energy-shield-tunic-greater",
+          "effect-energy-shield-tunic-resistance:electricity"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic-greater", "effect-energy-shield-tunic-resistance:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 15,
+        "predicate": ["energy-shield-tunic:energy-shield-tunic-greater", "effect-energy-shield-tunic-resistance:sonic"]
       }
     ],
     "externalIds": {
@@ -1107,6 +1437,56 @@
         "mode": "upgrade",
         "value": 2,
         "predicate": ["five-feather-wreath:five-feather-wreath-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-five-feather-wreath-armor",
+        "choices": [
+          {
+            "value": "75c01af8-9f76-508c-b56e-6e07c61729af",
+            "label": "Five-Feather Wreath",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:five-feather-wreath",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "45d89e4b-5e94-5e7a-8c02-f009f652378d",
+            "label": "Five-Feather Wreath (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:five-feather-wreath-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3ecfe55b-33d5-5196-83c7-38090c3e84b0",
+            "label": "Five-Feather Wreath (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:five-feather-wreath-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "five-feather-wreath"
       }
     ],
     "externalIds": {
@@ -1192,6 +1572,56 @@
         "type": ["fire"],
         "value": 10,
         "predicate": ["flaming-star:flaming-star-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-flaming-star-armor",
+        "choices": [
+          {
+            "value": "d5f9ff53-2b9e-5145-a6d6-173d150d389b",
+            "label": "Flaming Star",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ebe07a2a-b057-5c4b-90e8-38cdebbd3784",
+            "label": "Flaming Star (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6f32aa76-a460-5772-a9bb-879b1f146574",
+            "label": "Flaming Star (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "flaming-star"
       }
     ],
     "externalIds": {
@@ -1259,7 +1689,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-flaming-star-weapon",
+        "choices": [
+          {
+            "value": "d5f9ff53-2b9e-5145-a6d6-173d150d389b",
+            "label": "Flaming Star",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ebe07a2a-b057-5c4b-90e8-38cdebbd3784",
+            "label": "Flaming Star (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6f32aa76-a460-5772-a9bb-879b1f146574",
+            "label": "Flaming Star (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:flaming-star-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "flaming-star"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.OxCVZSvWVJsOGAZN"
     },
@@ -1403,6 +1884,56 @@
         "type": ["void"],
         "value": 10,
         "predicate": ["grim-sandglass:grim-sandglass-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-grim-sandglass-armor",
+        "choices": [
+          {
+            "value": "1355cff3-c1ff-507e-9add-31b3be18ebab",
+            "label": "Grim Sandglass",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "15a61961-551d-5d7d-aa17-120faf5d17d7",
+            "label": "Grim Sandglass (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4955ce15-73a8-50ba-9feb-80e61a15138f",
+            "label": "Grim Sandglass (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "grim-sandglass"
       }
     ],
     "externalIds": {
@@ -1470,7 +2001,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-grim-sandglass-weapon",
+        "choices": [
+          {
+            "value": "1355cff3-c1ff-507e-9add-31b3be18ebab",
+            "label": "Grim Sandglass",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "15a61961-551d-5d7d-aa17-120faf5d17d7",
+            "label": "Grim Sandglass (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4955ce15-73a8-50ba-9feb-80e61a15138f",
+            "label": "Grim Sandglass (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grim-sandglass-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "grim-sandglass"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.m4WpxepWRV1u1Kcw"
     },
@@ -1539,7 +2121,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-helping-hand-armor",
+        "choices": [
+          {
+            "value": "223b4edc-31a5-5cd6-893c-d9e3e660e2c0",
+            "label": "Helping Hand",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4f0ddb03-0aaf-51ca-a1bc-2354b97fb981",
+            "label": "Helping Hand (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "62b9d11b-d27b-556a-8bbc-bcc0895101be",
+            "label": "Helping Hand (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "helping-hand"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.mMjWrkt5usgrvik8"
     },
@@ -1629,6 +2262,56 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["helping-hand:helping-hand-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-helping-hand-weapon",
+        "choices": [
+          {
+            "value": "223b4edc-31a5-5cd6-893c-d9e3e660e2c0",
+            "label": "Helping Hand",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4f0ddb03-0aaf-51ca-a1bc-2354b97fb981",
+            "label": "Helping Hand (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "62b9d11b-d27b-556a-8bbc-bcc0895101be",
+            "label": "Helping Hand (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:helping-hand-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "helping-hand"
       }
     ],
     "externalIds": {
@@ -1762,7 +2445,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-hydrating-pinwheel-weapon",
+        "choices": [
+          {
+            "value": "76036efe-cb2d-5ee3-a245-d6c7a67c92e6",
+            "label": "Hydrating Pinwheel",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:hydrating-pinwheel",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b870c77f-90e0-53a7-90d6-b503d716dfd7",
+            "label": "Hydrating Pinwheel (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:hydrating-pinwheel-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d94d316c-522c-55b1-8657-0cb67d860da4",
+            "label": "Hydrating Pinwheel (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:hydrating-pinwheel-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "hydrating-pinwheel"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.0KAuznEIg2shAfgE"
     },
@@ -1875,7 +2609,96 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "null-field",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "effect-null-field-null-field"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["vitality"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:vitality"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-null-field-null-field:void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.iKBAIjIG52XJbH7B"
     },
@@ -2228,7 +3051,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-perfect-droplet-armor",
+        "choices": [
+          {
+            "value": "1b742fbb-80af-509d-a7a1-7b872db1dd9e",
+            "label": "Perfect Droplet",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:perfect-droplet",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c5405a9a-b8ce-590d-8ef5-0a4d9ed272f6",
+            "label": "Perfect Droplet (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:perfect-droplet-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4f91b26d-497b-55d4-a106-da4b9f1fed00",
+            "label": "Perfect Droplet (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:perfect-droplet-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "perfect-droplet"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.VZCcjwsQX1wnYlTn"
     },
@@ -2429,6 +3303,42 @@
         "mode": "upgrade",
         "value": 4,
         "predicate": ["potion-of-stable-form:potion-of-stable-form-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-potion-of-stable-form",
+        "choices": [
+          {
+            "value": "006e2a9f-51ab-5fc7-940e-ed15999699b7",
+            "label": "Potion of Stable Form",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-stable-form",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3275b72a-e089-518f-bab7-f79a427bda8a",
+            "label": "Potion of Stable Form (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-stable-form-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "potion-of-stable-form"
       }
     ],
     "externalIds": {
@@ -2875,6 +3785,42 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["silver-tongue:silver-tongue-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-silver-tongue-armor",
+        "choices": [
+          {
+            "value": "03d5fec4-ed64-5bfc-9a98-697b5a5cf167",
+            "label": "Silver Tongue",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-tongue",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "84ef855d-421b-5df4-8ee4-ea319cd527de",
+            "label": "Silver Tongue (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-tongue-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "silver-tongue"
       }
     ],
     "externalIds": {
@@ -2950,6 +3896,42 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["silver-tongue:silver-tongue-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-silver-tongue-weapon",
+        "choices": [
+          {
+            "value": "03d5fec4-ed64-5bfc-9a98-697b5a5cf167",
+            "label": "Silver Tongue",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-tongue",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "84ef855d-421b-5df4-8ee4-ea319cd527de",
+            "label": "Silver Tongue (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-tongue-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "silver-tongue"
       }
     ],
     "externalIds": {
@@ -3413,7 +4395,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thirsty-chalice-weapon",
+        "choices": [
+          {
+            "value": "10eef96c-9067-504b-ba10-b054dc924377",
+            "label": "Thirsty Chalice",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thirsty-chalice",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cda585ac-677a-5e66-a47b-2fb9942a1ec2",
+            "label": "Thirsty Chalice (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thirsty-chalice-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a29f3410-3beb-51e3-8ecf-7aaa13a08c1b",
+            "label": "Thirsty Chalice (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thirsty-chalice-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thirsty-chalice"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.fUm1q1yCidJjoOxg"
     },
@@ -3611,7 +4644,141 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-trinity-geode-armor",
+        "choices": [
+          {
+            "value": "2696ded5-144c-5540-8366-ecd4271c6b67",
+            "label": "Trinity Geode",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f5b670a1-47cc-53cb-8b57-92c4e725ecdc",
+            "label": "Trinity Geode (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "99552ed2-8edd-53b8-931c-a44dacc09aa9",
+            "label": "Trinity Geode (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "trinity-geode"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-category",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Cantrip",
+            "predicate": ["trinity-geode:trinity-geode"]
+          },
+          {
+            "value": "3",
+            "label": "Cantrip",
+            "predicate": ["trinity-geode:trinity-geode-greater"]
+          },
+          {
+            "value": "5",
+            "label": "Cantrip",
+            "predicate": ["trinity-geode:trinity-geode-major"]
+          },
+          {
+            "value": "2",
+            "label": "Non-Cantrip",
+            "predicate": ["trinity-geode:trinity-geode"]
+          },
+          {
+            "value": "6",
+            "label": "Non-Cantrip",
+            "predicate": ["trinity-geode:trinity-geode-greater"]
+          },
+          {
+            "value": "10",
+            "label": "Non-Cantrip",
+            "predicate": ["trinity-geode:trinity-geode-major"]
+          }
+        ],
+        "prompt": "Select cantrip or non-cantrip spell.",
+        "rollOption": "effect-trinity-geode-armor-spell-category",
+        "display": {
+          "label": "Trinity Geode"
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 1,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:1"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 3,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:3"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 5,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:5"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 2,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:2"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 6,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:6"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 10,
+        "exceptions": ["adamantine"],
+        "predicate": ["effect-trinity-geode-armor-spell-category:10"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.oqwrw6XztVlS9tEG"
     },
@@ -3680,7 +4847,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-trinity-geode-weapon",
+        "choices": [
+          {
+            "value": "2696ded5-144c-5540-8366-ecd4271c6b67",
+            "label": "Trinity Geode",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f5b670a1-47cc-53cb-8b57-92c4e725ecdc",
+            "label": "Trinity Geode (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "99552ed2-8edd-53b8-931c-a44dacc09aa9",
+            "label": "Trinity Geode (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trinity-geode-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "trinity-geode"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.WRV0XjiEHdlBpduS"
     },
@@ -6709,6 +7927,140 @@
         "key": "GrantItem",
         "item": "64278392-4910-5a32-b819-56f6e54952dd",
         "predicate": ["circle-of-weakness:critical-failure"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "spell-effect-circle-of-weakness-energy-type"
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:acid"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:cold"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:electricity"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["force"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:force"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": "ceil(@item.level / 2)",
+        "predicate": ["circle-of-weakness:success", "spell-effect-circle-of-weakness-energy-type:sonic"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:acid"
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:cold"
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:electricity"
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:fire"
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["force"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:force"
+        ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": "ceil(@item.level / 2) * 2",
+        "predicate": [
+          {
+            "or": ["circle-of-weakness:failure", "circle-of-weakness:critical-failure"]
+          },
+          "spell-effect-circle-of-weakness-energy-type:sonic"
+        ]
       }
     ],
     "externalIds": {
@@ -6763,7 +8115,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": "5 * floor(@item.level / 3)"
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": "5 * floor(@item.level / 3) + 1",
+        "predicate": ["self:effect:arcane-cascade"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": "5 * floor(@item.level / 3) + 2",
+        "predicate": ["feature:weapon-specialization", "self:effect:arcane-cascade"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": "5 * floor(@item.level / 3) + 3",
+        "predicate": ["feature:greater-weapon-specialization", "self:effect:arcane-cascade"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.SAkdopdD8IzOeqs1"
     },
@@ -16796,6 +18172,23 @@
         "selectors": ["melee-strike-damage"],
         "slug": "arcane-cascade-extra-damage",
         "mode": "upgrade",
+        "value": 3,
+        "predicate": ["feature:greater-weapon-specialization"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 2,
+        "predicate": ["feature:weapon-specialization"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
         "value": 3,
         "predicate": ["feature:greater-weapon-specialization"]
       }

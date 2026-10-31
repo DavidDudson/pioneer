@@ -15119,6 +15119,27 @@
         "item": {
           "choice": "voice-of-nature"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "e6799b06-142e-5f77-8d25-4f7c94a3fad6",
+            "label": "Animal Empathy"
+          },
+          {
+            "value": "8f39d3b1-bedb-5ed6-8fc1-f43753c4f8ad",
+            "label": "Plant Empathy"
+          }
+        ],
+        "prompt": "Select a 1st-level class feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {

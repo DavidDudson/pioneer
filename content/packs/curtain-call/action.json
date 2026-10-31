@@ -208,6 +208,86 @@
           }
         ],
         "prompt": "Select a damage type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "nemesis-additional-damage-damage"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": ["nemesis-additional-damage-damage:acid"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "cold",
+        "predicate": ["nemesis-additional-damage-damage:cold"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": ["nemesis-additional-damage-damage:electricity"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": ["nemesis-additional-damage-damage:fire"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "predicate": ["nemesis-additional-damage-damage:poison"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "sonic",
+        "predicate": ["nemesis-additional-damage-damage:sonic"]
       }
     ],
     "externalIds": {
@@ -343,6 +423,34 @@
           }
         ],
         "prompt": "Select a damage type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "nemesis-explosive-blast-damage"
       }
     ],
     "externalIds": {
@@ -502,6 +610,156 @@
         ],
         "prompt": "Select an immunity.",
         "rollOption": "nemesis-immunity"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "immunity-two",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid",
+            "predicate": [
+              {
+                "not": "nemesis-immunity:acid"
+              }
+            ]
+          },
+          {
+            "value": "bleed",
+            "label": "Bleed"
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": [
+              {
+                "not": "nemesis-immunity:cold"
+              }
+            ]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": [
+              {
+                "not": "nemesis-immunity:electricity"
+              }
+            ]
+          },
+          {
+            "value": "emotion",
+            "label": "Emotion"
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "not": "nemesis-immunity:fire"
+              }
+            ]
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "paralyzed",
+            "label": "Paralyzed"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "precision",
+            "label": "Precision"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": [
+              {
+                "not": "nemesis-immunity:sonic"
+              }
+            ]
+          },
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select an immunity.",
+        "rollOption": "nemesis-immunity-immunity-two"
+      },
+      {
+        "key": "Immunity",
+        "type": ["acid"],
+        "predicate": ["nemesis-immunity-immunity-two:acid"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["bleed"],
+        "predicate": ["nemesis-immunity-immunity-two:bleed"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["cold"],
+        "predicate": ["nemesis-immunity-immunity-two:cold"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["electricity"],
+        "predicate": ["nemesis-immunity-immunity-two:electricity"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["emotion"],
+        "predicate": ["nemesis-immunity-immunity-two:emotion"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["fire"],
+        "predicate": ["nemesis-immunity-immunity-two:fire"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["force"],
+        "predicate": ["nemesis-immunity-immunity-two:force"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["paralyzed"],
+        "predicate": ["nemesis-immunity-immunity-two:paralyzed"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["poison"],
+        "predicate": ["nemesis-immunity-immunity-two:poison"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["precision"],
+        "predicate": ["nemesis-immunity-immunity-two:precision"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["sonic"],
+        "predicate": ["nemesis-immunity-immunity-two:sonic"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["spirit"],
+        "predicate": ["nemesis-immunity-immunity-two:spirit"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["void"],
+        "predicate": ["nemesis-immunity-immunity-two:void"]
       }
     ],
     "externalIds": {

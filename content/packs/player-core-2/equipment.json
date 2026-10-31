@@ -1504,6 +1504,190 @@
           }
         ],
         "prompt": "Select your deity's divine skill"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select your deity's divine skill",
+        "rollOption": "helm-of-zeal-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:acrobatics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:athletics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:crafting"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:intimidation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:medicine"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:nature"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:performance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:society"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:stealth"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:survival"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["helm-of-zeal-skill:thievery"]
       }
     ],
     "externalIds": {
@@ -1773,6 +1957,190 @@
           }
         ],
         "prompt": "Select your deity's divine skill"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select your deity's divine skill",
+        "rollOption": "helm-of-zeal-greater-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:acrobatics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:athletics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:crafting"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:intimidation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:medicine"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:nature"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:performance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:society"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:stealth"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:survival"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["helm-of-zeal-greater-skill:thievery"]
       }
     ],
     "externalIds": {

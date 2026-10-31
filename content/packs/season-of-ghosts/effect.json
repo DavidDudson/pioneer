@@ -989,6 +989,170 @@
         "item": "87978b08-889b-55d3-bccf-c1fe98c5fbaf",
         "allowDuplicate": false,
         "predicate": ["impersonated-ability:elemental-attack"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "perk",
+        "choices": [
+          {
+            "value": "agile",
+            "label": "Agile",
+            "predicate": [
+              {
+                "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+              }
+            ]
+          },
+          {
+            "value": "backstabber",
+            "label": "Backstabber",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "deadly-d8",
+            "label": "Deadly d8",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "disarm",
+            "label": "Disarm",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "finesse",
+            "label": "Finesse",
+            "predicate": ["noppera-bo-impersonator:skilled"]
+          },
+          {
+            "value": "forceful",
+            "label": "Forceful",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "parry",
+            "label": "Parry",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "reach",
+            "label": "Reach",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "shove",
+            "label": "Shove",
+            "predicate": ["noppera-bo-impersonator:martial"]
+          },
+          {
+            "value": "sweep",
+            "label": "Sweep",
+            "predicate": [
+              {
+                "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+              }
+            ]
+          },
+          {
+            "value": "trip",
+            "label": "Trip",
+            "predicate": [
+              {
+                "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a Weapon Perk",
+        "rollOption": "effect-impersonated-ability-perk",
+        "predicate": ["impersonated-ability:weapon-perk"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "agile",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:agile"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "backstabber",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:backstabber"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "deadly-d8",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:deadly-d8"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "disarm",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:disarm"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "finesse",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:finesse"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "forceful",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:forceful"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "parry",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:parry"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "reach",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:reach"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "shove",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:shove"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "sweep",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:sweep"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "trip",
+        "predicate": ["impersonated-ability:weapon-perk", "effect-impersonated-ability-perk:trip"]
       }
     ],
     "externalIds": {
@@ -3321,7 +3485,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine"
+          },
+          {
+            "value": "dawnsilver",
+            "label": "Dawnsilver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-transformative-polish-material"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:lumber-lords-axe"],
+        "predicate": ["effect-transformative-polish-material:adamantine"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:slug:lumber-lords-axe"],
+        "predicate": ["effect-transformative-polish-material:dawnsilver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "dawnsilver"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.8WnFg5HMKX8JEDLl"
     },

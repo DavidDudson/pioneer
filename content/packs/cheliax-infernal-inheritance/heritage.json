@@ -83,7 +83,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "heritage-deep-fetchling",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select a type of energy to resist.",
+        "rollOption": "deep-fetchling-heritage-deep-fetchling"
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["deep-fetchling-heritage-deep-fetchling:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["deep-fetchling-heritage-deep-fetchling:void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.k4AU5tjtngDOIqrB"
     },

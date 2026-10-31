@@ -16570,23 +16570,6 @@
     {
       "type": "entry",
       "pack": "monster-core",
-      "slug": "effect:effect-protean-anatomy",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.c6SiBB3mzV8lZUQr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.element}",
-            "value": "@actor.flags.system.proteanResistance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "monster-core",
       "slug": "effect:effect-ravenous-young",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.WzvOyycUlTsCXt3M",
       "gaps": [

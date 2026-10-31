@@ -461,7 +461,95 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "background-energy-scarred",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "energy-scarred-background-energy-scarred"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:void"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["vitality"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:vitality"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["energy-scarred-background-energy-scarred:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.backgrounds.Item.xbyQ1RAF6x4ceXLf"
     },
@@ -918,6 +1006,122 @@
         "key": "Proficiency",
         "selector": "skill:lore:academia",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy1",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "magical-experiment-energy1",
+        "predicate": ["background:magical-experiment:resistant-skin"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy2",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "magical-experiment-energy2",
+        "predicate": ["background:magical-experiment:resistant-skin"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy1:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy1:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy1:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy1:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy1:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy2:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy2:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy2:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy2:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["background:magical-experiment:resistant-skin", "magical-experiment-energy2:sonic"]
       }
     ],
     "externalIds": {

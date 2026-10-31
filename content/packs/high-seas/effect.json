@@ -123,6 +123,70 @@
         "mode": "upgrade",
         "value": "max(25, @stat.speed.land)",
         "predicate": ["golden-wings:golden-wings-true"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-assisted-flight",
+        "choices": [
+          {
+            "value": "1a70c594-cc81-5d89-831e-1f5cf5e40c5f",
+            "label": "Golden Wings",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:golden-wings",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a593072e-879d-5498-8d5a-00d466025985",
+            "label": "Golden Wings (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:golden-wings-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "08cb399f-9cd8-54d9-a8d9-618b90e41237",
+            "label": "Golden Wings (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:golden-wings-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "9bb9e67b-d23b-56d8-b882-d158b491ce86",
+            "label": "Golden Wings (True)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:golden-wings-true",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "golden-wings"
       }
     ],
     "externalIds": {
@@ -238,7 +302,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bounce-boost-bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1"
+          },
+          {
+            "value": "2",
+            "label": "+2"
+          },
+          {
+            "value": "3",
+            "label": "+3"
+          },
+          {
+            "value": "4",
+            "label": "+4"
+          }
+        ],
+        "prompt": "Select a bonus.",
+        "rollOption": "effect-bounce-boost-bounce-boost-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.HBec3M2J94NSG2u5"
     },

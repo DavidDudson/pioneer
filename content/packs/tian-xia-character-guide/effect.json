@@ -398,6 +398,217 @@
             ]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "corrosive",
+            "label": "Corrosive",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-corrosive",
+            "label": "Greater Corrosive",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "flaming",
+            "label": "Flaming",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-flaming",
+            "label": "Greater Flaming",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "frost",
+            "label": "Frost",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-frost",
+            "label": "Greater Frost",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "shock",
+            "label": "Shock",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-shock",
+            "label": "Greater Shock",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "thundering",
+            "label": "Thundering",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-thundering",
+            "label": "Greater Thundering",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing",
+            "predicate": [
+              {
+                "lt": ["self:level", 16]
+              }
+            ]
+          },
+          {
+            "value": "greater-disrupting",
+            "label": "Greater Vitalizing",
+            "predicate": [
+              {
+                "gte": ["self:level", 16]
+              }
+            ]
+          }
+        ],
+        "rollOption": "effect-blade-of-the-heart-rune"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "thundering"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-thundering"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:disrupting"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "disrupting"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:tag:starlit-sentinel-weapon"],
+        "predicate": ["effect-blade-of-the-heart-rune:greater-disrupting"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-disrupting"
       }
     ],
     "externalIds": {
@@ -1918,7 +2129,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "die-size",
+        "choices": [
+          {
+            "value": "d6",
+            "label": "No"
+          },
+          {
+            "value": "d8",
+            "label": "Yes"
+          }
+        ],
+        "prompt": "Did the Familiar Sage cast a spell with the air or electricity trait this turn?",
+        "rollOption": "effect-lightning-armillary-die-size"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.QVk0oRgc1pRwhG7U"
     },
@@ -2270,6 +2498,34 @@
             "or": ["parent:origin:item:tag:energy-fortification", "feat:intensified-element-stance"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "prepare-elemental-medicine",
+        "choices": [
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "prepare-elemental-medicine"
       }
     ],
     "externalIds": {
@@ -2445,7 +2701,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "effect-protective-pose-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "floor(@item.origin.level / 2)",
+        "predicate": ["effect-protective-pose-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "floor(@item.origin.level / 2)",
+        "predicate": ["effect-protective-pose-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "floor(@item.origin.level / 2)",
+        "predicate": ["effect-protective-pose-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@item.origin.level / 2)",
+        "predicate": ["effect-protective-pose-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "floor(@item.origin.level / 2)",
+        "predicate": ["effect-protective-pose-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.qIPl31SfvT993Lyz"
     },
@@ -2586,6 +2901,42 @@
         "type": ["electricity"],
         "value": 15,
         "predicate": ["rainbow-vinegar:rainbow-vinegar-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-rainbow-vinegar",
+        "choices": [
+          {
+            "value": "2852bf9d-1aa9-5cab-9b66-0b293a38693a",
+            "label": "Rainbow Vinegar (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rainbow-vinegar-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ad5bcd5b-47ef-5167-a127-4af40527c872",
+            "label": "Rainbow Vinegar (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rainbow-vinegar-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "rainbow-vinegar"
       }
     ],
     "externalIds": {
@@ -2802,6 +3153,128 @@
         "display": {
           "label": "Regional Specialty — Apply saving throw bonus"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "3",
+            "label": "No"
+          },
+          {
+            "value": "4",
+            "label": "Yes"
+          }
+        ],
+        "prompt": "Is the item 18th level or higher?",
+        "rollOption": "effect-regional-specialty-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "regional-specialty:wood",
+                  {
+                    "or": ["item:trait:disease", "item:trait:poison", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:fire",
+                  {
+                    "or": ["inflicts:doomed", "inflicts:frightened", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:earth",
+                  {
+                    "or": ["inflicts:enfeebled", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:metal",
+                  {
+                    "or": ["inflicts:stupefied", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:water",
+                  {
+                    "or": ["inflicts:deafened", "inflicts:drained", "option:regional-specialty-bonus"]
+                  }
+                ]
+              }
+            ]
+          },
+          "effect-regional-specialty-bonus:3"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 4,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  "regional-specialty:wood",
+                  {
+                    "or": ["item:trait:disease", "item:trait:poison", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:fire",
+                  {
+                    "or": ["inflicts:doomed", "inflicts:frightened", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:earth",
+                  {
+                    "or": ["inflicts:enfeebled", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:metal",
+                  {
+                    "or": ["inflicts:stupefied", "option:regional-specialty-bonus"]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "regional-specialty:water",
+                  {
+                    "or": ["inflicts:deafened", "inflicts:drained", "option:regional-specialty-bonus"]
+                  }
+                ]
+              }
+            ]
+          },
+          "effect-regional-specialty-bonus:4"
+        ]
       }
     ],
     "externalIds": {
@@ -3558,6 +4031,57 @@
         "mode": "upgrade",
         "value": 4,
         "predicate": ["change-shape:yaoguai", "legendary-monster-boost:enlarge"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "object-resistance-type",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-unleash-yaoguai-might-object-resistance-type",
+        "predicate": ["change-shape:yaoguai", "self:heritage:born-of-item"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": 5,
+        "predicate": [
+          "change-shape:yaoguai",
+          "self:heritage:born-of-item",
+          "effect-unleash-yaoguai-might-object-resistance-type:bludgeoning"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": 5,
+        "predicate": [
+          "change-shape:yaoguai",
+          "self:heritage:born-of-item",
+          "effect-unleash-yaoguai-might-object-resistance-type:piercing"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": 5,
+        "predicate": [
+          "change-shape:yaoguai",
+          "self:heritage:born-of-item",
+          "effect-unleash-yaoguai-might-object-resistance-type:slashing"
+        ]
       }
     ],
     "externalIds": {
@@ -3716,6 +4240,38 @@
         "display": {
           "label": "Intensified Element Stance — Damage vs. Constructs"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Earth",
+            "predicate": ["prepare-elemental-medicine:earth"]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": ["prepare-elemental-medicine:fire"]
+          },
+          {
+            "value": "electricity",
+            "label": "Metal",
+            "predicate": ["prepare-elemental-medicine:metal"]
+          },
+          {
+            "value": "sonic",
+            "label": "Water",
+            "predicate": ["prepare-elemental-medicine:water"]
+          },
+          {
+            "value": "cold",
+            "label": "Wood",
+            "predicate": ["prepare-elemental-medicine:wood"]
+          }
+        ],
+        "rollOption": "stance-intensified-element-stance-damage-type"
       }
     ],
     "externalIds": {

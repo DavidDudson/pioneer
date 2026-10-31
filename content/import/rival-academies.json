@@ -368,21 +368,6 @@
         },
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "runelordDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Runelord Dedication"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "feat",
@@ -413,92 +398,9 @@
     {
       "type": "entry",
       "pack": "rival-academies",
-      "slug": "class-feature:school-of-rooted-wisdom",
-      "foundry": "Compendium.pf2e.classfeatures.Item.KGkWSv9rARpwWzXW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Cascade Bearers"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Emerald Boughs"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Rain-Scribes"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Tempest-Sun Mages"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Uzunjati"
-              }
-            ],
-            "flag": "branch",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.branch}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rival-academies",
       "slug": "class-feature:school-of-thassilonian-rune-magic",
       "foundry": "Compendium.pf2e.classfeatures.Item.aYWPtW5T4Lx07Occ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Envy"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Gluttony"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Greed"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Lust"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Pride"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Sloth"
-              },
-              {
-                "value": "Compendium.pf2e.classfeatures.Item.Wrath"
-              }
-            ],
-            "flag": "sin",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Wizard.Runelord.Sin.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.sin}"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -892,25 +794,6 @@
             "selector": ["{item|flags.system.rulesSelections.save}", "{item|flags.system.rulesSelections.skill}"],
             "type": "status",
             "value": "ternary(gte(@item.level,7),3,ternary(gte(@item.level,4),2,1))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rival-academies",
-      "slug": "effect:spell-effect-cutting-eye",
-      "foundry": "Compendium.pf2e.spell-effects.Item.tlbv3TAD2xPDFnAf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "removeAfterRoll": "if-enabled",
-            "selector": "{item|flags.system.rulesSelections.defense}",
-            "type": "circumstance",
-            "value": 2
           }
         }
       ]
@@ -1566,44 +1449,6 @@
           "reason": "unresolved-reference",
           "field": "archetype",
           "raw": []
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rival-academies",
-      "slug": "feat:student-of-water",
-      "foundry": "Compendium.pf2e.feats-srd.Item.WHplmUTHN8L6q1b2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "intimidatingGlare",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["skill:athletics:rank", 1]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Underwater Marauder"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "intimidatingGlare",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["skill:athletics:rank", 3]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Water Sprint"
-          }
         }
       ]
     },

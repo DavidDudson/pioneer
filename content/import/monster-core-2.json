@@ -14383,44 +14383,6 @@
     {
       "type": "entry",
       "pack": "monster-core-2",
-      "slug": "effect:effect-resonance",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.1dwMVgBHfT4qO4OS",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["{item|flags.system.rulesSelections.element}"],
-            "selector": ["attack", "damage"],
-            "slug": "resonance-attack-1",
-            "type": "status",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "self:trait:{item|flags.system.rulesSelections.element}",
-              "self:trait:elemental",
-              {
-                "not": "{item|flags.system.rulesSelections.element}"
-              }
-            ],
-            "selector": ["attack", "damage"],
-            "slug": "resonance-attack-2",
-            "type": "status",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "monster-core-2",
       "slug": "effect:effect-spell-break",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.Zzes9C7ftjUHIJos",
       "gaps": [

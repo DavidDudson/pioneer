@@ -1544,45 +1544,6 @@
     {
       "type": "entry",
       "pack": "triumph-of-the-tusk",
-      "slug": "effect:effect-destructive-vengeance",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.6pLYKcDawL5JUBkK",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitSpirit",
-                "predicate": ["destructive-vengeance-spirit"],
-                "value": "spirit"
-              },
-              {
-                "label": "PF2E.TraitVoid",
-                "value": "bludgeoning"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "damageType": "{item|flags.system.rulesSelections.damageType}",
-            "key": "FlatModifier",
-            "selector": ["strike-damage"],
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "triumph-of-the-tusk",
       "slug": "effect:effect-infused-with-belkzens-might",
       "foundry": "Compendium.pf2e.feat-effects.Item.yKFV294LeXzrvF8K",
       "gaps": [

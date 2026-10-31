@@ -1014,6 +1014,56 @@
         "type": ["acid"],
         "value": 10,
         "predicate": ["pickled-demon-tongue:pickled-demon-tongue-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-pickled-demon-tongue-armor",
+        "choices": [
+          {
+            "value": "4629953b-db42-5076-bf23-0cfeacdacc25",
+            "label": "Pickled Demon Tongue",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0c326c98-a9ea-59db-8227-de5838291b10",
+            "label": "Pickled Demon Tongue (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "675e1e32-b052-53d6-ac39-2bd4b41c1459",
+            "label": "Pickled Demon Tongue (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "pickled-demon-tongue"
       }
     ],
     "externalIds": {
@@ -1081,7 +1131,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-pickled-demon-tongue-weapon",
+        "choices": [
+          {
+            "value": "4629953b-db42-5076-bf23-0cfeacdacc25",
+            "label": "Pickled Demon Tongue",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0c326c98-a9ea-59db-8227-de5838291b10",
+            "label": "Pickled Demon Tongue (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "675e1e32-b052-53d6-ac39-2bd4b41c1459",
+            "label": "Pickled Demon Tongue (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:pickled-demon-tongue-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "pickled-demon-tongue"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.LbaYzs0dQuFj8FXJ"
     },
@@ -1150,7 +1251,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-polished-demon-horn-armor",
+        "choices": [
+          {
+            "value": "5f73884f-0cc9-5aa8-b8aa-ae17a3b96fb2",
+            "label": "Polished Demon Horn",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "19928ae9-2710-5b91-92c5-7cfda4700ad1",
+            "label": "Polished Demon Horn (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "93a3178d-2cb8-5e16-aeac-d798917d89cd",
+            "label": "Polished Demon Horn (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "polished-demon-horn"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ft5LjQSa8mZkklhM"
     },
@@ -1216,7 +1368,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-polished-demon-horn-weapon",
+        "choices": [
+          {
+            "value": "5f73884f-0cc9-5aa8-b8aa-ae17a3b96fb2",
+            "label": "Polished Demon Horn",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "19928ae9-2710-5b91-92c5-7cfda4700ad1",
+            "label": "Polished Demon Horn (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "93a3178d-2cb8-5e16-aeac-d798917d89cd",
+            "label": "Polished Demon Horn (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:polished-demon-horn-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "polished-demon-horn"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.WARLTi8unmPgmnNw"
     },
@@ -1543,6 +1746,56 @@
         "key": "Sense",
         "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
         "predicate": ["stalk-goggles:stalk-goggles-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-stalk-goggles",
+        "choices": [
+          {
+            "value": "99aad228-784d-5d03-9a1d-3f13108e8b83",
+            "label": "Stalk Goggles",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalk-goggles",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "7cb431ed-b67f-5325-aa73-5bb351b6cf15",
+            "label": "Stalk Goggles (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalk-goggles-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c3038d64-e974-5296-b758-d66f867657c8",
+            "label": "Stalk Goggles (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalk-goggles-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "stalk-goggles"
       }
     ],
     "externalIds": {

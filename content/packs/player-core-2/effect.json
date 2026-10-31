@@ -292,7 +292,76 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "trait",
+        "choices": [
+          {
+            "value": "backswing",
+            "label": "Backswing"
+          },
+          {
+            "value": "forceful",
+            "label": "Forceful"
+          },
+          {
+            "value": "parry",
+            "label": "Parry"
+          },
+          {
+            "value": "razing",
+            "label": "Razing"
+          },
+          {
+            "value": "sweep",
+            "label": "Sweep"
+          }
+        ],
+        "prompt": "Select a trait.",
+        "rollOption": "effect-animalistic-brutality-trait"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:instinct-unarmed-strike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "backswing",
+        "predicate": ["effect-animalistic-brutality-trait:backswing"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:instinct-unarmed-strike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "forceful",
+        "predicate": ["effect-animalistic-brutality-trait:forceful"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:instinct-unarmed-strike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "parry",
+        "predicate": ["effect-animalistic-brutality-trait:parry"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:instinct-unarmed-strike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "razing",
+        "predicate": ["effect-animalistic-brutality-trait:razing"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:tag:instinct-unarmed-strike"],
+        "property": "traits",
+        "mode": "add",
+        "value": "sweep",
+        "predicate": ["effect-animalistic-brutality-trait:sweep"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.wQy8QddWBtzXYjw3"
     },
@@ -1517,6 +1586,83 @@
             "predicate": ["feat:armament-paragon"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "astral",
+            "label": "Astral",
+            "predicate": ["feat:radiant-armament"]
+          },
+          {
+            "value": "greater-astral",
+            "label": "Greater Astral",
+            "predicate": ["feat:armament-paragon", "feat:radiant-armament"]
+          },
+          {
+            "value": "brilliant",
+            "label": "Brilliant",
+            "predicate": ["feat:radiant-armament"]
+          },
+          {
+            "value": "greater-brilliant",
+            "label": "Greater Brilliant",
+            "predicate": ["feat:armament-paragon", "feat:radiant-armament"]
+          },
+          {
+            "value": "fearsome",
+            "label": "Fearsome"
+          },
+          {
+            "value": "greater-fearsome",
+            "label": "Greater Fearsome",
+            "predicate": ["feat:armament-paragon"]
+          },
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "grievous",
+            "label": "Grievous",
+            "predicate": ["feat:armament-paragon"]
+          },
+          {
+            "value": "holy",
+            "label": "Holy",
+            "predicate": ["feat:radiant-armament", "sanctification:holy"]
+          },
+          {
+            "value": "keen",
+            "label": "Keen",
+            "predicate": ["feat:armament-paragon"]
+          },
+          {
+            "value": "returning",
+            "label": "Returning"
+          },
+          {
+            "value": "shifting",
+            "label": "Shifting"
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy",
+            "predicate": ["feat:radiant-armament", "sanctification:unholy"]
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing"
+          },
+          {
+            "value": "greater-disrupting",
+            "label": "Greater Vitalizing",
+            "predicate": ["feat:armament-paragon"]
+          }
+        ],
+        "rollOption": "effect-blessed-armament-rune"
       }
     ],
     "externalIds": {
@@ -4973,7 +5119,125 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "endemic-herbs",
+        "choices": [
+          {
+            "value": "aquatic",
+            "label": "Aquatic"
+          },
+          {
+            "value": "forest",
+            "label": "Forest"
+          },
+          {
+            "value": "mountain",
+            "label": "Mountain"
+          },
+          {
+            "value": "plains",
+            "label": "Plains"
+          },
+          {
+            "value": "underground",
+            "label": "Underground"
+          }
+        ],
+        "rollOption": "endemic-herbs"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              {
+                "not": "endemic-herbs:forest"
+              },
+              "item:trait:poison",
+              "item:trait:disease"
+            ]
+          },
+          "endemic-herbs:aquatic"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "not": "endemic-herbs:forest"
+              },
+              "item:trait:poison",
+              "item:trait:disease"
+            ]
+          },
+          "endemic-herbs:forest"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:reflex"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              {
+                "not": "endemic-herbs:forest"
+              },
+              "item:trait:poison",
+              "item:trait:disease"
+            ]
+          },
+          "endemic-herbs:mountain"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              {
+                "not": "endemic-herbs:forest"
+              },
+              "item:trait:poison",
+              "item:trait:disease"
+            ]
+          },
+          "endemic-herbs:plains"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": [
+              {
+                "not": "endemic-herbs:forest"
+              },
+              "item:trait:poison",
+              "item:trait:disease"
+            ]
+          },
+          "endemic-herbs:underground"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.NviQYIVZbPCSWLqT"
     },
@@ -5065,6 +5329,46 @@
           }
         ],
         "prompt": "Select an energy type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "effect-energy-ward-energy"
       }
     ],
     "externalIds": {
@@ -5560,7 +5864,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Yes"
+          },
+          {
+            "value": "1",
+            "label": "No"
+          }
+        ],
+        "prompt": "Do you have a free hand or wield a parry weapon?",
+        "rollOption": "effect-extravagant-parry-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "slug": "extravagant-parry",
+        "predicate": ["effect-extravagant-parry-bonus:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "extravagant-parry",
+        "predicate": ["effect-extravagant-parry-bonus:1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.FkouUFpwUrPjhMNw"
     },
@@ -5897,6 +6234,70 @@
         "mode": "downgrade",
         "value": -15,
         "predicate": ["frost-vial:frost-vial-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-frost-vial",
+        "choices": [
+          {
+            "value": "9d88fb91-b29d-51bd-aa41-7b44e1ef1f84",
+            "label": "Frost Vial (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:frost-vial-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f65d8af6-d651-50d3-8bd1-2973fc513853",
+            "label": "Frost Vial (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:frost-vial-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a43e07b5-5564-5e4c-8308-459c17edc723",
+            "label": "Frost Vial (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:frost-vial-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f4ce01b7-c250-5dd9-8b44-4afbde3bfe7d",
+            "label": "Frost Vial (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:frost-vial-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "frost-vial"
       }
     ],
     "externalIds": {
@@ -5968,6 +6369,124 @@
           }
         ],
         "predicate": ["self:effect:rage"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "One"
+          },
+          {
+            "value": "2",
+            "label": "Two"
+          },
+          {
+            "value": "3",
+            "label": "Three"
+          },
+          {
+            "value": "4",
+            "label": "Four"
+          },
+          {
+            "value": "5",
+            "label": "Five"
+          },
+          {
+            "value": "6",
+            "label": "Six"
+          },
+          {
+            "value": "7",
+            "label": "Seven"
+          },
+          {
+            "value": "8",
+            "label": "Eight"
+          },
+          {
+            "value": "9",
+            "label": "Nine"
+          },
+          {
+            "value": "10",
+            "label": "Ten"
+          }
+        ],
+        "prompt": "Select the number of rounds remaining in your Rage.",
+        "rollOption": "effect-furious-finish-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:3"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:4"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 5,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:5"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 6,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:6"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 7,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:7"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 8,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:8"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 9,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:9"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "circumstance",
+        "value": 10,
+        "predicate": ["self:effect:rage", "effect-furious-finish-bonus:10"]
       }
     ],
     "externalIds": {
@@ -6708,6 +7227,35 @@
             "label": "Saves"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "defense",
+        "choices": [
+          {
+            "value": "ac",
+            "label": "Armor Class"
+          },
+          {
+            "value": "saving-throw",
+            "label": "Saves"
+          }
+        ],
+        "rollOption": "effect-imperial-blood-magic-defense"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["effect-imperial-blood-magic-defense:ac"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["effect-imperial-blood-magic-defense:saving-throw"]
       }
     ],
     "externalIds": {
@@ -8579,7 +9127,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "pointed-question",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Success"
+          },
+          {
+            "value": "4",
+            "label": "Critical Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-pointed-question-pointed-question"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:lie", "origin:mark:pointed-question", "effect-pointed-question-pointed-question:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception-dc"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:lie", "origin:mark:pointed-question", "effect-pointed-question-pointed-question:4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.SScln8qRQgVC6Brz"
     },
@@ -8710,6 +9289,30 @@
             "label": "Silver"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "gte": ["self:level", 14]
+              }
+            ]
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "rollOption": "effect-precious-ammunition-material"
       }
     ],
     "externalIds": {
@@ -12846,7 +13449,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "creature-type",
+        "choices": [
+          {
+            "value": "aberration",
+            "label": "Aberration"
+          },
+          {
+            "value": "celestial",
+            "label": "Celestial"
+          },
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "fiend",
+            "label": "Fiend"
+          },
+          {
+            "value": "monitor",
+            "label": "Monitor"
+          },
+          {
+            "value": "undead",
+            "label": "Undead"
+          }
+        ],
+        "rollOption": "spell-effect-anointed-ground-creature-type"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Wlg9dAFQBuuv9oVa"
     },
@@ -14322,7 +14957,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "fungal-infestation",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Failure"
+          },
+          {
+            "value": "2",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "spell-effect-fungal-infestation-fungal-infestation"
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire", "slashing"],
+        "value": "floor(@item.level / 2) * 1",
+        "predicate": ["spell-effect-fungal-infestation-fungal-infestation:1"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire", "slashing"],
+        "value": "floor(@item.level / 2) * 2",
+        "predicate": ["spell-effect-fungal-infestation-fungal-infestation:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.6gRRjn0h0DAUh7nQ"
     },
@@ -15816,7 +16480,126 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          },
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "force",
+            "label": "Force"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "vitality",
+            "label": "Vitality"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "spell-effect-scintillating-safeguard-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:slashing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["vitality"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:vitality"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "4 + @item.level",
+        "predicate": ["spell-effect-scintillating-safeguard-damage-type:void"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.XstFvzPDKCfmoIED"
     },
@@ -15866,7 +16649,106 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "spell-effect-seal-fate-damage-type"
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:acid"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["bludgeoning"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:bludgeoning"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:cold"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:electricity"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["void"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:void"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["piercing"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:piercing"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:slashing"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": "floor(@item.level / 2)",
+        "predicate": ["spell-effect-seal-fate-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.r4XX7yzeEOPK7l2a"
     },

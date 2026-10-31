@@ -295,7 +295,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "spirit",
+            "label": "Spirit",
+            "predicate": ["option:destructive-vengeance-spirit"]
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Void"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-destructive-vengeance-damage-type"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "damageType": "spirit",
+        "predicate": ["effect-destructive-vengeance-damage-type:spirit"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "damageType": "bludgeoning",
+        "predicate": ["effect-destructive-vengeance-damage-type:bludgeoning"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.6pLYKcDawL5JUBkK"
     },

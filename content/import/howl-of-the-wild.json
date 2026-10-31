@@ -2402,32 +2402,6 @@
             "flag": "value",
             "key": "ChoiceSet"
           }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": "floor(@actor.level/@item.flags.system.rulesSelections.value)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "effect:effect-turn-aside-ambient-magic",
-      "foundry": "Compendium.pf2e.feat-effects.Item.uRwnbZ0xWrB5ZzZ9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.damage}",
-            "value": "floor(@actor.level/2)"
-          }
         }
       ]
     },
@@ -5193,30 +5167,6 @@
               "dieSize": "d6"
             },
             "selector": "horns-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "heritage:mottle-coat-centaur",
-      "foundry": "Compendium.pf2e.heritages.Item.3aKeX3q9hRdxgP1J",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "terrain:{item|flags.system.rulesSelections.terrain}",
-              {
-                "or": ["action:hide", "action:sneak", "action:feint"]
-              }
-            ],
-            "selector": ["stealth", "deception"],
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]

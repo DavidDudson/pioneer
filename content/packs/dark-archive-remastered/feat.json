@@ -2590,7 +2590,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "fbdc5091-68a7-5f5f-9a5d-0a9a869a0c69",
+        "flag": "dragon-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:dragon-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.9Jbl71C5C6MnOqxV"
     },
@@ -10849,7 +10861,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "fbdc5091-68a7-5f5f-9a5d-0a9a869a0c69",
+        "flag": "dragon-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:dragon-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.q8c0LINVNcJrdK91"
     },
@@ -13851,7 +13875,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "fbdc5091-68a7-5f5f-9a5d-0a9a869a0c69",
+        "flag": "dragon-deviant-classification",
+        "predicate": [
+          {
+            "not": "feature:dragon-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.EBmZyzDWhFSLydlM"
     },

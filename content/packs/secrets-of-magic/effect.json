@@ -464,6 +464,56 @@
         "key": "TempHP",
         "value": 15,
         "predicate": ["healers-gel:healers-gel-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-healer-s-gel",
+        "choices": [
+          {
+            "value": "4861ae45-495e-5f71-9f6e-d1a45b4880d0",
+            "label": "Healer's Gel",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:healers-gel",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a10927d3-8de0-50c6-9bde-84f7a031ce4a",
+            "label": "Healer's Gel (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:healers-gel-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a1f3ed2c-576b-5f59-a859-acf05738121a",
+            "label": "Healer's Gel (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:healers-gel-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "healers-gel"
       }
     ],
     "externalIds": {
@@ -5807,7 +5857,48 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "infectious-enthusiasm",
+        "choices": [
+          {
+            "value": "attack",
+            "label": "Attack"
+          },
+          {
+            "value": "will",
+            "label": "Will"
+          },
+          {
+            "value": "cha-based",
+            "label": "Charisma Check"
+          }
+        ],
+        "rollOption": "spell-effect-infectious-enthusiasm-infectious-enthusiasm"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["spell-effect-infectious-enthusiasm-infectious-enthusiasm:attack"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["spell-effect-infectious-enthusiasm-infectious-enthusiasm:will"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["spell-effect-infectious-enthusiasm-infectious-enthusiasm:cha-based"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.nU4SxAk6XreHUi5h"
     },
@@ -8352,6 +8443,200 @@
         ],
         "prompt": "Select a weapon or unarmed strike.",
         "rollOption": "runic-impression"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "corrosive",
+            "label": "Corrosive"
+          },
+          {
+            "value": "flaming",
+            "label": "Flaming"
+          },
+          {
+            "value": "frost",
+            "label": "Frost"
+          },
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "greater-corrosive",
+            "label": "Greater Corrosive",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "greater-flaming",
+            "label": "Greater Flaming",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "greater-frost",
+            "label": "Greater Frost",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "greater-shock",
+            "label": "Greater Shock",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "greater-thundering",
+            "label": "Greater Thundering",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "keen",
+            "label": "Keen",
+            "predicate": [
+              {
+                "gte": ["parent:level", 8]
+              }
+            ]
+          },
+          {
+            "value": "returning",
+            "label": "Returning"
+          },
+          {
+            "value": "shock",
+            "label": "Shock"
+          },
+          {
+            "value": "thundering",
+            "label": "Thundering"
+          }
+        ],
+        "prompt": "Select a Rune.",
+        "rollOption": "spell-effect-runic-impression-rune"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:ghost-touch"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:greater-corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:greater-flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:greater-frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:greater-shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:greater-thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-thundering"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:keen"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "keen"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:returning"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "returning"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:category:unarmed"],
+        "predicate": ["runic-impression:unarmed", "spell-effect-runic-impression-rune:thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "thundering"
       }
     ],
     "externalIds": {

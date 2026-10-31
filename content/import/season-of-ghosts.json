@@ -5316,98 +5316,6 @@
             "predicate": ["impersonated-ability:sneak-attack"],
             "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Sneak Attack"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitAgile",
-                "predicate": [
-                  {
-                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
-                  }
-                ],
-                "value": "agile"
-              },
-              {
-                "label": "PF2E.TraitBackstabber",
-                "predicate": ["noppera-bo-impersonator:skilled"],
-                "value": "backstabber"
-              },
-              {
-                "label": "PF2E.TraitDeadlyD8",
-                "predicate": ["noppera-bo-impersonator:martial"],
-                "value": "deadly-d8"
-              },
-              {
-                "label": "PF2E.TraitDisarm",
-                "predicate": ["noppera-bo-impersonator:skilled"],
-                "value": "disarm"
-              },
-              {
-                "label": "PF2E.TraitFinesse",
-                "predicate": ["noppera-bo-impersonator:skilled"],
-                "value": "finesse"
-              },
-              {
-                "label": "PF2E.TraitForceful",
-                "predicate": ["noppera-bo-impersonator:martial"],
-                "value": "forceful"
-              },
-              {
-                "label": "PF2E.TraitParry",
-                "predicate": ["noppera-bo-impersonator:martial"],
-                "value": "parry"
-              },
-              {
-                "label": "PF2E.TraitReach",
-                "predicate": ["noppera-bo-impersonator:martial"],
-                "value": "reach"
-              },
-              {
-                "label": "PF2E.TraitShove",
-                "predicate": ["noppera-bo-impersonator:martial"],
-                "value": "shove"
-              },
-              {
-                "label": "PF2E.TraitSweep",
-                "predicate": [
-                  {
-                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
-                  }
-                ],
-                "value": "sweep"
-              },
-              {
-                "label": "PF2E.TraitTrip",
-                "predicate": [
-                  {
-                    "or": ["noppera-bo-impersonator:martial", "noppera-bo-impersonator:skilled"]
-                  }
-                ],
-                "value": "trip"
-              }
-            ],
-            "flag": "perk",
-            "key": "ChoiceSet",
-            "predicate": ["impersonated-ability:weapon-perk"],
-            "prompt": "PF2E.NPCAbility.NopperaBo.Impersonator.WeaponPerkPrompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["impersonated-ability:weapon-perk"],
-            "property": "traits",
-            "value": "{item|flags.system.rulesSelections.perk}"
-          }
         }
       ]
     },
@@ -5660,26 +5568,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.PreciousMaterialAdamantine",
-                "value": "adamantine"
-              },
-              {
-                "label": "PF2E.PreciousMaterialDawnsilver",
-                "value": "dawnsilver"
-              }
-            ],
-            "flag": "material",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Material"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustStrike",
           "raw": {
             "definition": ["item:slug:lumber-lords-axe"],
@@ -5687,17 +5575,6 @@
             "mode": "remove",
             "property": "materials",
             "value": "cold-iron"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:slug:lumber-lords-axe"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "materials",
-            "value": "{item|flags.system.rulesSelections.material}"
           }
         }
       ]
@@ -6178,23 +6055,6 @@
             "predicate": ["item:slug:speak-with-stones", "spellcasting:innate"],
             "property": "other-tags",
             "value": "ancestral-spell:reincarnated"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "season-of-ghosts",
-      "slug": "feat:undying-flesh",
-      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.UnQ8oHYc0dBJHZv9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 10
           }
         }
       ]

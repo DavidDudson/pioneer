@@ -249,7 +249,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-devilwing-badge-armor",
+        "choices": [
+          {
+            "value": "f5b06b9a-b507-5640-80f3-b15853b6e3e4",
+            "label": "Devilwing Badge",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2fefd6d7-884f-5406-bc43-474a80271c5e",
+            "label": "Devilwing Badge (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ed6e0a7d-d4d0-5eeb-890b-2a67289de64b",
+            "label": "Devilwing Badge (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "devilwing-badge"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.IdlSIN88G5Ca7TLe"
     },
@@ -315,7 +366,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-devilwing-badge-weapon",
+        "choices": [
+          {
+            "value": "f5b06b9a-b507-5640-80f3-b15853b6e3e4",
+            "label": "Devilwing Badge",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2fefd6d7-884f-5406-bc43-474a80271c5e",
+            "label": "Devilwing Badge (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ed6e0a7d-d4d0-5eeb-890b-2a67289de64b",
+            "label": "Devilwing Badge (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:devilwing-badge-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "devilwing-badge"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.JuyEDBlFwyDguEzG"
     },
@@ -1604,7 +1706,44 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thorn-of-milani-spirit-damage",
+        "choices": [
+          {
+            "value": "7961700a-f80e-5cf2-a65d-a22c6bd8bacb",
+            "label": "Thorn of Milani (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-of-milani-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ccada03d-9752-511f-9a62-64a611f50163",
+            "label": "Thorn of Milani (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-of-milani-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thorn-of-milani"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.XjMGlQTXx13OMAkN"
     },

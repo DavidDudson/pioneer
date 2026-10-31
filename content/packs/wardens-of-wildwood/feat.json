@@ -629,7 +629,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "82fa9e66-ef2f-5e5a-9a5b-11eda0f2c2c6",
+        "flag": "verdant-core-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:verdant-core-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.pGjSh6qk9kQLznKn"
     },
@@ -719,7 +731,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "82fa9e66-ef2f-5e5a-9a5b-11eda0f2c2c6",
+        "flag": "verdant-core-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:verdant-core-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.vUHDuKLKKZHzAqvZ"
     },
@@ -1026,7 +1050,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b9c4c9cf-75bf-50df-8f09-b7a6a470042d",
+        "flag": "blight-soul-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:blight-soul-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.79GUhBznFfYqdwgO"
     },
@@ -1668,7 +1704,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b9c4c9cf-75bf-50df-8f09-b7a6a470042d",
+        "flag": "blight-soul-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:blight-soul-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.YePPw9Oc4JlDAmYD"
     },
@@ -1793,7 +1841,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b9c4c9cf-75bf-50df-8f09-b7a6a470042d",
+        "flag": "blight-soul-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:blight-soul-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ZJSkCrud1FZ7PMFk"
     },
@@ -1985,7 +2045,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "82fa9e66-ef2f-5e5a-9a5b-11eda0f2c2c6",
+        "flag": "verdant-core-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:verdant-core-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.WxnCYjr02usmMN1q"
     },
@@ -2471,7 +2543,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b9c4c9cf-75bf-50df-8f09-b7a6a470042d",
+        "flag": "blight-soul-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:blight-soul-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PycaQsgfgOQc86UX"
     },
@@ -2810,7 +2894,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "82fa9e66-ef2f-5e5a-9a5b-11eda0f2c2c6",
+        "flag": "verdant-core-deviant-classification",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "not": "feature:verdant-core-deviant-classification"
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.fYD0SrZhMyJVQgvl"
     },

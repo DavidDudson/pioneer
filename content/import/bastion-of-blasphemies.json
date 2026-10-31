@@ -90,45 +90,6 @@
     {
       "type": "entry",
       "pack": "bastion-of-blasphemies",
-      "slug": "effect:effect-art-collector",
-      "foundry": "Compendium.pf2e.feat-effects.Item.DXXhDkXQ6AdBty1G",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": 1
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 2
-              }
-            ],
-            "flag": "artCollector",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.BastionOfBlasphemies.Background.ArtCollector.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["item:trait:mental"],
-            "selector": ["saving-throw"],
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.artCollector"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "bastion-of-blasphemies",
       "slug": "effect:effect-blooded-by-the-dead",
       "foundry": "Compendium.pf2e.feat-effects.Item.52owimBcCQNBuNfM",
       "gaps": [
@@ -168,57 +129,6 @@
             ],
             "flag": "soulheartTemp",
             "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:soulheart",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:soulheart-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:soulheart-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Soulheart (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "soulheart"
           }
         },
         {
@@ -295,44 +205,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:commanders-signet",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Commander's Signet"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:generals-signet",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.General's Signet"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "commanders-signet"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustModifier",
           "raw": {
             "key": "AdjustModifier",
@@ -404,25 +276,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.failure",
-                "value": 5
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
-                "value": 10
-              }
-            ],
-            "flag": "pallidCurse",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "alterations": [
@@ -437,15 +290,6 @@
               "granter": "detach"
             },
             "uuid": "Compendium.pf2e.conditionitems.Item.Sickened"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "void",
-            "value": "@item.flags.system.rulesSelections.pallidCurse"
           }
         }
       ]
@@ -465,65 +309,6 @@
               "granter": "detach"
             },
             "uuid": "Compendium.pf2e.conditionitems.Item.Sickened"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "bastion-of-blasphemies",
-      "slug": "effect:effect-poets-fritter",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.gpsTtIhD8wk2MwbW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:poets-fritter-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:poets-fritter-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:poets-fritter-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Poet's Fritter (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "poets-fritter"
           }
         }
       ]

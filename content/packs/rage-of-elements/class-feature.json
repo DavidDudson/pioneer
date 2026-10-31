@@ -1743,6 +1743,16 @@
         "prompt": "Replace your advanced bloodline spell with the advanced elemental focus spell?",
         "rollOption": "elemental-focus-advanced",
         "predicate": ["class:sorcerer", "feature:bloodline-elemental"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "a9f5ea53-12da-55bc-b082-4889f59942bc",
+        "flag": "elementalist-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

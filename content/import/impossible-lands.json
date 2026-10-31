@@ -309,14 +309,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.All-Around Vision"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[bestiary-ability-glossary-srd] Pathfinder Monster Core"
         }
@@ -510,78 +502,6 @@
     {
       "type": "entry",
       "pack": "impossible-lands",
-      "slug": "effect:effect-goo-grenade",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.5JYchreCttBg7RcD",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:goo-grenade-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:goo-grenade-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:goo-grenade-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:goo-grenade-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Goo Grenade (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "goo-grenade"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
       "slug": "effect:effect-heavens-thunder",
       "foundry": "Compendium.pf2e.feat-effects.Item.L9g3EMCT3imX650b",
       "gaps": [
@@ -669,50 +589,6 @@
             "selector": "strike-damage",
             "type": "status",
             "value": "@weapon.system.damage.dice"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
-      "slug": "effect:stance-masquerade-of-seasons-stance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.6IsZQpwRJQWIzdGx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitWater",
-                "value": "water"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitVoid",
-                "value": "void"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              }
-            ],
-            "flag": "masqueradeOfSeasons",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Trait"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.masqueradeOfSeasons}",
-            "value": "max(5,floor(@actor.level/2))"
           }
         }
       ]
@@ -1374,102 +1250,6 @@
     {
       "type": "entry",
       "pack": "impossible-lands",
-      "slug": "feat:fey-influence",
-      "foundry": "Compendium.pf2e.feats-srd.Item.dIIqejy4JAVuF0I8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Anteater",
-                "value": {
-                  "creature": "anteater",
-                  "spell": "grim-tendrils"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.CatSith",
-                "value": {
-                  "creature": "cat-sith",
-                  "spell": "pest-form"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.CursedBluebird",
-                "value": {
-                  "creature": "cursed-bluebird",
-                  "spell": "ill-omen"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Dryad",
-                "value": {
-                  "creature": "dryad",
-                  "spell": "summon-plant-or-fungus"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Faun",
-                "value": {
-                  "creature": "faun",
-                  "spell": "fleet-step"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Gremlin",
-                "value": {
-                  "creature": "gremlin",
-                  "spell": "bane"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Monarch",
-                "value": {
-                  "creature": "monarch",
-                  "spell": "spider-sting"
-                }
-              },
-              {
-                "label": "PF2E.SpecificRule.Feat.FeyInfluence.Unicorn",
-                "value": {
-                  "creature": "unicorn",
-                  "spell": "heal"
-                }
-              }
-            ],
-            "flag": "feyInfluence",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feature",
-            "rollOption": "fey-influence"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "fey-influence:{item|flags.system.rulesSelections.feyInfluence.creature}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:{item|flags.system.rulesSelections.feyInfluence.spell}", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
       "slug": "feat:fey-transcendence",
       "foundry": "Compendium.pf2e.feats-srd.Item.EEnL4zyCDo4HD6Rn",
       "gaps": [
@@ -1928,42 +1708,6 @@
             "mode": "add",
             "path": "flags.system.remainingAir.rounds",
             "value": "5"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
-      "slug": "feat:molten-wit",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OqGNcUTqaZTp2YND",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": ["molten-wit:deception"],
-                "value": "Compendium.pf2e.feats-srd.Item.Charming Liar"
-              },
-              {
-                "predicate": ["molten-wit:diplomacy"],
-                "value": "Compendium.pf2e.feats-srd.Item.Group Impression"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
           }
         }
       ]
@@ -2809,40 +2553,6 @@
             "selector": "{item|_id}-damage",
             "text": "PF2E.SpecificRule.Nagaji.VenomSpit.CriticalNote",
             "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
-      "slug": "heritage:old-blood-vishkanya",
-      "foundry": "Compendium.pf2e.heritages.Item.PbXqlzRdQbKLQx1R",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Streetwise"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Courtly Graces"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
           }
         }
       ]

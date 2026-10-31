@@ -1884,57 +1884,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "devilwing-badge"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -1982,57 +1931,6 @@
             "flag": "weapon",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:devilwing-badge-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Devilwing Badge (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "devilwing-badge"
           }
         },
         {
@@ -2240,44 +2138,6 @@
             "flag": "weapon",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-of-milani-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn of Milani (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-of-milani-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn of Milani (Moderate)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "thorn-of-milani"
           }
         },
         {

@@ -2881,7 +2881,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "medical-malpractice",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Critical Success"
+          },
+          {
+            "value": "1",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-medical-malpractice-medical-malpractice"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:mark:medical-malpractice", "effect-medical-malpractice-medical-malpractice:2"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["melee-strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:mark:medical-malpractice", "effect-medical-malpractice-medical-malpractice:1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.m8RWVvhQ3LCMGQzs"
     },
@@ -3190,7 +3223,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1"
+          },
+          {
+            "value": "2",
+            "label": "+2"
+          }
+        ],
+        "prompt": "Select a bonus.",
+        "rollOption": "effect-one-for-all-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["effect-one-for-all-bonus:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["effect-one-for-all-bonus:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.CR2D12ZAhwmnbz15"
     },

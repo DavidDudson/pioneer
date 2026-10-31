@@ -105,22 +105,6 @@
         },
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:change-shape"],
-            "property": "description",
-            "value": [
-              {
-                "text": "PF2E.SpecificRule.ChangeShape.Anadi"
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "alterations": [
@@ -1231,14 +1215,6 @@
       "slug": "feat:catch-the-details",
       "foundry": "Compendium.pf2e.feats-srd.Item.9eDA2RLnrBBlCvce",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.feats-srd.Item.Eye for Numbers"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[feats-srd] Pathfinder Advanced Player's Guide"

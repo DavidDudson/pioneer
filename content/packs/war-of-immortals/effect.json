@@ -1028,7 +1028,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Yes",
+            "predicate": [
+              {
+                "gte": ["item:origin:level", 13]
+              }
+            ]
+          },
+          {
+            "value": "1",
+            "label": "No"
+          }
+        ],
+        "prompt": "Was the required spell at least 7th rank?",
+        "rollOption": "effect-channeled-protection-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["effect-channeled-protection-bonus:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "save:reflex"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["effect-channeled-protection-bonus:1"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.UookwOq46zEokGOM"
     },
@@ -4114,6 +4150,56 @@
         "display": {
           "label": "Stymie the Gods — Defending against an extraplanar creature"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "2",
+            "label": "No"
+          },
+          {
+            "value": "4",
+            "label": "Yes"
+          }
+        ],
+        "prompt": "Was a Mythic Point spent on this ability?",
+        "rollOption": "effect-stymie-the-gods-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["item:type:spell", "spellcasting:tradition:divine"]
+              },
+              "stymie-the-gods:extraplanar-creature"
+            ]
+          },
+          "effect-stymie-the-gods-bonus:2"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 4,
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["item:type:spell", "spellcasting:tradition:divine"]
+              },
+              "stymie-the-gods:extraplanar-creature"
+            ]
+          },
+          "effect-stymie-the-gods-bonus:4"
+        ]
       }
     ],
     "externalIds": {
@@ -4544,7 +4630,62 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "unbreaking-castle",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1"
+          },
+          {
+            "value": "2",
+            "label": "+2"
+          },
+          {
+            "value": "3",
+            "label": "+3"
+          },
+          {
+            "value": "4",
+            "label": "+4"
+          }
+        ],
+        "rollOption": "effect-unbreaking-castle-unbreaking-castle",
+        "display": {
+          "label": "Select a bonus."
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["effect-unbreaking-castle-unbreaking-castle:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["effect-unbreaking-castle-unbreaking-castle:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["effect-unbreaking-castle-unbreaking-castle:3"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["effect-unbreaking-castle-unbreaking-castle:4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.FMfcQ2EvQT8QV3V0"
     },
@@ -6453,6 +6594,12 @@
         "type": "status",
         "value": -10,
         "predicate": ["manifest-will:primal"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["spells"],
+        "value": "@item.level",
+        "predicate": ["manifest-will:arcane"]
       }
     ],
     "externalIds": {

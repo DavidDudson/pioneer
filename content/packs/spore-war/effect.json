@@ -97,6 +97,70 @@
             "or": ["antifungal:antifungal-salve-greater", "antifungal:antifungal-salve-major"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-antifungal-salve",
+        "choices": [
+          {
+            "value": "36b0ea00-2d61-5b03-8421-49c45661505b",
+            "label": "Antifungal Salve (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antifungal-salve-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6b5c94f5-6e39-5090-8953-106cd3944fc8",
+            "label": "Antifungal Salve (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antifungal-salve-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c0a6876a-5efa-5ca6-8ffd-63d509f6877c",
+            "label": "Antifungal Salve (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antifungal-salve-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c2bb2885-4558-579b-b763-16ded1dd1833",
+            "label": "Antifungal Salve (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antifungal-salve-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "antifungal"
       }
     ],
     "externalIds": {

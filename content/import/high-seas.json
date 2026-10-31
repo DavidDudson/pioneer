@@ -23,78 +23,6 @@
     {
       "type": "entry",
       "pack": "high-seas",
-      "slug": "effect:effect-assisted-flight",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.7uih4ELs2cePqkF2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:golden-wings",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:golden-wings-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:golden-wings-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (Major)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:golden-wings-true",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Golden Wings (True)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "golden-wings"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "high-seas",
       "slug": "effect:effect-blood-wake",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.oORIapm28xioxPDp",
       "gaps": [
@@ -145,57 +73,6 @@
               "granter": "detach"
             },
             "uuid": "Compendium.pf2e.conditionitems.Item.Stunned"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "high-seas",
-      "slug": "effect:effect-bounce-boost",
-      "foundry": "Compendium.pf2e.feat-effects.Item.HBec3M2J94NSG2u5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
-                "value": 3
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusFour",
-                "value": 4
-              }
-            ],
-            "flag": "bounceBoostBonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Bonus"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:long-jump", "action:high-jump"]
-              }
-            ],
-            "removeAfterRoll": "if-enabled",
-            "selector": ["athletics"],
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.bounceBoostBonus"
           }
         }
       ]

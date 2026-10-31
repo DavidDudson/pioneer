@@ -878,46 +878,6 @@
     {
       "type": "entry",
       "pack": "claws-of-the-tyrant",
-      "slug": "effect:effect-iron-command-extra-damage",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.upPUhhjz3stTWRsy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitSpirit",
-                "value": "spirit"
-              },
-              {
-                "label": "PF2E.TraitVoid",
-                "value": "void"
-              }
-            ],
-            "flag": "ironCommandDamage",
-            "key": "ChoiceSet",
-            "label": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "damageType": "{item|flags.system.rulesSelections.ironCommandDamage}",
-            "key": "FlatModifier",
-            "predicate": ["target:mark:iron-command-extra-damage"],
-            "selector": "strike-damage",
-            "slug": "champions-extra-damage",
-            "value": 3
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "claws-of-the-tyrant",
       "slug": "effect:effect-strength-through-pain",
       "foundry": "Compendium.pf2e.equipment-effects.Item.0bwavSwP7XUMO9J1",
       "gaps": [

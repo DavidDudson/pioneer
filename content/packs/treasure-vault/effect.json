@@ -1916,6 +1916,31 @@
             "label": "Unholy"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          },
+          {
+            "value": "holy",
+            "label": "Holy"
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy"
+          }
+        ],
+        "rollOption": "effect-book-of-warding-prayers-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": 10,
+        "predicate": ["effect-book-of-warding-prayers-resistance:spirit"]
       }
     ],
     "externalIds": {
@@ -11799,6 +11824,25 @@
             "label": "Whiskey"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "soothing",
+        "choices": [
+          {
+            "value": "auditory",
+            "label": "Amaretto"
+          },
+          {
+            "value": "olfactory",
+            "label": "Limoncello"
+          },
+          {
+            "value": "visual",
+            "label": "Whiskey"
+          }
+        ],
+        "rollOption": "effect-soothing-toddy-soothing"
       }
     ],
     "externalIds": {

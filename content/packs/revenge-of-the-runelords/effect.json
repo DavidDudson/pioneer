@@ -107,6 +107,56 @@
         "mode": "upgrade",
         "value": 2,
         "predicate": ["sihedron-medallion:sihedron-medallion-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bolster-flesh",
+        "choices": [
+          {
+            "value": "bd472793-066c-5e08-b12f-3293d024f680",
+            "label": "Sihedron Medallion",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sihedron-medallion",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "979b020d-c600-51a5-b3e1-9289fdc85bfb",
+            "label": "Sihedron Medallion (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sihedron-medallion-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "fa330987-27e5-5a6a-9032-316ffe66065a",
+            "label": "Sihedron Medallion (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sihedron-medallion-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "sihedron-medallion"
       }
     ],
     "externalIds": {
@@ -928,6 +978,38 @@
             "gte": ["origin:level", "self:level"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": ["thassilonian-school:wrath"]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": ["thassilonian-school:wrath"]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": ["thassilonian-school:wrath"]
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": ["thassilonian-school:wrath"]
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-runelord-researcher-damage-type"
       }
     ],
     "externalIds": {
