@@ -23,6 +23,8 @@ export const CORE_NAMESPACES: ReadonlyMap<RollOptionNamespace, NamespaceKind> = 
     deity: Known,
     armor: Known,
     skill: Known,
+    attribute: Known,
+    perception: Known,
     defense: Known,
     action: Situational,
     attack: Situational,

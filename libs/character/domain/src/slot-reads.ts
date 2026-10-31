@@ -2,9 +2,15 @@ import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantResolution, GrantRoot, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, RollOption, VariantRuleEntry } from '@pioneer/rules/sdk';
+import type {
+  AttributeModifiers,
+  ChoiceValue,
+  ContentRegistry,
+  RollOption,
+  VariantRuleEntry,
+} from '@pioneer/rules/sdk';
 
-import { boostContent } from './attribute-boosts';
+import { attributeModifiers, boostContent } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { characterRootSlots, variantGrantRoots } from './character-slots';
@@ -61,17 +67,20 @@ export function slotContent(registry: ContentRegistry, variants: readonly Varian
 /** What slots are read against: the character's picks and the content. */
 export interface SlotContext extends SlotContent {
   readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
+  /** The character's attribute modifiers at the level read, which the engine sets `attribute:str:mod:2` from. */
+  readonly attributes?: AttributeModifiers | undefined;
 }
 
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
 export function resolveSlotsAt(
   level: Level,
-  { picks, lookup, namespaces, rootSlots, variantRoots }: SlotContext,
+  { picks, lookup, namespaces, rootSlots, variantRoots, attributes }: SlotContext,
 ): GrantResolution {
   return resolveGrants({
     roots: variantRoots,
     lookup,
     level,
+    attributes,
     situation: [],
     picks,
     toggles: new Map(),
@@ -83,6 +92,12 @@ export function resolveSlotsAt(
 /** The character's picks, by slot. */
 export function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, ChoiceValue> {
   return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
+}
+
+/** The character's grants at `level` over every pick it holds, with its attribute modifiers there. */
+function resolveWithAttributes(document: CharacterDocument, content: SlotContent, level: Level): GrantResolution {
+  const attributes = attributeModifiers({ ...document, level }, content.boosts);
+  return resolveSlotsAt(level, { ...content, picks: picksOf(document), attributes });
 }
 
 /** Grants already resolved, by content, document and level: documents and content are never changed in place. */
@@ -101,10 +116,9 @@ function resolvedFor(document: CharacterDocument, content: SlotContent): Map<Lev
  * for the same content and document, however many reads ask.
  */
 export function skillReads(document: CharacterDocument, content: SlotContent): SkillReads {
-  const context: SlotContext = { ...content, picks: picksOf(document) };
   const resolved = resolvedFor(document, content);
   const grantsAt: GrantsAt = (level) => {
-    const resolution = resolved.get(level) ?? resolveSlotsAt(level, context);
+    const resolution = resolved.get(level) ?? resolveWithAttributes(document, content, level);
     resolved.set(level, resolution);
     return resolution;
   };
@@ -126,7 +140,7 @@ export function preparedReads(
   at: Level = Level.parse(document.level),
 ): PreparedReads {
   const resolved = resolvedFor(document, content);
-  const resolution = resolved.get(at) ?? resolveSlotsAt(at, { ...content, picks: picksOf(document) });
+  const resolution = resolved.get(at) ?? resolveWithAttributes(document, content, at);
   resolved.set(at, resolution);
   return { spells: content.spells, resolution, lookup: content.lookup };
 }
