@@ -131,6 +131,7 @@ describe('Character', () => {
           spellAccess: [],
           unplacedFeats: [],
           unplacedLanguages: [],
+          customLanguages: [],
           rituals: [],
           lores: {},
           repertoireSwaps: [],

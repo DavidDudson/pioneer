@@ -5,12 +5,14 @@ import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
 import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
+import { LanguageName } from './custom-language';
 import { LoreName } from './custom-lore';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
+import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
 /** Every edit the sheet makes: a field, a choice slot or the inventory. One PATCH per edit. */
 export const CharacterPatchField = {
@@ -66,6 +68,8 @@ export const CharacterPatchField = {
   DismissUnplacedHeritage: 'dismissUnplacedHeritage',
   /** An imported language no slot held, taken off the list so it stops being flagged. */
   DismissUnplacedLanguage: 'dismissUnplacedLanguage',
+  /** A custom language an import kept by name, taken off the build. */
+  RemoveCustomLanguage: 'removeCustomLanguage',
   /** A modifier or pinned value put on a statistic by hand, with the reason for it (#1127). */
   AddOverride: 'addOverride',
   /** An override changed; the state it replaces is kept. */
@@ -139,6 +143,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedHeritage), heritage: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedLanguage), language: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.RemoveCustomLanguage), language: LanguageName }),
   z.object({ field: z.literal(CharacterPatchField.AddOverride), override: OverrideInput }),
   z.object({ field: z.literal(CharacterPatchField.EditOverride), id: OverrideId, override: OverrideInput }),
   z.object({ field: z.literal(CharacterPatchField.RemoveOverride), id: OverrideId, reason: OverrideReason }),
@@ -163,17 +168,6 @@ export type SpellAccessPatch = Extract<
   { readonly field: typeof CharacterPatchField.GrantSpellAccess | typeof CharacterPatchField.RevokeSpellAccess }
 >;
 
-/** The edits that take an imported feat, heritage or language off what no slot holds. */
-export type UnplacedPickPatch = Extract<
-  CharacterPatch,
-  {
-    readonly field:
-      | typeof CharacterPatchField.DismissUnplacedFeat
-      | typeof CharacterPatchField.DismissUnplacedHeritage
-      | typeof CharacterPatchField.DismissUnplacedLanguage;
-  }
->;
-
 /** The edits that change the document apart from its slots and inventory: spell access, unplaced picks, overrides, custom effects, prose. */
 export type DocumentPatch = SpellAccessPatch | UnplacedPickPatch | OverridePatch | CustomEffectPatch | ProsePatch;
 
@@ -183,6 +177,7 @@ const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch[
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,
@@ -232,6 +227,7 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,

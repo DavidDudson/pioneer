@@ -54,6 +54,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 18 → 19: the custom items an import kept in the inventory (#310). A version 18 inventory has none. */
   (document) => document,
+  /** 19 → 20: the custom languages an import kept by name (#1595). A version 19 build has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

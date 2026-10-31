@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
+import { LanguageName } from '@pioneer/character/domain';
 import { ImportKind, PathbuilderName } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedFeat } from '@pioneer/interop/pathbuilder';
 import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
@@ -32,12 +33,28 @@ describe('keptPicks', () => {
       { name: name('Nimble Dodge') },
       { name: name('Nimble Dodge') },
     ] as unknown as readonly ImportedFeat[];
-    const picks = keptPicks({ feats, languages: [name('Elven'), name('Elven'), name('Klingon')], rituals: [] }, lookup);
-    expect(picks).toStrictEqual({ unplacedFeats: [dodge], unplacedLanguages: [elven], rituals: [] });
+    const picks = keptPicks(
+      { feats, languages: [name('Elven'), name('Elven')], customLanguages: [], rituals: [] },
+      lookup,
+    );
+    expect(picks).toStrictEqual({
+      unplacedFeats: [dodge],
+      unplacedLanguages: [elven],
+      customLanguages: [],
+      rituals: [],
+    });
+  });
+
+  test('keeps a language no content defines by name, once whatever its case', () => {
+    const customLanguages = [name('Wildsong'), name('wildsong'), name('Klingon')];
+    const picks = keptPicks({ feats: [], languages: [], customLanguages, rituals: [] }, lookup);
+    expect(picks.customLanguages).toStrictEqual([LanguageName.parse('Wildsong'), LanguageName.parse('Klingon')]);
   });
 
   test('keeps each matched ritual once, and leaves out a ritual that matched nothing', () => {
     const rituals = [name('Planar Binding'), name('Planar Binding'), name('Summon Dread')];
-    expect(keptPicks({ feats: [], languages: [], rituals }, lookup).rituals).toStrictEqual([planarBinding]);
+    expect(keptPicks({ feats: [], languages: [], customLanguages: [], rituals }, lookup).rituals).toStrictEqual([
+      planarBinding,
+    ]);
   });
 });

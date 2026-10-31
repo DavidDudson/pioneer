@@ -1,4 +1,4 @@
-import { RITUALS_MAX, UNPLACED_FEATS_MAX, UNPLACED_LANGUAGES_MAX } from '@pioneer/character/domain';
+import { customLanguagesOf, RITUALS_MAX, UNPLACED_FEATS_MAX, UNPLACED_LANGUAGES_MAX } from '@pioneer/character/domain';
 import type { UnplacedPicks } from '@pioneer/character/domain';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedFeat, PathbuilderName } from '@pioneer/interop/pathbuilder';
@@ -17,6 +17,8 @@ function kept(kind: ImportKind, names: readonly PathbuilderName[], lookup: Conte
 export interface ImportedPicks {
   readonly feats: readonly ImportedFeat[];
   readonly languages: readonly PathbuilderName[];
+  /** The languages no loaded content defines, kept by name. */
+  readonly customLanguages: readonly PathbuilderName[];
   readonly rituals: readonly PathbuilderName[];
 }
 
@@ -25,7 +27,7 @@ export interface ImportedPicks {
  * rule, never forced into a slot. The rituals that matched come with them, kept as known.
  */
 export function keptPicks(imported: ImportedPicks, lookup: ContentLookup): UnplacedPicks {
-  const { feats, languages, rituals } = imported;
+  const { feats, languages, customLanguages, rituals } = imported;
   return {
     unplacedFeats: kept(
       ImportKind.Feat,
@@ -33,6 +35,7 @@ export function keptPicks(imported: ImportedPicks, lookup: ContentLookup): Unpla
       lookup,
     ).slice(0, UNPLACED_FEATS_MAX),
     unplacedLanguages: kept(ImportKind.Language, languages, lookup).slice(0, UNPLACED_LANGUAGES_MAX),
+    customLanguages: [...customLanguagesOf(customLanguages)],
     rituals: kept(ImportKind.Ritual, rituals, lookup).slice(0, RITUALS_MAX),
   };
 }

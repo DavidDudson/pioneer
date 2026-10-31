@@ -23,6 +23,8 @@ export const UnmatchedReason = {
   KindNotLoaded: MatchStatus.KindNotLoaded,
   /** The name matched content, but its slot doesn't offer it: a heritage of another ancestry. */
   NotOffered: 'not-offered',
+  /** A language no loaded content defines: kept on the character as a custom language, not lost. */
+  Custom: 'custom',
 } as const;
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
@@ -73,6 +75,9 @@ export type CharacterImportReport = z.infer<typeof CharacterImportReport>;
 
 /** Why `row` was not carried over, or undefined when it was: matched, and not among the names its slot refused. */
 function unmatchedReason(row: ReportRow, notOffered: readonly ImportedName[]): UnmatchedReason | undefined {
+  if (row.status !== MatchStatus.Matched && row.kind === ImportKind.Language) {
+    return UnmatchedReason.Custom;
+  }
   if (row.status !== MatchStatus.Matched) {
     return row.status;
   }

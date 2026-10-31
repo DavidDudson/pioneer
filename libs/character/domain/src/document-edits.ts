@@ -23,7 +23,8 @@ export function withDocumentEdit(
     case CharacterPatchField.RevokeSpellAccess:
     case CharacterPatchField.DismissUnplacedFeat:
     case CharacterPatchField.DismissUnplacedHeritage:
-    case CharacterPatchField.DismissUnplacedLanguage: {
+    case CharacterPatchField.DismissUnplacedLanguage:
+    case CharacterPatchField.RemoveCustomLanguage: {
       return withBuildListEdit(document, patch);
     }
     case CharacterPatchField.AddOverride:
