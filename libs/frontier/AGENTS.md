@@ -72,7 +72,7 @@ Read this before touching any UI.
 - **Icons are Lucide, through `fr-icon`.** Pass the icon class
   (`import { LucideCheck } from '@lucide/angular'`, `[icon]="Check"`), never
   a name string, so unused icons tree-shake. No other icon sets, no unicode
-  glyphs (`✓`, `▲`) and no hand-drawn SVG. Lines are always 2px at every
+  glyphs (`✓`, `▲`) and no hand-drawn SVG. Lines are always 1.5px at every
   size (`nonScalingStroke`); there is no stroke-width input. Size is a token
   (`sm|md|lg`), colour follows the text unless `tone` is set. Icons are
   decorative unless given a `label`; an icon-only button labels the button.

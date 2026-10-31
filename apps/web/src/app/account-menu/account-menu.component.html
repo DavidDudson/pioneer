@@ -5,14 +5,16 @@
     }
     <fr-stack gap="sm">
       <fr-stack gap="2xs">
+        <!-- Development builds swap the account link for the dev-user switch, which shows the same avatar. -->
         @for (extra of extras; track extra) {
           <ng-container [ngComponentOutlet]="extra" />
-        }
-        @if (session.user(); as user) {
-          <fr-link exact appearance="menu" [to]="accountPath">
-            <fr-avatar size="sm" decorative [name]="user.displayName" />
-            {{ user.displayName }}
-          </fr-link>
+        } @empty {
+          @if (session.user(); as user) {
+            <fr-link exact appearance="menu" [to]="accountPath">
+              <fr-avatar size="sm" decorative [name]="user.displayName" />
+              {{ user.displayName }}
+            </fr-link>
+          }
         }
         <fr-box padding="sm" inline>
           <fr-stack direction="horizontal" align="center" justify="between" gap="sm">
