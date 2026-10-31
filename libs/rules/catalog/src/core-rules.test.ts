@@ -130,16 +130,16 @@ describe('core rules pack', () => {
       expect(registry.statisticsFor(Selector.parse(selector))).toHaveLength(1);
     }
     expect(registry.statistics()).toHaveLength(selectors.length);
-    const withoutLevel = contentId(coreRules.id, EntrySlug.parse('variant-rule:proficiency-without-level'));
-    const dualClass = contentId(coreRules.id, EntrySlug.parse('variant-rule:dual-class'));
-    const freeArchetype = contentId(coreRules.id, EntrySlug.parse('variant-rule:free-archetype'));
-    const noLock = contentId(coreRules.id, EntrySlug.parse('variant-rule:no-dedication-lock'));
-    expect(registry.variantRules().map(({ id }) => id)).toStrictEqual([
-      VariantRuleId.parse(dualClass),
-      VariantRuleId.parse(freeArchetype),
-      VariantRuleId.parse(noLock),
-      VariantRuleId.parse(withoutLevel),
-    ]);
+    const variants = [
+      'dual-class',
+      'free-archetype',
+      'no-dedication-lock',
+      'no-encumbrance',
+      'proficiency-without-level',
+    ];
+    expect(registry.variantRules().map(({ id }) => id)).toStrictEqual(
+      variants.map((slug) => VariantRuleId.parse(contentId(coreRules.id, EntrySlug.parse(`variant-rule:${slug}`)))),
+    );
   });
 
   test('derives AC, the saves and Perception for a level 3 fighter', () => {

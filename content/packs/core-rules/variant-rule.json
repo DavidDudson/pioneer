@@ -365,6 +365,29 @@
     "data": {}
   },
   {
+    "id": "b2da3134-7585-5535-b150-e2fbfad7c68a",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:no-encumbrance",
+    "name": "No Encumbrance",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "self:encumbrance:off"
+      }
+    ],
+    "data": {}
+  },
+  {
     "id": "a8e09e01-8dbe-5055-920b-453ebd93493d",
     "pack": "core-rules",
     "kind": "variant-rule",
