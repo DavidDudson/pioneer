@@ -5,7 +5,7 @@ import { cva, cx } from 'class-variance-authority';
 
 import { Tone } from '../../tokens';
 import { TextVariant, textVariants } from '../text.variants';
-import type { FontWeight } from '../text.variants';
+import type { FontWeight, MinWidth } from '../text.variants';
 import { PhraseElement, TextPhrase } from './phrase.component';
 import { StressElement, TextStress } from './stress.component';
 
@@ -77,6 +77,10 @@ export class Text {
   public readonly weight = input<FontWeight | undefined>(undefined);
   public readonly truncate = input(false, { transform: booleanAttribute });
   public readonly numeric = input(false, { transform: booleanAttribute });
+  /** Sets the text in the monospace face, so digits line up in a column. */
+  public readonly monospace = input(false, { transform: booleanAttribute });
+  /** A floor for the width, centring shorter text in it. Only a plain span takes it. */
+  public readonly minWidth = input<MinWidth | undefined>(undefined);
   /** What an `abbr` stands for, already translated. The other elements ignore it. */
   public readonly expansion = input<string | undefined>(undefined);
 
@@ -98,8 +102,11 @@ export class Text {
         weight: this.weight(),
         truncate: this.truncate(),
         numeric: this.numeric(),
+        monospace: this.monospace(),
+        minWidth: this.minWidth(),
       }),
       elementVariants({ element: this.element() }),
+      this.minWidth() === undefined ? '' : 'inline-block text-center',
     ),
   );
 }

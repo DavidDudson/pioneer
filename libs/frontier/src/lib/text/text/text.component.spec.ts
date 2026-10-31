@@ -106,4 +106,17 @@ describe(Text, () => {
     const rendered = await render({ element: TextElement.Abbreviation });
     expect(rendered.hasAttribute('title')).toBe(false);
   });
+
+  it('sets the text in the monospace face on request', async () => {
+    const rendered = await render({ monospace: true }, '+10');
+
+    expect(rendered.classList).toContain('font-mono');
+  });
+
+  it('keeps a floor for the width, centring shorter text in it', async () => {
+    const rendered = await render({ minWidth: 'modifier' }, '-3');
+
+    expect(rendered.classList).toContain('min-w-modifier');
+    expect(rendered.classList).toContain('text-center');
+  });
 });
