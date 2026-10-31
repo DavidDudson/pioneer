@@ -1,7 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
-import { DefenceStatusKind } from '@pioneer/rules/engine';
-import { contentPackFromContents, RuleElementKey, Size } from '@pioneer/rules/sdk';
+import { DefenceStatusKind, RuleInPlay } from '@pioneer/rules/engine';
+import {
+  contentPackFromContents,
+  MagicTradition,
+  OriginHopKind,
+  RuleElementKey,
+  Size,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 
 import { playerCorePack } from './json-packs';
 import { chosen, effectRulesOf, formRulesOf, viewOf } from './testing/battle-forms';
@@ -161,5 +168,46 @@ function grantedSlugs(): readonly string[] {
 describe('Player Core: Dragon Form, the breath', () => {
   test('the form grants the Dragon Breath action', () => {
     expect(grantedSlugs()).toEqual(['action:dragon-breath-dragon-form']);
+  });
+});
+
+/** The effect's rules as an effect cast at the 6th rank by a spellcasting entry of `tradition` puts them in play. */
+function castBy(tradition: MagicTradition): readonly RuleInPlay[] {
+  return effectRulesOf('effect:spell-effect-dragon-form', 6).map(({ element, origin, rule, itemLevel }) =>
+    RuleInPlay.parse({
+      element,
+      origin: {
+        ...origin,
+        hops: [{ kind: OriginHopKind.Effect, effect: origin.entry, rank: SpellRank.parse(6), tradition }],
+      },
+      rule,
+      itemLevel,
+    }),
+  );
+}
+
+describe('Player Core: Dragon Form, the tradition it was cast with', () => {
+  test('a divine dragon cast by a divine caster resists spirit, void and vitality 10', () => {
+    const form = viewOf(castBy(MagicTradition.Divine), chosen('dragon-form:delight', 'dragon-form-tradition:divine'));
+
+    expect(resistances(form)).toEqual(
+      expect.arrayContaining([
+        ['spirit', 10],
+        ['void', 10],
+        ['vitality', 10],
+      ]),
+    );
+  });
+
+  test('cast by a caster of another tradition, the dragon has no resistance of its own tradition', () => {
+    const form = viewOf(castBy(MagicTradition.Primal), chosen('dragon-form:delight', 'dragon-form-tradition:divine'));
+
+    expect(resistances(form)).not.toContainEqual(['void', 10]);
+  });
+
+  test('a primal dragon cast by a primal caster resists physical 5', () => {
+    const form = viewOf(castBy(MagicTradition.Primal), chosen('dragon-form:brine', 'dragon-form-tradition:primal'));
+
+    expect(resistances(form)).toContainEqual(['physical', 5]);
   });
 });

@@ -1,6 +1,6 @@
 import type { ResolveReference } from '@pioneer/rules/formula';
 import { summarisePredicate, Truth } from '@pioneer/rules/predicate';
-import { RuleElementKey } from '@pioneer/rules/sdk';
+import { parentOptions, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
   DamageAdjustmentTarget,
   ImmunityElement,
@@ -29,7 +29,9 @@ export type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine } from './de
 /** How a predicate gates a defence: dropped when false, applied when true, conditional when unknown. */
 function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined {
   const { predicate, display } = rule.element;
-  const truth = truthOf(predicate, context.facts);
+  const parent = parentOptions(rule.origin);
+  const facts = parent.length === 0 ? context.facts : context.facts.plus(parent);
+  const truth = truthOf(predicate, facts);
   if (truth === Truth.False) {
     return undefined;
   }
@@ -39,7 +41,7 @@ function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined
   return {
     kind: DefenceStatusKind.Conditional,
     when: predicate,
-    summary: summarisePredicate(predicate, context.facts, display?.summary),
+    summary: summarisePredicate(predicate, facts, display?.summary),
   };
 }
 

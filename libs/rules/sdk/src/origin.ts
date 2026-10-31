@@ -3,9 +3,11 @@ import { InstantCodec, Pg, UserId, Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId } from './content-id';
+import { RollOption } from './roll-option';
 import { SlotKey } from './selector';
 import { SourceRef } from './source-ref';
 import { SpellRank } from './spell-rank';
+import { MagicTraditionSchema } from './spellcasting-tradition';
 
 /** Position of a rule element in its entry's `rules` array. */
 export const RuleIndex = Pg.smallint().nonnegative().brand<'RuleIndex'>();
@@ -67,6 +69,8 @@ export const OriginHop = z.discriminatedUnion('kind', [
     appliedBy: EventRef.optional(),
     /** The spell rank the effect was cast at, which heightens the rules it carries. */
     rank: SpellRank.optional(),
+    /** The tradition of the spellcasting entry that cast it, which `parent:spellcasting:tradition:<tradition>` reads. */
+    tradition: MagicTraditionSchema.optional(),
   }),
   /** An environment the character is in (underwater) put it in play. */
   z.strictObject({ kind: z.literal(OriginHopKind.Environment), environment: ContentId }),
@@ -97,3 +101,19 @@ export const Origin = z.strictObject({
   sources: z.array(SourceRef).min(1).max(SOURCES_MAX),
 });
 export type Origin = z.output<typeof Origin>;
+
+/**
+ * The roll options an effect sets for its own rule elements, which Foundry writes with the `parent:` prefix: the rank it
+ * was cast at (`parent:origin:item:level:6`) and the tradition of the spellcasting entry that cast it
+ * (`parent:spellcasting:tradition:primal`). An origin that is not an effect sets none.
+ */
+export function parentOptions(origin: Origin): readonly RollOption[] {
+  const [hop] = origin.hops;
+  if (hop?.kind !== OriginHopKind.Effect) {
+    return [];
+  }
+  return [
+    ...(hop.rank === undefined ? [] : [RollOption.parse(`parent:origin:item:level:${hop.rank}`)]),
+    ...(hop.tradition === undefined ? [] : [RollOption.parse(`parent:spellcasting:tradition:${hop.tradition}`)]),
+  ];
+}

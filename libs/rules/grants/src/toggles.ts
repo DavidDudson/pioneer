@@ -1,7 +1,15 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { Domain, OriginHopKind, RollOption, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
-import type { ContentId, Origin, Predicate, RollOptionElement, RuleElement, Slug } from '@pioneer/rules/sdk';
+import { Domain, parentOptions, RuleElementKey, RuleIndex, ToggleKey } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  Origin,
+  Predicate,
+  RollOption,
+  RollOptionElement,
+  RuleElement,
+  Slug,
+} from '@pioneer/rules/sdk';
 
 import type { GrantEntry } from './grant-entry';
 import { optionOf } from './option-of';
@@ -38,15 +46,10 @@ export interface EntryOptions {
 /** The domain every roll sees; options in any other domain only reach rolls in it, never grant predicates. */
 const ALL_DOMAIN = Domain.parse('all');
 
-/** The fact an effect cast at a rank sets for its own elements; Foundry writes it `parent:origin:item:level`. */
-const ORIGIN_RANK = 'parent:origin:item:level';
-
-/** The facts an entry's own elements are read against: the round's, and the rank an effect was cast at. */
+/** The facts an entry's own elements are read against: the round's, and what an effect was cast with (its rank and tradition). */
 function factsFor(origin: Origin, facts: PredicateFacts): PredicateFacts {
-  const [hop] = origin.hops;
-  return hop?.kind === OriginHopKind.Effect && hop.rank !== undefined
-    ? facts.plus([RollOption.parse(`${ORIGIN_RANK}:${hop.rank}`)])
-    : facts;
+  const parent = parentOptions(origin);
+  return parent.length === 0 ? facts : facts.plus(parent);
 }
 
 /**

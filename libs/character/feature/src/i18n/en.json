@@ -548,6 +548,7 @@
       "lower": "Lower",
       "formPick": "Which form",
       "rankPick": "Cast at rank",
+      "traditionPick": "Cast with tradition",
       "rankOption": "Rank {rank}",
       "form": "{name} form",
       "rank": "Rank {rank}",

@@ -14,7 +14,14 @@ import type { ActiveEffect, CampaignAlly, EffectSource, PlayCommand } from '@pio
 import { AsyncButton, Stack, TextInput } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { RANDOM_SOURCE } from '@pioneer/play/ui';
-import { ContentId, RollOption, SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
+import {
+  ContentId,
+  MagicTradition,
+  MagicTraditionSchema,
+  RollOption,
+  SPELL_RANK_MAX,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 import type { HitPoints } from '@pioneer/rules/sdk';
 import { OptionPicker } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
@@ -31,6 +38,14 @@ const SOURCE_LABELS = {
 
 /** The ally choice that means a name typed in, for someone outside the campaign. */
 const ALLY_OTHER = 'other';
+
+/** The message each tradition a polymorph effect can be cast with is worded with. */
+const TRADITION_LABELS = {
+  [MagicTradition.Arcane]: 'rules.facet.tradition.arcane',
+  [MagicTradition.Divine]: 'rules.facet.tradition.divine',
+  [MagicTradition.Occult]: 'rules.facet.tradition.occult',
+  [MagicTradition.Primal]: 'rules.facet.tradition.primal',
+} as const satisfies Record<MagicTradition, string>;
 
 /**
  * The picker that puts an effect on the character (#349, #509): the effect and who it comes from (the character, an
@@ -103,6 +118,16 @@ export class SheetEffectAdd {
       label: this.#i18n.translate('character.sheet.effects.rankOption', { rank: floor + index }),
     }));
   });
+  /** The tradition of the spellcasting entry the picked polymorph effect is cast with; none until picked. */
+  protected readonly traditions = computed((): readonly SelectOption<string>[] =>
+    this.pickedOption()?.polymorph === true
+      ? Object.values(MagicTradition).map((each) => ({
+          value: each,
+          label: this.#i18n.translate(TRADITION_LABELS[each]),
+        }))
+      : [],
+  );
+  protected readonly tradition = signal<string | undefined>(undefined);
   /** The form and rank chosen for the picked effect; the rank starts at the effect's own. */
   protected readonly form = signal<string | undefined>(undefined);
   protected readonly rank = signal<string | undefined>(undefined);
@@ -115,6 +140,7 @@ export class SheetEffectAdd {
 
   protected readonly choose = (id: string | undefined): void => {
     this.picked.set(id);
+    this.tradition.set(undefined);
     this.form.set(undefined);
     const floor = this.options().find((each) => each.id === id)?.rankFloor;
     this.rank.set(floor === undefined ? undefined : String(floor));
@@ -149,12 +175,15 @@ export class SheetEffectAdd {
     const chosen = this.form();
     const form = chosen === undefined ? undefined : RollOption.parse(chosen);
     const rank = option.polymorph ? SpellRank.parse(Number(this.rank() ?? option.rankFloor)) : undefined;
+    const picked = MagicTraditionSchema.safeParse(this.tradition());
+    const tradition = option.polymorph && picked.success ? picked.data : undefined;
     const applying = {
       id: EffectInstanceId.parse(newId()),
       effect: ContentId.parse(option.id),
       source: this.#source(),
       ...(form === undefined ? {} : { form }),
       ...(rank === undefined ? {} : { rank }),
+      ...(tradition === undefined ? {} : { tradition }),
     };
     const tempHp = this.tempHpFor()(applying);
     return {
