@@ -150,7 +150,14 @@ describe('Shield Block with a shield an effect gives', () => {
       {
         ...within(MAX),
         shields: new Map([
-          [ITEM, { ...STEEL, granted: { effect: EFFECT, endsOnBlock: false, endsWhenDestroyed: false }, ...stats }],
+          [
+            ITEM,
+            {
+              ...STEEL,
+              granted: { effect: EFFECT, endsOnBlock: false, endsWhenDestroyed: false, raised: false },
+              ...stats,
+            },
+          ],
         ]),
       },
     );
@@ -158,6 +165,7 @@ describe('Shield Block with a shield an effect gives', () => {
     effect: EFFECT,
     endsOnBlock,
     endsWhenDestroyed,
+    raised: false,
   });
 
   test('a shield that ends on a block takes its effect with it, and leaves the other effects', () => {

@@ -21,7 +21,8 @@ const ShieldBracket = z.strictObject({
  * decide how it takes damage. Without `hitPoints` it takes none, as a form's shield. A shield with Hit Points breaks
  * at its `brokenThreshold`, half its Hit Points when that is left out, and `brokenThreshold: 0` is a shield with none.
  * `endsOnBlock` ends the effect after one Shield Block; `endsWhenDestroyed` ends it when the Hit Points are spent, and
- * without it a destroyed shield is whole again for the next block.
+ * without it a destroyed shield is whole again for the next block. `raised` is a shield the cast raises: it can Shield
+ * Block with no Raise a Shield.
  */
 export const GrantedShield = z.strictObject({
   hardness: Hardness,
@@ -29,6 +30,7 @@ export const GrantedShield = z.strictObject({
   brokenThreshold: HitPoints.optional(),
   endsOnBlock: z.literal(true).optional(),
   endsWhenDestroyed: z.literal(true).optional(),
+  raised: z.literal(true).optional(),
   brackets: z.array(ShieldBracket).max(BRACKETS_MAX).readonly().optional(),
 });
 export type GrantedShield = z.infer<typeof GrantedShield>;

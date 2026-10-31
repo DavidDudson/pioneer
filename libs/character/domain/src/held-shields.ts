@@ -16,6 +16,8 @@ export interface ShieldGrant {
   readonly effect: ContentId;
   readonly endsOnBlock: boolean;
   readonly endsWhenDestroyed: boolean;
+  /** The cast raised it, so it can block with no Raise a Shield. */
+  readonly raised: boolean;
 }
 
 /** A shield the character holds: what the sheet shows beside its Strikes. */
@@ -46,6 +48,7 @@ function grantedShield({
   brokenThreshold,
   endsOnBlock,
   endsWhenDestroyed,
+  raised,
 }: ShieldInPlay): HeldShield {
   const held: HeldShield = {
     item: InventoryItemId.parse(derivedId(ContentNamespace, `granted-shield/${id}`)),
@@ -53,7 +56,7 @@ function grantedShield({
     hardness,
     hitPoints: hitPoints ?? NO_HIT_POINTS,
     brokenThreshold,
-    granted: { effect: source, endsOnBlock, endsWhenDestroyed },
+    granted: { effect: source, endsOnBlock, endsWhenDestroyed, raised },
   };
   return hitPoints === undefined ? { ...held, undamageable: true } : held;
 }

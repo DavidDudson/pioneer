@@ -20,6 +20,8 @@ export interface ShieldInPlay {
   readonly brokenThreshold: HitPoints;
   readonly endsOnBlock: boolean;
   readonly endsWhenDestroyed: boolean;
+  /** The cast raised it, so it can block with no Raise a Shield. */
+  readonly raised: boolean;
 }
 
 const BROKEN_DIVISOR = 2;
@@ -62,6 +64,7 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
     brokenThreshold: broken,
     endsOnBlock: shield.endsOnBlock === true,
     endsWhenDestroyed: shield.endsWhenDestroyed === true,
+    raised: shield.raised === true,
   };
 }
 

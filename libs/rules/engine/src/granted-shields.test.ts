@@ -13,6 +13,7 @@ const SHIELD = {
   key: 'GrantShield',
   hardness: 5,
   endsOnBlock: true,
+  raised: true,
   brackets: [
     { start: 3, hardness: 10 },
     { start: 5, hardness: 15 },
@@ -47,6 +48,13 @@ describe('shieldsInPlay', () => {
     const [shield] = shieldsInPlay({ rules: [inPlay(SHIELD, 'shield')], facts: FACTS });
 
     expect(shield).toMatchObject({ hitPoints: undefined, brokenThreshold: 0, endsOnBlock: true });
+  });
+
+  test('a shield the cast raises says so, and one that is not raised does not', () => {
+    const [raised] = shieldsInPlay({ rules: [inPlay(SHIELD, 'shield')], facts: FACTS });
+    const [lowered] = shieldsInPlay({ rules: [inPlay(ARM, 'arm')], facts: FACTS });
+
+    expect([raised?.raised, lowered?.raised]).toStrictEqual([true, false]);
   });
 
   test('a bracket changes the Hit Points too, and a Broken Threshold of 0 stays', () => {

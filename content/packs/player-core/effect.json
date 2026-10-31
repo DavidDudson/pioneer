@@ -29006,7 +29006,8 @@
             "start": 9,
             "hardness": 25
           }
-        ]
+        ],
+        "raised": true
       }
     ],
     "externalIds": {

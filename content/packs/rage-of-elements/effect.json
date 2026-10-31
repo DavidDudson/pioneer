@@ -4471,7 +4471,8 @@
             "start": 9,
             "hardness": 12
           }
-        ]
+        ],
+        "raised": true
       }
     ],
     "externalIds": {

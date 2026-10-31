@@ -46,6 +46,17 @@ describe('spells that conjure a shield', () => {
     expect(await shieldsOf(pack, `effect:spell-effect-${spell}`)).toHaveLength(1);
   });
 
+  test.each([
+    ['player-core', 'shield', true],
+    ['rage-of-elements', 'glass-shield', true],
+    ['rage-of-elements', 'shielded-arm', false],
+    ['impossible-magic', 'bone-shield', false],
+  ])('%s: %s is raised by the cast: %p', async (pack, spell, raised) => {
+    const rule = await shieldOf(pack, `effect:spell-effect-${spell}`);
+
+    expect(rule?.['raised'] === true).toBe(raised);
+  });
+
   test('Shielded Arm has 15 Hit Points and no Broken Threshold, and ends when they are spent', async () => {
     const rule = await shieldOf('rage-of-elements', 'effect:spell-effect-shielded-arm');
 

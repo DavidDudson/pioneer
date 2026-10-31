@@ -70,7 +70,8 @@ export class SheetShields {
       return [];
     }
     const ids = shieldIds(registry);
-    const ready = ids !== undefined && shieldRaised(read.play, ids) && !read.play.turn.reactionUsed;
+    const reactionFree = ids !== undefined && !read.play.turn.reactionUsed;
+    const raised = ids !== undefined && shieldRaised(read.play, ids);
     return shieldLines(registry, character, read.play).map((line): ShownShield => ({
       line,
       summary: this.#say(
@@ -83,7 +84,7 @@ export class SheetShields {
           hardness: line.hardness,
         },
       ),
-      canBlock: ready && line.condition === ShieldCondition.Whole,
+      canBlock: reactionFree && (raised || line.raised) && line.condition === ShieldCondition.Whole,
     }));
   });
 
