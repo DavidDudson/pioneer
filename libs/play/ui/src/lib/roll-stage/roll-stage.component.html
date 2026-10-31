@@ -8,8 +8,8 @@
       @for (line of shown.lines; track $index) {
         <fr-stack direction="horizontal" align="baseline" gap="xs">
           <fr-text [variant]="Heading" [weight]="Bold" [damage]="line.tone" [numeric]="true">{{ line.total }}</fr-text>
-          @if (line.typeKey; as typeKey) {
-            <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
+          @for (note of line.notes; track note.key) {
+            <fr-text [tone]="Muted">{{ note.key | transloco: note.params }}</fr-text>
           }
         </fr-stack>
       }

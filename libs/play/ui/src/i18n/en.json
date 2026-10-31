@@ -25,6 +25,9 @@
       "failure": "Failure",
       "criticalFailure": "Critical failure"
     },
+    "toast": {
+      "unadjusted": "of {total}"
+    },
     "outcome": {
       "basicSave": {
         "criticalSuccess": "Takes no damage",

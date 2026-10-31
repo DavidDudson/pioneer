@@ -1,10 +1,18 @@
 import { DamageTone } from '@pioneer/frontier';
-import { DiceExpressionText, DieFace, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
+import {
+  applyDamage,
+  DiceExpressionText,
+  DieFace,
+  NO_DEFENCES,
+  parseDiceExpression,
+  rollDice,
+} from '@pioneer/rules/dice';
 import type { RollResult } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
+import { DegreeOfSuccess } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { presentRoll } from './roll-presentation';
+import { presentRoll, withSave } from './roll-presentation';
 
 /** Rolls `text` with the dice landing on `faces`, in order. */
 function roll(text: string, faces: readonly number[]): RollResult {
@@ -66,5 +74,24 @@ describe(presentRoll, () => {
     const shown = presentRoll(5, 'Flat', roll('7', []));
     expect(shown.groups).toStrictEqual([]);
     expect(shown.total).toBe(7);
+  });
+
+  it('shows what a basic save left of each type beside what the dice came to', () => {
+    const rolled = roll('1d6[fire]+1d6[cold]+1d6[persistent,fire]', [5, 3, 4]);
+    const damage = applyDamage(rolled, NO_DEFENCES, { critical: false, save: DegreeOfSuccess.Success });
+    const shown = withSave(presentRoll(9, 'Burning ground', rolled), damage);
+    expect(shown.lines).toStrictEqual([
+      { total: 2, unadjusted: 5, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' },
+      { total: 1, unadjusted: 3, tone: DamageTone.Cold, typeKey: 'roll.damageType.cold' },
+      { total: 2, unadjusted: 4, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' },
+    ]);
+  });
+
+  it('shows no dice total beside a type the save left whole', () => {
+    const rolled = roll('1d6[fire]', [5]);
+    const damage = applyDamage(rolled, NO_DEFENCES, { critical: false, save: DegreeOfSuccess.Failure });
+    expect(withSave(presentRoll(10, 'Spark', rolled), damage).lines).toStrictEqual([
+      { total: 5, unadjusted: undefined, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' },
+    ]);
   });
 });

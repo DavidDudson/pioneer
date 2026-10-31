@@ -3,37 +3,24 @@ import { TranslocoService } from '@jsverse/transloco';
 import { initiativeRoll, PlayCommandField } from '@pioneer/character/domain';
 import type { RollAs, RollSetup } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
-import { keptRoll, presentRoll, RANDOM_SOURCE, RollPresenter, rollView, withDegree } from '@pioneer/play/ui';
+import { keptRoll, presentRoll, RANDOM_SOURCE, RollPresenter, rollView, withDegree, withSave } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
 import { DiceExpressionText, NO_FORTUNE, parseDiceExpression, rollWithFortune, Sign } from '@pioneer/rules/dice';
 import type { DiceExpression, FortunedRoll } from '@pioneer/rules/dice';
 import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
-import type { CheckNode, Dc, Selector } from '@pioneer/rules/sdk';
+import type { CheckNode, Dc, DegreeOfSuccess, Selector } from '@pioneer/rules/sdk';
 import { conditionalLineText, STATISTIC_ROLLER } from '@pioneer/rules/ui';
 import type { ConditionWords, RollableStatistic, StatisticRoller } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { PlayStore } from '../data/play-store';
+import { basicSaveDegree, savedDamage } from './sheet-basic-save';
 import { describeSaveError } from './sheet-field';
 import { rolledDegree } from './sheet-roll-degree';
 import { sheetRollSetup } from './sheet-roll-setup';
+import type { Against, CheckRoll, PendingCheck, RolledCheck } from './sheet-roll-types';
 import { SheetState } from './sheet-state';
-
-/** The check as last rolled: what it was, the dice that fell, the toggles it was rolled with, worded. */
-interface RolledCheck {
-  readonly id: number;
-  readonly name: string;
-  /** The statistic a check was rolled for; unset for damage, which has none. */
-  readonly statistic: StatisticValue | undefined;
-  /** The check in text that was rolled, for the outcomes it spells out; unset for any other roll. */
-  readonly check?: CheckNode | undefined;
-  readonly expression: DiceExpression;
-  readonly roll: FortunedRoll;
-  readonly reasons: readonly string[];
-  /** The DC a check in text asked for; it stands in for the typed one until a DC is typed. */
-  readonly dc: Dc | undefined;
-}
 
 /** The last check rolled from the sheet, as the roll card shows it. */
 export interface LastRoll {
@@ -42,30 +29,7 @@ export interface LastRoll {
   readonly view: RollView;
 }
 
-/** A check rolled: what it is, the toggles it is rolled with, worded, and the DC its text asked for. */
-interface CheckRoll {
-  readonly name: string;
-  readonly statistic: StatisticValue;
-  readonly reasons: readonly string[];
-  readonly dc: Dc | undefined;
-  readonly check?: CheckNode | undefined;
-}
-
-/** What a check on the stage is compared with, and the check in text behind it, when there is one. */
-interface Against {
-  readonly dc: Dc | undefined;
-  readonly check?: CheckNode | undefined;
-}
-
 /** A check being set up: what it is, and the situations the roll has claimed so far. */
-interface PendingCheck {
-  readonly name: string;
-  readonly selector: Selector;
-  readonly chosen: ReadonlySet<RuleId>;
-  readonly as?: RollAs | undefined;
-}
-
-/** A check being set up, with what rolling it offers and how those choices change it. */
 export interface CheckSetup extends RollSetup {
   readonly name: string;
   readonly selector: Selector;
@@ -98,6 +62,8 @@ export class SheetRolls implements StatisticRoller {
   readonly #rolled = signal<RolledCheck | undefined>(undefined);
   readonly #pending = signal<PendingCheck | undefined>(undefined);
   #count = 0;
+  /** The degree of the last basic save rolled; the next damage rolled follows it, then it is let go. */
+  #save: DegreeOfSuccess | undefined;
 
   /** The DC the last roll is compared with; unset until one is typed. A new roll keeps it. */
   public readonly dc = signal<Dc | undefined>(undefined);
@@ -116,8 +82,8 @@ export class SheetRolls implements StatisticRoller {
     }
     const dc = this.cardDc();
     const degree = rolled.statistic === undefined ? undefined : rolledDegree(rolled.roll, dc);
-    const { id, name, statistic, expression, roll, reasons, check } = rolled;
-    return { name, statistic, view: rollView(id, { expression, roll, degree, damage: undefined, reasons, check }) };
+    const { id, name, statistic, expression, roll, reasons, check, damage } = rolled;
+    return { name, statistic, view: rollView(id, { expression, roll, degree, damage, reasons, check }) };
   });
 
   /**
@@ -160,13 +126,28 @@ export class SheetRolls implements StatisticRoller {
     this.#finish({ name, statistic: offered.statistic, reasons, dc, check });
   }
 
-  /** Rolls damage or healing named in text: no statistic and no DC, so the card shows the dice and the total only. */
+  /**
+   * Rolls damage or healing named in text: no statistic and no DC. Right after a basic save the damage follows its
+   * degree (none, half rounded down, full, double); the save is let go either way, so it never scales a later roll.
+   */
   public rollDamage(name: string, expression: DiceExpression): void {
     this.saveError.set(undefined);
     this.#count += 1;
+    const save = this.#save;
+    this.#save = undefined;
     const roll = rollWithFortune(expression, NO_FORTUNE, this.#random);
-    this.#rolled.set({ id: this.#count, name, statistic: undefined, expression, roll, reasons: [], dc: undefined });
-    this.#present(name, roll);
+    const damage = savedDamage(roll, save);
+    this.#rolled.set({
+      id: this.#count,
+      name,
+      statistic: undefined,
+      expression,
+      roll,
+      reasons: [],
+      dc: undefined,
+      damage,
+    });
+    this.#present(name, roll, { dc: undefined, damage });
   }
 
   /** Types the DC the card compares the last roll with; it replaces the one a check in text asked for. */
@@ -278,18 +259,25 @@ export class SheetRolls implements StatisticRoller {
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
-    this.#present(name, roll, { dc: this.cardDc(), check });
+    const cardDc = this.cardDc();
+    // A new check drops the save before it; only a basic save with a degree links the damage rolled next.
+    this.#save = basicSaveDegree(roll, cardDc, check);
+    this.#present(name, roll, { dc: cardDc, check });
   }
 
-  /** Shows the roll on the stage; a check also names its degree and what it does (`against` is what it was rolled for). */
-  #present(name: string, roll: FortunedRoll, against?: Against): void {
+  /**
+   * Shows the roll on the stage; a check also names its degree and what it does (`against` is what it was rolled for),
+   * and damage a basic save scaled shows what was taken beside what the dice came to.
+   */
+  #present(name: string, roll: FortunedRoll, against: Against): void {
     const counted = keptRoll(roll);
     if (counted === undefined) {
       return;
     }
-    const shown = presentRoll(this.#count, name, counted);
-    const degree = rolledDegree(roll, against?.dc);
-    this.#presenter.present(degree === undefined ? shown : withDegree(shown, degree.degree, against?.check));
+    const rolled = presentRoll(this.#count, name, counted);
+    const shown = against.damage === undefined ? rolled : withSave(rolled, against.damage);
+    const degree = rolledDegree(roll, against.dc);
+    this.#presenter.present(degree === undefined ? shown : withDegree(shown, degree.degree, against.check));
   }
 }
 

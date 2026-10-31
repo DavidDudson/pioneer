@@ -1,4 +1,4 @@
-import { DamageType, DamageTypeSchema, Immunity } from '@pioneer/rules/sdk';
+import { DamageType, DamageTypeSchema, DegreeOfSuccess, Immunity } from '@pioneer/rules/sdk';
 import type { DamageTarget } from '@pioneer/rules/sdk';
 import { message, MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
@@ -53,10 +53,13 @@ export interface DamageOptions {
   readonly area?: boolean;
   /** The roll is from a spell, so a weakness or resistance to spells applies. */
   readonly spell?: boolean;
+  /** The degree of the basic save this damage is for: it scales each instance before immunity, weakness and resistance. */
+  readonly save?: DegreeOfSuccess;
 }
 
 const NOT_CRITICAL: DamageOptions = { critical: false, area: false, spell: false };
 const CRITICAL_MULTIPLIER = 2;
+const HALF = 2;
 const ZERO = RollTotal.parse(0);
 const NONE = DamageTotal.parse(0);
 const NOT_FOUND = -1;
@@ -117,6 +120,18 @@ function pool(roll: RollResult): readonly Pooled[] {
   return pools;
 }
 
+/** What a basic save's degree does to damage: critical success none, success half rounded down, failure full, critical failure double. */
+const SAVE_SCALERS: Readonly<Record<DegreeOfSuccess, (amount: DamageTotal) => DamageTotal>> = {
+  [DegreeOfSuccess.CriticalSuccess]: () => NONE,
+  [DegreeOfSuccess.Success]: (amount) => DamageTotal.parse(Math.floor(amount / HALF)),
+  [DegreeOfSuccess.Failure]: (amount) => amount,
+  [DegreeOfSuccess.CriticalFailure]: (amount) => DamageTotal.parse(amount * CRITICAL_MULTIPLIER),
+};
+
+function savedAmount(amount: DamageTotal, save: DegreeOfSuccess): DamageTotal {
+  return SAVE_SCALERS[save](amount);
+}
+
 /** An instance as dealt: its share of the roll, doubled on a critical, splash added undoubled. */
 interface Dealt extends Applied {
   readonly rolled: DamageTotal;
@@ -137,17 +152,28 @@ function criticalLine(rolled: DamageTotal, doubled: DamageTotal, doubling: Doubl
     : message(DiceMessage.DamageCriticalImmune);
 }
 
-function dealt(pooled: Pooled, doubling: Doubling): Dealt {
+function dealt(pooled: Pooled, doubling: Doubling, save: DegreeOfSuccess | undefined): Dealt {
   const base = DamageTotal.parse(Math.max(pooled.rolled, 0));
   const precision = DamageTotal.parse(Math.max(pooled.precision, 0));
   const splash = DamageTotal.parse(Math.max(pooled.splash, 0));
   const rolled = DamageTotal.parse(base + precision);
   const doubled = doubleIf(rolled, doubling);
+  const full = DamageTotal.parse(doubled + splash);
+  const amount = save === undefined ? full : savedAmount(full, save);
   const lines = [
     criticalLine(rolled, doubled, doubling),
     splash > 0 ? message(DiceMessage.DamageSplash, { splash }) : undefined,
+    save === undefined
+      ? undefined
+      : message(DiceMessage.DamageBasicSave, { degree: save, before: full, after: amount }),
   ].filter((line) => line !== undefined);
-  return { rolled, precision: doubleIf(precision, doubling), amount: DamageTotal.parse(doubled + splash), lines };
+  const doubledPrecision = doubleIf(precision, doubling);
+  return {
+    rolled,
+    precision: save === undefined ? doubledPrecision : savedAmount(doubledPrecision, save),
+    amount,
+    lines,
+  };
 }
 
 /** What immunities leave of an instance: nothing if immune to its type, less its precision share if immune to precision. */
@@ -177,11 +203,12 @@ interface Dealing {
   readonly doubling: Doubling;
   readonly area: boolean;
   readonly spell: boolean;
+  readonly save: DegreeOfSuccess | undefined;
 }
 
 /** Deals one instance, then immunities, the highest weakness and the highest resistance adjust it. */
-function deal(pooled: Pooled, target: DamageTarget, { doubling, area, spell }: Dealing): DamageInstance {
-  const dealtNow = dealt(pooled, doubling);
+function deal(pooled: Pooled, target: DamageTarget, { doubling, area, spell, save }: Dealing): DamageInstance {
+  const dealtNow = dealt(pooled, doubling, save);
   const type = pooled.type === undefined ? {} : { type: pooled.type };
   const immune = immunise(pooled, dealtNow, target);
   const precisionLeft = target.immunities.includes(PRECISION) ? NONE : dealtNow.precision;
@@ -225,10 +252,10 @@ function doublingFor(critical: boolean, target: DamageTarget): Doubling {
 export function applyDamage(
   roll: RollResult,
   target: DamageTarget,
-  { critical, area = false, spell = false }: DamageOptions = NOT_CRITICAL,
+  { critical, area = false, spell = false, save }: DamageOptions = NOT_CRITICAL,
 ): DamageApplication {
   const pools = pool(roll);
-  const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell };
+  const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell, save };
   const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   return { critical, immediate, persistent, taken: sum(immediate), persistentTaken: sum(persistent) };

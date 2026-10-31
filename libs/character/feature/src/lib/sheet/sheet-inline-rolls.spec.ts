@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { OutcomeKind, RollPresenter } from '@pioneer/play/ui';
+import { OutcomeKind, RANDOM_SOURCE, RollPresenter } from '@pioneer/play/ui';
+import type { RollPresentation } from '@pioneer/play/ui';
+import { DieFace } from '@pioneer/rules/dice';
+import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { DamageFormula, DamageType, Dc, InlineKind, RichTextString, Selector } from '@pioneer/rules/sdk';
 import type { CheckNode, DamageNode } from '@pioneer/rules/sdk';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -17,14 +20,24 @@ const fire: DamageNode = {
   instances: [{ formula: DamageFormula.parse('2d6'), damageType: DamageType.Fire }],
 };
 
+type DamageLine = RollPresentation['lines'][number];
+
+function toastLine(): DamageLine | undefined {
+  return TestBed.inject(RollPresenter).toast()?.lines[0];
+}
+
 interface Opened {
   readonly inline: SheetInlineRolls;
   readonly rolls: SheetRolls;
 }
 
 /** Opens the sheet and reaches the roller its page provides. */
-async function open(): Promise<Opened> {
-  const { root } = await openSheet();
+async function open(...faces: readonly number[]): Promise<Opened> {
+  const providers =
+    faces.length === 0
+      ? []
+      : [{ provide: RANDOM_SOURCE, useValue: scriptedRandom(faces.map((face) => DieFace.parse(face))) }];
+  const { root } = await openSheet(undefined, { providers });
   const { injector } = present(harnessOf(root).routeDebugElement);
   const inline = injector.get(SheetInlineRolls);
   // The engine builds after the sheet shows; a roll before then rolls nothing.
@@ -96,5 +109,52 @@ describe(SheetInlineRolls, () => {
     expect(toast?.lines.map(({ typeKey }) => typeKey)).toStrictEqual(['roll.damageType.fire']);
     expect(rolls.last()?.statistic).toBeUndefined();
     expect(rolls.cardDc()).toBeUndefined();
+  });
+
+  describe('damage after a basic save', () => {
+    // A natural 20 against DC 1 is a critical success, a natural 1 against DC 40 a critical failure, whatever the bonus.
+    const easy: CheckNode = { ...reflexCheck, dc: Dc.parse(1), basic: true };
+    const hard: CheckNode = { ...reflexCheck, dc: Dc.parse(40), basic: true };
+    const notBasic: CheckNode = { ...reflexCheck, dc: Dc.parse(1) };
+
+    it('takes none on a critical success, and shows the dice total beside it', async () => {
+      const { inline } = await open(20, 4, 3);
+      inline.check({ node: easy, label: 'basic Reflex save' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      expect(toastLine()).toMatchObject({ total: 0, unadjusted: 7 });
+    });
+
+    it('takes double on a critical failure', async () => {
+      const { inline } = await open(1, 4, 3);
+      inline.check({ node: hard, label: 'basic Reflex save' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      expect(toastLine()).toMatchObject({ total: 14, unadjusted: 7 });
+    });
+
+    it('lets the save go once damage is rolled, so a second roll is full', async () => {
+      const { inline } = await open(20, 4, 3, 4, 3);
+      inline.check({ node: easy, label: 'basic Reflex save' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      expect(toastLine()?.total).toBe(7);
+      expect(toastLine()?.unadjusted).toBeUndefined();
+    });
+
+    it('leaves damage alone after a save that is not basic', async () => {
+      const { inline } = await open(20, 4, 3);
+      inline.check({ node: notBasic, label: 'DC 1 Reflex save' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      expect(toastLine()?.total).toBe(7);
+      expect(toastLine()?.unadjusted).toBeUndefined();
+    });
+
+    it('lets a basic save go when another check is rolled after it', async () => {
+      const { inline } = await open(20, 20, 4, 3);
+      inline.check({ node: easy, label: 'basic Reflex save' });
+      inline.check({ node: notBasic, label: 'DC 1 Reflex save' });
+      inline.damage({ node: fire, label: '2d6 fire' });
+      expect(toastLine()?.total).toBe(7);
+      expect(toastLine()?.unadjusted).toBeUndefined();
+    });
   });
 });
