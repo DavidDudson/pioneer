@@ -13,6 +13,10 @@
           }
         </fr-stack>
       }
+      @if (shown.roll.degreeKey; as degreeKey) {
+        <fr-text [weight]="Bold">{{ degreeKey | transloco }}</fr-text>
+      }
+      <pio-roll-outcome [outcome]="shown.roll.outcome" />
     </fr-stack>
   }
 </fr-toast>

@@ -62,6 +62,9 @@ describe(SheetInlineRolls, () => {
     const { inline, rolls } = await open();
     inline.check({ node: { ...reflexCheck, basic: true }, label: 'basic Reflex save' });
     expect(rolls.last()?.view.outcome?.kind).toBe(OutcomeKind.Message);
+    const toast = TestBed.inject(RollPresenter).toast();
+    expect(toast?.outcome?.kind).toBe(OutcomeKind.Message);
+    expect(toast?.degreeKey).toBeDefined();
   });
 
   it('gives a check the words its text has for the degree it rolled', async () => {

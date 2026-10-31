@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import type { DamageTone } from '@pioneer/frontier';
 import { FontWeight, LocaleFormat, ScreenOverlay, Stack, Text, TextVariant, Toast, Tone } from '@pioneer/frontier';
 
+import { RollOutcome } from '../roll-outcome/roll-outcome.component';
 import type { RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 
@@ -30,7 +31,7 @@ interface ToastView {
  */
 @Component({
   selector: 'pio-roll-stage',
-  imports: [ScreenOverlay, Stack, Text, Toast, TranslocoPipe],
+  imports: [RollOutcome, ScreenOverlay, Stack, Text, Toast, TranslocoPipe],
   templateUrl: './roll-stage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },

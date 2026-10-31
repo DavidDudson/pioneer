@@ -8,7 +8,7 @@ export { default as rollMessages } from './i18n/en.json';
 export { DAMAGE_TYPE_KEYS } from './lib/roll-labels';
 export { OutcomeKind, rollView } from './lib/roll-view';
 export type { OutcomeView, RollView } from './lib/roll-view';
-export { presentRoll, keptRoll } from './lib/roll-stage/roll-presentation';
+export { presentRoll, keptRoll, withDegree } from './lib/roll-stage/roll-presentation';
 export type { DiceGroup, RollPresentation } from './lib/roll-stage/roll-presentation';
 export { RollPresenter } from './lib/roll-stage/roll-presenter';
 export { RollStage } from './lib/roll-stage/roll-stage.component';
