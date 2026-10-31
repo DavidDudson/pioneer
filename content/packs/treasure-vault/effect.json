@@ -556,6 +556,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-beastmaster-s-sigil-armor",
+        "choices": [
+          {
+            "value": "a0161fd4-4610-593b-bb88-00acf57c5f84",
+            "label": "Beastmaster's Sigil",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3a0358c7-c05b-5839-9d99-c6797e9cb035",
+            "label": "Beastmaster's Sigil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "92548077-f47d-52e7-a677-4cc74caba614",
+            "label": "Beastmaster's Sigil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "beastmasters-sigil"
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "item",
@@ -646,6 +696,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-beastmaster-s-sigil-melee-weapon",
+        "choices": [
+          {
+            "value": "a0161fd4-4610-593b-bb88-00acf57c5f84",
+            "label": "Beastmaster's Sigil",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3a0358c7-c05b-5839-9d99-c6797e9cb035",
+            "label": "Beastmaster's Sigil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "92548077-f47d-52e7-a677-4cc74caba614",
+            "label": "Beastmaster's Sigil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "beastmasters-sigil"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["skill:athletics"],
@@ -747,6 +847,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-beastmaster-s-sigil-ranged-weapon",
+        "choices": [
+          {
+            "value": "a0161fd4-4610-593b-bb88-00acf57c5f84",
+            "label": "Beastmaster's Sigil",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3a0358c7-c05b-5839-9d99-c6797e9cb035",
+            "label": "Beastmaster's Sigil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "92548077-f47d-52e7-a677-4cc74caba614",
+            "label": "Beastmaster's Sigil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:beastmasters-sigil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "beastmasters-sigil"
+      },
       {
         "key": "RollOption",
         "option": "option:adjacent-sigil-summon",
@@ -1417,7 +1567,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-blade-byrnie",
+        "choices": [
+          {
+            "value": "6fccdee2-50bf-516c-9251-4d8c08167384",
+            "label": "Blade Byrnie",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blade-byrnie",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a37db214-03b1-541a-87bd-0c9ad3da1458",
+            "label": "Blade Byrnie (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blade-byrnie-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "37078d82-e03d-5207-baf9-b10d8b0dcfa5",
+            "label": "Blade Byrnie (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blade-byrnie-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "blade-byrnie"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.kV87sJS7XoOXi2cw"
     },
@@ -1485,6 +1686,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-blood-booster",
+        "choices": [
+          {
+            "value": "6b233954-350f-5dda-9525-e87157254454",
+            "label": "Blood Booster (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blood-booster-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d395573f-1862-529a-805e-2b74586490bc",
+            "label": "Blood Booster (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blood-booster-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "249776a7-6822-5ee3-aea6-d7dede5f8566",
+            "label": "Blood Booster (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:blood-booster-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "blood-booster"
+      },
       {
         "key": "Resistance",
         "type": ["bleed"],
@@ -1809,6 +2060,28 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-bracers-of-devotion",
+        "choices": [
+          {
+            "value": "adf93c63-19d7-50d3-9d3b-7bc709a7abbe",
+            "label": "Blessed Armament",
+            "predicate": ["feature:blessed-armament"]
+          },
+          {
+            "value": "b2a06c9b-6958-54f7-850d-c858bcc09cb2",
+            "label": "Blessed Shield",
+            "predicate": ["feature:blessed-shield"]
+          },
+          {
+            "value": "c687ff5f-f8d6-5e70-ae19-670ec2b7fb7b",
+            "label": "Blessed Swiftness",
+            "predicate": ["feature:blessed-swiftness"]
+          }
+        ],
+        "rollOption": "bracers-of-devotion"
+      },
+      {
         "key": "RollOption",
         "option": "option:bracers-of-devotion-disarm-bonus",
         "toggleable": true,
@@ -2037,7 +2310,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-chromatic-jellyfish-oil",
+        "choices": [
+          {
+            "value": "ea967b27-d076-54a1-978c-cb7c08f07251",
+            "label": "Chromatic Jellyfish Oil (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:chromatic-jellyfish-oil-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "108fdd5d-c4cd-5fb9-8add-e4a939e944c3",
+            "label": "Chromatic Jellyfish Oil (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:chromatic-jellyfish-oil-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f58b35c9-9b07-5a85-ad69-45e79d0e56da",
+            "label": "Chromatic Jellyfish Oil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:chromatic-jellyfish-oil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "chromatic-jellyfish-oil"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.YUj20zJ4bNAoc0nJ"
     },
@@ -3161,6 +3485,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-desolation-locket-armor",
+        "choices": [
+          {
+            "value": "e9ce154d-a784-568a-86b8-ba25c92e2bcb",
+            "label": "Desolation Locket",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:desolation-locket",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ed794516-5592-5fb5-9072-3568a0e96ef0",
+            "label": "Desolation Locket (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:desolation-locket-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8fec6829-a123-59c0-90f0-c2a075a34f8b",
+            "label": "Desolation Locket (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:desolation-locket-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "desolation-locket"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
@@ -5697,7 +6071,44 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ghostcaller-s-planchette-armor",
+        "choices": [
+          {
+            "value": "881d7751-3ef7-51f3-97cc-37b5e921e63b",
+            "label": "Ghostcaller's Planchette",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ghostcallers-planchette",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0d3ebf38-e32a-57f2-87d5-03faccdbfe5e",
+            "label": "Ghostcaller's Planchette (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ghostcallers-planchette-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "ghostcallers-planchette"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.EjLVjt3GMeHM0Ai3"
     },
@@ -5785,7 +6196,44 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ghostcaller-s-planchette-weapon",
+        "choices": [
+          {
+            "value": "881d7751-3ef7-51f3-97cc-37b5e921e63b",
+            "label": "Ghostcaller's Planchette",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ghostcallers-planchette",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0d3ebf38-e32a-57f2-87d5-03faccdbfe5e",
+            "label": "Ghostcaller's Planchette (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ghostcallers-planchette-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "ghostcallers-planchette"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.grXFmNl8Zy3VRVpR"
     },
@@ -6084,7 +6532,44 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-grudgestone",
+        "choices": [
+          {
+            "value": "b12ef188-7660-546b-b588-438089d2950e",
+            "label": "Grudgestone",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grudgestone",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "da21d145-eb99-5ef7-ad39-6c5c316f0496",
+            "label": "Grudgestone (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:grudgestone-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "grudgestone"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Hq1FthmyHvDDuESp"
     },
@@ -6481,7 +6966,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-insight-coffee",
+        "choices": [
+          {
+            "value": "2ae0f9b2-0d39-5581-bcde-ece00ce3d1b4",
+            "label": "Insight Coffee (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:insight-coffee-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "e963a50b-364f-5f03-aa5c-73104e04148e",
+            "label": "Insight Coffee (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:insight-coffee-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5939a68a-bce0-521f-8523-e96ead8d9840",
+            "label": "Insight Coffee (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:insight-coffee-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "insight-coffee"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.2qHgwcYtCg4csC2w"
     },
@@ -6653,6 +7189,84 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-instinct-crown",
+        "choices": [
+          {
+            "value": "30166e95-9d22-54ff-96fe-a6c78ff00496",
+            "label": "Animal Instinct",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:instinct-crown-animal",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ee0ad64e-66be-5b63-8d7f-b1568cdfb1cd",
+            "label": "Fury Instinct",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:instinct-crown-fury",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "584fc2ce-e31e-522b-9a0d-a850d2aa5059",
+            "label": "Giant Instinct",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:instinct-crown-giant",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3a41cde9-265b-5d24-b584-5e36c068d393",
+            "label": "Spirit Instinct",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:instinct-crown-spirit",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0ebd8f7f-c43e-5809-a1f6-61a504e94504",
+            "label": "Superstition Instinct",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:instinct-crown-superstition",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an instinct.",
+        "rollOption": "instinct-crown-boon"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["unarmed-damage"],
@@ -6871,6 +7485,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-jolt-coil-armor",
+        "choices": [
+          {
+            "value": "6117940b-6a89-5e65-a9bc-3e6fce49676d",
+            "label": "Jolt Coil",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "bfad060a-cbdf-5fd8-8d41-171ca9ca0964",
+            "label": "Jolt Coil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "fccab321-87c0-57b0-9024-0d20df3ce109",
+            "label": "Jolt Coil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "jolt-coil"
+      },
+      {
         "key": "Resistance",
         "type": ["electricity"],
         "value": 2,
@@ -6954,7 +7618,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-jolt-coil-weapon",
+        "choices": [
+          {
+            "value": "6117940b-6a89-5e65-a9bc-3e6fce49676d",
+            "label": "Jolt Coil",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "bfad060a-cbdf-5fd8-8d41-171ca9ca0964",
+            "label": "Jolt Coil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "fccab321-87c0-57b0-9024-0d20df3ce109",
+            "label": "Jolt Coil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jolt-coil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "jolt-coil"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.mHIdEC7RX6isILiM"
     },
@@ -7097,6 +7812,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-jyoti-s-feather-armor",
+        "choices": [
+          {
+            "value": "5b5be6e4-b8f6-51f7-9004-6235fbf13a6d",
+            "label": "Jyoti's Feather",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8c2881d0-f996-5753-bdad-9d26c02f3b1c",
+            "label": "Jyoti's Feather (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "56a95e0a-32b7-5939-a234-0bccbeb04c01",
+            "label": "Jyoti's Feather (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "jyotis-feather"
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "item",
@@ -7217,7 +7982,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-jyoti-s-feather-weapon",
+        "choices": [
+          {
+            "value": "5b5be6e4-b8f6-51f7-9004-6235fbf13a6d",
+            "label": "Jyoti's Feather",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8c2881d0-f996-5753-bdad-9d26c02f3b1c",
+            "label": "Jyoti's Feather (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "56a95e0a-32b7-5939-a234-0bccbeb04c01",
+            "label": "Jyoti's Feather (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:jyotis-feather-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "jyotis-feather"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.KJXNLvJAl0mNnGvn"
     },
@@ -7292,6 +8108,70 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-life-boosting-oil",
+        "choices": [
+          {
+            "value": "7626781b-0681-5ebb-b998-89b9e56d30ed",
+            "label": "Life-Boosting Oil (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-boosting-oil-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "083ddeb3-3748-568c-a6b4-7bdb89c1e8ce",
+            "label": "Life-Boosting Oil (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-boosting-oil-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "9fd930fd-fb03-5720-ba3f-1c71ab1048ef",
+            "label": "Life-Boosting Oil (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-boosting-oil-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b7bdd760-d4b4-5d1f-bb04-0e4144c9e205",
+            "label": "Life-Boosting Oil (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-boosting-oil-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "life-boosting-oil"
+      },
       {
         "key": "FastHealing",
         "value": 3,
@@ -7407,6 +8287,97 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-life-shot",
+        "choices": [
+          {
+            "value": "f8baaa0a-4004-5f38-9f29-bd94f79571ea",
+            "label": "Life Shot (Minor)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-minor",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "082d8c58-1285-57e6-ad88-258191b910ad",
+            "label": "Life Shot (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "469dba01-e265-5ba7-b257-07a2975d2b80",
+            "label": "Life Shot (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0a47ccee-9e4e-5c4f-88e7-9937a8d06318",
+            "label": "Life Shot (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "326b6ada-a186-5174-a9ed-ff29f9383aed",
+            "label": "Life Shot (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "095f37dc-6394-54a4-97df-12f83ec8ec46",
+            "label": "Life Shot (True)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:life-shot-true",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "life-shot"
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "item",
@@ -7516,6 +8487,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-lightweave-scarf-armor",
+        "choices": [
+          {
+            "value": "3efd46c1-f9a7-5605-88a3-51847430a097",
+            "label": "Lightweave Scarf",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:lightweave-scarf",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a6ef91bb-f880-5711-9e4d-65cb37c8dd63",
+            "label": "Lightweave Scarf (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:lightweave-scarf-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "904da15c-201b-5761-8829-2d1e50e0ec38",
+            "label": "Lightweave Scarf (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:lightweave-scarf-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "lightweave-scarf"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
@@ -7804,7 +8825,100 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-numbing-tonic",
+        "choices": [
+          {
+            "value": "7e9da21e-0217-5fd2-b23a-5d06469a09fc",
+            "label": "Numbing Tonic (Minor)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-minor",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "12764d61-3956-56e2-97aa-858a1b4cbcce",
+            "label": "Numbing Tonic (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "1d13c8c7-8789-5c18-8bd8-703230227a8e",
+            "label": "Numbing Tonic (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2f7c4d42-6ad8-5e7a-a2fb-ec86d20d8931",
+            "label": "Numbing Tonic (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "23d6acab-6479-5005-9d4e-29874be1db5c",
+            "label": "Numbing Tonic (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "e4e3d207-b28f-545e-b470-ffc1ad4468eb",
+            "label": "Numbing Tonic (True)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:numbing-tonic-true",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "numbing-tonic"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.rmVyC6Xb8O9WPvZz"
     },
@@ -7882,6 +8996,74 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ooze-ammunition",
+        "choices": [
+          {
+            "value": "d32edf19-b4d0-56de-89b0-0fe20d62815c",
+            "label": "Ooze Ammunition (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ooze-ammunition-lesser",
+                  "parent:origin:item:ammo:slug:ooze-ammunition-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "af4b698d-a258-5a62-93db-62b4172cdcf8",
+            "label": "Ooze Ammunition (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ooze-ammunition-moderate",
+                  "parent:origin:item:ammo:slug:ooze-ammunition-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "61e1470a-f864-5438-b8dd-8922339ed820",
+            "label": "Ooze Ammunition (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ooze-ammunition-greater",
+                  "parent:origin:item:ammo:slug:ooze-ammunition-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c2db0210-c46c-5198-b86b-656a4d216bb2",
+            "label": "Ooze Ammunition (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:ooze-ammunition-major",
+                  "parent:origin:item:ammo:slug:ooze-ammunition-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "ooze-ammunition"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["land-speed"],
@@ -8118,6 +9300,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-phantasmal-doorknob-armor",
+        "choices": [
+          {
+            "value": "2817dfe9-6f3c-57d2-9d6d-d40f84d6d9d5",
+            "label": "Phantasmal Doorknob",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "15ed512d-a3b4-5866-8e7a-ad49fd4c2db0",
+            "label": "Phantasmal Doorknob (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b4abe0bb-12f7-5032-9957-c29d6c1c22e8",
+            "label": "Phantasmal Doorknob (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "phantasmal-doorknob"
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["skill:thievery"],
         "type": "item",
@@ -8187,7 +9419,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-phantasmal-doorknob-weapon",
+        "choices": [
+          {
+            "value": "2817dfe9-6f3c-57d2-9d6d-d40f84d6d9d5",
+            "label": "Phantasmal Doorknob",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "15ed512d-a3b4-5866-8e7a-ad49fd4c2db0",
+            "label": "Phantasmal Doorknob (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b4abe0bb-12f7-5032-9957-c29d6c1c22e8",
+            "label": "Phantasmal Doorknob (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:phantasmal-doorknob-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "phantasmal-doorknob"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.5mQ51m1lqQlvfi8n"
     },
@@ -8254,6 +9537,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-poison-fizz",
+        "choices": [
+          {
+            "value": "88386a85-f7ab-5c54-99e6-1cee5b006f9e",
+            "label": "Poison Fizz (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poison-fizz-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5e97b5fd-a609-5fb9-9522-1910becf87e9",
+            "label": "Poison Fizz (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poison-fizz-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4da4d7a3-9aca-5fef-aa05-02de898f7669",
+            "label": "Poison Fizz (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poison-fizz-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "poison-fizz"
+      },
       {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
@@ -8408,6 +9741,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-resonating-fork-armor",
+        "choices": [
+          {
+            "value": "598f95cc-3d2f-556a-9b07-3a3d8fd8d180",
+            "label": "Resonating Fork",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:resonating-fork",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6f39e1ee-81bd-58fe-bc5b-c3547461c36c",
+            "label": "Resonating Fork (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:resonating-fork-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "48784b8f-81ac-5598-a5fa-b74e4ecdac0f",
+            "label": "Resonating Fork (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:resonating-fork-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "resonating-fork"
+      },
+      {
         "key": "Resistance",
         "type": ["sonic"],
         "value": 2,
@@ -8517,6 +9900,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-rime-crystal-armor",
+        "choices": [
+          {
+            "value": "c21f4ac3-4701-5438-96da-02255ee7339e",
+            "label": "Rime Crystal",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "7f36140e-4230-5641-ac0d-8568406b8262",
+            "label": "Rime Crystal (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6a2c210f-52e8-5c30-bb32-e0d7f4f98a27",
+            "label": "Rime Crystal (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "rime-crystal"
+      },
+      {
         "key": "Resistance",
         "type": ["cold"],
         "value": 2,
@@ -8600,7 +10033,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-rime-crystal-weapon",
+        "choices": [
+          {
+            "value": "c21f4ac3-4701-5438-96da-02255ee7339e",
+            "label": "Rime Crystal",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "7f36140e-4230-5641-ac0d-8568406b8262",
+            "label": "Rime Crystal (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6a2c210f-52e8-5c30-bb32-e0d7f4f98a27",
+            "label": "Rime Crystal (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:rime-crystal-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "rime-crystal"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.IiDpW99zrh7zHxmQ"
     },
@@ -8740,6 +10224,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-sanguine-fang-armor",
+        "choices": [
+          {
+            "value": "e120ce11-7bf7-515b-86f2-9b028c94ea9e",
+            "label": "Sanguine Fang",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "da3f4caf-0f58-535e-bae5-3fe01bc858af",
+            "label": "Sanguine Fang (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d7756565-a2b0-59e2-91cf-16aceb4dc5c0",
+            "label": "Sanguine Fang (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "sanguine-fang"
+      },
+      {
         "key": "Resistance",
         "type": ["bleed"],
         "value": 3,
@@ -8848,7 +10382,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-sanguine-fang-weapon",
+        "choices": [
+          {
+            "value": "e120ce11-7bf7-515b-86f2-9b028c94ea9e",
+            "label": "Sanguine Fang",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "da3f4caf-0f58-535e-bae5-3fe01bc858af",
+            "label": "Sanguine Fang (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d7756565-a2b0-59e2-91cf-16aceb4dc5c0",
+            "label": "Sanguine Fang (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:sanguine-fang-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "sanguine-fang"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.bKEx53h6lrFOYvpu"
     },
@@ -9456,6 +11041,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-saurian-spike-armor",
+        "choices": [
+          {
+            "value": "ba605349-b210-5c3c-af2c-056d6515c0c0",
+            "label": "Saurian Spike",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:saurian-spike",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2c98ed6b-7583-57cf-b366-22f273027471",
+            "label": "Saurian Spike (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:saurian-spike-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "44f69e25-a767-5bfa-92dc-874443dc2001",
+            "label": "Saurian Spike (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:saurian-spike-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "saurian-spike"
+      },
+      {
         "key": "Sense",
         "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
         "acuity": "imprecise",
@@ -9745,6 +11380,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-silver-crescent",
+        "choices": [
+          {
+            "value": "24ea79fa-fb9b-5dc9-8689-052372b50b3f",
+            "label": "Silver Crescent (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-crescent-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "db1b5138-3b48-5f0f-81bb-243fa109b485",
+            "label": "Silver Crescent (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-crescent-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a5b7defd-6288-5d3e-8ef5-130a3cd81fef",
+            "label": "Silver Crescent (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:silver-crescent-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "silver-crescent"
+      },
+      {
         "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "item",
@@ -9986,6 +11671,70 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-soothing-tonic",
+        "choices": [
+          {
+            "value": "dd8b559f-43b0-5e3e-b745-31aa62bf270e",
+            "label": "Soothing Tonic (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soothing-tonic-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "dbac65a5-904a-56f5-932a-077772abce57",
+            "label": "Soothing Tonic (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soothing-tonic-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5bf6e78a-f1bd-505b-83ea-66926b8d9c20",
+            "label": "Soothing Tonic (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soothing-tonic-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3f177d43-7181-543a-996b-12584b178a0e",
+            "label": "Soothing Tonic (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soothing-tonic-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "soothing-tonic"
+      },
       {
         "key": "FastHealing",
         "value": 1,
@@ -11205,6 +12954,56 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "effect-tome-of-restorative-cleansing",
+        "choices": [
+          {
+            "value": "19eb54fa-b973-5b97-86c4-71cd37b6921f",
+            "label": "Tome of Restorative Cleansing (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:tome-of-restorative-cleansing-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5477ca5d-1a37-50b4-9f21-6e5d9db13a19",
+            "label": "Tome of Restorative Cleansing (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:tome-of-restorative-cleansing-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c0781331-8794-596d-9390-0fad8c732c27",
+            "label": "Tome of Restorative Cleansing (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:tome-of-restorative-cleansing-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "tome-of-restorative-cleansing"
+      },
+      {
         "key": "TempHP",
         "value": "@item.value"
       }
@@ -11597,7 +13396,44 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-warding-statuette-armor",
+        "choices": [
+          {
+            "value": "b3618266-1a0c-58d0-8811-b77ecf5dde1b",
+            "label": "Warding Statuette",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:warding-statuette",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "20d3a4d9-d06a-5eb2-a243-ea467d2a0ee6",
+            "label": "Warding Statuette (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:warding-statuette-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "warding-statuette"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Empv55xGFN2Mk3cu"
     },
@@ -12149,6 +13985,56 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-wyrm-spindle-armor",
+        "choices": [
+          {
+            "value": "8346f7b1-32aa-5f23-aa30-6959b120c0b0",
+            "label": "Wyrm Spindle",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:wyrm-spindle",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4698cc9c-2eb7-55b3-8eab-48a4383d531a",
+            "label": "Wyrm Spindle (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:wyrm-spindle-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "af77aa90-8a1a-5908-9f70-e93f7915cb1d",
+            "label": "Wyrm Spindle (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:wyrm-spindle-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "wyrm-spindle"
+      },
       {
         "key": "Resistance",
         "type": ["fire", "force", "mental", "spirit"],
