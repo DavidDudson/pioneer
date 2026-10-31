@@ -64,7 +64,7 @@ async function render({ loading = false, save, notice, leading = false }: Option
   projected.setAttribute('frInlineEditor', '');
   if (leading) {
     projected.append(document.createElement('button'), editorHost);
-    editorHost.dataset.autofocus = '';
+    editorHost.dataset['autofocus'] = '';
   }
   editor.setInput('ariaLabel', 'Name');
   editor.setInput('value', edit.draft());
