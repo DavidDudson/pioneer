@@ -42,6 +42,7 @@ const incoming = {
   toName: 'Kyra',
   item: longsword,
   itemName: 'Longsword',
+  contents: [],
   asGiver: false,
   asRecipient: true,
 };
@@ -118,7 +119,7 @@ async function open(transfers: readonly object[]): Promise<Opened> {
   });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(() => {
-    expect(root.textContent).toMatch(/Longsword|4 gp|No offers waiting/u);
+    expect(root.textContent).toMatch(/Longsword|Backpack|4 gp|No offers waiting/u);
   });
   return { root, http };
 }
@@ -132,6 +133,19 @@ describe('CampaignTransfersPanel', () => {
     expect(buttons(root, 'Accept')).toHaveLength(1);
     expect(buttons(root, 'Decline')).toHaveLength(1);
     expect(buttons(root, 'Withdraw')).toHaveLength(1);
+  });
+
+  it('lists what an offered container holds, so the recipient sees it before accepting', async () => {
+    const { root } = await open([{ ...incoming, itemName: 'Backpack', contents: ['Rope', 'Rations', 'Torch'] }]);
+
+    expect(root.textContent).toContain('Backpack: Seelah offers it to Kyra');
+    expect(root.textContent).toContain('With it: Rope, Rations, and Torch');
+  });
+
+  it('adds nothing about contents for an offer that holds none', async () => {
+    const { root } = await open([incoming]);
+
+    expect(root.textContent).not.toContain('With it:');
   });
 
   it('shows a coin offer by its coins, with the same answers', async () => {

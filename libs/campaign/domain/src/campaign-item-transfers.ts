@@ -127,6 +127,8 @@ export const PendingItemTransferView = PendingOffer.extend({
   kind: z.literal('item'),
   item: ReviewedItemId,
   itemName: ReviewedName,
+  /** The names of the lines inside the offered line, so the recipient sees what comes with it; empty when none. */
+  contents: z.array(ReviewedName),
 });
 export type PendingItemTransferView = z.output<typeof PendingItemTransferView>;
 

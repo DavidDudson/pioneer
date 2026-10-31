@@ -40,6 +40,13 @@ export class CampaignTransferRow {
     };
   });
 
+  /** What comes with an offered container, as a list in the active language; empty for an offer that carries nothing. */
+  protected readonly includes = computed((): string => {
+    const transfer = this.transfer();
+    const inside = transfer.kind === 'item' ? transfer.contents : [];
+    return inside.length === 0 ? '' : new Intl.ListFormat(this.#i18n.getActiveLang()).format(inside);
+  });
+
   protected readonly accept = async (): Promise<void> => this.#store.accept(this.transfer().id);
   protected readonly decline = async (): Promise<void> => this.#store.decline(this.transfer().id);
   protected readonly withdraw = async (): Promise<void> => this.#store.withdraw(this.transfer().id);

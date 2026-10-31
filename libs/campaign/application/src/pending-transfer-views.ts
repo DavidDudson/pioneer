@@ -32,6 +32,7 @@ interface Sides {
 /** The sides of an item offer, and the name of the line on offer. */
 interface ItemSides extends Sides {
   readonly itemName: ReviewedName;
+  readonly contents: readonly ReviewedName[];
 }
 
 /** A coin offer as the actor sees it. */
@@ -53,7 +54,7 @@ function coinView(actor: UserId, transfer: CoinTransfer, { giver, recipient }: S
 function itemView(
   actor: UserId,
   transfer: ItemTransfer,
-  { giver, recipient, itemName }: ItemSides,
+  { giver, recipient, itemName, contents }: ItemSides,
 ): PendingTransferView {
   return {
     kind: 'item',
@@ -64,6 +65,7 @@ function itemView(
     toName: recipient.name,
     item: transfer.item,
     itemName,
+    contents: [...contents],
     asGiver: ownsLive(actor, giver),
     asRecipient: ownsLive(actor, recipient),
   };
@@ -91,7 +93,9 @@ export async function pendingTransferViews(
         return coinView(actor, transfer, { giver, recipient });
       }
       const line = await lines.describe(transfer.from, transfer.item);
-      return line === undefined ? undefined : itemView(actor, transfer, { giver, recipient, itemName: line.name });
+      return line === undefined
+        ? undefined
+        : itemView(actor, transfer, { giver, recipient, itemName: line.name, contents: line.contents });
     }),
   );
   return views.filter((view) => view !== undefined);

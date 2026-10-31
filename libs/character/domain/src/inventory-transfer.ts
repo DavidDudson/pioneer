@@ -25,7 +25,7 @@ export type InventoryTransfer =
 const COINS = [Coin.Platinum, Coin.Gold, Coin.Silver, Coin.Copper] as const;
 
 /** The line `id` and everything inside it, however deep. */
-function lineWithContents(items: readonly InventoryItem[], id: InventoryItemId): readonly InventoryItem[] {
+export function lineWithContents(items: readonly InventoryItem[], id: InventoryItemId): readonly InventoryItem[] {
   const taken = new Set<InventoryItemId>([id]);
   let grew = true;
   while (grew) {
