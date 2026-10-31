@@ -45,6 +45,7 @@ export {
 } from './player-core-classes';
 export {
   DEDICATION_CLASS,
+  GRANTING_CLASS,
   DEDICATION_FIXTURES,
   dedicationSlot,
   type DedicationFixture,

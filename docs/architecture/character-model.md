@@ -441,7 +441,10 @@ variant archetype can change it. The engine adds this rule to every feat slot's 
 unmet is offered as unavailable, with the reason and the archetype it waits on, never hidden.
 
 A feat slot reads the lock over the feats picked in the feat slots before it (lower level first, in the order found
-within a level); a feature's grant is not counted. Every dedication taken so far with fewer than its lock of other
+within a level) and the feats a feature grants by the slot's level (#625). A grant counts when its origin does not pass
+through a pick in a feat slot, so a pick, and what a pick grants, count by their slot. Counting is by feat: a feat
+granted by two features, or granted and also picked, counts once, where the same feat picked in two slots counts twice
+(the lock counts by pick). Every dedication taken so far with fewer than its lock of other
 archetype feats keeps another archetype's dedication out of reach, and the offer names the first such archetype with
 the feats still needed (`FeatOption.locked`). `selectSlot` refuses a locked dedication
 (`character.validation.dedicationLocked`), and a taken one reads invalid at its slot
