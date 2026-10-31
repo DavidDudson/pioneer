@@ -14,10 +14,9 @@ import {
   NumericItemProperty,
   RuneGrade,
   SlotKey,
-  slugName,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BaseWeapon, Slug } from '@pioneer/rules/sdk';
+import type { BaseWeapon, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
 import type { ActiveItem } from './active-items';
@@ -30,16 +29,17 @@ import { encumberedRoots } from './encumbered-roots';
 import { fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
 import { environmentRoots } from './environments';
-import type { Inventory } from './inventory';
+import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
 import { itemRunes, workingPropertyRunes } from './item-runes';
+import { itemSlugs, NO_PICKED_ITEMS, ownedItems, pickedItems } from './owned-items';
+import type { PickedItems } from './owned-items';
 import { NO_RUNES } from './rune-etching';
 import { attributesAt } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { toggleStates } from './toggle-commands';
-import { uniqueSlug } from './unique-slug';
 
 /** What the worn armour and held weapons give the statistics. */
 export interface EquippedInputs {
@@ -61,12 +61,13 @@ const CONSUMABLE = Trait.parse('consumable');
 function armorInputs(
   active: ActiveItem | undefined,
   rules: ModifierInputs,
+  picked: readonly RuleSlug[],
 ): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
   if (active?.entry.kind !== ContentKind.Armor) {
     return {};
   }
   const { item, entry } = active;
-  const { numbers } = alteredItem(rules, entry);
+  const { numbers } = alteredItem(rules, entry, picked);
   const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
   const dexCap = numbers.get(NumericItemProperty.DexCap);
   const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
@@ -82,25 +83,41 @@ function armorInputs(
   return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };
 }
 
+/** The rule elements in play and their facts, with the items the character's `ChoiceSet`s picked, when it knows them. */
+export interface PickingRules extends ModifierInputs {
+  readonly picked?: PickedItems;
+}
+
+/** What else a held weapon's inputs read: the base weapons a deity favours, the rules in play, and the items' names and picks. */
+interface WeaponContext {
+  readonly favored: ReadonlySet<BaseWeapon>;
+  readonly rules: ModifierInputs;
+  /** Each inventory line's slug (`itemSlugs`). */
+  readonly slugs: ReadonlyMap<InventoryItemId, Slug>;
+  readonly picked: PickedItems;
+}
+
 /**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
 function weaponInputs(
   active: readonly ActiveItem[],
-  { favored, rules }: { readonly favored: ReadonlySet<BaseWeapon>; readonly rules: ModifierInputs },
+  { favored, rules, slugs, picked }: WeaponContext,
 ): readonly WeaponInputs[] {
-  const taken = new Set<Slug>();
   return active.flatMap((each): WeaponInputs[] => {
     const { entry } = each;
     if (entry.kind !== ContentKind.Weapon) {
       return [];
     }
-    const slug = uniqueSlug(slugName(entry.slug), taken);
-    taken.add(slug);
+    const slug = slugs.get(each.item.id);
+    if (slug === undefined) {
+      return [];
+    }
+    const flags = picked.get(slug);
     const runes = itemRunes(each.item, entry);
     const potency = runes.potency ?? entry.data.itemBonus;
-    const altered = alteredItem(rules, entry);
+    const altered = alteredItem(rules, entry, flags);
     const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
     return [
       {
@@ -119,6 +136,7 @@ function weaponInputs(
         splash: entry.data.splash,
         quantity: entry.traits.includes(CONSUMABLE) ? ItemCount.parse(each.item.quantity) : undefined,
         favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
+        picked: flags,
         origin: originOf(each),
       },
     ];
@@ -133,7 +151,7 @@ export interface EquippedContext {
    * The rule elements in play, whose `ItemAlteration`s change the equipment (`alteredItem`); none when absent. Asked
    * for only when armour or a weapon is equipped, as reading them resolves the character's grants.
    */
-  readonly rules?: () => ModifierInputs;
+  readonly rules?: () => PickingRules;
 }
 
 /**
@@ -147,16 +165,25 @@ export function equippedInputs(
   content: ItemContent,
   { favored = new Set(), rules = () => NO_MODIFIERS }: EquippedContext = {},
 ): EquippedInputs {
+  const slugs = itemSlugs(inventory, content);
   const active = itemsIn(inventory, content, equippedState);
   const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
   const altering = active.some(({ entry }) => entry.kind === ContentKind.Armor || entry.kind === ContentKind.Weapon);
-  const inPlay = altering ? rules() : NO_MODIFIERS;
-  return { ...armorInputs(worn, inPlay), weapons: weaponInputs(active, { favored, rules: inPlay }) };
+  const inPlay: PickingRules = altering ? rules() : NO_MODIFIERS;
+  const picked = inPlay.picked ?? NO_PICKED_ITEMS;
+  const wornSlug = worn === undefined ? undefined : slugs.get(worn.item.id);
+  const wornPicks = wornSlug === undefined ? [] : (picked.get(wornSlug) ?? []);
+  return {
+    ...armorInputs(worn, inPlay, wornPicks),
+    weapons: weaponInputs(active, { favored, rules: inPlay, slugs, picked }),
+  };
 }
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
 export interface EquippedRules extends ModifierInputs {
   readonly toggles: readonly ToggleSlot[];
+  /** The items the character's `ChoiceSet`s over owned items picked (ADR-0075). */
+  readonly picked: PickedItems;
 }
 
 /**
@@ -184,6 +211,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     roots,
     lookup,
     level,
+    owned: ownedItems(document.inventory, content),
     attributes: attributesAt(document, slots)(level),
     situation: [
       ...(slots.situation ?? []),
@@ -232,7 +260,12 @@ export function equippedRules(document: CharacterDocument, content: ItemContent,
   const resolution = equippedResolution(document, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
   const rules = rulesOf(resolution, { inventory: document.inventory, content }, fromInventory);
-  return { rules, facts: factsUnderForm({ rules, facts: resolution.facts }), toggles };
+  return {
+    rules,
+    facts: factsUnderForm({ rules, facts: resolution.facts }),
+    toggles,
+    picked: pickedItems(resolution, slots.lookup),
+  };
 }
 
 /**

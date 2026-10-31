@@ -56,7 +56,9 @@ const distinct = (found: readonly FacetValue[]): readonly FacetValue[] => [...ne
 function slotQuery(grants: GrantResolution, lookup: ContentLookup, slot: SlotKey): ChoiceQuery | undefined {
   const found = [...grants.open, ...grants.answered].find(({ key }) => key === slot);
   const element = found === undefined ? undefined : lookup.entry(found.origin.entry)?.rules[found.rule];
-  return element?.key === RuleElementKey.ChoiceSet && !Array.isArray(element.choices) ? element.choices : undefined;
+  return element?.key === RuleElementKey.ChoiceSet && !Array.isArray(element.choices) && 'kind' in element.choices
+    ? element.choices
+    : undefined;
 }
 
 /**
