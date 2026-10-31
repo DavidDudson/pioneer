@@ -165,3 +165,24 @@ export const PLANNING_SKILLS_TIMELINE: readonly LevelTimelineRow[] = [
     picks: [SKILL_PICK, BOOST_PICK],
   },
 ];
+
+/** A 4th-level fighter whose feat planned for 4th level no longer has its prerequisites (#493). */
+export const BROKEN_PLAN_TIMELINE: readonly LevelTimelineRow[] = [
+  {
+    level: FIRST,
+    current: false,
+    lines: [featLine('fighter:2', ChoiceState.Filled, { selection: { name: 'Power Attack' } })],
+    picks: [],
+  },
+  {
+    level: FOURTH,
+    current: true,
+    lines: [
+      {
+        ...featLine('fighter:6', ChoiceState.Invalid, { selection: { name: 'Lunge' }, level: FOURTH }),
+        reason: message('rules.choices.invalid.prerequisitesNotMet'),
+      },
+    ],
+    picks: [],
+  },
+];

@@ -3,6 +3,7 @@ import { expect, within } from 'storybook/test';
 
 import {
   BARD_TIMELINE,
+  BROKEN_PLAN_TIMELINE,
   FIGHTER_TIMELINE,
   PLANNING_SKILLS_TIMELINE,
   PLANNING_TIMELINE,
@@ -58,5 +59,14 @@ export const PlanningSkillsAndBoosts: LevelTimelineStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByText('Level 5 skill increase')[0]).toBeVisible();
+  },
+};
+
+/** A planned feat whose prerequisites no longer hold: the level is flagged, and the slot says why. */
+export const BrokenPlan: LevelTimelineStory = {
+  args: { rows: BROKEN_PLAN_TIMELINE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Plan breaks here')).toBeVisible();
   },
 };

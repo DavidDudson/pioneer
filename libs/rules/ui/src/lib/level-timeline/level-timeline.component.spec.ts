@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import {
   BARD_TIMELINE,
+  BROKEN_PLAN_TIMELINE,
   FIGHTER_TIMELINE,
   PLANNING_SKILLS_TIMELINE,
   PLANNING_TIMELINE,
@@ -69,6 +70,14 @@ describe(LevelTimeline, () => {
     const shown = [...host.querySelectorAll('pio-level-timeline-level')];
     expect(shown.at(1)?.querySelectorAll('fr-inline-field')).toHaveLength(2);
     expect(host.querySelector('fr-select')).toBeNull();
+  });
+
+  it('flags the level where a pick breaks, with the reason on its slot, and no other level', async () => {
+    const host = await render(BROKEN_PLAN_TIMELINE);
+    const shown = [...host.querySelectorAll('pio-level-timeline-level')];
+    expect(shown.at(0)?.textContent).not.toContain('Plan breaks here');
+    expect(shown.at(1)?.textContent).toContain('Plan breaks here');
+    expect(shown.at(1)?.textContent).toContain('prerequisites');
   });
 
   it('shows placeholders while loading', async () => {
