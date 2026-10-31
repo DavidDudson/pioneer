@@ -38,6 +38,7 @@ export { statisticContent, variantRulesInPlay } from './statistic-content';
 export { EngineMessage } from './messages';
 export { type ModifierInputs, NO_MODIFIERS, NO_SITUATION, RuleId, ruleIdOf, RuleInPlay } from './rule-in-play';
 export { ranksInPlay } from './ranks-in-play';
+export { type ResolvedDamageNode, resolveDamageNode } from './inline-damage';
 export { type ResolvedDamageFormula, resolveDamageFormula } from './resolve-damage-formula';
 export { type SpellAtRank, type SpellCast, spellAtRank } from './spell-at-rank';
 export { type AncestryVision, type SenseInPlay, sensesInPlay } from './senses-in-play';
