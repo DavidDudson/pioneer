@@ -42,6 +42,8 @@ interface SlotScope {
   readonly nested: boolean;
   /** The pick of the slot it is `within`; undefined when that slot is open, or the slot is within none. */
   readonly parent: ContentId | undefined;
+  /** The slot's own pick, which stays on offer even from an unsupported pack. */
+  readonly held?: ContentId | undefined;
 }
 
 /** Whether the slot offers `entry`: of its kind, and when nested, belonging to the parent pick or to none. */
@@ -55,15 +57,17 @@ function byLabel(left: OfferedOption, right: OfferedOption): number {
   return byCodeUnit(left.label, right.label) || byCodeUnit(left.value, right.value);
 }
 
-/** Every entry the slot offers, sorted by name, then id. */
+/** Every entry the slot offers, sorted by name, then id; one of an unsupported pack only if it is the slot's pick. */
 function offered(scope: SlotScope): OfferedOption[] {
-  const entries = scope.lookup.ofKind(scope.kind).filter((entry) => offers(scope, entry));
+  const entries = scope.lookup
+    .ofKind(scope.kind)
+    .filter((entry) => offers(scope, entry) && (entry.facts?.unsupported !== true || entry.id === scope.held));
   return entries.map((entry) => ({ value: entry.id, label: entry.name, summary: undefined })).toSorted(byLabel);
 }
 
 /** `definition` with its offer, worked out the first time it is read, and `pick`. */
 function slotOf(definition: RootSlotDefinition, scope: SlotScope, pick: ContentId | undefined): RootSlot {
-  const offer = new Offer(() => offered(scope));
+  const offer = new Offer(() => offered({ ...scope, held: pick }));
   return {
     ...definition,
     pick,
