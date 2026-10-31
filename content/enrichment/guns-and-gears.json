@@ -2641,7 +2641,8 @@
   },
   "weapon:dragon-mouth-pistol": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200",
+    "page": 152
   },
   "weapon:drake-rifle-acid": {
     "book": "guns-and-gears",
@@ -2904,7 +2905,8 @@
   },
   "weapon:three-peaked-tree": {
     "book": "guns-and-gears",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223",
+    "page": 159
   },
   "weapon:tigers-claw": {
     "book": "guns-and-gears",

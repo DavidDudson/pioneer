@@ -2838,7 +2838,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200",
+        "page": 152
       }
     ],
     "description": [
@@ -11377,7 +11378,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223",
+        "page": 159
       }
     ],
     "description": [

@@ -707,7 +707,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+        "page": 295
       }
     ],
     "description": [],
@@ -744,7 +745,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+        "page": 295
       }
     ],
     "description": [],
@@ -877,7 +879,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+        "page": 295
       }
     ],
     "description": [],

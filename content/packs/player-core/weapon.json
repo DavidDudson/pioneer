@@ -778,7 +778,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=420"
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=420",
+        "page": 279
       }
     ],
     "description": [
