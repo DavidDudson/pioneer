@@ -7,6 +7,7 @@ import { senseElement, withSense } from './translate-senses';
 import type { SenseContext } from './translate-senses';
 
 export type { FoundrySenses } from './translate-senses';
+export { withFormSpeedBrackets } from './translate-form-speeds';
 
 /**
  * Foundry's `BattleForm` as Pioneer's: the form's `overrides` become `form`, each of its `brackets` (`start` rank and
