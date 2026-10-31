@@ -776,6 +776,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eagle Knight Dedication",
+          "predicate": ["feat:eagle-knight-dedication"]
+        },
+        {
+          "text": "expert in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "two"
       },
@@ -1618,6 +1632,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Prophet Spellcasting",
+          "predicate": ["feat:basic-prophet-spellcasting"]
+        },
+        {
+          "text": "master in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "13175df9-a27d-5811-b842-d4dc0169f425"
     }
   },
@@ -2366,6 +2394,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Ulfen Guard Dedication",
+          "predicate": ["feat:ulfen-guard-dedication"]
+        },
+        {
+          "text": "you can't already use the Rage action"
+        }
+      ],
       "archetype": "88b2460d-0019-530b-b26e-ec3eaa447de0"
     }
   },
@@ -2783,6 +2820,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Commitment to Justice",
+          "predicate": ["feat:commitment-to-justice"]
+        },
+        {
+          "text": "Reactive Strike",
+          "predicate": ["feat:reactive-strike"]
+        }
+      ],
       "archetype": "9733bdf2-5edb-5f68-b4fd-86ababb14e84"
     }
   },
@@ -2837,6 +2884,20 @@
               "text": "master in Performance; Impressive Performance"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Impressive Performance",
+          "predicate": ["feat:impressive-performance"]
         }
       ]
     }
@@ -3492,6 +3553,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "member of the Lion Blades"
+        },
+        {
+          "text": "trained in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "097e9e69-92c2-5c09-879a-62cd87e46d5d"
     }
   },
@@ -3734,6 +3808,20 @@
             {
               "type": "text",
               "text": "Expert Prophet Spellcasting; legendary in Society"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Prophet Spellcasting",
+          "predicate": ["feat:expert-prophet-spellcasting"]
+        },
+        {
+          "text": "legendary in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 4]
             }
           ]
         }
@@ -4249,6 +4337,27 @@
             {
               "type": "text",
               "text": "trained in Mercantile Lore and Society; Charisma +2"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Mercantile Lore and Society",
+          "predicate": [
+            {
+              "gte": ["skill:lore:mercantile:rank", 1]
+            },
+            {
+              "gte": ["skill:society:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
             }
           ]
         }
@@ -5749,6 +5858,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eagle Knight Dedication",
+          "predicate": ["feat:eagle-knight-dedication"]
+        },
+        {
+          "text": "master in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -6024,6 +6147,28 @@
               "text": "master in Stealth; trained in Survival; Terrain Stalker"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Terrain Stalker",
+          "predicate": ["feat:terrain-stalker"]
         }
       ]
     }
@@ -6409,6 +6554,14 @@
               "text": "member of the Wylderhearts; you're from Kyonin"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "member of the Wylderhearts"
+        },
+        {
+          "text": "you're from Kyonin"
         }
       ],
       "archetype": "6d25f3cb-6250-5126-9b21-dce549e2aaef"

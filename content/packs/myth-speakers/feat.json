@@ -738,6 +738,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Godling Dedication",
+          "predicate": ["feat:godling-dedication"]
+        },
+        {
+          "text": "hero-god accomplishment"
+        }
       ]
     }
   },
@@ -1082,6 +1091,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Godling Dedication",
+          "predicate": ["feat:godling-dedication"]
+        },
+        {
+          "text": "hero-god accomplishment"
+        }
       ]
     }
   },
@@ -1193,6 +1211,15 @@
               "text": "Godling Dedication; hero-god accomplishment"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Godling Dedication",
+          "predicate": ["feat:godling-dedication"]
+        },
+        {
+          "text": "hero-god accomplishment"
         }
       ]
     }

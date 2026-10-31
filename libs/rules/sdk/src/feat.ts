@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { ActionData, Skills, Uses } from './action';
 import { AttributeBoost } from './attribute';
 import { ContentId, Slug } from './content-id';
+import { ContentText } from './content-text';
 import { Predicate } from './predicate';
 import { RichText } from './rich-text';
 import { uniqueItems } from './unique-items';
@@ -33,6 +34,16 @@ export type Take = z.infer<typeof Take>;
 export const UNLIMITED = 'unlimited';
 
 /**
+ * One `;`-separated clause of a feat's printed prerequisites (`trained in Athletics`) with the predicate it reads as.
+ * A clause without one can't be checked, so it reads as unknown (ADR-0002).
+ */
+export const PrerequisiteClause = z.strictObject({
+  text: ContentText,
+  predicate: Predicate.optional(),
+});
+export type PrerequisiteClause = z.infer<typeof PrerequisiteClause>;
+
+/**
  * A feat's `data` on the `ContentEntry` envelope. What it does is in `rules`; this is how it is taken and used. Its
  * sheet placement override is the envelope's `display`.
  */
@@ -46,6 +57,11 @@ export const FeatData = z.strictObject({
    * unknown, never as met (ADR-0002).
    */
   prerequisitePredicate: Predicate.optional(),
+  /**
+   * Each clause of `prerequisites` with its own predicate, so a picker can say which clause is unmet; the clauses in
+   * the order printed. Absent where the text isn't plain clauses, so the feat reads as one unknown prerequisite.
+   */
+  prerequisiteClauses: z.array(PrerequisiteClause).min(1).readonly().optional(),
   /** It can only be taken at 1st level (an ancestry's lineage feats). */
   onlyLevel1: z.boolean().optional(),
   /** How many times a character can take it, or `unlimited` (Additional Lore); absent for once, as in Foundry. */

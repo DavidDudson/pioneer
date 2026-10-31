@@ -354,6 +354,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lepidstadt Surgeon Dedication",
+          "predicate": ["feat:lepidstadt-surgeon-dedication"]
+        },
+        {
+          "text": "master in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
     }
   },
@@ -1231,6 +1245,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Runelord Dedication",
+          "predicate": ["feat:runelord-dedication"]
+        },
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        }
       ]
     }
   },
@@ -1866,6 +1894,19 @@
               "text": "trained in Medicine; attended the University of Lepidstadt"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "attended the University of Lepidstadt"
         }
       ],
       "archetype": "eabb56a4-084b-5bd9-bc7f-05246f4c3b39"
@@ -2526,6 +2567,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Pactbinder Dedication",
+          "predicate": ["feat:pactbinder-dedication"]
+        },
+        {
+          "text": "master in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -3097,6 +3152,24 @@
             {
               "type": "text",
               "text": "expert in Medicine; expert in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "expert in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 2]
             }
           ]
         }
@@ -3783,6 +3856,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "resurgent maelstrom hybrid study"
+        },
+        {
+          "text": "Spellstrike"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -3842,6 +3923,16 @@
               "text": "Runelord Dedication; Counterspell"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Runelord Dedication",
+          "predicate": ["feat:runelord-dedication"]
+        },
+        {
+          "text": "Counterspell",
+          "predicate": ["feat:counterspell-prepared"]
         }
       ]
     }
@@ -4162,6 +4253,20 @@
             {
               "type": "text",
               "text": "Lepidstadt Surgeon Dedication; master in Medicine"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lepidstadt Surgeon Dedication",
+          "predicate": ["feat:lepidstadt-surgeon-dedication"]
+        },
+        {
+          "text": "master in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 3]
             }
           ]
         }
@@ -4677,6 +4782,20 @@
               "text": "expert in Performance; Virtuosic Performer"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Virtuosic Performer",
+          "predicate": ["feat:virtuosic-performer"]
         }
       ]
     }

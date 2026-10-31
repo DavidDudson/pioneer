@@ -191,6 +191,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "expert in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
     }
   },
@@ -973,6 +987,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "expert in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -1592,6 +1620,22 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "at least one spell with the air, cold, earth, fire, plant, or water trait"
+        }
+      ],
       "archetype": "54fb18c7-2ee9-5cea-8237-2ec9bb03f54a"
     }
   },
@@ -1991,6 +2035,19 @@
             {
               "type": "text",
               "text": "Strength or Dexterity +2; Intelligence +2"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength or Dexterity +2"
+        },
+        {
+          "text": "Intelligence +2",
+          "predicate": [
+            {
+              "gte": ["attribute:int:mod", 2]
             }
           ]
         }
@@ -2395,6 +2452,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "legendary in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 4]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "free",
         "requirementsText": [
@@ -2463,6 +2534,20 @@
             {
               "type": "text",
               "text": "Geomancer Dedication; master in Nature"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "master in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 3]
             }
           ]
         }
@@ -2582,6 +2667,37 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Arcana, Nature, Occultism, or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 1]
+                },
+                {
+                  "gte": ["skill:nature:rank", 1]
+                },
+                {
+                  "gte": ["skill:occultism:rank", 1]
+                },
+                {
+                  "gte": ["skill:religion:rank", 1]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "two"
       }
@@ -2658,6 +2774,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "expert in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -2719,6 +2849,16 @@
               "text": "Counterspell; Runelord Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Counterspell",
+          "predicate": ["feat:counterspell-prepared"]
+        },
+        {
+          "text": "Runelord Dedication",
+          "predicate": ["feat:runelord-dedication"]
         }
       ]
     }
@@ -2850,6 +2990,15 @@
               "text": "ability to cast spells from spell slots; Shadowcaster Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "Shadowcaster Dedication",
+          "predicate": ["feat:shadowcaster-dedication"]
         }
       ],
       "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"
@@ -3425,6 +3574,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Rough Terrain Stance",
+          "predicate": ["feat:rough-terrain-stance"]
+        },
+        {
+          "text": "master in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -3954,6 +4117,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Geomancer Dedication",
+          "predicate": ["feat:geomancer-dedication"]
+        },
+        {
+          "text": "master in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -4037,6 +4214,15 @@
               "text": "focus pool; Shadowcaster Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "focus pool"
+        },
+        {
+          "text": "Shadowcaster Dedication",
+          "predicate": ["feat:shadowcaster-dedication"]
         }
       ],
       "archetype": "55620003-99ce-52f6-8a51-478bd8d17676"

@@ -8991,8 +8991,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4033",
-        "page": 62
+        "page": 62,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=4033"
       }
     ],
     "description": [
@@ -9313,6 +9313,16 @@
               "text": "Debilitating Venom; Moderate Enhance Venom"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Debilitating Venom",
+          "predicate": ["feat:debilitating-venom"]
+        },
+        {
+          "text": "Moderate Enhance Venom",
+          "predicate": ["feat:moderate-enhance-venom"]
         }
       ],
       "maxTakable": 4
@@ -11089,8 +11099,8 @@
       {
         "kind": "book",
         "book": "impossible-lands",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3974",
-        "page": 44
+        "page": 44,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3974"
       }
     ],
     "description": [
@@ -11136,6 +11146,14 @@
               "text": "focus pool; at least one innate spell from a kashrishi heritage or ancestry feat that shares a tradition with at least one of your focus spells"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "focus pool"
+        },
+        {
+          "text": "at least one innate spell from a kashrishi heritage or ancestry feat that shares a tradition with at least one of your focus spells"
         }
       ],
       "action": {

@@ -377,6 +377,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Red Mantis Assassin Dedication",
+          "predicate": ["feat:red-mantis-assassin-dedication"]
+        }
+      ],
       "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
     }
   },
@@ -513,6 +527,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Red Mantis Magic",
+          "predicate": ["feat:basic-red-mantis-magic"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
     }
   },
@@ -621,6 +649,20 @@
               "text": "legendary in Religion; Expert Red Mantis Magic"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Expert Red Mantis Magic",
+          "predicate": ["feat:expert-red-mantis-magic"]
         }
       ],
       "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
@@ -847,6 +889,17 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in sawtooth sabres"
+        },
+        {
+          "text": "deity is Achaekek"
+        },
+        {
+          "text": "member of the Red Mantis assassins"
+        }
+      ],
       "archetype": "b8002528-daa6-566e-ba54-18b45041c301"
     }
   },
@@ -959,6 +1012,16 @@
               "text": "Achaekek's Grip; Basic Red Mantis Magic"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Achaekek's Grip",
+          "predicate": ["feat:achaekeks-grip"]
+        },
+        {
+          "text": "Basic Red Mantis Magic",
+          "predicate": ["feat:basic-red-mantis-magic"]
         }
       ],
       "archetype": "b8002528-daa6-566e-ba54-18b45041c301"

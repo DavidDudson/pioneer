@@ -156,7 +156,10 @@ Lists of attributes, slugs and ids name each item once.
   pass derives where it can parse the text ("trained in Medicine", "Champion Dedication", "Strength +2"; Foundry
   import, Prerequisite enrichment). A feat with no predicate is offered as unknown under three-valued predicates
   (ADR-0002): shown with its text, never hidden, never treated as met. The coverage report lists the unparsed
-  prerequisites.
+  prerequisites. A feat whose text has several `;`-separated clauses also gets `prerequisiteClauses?`: each
+  clause as printed with its own `predicate?`, absent where that clause doesn't parse. A picker shows a line for each
+  clause in its own state (met, unmet or unknown), and a feat with no predicate of its own is unmet when any clause
+  is, else unknown when any is, else met. A lone clause is the feat's own state, so it has none.
 - **Archetypes.** Foundry keeps them as journal pages; the importer builds the entry from the page and its
   dedication feat (Foundry import, Archetypes).
   `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when

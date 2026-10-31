@@ -43,6 +43,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Uzunjati Storytelling",
+          "predicate": ["feat:uzunjati-storytelling"]
+        },
+        {
+          "text": "master in a Recall Knowledge skill"
+        }
       ]
     }
   },
@@ -232,6 +241,15 @@
               "text": "Uzunjati Storytelling; ability to cast shield"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Uzunjati Storytelling",
+          "predicate": ["feat:uzunjati-storytelling"]
+        },
+        {
+          "text": "ability to cast shield"
         }
       ],
       "action": {
@@ -487,6 +505,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mask Familiar",
+          "predicate": ["feat:mask-familiar"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -546,6 +578,15 @@
               "text": "Knight Reclaimant Dedication; master proficiency in a weapon"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "master proficiency in a weapon"
         }
       ],
       "action": {
@@ -811,6 +852,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Uzunjati Recollection",
+          "predicate": ["feat:uzunjati-recollection"]
+        },
+        {
+          "text": "legendary in a Recall Knowledge Skill"
+        }
       ]
     }
   },
@@ -953,6 +1003,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "legendary in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 4]
+            }
+          ]
+        }
       ]
     }
   },
@@ -1000,6 +1064,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "Lead the Way"
+        }
       ]
     }
   },
@@ -1046,6 +1119,16 @@
               "text": "Halcyon Speaker Dedication; Cascade Bearer's Spellcasting"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Halcyon Speaker Dedication",
+          "predicate": ["feat:halcyon-speaker-dedication"]
+        },
+        {
+          "text": "Cascade Bearer's Spellcasting",
+          "predicate": ["feat:cascade-bearers-spellcasting"]
         }
       ]
     }
@@ -1146,6 +1229,23 @@
               "text": "Halcyon Speaker Dedication; trained in Nature; can cast at least one spell with the vitality trait"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Halcyon Speaker Dedication",
+          "predicate": ["feat:halcyon-speaker-dedication"]
+        },
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "can cast at least one spell with the vitality trait"
         }
       ]
     }
@@ -1279,6 +1379,24 @@
             {
               "type": "text",
               "text": "Dualistic Synergy; Shattered Sacrament; master in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dualistic Synergy",
+          "predicate": ["feat:dualistic-synergy"]
+        },
+        {
+          "text": "Shattered Sacrament",
+          "predicate": ["feat:shattered-sacrament"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
             }
           ]
         }

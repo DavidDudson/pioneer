@@ -661,6 +661,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Tattoo Artist",
+          "predicate": ["feat:tattoo-artist"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },

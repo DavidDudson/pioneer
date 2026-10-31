@@ -1386,6 +1386,23 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Chelaxian Scion Dedication",
+          "predicate": ["feat:chelaxian-scion-dedication"]
+        },
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "expert in Will"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [

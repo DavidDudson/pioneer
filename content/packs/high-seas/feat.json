@@ -2062,8 +2062,8 @@
       {
         "kind": "book",
         "book": "high-seas",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9017",
-        "page": 92
+        "page": 92,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9017"
       }
     ],
     "description": [
@@ -2098,6 +2098,20 @@
             {
               "type": "text",
               "text": "Pirate Dedication; expert in Sailing Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Pirate Dedication",
+          "predicate": ["feat:pirate-dedication"]
+        },
+        {
+          "text": "expert in Sailing Lore",
+          "predicate": [
+            {
+              "gte": ["skill:lore:sailing:rank", 2]
             }
           ]
         }
@@ -2322,8 +2336,8 @@
       {
         "kind": "book",
         "book": "high-seas",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9041",
-        "page": 107
+        "page": 107,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=9041"
       }
     ],
     "description": [
@@ -2369,6 +2383,15 @@
               "text": "Marine Marauder Dedication; you have a swim Speed"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marine Marauder Dedication",
+          "predicate": ["feat:marine-marauder-dedication"]
+        },
+        {
+          "text": "you have a swim Speed"
         }
       ],
       "action": {

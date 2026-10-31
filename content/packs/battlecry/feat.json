@@ -103,6 +103,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Faithful Steed",
+          "predicate": ["feat:faithful-steed"]
+        },
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        }
       ]
     }
   },
@@ -822,6 +836,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Aldori Duelist Dedication",
+          "predicate": ["feat:aldori-duelist-dedication"]
+        },
+        {
+          "text": "you have taken the last name of Aldori, sworn to the Aldori swordpact, and demonstrated skill at swordplay by winning a duel using only a sword in the presence of an Aldori swordlord."
+        }
+      ],
       "archetype": "46799de3-7dd6-5334-b826-254e35916864"
     }
   },
@@ -952,6 +975,16 @@
               "text": "War Mage Dedication; Bespell Strikes"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "War Mage Dedication",
+          "predicate": ["feat:war-mage-dedication"]
+        },
+        {
+          "text": "Bespell Strikes",
+          "predicate": ["feat:bespell-strikes"]
         }
       ]
     }
@@ -2549,6 +2582,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Captain Dedication",
+          "predicate": ["feat:captain-dedication"]
+        },
+        {
+          "text": "expert in Diplomacy or Intimidation",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:diplomacy:rank", 2]
+                },
+                {
+                  "gte": ["skill:intimidation:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "b0ef3404-2369-5c1c-9aa0-6aa9871f6589"
     }
   },
@@ -2715,6 +2769,19 @@
               "text": "Charisma +2; you don't have an animal companion, construct companion, or other companion that functions similarly"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "you don't have an animal companion, construct companion, or other companion that functions similarly"
         }
       ],
       "archetype": "b0ef3404-2369-5c1c-9aa0-6aa9871f6589"
@@ -3750,6 +3817,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -3944,6 +4025,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "expert in Acrobatics or Athletics",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:acrobatics:rank", 2]
+                },
+                {
+                  "gte": ["skill:athletics:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -4128,6 +4230,16 @@
               "text": "Guerrilla Dedication; Poisoned Sticks and Stones"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guerrilla Dedication",
+          "predicate": ["feat:guerrilla-dedication"]
+        },
+        {
+          "text": "Poisoned Sticks and Stones",
+          "predicate": ["feat:poisoned-sticks-and-stones"]
         }
       ],
       "action": {
@@ -4834,6 +4946,20 @@
               "text": "master in Medicine; Officer's Medical Training"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Officer's Medical Training",
+          "predicate": ["feat:officers-medical-training"]
         }
       ],
       "action": {
@@ -6223,6 +6349,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "trained in Deception and Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            },
+            {
+              "gte": ["skill:diplomacy:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "1593c2e8-c219-5666-a9cd-ddc0cdbc712b"
     }
   },
@@ -7098,6 +7245,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +2",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Constitution +2",
+          "predicate": [
+            {
+              "gte": ["attribute:con:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "6e255da8-0835-5e1f-a52d-567b0720df49"
     }
   },
@@ -7144,6 +7309,15 @@
               "text": "Guardian Dedication; class granting no more Hit Points per level than 10 + your Constitution modifier"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guardian Dedication",
+          "predicate": ["feat:guardian-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 10 + your Constitution modifier"
         }
       ],
       "archetype": "6e255da8-0835-5e1f-a52d-567b0720df49"
@@ -7612,6 +7786,20 @@
             {
               "type": "text",
               "text": "Guerrilla Dedication; expert in Stealth"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guerrilla Dedication",
+          "predicate": ["feat:guerrilla-dedication"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
             }
           ]
         }
@@ -8189,6 +8377,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Crossbow Infiltrator Dedication",
+          "predicate": ["feat:crossbow-infiltrator-dedication"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -8638,6 +8840,15 @@
               "text": "Guardian Dedication; expert in Fortitude saves"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guardian Dedication",
+          "predicate": ["feat:guardian-dedication"]
+        },
+        {
+          "text": "expert in Fortitude saves"
         }
       ],
       "archetype": "6e255da8-0835-5e1f-a52d-567b0720df49"
@@ -9661,6 +9872,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Captain Dedication",
+          "predicate": ["feat:captain-dedication"]
+        },
+        {
+          "text": "legendary in Diplomacy or Intimidation",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:diplomacy:rank", 4]
+                },
+                {
+                  "gte": ["skill:intimidation:rank", 4]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "b0ef3404-2369-5c1c-9aa0-6aa9871f6589"
     }
   },
@@ -10258,6 +10490,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Crossbow Infiltrator Dedication",
+          "predicate": ["feat:crossbow-infiltrator-dedication"]
+        },
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "03f0441b-db7d-55b3-b30d-20a8fcc5e528"
     }
   },
@@ -10587,6 +10833,16 @@
               "text": "War Mage Dedication; Battle Medicine"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "War Mage Dedication",
+          "predicate": ["feat:war-mage-dedication"]
+        },
+        {
+          "text": "Battle Medicine",
+          "predicate": ["feat:battle-medicine"]
         }
       ],
       "action": {
@@ -11016,6 +11272,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -11207,6 +11477,14 @@
               "text": "ability to cast spells from spell slots; ability to cast summon undead"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "ability to cast summon undead"
         }
       ],
       "archetype": "ea1f9da5-204d-5d3c-b445-00cc47a953fd"
@@ -11864,6 +12142,20 @@
             {
               "type": "text",
               "text": "Aldori Duelist Dedication; trained in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Aldori Duelist Dedication",
+          "predicate": ["feat:aldori-duelist-dedication"]
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
             }
           ]
         }
@@ -13257,6 +13549,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Field Propagandist Dedication",
+          "predicate": ["feat:field-propagandist-dedication"]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "1593c2e8-c219-5666-a9cd-ddc0cdbc712b"
     }
   },
@@ -13967,6 +14273,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guerrilla Dedication",
+          "predicate": ["feat:guerrilla-dedication"]
+        },
+        {
+          "text": "trained in either Diplomacy or Intimidation"
+        }
+      ],
       "archetype": "662ea97a-53c8-5892-94b2-0fdcc48c0e88"
     }
   },
@@ -14231,6 +14546,20 @@
             {
               "type": "text",
               "text": "Cavalier Dedication; expert in Intimidation"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "expert in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 2]
             }
           ]
         }
@@ -15770,6 +16099,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "War Mage Dedication",
+          "predicate": ["feat:war-mage-dedication"]
+        },
+        {
+          "text": "you can cast the shield cantrip"
+        }
+      ],
       "action": {
         "cost": "free",
         "requirementsText": [
@@ -16879,6 +17217,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guerrilla Dedication",
+          "predicate": ["feat:guerrilla-dedication"]
+        },
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "662ea97a-53c8-5892-94b2-0fdcc48c0e88"
     }
   },
@@ -17462,6 +17814,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Aldori Duelist Dedication",
+          "predicate": ["feat:aldori-duelist-dedication"]
+        },
+        {
+          "text": "you have broken or forsaken the Aldori swordpact"
+        }
+      ],
       "archetype": "46799de3-7dd6-5334-b826-254e35916864"
     }
   },
@@ -18003,6 +18364,23 @@
             {
               "type": "text",
               "text": "Guerrilla Dedication; master in Stealth and Survival"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Guerrilla Dedication",
+          "predicate": ["feat:guerrilla-dedication"]
+        },
+        {
+          "text": "master in Stealth and Survival",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 3]
+            },
+            {
+              "gte": ["skill:survival:rank", 3]
             }
           ]
         }

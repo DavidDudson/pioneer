@@ -314,6 +314,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Golden Legionnaire Dedication",
+          "predicate": ["feat:golden-legionnaire-dedication"]
+        },
+        {
+          "text": "trained in martial firearms"
+        }
+      ],
       "archetype": "8668c731-5908-53f8-8421-d84a3c1c1c36"
     }
   },
@@ -1204,6 +1213,16 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magical Crafting",
+          "predicate": ["feat:magical-crafting"]
+        },
+        {
+          "text": "Snarecrafter Dedication",
+          "predicate": ["feat:snarecrafter-dedication"]
+        }
       ]
     }
   },
@@ -1541,6 +1560,20 @@
             {
               "type": "text",
               "text": "Golden Legionnaire Dedication; expert in Warfare Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Golden Legionnaire Dedication",
+          "predicate": ["feat:golden-legionnaire-dedication"]
+        },
+        {
+          "text": "expert in Warfare Lore",
+          "predicate": [
+            {
+              "gte": ["skill:lore:warfare:rank", 2]
             }
           ]
         }
@@ -1883,6 +1916,15 @@
               "text": "Reactive Strike; trained in martial firearms"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Reactive Strike",
+          "predicate": ["feat:reactive-strike"]
+        },
+        {
+          "text": "trained in martial firearms"
         }
       ],
       "archetype": "8668c731-5908-53f8-8421-d84a3c1c1c36"
@@ -2919,6 +2961,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dandy Dedication",
+          "predicate": ["feat:dandy-dedication"]
+        },
+        {
+          "text": "master in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "two",
         "frequency": {
@@ -3332,6 +3388,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Twilight Talon Dedication",
+          "predicate": ["feat:twilight-talon-dedication"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "3fe8d330-22a6-5d14-8ad3-a4e37a8a4812"
     }
   },
@@ -3474,6 +3544,15 @@
               "text": "Undersea Privateer Dedication; you have a swim Speed"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Undersea Privateer Dedication",
+          "predicate": ["feat:undersea-privateer-dedication"]
+        },
+        {
+          "text": "you have a swim Speed"
         }
       ],
       "archetype": "7985b4e8-a9f1-55b5-9798-9fd315999f85"
@@ -4486,6 +4565,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Starstone Aspirant Dedication",
+          "predicate": ["feat:starstone-aspirant-dedication"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "641dd17e-cb81-53ab-aa9e-6a4cd5f28dd1"
     }
   },
@@ -4617,6 +4710,15 @@
               "text": "Battle Medicine; can't have a patron deity"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Battle Medicine",
+          "predicate": ["feat:battle-medicine"]
+        },
+        {
+          "text": "can't have a patron deity"
         }
       ]
     }
@@ -4853,6 +4955,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Steel Falcon Dedication",
+          "predicate": ["feat:steel-falcon-dedication"]
+        },
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "29bb5d2c-235b-5ca4-be09-46317199339d"
     }
   },
@@ -4962,6 +5078,15 @@
               "text": "Golden Legionnaire Dedication; trained in martial firearms"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Golden Legionnaire Dedication",
+          "predicate": ["feat:golden-legionnaire-dedication"]
+        },
+        {
+          "text": "trained in martial firearms"
         }
       ],
       "action": {
@@ -5171,6 +5296,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellknight Dedication",
+          "predicate": ["feat:hellknight-dedication"]
+        },
+        {
+          "text": "you've refused to take or have failed the Hellknight Test"
+        }
+      ],
       "archetype": "f7e53697-be8f-5b31-806c-07d9c007b738"
     }
   },
@@ -5247,6 +5381,15 @@
               "text": "Hellknight Dedication; expert in Hellknight half plate or Hellknight plate"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellknight Dedication",
+          "predicate": ["feat:hellknight-dedication"]
+        },
+        {
+          "text": "expert in Hellknight half plate or Hellknight plate"
         }
       ],
       "archetype": "f7e53697-be8f-5b31-806c-07d9c007b738"
@@ -5349,6 +5492,18 @@
               "text": "Hellknight Dedication; passed the Hellknight Test; trained in Hellknight plate"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellknight Dedication",
+          "predicate": ["feat:hellknight-dedication"]
+        },
+        {
+          "text": "passed the Hellknight Test"
+        },
+        {
+          "text": "trained in Hellknight plate"
         }
       ],
       "archetype": "f7e53697-be8f-5b31-806c-07d9c007b738"
@@ -5497,6 +5652,21 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellknight Dedication",
+          "predicate": ["feat:hellknight-dedication"]
+        },
+        {
+          "text": "passed the Hellknight Test"
+        },
+        {
+          "text": "trained in Hellknight breastplate"
+        },
+        {
+          "text": "you have a spellcasting class feature"
+        }
+      ],
       "archetype": "f7e53697-be8f-5b31-806c-07d9c007b738"
     }
   },
@@ -5633,6 +5803,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellknight Preferment",
+          "predicate": ["feat:hellknight-preferment"]
+        },
+        {
+          "text": "expert in at least one of your order's favored weapons"
+        }
+      ],
       "archetype": "f7e53697-be8f-5b31-806c-07d9c007b738"
     }
   },
@@ -5710,6 +5889,20 @@
             {
               "type": "text",
               "text": "Twilight Talon Dedication; master in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Twilight Talon Dedication",
+          "predicate": ["feat:twilight-talon-dedication"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
             }
           ]
         }
@@ -6158,6 +6351,16 @@
               "text": "Fabricated Credentials; Talon's Mark"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fabricated Credentials",
+          "predicate": ["feat:fabricated-credentials"]
+        },
+        {
+          "text": "Talon's Mark",
+          "predicate": ["feat:talons-mark"]
         }
       ],
       "archetype": "3fe8d330-22a6-5d14-8ad3-a4e37a8a4812"
@@ -6791,6 +6994,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Steel Falcon Dedication",
+          "predicate": ["feat:steel-falcon-dedication"]
+        },
+        {
+          "text": "trained in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        }
+      ],
       "maxTakable": 3,
       "archetype": "29bb5d2c-235b-5ca4-be09-46317199339d"
     }
@@ -7358,6 +7575,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Godless Healing",
+          "predicate": ["feat:godless-healing"]
+        },
+        {
+          "text": "You follow the Laws of Mortality"
+        }
       ]
     }
   },
@@ -7597,6 +7823,19 @@
               "text": "trained in Nature; horse animal companion"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "horse animal companion"
         }
       ],
       "archetype": "849570c8-1caf-5cf8-bf51-0f40b54d837f"
@@ -8181,6 +8420,20 @@
             {
               "type": "text",
               "text": "Battle Medicine; master in Medicine"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Battle Medicine",
+          "predicate": ["feat:battle-medicine"]
+        },
+        {
+          "text": "master in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 3]
             }
           ]
         }
@@ -9663,6 +9916,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "you worship Milani"
+        }
+      ],
       "archetype": "75998c29-ae28-58f3-af36-ebc74e07d21e"
     }
   },
@@ -9739,6 +10005,16 @@
               "text": "Undersea Privateer Dedication; Propelled Leap"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Undersea Privateer Dedication",
+          "predicate": ["feat:undersea-privateer-dedication"]
+        },
+        {
+          "text": "Propelled Leap",
+          "predicate": ["feat:propelled-leap"]
         }
       ],
       "action": {
@@ -10263,6 +10539,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Undersea Privateer Dedication",
+          "predicate": ["feat:undersea-privateer-dedication"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "7985b4e8-a9f1-55b5-9798-9fd315999f85"
     }
   },
@@ -10652,6 +10942,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Undersea Privateer Dedication",
+          "predicate": ["feat:undersea-privateer-dedication"]
+        },
+        {
+          "text": "trained in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "7985b4e8-a9f1-55b5-9798-9fd315999f85"
     }
   },
@@ -10822,6 +11126,20 @@
             {
               "type": "text",
               "text": "Undersea Privateer Dedication; expert in Stealth"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Undersea Privateer Dedication",
+          "predicate": ["feat:undersea-privateer-dedication"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
             }
           ]
         }

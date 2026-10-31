@@ -188,6 +188,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Verduran Shadow Dedication",
+          "predicate": ["feat:verduran-shadow-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "33e8d9f5-bbda-59a4-b2ac-34a22cb425c5"
     }
   },
@@ -468,6 +482,20 @@
             {
               "type": "text",
               "text": "Canopy Predator; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Canopy Predator",
+          "predicate": ["feat:canopy-predator"]
+        },
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
             }
           ]
         }
@@ -1844,6 +1872,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Verduran Shadow Dedication",
+          "predicate": ["feat:verduran-shadow-dedication"]
+        },
+        {
+          "text": "master in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -2507,6 +2549,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Verduran Shadow Dedication",
+          "predicate": ["feat:verduran-shadow-dedication"]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "three"
       },
@@ -2593,6 +2649,24 @@
             {
               "type": "text",
               "text": "trained in Stealth; trained in Survival"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
             }
           ]
         }

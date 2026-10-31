@@ -1,5 +1,5 @@
 import { PrerequisiteStatus } from '@pioneer/character/domain';
-import { FeatCategory, Rarity } from '@pioneer/rules/sdk';
+import { ContentText, FeatCategory, Rarity } from '@pioneer/rules/sdk';
 import { ActionKind, PrerequisiteState } from '@pioneer/rules/ui';
 import type { FeatPickerRow } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
@@ -23,6 +23,7 @@ function option(overrides: Partial<SheetFeatOption>): SheetFeatOption {
     traits: [],
     sources: [],
     status: PrerequisiteStatus.Met,
+    clauses: undefined,
     prerequisites: undefined,
     locked: undefined,
     ...overrides,
@@ -102,6 +103,27 @@ describe(featRows, () => {
     expect(met.disabledReason).toBeUndefined();
     expect(met.prerequisites).toStrictEqual([{ label: 'trained in Athletics', state: PrerequisiteState.Met }]);
     expect(only([option({})]).prerequisites).toStrictEqual([]);
+  });
+
+  it('shows a line for each clause of a feat with several, each in its own state', () => {
+    const several = only([
+      option({
+        status: PrerequisiteStatus.Unmet,
+        prerequisites: 'expert in Athletics; expert in Perception; an animal companion',
+        clauses: [
+          { text: ContentText.parse('expert in Athletics'), status: PrerequisiteStatus.Unmet },
+          { text: ContentText.parse('expert in Perception'), status: PrerequisiteStatus.Met },
+          { text: ContentText.parse('an animal companion'), status: PrerequisiteStatus.Unknown },
+        ],
+      }),
+    ]);
+
+    expect(several.prerequisites).toStrictEqual([
+      { label: 'expert in Athletics', state: PrerequisiteState.Unmet },
+      { label: 'expert in Perception', state: PrerequisiteState.Met },
+      { label: 'an animal companion', state: PrerequisiteState.Unknown },
+    ]);
+    expect(several.disabledReason).toContain('character.sheet.feats.unmet');
   });
 
   it('marks a feat that would train a skill again, which stays pickable', () => {

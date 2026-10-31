@@ -353,6 +353,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wandering Chef Dedication",
+          "predicate": ["feat:wandering-chef-dedication"]
+        },
+        {
+          "text": "expert in Crafting or Cooking Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:crafting:rank", 2]
+                },
+                {
+                  "gte": ["skill:lore:cooking:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "maxTakable": 3,
       "archetype": "e3172aa9-a3fe-5cb7-a28a-1c21602c37a8"
     }
@@ -2107,6 +2128,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fan Dancer Dedication",
+          "predicate": ["feat:fan-dancer-dedication"]
+        },
+        {
+          "text": "master in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "00779c35-fc85-5141-80c9-c1f9156f762c"
     }
   },
@@ -3619,6 +3654,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "aloof firmament hybrid study"
+        },
+        {
+          "text": "Spellstrike"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -3711,6 +3754,16 @@
               "text": "Fan Dancer Dedication; Twirling Strike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fan Dancer Dedication",
+          "predicate": ["feat:fan-dancer-dedication"]
+        },
+        {
+          "text": "Twirling Strike",
+          "predicate": ["feat:twirling-strike"]
         }
       ],
       "action": {
@@ -4592,6 +4645,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Prepare Elemental Medicine",
+          "predicate": ["feat:prepare-elemental-medicine"]
+        },
+        {
+          "text": "expert in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -4739,6 +4806,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Sage Dedication",
+          "predicate": ["feat:familiar-sage-dedication"]
+        },
+        {
+          "text": "ability to cast a ritual"
+        }
+      ],
       "archetype": "fc909ccd-e281-5dc5-bba5-1ca3b43c423c"
     }
   },
@@ -4815,6 +4891,14 @@
               "text": "You have a familiar; you're able to cast spells"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "You have a familiar"
+        },
+        {
+          "text": "you're able to cast spells"
         }
       ],
       "archetype": "fc909ccd-e281-5dc5-bba5-1ca3b43c423c"
@@ -6884,6 +6968,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Sage Dedication",
+          "predicate": ["feat:familiar-sage-dedication"]
+        },
+        {
+          "text": "expert in Occultism or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:occultism:rank", 2]
+                },
+                {
+                  "gte": ["skill:religion:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "fc909ccd-e281-5dc5-bba5-1ca3b43c423c"
     }
   },
@@ -6955,6 +7060,16 @@
               "text": "Marshal Dedication; Strategist Stance"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "Strategist Stance",
+          "predicate": ["feat:strategist-stance"]
         }
       ],
       "action": {
@@ -7287,6 +7402,15 @@
               "text": "Cultivator Dedication; you aren't holy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cultivator Dedication",
+          "predicate": ["feat:cultivator-dedication"]
+        },
+        {
+          "text": "you aren't holy"
         }
       ],
       "archetype": "03e1cd50-133d-5774-8441-65a0fafe201b"
@@ -8816,6 +8940,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "heavenscribe kobold heritage",
+          "predicate": ["heritage:heavenscribe-kobold"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -9205,6 +9343,15 @@
               "text": "tsukumogami poppet heritage; you have a metal or ceramic body"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "tsukumogami poppet heritage",
+          "predicate": ["heritage:tsukumogami-poppet"]
+        },
+        {
+          "text": "you have a metal or ceramic body"
         }
       ]
     }
@@ -10354,6 +10501,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "Strategist Stance",
+          "predicate": ["feat:strategist-stance"]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -10996,6 +11153,16 @@
               "text": "Familiar Sage Dedication; Lightning Rings' Intervention"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Sage Dedication",
+          "predicate": ["feat:familiar-sage-dedication"]
+        },
+        {
+          "text": "Lightning Rings' Intervention",
+          "predicate": ["feat:lightning-rings-intervention"]
         }
       ],
       "archetype": "fc909ccd-e281-5dc5-bba5-1ca3b43c423c"
@@ -13474,6 +13641,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wandering Chef Dedication",
+          "predicate": ["feat:wandering-chef-dedication"]
+        },
+        {
+          "text": "expert in Crafting or Cooking Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:crafting:rank", 2]
+                },
+                {
+                  "gte": ["skill:lore:cooking:rank", 2]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "e3172aa9-a3fe-5cb7-a28a-1c21602c37a8"
     }
   },
@@ -13750,6 +13938,30 @@
             {
               "type": "text",
               "text": "Prepare Elemental Medicine; expert in Crafting, Herbalism Lore, or Medicine"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Prepare Elemental Medicine",
+          "predicate": ["feat:prepare-elemental-medicine"]
+        },
+        {
+          "text": "expert in Crafting, Herbalism Lore, or Medicine",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:crafting:rank", 2]
+                },
+                {
+                  "gte": ["skill:lore:herbalism:rank", 2]
+                },
+                {
+                  "gte": ["skill:medicine:rank", 2]
+                }
+              ]
             }
           ]
         }
@@ -16862,6 +17074,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Sage Dedication",
+          "predicate": ["feat:familiar-sage-dedication"]
+        },
+        {
+          "text": "Golden Dragon's Bounty",
+          "predicate": ["feat:golden-dragons-bounty"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -17927,6 +18149,20 @@
             {
               "type": "text",
               "text": "Fan Dancer Dedication; expert in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fan Dancer Dedication",
+          "predicate": ["feat:fan-dancer-dedication"]
+        },
+        {
+          "text": "expert in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 2]
             }
           ]
         }
@@ -19163,6 +19399,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "trained in Society or Warfare Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:society:rank", 1]
+                },
+                {
+                  "gte": ["skill:lore:warfare:rank", 1]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -19510,6 +19767,16 @@
               "text": "Fan Dancer Dedication; Sweeping Fan Block"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fan Dancer Dedication",
+          "predicate": ["feat:fan-dancer-dedication"]
+        },
+        {
+          "text": "Sweeping Fan Block",
+          "predicate": ["feat:sweeping-fan-block"]
         }
       ],
       "action": {
@@ -20780,6 +21047,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cultivator Dedication",
+          "predicate": ["feat:cultivator-dedication"]
+        },
+        {
+          "text": "Constitution +2",
+          "predicate": [
+            {
+              "gte": ["attribute:con:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "03e1cd50-133d-5774-8441-65a0fafe201b"
     }
   },
@@ -20865,6 +21146,15 @@
               "text": "Cultivator Dedication; you aren't unholy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cultivator Dedication",
+          "predicate": ["feat:cultivator-dedication"]
+        },
+        {
+          "text": "you aren't unholy"
         }
       ],
       "archetype": "03e1cd50-133d-5774-8441-65a0fafe201b"
@@ -21558,6 +21848,16 @@
               "text": "Fan Dancer Dedication; Twirl Through"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fan Dancer Dedication",
+          "predicate": ["feat:fan-dancer-dedication"]
+        },
+        {
+          "text": "Twirl Through",
+          "predicate": ["feat:twirl-through"]
         }
       ],
       "action": {
@@ -22307,6 +22607,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "aloof firmament hybrid study"
+        },
+        {
+          "text": "Spellstrike"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -22537,6 +22845,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Arcane Cascade"
+        },
+        {
+          "text": "unfurling brocade hybrid study"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -22613,6 +22929,16 @@
               "text": "Familiar Sage Dedication; Tempest Cloud's Speed"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Sage Dedication",
+          "predicate": ["feat:familiar-sage-dedication"]
+        },
+        {
+          "text": "Tempest Cloud's Speed",
+          "predicate": ["feat:tempest-clouds-speed"]
         }
       ],
       "action": {

@@ -234,6 +234,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Venture-Gossip Dedication",
+          "predicate": ["feat:venture-gossip-dedication"]
+        },
+        {
+          "text": "master in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "free"
       },
@@ -660,6 +674,14 @@
               "text": "member of the Pathfinder Society; Pathfinder Agent Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "member of the Pathfinder Society"
+        },
+        {
+          "text": "Pathfinder Agent Dedication"
         }
       ],
       "archetype": "d00eee09-4c7a-5d76-990d-de06db4c759e"

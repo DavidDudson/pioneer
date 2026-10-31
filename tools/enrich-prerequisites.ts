@@ -1,7 +1,7 @@
 /**
  * Sets `prerequisitePredicate` on every feat in `content/packs` whose prerequisites the matcher reads and that has none
- * yet (ADR-0031: the committed packs are the source, so the pass edits them). Names resolve across every pack, the
- * imported vocabulary included. Review the diff; what it leaves is listed by `bun run content:coverage` and set by
+ * yet, and `prerequisiteClauses` on every one with several clauses and none yet (ADR-0031: the committed packs are the
+ * source, so the pass edits them). Names resolve across every pack, the imported vocabulary included. Review the diff; what it leaves is listed by `bun run content:coverage` and set by
  * hand.
  */
 import path from 'node:path';
@@ -34,7 +34,7 @@ const files = await Promise.all(
   paths.filter((file) => path.basename(file) !== 'pack.json').map(async (file) => readEntryFile(file)),
 );
 const entries = files.flatMap(({ json }) => ContentEntryFile.parse(json));
-const matches = new Map(prerequisiteMatches(entries).map((match) => [match.entry, match.prerequisitePredicate]));
+const matches = new Map(prerequisiteMatches(entries).map((match) => [match.entry, match]));
 
 const enriched = files.flatMap(({ path: file, json }) => {
   const changed = enrichPrerequisiteFile(json, matches);
@@ -50,4 +50,4 @@ if (enriched.length > 0) {
     throw new Error(`bun fmt exited with ${formatted}`);
   }
 }
-console.log(`${matches.size} prerequisite predicates set in ${enriched.length} files`);
+console.log(`${matches.size} feats enriched with prerequisites in ${enriched.length} files`);

@@ -231,6 +231,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Adapted Cantrip",
+          "predicate": ["feat:adapted-cantrip"]
+        },
+        {
+          "text": "can cast 3rd rank spells"
+        }
       ]
     }
   },
@@ -3995,6 +4004,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in a skill with the recall knowledge action"
+        },
+        {
+          "text": "Assurance in that skill"
+        }
+      ],
       "maxTakable": "unlimited"
     }
   },
@@ -6709,6 +6726,19 @@
               "text": "trained in Medicine; Debilitating Strike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Debilitating Strike"
         }
       ]
     }
@@ -9716,7 +9746,17 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:counterspell-prepared", "feat:quick-recognition"]
+      "prerequisitePredicate": ["feat:counterspell-prepared", "feat:quick-recognition"],
+      "prerequisiteClauses": [
+        {
+          "text": "Counterspell",
+          "predicate": ["feat:counterspell-prepared"]
+        },
+        {
+          "text": "Quick Recognition",
+          "predicate": ["feat:quick-recognition"]
+        }
+      ]
     }
   },
   {
@@ -11603,10 +11643,20 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:courageous-advance", "feat:courageous-assault"],
+      "prerequisiteClauses": [
+        {
+          "text": "Courageous Advance",
+          "predicate": ["feat:courageous-advance"]
+        },
+        {
+          "text": "Courageous Assault",
+          "predicate": ["feat:courageous-assault"]
+        }
+      ],
       "action": {
         "cost": "one"
-      },
-      "prerequisitePredicate": ["feat:courageous-advance", "feat:courageous-assault"]
+      }
     }
   },
   {
@@ -12980,6 +13030,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "deity with a simple or unarmed attack favored weapon"
+        },
+        {
+          "text": "trained with your deity's favored weapon"
+        }
       ]
     }
   },
@@ -13075,6 +13133,19 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "enigma muse"
+        },
+        {
+          "text": "legendary in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 4]
+            }
+          ]
+        }
       ]
     }
   },
@@ -13129,6 +13200,15 @@
               "text": "warrior muse; Rallying Anthem"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "warrior muse"
+        },
+        {
+          "text": "Rallying Anthem",
+          "predicate": ["feat:rallying-anthem"]
         }
       ],
       "action": {
@@ -14828,6 +14908,15 @@
               "text": "Fighter Dedication; expert in any kind of weapon or unarmed attacks"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fighter Dedication",
+          "predicate": ["feat:fighter-dedication"]
+        },
+        {
+          "text": "expert in any kind of weapon or unarmed attacks"
         }
       ],
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
@@ -18038,6 +18127,19 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "polymath muse"
+        },
+        {
+          "text": "master in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -19075,6 +19177,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "focus pool"
+        },
+        {
+          "text": "at least one innate spell from a gnome heritage or ancestry feat that shares a tradition with at least one of your focus spells"
+        }
+      ],
       "action": {
         "cost": "one",
         "frequency": {
@@ -19699,6 +19809,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Rogue Dedication or Swashbuckler Dedication",
+          "predicate": [
+            {
+              "or": ["feat:rogue-dedication", "feat:swashbuckler-dedication"]
+            }
+          ]
+        },
+        {
+          "text": "expert in Reflex saves"
+        }
+      ],
       "archetype": "cae4783f-e934-5f95-83cc-eddb198f8eff"
     }
   },
@@ -20115,13 +20238,27 @@
           ]
         }
       ],
-      "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707",
       "prerequisitePredicate": [
         "feat:basic-bard-spellcasting",
         {
           "gte": ["skill:occultism:rank", 3]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Bard Spellcasting",
+          "predicate": ["feat:basic-bard-spellcasting"]
+        },
+        {
+          "text": "master in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 3]
+            }
+          ]
+        }
+      ],
+      "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
   {
@@ -20208,13 +20345,27 @@
           ]
         }
       ],
-      "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40",
       "prerequisitePredicate": [
         "feat:basic-cleric-spellcasting",
         {
           "gte": ["skill:religion:rank", 3]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Cleric Spellcasting",
+          "predicate": ["feat:basic-cleric-spellcasting"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        }
+      ],
+      "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
   {
@@ -20301,13 +20452,27 @@
           ]
         }
       ],
-      "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353",
       "prerequisitePredicate": [
         "feat:basic-druid-spellcasting",
         {
           "gte": ["skill:nature:rank", 3]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Druid Spellcasting",
+          "predicate": ["feat:basic-druid-spellcasting"]
+        },
+        {
+          "text": "master in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 3]
+            }
+          ]
+        }
+      ],
+      "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
   {
@@ -20426,6 +20591,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Witch Spellcasting",
+          "predicate": ["feat:basic-witch-spellcasting"]
+        },
+        {
+          "text": "master in the skill associated with your patron's tradition"
+        }
+      ],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
     }
   },
@@ -20513,13 +20687,27 @@
           ]
         }
       ],
-      "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74",
       "prerequisitePredicate": [
         "feat:basic-wizard-spellcasting",
         {
           "gte": ["skill:arcana:rank", 3]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Wizard Spellcasting",
+          "predicate": ["feat:basic-wizard-spellcasting"]
+        },
+        {
+          "text": "master in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 3]
+            }
+          ]
+        }
+      ],
+      "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
   {
@@ -21854,6 +22042,26 @@
           ]
         },
         "feat:orc-ferocity"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "animal companion, Pet, or Bonded Animal",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+                },
+                "feat:pet",
+                "feat:bonded-animal"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Orc Ferocity",
+          "predicate": ["feat:orc-ferocity"]
+        }
       ]
     }
   },
@@ -22308,7 +22516,6 @@
           ]
         }
       ],
-      "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a",
       "prerequisitePredicate": [
         {
           "gte": ["attribute:str:mod", 2]
@@ -22316,7 +22523,26 @@
         {
           "gte": ["attribute:dex:mod", 2]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +2",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Dexterity +2",
+          "predicate": [
+            {
+              "gte": ["attribute:dex:mod", 2]
+            }
+          ]
+        }
+      ],
+      "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
     }
   },
   {
@@ -22362,6 +22588,15 @@
               "text": "Fighter Dedication; class granting no more Hit Points per level than 8 + your Constitution modifier"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fighter Dedication",
+          "predicate": ["feat:fighter-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 8 + your Constitution modifier"
         }
       ],
       "archetype": "f4edf378-c3db-5b2e-a2fa-2c1dba8e634a"
@@ -27576,6 +27811,20 @@
           "gte": ["skill:crafting:rank", 3]
         },
         "feat:specialty-crafting"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Specialty Crafting",
+          "predicate": ["feat:specialty-crafting"]
+        }
       ]
     }
   },
@@ -27641,6 +27890,26 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:acrobatics:rank", 4]
+        },
+        "feat:quick-squeeze"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Quick Squeeze",
+          "predicate": ["feat:quick-squeeze"]
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -27654,13 +27923,7 @@
             ]
           }
         ]
-      },
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:acrobatics:rank", 4]
-        },
-        "feat:quick-squeeze"
-      ]
+      }
     }
   },
   {
@@ -27871,6 +28134,30 @@
           ]
         },
         "feat:esoteric-polymath"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Arcana, Nature, or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 1]
+                },
+                {
+                  "gte": ["skill:nature:rank", 1]
+                },
+                {
+                  "gte": ["skill:religion:rank", 1]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Esoteric Polymath",
+          "predicate": ["feat:esoteric-polymath"]
+        }
       ]
     }
   },
@@ -29857,6 +30144,24 @@
         {
           "gte": ["skill:intimidation:rank", 2]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +3",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 3]
+            }
+          ]
+        },
+        {
+          "text": "expert in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -30832,6 +31137,20 @@
           "gte": ["skill:society:rank", 4]
         },
         "feat:multilingual"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Multilingual",
+          "predicate": ["feat:multilingual"]
+        }
       ]
     }
   },
@@ -30985,6 +31304,20 @@
           "gte": ["skill:nature:rank", 4]
         },
         "feat:master-monster-hunter"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Master Monster Hunter",
+          "predicate": ["feat:master-monster-hunter"]
+        }
       ]
     }
   },
@@ -31117,6 +31450,20 @@
           "gte": ["skill:performance:rank", 4]
         },
         "feat:virtuosic-performer"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Virtuosic Performer",
+          "predicate": ["feat:virtuosic-performer"]
+        }
       ]
     }
   },
@@ -31233,6 +31580,23 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "masterful hunter"
+        },
+        {
+          "text": "legendary in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Far Shot",
+          "predicate": ["feat:far-shot"]
+        }
       ]
     }
   },
@@ -31319,6 +31683,20 @@
           "gte": ["skill:stealth:rank", 4]
         },
         "feat:swift-sneak"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Swift Sneak",
+          "predicate": ["feat:swift-sneak"]
+        }
       ]
     }
   },
@@ -31440,6 +31818,20 @@
           "gte": ["skill:thievery:rank", 4]
         },
         "feat:pickpocket"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Thievery",
+          "predicate": [
+            {
+              "gte": ["skill:thievery:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Pickpocket",
+          "predicate": ["feat:pickpocket"]
+        }
       ]
     }
   },
@@ -32297,6 +32689,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "arcane bond"
+        },
+        {
+          "text": "curriculum spells"
+        }
+      ],
       "action": {
         "frequency": {
           "max": 1,
@@ -32626,6 +33026,16 @@
               "text": "Lunge; Reactive Strike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Lunge",
+          "predicate": ["feat:lunge"]
+        },
+        {
+          "text": "Reactive Strike",
+          "predicate": ["feat:reactive-strike"]
         }
       ],
       "action": {
@@ -33153,6 +33563,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "hunter's edge"
+        },
+        {
+          "text": "masterful hunter"
+        }
       ]
     }
   },
@@ -33471,13 +33889,27 @@
           ]
         }
       ],
-      "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707",
       "prerequisitePredicate": [
         "feat:expert-bard-spellcasting",
         {
           "gte": ["skill:occultism:rank", 4]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Bard Spellcasting",
+          "predicate": ["feat:expert-bard-spellcasting"]
+        },
+        {
+          "text": "legendary in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 4]
+            }
+          ]
+        }
+      ],
+      "archetype": "ae1dba90-2df5-5f63-a5d9-5b5ac92bd707"
     }
   },
   {
@@ -33553,13 +33985,27 @@
           ]
         }
       ],
-      "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40",
       "prerequisitePredicate": [
         "feat:expert-cleric-spellcasting",
         {
           "gte": ["skill:religion:rank", 4]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Cleric Spellcasting",
+          "predicate": ["feat:expert-cleric-spellcasting"]
+        },
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
+        }
+      ],
+      "archetype": "6ce27fae-331e-541f-8fc0-4b6c10f17a40"
     }
   },
   {
@@ -33635,13 +34081,27 @@
           ]
         }
       ],
-      "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353",
       "prerequisitePredicate": [
         "feat:expert-druid-spellcasting",
         {
           "gte": ["skill:nature:rank", 4]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Druid Spellcasting",
+          "predicate": ["feat:expert-druid-spellcasting"]
+        },
+        {
+          "text": "legendary in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 4]
+            }
+          ]
+        }
+      ],
+      "archetype": "e8b78952-b6d8-5ffc-9f8e-5d0904534353"
     }
   },
   {
@@ -33727,6 +34187,20 @@
           "gte": ["skill:nature:rank", 3]
         },
         "feat:monster-hunter"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Monster Hunter",
+          "predicate": ["feat:monster-hunter"]
+        }
       ]
     }
   },
@@ -33790,6 +34264,14 @@
               "text": "Opening Stance (Fighter); Reflexive Stance (Monk)"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Opening Stance (Fighter)"
+        },
+        {
+          "text": "Reflexive Stance (Monk)"
         }
       ],
       "action": {
@@ -33859,13 +34341,27 @@
           ]
         }
       ],
-      "archetype": "f4915953-a349-556c-9c96-34aff718c6a8",
       "prerequisitePredicate": [
         "feat:ranger-dedication",
         {
           "gte": ["perception:rank", 2]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Ranger Dedication",
+          "predicate": ["feat:ranger-dedication"]
+        },
+        {
+          "text": "expert in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 2]
+            }
+          ]
+        }
+      ],
+      "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
     }
   },
   {
@@ -33917,6 +34413,15 @@
               "text": "Expert Witch Spellcasting; legendary in the skill associated with your patron's tradition"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Witch Spellcasting",
+          "predicate": ["feat:expert-witch-spellcasting"]
+        },
+        {
+          "text": "legendary in the skill associated with your patron's tradition"
         }
       ],
       "archetype": "443a7966-be33-5a2c-a35c-1f635e0b8f2f"
@@ -33995,13 +34500,27 @@
           ]
         }
       ],
-      "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74",
       "prerequisitePredicate": [
         "feat:expert-wizard-spellcasting",
         {
           "gte": ["skill:arcana:rank", 4]
         }
-      ]
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Wizard Spellcasting",
+          "predicate": ["feat:expert-wizard-spellcasting"]
+        },
+        {
+          "text": "legendary in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 4]
+            }
+          ]
+        }
+      ],
+      "archetype": "d0214297-fa79-5c10-9c13-6b52aa145d74"
     }
   },
   {
@@ -34061,6 +34580,19 @@
             {
               "type": "text",
               "text": "masterful hunter; Animal Companion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "masterful hunter"
+        },
+        {
+          "text": "Animal Companion",
+          "predicate": [
+            {
+              "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
             }
           ]
         }
@@ -34492,6 +35024,14 @@
               "text": "mastermind racket; Debilitating Strike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "mastermind racket"
+        },
+        {
+          "text": "Debilitating Strike"
         }
       ]
     }
@@ -39055,6 +39595,20 @@
         {
           "gte": ["attribute:str:mod", 4]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Form Control",
+          "predicate": ["feat:form-control"]
+        },
+        {
+          "text": "Strength +4",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 4]
+            }
+          ]
+        }
       ]
     }
   },
@@ -40792,6 +41346,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "thief racket"
+        },
+        {
+          "text": "Debilitating Strike"
+        }
       ]
     }
   },
@@ -42169,6 +42731,33 @@
           ]
         },
         "feat:recognize-spell"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Master in Arcana, Nature, Occultism or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 3]
+                },
+                {
+                  "gte": ["skill:nature:rank", 3]
+                },
+                {
+                  "gte": ["skill:occultism:rank", 3]
+                },
+                {
+                  "gte": ["skill:religion:rank", 3]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Recognize Spell",
+          "predicate": ["feat:recognize-spell"]
+        }
       ]
     }
   },
@@ -43167,6 +43756,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Ranger Dedication",
+          "predicate": ["feat:ranger-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 8 + your Constitution modifier"
+        }
+      ],
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
     }
   },
@@ -43558,6 +44156,26 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        {
+          "gte": ["skill:deception:rank", 4]
+        },
+        "feat:perfect-distraction"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "legendary in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "Perfect Distraction",
+          "predicate": ["feat:perfect-distraction"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -43590,13 +44208,7 @@
             ]
           }
         ]
-      },
-      "prerequisitePredicate": [
-        {
-          "gte": ["skill:deception:rank", 4]
-        },
-        "feat:perfect-distraction"
-      ]
+      }
     }
   },
   {
@@ -44140,6 +44752,26 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feat:untamed-form",
+        {
+          "or": ["feat:dragon-shape", "feat:elemental-shape", "feat:plant-shape", "feat:soaring-shape"]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Untamed Form",
+          "predicate": ["feat:untamed-form"]
+        },
+        {
+          "text": "Dragon Shape, Elemental Shape, Plant Shape, or Soaring Shape",
+          "predicate": [
+            {
+              "or": ["feat:dragon-shape", "feat:elemental-shape", "feat:plant-shape", "feat:soaring-shape"]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -44153,13 +44785,7 @@
             ]
           }
         ]
-      },
-      "prerequisitePredicate": [
-        "feat:untamed-form",
-        {
-          "or": ["feat:dragon-shape", "feat:elemental-shape", "feat:plant-shape", "feat:soaring-shape"]
-        }
-      ]
+      }
     }
   },
   {
@@ -46196,6 +46822,19 @@
             {
               "type": "text",
               "text": "enigma muse; expert in Occultism"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "enigma muse"
+        },
+        {
+          "text": "expert in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 2]
             }
           ]
         }
@@ -48927,7 +49566,17 @@
           ]
         }
       ],
-      "prerequisitePredicate": ["feat:double-prey", "feat:wardens-boon"]
+      "prerequisitePredicate": ["feat:double-prey", "feat:wardens-boon"],
+      "prerequisiteClauses": [
+        {
+          "text": "Double Prey",
+          "predicate": ["feat:double-prey"]
+        },
+        {
+          "text": "Warden's Boon",
+          "predicate": ["feat:wardens-boon"]
+        }
+      ]
     }
   },
   {
@@ -49856,6 +50505,19 @@
               "text": "Rogue Dedication or Investigator Dedication; trained in at least one skill and expert in at least one skill"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Rogue Dedication or Investigator Dedication",
+          "predicate": [
+            {
+              "or": ["feat:rogue-dedication", "feat:investigator-dedication"]
+            }
+          ]
+        },
+        {
+          "text": "trained in at least one skill and expert in at least one skill"
         }
       ],
       "maxTakable": 5,
@@ -52850,6 +53512,20 @@
           "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
         },
         "feat:camouflage"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Animal Companion",
+          "predicate": [
+            {
+              "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+            }
+          ]
+        },
+        {
+          "text": "Camouflage",
+          "predicate": ["feat:camouflage"]
+        }
       ]
     }
   },
@@ -53489,6 +54165,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "storm order"
+        },
+        {
+          "text": "tempest surge order spell"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -53788,6 +54472,19 @@
             {
               "type": "text",
               "text": "enigma muse; legendary in Occultism"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "enigma muse"
+        },
+        {
+          "text": "legendary in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 4]
             }
           ]
         }
@@ -54787,6 +55484,20 @@
           "gte": ["skill:survival:rank", 2]
         },
         "feat:experienced-tracker"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Experienced Tracker",
+          "predicate": ["feat:experienced-tracker"]
+        }
       ]
     }
   },
@@ -55252,6 +55963,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "scoundrel racket"
+        },
+        {
+          "text": "Debilitating Strike"
+        }
       ]
     }
   },
@@ -55597,6 +56316,20 @@
           "gte": ["skill:survival:rank", 3]
         },
         "feat:favored-terrain"
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Favored Terrain",
+          "predicate": ["feat:favored-terrain"]
+        }
       ]
     }
   },
@@ -57145,10 +57878,20 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:dragon-shape", "feat:untamed-form"],
+      "prerequisiteClauses": [
+        {
+          "text": "Dragon Shape",
+          "predicate": ["feat:dragon-shape"]
+        },
+        {
+          "text": "Untamed Form",
+          "predicate": ["feat:untamed-form"]
+        }
+      ],
       "action": {
         "cost": "two"
-      },
-      "prerequisitePredicate": ["feat:dragon-shape", "feat:untamed-form"]
+      }
     }
   },
   {
@@ -59668,6 +60411,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "harmful font or healing font"
+        },
+        {
+          "text": "deity that allows clerics to have both fonts"
+        }
       ]
     }
   },
@@ -60025,6 +60776,14 @@
               "text": "ruffian racket; Debilitating Strike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ruffian racket"
+        },
+        {
+          "text": "Debilitating Strike"
         }
       ]
     }

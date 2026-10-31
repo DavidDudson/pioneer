@@ -398,6 +398,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Avenging Runelord Dedication",
+          "predicate": ["feat:avenging-runelord-dedication"]
+        },
+        {
+          "text": "expert proficiency in a spear or polearm"
+        }
       ]
     }
   },
@@ -3648,6 +3657,15 @@
               "text": "Heroic Scion Dedication; familiar or nimble or savage animal companion"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Heroic Scion Dedication",
+          "predicate": ["feat:heroic-scion-dedication"]
+        },
+        {
+          "text": "familiar or nimble or savage animal companion"
         }
       ]
     }

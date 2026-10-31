@@ -1822,6 +1822,24 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "expert in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -4441,6 +4459,24 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            }
+          ]
+        }
       ]
     }
   },
@@ -4834,6 +4870,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "expert in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -4955,6 +5009,24 @@
             {
               "type": "text",
               "text": "trained in Intimidation; trained in Survival"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
             }
           ]
         }
@@ -5784,6 +5856,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Living Vessel Dedication",
+          "predicate": ["feat:living-vessel-dedication"]
+        },
+        {
+          "text": "your entity is a demon"
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -5899,6 +5980,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Curse Maelstrom Dedication",
+          "predicate": ["feat:curse-maelstrom-dedication"]
+        },
+        {
+          "text": "trained in Occultism or Curse Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:occultism:rank", 1]
+                },
+                {
+                  "gte": ["skill:lore:curse:rank", 1]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "4cdcde91-1753-56e6-be7a-e42b900678a7"
     }
   },
@@ -6002,6 +6104,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "You helped to save a fey from a terrible fate"
+        },
+        {
+          "text": "You're not a fey."
+        }
       ]
     }
   },
@@ -6073,6 +6183,15 @@
               "text": "Living Vessel Dedication; your entity is a fey"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Living Vessel Dedication",
+          "predicate": ["feat:living-vessel-dedication"]
+        },
+        {
+          "text": "your entity is a fey"
         }
       ],
       "action": {
@@ -8263,6 +8382,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thaumaturge Dedication",
+          "predicate": ["feat:thaumaturge-dedication"]
+        },
+        {
+          "text": "trained in at least one of Arcana, Nature, Occultism, or Religion and expert in at least one other"
+        }
+      ],
       "archetype": "842ef1b4-53d2-5df6-8635-58874594d89b"
     }
   },
@@ -8450,6 +8578,20 @@
             {
               "type": "text",
               "text": "Mind Smith Dedication; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mind Smith Dedication",
+          "predicate": ["feat:mind-smith-dedication"]
+        },
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
             }
           ]
         }
@@ -9468,6 +9610,28 @@
             {
               "type": "text",
               "text": "Alter Ego Dedication; trained in Athletics; master in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Alter Ego Dedication",
+          "predicate": ["feat:alter-ego-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
             }
           ]
         }
@@ -11053,6 +11217,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "you have been in a psychic duel"
+        }
+      ],
       "archetype": "cda22ae5-8615-5c97-b350-d8103a53acf0"
     }
   },
@@ -11635,6 +11812,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thaumaturge Dedication",
+          "predicate": ["feat:thaumaturge-dedication"]
+        },
+        {
+          "text": "expert in Will"
+        }
+      ],
       "archetype": "842ef1b4-53d2-5df6-8635-58874594d89b"
     }
   },
@@ -12098,6 +12284,27 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Sacral Lord",
+          "predicate": ["feat:sacral-lord"]
+        },
+        {
+          "text": "master in Occultism or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:occultism:rank", 3]
+                },
+                {
+                  "gte": ["skill:religion:rank", 3]
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   },
@@ -12512,6 +12719,14 @@
               "text": "Exploit Vulnerability; mortal weakness"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Exploit Vulnerability"
+        },
+        {
+          "text": "mortal weakness"
         }
       ],
       "action": {
@@ -13177,6 +13392,20 @@
             {
               "type": "text",
               "text": "Pactbinder Dedication; expert in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Pactbinder Dedication",
+          "predicate": ["feat:pactbinder-dedication"]
+        },
+        {
+          "text": "expert in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 2]
             }
           ]
         }
@@ -14118,6 +14347,14 @@
               "text": "Exploit Vulnerability; mortal weakness or personal antithesis"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Exploit Vulnerability"
+        },
+        {
+          "text": "mortal weakness or personal antithesis"
         }
       ]
     }
@@ -16984,6 +17221,15 @@
               "text": "Living Vessel Dedication; your entity is an aberration or outer entity"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Living Vessel Dedication",
+          "predicate": ["feat:living-vessel-dedication"]
+        },
+        {
+          "text": "your entity is an aberration or outer entity"
         }
       ],
       "action": {

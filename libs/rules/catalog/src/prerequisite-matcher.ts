@@ -3,13 +3,14 @@ import {
   BlockKind,
   contentKey,
   ContentKind,
+  ContentText,
   InlineKind,
   Predicate,
   PredicateNumber,
   Proficiency,
   RollOption,
 } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentKey, PredicateStatement, RichText } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentKey, PredicateStatement, PrerequisiteClause, RichText } from '@pioneer/rules/sdk';
 
 import { NAMED_KINDS, normalise, prerequisiteNames } from './prerequisite-names';
 import type { PrerequisiteNames } from './prerequisite-names';
@@ -182,10 +183,11 @@ function clauseStatements(clause: string, names: PrerequisiteNames): readonly Pr
   );
 }
 
-/** A feat's prerequisites read: the predicate when every clause parsed, and the clauses that didn't. */
+/** A feat's prerequisites read: the predicate when every clause parsed, the clauses that didn't, and each clause read. */
 export interface PrerequisiteReading {
   readonly predicate: Predicate | undefined;
   readonly unparsed: readonly string[];
+  readonly clauses: readonly PrerequisiteClause[];
 }
 
 /** The prerequisites as plain words, or undefined when they are anything richer than one paragraph of text. */
@@ -206,45 +208,58 @@ function prerequisiteWords(prerequisites: RichText): string | undefined {
 export function readPrerequisites(prerequisites: RichText, names: PrerequisiteNames): PrerequisiteReading {
   const words = prerequisiteWords(prerequisites);
   if (words === undefined) {
-    return { predicate: undefined, unparsed: [] };
+    return { predicate: undefined, unparsed: [], clauses: [] };
   }
   const clauses = words
     .split(';')
-    .map((clause) => normalise(clause))
-    .filter((clause) => clause !== '');
-  const read = clauses.map((clause) => ({ clause, statements: clauseStatements(clause, names) }));
+    .map((printed) => ({ printed: printed.replaceAll(/\s+/gu, ' ').trim(), clause: normalise(printed) }))
+    .filter(({ clause }) => clause !== '');
+  const read = clauses.map(({ printed, clause }) => ({ printed, clause, statements: clauseStatements(clause, names) }));
   const unparsed = read.flatMap(({ clause, statements }) => (statements === undefined ? [clause] : []));
   // No clause at all says nothing, and an empty predicate would always hold.
   const predicate =
     unparsed.length === 0 && read.length > 0
       ? Predicate.parse(read.flatMap(({ statements }) => statements ?? []))
       : undefined;
-  return { predicate, unparsed };
+  const clauseReads = read.map(({ printed, statements }): PrerequisiteClause => ({
+    text: ContentText.parse(printed),
+    predicate: statements === undefined ? undefined : Predicate.parse(statements),
+  }));
+  return { predicate, unparsed, clauses: clauseReads };
 }
 
-/** The predicate the matcher read for one feat. */
+/** What the matcher read for one feat, to set on it. */
 export interface PrerequisiteMatch {
   readonly entry: ContentKey;
-  readonly prerequisitePredicate: Predicate;
+  /** Set only where the feat has none, so a hand correction is never overwritten; undefined to leave it as it is. */
+  readonly prerequisitePredicate: Predicate | undefined;
+  /** Each clause, for a feat with several and none yet; undefined to leave it as it is. */
+  readonly prerequisiteClauses: readonly PrerequisiteClause[] | undefined;
 }
 
 /**
- * For each feat with prerequisites but no predicate, the predicate its text reads as. A feat that already has one
- * keeps it, so a hand correction is never overwritten.
+ * For each feat with prerequisites, what the matcher reads that it lacks: the predicate its text reads as, and each
+ * clause of a text with several (a lone clause is the feat's own state). A feat that already has either keeps it, so
+ * a hand correction is never overwritten.
  */
 export function prerequisiteMatches(entries: readonly ContentEntry[]): readonly PrerequisiteMatch[] {
   const names = prerequisiteNames(entries);
   return entries.flatMap((entry) => {
-    if (entry.kind !== ContentKind.Feat) {
+    if (entry.kind !== ContentKind.Feat || entry.data.prerequisites === undefined) {
       return [];
     }
-    const { prerequisites, prerequisitePredicate } = entry.data;
-    if (prerequisites === undefined || prerequisitePredicate !== undefined) {
-      return [];
-    }
-    const { predicate } = readPrerequisites(prerequisites, names);
-    return predicate === undefined
+    const { prerequisites, prerequisitePredicate, prerequisiteClauses } = entry.data;
+    const reading = readPrerequisites(prerequisites, names);
+    const clauses = prerequisiteClauses === undefined && reading.clauses.length > 1 ? reading.clauses : undefined;
+    const predicate = prerequisitePredicate === undefined ? reading.predicate : undefined;
+    return predicate === undefined && clauses === undefined
       ? []
-      : [{ entry: contentKey(entry.pack, entry.slug), prerequisitePredicate: predicate }];
+      : [
+          {
+            entry: contentKey(entry.pack, entry.slug),
+            prerequisitePredicate: predicate,
+            prerequisiteClauses: clauses,
+          },
+        ];
   });
 }

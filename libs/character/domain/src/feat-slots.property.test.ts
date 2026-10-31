@@ -5,7 +5,8 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { assert, constantFrom, integer, option, property, record } from 'fast-check';
 
 import type { CharacterDocument } from './character-document';
-import { featSlots, PrerequisiteStatus } from './feat-slots';
+import { featSlots } from './feat-slots';
+import { PrerequisiteStatus } from './prerequisite-status';
 import { slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,

@@ -495,7 +495,8 @@ export { coinsValue, costCoins, type CostCoins, payCost, purchaseCost } from './
 export { type ArchetypeRead, type FeatContent, featContent, type FeatRead } from './feat-content';
 export { dedicationWait, dedicationWaits } from './dedication-lock';
 export { availableSpellsToYou, availableToYou, slotPrerequisiteStatus } from './available-to-you';
-export { type FeatOption, type FeatSlot, featSlots, PrerequisiteStatus } from './feat-slots';
+export { type FeatOption, type FeatSlot, featSlots } from './feat-slots';
+export { type PrerequisiteClauseStatus, PrerequisiteStatus } from './prerequisite-status';
 export { CHARACTER_PROSE_MAX_LENGTH, CharacterProseInput, withProse } from './character-prose';
 export {
   needsConditionContent,

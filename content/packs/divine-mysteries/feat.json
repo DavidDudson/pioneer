@@ -1276,8 +1276,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7537",
-        "page": 281
+        "page": 281,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7537"
       }
     ],
     "description": [
@@ -1366,6 +1366,15 @@
               "text": "Mortal Herald Dedication; fly Speed of at least 20 feet"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mortal Herald Dedication",
+          "predicate": ["feat:mortal-herald-dedication"]
+        },
+        {
+          "text": "fly Speed of at least 20 feet"
         }
       ],
       "action": {
@@ -2437,8 +2446,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7591",
-        "page": 295
+        "page": 295,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7591"
       }
     ],
     "description": [
@@ -2479,6 +2488,20 @@
         "feat:basic-rivethun-spellcasting",
         {
           "gte": ["skill:religion:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Rivethun Spellcasting",
+          "predicate": ["feat:basic-rivethun-spellcasting"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
         }
       ],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
@@ -2563,8 +2586,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7530",
-        "page": 280
+        "page": 280,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7530"
       }
     ],
     "description": [
@@ -2630,6 +2653,20 @@
         "feat:mortal-herald-dedication",
         {
           "gte": ["skill:intimidation:rank", 2]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mortal Herald Dedication",
+          "predicate": ["feat:mortal-herald-dedication"]
+        },
+        {
+          "text": "expert in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 2]
+            }
+          ]
         }
       ],
       "action": {
@@ -3263,8 +3300,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7547",
-        "page": 282
+        "page": 282,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7547"
       }
     ],
     "description": [
@@ -3398,6 +3435,15 @@
               "text": "Mortal Herald Dedication; fly Speed of at least 20 feet"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mortal Herald Dedication",
+          "predicate": ["feat:mortal-herald-dedication"]
+        },
+        {
+          "text": "fly Speed of at least 20 feet"
         }
       ],
       "action": {
@@ -3539,8 +3585,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7548",
-        "page": 282
+        "page": 282,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7548"
       }
     ],
     "description": [
@@ -3618,6 +3664,20 @@
         "feat:mortal-herald-dedication",
         {
           "gte": ["skill:diplomacy:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mortal Herald Dedication",
+          "predicate": ["feat:mortal-herald-dedication"]
+        },
+        {
+          "text": "master in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 3]
+            }
+          ]
         }
       ],
       "action": {
@@ -4129,8 +4189,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7542",
-        "page": 281
+        "page": 281,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7542"
       }
     ],
     "description": [
@@ -4174,6 +4234,20 @@
         "feat:mortal-herald-dedication",
         {
           "gte": ["skill:stealth:rank", 3]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mortal Herald Dedication",
+          "predicate": ["feat:mortal-herald-dedication"]
+        },
+        {
+          "text": "master in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 3]
+            }
+          ]
         }
       ],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
@@ -4807,8 +4881,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7570",
-        "page": 291
+        "page": 291,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7570"
       }
     ],
     "description": [
@@ -4916,6 +4990,20 @@
         "feat:razmiran-priest-dedication",
         {
           "gte": ["skill:crafting:rank", 4]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Razmiran Priest Dedication",
+          "predicate": ["feat:razmiran-priest-dedication"]
+        },
+        {
+          "text": "legendary in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 4]
+            }
+          ]
         }
       ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
@@ -5046,8 +5134,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7568",
-        "page": 291
+        "page": 291,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7568"
       }
     ],
     "description": [
@@ -5163,6 +5251,20 @@
           "gte": ["skill:crafting:rank", 2]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Razmiran Priest Dedication",
+          "predicate": ["feat:razmiran-priest-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -5179,8 +5281,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7569",
-        "page": 291
+        "page": 291,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7569"
       }
     ],
     "description": [
@@ -5291,6 +5393,20 @@
           "gte": ["skill:crafting:rank", 3]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Razmiran Priest Dedication",
+          "predicate": ["feat:razmiran-priest-dedication"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
     }
   },
@@ -5307,8 +5423,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7593",
-        "page": 295
+        "page": 295,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7593"
       }
     ],
     "description": [
@@ -5349,6 +5465,20 @@
         "feat:expert-rivethun-spellcasting",
         {
           "gte": ["skill:religion:rank", 4]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Rivethun Spellcasting",
+          "predicate": ["feat:expert-rivethun-spellcasting"]
+        },
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
         }
       ],
       "archetype": "7f98003d-0b5e-513a-9cda-42f8cff955e8"
@@ -5472,8 +5602,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7528",
-        "page": 279
+        "page": 279,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7528"
       }
     ],
     "description": [
@@ -5781,6 +5911,14 @@
               "text": "worshipper of a specific deity; master in Religion or your deity's divine skill"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "worshipper of a specific deity"
+        },
+        {
+          "text": "master in Religion or your deity's divine skill"
         }
       ],
       "archetype": "9d647c89-0686-5a25-921c-87078b3bc13a"
@@ -6459,8 +6597,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7523",
-        "page": 277
+        "page": 277,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7523"
       }
     ],
     "description": [
@@ -6498,6 +6636,16 @@
               "text": "Faithful Steed; unholy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Faithful Steed",
+          "predicate": ["feat:faithful-steed"]
+        },
+        {
+          "text": "unholy",
+          "predicate": ["self:trait:unholy"]
         }
       ]
     }
@@ -6598,8 +6746,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7566",
-        "page": 290
+        "page": 290,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7566"
       }
     ],
     "description": [
@@ -6680,6 +6828,24 @@
         },
         {
           "gte": ["skill:deception:rank", 1]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            }
+          ]
         }
       ],
       "archetype": "a758c821-86b4-5ed7-8d75-0b9b9e2e1007"
@@ -7496,8 +7662,8 @@
       {
         "kind": "book",
         "book": "divine-mysteries",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7592",
-        "page": 295
+        "page": 295,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=7592"
       }
     ],
     "description": [
@@ -7563,6 +7729,20 @@
         "feat:spirit-companion",
         {
           "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spirit Companion",
+          "predicate": ["feat:spirit-companion"]
+        },
+        {
+          "text": "Incredible Companion",
+          "predicate": [
+            {
+              "or": ["feat:incredible-companion-druid", "feat:incredible-companion-ranger"]
+            }
+          ]
         }
       ],
       "maxTakable": 3,

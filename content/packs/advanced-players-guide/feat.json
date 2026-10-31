@@ -138,6 +138,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Vigilante Dedication",
+          "predicate": ["feat:vigilante-dedication"]
+        }
       ]
     }
   }

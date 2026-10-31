@@ -1,5 +1,11 @@
 import { featSlots, PrerequisiteStatus, SlotStatus } from '@pioneer/character/domain';
-import type { Character, CharacterSlot, FeatOption, FeatSlot } from '@pioneer/character/domain';
+import type {
+  Character,
+  CharacterSlot,
+  FeatOption,
+  FeatSlot,
+  PrerequisiteClauseStatus,
+} from '@pioneer/character/domain';
 import { BlockKind, ContentKind, FeatCategory, InlineKind, Rarity } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
@@ -63,6 +69,8 @@ export interface SheetFeatOption {
   readonly traits: readonly string[];
   readonly sources: readonly SourceRef[];
   readonly status: PrerequisiteStatus;
+  /** Each clause of the prerequisites with its own state, for a feat with several; undefined for any other. */
+  readonly clauses: readonly PrerequisiteClauseStatus[] | undefined;
   /** What the prerequisites are, as printed; none for a feat without any. */
   readonly prerequisites: string | undefined;
   readonly locked: SheetFeatLock | undefined;
@@ -143,6 +151,7 @@ function optionOf(
     level: option.level,
     ...factsOf(entryOf(option.value)),
     status: option.status,
+    clauses: option.clauses,
     prerequisites,
     locked,
   };
@@ -209,17 +218,24 @@ export interface FeatRowReads {
   readonly trainedAgain: TrainedAgain;
 }
 
-/** The prerequisites as the cell shows them: the printed text once, with the state the engine read for the feat. */
+const PREREQUISITE_STATES: Readonly<Record<PrerequisiteStatus, PrerequisiteState>> = {
+  [PrerequisiteStatus.Met]: PrerequisiteState.Met,
+  [PrerequisiteStatus.Unmet]: PrerequisiteState.Unmet,
+  [PrerequisiteStatus.Unknown]: PrerequisiteState.Unknown,
+};
+
+/**
+ * The prerequisites as the cell shows them: a line for each clause of a feat with several, each in its own state;
+ * otherwise the printed text once, in the state the engine read for the feat.
+ */
 function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[] {
+  if (option.clauses !== undefined) {
+    return option.clauses.map(({ text, status }) => ({ label: text, state: PREREQUISITE_STATES[status] }));
+  }
   if (option.prerequisites === undefined || option.prerequisites === '') {
     return [];
   }
-  const states: Readonly<Record<PrerequisiteStatus, PrerequisiteState>> = {
-    [PrerequisiteStatus.Met]: PrerequisiteState.Met,
-    [PrerequisiteStatus.Unmet]: PrerequisiteState.Unmet,
-    [PrerequisiteStatus.Unknown]: PrerequisiteState.Unknown,
-  };
-  return [{ label: option.prerequisites, state: states[option.status] }];
+  return [{ label: option.prerequisites, state: PREREQUISITE_STATES[option.status] }];
 }
 
 /**

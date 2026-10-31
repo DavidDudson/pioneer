@@ -255,6 +255,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Gunslinger Dedication",
+          "predicate": ["feat:gunslinger-dedication"]
+        },
+        {
+          "text": "expert in any kind of weapon or unarmed attack"
+        }
+      ],
       "archetype": "3b44eb15-3493-51a0-97a9-dafbaf690b05"
     }
   },
@@ -1923,6 +1932,29 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert with at least one type of firearm"
+        },
+        {
+          "text": "trained in Arcana or Crafting",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 1]
+                },
+                {
+                  "gte": ["skill:crafting:rank", 1]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "you own a beast gun and have slain the type of creature associated with your beast gun in a fair hunt"
+        }
+      ],
       "archetype": "a01f29b8-1c5c-5046-bbd6-b5c0400c7ff2"
     }
   },
@@ -2019,6 +2051,16 @@
               "text": "Bullet Dancer Dedication; Black Powder Boost"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bullet Dancer Dedication",
+          "predicate": ["feat:bullet-dancer-dedication"]
+        },
+        {
+          "text": "Black Powder Boost",
+          "predicate": ["feat:black-powder-boost"]
         }
       ],
       "action": {
@@ -2212,6 +2254,20 @@
             {
               "type": "text",
               "text": "Spellshot Dedication; master in Arcana"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellshot Dedication",
+          "predicate": ["feat:spellshot-dedication"]
+        },
+        {
+          "text": "master in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 3]
             }
           ]
         }
@@ -4672,6 +4728,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Overwatch Dedication",
+          "predicate": ["feat:overwatch-dedication"]
+        },
+        {
+          "text": "master in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "70daaec0-6aac-536e-8d63-d82c616b9ef1"
     }
   },
@@ -4751,6 +4821,15 @@
               "text": "Demolitionist Dedication; Bomber's field discovery, Directional Bombs, or Expanded Splash"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Demolitionist Dedication",
+          "predicate": ["feat:demolitionist-dedication"]
+        },
+        {
+          "text": "Bomber's field discovery, Directional Bombs, or Expanded Splash"
         }
       ],
       "archetype": "44778bea-c23c-51af-acf2-3f7a77c984f3"
@@ -4904,6 +4983,20 @@
             {
               "type": "text",
               "text": "Overwatch Dedication; master in Perception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Overwatch Dedication",
+          "predicate": ["feat:overwatch-dedication"]
+        },
+        {
+          "text": "master in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 3]
             }
           ]
         }
@@ -6906,6 +6999,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert overdrive"
+        },
+        {
+          "text": "weapon innovation"
+        }
       ]
     }
   },
@@ -7093,6 +7194,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Gunslinger Dedication",
+          "predicate": ["feat:gunslinger-dedication"]
+        },
+        {
+          "text": "expert in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "3b44eb15-3493-51a0-97a9-dafbaf690b05"
     }
   },
@@ -7209,6 +7324,20 @@
             {
               "type": "text",
               "text": "Vehicle Mechanic Dedication; master in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Vehicle Mechanic Dedication",
+          "predicate": ["feat:vehicle-mechanic-dedication"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
             }
           ]
         }
@@ -7444,6 +7573,20 @@
             {
               "type": "text",
               "text": "Vehicle Mechanic Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Vehicle Mechanic Dedication",
+          "predicate": ["feat:vehicle-mechanic-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
             }
           ]
         }
@@ -7695,6 +7838,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Firework Technician Dedication",
+          "predicate": ["feat:firework-technician-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "cf944833-f86c-5dc8-bd0d-f7ff890517a4"
     }
   },
@@ -7874,6 +8031,20 @@
             {
               "type": "text",
               "text": "Demolitionist Dedication; master in Engineering Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Demolitionist Dedication",
+          "predicate": ["feat:demolitionist-dedication"]
+        },
+        {
+          "text": "master in Engineering Lore",
+          "predicate": [
+            {
+              "gte": ["skill:lore:engineering:rank", 3]
             }
           ]
         }
@@ -8393,6 +8564,20 @@
             {
               "type": "text",
               "text": "Artillerist Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Artillerist Dedication",
+          "predicate": ["feat:artillerist-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
             }
           ]
         }
@@ -8961,6 +9146,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Overwatch Dedication",
+          "predicate": ["feat:overwatch-dedication"]
+        },
+        {
+          "text": "master in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -9413,6 +9612,20 @@
             {
               "type": "text",
               "text": "Trapsmith Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Trapsmith Dedication",
+          "predicate": ["feat:trapsmith-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
             }
           ]
         }
@@ -10763,6 +10976,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Unexpected Sharpshooter Dedication",
+          "predicate": ["feat:unexpected-sharpshooter-dedication"]
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -12060,6 +12287,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Overwatch Dedication",
+          "predicate": ["feat:overwatch-dedication"]
+        },
+        {
+          "text": "expert in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "70daaec0-6aac-536e-8d63-d82c616b9ef1"
     }
   },
@@ -12616,6 +12857,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Munitions Crafter",
+          "predicate": ["feat:munitions-crafter"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -12669,6 +12924,20 @@
             {
               "type": "text",
               "text": "Artillerist Dedication; Trained in crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Artillerist Dedication",
+          "predicate": ["feat:artillerist-dedication"]
+        },
+        {
+          "text": "Trained in crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
             }
           ]
         }
@@ -13824,6 +14093,27 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in at least one type of one-handed firearm"
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "6cad1855-9ee7-5f3e-88f9-f1bc5f6bd145"
     }
   },
@@ -14320,6 +14610,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Trapsmith Dedication",
+          "predicate": ["feat:trapsmith-dedication"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "243457d9-0399-5368-aae2-72a83b865b45"
     }
   },
@@ -14603,6 +14907,16 @@
               "text": "Bullet Dancer Dedication; Trick Shot"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bullet Dancer Dedication",
+          "predicate": ["feat:bullet-dancer-dedication"]
+        },
+        {
+          "text": "Trick Shot",
+          "predicate": ["feat:trick-shot"]
         }
       ],
       "action": {
@@ -16258,6 +16572,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Pistol Twirl",
+          "predicate": ["feat:pistol-twirl"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -16661,6 +16989,19 @@
             {
               "type": "text",
               "text": "trained in at least one type of weapon in the bow or firearm groups; trained in Stealth"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in at least one type of weapon in the bow or firearm groups"
+        },
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
             }
           ]
         }
@@ -18291,6 +18632,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Unexpected Sharpshooter Dedication",
+          "predicate": ["feat:unexpected-sharpshooter-dedication"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -19543,6 +19898,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Intelligence +2",
+          "predicate": [
+            {
+              "gte": ["attribute:int:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "12264d5c-b3f8-57d0-8621-42f48deabcff"
     }
   },
@@ -19918,6 +20291,20 @@
             {
               "type": "text",
               "text": "Overwatch Dedication; master in Perception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Overwatch Dedication",
+          "predicate": ["feat:overwatch-dedication"]
+        },
+        {
+          "text": "master in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 3]
             }
           ]
         }

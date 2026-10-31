@@ -1359,6 +1359,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Herbalist Dedication",
+          "predicate": ["feat:herbalist-dedication"]
+        },
+        {
+          "text": "expert in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 2]
+            }
+          ]
+        }
+      ],
       "maxTakable": 2,
       "archetype": "84f19ee4-4097-575f-8190-7303b391945e"
     }
@@ -2654,6 +2668,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Alchemist Dedication",
+          "predicate": ["feat:alchemist-dedication"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "6403db06-91cd-522f-94a3-5cb6a0cc5565"
     }
   },
@@ -3257,6 +3285,28 @@
             {
               "type": "text",
               "text": "Linguist Dedication; expert in Deception; expert in Society"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Linguist Dedication",
+          "predicate": ["feat:linguist-dedication"]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
             }
           ]
         }
@@ -4819,6 +4869,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "4a529bba-fa11-59f2-933f-af235acca028"
     }
   },
@@ -5230,6 +5298,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "champion's aura"
+        },
+        {
+          "text": "holy",
+          "predicate": ["self:trait:holy"]
+        }
       ]
     }
   },
@@ -5285,6 +5362,15 @@
               "text": "champion's aura; unholy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "champion's aura"
+        },
+        {
+          "text": "unholy",
+          "predicate": ["self:trait:unholy"]
         }
       ]
     }
@@ -5473,6 +5559,15 @@
               "text": "champion's aura; holy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "champion's aura"
+        },
+        {
+          "text": "holy",
+          "predicate": ["self:trait:holy"]
         }
       ]
     }
@@ -5996,6 +6091,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +2",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Constitution +2",
+          "predicate": [
+            {
+              "gte": ["attribute:con:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "67cad214-881e-5cf1-bf26-6c3a74a35698"
     }
   },
@@ -6042,6 +6155,15 @@
               "text": "Barbarian Dedication; class granting no more Hit Points per level than 10 + your Constitution modifier"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Barbarian Dedication",
+          "predicate": ["feat:barbarian-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 10 + your Constitution modifier"
         }
       ],
       "archetype": "67cad214-881e-5cf1-bf26-6c3a74a35698"
@@ -7483,6 +7605,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "Call Companion"
+        }
+      ],
       "action": {
         "cost": "one",
         "frequency": {
@@ -8666,6 +8797,19 @@
               "text": "Blessed One Dedication; ability to cast spells from spell slots; Mercy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Blessed One Dedication",
+          "predicate": ["feat:blessed-one-dedication"]
+        },
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "Mercy",
+          "predicate": ["feat:mercy"]
         }
       ],
       "action": {
@@ -12156,6 +12300,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +2",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "acf91371-6323-58d9-8e50-79fdf5d83746"
     }
   },
@@ -12202,6 +12364,15 @@
               "text": "Champion Dedication; class granting no more Hit Points per level than 8 + your Constitution modifier"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Champion Dedication",
+          "predicate": ["feat:champion-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 8 + your Constitution modifier"
         }
       ],
       "archetype": "acf91371-6323-58d9-8e50-79fdf5d83746"
@@ -13300,6 +13471,15 @@
               "text": "Cobra Stance; expert in unarmed attacks"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cobra Stance",
+          "predicate": ["feat:cobra-stance"]
+        },
+        {
+          "text": "expert in unarmed attacks"
         }
       ],
       "action": {
@@ -17395,6 +17575,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bastion Dedication",
+          "predicate": ["feat:bastion-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "free",
         "trigger": [
@@ -17882,6 +18076,20 @@
             {
               "type": "text",
               "text": "Dandy Dedication; expert in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dandy Dedication",
+          "predicate": ["feat:dandy-dedication"]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
             }
           ]
         }
@@ -20785,6 +20993,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "trained in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -22850,6 +23072,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Herbalist Dedication",
+          "predicate": ["feat:herbalist-dedication"]
+        },
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        }
+      ],
       "archetype": "84f19ee4-4097-575f-8190-7303b391945e"
     }
   },
@@ -23923,6 +24159,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "follower of a specific religion or philosophy"
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -24233,6 +24482,19 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "follower of a specific religion"
+        }
       ]
     }
   },
@@ -24505,6 +24767,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Scrounger Dedication",
+          "predicate": ["feat:scrounger-dedication"]
+        }
+      ],
       "archetype": "71254bb9-a4d2-5a81-8323-a33c23ffdd75"
     }
   },
@@ -24658,6 +24934,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Oracle Spellcasting",
+          "predicate": ["feat:basic-oracle-spellcasting"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "ebc68030-fc37-53bc-829b-a3ac45aff18a"
     }
   },
@@ -24767,6 +25057,15 @@
               "text": "Basic Sorcerer Spellcasting; master in Arcana, Nature, Occultism, or Religion, depending on bloodline"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Sorcerer Spellcasting",
+          "predicate": ["feat:basic-sorcerer-spellcasting"]
+        },
+        {
+          "text": "master in Arcana, Nature, Occultism, or Religion, depending on bloodline"
         }
       ],
       "archetype": "f12e1bb8-1bb4-5b0b-8b32-04b635a56d49"
@@ -25395,6 +25694,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dandy Dedication",
+          "predicate": ["feat:dandy-dedication"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "54526bd4-8bd7-5e1c-a68f-dca95255e2f2"
     }
   },
@@ -25502,6 +25815,15 @@
               "text": "Familiar Master Dedication; able to cast spells"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Master Dedication",
+          "predicate": ["feat:familiar-master-dedication"]
+        },
+        {
+          "text": "able to cast spells"
         }
       ],
       "action": {
@@ -25687,6 +26009,20 @@
             {
               "type": "text",
               "text": "Gladiator Dedication; expert in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Gladiator Dedication",
+          "predicate": ["feat:gladiator-dedication"]
+        },
+        {
+          "text": "expert in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 2]
             }
           ]
         }
@@ -26629,6 +26965,20 @@
               "text": "master in Athletics; Flamboyant Athlete"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Flamboyant Athlete",
+          "predicate": ["feat:flamboyant-athlete"]
         }
       ],
       "action": {
@@ -28759,6 +29109,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Startling Appearance",
+          "predicate": ["feat:startling-appearance-vigilante"]
+        }
+      ],
       "archetype": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee"
     }
   },
@@ -30039,6 +30403,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Crushing Grab",
+          "predicate": ["feat:crushing-grab"]
+        },
+        {
+          "text": "Whirling Throw",
+          "predicate": ["feat:whirling-throw"]
+        }
+      ],
       "action": {
         "cost": "three",
         "requirementsText": [
@@ -30242,6 +30616,20 @@
             {
               "type": "text",
               "text": "Acrobat Dedication; Master in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Acrobat Dedication",
+          "predicate": ["feat:acrobat-dedication"]
+        },
+        {
+          "text": "Master in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 3]
             }
           ]
         }
@@ -30946,6 +31334,16 @@
               "text": "Archaeologist Dedication; Magical Scholastics"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Archaeologist Dedication",
+          "predicate": ["feat:archaeologist-dedication"]
+        },
+        {
+          "text": "Magical Scholastics",
+          "predicate": ["feat:magical-scholastics"]
         }
       ],
       "archetype": "a85ffecf-2cf4-5eb8-8d47-75bc66f8be97"
@@ -32275,6 +32673,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Faithful Steed",
+          "predicate": ["feat:faithful-steed"]
+        },
+        {
+          "text": "lay on hands"
+        }
       ]
     }
   },
@@ -32396,6 +32803,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Natural Medicine",
+          "predicate": ["feat:natural-medicine"]
+        }
+      ],
       "archetype": "84f19ee4-4097-575f-8190-7303b391945e"
     }
   },
@@ -32467,6 +32888,33 @@
               "text": "expert in Arcana, Nature, Occultism, or Religion; Vigilante Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Arcana, Nature, Occultism, or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 2]
+                },
+                {
+                  "gte": ["skill:nature:rank", 2]
+                },
+                {
+                  "gte": ["skill:occultism:rank", 2]
+                },
+                {
+                  "gte": ["skill:religion:rank", 2]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Vigilante Dedication",
+          "predicate": ["feat:vigilante-dedication"]
         }
       ],
       "archetype": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee"
@@ -32692,6 +33140,20 @@
               "text": "trained in Diplomacy; Treat Condition"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Treat Condition",
+          "predicate": ["feat:treat-condition"]
         }
       ],
       "archetype": "baf7c850-c756-5b18-9981-926bd4746899"
@@ -35005,6 +35467,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Master Dedication",
+          "predicate": ["feat:familiar-master-dedication"]
+        },
+        {
+          "text": "Enhanced Familiar",
+          "predicate": ["feat:enhanced-familiar"]
+        }
+      ],
       "archetype": "fa98b6a9-1034-56ee-a5f1-772da6ddefed"
     }
   },
@@ -35633,6 +36105,20 @@
             {
               "type": "text",
               "text": "Marshal Dedication; trained in Diplomacy"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "trained in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 1]
             }
           ]
         }
@@ -36988,6 +37474,15 @@
               "text": "Barbarian Dedication; expert in Fortitude saves"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Barbarian Dedication",
+          "predicate": ["feat:barbarian-dedication"]
+        },
+        {
+          "text": "expert in Fortitude saves"
         }
       ],
       "archetype": "67cad214-881e-5cf1-bf26-6c3a74a35698"
@@ -38514,6 +39009,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mature Beastmaster Companion",
+          "predicate": ["feat:mature-beastmaster-companion"]
+        },
+        {
+          "text": "you have multiple animal companions"
+        }
+      ],
       "archetype": "8cafc248-4e40-5b5e-9ff7-9744d55b52d4"
     }
   },
@@ -39197,6 +39701,24 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Courtly Graces or Streetwise",
+          "predicate": [
+            {
+              "or": ["feat:courtly-graces", "feat:streetwise"]
+            }
+          ]
+        }
       ]
     }
   },
@@ -39551,6 +40073,20 @@
             {
               "type": "text",
               "text": "Snarecrafter Dedication; master in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Snarecrafter Dedication",
+          "predicate": ["feat:snarecrafter-dedication"]
+        },
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
             }
           ]
         }
@@ -40340,6 +40876,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Scrounger Dedication",
+          "predicate": ["feat:scrounger-dedication"]
+        },
+        {
+          "text": "Magical Crafting",
+          "predicate": ["feat:magical-crafting"]
+        }
+      ],
       "archetype": "71254bb9-a4d2-5a81-8323-a33c23ffdd75"
     }
   },
@@ -40712,6 +41258,20 @@
               "text": "master in Deception; Vigilante Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Vigilante Dedication",
+          "predicate": ["feat:vigilante-dedication"]
         }
       ],
       "archetype": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee"
@@ -41132,6 +41692,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Oracle Spellcasting",
+          "predicate": ["feat:expert-oracle-spellcasting"]
+        },
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
+        }
+      ],
       "archetype": "ebc68030-fc37-53bc-829b-a3ac45aff18a"
     }
   },
@@ -41324,6 +41898,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Sorcerer Spellcasting",
+          "predicate": ["feat:expert-sorcerer-spellcasting"]
+        },
+        {
+          "text": "legendary in Arcana, Nature, Occultism, or Religion depending on bloodline"
+        }
+      ],
       "archetype": "f12e1bb8-1bb4-5b0b-8b32-04b635a56d49"
     }
   },
@@ -41374,6 +41957,20 @@
             {
               "type": "text",
               "text": "Investigator Dedication; expert in Perception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Investigator Dedication",
+          "predicate": ["feat:investigator-dedication"]
+        },
+        {
+          "text": "expert in Perception",
+          "predicate": [
+            {
+              "gte": ["perception:rank", 2]
             }
           ]
         }
@@ -41744,6 +42341,20 @@
               "text": "trained in Medicine; Battle Medicine"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Battle Medicine",
+          "predicate": ["feat:battle-medicine"]
         }
       ],
       "archetype": "baf7c850-c756-5b18-9981-926bd4746899"
@@ -42234,6 +42845,33 @@
               "text": "animal companion or familiar; expert in Deception; Vigilante Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "animal companion or familiar",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "or": ["feat:animal-companion", "feat:animal-companion-ranger"]
+                },
+                "feat:familiar"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Vigilante Dedication",
+          "predicate": ["feat:vigilante-dedication"]
         }
       ],
       "archetype": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee"
@@ -42823,6 +43461,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength +2",
+          "predicate": [
+            {
+              "gte": ["attribute:str:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Dexterity +2",
+          "predicate": [
+            {
+              "gte": ["attribute:dex:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "771efbb5-6178-5912-a950-b2f944577f7a"
     }
   },
@@ -42924,6 +43580,15 @@
               "text": "Monk Dedication; class granting no more Hit Points per level than 8 + your Constitution modifier"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Monk Dedication",
+          "predicate": ["feat:monk-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 8 + your Constitution modifier"
         }
       ],
       "archetype": "771efbb5-6178-5912-a950-b2f944577f7a"
@@ -43477,6 +44142,20 @@
             {
               "type": "text",
               "text": "Linguist Dedication; expert in Society"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Linguist Dedication",
+          "predicate": ["feat:linguist-dedication"]
+        },
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
             }
           ]
         }
@@ -44682,6 +45361,15 @@
               "text": "Diehard; You have died at least once"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Diehard",
+          "predicate": ["feat:diehard"]
+        },
+        {
+          "text": "You have died at least once"
         }
       ],
       "action": {
@@ -46440,6 +47128,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dandy Dedication",
+          "predicate": ["feat:dandy-dedication"]
+        },
+        {
+          "text": "master in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "54526bd4-8bd7-5e1c-a68f-dca95255e2f2"
     }
   },
@@ -46867,6 +47569,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Monk Dedication",
+          "predicate": ["feat:monk-dedication"]
+        },
+        {
+          "text": "expert in at least one saving throw"
+        }
+      ],
       "archetype": "771efbb5-6178-5912-a950-b2f944577f7a"
     }
   },
@@ -47217,6 +47928,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Linguist Dedication",
+          "predicate": ["feat:linguist-dedication"]
+        },
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "760a79e1-23ee-59e0-acc3-3e524b8e4ea4"
     }
   },
@@ -47319,6 +48044,19 @@
               "text": "trained in Religion; follower of a specific religion"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "follower of a specific religion"
         }
       ]
     }
@@ -48229,6 +48967,20 @@
             {
               "type": "text",
               "text": "Poisoner Dedication; trained in Medicine"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Poisoner Dedication",
+          "predicate": ["feat:poisoner-dedication"]
+        },
+        {
+          "text": "trained in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 1]
             }
           ]
         }
@@ -49506,6 +50258,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Master of Many Styles",
+          "predicate": ["feat:master-of-many-styles"]
+        },
+        {
+          "text": "Qi Spells",
+          "predicate": ["feat:qi-spells"]
+        }
+      ],
       "action": {
         "cost": "free",
         "frequency": {
@@ -49864,6 +50626,20 @@
             {
               "type": "text",
               "text": "Cavalier Dedication; expert in Nature"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "expert in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 2]
             }
           ]
         }
@@ -51152,6 +51928,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Linguist Dedication",
+          "predicate": ["feat:linguist-dedication"]
+        },
+        {
+          "text": "master in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "760a79e1-23ee-59e0-acc3-3e524b8e4ea4"
     }
   },
@@ -52180,6 +52970,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Medic Dedication",
+          "predicate": ["feat:medic-dedication"]
+        },
+        {
+          "text": "legendary in Medicine",
+          "predicate": [
+            {
+              "gte": ["skill:medicine:rank", 4]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "three",
         "requirementsText": [
@@ -52360,6 +53164,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Deflect Projectile",
+          "predicate": ["feat:deflect-projectile"]
+        },
+        {
+          "text": "Monastic Archer Stance",
+          "predicate": ["feat:monastic-archer-stance"]
+        }
+      ],
       "action": {
         "requirementsText": [
           {
@@ -52471,6 +53285,20 @@
               "text": "expert in Crafting; Scrounger Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Scrounger Dedication",
+          "predicate": ["feat:scrounger-dedication"]
         }
       ],
       "archetype": "71254bb9-a4d2-5a81-8323-a33c23ffdd75"
@@ -53339,6 +54167,28 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Pirate Dedication",
+          "predicate": ["feat:pirate-dedication"]
+        }
+      ],
       "archetype": "cdc1b968-acfa-585a-bed0-2d1e874dc0f6"
     }
   },
@@ -53772,6 +54622,19 @@
               "text": "expert in Religion; must worship a deity that lists \"holy\" or \"unholy\" in their sanctification"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "must worship a deity that lists \"holy\" or \"unholy\" in their sanctification"
         }
       ],
       "action": {
@@ -54238,6 +55101,20 @@
             {
               "type": "text",
               "text": "Archaeologist Dedication; master in Society"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Archaeologist Dedication",
+          "predicate": ["feat:archaeologist-dedication"]
+        },
+        {
+          "text": "master in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 3]
             }
           ]
         }
@@ -55274,6 +56151,16 @@
               "text": "Dueling Parry; Duelist Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dueling Parry",
+          "predicate": ["feat:dueling-parry"]
+        },
+        {
+          "text": "Duelist Dedication",
+          "predicate": ["feat:duelist-dedication"]
         }
       ],
       "archetype": "b7e693ad-d65d-54d9-95f7-5da4f43a8fd4"
@@ -56348,6 +57235,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "blessed shield"
+        },
+        {
+          "text": "champion's reaction",
+          "predicate": ["feat:champions-reaction"]
+        },
+        {
+          "text": "Shield Warden",
+          "predicate": ["feat:shield-warden"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -56611,6 +57511,20 @@
             {
               "type": "text",
               "text": "Mauler Dedication; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Mauler Dedication",
+          "predicate": ["feat:mauler-dedication"]
+        },
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
             }
           ]
         }
@@ -56951,6 +57865,20 @@
               "text": "master in Crafting; Magical Crafting"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Magical Crafting",
+          "predicate": ["feat:magical-crafting"]
         }
       ]
     }
@@ -57795,6 +58723,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Snare Crafting",
+          "predicate": ["feat:snare-crafting"]
+        }
       ]
     }
   },
@@ -57963,6 +58905,20 @@
               "text": "trained in Crafting; Snare Crafting"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Snare Crafting",
+          "predicate": ["feat:snare-crafting"]
         }
       ],
       "archetype": "32d933a4-445d-57a0-b355-b929992bd6ff"
@@ -60046,6 +61002,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "Sentinel Dedication",
+          "predicate": ["feat:sentinel-dedication"]
+        }
+      ],
       "archetype": "9e4cd20e-597f-5342-a688-b837d8866c57"
     }
   },
@@ -60838,6 +61808,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Stumbling Stance",
+          "predicate": ["feat:stumbling-stance"]
+        }
+      ],
       "action": {
         "requirementsText": [
           {
@@ -61329,6 +62313,20 @@
               "text": "master in Deception; Vigilante Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Vigilante Dedication",
+          "predicate": ["feat:vigilante-dedication"]
         }
       ],
       "archetype": "7b072a8c-631e-5bfe-91ce-8ebfb17e39ee"
@@ -62768,6 +63766,24 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "Dexterity +2",
+          "predicate": [
+            {
+              "gte": ["attribute:dex:mod", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "f9776264-20d9-5a36-8599-5d2f96403358"
     }
   },
@@ -62986,6 +64002,15 @@
               "text": "Beastmaster Dedication; Call Companion"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "Call Companion"
         }
       ],
       "action": {
@@ -66363,6 +67388,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Marshal Dedication",
+          "predicate": ["feat:marshal-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -66924,6 +67963,16 @@
               "text": "Monastic Archer Stance; Stunning Blows"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Monastic Archer Stance",
+          "predicate": ["feat:monastic-archer-stance"]
+        },
+        {
+          "text": "Stunning Blows",
+          "predicate": ["feat:stunning-blows"]
         }
       ],
       "action": {
@@ -68684,6 +69733,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Streetwise",
+          "predicate": ["feat:streetwise"]
+        }
       ]
     }
   },
@@ -68859,6 +69922,20 @@
             {
               "type": "text",
               "text": "Archer Dedication; expert in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Archer Dedication",
+          "predicate": ["feat:archer-dedication"]
+        },
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
             }
           ]
         }
@@ -69516,6 +70593,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Snare Crafting",
+          "predicate": ["feat:snare-crafting"]
+        }
       ]
     }
   },
@@ -70130,6 +71221,20 @@
             {
               "type": "text",
               "text": "Alchemist Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Alchemist Dedication",
+          "predicate": ["feat:alchemist-dedication"]
+        },
+        {
+          "text": "expert in Crafting",
+          "predicate": [
+            {
+              "gte": ["skill:crafting:rank", 2]
             }
           ]
         }

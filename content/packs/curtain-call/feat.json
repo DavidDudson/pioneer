@@ -56,6 +56,23 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Acrobat, Celebrity, Dandy, or Gladiator Dedication"
+        },
+        {
+          "text": "Quick Disguise",
+          "predicate": ["feat:quick-disguise"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -121,6 +138,19 @@
             {
               "type": "text",
               "text": "Acrobat or Gladiator Dedication; master in Theater Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Acrobat or Gladiator Dedication"
+        },
+        {
+          "text": "master in Theater Lore",
+          "predicate": [
+            {
+              "gte": ["skill:lore:theater:rank", 3]
             }
           ]
         }
@@ -364,6 +394,20 @@
             {
               "type": "text",
               "text": "Gladiator Dedication; master in Intimidation"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Gladiator Dedication",
+          "predicate": ["feat:gladiator-dedication"]
+        },
+        {
+          "text": "master in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 3]
             }
           ]
         }
@@ -917,6 +961,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Dandy Dedication",
+          "predicate": ["feat:dandy-dedication"]
+        },
+        {
+          "text": "master in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -1003,6 +1061,20 @@
             {
               "type": "text",
               "text": "Celebrity Dedication; master in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Celebrity Dedication",
+          "predicate": ["feat:celebrity-dedication"]
+        },
+        {
+          "text": "master in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 3]
             }
           ]
         }
@@ -1104,6 +1176,19 @@
             {
               "type": "text",
               "text": "Acrobat or Gladiator Dedication; legendary in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Acrobat or Gladiator Dedication"
+        },
+        {
+          "text": "legendary in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 4]
             }
           ]
         }
@@ -1220,6 +1305,19 @@
             {
               "type": "text",
               "text": "Celebrity or Dandy; legendary in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Celebrity or Dandy"
+        },
+        {
+          "text": "legendary in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 4]
             }
           ]
         }
