@@ -4,6 +4,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CoinsSchema } from './coins';
+import { movedOut, withContainer, withName } from './inventory-line-edits';
 import { CarrySchema, CarryState, handsInUse, investedCount, STOWED } from './item-carry';
 import type { Carry } from './item-carry';
 import { ItemOrigin, playerLimits } from './item-origin';
@@ -101,9 +102,23 @@ const Items = z
   })
   .check(playerLimits);
 
-/** What the character carries: items and coins. Bulk is worked out on every read (`inventoryBulk`). */
+/**
+ * An item an import found no content for, kept by the name Pathbuilder gave it: a name and how many, weighing nothing.
+ * It is never dropped, and the player removes it (`removeItem`) once they replace it with a content item or no longer
+ * carry it (#310 feat(interop): import Pathbuilder inventory, runes and coins).
+ */
+export const CustomItemSchema = z.strictObject({
+  id: InventoryItemId,
+  name: InventoryItemName,
+  quantity: ItemQuantity,
+  origin: z.literal(ItemOrigin.Import),
+});
+export type CustomItem = z.infer<typeof CustomItemSchema>;
+
+/** What the character carries: items, the custom items an import kept, and coins. Bulk is worked out on every read (`inventoryBulk`). */
 export const InventorySchema = z.strictObject({
   items: Items.default([]),
+  customItems: z.array(CustomItemSchema).max(INVENTORY_ITEMS_MAX).readonly().default([]),
   coins: CoinsSchema.default(CoinsSchema.parse({})),
 });
 export type Inventory = z.infer<typeof InventorySchema>;
@@ -132,28 +147,13 @@ export function addItem(inventory: Inventory, { id, item, quantity, container }:
 export function removeItem(inventory: Inventory, id: InventoryItemId): Inventory {
   const removed = inventory.items.find((each) => each.id === id);
   if (removed === undefined) {
-    return inventory;
+    return { ...inventory, customItems: inventory.customItems.filter((each) => each.id !== id) };
   }
   const dropped = removed.carry.state === CarryState.Dropped;
   const items = inventory.items
     .filter((each) => each.id !== id)
     .map((each) => (each.container === id ? movedOut(each, removed.container, dropped) : each));
   return { ...inventory, items };
-}
-
-function movedOut(item: InventoryItem, container: InventoryItemId | undefined, dropped: boolean): InventoryItem {
-  const moved = withContainer(item, container);
-  return dropped ? { ...moved, carry: { state: CarryState.Dropped } } : moved;
-}
-
-function withContainer(item: InventoryItem, container: InventoryItemId | undefined): InventoryItem {
-  const { container: _old, ...rest } = item;
-  return container === undefined ? rest : { ...rest, container };
-}
-
-function withName(item: InventoryItem, name: InventoryItemName | undefined): InventoryItem {
-  const { name: _old, ...rest } = item;
-  return name === undefined ? rest : { ...rest, name };
 }
 
 function updateItem(

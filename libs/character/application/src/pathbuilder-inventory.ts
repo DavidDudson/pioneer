@@ -12,7 +12,15 @@ import {
   ONE_HAND,
   runedItemOf,
 } from '@pioneer/character/domain';
-import type { Carry, Inventory, InventoryItem, ItemContent, ItemEntry, ItemRunes } from '@pioneer/character/domain';
+import type {
+  Carry,
+  CustomItem,
+  Inventory,
+  InventoryItem,
+  ItemContent,
+  ItemEntry,
+  ItemRunes,
+} from '@pioneer/character/domain';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedItem, ImportedRunes, PathbuilderImport } from '@pioneer/interop/pathbuilder';
 import { Coin, ContentId, ContentKind, RunedItem, RuneGrade } from '@pioneer/rules/sdk';
@@ -103,18 +111,35 @@ function investedAs(line: InventoryItem, imported: ImportedItem, content: Invent
   return wantsInvesting && isInvestable(line, content.entries.get(line.item)) ? { ...line, invested: true } : line;
 }
 
-/** The inventory an import carries: every matched item with its runes, carry state and investment, and the coins. */
+/** The custom item an unmatched `imported` line makes, or undefined when its name or quantity can't be one. */
+function customFor(imported: ImportedItem): CustomItem | undefined {
+  const name = InventoryItemName.safeParse(imported.name);
+  const quantity = ItemQuantity.safeParse(imported.quantity);
+  return name.success && quantity.success
+    ? { id: InventoryItemId.parse(newId()), name: name.data, quantity: quantity.data, origin: ItemOrigin.Import }
+    : undefined;
+}
+
+/**
+ * The inventory an import carries: every matched item with its runes, carry state and investment, every other line as
+ * a custom item under Pathbuilder's name, and the coins. Nothing is dropped.
+ */
 export function importedInventory(value: PathbuilderImport, content: InventoryContent): Inventory {
   const items: InventoryItem[] = [];
+  const customItems: CustomItem[] = [];
   for (const imported of value.items) {
     const line = lineFor(imported, content, items);
+    const custom = line === undefined ? customFor(imported) : undefined;
     if (line !== undefined) {
       items.push(investedAs(line, imported, content));
+    } else if (custom !== undefined) {
+      customItems.push(custom);
     }
   }
   const { platinum, gold, silver, copper } = value.coins;
   return InventorySchema.parse({
     items,
+    customItems,
     coins: {
       [Coin.Platinum]: CoinAmount.parse(platinum),
       [Coin.Gold]: CoinAmount.parse(gold),

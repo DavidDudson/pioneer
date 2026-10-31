@@ -20,7 +20,7 @@ function line(id: InventoryItemId, rest: Partial<InventoryItem> = {}): Inventory
 }
 
 function stock(items: readonly InventoryItem[]): Inventory {
-  return { items, coins: CoinsSchema.parse({}) };
+  return { items, customItems: [], coins: CoinsSchema.parse({}) };
 }
 
 describe('giveLine', () => {

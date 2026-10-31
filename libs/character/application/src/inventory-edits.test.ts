@@ -89,6 +89,7 @@ describe('CharacterService inventory edits', () => {
           carry: STOWED,
         },
       ],
+      customItems: [],
       coins: CoinsSchema.parse({ gp: 15 }),
     });
     expect(repository.audits.map(({ command }) => command)).toStrictEqual([

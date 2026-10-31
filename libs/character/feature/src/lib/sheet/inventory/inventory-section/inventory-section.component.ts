@@ -17,6 +17,7 @@ import { sheetEntryPreviews } from '../../sheet-entry-previews';
 import { sheetSlotContent } from '../../sheet-slot-content';
 import { CoinOffer } from '../coin-offer/coin-offer.component';
 import { CoinsEdit } from '../coins-edit/coins-edit.component';
+import { CustomItems } from '../custom-items/custom-items.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
 import { ItemOffer } from '../item-offer/item-offer.component';
@@ -40,6 +41,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     BulkView,
     CoinOffer,
     CoinsEdit,
+    CustomItems,
     Heading,
     InventoryView,
     InvestmentsView,

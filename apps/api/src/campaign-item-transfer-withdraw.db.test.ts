@@ -55,7 +55,7 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
       rope === undefined
         ? []
         : [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }];
-    const stocked = built.withInventory({ items, coins: CoinsSchema.parse({}) }, built.updatedAt);
+    const stocked = built.withInventory({ items, customItems: [], coins: CoinsSchema.parse({}) }, built.updatedAt);
     return characters.insert(stocked, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 
