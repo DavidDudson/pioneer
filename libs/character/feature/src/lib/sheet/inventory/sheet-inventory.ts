@@ -1,6 +1,8 @@
 import {
   activeState,
   CarryState,
+  ContainerEffect,
+  containerLoad,
   hasRunes,
   INVENTORY_KINDS,
   inventoryViolations,
@@ -22,12 +24,13 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, FundamentalRune, RunedItem } from '@pioneer/rules/sdk';
-import { InventoryPlacement, RuneBadgeKind } from '@pioneer/rules/ui';
+import { InventoryPlacement, LoadEffect, RuneBadgeKind } from '@pioneer/rules/ui';
 import type {
   GradedRune,
   GradedRuneLine,
   InventoryGroup,
   InventoryLine,
+  LineLoad,
   LineRunes,
   RuneBadgeData,
 } from '@pioneer/rules/ui';
@@ -135,6 +138,24 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   ];
 }
 
+/** What each container does to the Bulk it holds, in the words the inventory list uses. */
+const LOAD_EFFECTS: Readonly<Record<ContainerEffect, LoadEffect>> = {
+  [ContainerEffect.AddsAll]: LoadEffect.AddsAll,
+  [ContainerEffect.Ignores]: LoadEffect.Ignores,
+  [ContainerEffect.AddsNone]: LoadEffect.AddsNone,
+};
+
+/** Tenths in a Bulk: what `containerLoad` counts in. */
+const TENTHS = 10;
+
+/** What the container `id` holds against what it can, or undefined when its item holds nothing. */
+function loadOf(inventory: Inventory, items: ItemContent, id: InventoryItemId): LineLoad | undefined {
+  const load = containerLoad(inventory, items, id);
+  return load === undefined
+    ? undefined
+    : { held: load.held / TENTHS, capacity: load.capacity, effect: LOAD_EFFECTS[load.effect] };
+}
+
 /** The table's rules, and whether a battle form has the worn and held gear melded into it (#532). */
 export type InventoryRules = TableRules & { readonly melded?: boolean };
 
@@ -171,6 +192,7 @@ export function sheetInventory(
       keyItem: item.keyItem !== undefined,
       keyItemLink:
         item.keyItem === undefined || campaign === undefined ? undefined : ['/campaigns', campaign, 'inventory'],
+      load: loadOf(inventory, items, item.id),
       contents: (contents.get(item.id) ?? []).map((inside) => lineOf(inside)),
     };
   };

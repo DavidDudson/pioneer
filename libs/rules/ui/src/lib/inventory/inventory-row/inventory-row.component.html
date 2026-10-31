@@ -17,6 +17,7 @@
         bulk.key | transloco: { bulk: bulk.value.key | transloco: bulk.value.params, count: bulk.per }
       }}</fr-text>
     }
+    <pio-inventory-load [load]="line().load" />
   </fr-stack>
   <pio-rune-badges [runes]="line().runeBadges ?? []" />
   <pio-inventory-breaks [reasons]="line().breaks" [approved]="line().approved" />

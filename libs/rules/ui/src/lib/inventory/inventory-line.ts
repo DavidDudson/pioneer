@@ -43,8 +43,23 @@ export interface InventoryLine {
   readonly keyItem: boolean;
   /** Router commands to the campaign's Party Inventory, which a key item names itself with; undefined when none. */
   readonly keyItemLink?: readonly string[] | undefined;
+  /** What it holds against what it can, when it is a container; undefined for an item that holds nothing. */
+  readonly load?: LineLoad | undefined;
   /** What it holds, when it is a container: listed beneath it. */
   readonly contents: readonly InventoryLine[];
+}
+
+/** What a container does to the Bulk it holds: all of it counts, some of it doesn't, or none of it does. */
+export const LoadEffect = { AddsAll: 'adds-all', Ignores: 'ignores', AddsNone: 'adds-none' } as const;
+export type LoadEffect = (typeof LoadEffect)[keyof typeof LoadEffect];
+
+/** A container's load: the Bulk inside it, its limit, and what it does to the Bulk it holds. */
+export interface LineLoad {
+  /** The Bulk inside, less what the container ignores. */
+  readonly held: number;
+  /** The whole Bulk it can hold; undefined when it has no limit. */
+  readonly capacity: number | undefined;
+  readonly effect: LoadEffect;
 }
 
 /** The items carried one way: worn, held, stowed loose or dropped. */

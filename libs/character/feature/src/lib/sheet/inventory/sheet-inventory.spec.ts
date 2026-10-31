@@ -22,6 +22,7 @@ import {
   runeFixtureId,
 } from '@pioneer/character/domain/testing';
 import { FundamentalRune } from '@pioneer/rules/sdk';
+import { LoadEffect } from '@pioneer/rules/ui';
 import type { RuneBadgeData } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
@@ -110,6 +111,15 @@ describe(sheetInventory, () => {
     expect(present(pack.contents[0]).contents.map((line) => [line.id, line.name, line.bulk])).toStrictEqual([
       [rope, 'Rope', 'light'],
     ]);
+  });
+
+  it('gives a container what it holds against what it can, and what it does to that Bulk', () => {
+    const pack = present(present(sheetInventory(PACKED, runed)[0]).lines[0]);
+
+    expect(pack.load).toMatchObject({ capacity: 4, effect: LoadEffect.Ignores });
+    expect(pack.load?.held).toBeGreaterThanOrEqual(0);
+    const [sworn] = sheetInventory(stock([[sword, ItemFixture.Longsword, undefined]]), runed);
+    expect(present(sworn).lines[0]?.load).toBeUndefined();
   });
 
   it('shows the player’s name with the content’s beside it', () => {
