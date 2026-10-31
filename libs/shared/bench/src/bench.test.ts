@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { benchmark, median, summarise } from './bench';
+import { benchmark, budgetFor, CI_RUNNER_MULTIPLIER, median, summarise } from './bench';
 
 describe('median', () => {
   test('is the middle timing of an odd count', () => {
@@ -48,5 +48,19 @@ describe('benchmark', () => {
     expect(ran).toBe(5);
     expect(result.timedRuns).toBe(3);
     expect(result.budgetMs).toBeUndefined();
+  });
+});
+
+describe('budgetFor', () => {
+  test('is the budget as given on a dev machine', () => {
+    expect(budgetFor(4, false)).toBe(4);
+  });
+
+  test('scales the budget by the CI multiplier on a runner', () => {
+    expect(budgetFor(4, true)).toBe(4 * CI_RUNNER_MULTIPLIER);
+  });
+
+  test('stays absent when there is no budget', () => {
+    expect(budgetFor(undefined, true)).toBeUndefined();
   });
 });
