@@ -9,6 +9,7 @@ import {
   ContentRegistry,
   EntrySlug,
   PackId,
+  putLegacyContent,
   putUnsupportedPacks,
   RollOption,
   RuleElement,
@@ -60,6 +61,22 @@ describe('grantLookup', () => {
     expect(feat()).toBeUndefined();
     putUnsupportedPacks(registry, [contentPackId(pack.id)]);
     expect(feat()).toBe(true);
+  });
+
+  test('holds legacy content back as unsupported until the registry has legacy content on', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withLicense(ContentLicense.Ogl).withFeat('sudden-charge').build());
+    const feat = (): boolean | undefined => grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported;
+
+    expect(feat()).toBe(true);
+    putLegacyContent(registry);
+    expect(grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported).toBeUndefined();
+  });
+
+  test('never holds back remaster content for want of legacy content', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withLicense(ContentLicense.Orc).withFeat('sudden-charge').build());
+    expect(grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported).toBeUndefined();
   });
 
   test('lists ancestries by kind, and nothing of a kind the registry lacks', () => {

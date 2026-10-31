@@ -133,6 +133,7 @@ describe('core rules pack', () => {
     const variants = [
       'dual-class',
       'free-archetype',
+      'legacy-content',
       'no-dedication-lock',
       'no-encumbrance',
       'proficiency-without-level',

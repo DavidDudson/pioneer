@@ -5,6 +5,7 @@ import {
   contentPackId,
   effectiveLicense,
   isLegacyLicense,
+  legacyContentIn,
   RollOption,
   slugName,
   unsupportedPacksOf,
@@ -236,12 +237,23 @@ function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantE
   };
 }
 
-function packEntries(pack: ContentPack, unsupported: ReadonlySet<ContentPackId>): GrantEntry[] {
-  const isUnsupported = unsupported.has(contentPackId(pack.id));
+/** What a lookup holds entries back by: the packs unsupported for the character, and whether it has legacy content on. */
+interface LookupState {
+  readonly unsupported: ReadonlySet<ContentPackId>;
+  readonly legacyContent: boolean;
+}
+
+/** Whether the entry is held back: its pack is unsupported, or it is legacy content and the character has none on. */
+function isHeldBack(entry: ContentEntry, pack: ContentPack, state: LookupState): boolean {
+  const legacy = isLegacyLicense(effectiveLicense(entry, pack.manifest));
+  return state.unsupported.has(contentPackId(pack.id)) || (legacy && !state.legacyContent);
+}
+
+function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
-    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, isUnsupported) ?? []),
+    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, isHeldBack(each, pack, state)) ?? []),
   ];
 }
 
@@ -251,8 +263,8 @@ function packEntries(pack: ContentPack, unsupported: ReadonlySet<ContentPackId>)
  * registry holds them. Built once per registry; lookups are by id and by kind.
  */
 export function grantLookup(registry: ContentRegistry): ContentLookup {
-  const unsupported = unsupportedPacksOf(registry);
-  const entries = registry.packs.flatMap((pack) => packEntries(pack, unsupported));
+  const state: LookupState = { unsupported: unsupportedPacksOf(registry), legacyContent: legacyContentIn(registry) };
+  const entries = registry.packs.flatMap((pack) => packEntries(pack, state));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
   return {
