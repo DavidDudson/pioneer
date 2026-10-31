@@ -1,6 +1,9 @@
 <fr-async-region>
   <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
   <ng-template [frAsyncData]="playQuery">
+    @if (shardsDue() !== '') {
+      <fr-text>{{ shardsDue() }}</fr-text>
+    }
     @if (shields().length > 0) {
       <fr-stack gap="xs">
         <fr-number-input
@@ -14,6 +17,15 @@
         @for (shown of shields(); track shown.line.key) {
           <fr-stack direction="horizontal" align="center" gap="xs" wrap>
             <fr-text>{{ shown.summary }}</fr-text>
+            @if (shown.line.layersLeft !== undefined) {
+              <fr-number-input
+                [ariaLabel]="'character.sheet.shields.layers' | transloco"
+                [min]="1"
+                [max]="shown.line.layersLeft"
+                [value]="layers()"
+                (valueChange)="layers.set($event)"
+              />
+            }
             <fr-async-button
               size="sm"
               [action]="block(shown.line.key)"

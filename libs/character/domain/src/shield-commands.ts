@@ -5,12 +5,30 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { endEffects } from './effect-ending';
+import { EffectBadgeValue } from './effects';
 import type { HeldShield, ShieldGrant } from './held-shields';
 import { afterDamage } from './hit-point-edits';
 import { InventoryItemId } from './inventory';
 import type { PlayLimits, PlayState } from './play-state';
 
 const NONE = HitPoints.parse(0);
+
+/** How many layers a layered shield starts with. */
+export const SHIELD_LAYERS_MAX = 3;
+
+/** A count of layers a block breaks, or a shield has left. */
+export const ShieldLayers = z.number().int().min(1).max(SHIELD_LAYERS_MAX).brand<'ShieldLayers'>();
+export type ShieldLayers = z.infer<typeof ShieldLayers>;
+
+const PERCENT = 100;
+const HALF_AGAIN = 150;
+const DOUBLE = 200;
+/** The share of its Hardness a layered shield has when a block breaks one, two or all three layers. */
+const LAYERS_HARDNESS_PERCENT: Readonly<Record<ShieldLayers, number>> = {
+  [ShieldLayers.parse(1)]: PERCENT,
+  [ShieldLayers.parse(2)]: HALF_AGAIN,
+  [ShieldLayers.parse(SHIELD_LAYERS_MAX)]: DOUBLE,
+};
 
 /** The most shields whose damage a character remembers; a shield past it is not tracked, so a request cannot grow the play state. */
 export const SHIELDS_MAX = 32;
@@ -74,7 +92,13 @@ export const ShieldCommandField = {
 export type ShieldCommandField = ValueOf<typeof ShieldCommandField>;
 
 export const ShieldCommandSchema = z.discriminatedUnion('field', [
-  z.object({ field: z.literal(ShieldCommandField.BlockWithShield), item: InventoryItemId, damage: DamageApplication }),
+  z.object({
+    field: z.literal(ShieldCommandField.BlockWithShield),
+    item: InventoryItemId,
+    damage: DamageApplication,
+    /** The layers a layered shield breaks with the block; one when left out. */
+    layers: ShieldLayers.optional(),
+  }),
 ]);
 export type ShieldCommand = z.infer<typeof ShieldCommandSchema>;
 
@@ -135,17 +159,55 @@ export function blockProblem(
 
 /**
  * The Hardness the shield has against `blow`: its own, and each bonus whose damage types the blow is all of. A blow of
- * no damage, or with untyped damage in it, gets no bonus.
+ * no damage, or with untyped damage in it, gets no bonus. A layered shield has more for each layer the block breaks.
  */
 export function hardnessFor(
   { hardness, hardnessAgainst: bonuses = [] }: ShieldStats,
   blow: DamageApplication,
+  layers?: ShieldLayers,
 ): Hardness {
   const types = blow.immediate.map(({ type }) => type);
   const extra = bonuses
     .filter((each) => types.length > 0 && types.every((type) => type !== undefined && each.types.includes(type)))
     .reduce((sum, { bonus }) => sum + bonus, 0);
-  return Hardness.parse(hardness + extra);
+  const percent = (layers === undefined ? undefined : LAYERS_HARDNESS_PERCENT[layers]) ?? PERCENT;
+  return Hardness.parse(Math.floor(((hardness + extra) * percent) / PERCENT));
+}
+
+/** The layers a layered shield has left: its effect's badge, or all of them before one has been broken. */
+export function layersLeft(play: PlayState, { effect }: ShieldGrant): EffectBadgeValue {
+  return play.effects.find((each) => each.effect === effect)?.badge ?? EffectBadgeValue.parse(SHIELD_LAYERS_MAX);
+}
+
+/** The layers `command` breaks of a layered shield: those asked for, never more than it has left. */
+function layersBroken(
+  play: PlayState,
+  command: ShieldCommand,
+  granted: ShieldGrant | undefined,
+): ShieldLayers | undefined {
+  if (granted?.layered !== true) {
+    return undefined;
+  }
+  return ShieldLayers.parse(Math.min(command.layers ?? 1, layersLeft(play, granted)));
+}
+
+/** The layered shield a block broke layers of, and how many. */
+interface Breaking {
+  readonly item: InventoryItemId;
+  readonly granted: ShieldGrant;
+  readonly layers: ShieldLayers;
+}
+
+/** `play` with the layers gone that `breaking` names: the effect ends with the last, and counts the rest. */
+function withoutLayers(play: PlayState, { item, granted, layers }: Breaking): PlayState {
+  const left = layersLeft(play, granted) - layers;
+  if (left <= 0) {
+    return withoutShield(play, item, granted);
+  }
+  const effects = play.effects.map((each) =>
+    each.effect === granted.effect ? { ...each, badge: EffectBadgeValue.parse(left) } : each,
+  );
+  return { ...play, effects };
 }
 
 /** How a shield that has already taken `damage` stands once it blocks `blow`: the Hardness prevents some, and it takes the rest. */
@@ -195,7 +257,8 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
   if (stats === undefined || blockProblem(limits.shields, play.shields, item) !== undefined) {
     return play;
   }
-  const { remaining } = blocked(damage.taken, hardnessFor(stats, damage));
+  const layers = layersBroken(play, command, stats.granted);
+  const { remaining } = blocked(damage.taken, hardnessFor(stats, damage, layers));
   const hurt = afterDamage(play, { ...damage, taken: remaining }, limits.hitPoints);
   const destroyed =
     stats.undamageable !== true &&
@@ -203,7 +266,24 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
   const shields =
     stats.undamageable === true ? hurt.shields : shieldDamaged(hurt.shields, item, { stats, amount: remaining });
   const kept = { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };
-  return effectEnded(stats.granted, destroyed) ? withoutShield(kept, item, stats.granted) : kept;
+  return afterEffect(kept, { item, stats, destroyed, layers });
+}
+
+/** What a block did to the shield and the effect that gives it. */
+interface Outcome {
+  readonly item: InventoryItemId;
+  readonly stats: ShieldStats;
+  readonly destroyed: boolean;
+  readonly layers: ShieldLayers | undefined;
+}
+
+/** `play` once the effect that gives the shield has lost the layers or ended, as the block decides. */
+function afterEffect(play: PlayState, { item, stats, destroyed, layers }: Outcome): PlayState {
+  const { granted } = stats;
+  if (granted !== undefined && layers !== undefined) {
+    return withoutLayers(play, { item, granted, layers });
+  }
+  return effectEnded(granted, destroyed) ? withoutShield(play, item, granted) : play;
 }
 
 /** Whether a block ended the effect that gives the shield: always when it ends on a block, and when destroyed if it ends then. */

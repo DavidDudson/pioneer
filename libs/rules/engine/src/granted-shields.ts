@@ -1,6 +1,6 @@
 import { Truth } from '@pioneer/rules/predicate';
 import { HitPoints, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentId, GrantedShield, Hardness, HardnessBonus, Level } from '@pioneer/rules/sdk';
+import type { ContentId, GrantedShield, Hardness, HardnessBonus, Level, ShardDamage } from '@pioneer/rules/sdk';
 
 import { battleFormInPlay } from './battle-form';
 import { ruleIdOf } from './rule-in-play';
@@ -22,8 +22,12 @@ export interface ShieldInPlay {
   readonly endsWhenDestroyed: boolean;
   /** The cast raised it, so it can block with no Raise a Shield. */
   readonly raised: boolean;
+  /** Three layers, kept as the effect's badge, that blocks break. */
+  readonly layered: boolean;
   /** Extra Hardness against damage of some types. */
   readonly hardnessAgainst: readonly HardnessBonus[];
+  /** The damage the shards deal when the block that ends the effect breaks it, at the rank it was cast at. */
+  readonly shards: ShardDamage | undefined;
 }
 
 const BROKEN_DIVISOR = 2;
@@ -38,7 +42,10 @@ function heightened(shield: GrantedShield, level: Level | undefined): GrantedShi
           .filter(({ start }) => Number(start) <= Number(level))
           .toSorted((left, right) => Number(left.start) - Number(right.start));
   const result: { -readonly [Key in keyof GrantedShield]: GrantedShield[Key] } = { ...shield };
-  for (const { hardness, hitPoints, brokenThreshold } of applying) {
+  for (const { hardness, hitPoints, brokenThreshold, shards } of applying) {
+    if (shards !== undefined && result.shards !== undefined) {
+      result.shards = { damageType: result.shards.damageType, damage: shards };
+    }
     if (hardness !== undefined) {
       result.hardness = hardness;
     }
@@ -67,7 +74,9 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
     endsOnBlock: shield.endsOnBlock === true,
     endsWhenDestroyed: shield.endsWhenDestroyed === true,
     raised: shield.raised === true,
+    layered: shield.layered === true,
     hardnessAgainst: shield.hardnessAgainst ?? [],
+    shards: shield.shards,
   };
 }
 

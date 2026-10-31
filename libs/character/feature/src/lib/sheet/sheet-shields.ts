@@ -3,6 +3,7 @@ import {
   equippedRules,
   heldShields,
   itemContent,
+  layersLeft,
   PlayCommandField,
   SELF,
   ShieldCondition,
@@ -13,7 +14,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, PlayCommand, PlayState } from '@pioneer/character/domain';
 import { EntrySlug, HitPoints } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentId, ContentRegistry, ShardDamage } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 import { sheetSlotContent } from './sheet-slot-content';
@@ -65,6 +66,10 @@ export interface ShieldLine {
   readonly undamageable: boolean;
   /** The cast of the spell that gives it raised it, so it blocks with no Raise a Shield. */
   readonly raised: boolean;
+  /** The damage to roll when the Shield Block that ends its effect breaks it; none for a shield that does not. */
+  readonly shards: ShardDamage | undefined;
+  /** The layers a layered shield has left, which a block breaks; none for a shield without layers. */
+  readonly layersLeft: number | undefined;
 }
 
 /** The shields the character holds, with the damage the play state records on each. */
@@ -84,6 +89,8 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
       condition: shieldCondition(stats, damage),
       undamageable: undamageable === true,
       raised: granted?.raised === true,
+      shards: granted?.endsOnBlock === true ? granted.shards : undefined,
+      layersLeft: granted?.layered === true ? layersLeft(play, granted) : undefined,
     };
   });
 }
