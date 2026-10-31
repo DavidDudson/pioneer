@@ -123,7 +123,7 @@ export class PathbuilderImportService {
       inventory: importedInventory(value, inventoryContent(content, lookup)),
     });
     const variants = importVariants(value, content, lookup);
-    const slots = slotContent(content, variants.wanted);
+    const slots = slotContent(content, variants.wanted, true);
     const { character, unplaced, skillGaps, spellGaps, notOffered, dualClass } = importedCharacter(
       value,
       { lookup, slots },

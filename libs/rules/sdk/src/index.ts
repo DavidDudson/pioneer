@@ -526,4 +526,4 @@ export {
 export { contentBundles } from './content-bundle-write';
 export type { ContentBundles } from './content-bundle-write';
 export { putUnsupportedPacks, unsupportedPacksOf } from './unsupported-packs';
-export { LEGACY_CONTENT_VARIANT, legacyContentIn, putLegacyContent } from './legacy-content';
+export { LEGACY_CONTENT_VARIANT } from './legacy-content';

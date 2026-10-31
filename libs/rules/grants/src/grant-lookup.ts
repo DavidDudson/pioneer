@@ -5,7 +5,6 @@ import {
   contentPackId,
   effectiveLicense,
   isLegacyLicense,
-  legacyContentIn,
   RollOption,
   slugName,
   unsupportedPacksOf,
@@ -260,10 +259,11 @@ function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
 /**
  * The registry's content as grants read it: ancestries, heritages, backgrounds and classes, the kinds a character
  * picks in its root slots, the class features and feats they grant, and carried items. Other kinds join as the
- * registry holds them. Built once per registry; lookups are by id and by kind.
+ * registry holds them. Built once per registry; lookups are by id and by kind. Legacy entries are held back as
+ * unsupported unless `legacyContent` says the character has them on.
  */
-export function grantLookup(registry: ContentRegistry): ContentLookup {
-  const state: LookupState = { unsupported: unsupportedPacksOf(registry), legacyContent: legacyContentIn(registry) };
+export function grantLookup(registry: ContentRegistry, legacyContent = false): ContentLookup {
+  const state: LookupState = { unsupported: unsupportedPacksOf(registry), legacyContent };
   const entries = registry.packs.flatMap((pack) => packEntries(pack, state));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);

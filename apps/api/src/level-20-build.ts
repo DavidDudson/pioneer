@@ -130,9 +130,9 @@ export interface Level20Build {
   readonly document: CharacterDocument;
 }
 
-/** A 20th level character of every class `registry` holds, with all its slots filled and its gear on. */
+/** A 20th level character of every class `registry` holds, legacy classes too, with all its slots filled and its gear on. */
 export function level20Builds(registry: ContentRegistry): readonly Level20Build[] {
-  const content = slotContent(registry);
+  const content = slotContent(registry, [], true);
   const inventory = gearedInventory(itemContent(registry));
   return content.lookup.ofKind(ContentKind.Class).map((entry) => {
     const name = String(entry.name);

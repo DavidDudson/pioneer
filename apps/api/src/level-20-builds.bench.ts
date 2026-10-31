@@ -10,7 +10,7 @@ import { deriveSheet } from './level-20-derive';
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
-const slots = slotContent(registry);
+const slots = slotContent(registry, [], true);
 
 for (const { name, document } of level20Builds(registry)) {
   // Tracked, not budgeted: a full build takes 9 to 13 ms, about the 10 ms goal in rules-engine.md.
