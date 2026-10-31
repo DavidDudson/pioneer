@@ -4,14 +4,13 @@
  * Pioneer's pick is one slug, so the pick keeps the field a `RollOption` of the item turns into a roll option
  * (`dragon-form:{…dragonType}`), which the `ChoiceSet` now sets itself (`rollOption`), and each `BattleForm` that reads
  * the other fields is split: what does not read the pick stays in the form, and what does becomes one variant for each
- * choice, switched on by that roll option. Any other rules are as they were.
+ * choice, switched on by that roll option. A roll option, damage dice, modifier or defence that reads another field
+ * (the dragon's tradition, the damage type of its breath) becomes one element for each value the choices have,
+ * switched on by the dragons that have it. Any other rules are as they were.
  */
 
-type Fields = Readonly<Record<string, unknown>>;
-
-function isFields(value: unknown): value is Fields {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
+import { ABSENT, isFields, picked, readOf, reads, substituted } from './translate-choice-reads';
+import type { Fields } from './translate-choice-reads';
 
 /** The roll option a `RollOption` makes of one field of the pick: `dragon-form:` and `dragonType`. */
 interface RolledField {
@@ -24,21 +23,6 @@ interface Pick {
   readonly flag: string;
   readonly choices: readonly Fields[];
   readonly rolled: RolledField;
-}
-
-const READ_PREFIXES = ['@item.flags.system.rulesSelections.', '{item|flags.system.rulesSelections.'];
-const INJECTION_END = '}';
-
-/** The path after the flag in a read of the pick (`speeds.burrow`), or undefined when `text` reads no field of it. */
-function readOf(text: string, flag: string): string | undefined {
-  const prefix = READ_PREFIXES.find((each) => text.startsWith(each));
-  if (prefix === undefined) {
-    return undefined;
-  }
-  const open = prefix.startsWith('{');
-  const rest = text.slice(prefix.length);
-  const body = open && rest.endsWith(INJECTION_END) ? rest.slice(0, -INJECTION_END.length) : rest;
-  return body.startsWith(`${flag}.`) ? body.slice(flag.length + 1) : undefined;
 }
 
 /** The roll option a `RollOption` element makes of a field of the pick of `flag`: `dragon-form:{item|…flag.dragonType}`. */
@@ -78,49 +62,6 @@ function objectChoiceSets(raws: readonly unknown[]): ReadonlyMap<string, readonl
     }
   }
   return found;
-}
-
-/** What a read of the pick (`path`, such as `speeds.burrow`) comes to in one choice's value; undefined when it has none. */
-function picked(value: unknown, path: string): unknown {
-  let current = value;
-  for (const step of path.split('.')) {
-    if (!isFields(current)) {
-      return undefined;
-    }
-    current = current[step];
-  }
-  return current ?? undefined;
-}
-
-/** Whether anything under `node` reads the pick of `flag`. */
-function reads(node: unknown, flag: string): boolean {
-  if (typeof node === 'string') {
-    return readOf(node, flag) !== undefined;
-  }
-  if (Array.isArray(node)) {
-    return node.some((each: unknown) => reads(each, flag));
-  }
-  return isFields(node) && Object.values(node).some((each) => reads(each, flag));
-}
-
-/** Marks a read whose field the choice does not have, so the entry that holds it is left out. */
-const ABSENT = Symbol('absent');
-
-/** `node` with each read of the pick replaced by the choice's field; a read the choice has no field for is absent. */
-function substituted(node: unknown, flag: string, value: unknown): unknown {
-  if (typeof node === 'string') {
-    const path = readOf(node, flag);
-    return path === undefined ? node : (picked(value, path) ?? ABSENT);
-  }
-  if (Array.isArray(node)) {
-    const items = node.map((each: unknown) => substituted(each, flag, value));
-    return items.includes(ABSENT) ? ABSENT : items;
-  }
-  if (isFields(node)) {
-    const entries = Object.entries(node).map(([field, each]) => [field, substituted(each, flag, value)] as const);
-    return entries.some(([, each]) => each === ABSENT) ? ABSENT : Object.fromEntries(entries);
-  }
-  return node;
 }
 
 /** Whether a split-off statistic has no entries left. */
@@ -233,16 +174,80 @@ function plainChoice(choice: Fields, field: string): Fields {
   return slug === undefined ? choice : { ...choice, value: slug };
 }
 
-/** `raw` made to fit the pick: its `ChoiceSet` a plain one that sets the roll option, its `BattleForm` split. */
-function fitted(raw: unknown, pick: Pick): unknown {
+/** The elements that read the pick and are made once for each value of what they read, not as a variant of a form. */
+const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
+  'RollOption',
+  'DamageDice',
+  'FlatModifier',
+  'Resistance',
+  'Weakness',
+  'Immunity',
+]);
+
+/** The predicate `raw` has already, which the test of the pick joins. */
+function predicateOf(raw: Fields): readonly unknown[] {
+  const { predicate } = raw;
+  return Array.isArray(predicate) ? predicate : [];
+}
+
+/** The test that one of the dragons with a value was picked: its roll option, or any of them. */
+function pickedOneOf(namespace: string, slugs: readonly string[]): unknown {
+  const options = slugs.map((slug) => `${namespace}:${slug}`);
+  const [only] = options;
+  return options.length === 1 ? only : { or: options };
+}
+
+/** An element as some choices read it, and the roll option slugs of those choices. */
+interface Reading {
+  readonly element: Fields;
+  readonly slugs: string[];
+}
+
+/** `raw` read for each choice, the choices that read it the same grouped; a choice that lacks a field it reads has none. */
+function sharedReadings(raw: Fields, pick: Pick): Iterable<Reading> {
+  const groups = new Map<string, Reading>();
+  for (const choice of pick.choices) {
+    const slug = slugOfChoice(choice, pick.rolled.field);
+    const made = substituted(raw, pick.flag, choice['value']);
+    if (slug !== undefined && isFields(made)) {
+      const key = JSON.stringify(made);
+      const group = groups.get(key) ?? { element: made, slugs: [] };
+      group.slugs.push(slug);
+      groups.set(key, group);
+    }
+  }
+  return groups.values();
+}
+
+/**
+ * `raw`, an element that reads fields of the pick, made once for each distinct way the choices read it: the choices
+ * that read it the same share one element, switched on by their roll options. A choice that lacks a field it reads
+ * has none.
+ */
+function expanded(raw: Fields, pick: Pick): readonly Fields[] {
+  const made: Fields[] = [];
+  for (const { element, slugs } of sharedReadings(raw, pick)) {
+    made.push({ ...element, predicate: [...predicateOf(raw), pickedOneOf(pick.rolled.namespace, slugs)] });
+  }
+  return made;
+}
+
+/**
+ * `raw` made to fit the pick: its `ChoiceSet` a plain one that sets the roll option, its `BattleForm` split, and an
+ * element that reads a field of the pick made for each value of it.
+ */
+function fitted(raw: unknown, pick: Pick): readonly unknown[] {
   if (!isFields(raw)) {
-    return raw;
+    return [raw];
   }
   if (raw['key'] === 'ChoiceSet' && raw['flag'] === pick.flag) {
     const choices = pick.choices.map((choice) => plainChoice(choice, pick.rolled.field));
-    return { ...raw, choices, rollOption: pick.rolled.namespace };
+    return [{ ...raw, choices, rollOption: pick.rolled.namespace }];
   }
-  return raw['key'] === 'BattleForm' ? withVariants(raw, pick) : raw;
+  if (raw['key'] === 'BattleForm') {
+    return [withVariants(raw, pick)];
+  }
+  return EXPANDED_KEYS.has(raw['key']) && reads(raw, pick.flag) ? expanded(raw, pick) : [raw];
 }
 
 /** `raws` made to fit the pick of `flag` when a `RollOption` of the item reads a field of it; as they were otherwise. */
@@ -252,7 +257,7 @@ function withPick(raws: readonly unknown[], flag: string, choices: readonly Fiel
     return raws;
   }
   const pick: Pick = { flag, choices, rolled };
-  return raws.filter((raw) => !isRolledBy(raw, flag, rolled)).map((raw) => fitted(raw, pick));
+  return raws.filter((raw) => !isRolledBy(raw, flag, rolled)).flatMap((raw) => fitted(raw, pick));
 }
 
 /**

@@ -227,3 +227,53 @@ describe('translateRules: BattleForm that reads a dragon type', () => {
     ]);
   });
 });
+
+const TRADITIONS = ['divine', 'primal', 'primal'];
+const TRADITION_CHOICES = [];
+for (const [index, choice] of DRAGON_CHOICES.entries()) {
+  TRADITION_CHOICES.push({ label: choice.label, value: { ...choice.value, tradition: TRADITIONS[index] } });
+}
+
+const TRADITION_RULES = [
+  { key: 'ChoiceSet', flag: 'dragonForm', choices: TRADITION_CHOICES, prompt: 'Pick a dragon.' },
+  { key: 'RollOption', option: 'dragon-form:{item|flags.system.rulesSelections.dragonForm.dragonType}' },
+  { key: 'RollOption', option: 'dragon-form-tradition:{item|flags.system.rulesSelections.dragonForm.tradition}' },
+  {
+    key: 'DamageDice',
+    selector: 'jaws-damage',
+    diceNumber: 2,
+    dieSize: 'd6',
+    damageType: '{item|flags.system.rulesSelections.dragonForm.damageType}',
+  },
+];
+
+describe('translateRules: elements that read another field of a dragon type', () => {
+  test('a roll option and damage dice are made for each value the types have, switched on by the types with it', () => {
+    const rules = formRules(TRADITION_RULES).filter(({ key }) => key !== RuleElementKey.ChoiceSet);
+
+    expect(rules).toEqual([
+      { key: RuleElementKey.RollOption, option: 'dragon-form-tradition:divine', predicate: ['dragon-form:brine'] },
+      {
+        key: RuleElementKey.RollOption,
+        option: 'dragon-form-tradition:primal',
+        predicate: [{ or: ['dragon-form:magma', 'dragon-form:cinder'] }],
+      },
+      {
+        key: RuleElementKey.DamageDice,
+        selectors: ['jaws-damage'],
+        diceNumber: 2,
+        dieSize: 'd6',
+        damageType: 'bludgeoning',
+        predicate: ['dragon-form:brine'],
+      },
+      {
+        key: RuleElementKey.DamageDice,
+        selectors: ['jaws-damage'],
+        diceNumber: 2,
+        dieSize: 'd6',
+        damageType: 'fire',
+        predicate: [{ or: ['dragon-form:magma', 'dragon-form:cinder'] }],
+      },
+    ]);
+  });
+});
