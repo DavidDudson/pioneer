@@ -11,7 +11,15 @@ import type { FoundryLang } from './foundry-release';
 import { withActiveEffect } from './translate-active-effects';
 import { withCreatureRule, withFormSpeedBrackets } from './translate-battle-form';
 import type { FoundrySenses } from './translate-battle-form';
-import { isUnread, withChoiceObjects, withChoiceSet, withChoiceValues, withTagQuery } from './translate-choice-sets';
+import {
+  foundryFlagOf,
+  isUnread,
+  readsPick,
+  withChoiceObjects,
+  withChoiceSet,
+  withChoiceValues,
+  withTagQuery,
+} from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
@@ -173,7 +181,36 @@ function declaredFlags(shaped: readonly Shaped[]): ReadonlySet<string> {
 
 type Parsed = z.ZodSafeParseResult<RuleElement>;
 
-/** What `shaped` came to, its elements `parsed` the same way: the ones that translate, and those kept for the backlog. */
+/** The flags (as the translated element spells them) of the `ChoiceSet`s whose pick an element in `failed` reads. */
+function strandedFlags(shaped: readonly Shaped[], kept: readonly boolean[]): ReadonlySet<string> {
+  const failed = shaped.filter((_shaped, index) => kept[index] !== true);
+  return new Set(
+    shaped.flatMap(({ raw, chosen }, index) => {
+      const foundry = foundryFlagOf(raw);
+      const element = RuleElement.safeParse(chosen);
+      const stranded =
+        kept[index] === true && foundry !== undefined && failed.some((each) => readsPick(each.raw, foundry));
+      return stranded && element.success && element.data.key === RuleElementKey.ChoiceSet
+        ? [String(element.data.flag)]
+        : [];
+    }),
+  );
+}
+
+/** Whether `element` is a `ChoiceSet` of one of `flags`, or reads its pick as a grant or a selector does. */
+function isStranded(element: RuleElement, flags: ReadonlySet<string>): boolean {
+  if (element.key === RuleElementKey.ChoiceSet) {
+    return flags.has(String(element.flag));
+  }
+  const text = JSON.stringify(element);
+  return [...flags].some((flag) => text.includes(`"choice":"${flag}"`));
+}
+
+/**
+ * What `shaped` came to, its elements `parsed` the same way: the ones that translate, and those kept for the backlog.
+ * A pick whose reader (an element that reads it) stays in the backlog is not offered: the `ChoiceSet` stays with that
+ * reader, and so do the grants and selectors that follow it, so the player is never asked what changes nothing.
+ */
 function settle(
   entry: ContentId,
   shaped: readonly Shaped[],
@@ -181,11 +218,16 @@ function settle(
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const reads = (flag: string): boolean =>
     parsed.some((element) => element.success && JSON.stringify(element.data).includes(`"choice":"${flag}"`));
+  const kept = shaped.map(({ plain }, index) => {
+    const element = parsed[index];
+    return element?.success === true && !isUnread(element.data, plain, reads);
+  });
+  const stranded = strandedFlags(shaped, kept);
   const rules: RuleElement[] = [];
   const untranslated: UntranslatedRule[] = [];
-  for (const [index, { raw, plain }] of shaped.entries()) {
+  for (const [index, { raw }] of shaped.entries()) {
     const element = parsed[index];
-    if (element?.success === true && !isUnread(element.data, plain, reads)) {
+    if (kept[index] === true && element?.success === true && !isStranded(element.data, stranded)) {
       rules.push(element.data);
     } else {
       untranslated.push({ entry, key: keyOf(raw), raw });

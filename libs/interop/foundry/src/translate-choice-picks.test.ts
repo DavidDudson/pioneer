@@ -113,3 +113,29 @@ describe('ChoiceSet from Foundry: a config Pioneer has a meaning for', () => {
     expect((rules[0] as { choices: unknown }).choices).toEqual({ kind: ContentKind.Weapon, filter: [] });
   });
 });
+
+describe('ChoiceSet from Foundry: a pick whose reader is kept for the backlog', () => {
+  const PICK = { choices: YES_NO, flag: 'fighterSkill', key: RuleElementKey.ChoiceSet, rollOption: 'fighter-skill' };
+
+  test('is not offered, so the pick and its reader stay together', () => {
+    const reader = { key: 'TempHP', value: '@item.flags.system.rulesSelections.fighterSkill' };
+    const { rules, untranslated } = translateRules(ENTRY, [PICK, reader], {
+      lang: { PF2E: { Yes: 'Yes', No: 'No' } },
+      values: { item: 'Pick' },
+    });
+
+    expect(rules).toEqual([]);
+    expect(untranslated.map(({ key }) => key)).toEqual([RuleElementKey.ChoiceSet, 'TempHP']);
+  });
+
+  test('is offered when the element that fails does not read it', () => {
+    const other = { key: 'TempHP', value: '@actor.level+@item.flags.system.rulesSelections.otherPick' };
+    const { rules, untranslated } = translateRules(ENTRY, [PICK, other], {
+      lang: { PF2E: { Yes: 'Yes', No: 'No' } },
+      values: { item: 'Pick' },
+    });
+
+    expect(rules.map(({ key }) => key)).toEqual([RuleElementKey.ChoiceSet]);
+    expect(untranslated.map(({ key }) => key)).toEqual(['TempHP']);
+  });
+});

@@ -259,5 +259,18 @@ export function isUnread(element: RuleElement, plain: unknown, reads: (flag: str
   return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
 }
 
+/** The flag a raw `ChoiceSet` stores its pick under, as Foundry writes it; none for any other element or a flag it lacks. */
+export function foundryFlagOf(raw: unknown): string | undefined {
+  const isChoiceSet = typeof raw === 'object' && raw !== null && 'key' in raw && raw.key === RuleElementKey.ChoiceSet;
+  return isChoiceSet && 'flag' in raw && typeof raw.flag === 'string' ? raw.flag : undefined;
+}
+
+const PICK_READ = /rulesSelections\.(?<flag>[A-Za-z0-9]+)/gu;
+
+/** Whether `raw` reads the pick of `flag` (`{item|flags.system.rulesSelections.<flag>}`, `@item.flags.pf2e.rulesSelections.<flag>`). */
+export function readsPick(raw: unknown, flag: string): boolean {
+  return [...JSON.stringify(raw).matchAll(PICK_READ)].some((found) => found.groups?.['flag'] === flag);
+}
+
 export { withChoiceObjects } from './translate-choice-objects';
 export { withChoiceValues } from './translate-choice-values';
