@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { Proficiency, Selector, SpellPreparation } from '@pioneer/rules/sdk';
 
+import { DERIVED_TOTAL_STATISTICS } from './derived-totals';
 import {
   ARMOR_CLASS,
   DiscrepancyKind,
@@ -29,7 +30,7 @@ const STEP = 2;
 const CLASS_HP = 10;
 const HP_PER_LEVEL = 1;
 const CON_MODIFIER = 2;
-const TOTALS_COMPARED = 5;
+const TOTALS_COMPARED = 5 + DERIVED_TOTAL_STATISTICS.length;
 const MORDRED_AC = 34;
 /** 10 + Charisma 6 + expert 4 + level 12, from Mordred's divine focus. */
 const MORDRED_SPELL_DC = 32;
@@ -40,6 +41,19 @@ const ORACLE_PER_DAY = [5, 4, 4, 4, 4, 4, 4];
 const ORACLE_THIRD_RANK = 3;
 /** Mordred's five focus spells fill the pool to its most. */
 const MORDRED_FOCUS_POINTS = 3;
+
+/**
+ * The totals Pathbuilder gives the saves, Perception, skills and class DC, worked by hand from Mordred (level 12,
+ * Strength +4, Constitution +2, Wisdom +3): the attribute modifier, the rank's number, the level and the listed bonuses.
+ */
+const HAND_WORKED_TOTALS: readonly (readonly [string, number])[] = [
+  ['perception', 3 + 4 + 12 + 1],
+  ['save:fortitude', 2 + 6 + 12 + 1],
+  ['skill:arcana', 1 + 2 + 12],
+  ['skill:athletics', 4 + 6 + 12 + 1],
+  ['skill:diplomacy', 6 + 6 + 12 + 3],
+  ['class-dc', 10 + 4 + 2 + 12],
+];
 
 /** The values Pioneer derives, as maps the tests can change. */
 interface Values {
@@ -57,6 +71,15 @@ interface Values {
 
 /** Pioneer's values as Pathbuilder reports them: no statistic differs. */
 function agreeing(): Values {
+  const unmatched = discrepancyReport(mordred, {
+    focusPoints: undefined,
+    spellSlots: [],
+    spellDcs: [],
+    ranks: new Map(),
+    totals: new Map(
+      DERIVED_TOTAL_STATISTICS.map((selector): [Selector, number] => [selector, Number.MIN_SAFE_INTEGER]),
+    ),
+  }).differences;
   const { acTotal, attributes, proficiencies } = mordred.reported;
   const perLevel = CLASS_HP + HP_PER_LEVEL + CON_MODIFIER;
   return {
@@ -64,6 +87,7 @@ function agreeing(): Values {
       [ARMOR_CLASS, acTotal?.acTotal ?? 0],
       [MAX_HIT_POINTS, (attributes?.ancestryhp ?? 0) + perLevel * mordred.level],
       [LAND_SPEED, attributes?.speed ?? 0],
+      ...unmatched.map(({ selector, pathbuilder }): [Selector, number] => [selector, Number(pathbuilder)]),
     ]),
     spellSlots: [{ ...ORACLE_ENTRY, counts: ORACLE_PER_DAY }],
     focusPoints: MORDRED_FOCUS_POINTS,
@@ -95,6 +119,26 @@ describe('discrepancyReport', () => {
     const report = discrepancyReport(mordred, agreeing());
     expect(report.differences).toStrictEqual([]);
     expect(report.compared).toBe(TOTALS_COMPARED + ORACLE_PER_DAY.length + Object.keys(RANKED_STATISTICS).length);
+  });
+
+  test('derives the saves, Perception, skills and class DC from the export, listed bonuses included', () => {
+    const values = agreeing();
+    const wrong = new Map(HAND_WORKED_TOTALS.map(([selector]) => [Selector.parse(selector), 0] as const));
+    for (const [selector, total] of wrong) {
+      values.totals.set(selector, total);
+    }
+    const { differences } = discrepancyReport(mordred, values);
+    expect(differences.map(({ selector, pathbuilder }) => `${selector}=${String(pathbuilder)}`)).toStrictEqual(
+      HAND_WORKED_TOTALS.map(([selector, total]) => `${selector}=${String(total)}`),
+    );
+  });
+
+  test('leaves a derived total the engine has none of out of the count', () => {
+    const values = agreeing();
+    values.totals.delete(Selector.parse('skill:athletics'));
+    const report = discrepancyReport(mordred, values);
+    expect(report.differences).toStrictEqual([]);
+    expect(report.compared).toBe(TOTALS_COMPARED - 1 + ORACLE_PER_DAY.length + Object.keys(RANKED_STATISTICS).length);
   });
 
   test('names a total that differs, with Pioneer less Pathbuilder', () => {

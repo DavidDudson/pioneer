@@ -15,10 +15,10 @@ import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 const LOAD_TIMEOUT_MS = 60_000;
 
 /** Every total and rank the engine derives for Mordred: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
-const COMPARED = 41;
+const COMPARED = 62;
 
 /** Briar Rose's too, and the DC of her Dream Magic, which her Free Archetype feat now places. */
-const COMPARED_BRIAR = 42;
+const COMPARED_BRIAR = 63;
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
@@ -60,6 +60,21 @@ describe('Pathbuilder exports over the official packs', () => {
         'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
         'focus-points: Pathbuilder 3, Pioneer 1',
+        'perception: Pathbuilder 21, Pioneer 20',
+        'save:fortitude: Pathbuilder 20, Pioneer 19',
+        'save:reflex: Pathbuilder 19, Pioneer 18',
+        'save:will: Pathbuilder 23, Pioneer 22',
+        'skill:acrobatics: Pathbuilder 16, Pioneer 3',
+        'skill:arcana: Pathbuilder 18, Pioneer 16',
+        'skill:crafting: Pathbuilder 16, Pioneer 3',
+        'skill:diplomacy: Pathbuilder 15, Pioneer 13',
+        'skill:intimidation: Pathbuilder 13, Pioneer 0',
+        'skill:medicine: Pathbuilder 18, Pioneer 5',
+        'skill:nature: Pathbuilder 24, Pioneer 18',
+        'skill:performance: Pathbuilder 13, Pioneer 0',
+        'skill:religion: Pathbuilder 23, Pioneer 18',
+        'skill:society: Pathbuilder 16, Pioneer 3',
+        'skill:thievery: Pathbuilder 16, Pioneer 3',
         'spell-dc:dream-magic: Pathbuilder 28, Pioneer 30',
         'skill:acrobatics: Pathbuilder trained, Pioneer untrained',
         'skill:arcana: Pathbuilder expert, Pioneer trained',
@@ -85,6 +100,21 @@ describe('Pathbuilder exports over the official packs', () => {
       /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 16 Bulk against a limit of 9 (5 + Str 4), which Pathbuilder does not track. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 34, Pioneer 33',
+        'perception: Pathbuilder 20, Pioneer 19',
+        'save:reflex: Pathbuilder 17, Pioneer 16',
+        'skill:acrobatics: Pathbuilder 0, Pioneer -1',
+        'skill:athletics: Pathbuilder 23, Pioneer 22',
+        'skill:deception: Pathbuilder 20, Pioneer 5',
+        'skill:diplomacy: Pathbuilder 27, Pioneer 21',
+        'skill:intimidation: Pathbuilder 22, Pioneer 19',
+        'skill:medicine: Pathbuilder 17, Pioneer 3',
+        'skill:nature: Pathbuilder 17, Pioneer 3',
+        'skill:occultism: Pathbuilder 17, Pioneer 15',
+        'skill:performance: Pathbuilder 20, Pioneer 5',
+        'skill:stealth: Pathbuilder 0, Pioneer -1',
+        'skill:survival: Pathbuilder 17, Pioneer 3',
+        'skill:thievery: Pathbuilder 0, Pioneer -1',
+        'class-dc: Pathbuilder 28, Pioneer 30',
         'spell-dc:champion-focus: Pathbuilder 32, Pioneer 31',
         'class-dc: Pathbuilder trained, Pioneer expert',
         'skill:deception: Pathbuilder trained, Pioneer untrained',

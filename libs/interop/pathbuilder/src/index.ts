@@ -80,6 +80,7 @@ export {
   RankDiscrepancy,
   TotalDiscrepancy,
 } from './discrepancy-report';
+export { DERIVED_TOTAL_STATISTICS } from './derived-totals';
 export { documentFocus, type FocusPlacement, placeFocus } from './focus-placement';
 export type { ImportedCaster, ImportedSpellRank } from './read-spells';
 export {
