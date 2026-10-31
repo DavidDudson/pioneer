@@ -17702,6 +17702,86 @@
         "rollOption": "dragon-form"
       },
       {
+        "key": "RollOption",
+        "option": "dragon-form-tradition:primal",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:bog",
+              "dragon-form:brine",
+              "dragon-form:cinder",
+              "dragon-form:cloud",
+              "dragon-form:coral",
+              "dragon-form:crystal",
+              "dragon-form:forest",
+              "dragon-form:horned",
+              "dragon-form:magma",
+              "dragon-form:rime",
+              "dragon-form:stormcrown"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "dragon-form-tradition:arcane",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:barrage",
+              "dragon-form:fortune",
+              "dragon-form:mirage",
+              "dragon-form:phase",
+              "dragon-form:rune",
+              "dragon-form:sea",
+              "dragon-form:time",
+              "dragon-form:underworld",
+              "dragon-form:vorpal",
+              "dragon-form:wailing",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "dragon-form-tradition:occult",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:conspirator",
+              "dragon-form:despair",
+              "dragon-form:mocking",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:umbral",
+              "dragon-form:vizier",
+              "dragon-form:whisper"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "option": "dragon-form-tradition:divine",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:delight",
+              "dragon-form:diabolic",
+              "dragon-form:empyreal",
+              "dragon-form:executor",
+              "dragon-form:oath",
+              "dragon-form:requiem",
+              "dragon-form:resurrection",
+              "dragon-form:sky"
+            ]
+          }
+        ]
+      },
+      {
         "key": "BattleForm",
         "form": {
           "speeds": {
@@ -18261,6 +18341,162 @@
         "type": ["spirit", "void", "vitality"],
         "value": 10,
         "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "bludgeoning",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:adamantine",
+              "dragon-form:brine",
+              "dragon-form:coral",
+              "dragon-form:mocking",
+              "dragon-form:sea"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "force",
+        "predicate": [
+          {
+            "or": ["dragon-form:barrage", "dragon-form:fortune", "dragon-form:phase", "dragon-form:time"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": ["dragon-form:bog"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:cinder",
+              "dragon-form:diabolic",
+              "dragon-form:magma",
+              "dragon-form:rune",
+              "dragon-form:underworld",
+              "dragon-form:vizier"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": [
+          {
+            "or": ["dragon-form:cloud", "dragon-form:sky", "dragon-form:stormcrown"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "predicate": [
+          {
+            "or": ["dragon-form:conspirator", "dragon-form:horned"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "piercing",
+        "predicate": [
+          {
+            "or": ["dragon-form:crystal", "dragon-form:forest"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "spirit",
+        "predicate": [
+          {
+            "or": ["dragon-form:delight", "dragon-form:empyreal", "dragon-form:oath", "dragon-form:requiem"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "sonic",
+        "predicate": [
+          {
+            "or": ["dragon-form:despair", "dragon-form:executor", "dragon-form:wailing"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "mental",
+        "predicate": [
+          {
+            "or": [
+              "dragon-form:mirage",
+              "dragon-form:omen",
+              "dragon-form:sage",
+              "dragon-form:sovereign",
+              "dragon-form:whisper",
+              "dragon-form:wish"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "void",
+        "predicate": [
+          {
+            "or": ["dragon-form:resurrection", "dragon-form:umbral", "dragon-form:vorpal"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "cold",
+        "predicate": ["dragon-form:rime"]
       }
     ],
     "externalIds": {
@@ -21206,7 +21442,11 @@
         "option": "option:humanoid-form-sense",
         "toggleable": true,
         "value": false,
-        "predicate": [{ "gte": ["parent:origin:item:level", 3] }],
+        "predicate": [
+          {
+            "gte": ["parent:origin:item:level", 3]
+          }
+        ],
         "display": {
           "label": "Humanoid Form — Sense"
         },
