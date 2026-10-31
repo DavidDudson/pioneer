@@ -13,6 +13,7 @@ import type { InventoryLine } from '../inventory-line';
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../inventory-messages';
 import { InventoryNote } from '../inventory-note/inventory-note.component';
 import type { LineNote } from '../inventory-note/inventory-note.component';
+import { RuneBadges } from '../rune-badge/rune-badges.component';
 import { injectRunedName } from '../rune-name';
 
 /** What the caller shows beside each line: the line's edits. */
@@ -52,6 +53,7 @@ interface ShownLine {
     List,
     ListItem,
     NgTemplateOutlet,
+    RuneBadges,
     Stack,
     Text,
     TranslocoPipe,

@@ -19,8 +19,10 @@ import {
   propertyRune,
   RuneFixture,
   runeFixtureContent,
+  runeFixtureId,
 } from '@pioneer/character/domain/testing';
 import { FundamentalRune } from '@pioneer/rules/sdk';
+import type { RuneBadgeData } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
 import { CORE_TABLE } from '../../data/character-rule-limit-store';
@@ -136,6 +138,43 @@ describe(sheetInventory, () => {
     expect(present(sheetInventory(plain, runed)[0]).lines[0]?.runes).toBeUndefined();
     const tongue = stock([[sword, ItemFixture.FlameTongue, undefined]]);
     expect(present(sheetInventory(tongue, runed)[0]).lines[0]?.runes).toBeUndefined();
+  });
+
+  it('badges a weapon’s runes, with a hole for each slot it has room for', () => {
+    let etched = stock([[sword, ItemFixture.Longsword, undefined]]);
+    const bare = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(bare).toStrictEqual([{ kind: 'hole' }, { kind: 'hole' }]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Potency, 2));
+    etched = etchRune(etched, sword, propertyRune(RuneFixture.Flaming));
+    const badges = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(badges).toStrictEqual([
+      { kind: 'fundamental', rune: FundamentalRune.Potency, grade: 2 },
+      { kind: 'hole' },
+      { kind: 'property', id: runeFixtureId(RuneFixture.Flaming), name: 'Flaming' },
+      { kind: 'hole' },
+    ]);
+  });
+
+  it('leaves another rune’s badge as it was when a rune is added', () => {
+    const base = etchRune(
+      stock([[sword, ItemFixture.Longsword, undefined]]),
+      sword,
+      fundamental(FundamentalRune.Potency, 3),
+    );
+    const flaming = etchRune(base, sword, propertyRune(RuneFixture.Flaming));
+    const both = etchRune(flaming, sword, propertyRune(RuneFixture.Frost));
+    const badge: RuneBadgeData = { kind: 'property', id: runeFixtureId(RuneFixture.Flaming), name: 'Flaming' };
+
+    expect(present(sheetInventory(flaming, runed)[0]).lines[0]?.runeBadges).toContainEqual(badge);
+    expect(present(sheetInventory(both, runed)[0]).lines[0]?.runeBadges).toContainEqual(badge);
+  });
+
+  it('badges nothing for an item that is not a weapon, and gives a specific weapon no holes', () => {
+    const plain = stock([[rope, ItemFixture.Rope, undefined]]);
+    expect(present(sheetInventory(plain, runed)[0]).lines[0]?.runeBadges).toStrictEqual([]);
+    const tongue = stock([[sword, ItemFixture.FlameTongue, undefined]]);
+    const badges = present(sheetInventory(tongue, runed)[0]).lines[0]?.runeBadges;
+    expect(badges).not.toContainEqual({ kind: 'hole' });
   });
 });
 

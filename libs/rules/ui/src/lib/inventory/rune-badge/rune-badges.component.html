@@ -1,0 +1,7 @@
+@if (runes().length > 0) {
+  <fr-stack direction="horizontal" gap="2xs" align="center" wrap>
+    @for (rune of runes(); track $index) {
+      <pio-rune-badge [rune]="rune" />
+    }
+  </fr-stack>
+}
