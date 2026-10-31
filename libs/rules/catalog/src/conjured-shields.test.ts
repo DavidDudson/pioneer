@@ -80,6 +80,12 @@ describe('spells that conjure a shield', () => {
     });
   });
 
+  test('Bone Shield has +2 Hardness against piercing and slashing damage', async () => {
+    const rule = await shieldOf('impossible-magic', 'effect:spell-effect-bone-shield');
+
+    expect(rule).toMatchObject({ hardnessAgainst: [{ types: ['piercing', 'slashing'], bonus: 2 }] });
+  });
+
   test('Shielded Arm has 15 Hit Points and no Broken Threshold, and ends when they are spent', async () => {
     const rule = await shieldOf('rage-of-elements', 'effect:spell-effect-shielded-arm');
 

@@ -679,6 +679,7 @@ export {
   blocked,
   blockProblem,
   conditionAfterBlock,
+  hardnessFor,
   isShieldCommand,
   NO_SHIELDS,
   SHIELDS_MAX,

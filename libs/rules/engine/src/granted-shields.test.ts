@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { Hardness, HitPoints } from '@pioneer/rules/sdk';
+import { DamageType, Hardness, HitPoints } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { shieldsInPlay } from './granted-shields';
@@ -55,6 +55,15 @@ describe('shieldsInPlay', () => {
     const [lowered] = shieldsInPlay({ rules: [inPlay(ARM, 'arm')], facts: FACTS });
 
     expect([raised?.raised, lowered?.raised]).toStrictEqual([true, false]);
+  });
+
+  test('a shield names the Hardness it has against some damage', () => {
+    const typed = { key: 'GrantShield', hardness: 3, hardnessAgainst: [{ types: ['piercing'], bonus: 2 }] };
+    const [shield] = shieldsInPlay({ rules: [inPlay(typed, 'typed')], facts: FACTS });
+    const [plain] = shieldsInPlay({ rules: [inPlay(SHIELD, 'shield')], facts: FACTS });
+
+    expect(shield?.hardnessAgainst).toStrictEqual([{ types: [DamageType.Piercing], bonus: Hardness.parse(2) }]);
+    expect(plain?.hardnessAgainst).toStrictEqual([]);
   });
 
   test('a bracket changes the Hit Points too, and a Broken Threshold of 0 stays', () => {
