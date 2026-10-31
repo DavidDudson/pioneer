@@ -84,7 +84,7 @@ function armorInputs(
 }
 
 /** The rule elements in play and their facts, with the items the character's `ChoiceSet`s picked, when it knows them. */
-export interface PickingRules extends ModifierInputs {
+interface PickingRules extends ModifierInputs {
   readonly picked?: PickedItems;
 }
 
