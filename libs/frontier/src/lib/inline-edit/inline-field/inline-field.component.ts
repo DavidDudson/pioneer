@@ -21,12 +21,15 @@ import { InlineEditStatus } from '../inline-edit';
 import { SaveStatus } from '../save-status/save-status.component';
 
 const FOCUSABLE = 'input, select, textarea, button, [tabindex]:not([tabindex="-1"])';
+/** Marks where focus goes when an editor has controls ahead of the one to type in (a filter panel above a picker). */
+const AUTOFOCUS = '[data-autofocus]';
 
 /**
  * Chrome for one inline-editable value: label, read view, per-field skeleton,
  * spinner, saved tick, Revert, error/conflict message. No save or cancel
  * buttons: the value saves itself (see `InlineEdit`). The editor control is
- * projected, focused when opened, and only rendered while open:
+ * projected, focused when opened, and only rendered while open. It is focused at its first control, or at the first
+ * control inside an element marked `data-autofocus` when other controls come ahead of the one to type in:
  *
  * ```html
  * <fr-inline-field label="Name" [edit]="name">
@@ -66,7 +69,8 @@ export class InlineField<TValue> {
     afterRenderEffect(() => {
       const editor = this.editor()?.nativeElement;
       if (editor !== undefined && !editor.contains(document.activeElement)) {
-        editor.querySelector<HTMLElement>(FOCUSABLE)?.focus();
+        const start = editor.querySelector<HTMLElement>(AUTOFOCUS) ?? editor;
+        start.querySelector<HTMLElement>(FOCUSABLE)?.focus();
       }
     });
   }

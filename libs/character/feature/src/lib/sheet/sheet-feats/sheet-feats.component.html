@@ -26,16 +26,19 @@
               [edit]="slot.field"
               [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
             >
-              <pio-feat-picker
-                frInlineEditor
-                [ariaLabel]="slot.label.key | transloco: slot.label.params"
-                [placeholder]="'character.sheet.feats.placeholder' | transloco"
-                [rows]="slot.rows()"
-                [value]="slot.field.draft()"
-                (valueChange)="slot.field.change($event)"
-                (committed)="slot.field.flushSoon()"
-                (cancelled)="slot.field.cancel()"
-              />
+              <fr-stack frInlineEditor gap="xs">
+                <pio-sheet-feat-filter-panel [filter]="slot.filter" />
+                <pio-feat-picker
+                  data-autofocus
+                  [ariaLabel]="slot.label.key | transloco: slot.label.params"
+                  [placeholder]="'character.sheet.feats.placeholder' | transloco"
+                  [rows]="slot.rows()"
+                  [value]="slot.field.draft()"
+                  (valueChange)="slot.field.change($event)"
+                  (committed)="slot.field.flushSoon()"
+                  (cancelled)="slot.field.cancel()"
+                />
+              </fr-stack>
             </fr-inline-field>
           } @empty {
             <fr-empty-state [title]="'character.sheet.feats.none' | transloco" />
