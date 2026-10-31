@@ -243,13 +243,18 @@ function prerequisiteLines(option: SheetFeatOption): readonly PrerequisiteLine[]
  * met, or that is a dedication still locked, can't be picked, and says why; one whose prerequisites can't be checked
  * can be, since unknown is never read as not met. One that would train a skill the character is trained in already
  * says so (#674) and stays pickable.
+ *
+ * `hidden` are the feats the filters leave out. They get no row and nothing is read for them: what a feat would train
+ * again is the costly part (about a millisecond a feat), and the player's filters usually leave most feats out.
  */
 export function featRows(
   options: readonly SheetFeatOption[],
   { translate, trainedAgain }: FeatRowReads,
+  hidden: ReadonlySet<string> = new Set(),
 ): readonly FeatPickerRow[] {
-  const marks = trainedAgain(options.map((option) => option.value));
-  return options.map((option): FeatPickerRow => {
+  const shown = options.filter((option) => !hidden.has(option.value));
+  const marks = trainedAgain(shown.map((option) => option.value));
+  return shown.map((option): FeatPickerRow => {
     const skills = marks.get(option.value);
     return {
       id: option.value,

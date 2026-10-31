@@ -53,11 +53,6 @@ export interface FeatFields {
   readonly hasGrantOnly: boolean;
 }
 
-/** `rows` less the feats the filters leave out; all of them where there are no filters. */
-function without(rows: readonly FeatPickerRow[], hidden: ReadonlySet<string> | undefined): readonly FeatPickerRow[] {
-  return hidden === undefined ? rows : rows.filter((row) => !hidden.has(row.id));
-}
-
 /** One feat slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefined>, read: SheetFeatSlot): FeatField {
   const { key, label } = read;
@@ -87,11 +82,9 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
     label,
     rows: computed(() => {
       sources.messages();
-      return without(
-        featRows(options(), {
-          translate: sources.translate,
-          trainedAgain: slot()?.trainedAgain ?? (() => new Map()),
-        }),
+      return featRows(
+        options(),
+        { translate: sources.translate, trainedAgain: slot()?.trainedAgain ?? (() => new Map()) },
         filter?.hidden(),
       );
     }),
