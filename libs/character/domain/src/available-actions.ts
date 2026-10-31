@@ -1,5 +1,5 @@
 import { ActionOriginKind, availableActions } from '@pioneer/rules/engine';
-import type { ActionCandidate, AvailableAction } from '@pioneer/rules/engine';
+import type { ActionCandidate, AvailableAction, FormInPlay } from '@pioneer/rules/engine';
 import type { GrantEntry } from '@pioneer/rules/grants';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ActionData, ContentEntry, ContentId, ContentRegistry, Origin, Trait } from '@pioneer/rules/sdk';
@@ -125,6 +125,20 @@ function grantedCandidates(
   });
 }
 
+/** The actions the battle form in play grants, each with the form as its origin; none without a form. */
+function formCandidates(
+  form: FormInPlay | undefined,
+  actions: ReadonlyMap<ContentId, ActionData>,
+  natures: ReadonlyMap<ContentId, AbilityNature>,
+): readonly ActionCandidate[] {
+  return (form?.form.actions ?? []).flatMap(({ action: id }): ActionCandidate[] => {
+    const action = actions.get(id);
+    return form === undefined || action === undefined
+      ? []
+      : [{ id, action, origin: { kind: ActionOriginKind.Granted, source: form.origin }, ...natures.get(id) }];
+  });
+}
+
 /**
  * The actions of the character that have a frequency with no uses left: the uses spent against the most its feats and
  * actions allow.
@@ -168,6 +182,7 @@ export function characterActions(
     ...universalCandidates(actions, natures),
     ...grantedCandidates(grants.items, actions, natures),
     ...grantedCandidates(equipped.items, actions, natures),
+    ...formCandidates(equipped.form, actions, natures),
   ];
   return availableActions({
     candidates,
