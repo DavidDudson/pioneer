@@ -9,9 +9,9 @@ import { CharacterPatchField } from './character-patch';
 import { SlotStatus } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { generateGear } from './generate-gear';
+import { fitsTheme, generateGear } from './generate-gear';
 import type { GenerationTheme } from './generation-theme';
-import type { ItemContent } from './inventory-content';
+import type { ItemContent, ItemEntry } from './inventory-content';
 import type { RuneContent } from './item-runes';
 import { seededPicks } from './pick-source';
 import type { PickSource, Seed } from './pick-source';
@@ -74,6 +74,8 @@ interface Search {
   readonly target: CharacterLevel;
   /** The theme the picks are weighed by; undefined for none. */
   readonly theme: GenerationTheme | undefined;
+  /** The weapons on sale that fit the theme's weapon. */
+  readonly fitting: readonly ItemEntry[];
   /** The picks to keep, by slot: such a slot offers only its pick, and a build that cannot take it is backed out of. */
   readonly locks: ReadonlyMap<SlotKey, ChoiceValue>;
   /** Whether a slot whose every pick leads to a dead end is left open, rather than backed out of. */
@@ -149,6 +151,14 @@ function backOut(search: Search): boolean {
   return true;
 }
 
+/** The weapons of `items` that fit the weapon of `theme`; none without either. */
+function fittingWeapons(items: ItemContent | undefined, theme: GenerationTheme | undefined): readonly ItemEntry[] {
+  const weapon = theme?.weapon;
+  return items === undefined || weapon === undefined
+    ? []
+    : [...items.values()].filter((entry) => fitsTheme(entry, weapon));
+}
+
 /**
  * What `slot` offers that the builder accepts, in random order, each checked only when asked for.
  * @yields {ChoiceValue} a candidate of `slot` that `slotRefusal` accepts.
@@ -157,7 +167,7 @@ function backOut(search: Search): boolean {
 function tryOrder(
   character: Character,
   slot: OpenSlot,
-  { content, source, theme, locks }: Search,
+  { content, source, theme, fitting, locks }: Search,
 ): readonly ChoiceValue[] {
   const locked = locks.get(slot.key);
   if (locked !== undefined) {
@@ -166,7 +176,7 @@ function tryOrder(
   const candidates = slotCandidates(character.document, content, slot);
   return theme === undefined
     ? shuffle(source, candidates)
-    : weightedShuffle(source, weighCandidates(slot, candidates, { theme, content }));
+    : weightedShuffle(source, weighCandidates(slot, candidates, { theme, content, fitting }));
 }
 
 function* acceptable(character: Character, slot: OpenSlot, search: Search): Generator<ChoiceValue> {
@@ -221,7 +231,8 @@ export function generateCharacter({
 }: GenerateInput): Generated {
   const source = seededPicks(seed);
   const kept = new Map(locks.map(({ slot, selection }) => [slot, selection]));
-  const base = { content, source, now, target: level, theme, locks: kept };
+  const fitting = fittingWeapons(items, theme);
+  const base = { content, source, now, target: level, theme, fitting, locks: kept };
   const root: Node = { character: start, skipped: [] };
   const searched = extend(root, { ...base, lenient: false, left: BACKTRACKS_MAX }) ??
     extend(root, { ...base, lenient: true, left: undefined }) ?? { character: start, unfilled: [], unmet: [] };
