@@ -798,6 +798,20 @@
         "key": "GrantItem",
         "item": "890194f7-3997-5613-b3a5-ed9c3d020784",
         "allowDuplicate": false
+      },
+      {
+        "key": "CreatureSize",
+        "value": "huge",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 15
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "status",
+        "value": 4
       }
     ],
     "data": {
@@ -3269,6 +3283,20 @@
         "selectors": ["hp"],
         "type": "untyped",
         "value": "@level"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "resizeEquipment": true,
+        "reach": {
+          "override": 10
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "status",
+        "value": 2
       }
     ],
     "data": {
