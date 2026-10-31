@@ -109,7 +109,12 @@ describe('CharacterSheetPage consumables', () => {
       },
       { timeout: SETTLE },
     );
-    expect(textOf(consumables)).toContain('1d8');
+    await vi.waitFor(
+      () => {
+        expect(textOf(consumables)).toContain('1d8');
+      },
+      { timeout: SETTLE },
+    );
   });
 
   it("rolls a formula that reads the character with the character's values", async () => {

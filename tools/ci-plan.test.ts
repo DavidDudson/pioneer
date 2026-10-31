@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { filterOf, selectJobs, touches } from './ci-plan.ts';
+import { filterOf, planGaps, selectJobs, touches } from './ci-plan.ts';
 import type { AffectedIn, JobEntry } from './ci-plan.ts';
 
 const entry = (id: string, args: string, always?: boolean): JobEntry => ({
@@ -86,5 +86,31 @@ describe('selectJobs arguments', () => {
     const selected = await selectJobs([entry('all', '')], affectedNames);
 
     expect(selected.map(({ args }) => args)).toStrictEqual(['']);
+  });
+});
+
+describe('planGaps', () => {
+  const build = entry('build', '');
+  const lint = entry('lint', '', true);
+  const web = entry('web', '--projects=tag:platform:web');
+
+  test('is empty when the plan covers the change', () => {
+    expect(planGaps(['libs/a/src/a.ts', 'libs/a/src/a.spec.ts'], [lint, build], [web])).toStrictEqual([]);
+  });
+
+  test('flags changed project source with no typecheck and build job', () => {
+    expect(planGaps(['libs/a/src/a.ts'], [lint], [])).toHaveLength(1);
+    expect(planGaps(['apps/web/src/app.component.html'], [lint], [web])).toHaveLength(1);
+  });
+
+  test('flags a changed spec with no test job', () => {
+    expect(planGaps(['libs/a/src/a.spec.ts'], [lint, build], [])).toHaveLength(1);
+    expect(planGaps(['tools/ci-plan.test.ts'], [lint], [])).toHaveLength(1);
+  });
+
+  test('lets a change to docs, content or workflows plan little', () => {
+    expect(planGaps(['docs/readme.md', 'content/packs/a.json', '.github/workflows/ci.yml'], [lint], [])).toStrictEqual(
+      [],
+    );
   });
 });

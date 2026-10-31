@@ -6,7 +6,7 @@
  */
 import { appendFile } from 'node:fs/promises';
 
-import { JobsFile, selectJobs, touches } from './ci-plan.ts';
+import { JobsFile, planGaps, selectJobs, touches } from './ci-plan.ts';
 import type { AffectedIn, JobEntry, ProjectFilter } from './ci-plan.ts';
 
 /** Git's empty tree: as a base, every file counts as changed, so every project is affected. */
@@ -109,6 +109,11 @@ const [check, test, edge] = await Promise.all([
   selectJobs(jobs.test, affectedIn),
   affectedIn({ projects: EDGE_PROJECT, exclude: undefined }),
 ]);
+
+const gaps = planGaps(changed, check, test);
+if (gaps.length > 0) {
+  throw new Error(`The plan skips what the change needs:\n- ${gaps.join('\n- ')}`);
+}
 
 const outputs: Readonly<Record<string, string>> = {
   base,

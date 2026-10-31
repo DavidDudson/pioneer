@@ -7,12 +7,22 @@
 # instead of competing for CPU. Before taking its turn it waits until the 1-minute load average is under
 # MAX_LOAD_PERCENT (default 70) of the core count, then holds the lock while the command runs.
 #
+# The command runs in the Nix devshell (devshell.sh), entered here when the caller's shell is not in it. A command
+# started from inside a run-check (a git hook that calls it, say) already holds the turn and runs at once, so
+# nesting cannot deadlock on the lock.
+#
 # Env: MAX_LOAD_PERCENT (default 70), CHECK_WAIT_SECONDS (give up after this long, default 900).
 set -euo pipefail
 
 if [ "$#" -eq 0 ]; then
   echo "usage: run-check.sh <command> [args...]" >&2
   exit 2
+fi
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ -n "${RUN_CHECK_HELD:-}" ]; then
+  exec "$here/devshell.sh" "$@"
 fi
 
 root="${WS_ROOT:-$HOME/workspaces}"
@@ -43,4 +53,5 @@ while :; do
 done
 
 echo "run-check: load ${load}, running: $*" >&2
-"$@"
+export RUN_CHECK_HELD=1
+"$here/devshell.sh" "$@"

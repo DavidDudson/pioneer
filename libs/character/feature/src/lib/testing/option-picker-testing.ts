@@ -1,6 +1,7 @@
 import { By } from '@angular/platform-browser';
 import type { RouterTestingHarness } from '@angular/router/testing';
 import { Picker } from '@pioneer/frontier/data';
+import { vi } from 'vitest';
 
 import { present } from './sheet-page-harness';
 
@@ -15,6 +16,12 @@ function pickersIn(harness: RouterTestingHarness, scope: HTMLElement): readonly 
 /** How many pickers `scope` holds. */
 export function pickerCount(harness: RouterTestingHarness, scope: HTMLElement): number {
   return pickersIn(harness, scope).length;
+}
+
+/** The labels the `index`th picker of `scope` offers (the first by default), in order. */
+export function rowLabels(harness: RouterTestingHarness, scope: HTMLElement, index = 0): readonly string[] {
+  const picker = present(pickersIn(harness, scope)[index]);
+  return picker.rows().map((each) => picker.rowLabel()(each));
 }
 
 /** Which row to pick: the one whose label `matches`, in the `index`th picker (the first by default). */
@@ -38,4 +45,21 @@ export function pickRow(harness: RouterTestingHarness, scope: HTMLElement, targe
 export function offeredLabels(harness: RouterTestingHarness, scope: HTMLElement, index = 0): readonly string[] {
   const picker = present(pickersIn(harness, scope)[index]);
   return picker.rows().map((each) => picker.rowLabel()(each));
+}
+
+/** How long a picker may take to load its rows: they come from a read the page makes after it renders. */
+const ROWS_LOADED = 8000;
+
+/** `pickRow`, once the picker has loaded the row, which a loaded runner can take longer to do than waitFor's second. */
+export async function pickLoadedRow(
+  harness: RouterTestingHarness,
+  scope: HTMLElement,
+  target: PickTarget,
+): Promise<void> {
+  await vi.waitFor(
+    () => {
+      pickRow(harness, scope, target);
+    },
+    { timeout: ROWS_LOADED },
+  );
 }

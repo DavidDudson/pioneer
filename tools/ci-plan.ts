@@ -68,3 +68,27 @@ export async function selectJobs(entries: readonly JobEntry[], affectedIn: Affec
 export function touches(changed: readonly string[], prefixes: readonly string[]): boolean {
   return changed.some((file) => prefixes.some((prefix) => file === prefix || file.startsWith(prefix)));
 }
+
+/** The job that typechecks and builds (.github/ci-jobs.json). */
+const BUILD_JOB = 'build';
+const PROJECT_SOURCE = /^(?:apps|libs)\/.*\.(?:ts|html)$/v;
+const SPEC_FILE = /\.(?:spec|test)\.ts$/v;
+
+/**
+ * What the plan skipped that the change needs: a plan that selects nothing for changed code is a broken plan, not a
+ * clean change, and a silent one let type errors and failing specs reach main (see #1386). Empty when the plan is sound.
+ */
+export function planGaps(
+  changed: readonly string[],
+  check: readonly JobEntry[],
+  test: readonly JobEntry[],
+): readonly string[] {
+  const gaps: string[] = [];
+  if (changed.some((file) => PROJECT_SOURCE.test(file)) && !check.some(({ id }) => id === BUILD_JOB)) {
+    gaps.push(`project source changed but the "${BUILD_JOB}" job (typecheck and build) is not planned`);
+  }
+  if (changed.some((file) => SPEC_FILE.test(file)) && test.length === 0) {
+    gaps.push('a spec or test changed but no test job is planned');
+  }
+  return gaps;
+}

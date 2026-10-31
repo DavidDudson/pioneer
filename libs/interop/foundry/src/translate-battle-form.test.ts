@@ -249,7 +249,9 @@ const TRADITION_RULES = [
 
 describe('translateRules: elements that read another field of a dragon type', () => {
   test('a roll option and damage dice are made for each value the types have, switched on by the types with it', () => {
-    const rules = formRules(TRADITION_RULES).filter(({ key }) => key !== RuleElementKey.ChoiceSet);
+    const rules = formRules(TRADITION_RULES).filter(
+      (rule) => (rule as { key: unknown }).key !== RuleElementKey.ChoiceSet,
+    );
 
     expect(rules).toEqual([
       { key: RuleElementKey.RollOption, option: 'dragon-form-tradition:divine', predicate: ['dragon-form:brine'] },

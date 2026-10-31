@@ -5,7 +5,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
-import { offeredLabels, pickerCount, pickRow } from '../../testing/option-picker-testing';
+import { offeredLabels, pickerCount, pickLoadedRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
@@ -49,7 +49,7 @@ type SheetView = Pick<OpenSheet, 'harness' | 'root'>;
 
 /** Picks the option named `name` in the picker with `index` among the effects' pickers. */
 async function pick(sheet: SheetView, index: number, name: string): Promise<void> {
-  pickRow(sheet.harness, effectsOf(sheet.root), { matches: (label) => label === name, index });
+  await pickLoadedRow(sheet.harness, effectsOf(sheet.root), { matches: (label) => label === name, index });
   await TestBed.inject(ApplicationRef).whenStable();
 }
 

@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+import type { Matchers } from 'bun:test';
 
 import { RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
@@ -7,6 +8,9 @@ import type { GrantEntry } from './grant-entry';
 import { resolveGrants } from './resolve-grants';
 import type { GrantResolution } from './resolve-grants';
 import { entry, feat, idOf, inputsOf, picked, picksOf, repeatable, slotOf } from './testing/builders';
+
+/** `expect` on a value as plain data: branded keys and takes compare with plain literals. */
+const expectPlain = (actual: unknown): Matchers => expect(actual);
 
 const option = (value: string): object => ({ value, label: value });
 const featOption = (slug: string): object => ({ value: idOf(slug), label: slug });
@@ -88,11 +92,11 @@ describe('a repeatable feat picked in two feat slots', () => {
   });
 
   test('keys each take by the feat slot that picked it', () => {
-    expect(FIRST_DOMAIN).toBe(`${idOf('domain-initiate')}:via-${FEAT_SLOTS[0]}:0`);
-    expect(SECOND_DOMAIN).toBe(`${idOf('domain-initiate')}:via-${FEAT_SLOTS[1]}:0`);
+    expectPlain(FIRST_DOMAIN).toBe(`${idOf('domain-initiate')}:via-${FEAT_SLOTS[0]}:0`);
+    expectPlain(SECOND_DOMAIN).toBe(`${idOf('domain-initiate')}:via-${FEAT_SLOTS[1]}:0`);
     const result = resolve(featPicks('domain-initiate', 'domain-initiate'));
     const domains = openOf(result, 'domain-initiate');
-    expect(domains.map((slot) => [slot.key, slot.take])).toEqual([
+    expectPlain(domains.map((slot) => [slot.key, slot.take])).toEqual([
       [FIRST_DOMAIN, 1],
       [SECOND_DOMAIN, 2],
     ]);
@@ -107,7 +111,7 @@ describe('a repeatable feat picked in two feat slots', () => {
     expect(openOf(result, 'domain-initiate')).toEqual([]);
     expect(result.errors).toEqual([]);
     const domains = result.answered.filter((slot) => slot.origin.entry === idOf('domain-initiate'));
-    expect(domains.map((slot) => [slot.take, slot.pick])).toEqual([
+    expectPlain(domains.map((slot) => [slot.take, slot.pick])).toEqual([
       [1, 'fire'],
       [2, 'air'],
     ]);
@@ -120,11 +124,11 @@ describe('a repeatable feat picked in two feat slots', () => {
       [FEAT_SLOTS[1], idOf('domain-initiate')],
       [SECOND_DOMAIN, 'air'],
     ]);
-    expect(later.answered.filter(own).map((slot) => [slot.key, slot.take, slot.pick])).toEqual([
+    expectPlain(later.answered.filter(own).map((slot) => [slot.key, slot.take, slot.pick])).toEqual([
       [SECOND_DOMAIN, 1, 'air'],
     ]);
     const both = resolve([...featPicks('domain-initiate', 'domain-initiate'), [SECOND_DOMAIN, 'air']]);
-    expect(both.answered.filter(own).map((slot) => [slot.key, slot.take, slot.pick])).toEqual([
+    expectPlain(both.answered.filter(own).map((slot) => [slot.key, slot.take, slot.pick])).toEqual([
       [SECOND_DOMAIN, 2, 'air'],
     ]);
   });
@@ -132,7 +136,7 @@ describe('a repeatable feat picked in two feat slots', () => {
   test('does not offer a later take what an earlier take picked', () => {
     const result = resolve([...featPicks('domain-initiate', 'domain-initiate'), [FIRST_DOMAIN, 'fire']]);
     const second = result.open.find((slot) => slot.key === SECOND_DOMAIN);
-    expect(second?.options.map((each) => each.value)).toEqual(['air', 'earth']);
+    expectPlain(second?.options.map((each) => each.value)).toEqual(['air', 'earth']);
   });
 
   test('refuses a later take that repeats an earlier pick, and keeps the earlier take', () => {
@@ -142,8 +146,8 @@ describe('a repeatable feat picked in two feat slots', () => {
       [SECOND_DOMAIN, 'fire'],
     ]);
     const domains = result.answered.filter((slot) => slot.origin.entry === idOf('domain-initiate'));
-    expect(domains.map((slot) => slot.take)).toEqual([1]);
-    expect(result.open.map((slot) => slot.key)).toContain(SECOND_DOMAIN);
+    expectPlain(domains.map((slot) => slot.take)).toEqual([1]);
+    expectPlain(result.open.map((slot) => slot.key)).toContain(SECOND_DOMAIN);
     expect(result.errors).toHaveLength(1);
   });
 
