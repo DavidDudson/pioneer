@@ -37,7 +37,7 @@ function host(fixture: ComponentFixture<CharacterAvatar>): HTMLElement {
 }
 
 function paths(fixture: ComponentFixture<CharacterAvatar>): readonly SVGPathElement[] {
-  return [...host(fixture).querySelectorAll('path')];
+  return [...host(fixture).querySelectorAll<SVGPathElement>('svg[viewBox="0 0 100 100"] path')];
 }
 
 describe(CharacterAvatar, () => {
@@ -99,6 +99,43 @@ describe(CharacterAvatar, () => {
   it('draws no bar without a max', async () => {
     const fixture = await render({ max: 0, current: 0 });
     expect(host(fixture).querySelector('svg')).toBeNull();
+  });
+
+  it('shows no wounds above half HP', async () => {
+    const fixture = await render({ current: 18 });
+    expect(host(fixture).querySelector('fr-icon')).toBeNull();
+    expect(host(fixture).querySelector('[class*="vignette-"]')).toBeNull();
+    expect(host(fixture).querySelector('[class*="splatter-"]')).toBeNull();
+  });
+
+  it('adds a vignette, a splatter and a Bloodied cue at half HP and below', async () => {
+    const fixture = await render({ current: 5 });
+    expect(host(fixture).querySelector('.vignette-light')).not.toBeNull();
+    expect(host(fixture).querySelector('.splatter-light')).not.toBeNull();
+    expect(host(fixture).querySelector('fr-icon svg title')?.textContent).toBe('Bloodied');
+  });
+
+  it('is Dying at 0 HP with the strongest vignette', async () => {
+    const fixture = await render({ current: 0 });
+    expect(host(fixture).querySelector('.vignette-full')).not.toBeNull();
+    expect(host(fixture).querySelector('fr-icon svg title')?.textContent).toBe('Dying');
+  });
+
+  it.each([
+    [1, 'darkness-dim'],
+    [2, 'darkness-dark'],
+    [3, 'darkness-black'],
+  ])('blackens the portrait after %d failed saves', async (failedSaves, overlay) => {
+    const fixture = await render({ current: 0, failedSaves });
+    expect(host(fixture).querySelector(`.${overlay}`)).not.toBeNull();
+  });
+
+  it('hides the overlays under forced colours and keeps the cue', async () => {
+    const fixture = await render({ current: 0 });
+    for (const overlay of host(fixture).querySelectorAll('[class*="vignette-"], [class*="splatter-"]')) {
+      expect(overlay.classList).toContain('forced-colors:hidden');
+    }
+    expect(host(fixture).querySelector('fr-icon')).not.toBeNull();
   });
 
   it('projects badges into the top corners', async () => {

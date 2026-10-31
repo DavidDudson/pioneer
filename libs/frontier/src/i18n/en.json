@@ -45,7 +45,9 @@
     },
     "characterAvatar": {
       "hp": "Hit points {current} of {max}",
-      "hpTemp": "Hit points {current} of {max}, plus {temp} temporary"
+      "hpTemp": "Hit points {current} of {max}, plus {temp} temporary",
+      "bloodied": "Bloodied",
+      "dying": "Dying"
     },
     "meter": {
       "valueText": "{value} of {max}",

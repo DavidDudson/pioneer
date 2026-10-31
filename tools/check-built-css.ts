@@ -16,6 +16,8 @@ const REQUIRED_UTILITIES = [
   String.raw`@container (width >= 40rem){.\@md\:`,
   String.raw`@container (width >= 56rem){.\@lg\:`,
 ];
+// The splatter mask is bundled and its url rewritten (and hashed in production) to the media folder; left as the source path it would 404 and fill the avatar solid red.
+const SPLATTER_MASK = /mask:\s*url\(["']?(?:\.\/)?media\/blood-splatter[\w.-]*\.png/u;
 const FORBIDDEN_DIRECTIVES = ['@theme', '@source', '@utility'];
 // Frontier has no viewport breakpoints; only media queries for preferences and input remain.
 const VIEWPORT_QUERY = /@media\s*\((?:min-|max-)?width/u;
@@ -33,6 +35,7 @@ const problems = [
     (directive) => `raw ${directive} left in output`,
   ),
   ...REQUIRED_UTILITIES.filter((utility) => !css.includes(utility)).map((utility) => `missing utility ${utility}`),
+  ...(SPLATTER_MASK.test(css) ? [] : ['splatter mask url not rewritten to the bundled media file']),
   ...(VIEWPORT_QUERY.test(css) ? ['viewport width media query in output; use container queries'] : []),
   ...(ROUNDED.test(css) ? ['rounded corners in output; frontier is sharp'] : []),
   ...(SHADOW.test(css) ? ['shadow in output; frontier is flat'] : []),

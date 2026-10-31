@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LucideDroplet, LucideSkull } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
 
 import { meterTone } from '../../feedback/meter/meter-tone';
 import type { MeterTone } from '../../feedback/meter/meter-tone';
+import { Icon } from '../../icon/icon.component';
 import { LocaleFormat } from '../../locale/locale-format';
 import { Size } from '../../tokens';
 import { Avatar } from '../avatar/avatar.component';
+import { WoundCue, wounds } from './wounds';
 
 /** Arc geometry in a 100-unit box: the bottom half of a circle just outside the portrait (radius 50). */
 const ARC_PATH = 'M 4 50 A 46 46 0 0 0 96 50';
@@ -16,7 +19,55 @@ const ARC_LENGTH = 100;
 const WARNING_SHARE = 0.5;
 const DANGER_SHARE = 0.25;
 
-const portraitClasses = cva('block clip-circle')();
+/** Wound overlay steps, from none to the strongest; a strength of 0..1 is rounded up onto them. */
+const VIGNETTE_STEPS = ['none', 'faint', 'light', 'heavy', 'full'] as const;
+const DARKNESS_STEPS = ['none', 'dim', 'dark', 'black'] as const;
+
+/** Float noise below this must not tip a strength sitting exactly on a step boundary into the next step. */
+const STEP_NOISE = 1e-9;
+
+/** The step a strength of 0..1 rounds up onto, for a list of `count` steps. */
+function stepIndex(strength: number, count: number): number {
+  return Math.max(Math.ceil(strength * (count - 1) - STEP_NOISE), 0);
+}
+
+const OVERLAY = 'pointer-events-none absolute inset-none forced-colors:hidden';
+const portraitClasses = cva('relative block clip-circle')();
+const vignetteVariants = cva(OVERLAY, {
+  variants: {
+    step: {
+      none: 'hidden',
+      faint: 'vignette-faint',
+      light: 'vignette-light',
+      heavy: 'vignette-heavy',
+      full: 'vignette-full',
+    } satisfies Record<(typeof VIGNETTE_STEPS)[number], string>,
+  },
+});
+const splatterVariants = cva(OVERLAY, {
+  variants: {
+    step: {
+      none: 'hidden',
+      faint: 'splatter-faint',
+      light: 'splatter-light',
+      heavy: 'splatter-heavy',
+      full: 'splatter-full',
+    } satisfies Record<(typeof VIGNETTE_STEPS)[number], string>,
+  },
+});
+const darknessVariants = cva(OVERLAY, {
+  variants: {
+    step: {
+      none: 'hidden',
+      dim: 'darkness-dim',
+      dark: 'darkness-dark',
+      black: 'darkness-black',
+    } satisfies Record<(typeof DARKNESS_STEPS)[number], string>,
+  },
+});
+const cueClasses = cva('pointer-events-none absolute inset-x-none top-xs flex justify-center')();
+/** A surface chip, so the cue's contrast does not depend on the red vignette beneath it. */
+const cueChipClasses = cva('border border-line-default bg-surface-raised p-3xs')();
 const svgClasses = cva('pointer-events-none absolute inset-none size-full overflow-visible')();
 const trackClasses = cva('stroke-line-default forced-colors:stroke-system-canvas-text')();
 const tempClasses = cva('stroke-info-solid forced-colors:stroke-system-highlight')();
@@ -47,6 +98,10 @@ const fillVariants = cva('', {
  * never overflows the arc. Screen readers get the numbers as one image label; the visible name is read once, as
  * text. Nothing here moves, so reduced motion needs no special case.
  *
+ * The portrait also shows its wounds (see `wounds`): from half HP down, a red vignette and a blood splatter deepen,
+ * and each failed death save (`failedSaves`) blackens it. A skull or droplet icon with a label says "dying" or
+ * "bloodied", so the state never rests on colour alone; forced colours drop the overlays and keep the cue.
+ *
  * Project overlapping badges (conditions, gifts) into the top corners:
  *
  * ```html
@@ -60,7 +115,7 @@ const fillVariants = cva('', {
  */
 @Component({
   selector: 'fr-character-avatar',
-  imports: [Avatar, TranslocoPipe],
+  imports: [Avatar, Icon, TranslocoPipe],
   templateUrl: './character-avatar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'relative inline-block p-xs' },
@@ -74,6 +129,34 @@ export class CharacterAvatar {
   public readonly max = input.required<number>();
   public readonly temp = input(0);
   public readonly size = input<Size>(Size.Lg);
+  /** Failed death saves so far; leave unset while none are being rolled. */
+  public readonly failedSaves = input<number | undefined>(undefined);
+
+  readonly #wounds = computed(() =>
+    wounds({ current: this.current(), max: this.max(), failedSaves: this.failedSaves() }),
+  );
+
+  protected readonly overlays = computed(() => {
+    const { vignette, darkness } = this.#wounds();
+    const vignetteStep = VIGNETTE_STEPS[stepIndex(vignette, VIGNETTE_STEPS.length)];
+    const darknessStep = DARKNESS_STEPS[stepIndex(darkness, DARKNESS_STEPS.length)];
+    return {
+      vignette: vignetteVariants({ step: vignetteStep }),
+      splatter: splatterVariants({ step: vignetteStep }),
+      darkness: darknessVariants({ step: darknessStep }),
+    };
+  });
+
+  /** The cue in words and icon, for the bloodied and dying states. */
+  protected readonly cue = computed(() => {
+    const { cue } = this.#wounds();
+    if (cue === WoundCue.None) {
+      return undefined;
+    }
+    return cue === WoundCue.Dying
+      ? { icon: LucideSkull, key: 'frontier.characterAvatar.dying' }
+      : { icon: LucideDroplet, key: 'frontier.characterAvatar.bloodied' };
+  });
 
   /** HP as non-negative amounts: current never past max, temp never negative. */
   readonly #amounts = computed(() => {
@@ -114,6 +197,8 @@ export class CharacterAvatar {
   protected readonly arcPath = ARC_PATH;
   protected readonly arcLength = ARC_LENGTH;
   protected readonly portraitClasses = portraitClasses;
+  protected readonly cueClasses = cueClasses;
+  protected readonly cueChipClasses = cueChipClasses;
   protected readonly svgClasses = svgClasses;
   protected readonly trackClasses = trackClasses;
   protected readonly tempClasses = tempClasses;

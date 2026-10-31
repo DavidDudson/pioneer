@@ -39,6 +39,22 @@ export const Down: CharacterAvatarStory = { args: { current: 0 } };
 /** Temporary points follow the hit points on the arc. */
 export const TemporaryHitPoints: CharacterAvatarStory = { args: { current: 20, temp: 6 } };
 
+/** At half HP the red vignette and splatter start, with a Bloodied cue. */
+export const Bloodied: CharacterAvatarStory = { args: { current: 10 } };
+
+/** A few hit points left: the vignette and splatter are strong. */
+export const NearDeath: CharacterAvatarStory = { args: { current: 2 } };
+
+/** At 0 HP and rolling death saves, none failed yet. */
+export const DeathSavesBegin: CharacterAvatarStory = { args: { current: 0, failedSaves: 0 } };
+
+export const OneFailedSave: CharacterAvatarStory = { args: { current: 0, failedSaves: 1 } };
+
+export const TwoFailedSaves: CharacterAvatarStory = { args: { current: 0, failedSaves: 2 } };
+
+/** The third failed save: the portrait is black. */
+export const ThreeFailedSaves: CharacterAvatarStory = { args: { current: 0, failedSaves: 3 } };
+
 /** No picture yet: the initials. */
 export const Initials: CharacterAvatarStory = { args: { src: undefined } };
 
