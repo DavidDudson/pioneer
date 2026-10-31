@@ -32,6 +32,7 @@ export { type NamedStatistic, type StatisticSituations, StatisticsView } from '.
 export { type NamedStrike, StrikesView, type StrikesShield } from './lib/strikes/strikes.component';
 export { StrikesMessage } from './lib/strikes/strikes-messages';
 export { StatisticsMessage } from './lib/statistics/statistics-messages';
+export { SkillsView } from './lib/skills/skills.component';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
 export type { ChoiceLockChange } from './lib/choices/choices.component';

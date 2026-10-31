@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Section, SectionIndex, SectionLink, Stack } from '@pioneer/frontier';
-import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
 import {
-  DefencesView,
-  ENTRY_PREVIEWS,
-  SensesView,
-  SpellcastingView,
-  StatisticsView,
-  StrikesView,
-} from '@pioneer/rules/ui';
+  AsyncData,
+  AsyncPending,
+  AsyncRegion,
+  Rail,
+  Section,
+  SectionIndex,
+  SectionLink,
+  Stack,
+} from '@pioneer/frontier';
+import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
+import { DefencesView, ENTRY_PREVIEWS, SensesView, SkillsView, SpellcastingView, StrikesView } from '@pioneer/rules/ui';
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
@@ -29,7 +31,7 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
 import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
- * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total and the
+ * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total, in a rail that stays in view, and the
  * pickers for trained skills and skill increases, its Strikes, and its spellcasting with the spells it knows or
  * prepares. Actions and usable items join as their stories land.
  */
@@ -45,7 +47,9 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     Section,
     SectionIndex,
     SectionLink,
+    Rail,
     SheetPickFields,
+    SkillsView,
     SheetSpells,
     SheetStaves,
     SheetSpendLog,
@@ -55,7 +59,6 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SheetWands,
     SpellcastingView,
     Stack,
-    StatisticsView,
     StrikesView,
     TranslocoPipe,
   ],
@@ -69,7 +72,10 @@ export class SheetEncounterTab {
   readonly #spender = inject(SheetSpender);
   protected readonly sections = SHEET_SECTIONS;
   protected readonly Mode = ActionMode.Encounter;
-  protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
+  /** The index leaves out Skills, which stays in view in the rail beside the tab. */
+  protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter].filter(
+    (section) => section !== SHEET_SECTIONS.skills,
+  );
   /** The Strikes with what using each spends, those the turn has no action for left out of reach. */
   protected readonly strikes = computed((): readonly NamedStrike[] | undefined => {
     const strikes = this.picks.strikes();

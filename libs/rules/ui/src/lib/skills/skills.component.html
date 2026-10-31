@@ -1,0 +1,9 @@
+<fr-stack gap="md">
+  <fr-segmented [options]="options()" [ariaLabel]="Message.Switch | transloco" [(value)]="tab" />
+  <pio-statistics
+    [statistics]="shown()"
+    [entryNames]="entryNames()"
+    [originNames]="originNames()"
+    [noneKey]="tab() === Tab.Lores ? Message.NoLores : Message.NoSkills"
+  />
+</fr-stack>
