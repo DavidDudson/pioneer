@@ -815,6 +815,9 @@ export {
 } from './character-override';
 export {
   OVERRIDE_REVISIONS_MAX,
+  OverrideAuthor,
+  overrideAuthorIds,
+  OverrideAuthorName,
   OverrideId,
   OverrideInput,
   OverrideMode,

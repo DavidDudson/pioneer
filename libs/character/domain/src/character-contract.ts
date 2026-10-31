@@ -1,3 +1,4 @@
+// oxlint-disable import/max-dependencies -- The contract names the schema of every character endpoint, so it grows with them.
 import { AncestryId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -16,6 +17,7 @@ import { CharacterVariantRules, EnableVariantRuleBody } from './character-varian
 import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { GenerateCharacterBody, GeneratedCharacter } from './generate-character-contract';
+import { OverrideAuthor } from './override-schema';
 import { CharacterPlay, PatchedPlay, PatchPlayBody } from './play-state';
 import { RuleLimitsSchema } from './rule-limits';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
@@ -45,6 +47,8 @@ export const CharacterSheet = z.object({
   slots: z.array(CharacterSlot).readonly(),
   languages: CharacterLanguages,
   deity: SheetDeity.optional(),
+  /** The names of the users who authored the character's overrides; a user nobody can name is left out. */
+  authors: z.array(OverrideAuthor).readonly().optional(),
 });
 export type CharacterSheet = z.output<typeof CharacterSheet>;
 

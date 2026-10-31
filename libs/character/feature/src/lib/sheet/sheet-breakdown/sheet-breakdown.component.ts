@@ -19,5 +19,7 @@ import { SheetBreakdownStatistic } from './sheet-breakdown-statistic';
 })
 export class SheetBreakdown {
   protected readonly breakdown = inject(SheetBreakdownStatistic);
-  protected readonly entryNames = inject(SheetState).picks.entryNames;
+  readonly #sheet = inject(SheetState);
+  protected readonly entryNames = this.#sheet.picks.entryNames;
+  protected readonly originNames = this.#sheet.originNames;
 }

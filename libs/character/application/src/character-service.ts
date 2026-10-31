@@ -7,6 +7,7 @@ import {
   CharacterPatchField,
   characterSlots,
   deityContent,
+  overrideAuthorIds,
   OverrideId,
   PATCH_COMMANDS,
   RepertoireSwap,
@@ -37,7 +38,9 @@ import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
+import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
 import { assertInventoryAllows } from './inventory-guard';
+import type { OverrideAuthorDirectory } from './override-author-directory';
 import { assertOverrideAllowed } from './override-guard';
 import { assertSpellNeedsAccess } from './spell-access-guard';
 
@@ -55,11 +58,18 @@ export class CharacterService {
   readonly #repository: CharacterRepository;
   readonly #content: CharacterContentSource;
   readonly #clock: Clock;
+  #authors: OverrideAuthorDirectory = new InMemoryOverrideAuthorDirectory();
 
   public constructor(repository: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#repository = repository;
     this.#content = content;
     this.#clock = clock;
+  }
+
+  /** This service naming override authors through `authors`; without it, nobody is named. */
+  public withAuthors(authors: OverrideAuthorDirectory): this {
+    this.#authors = authors;
+    return this;
   }
 
   /** The content `character` is worked out over: the official packs and the homebrew packs it uses. */
@@ -100,11 +110,14 @@ export class CharacterService {
     const content = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, content);
     const deity = characterDeity(character.document, slots, deityContent(content));
+    const names = await this.#authors.displayNames(overrideAuthorIds(character.document.overrides));
+    const authors = [...names].map(([userId, displayName]) => ({ userId, displayName }));
     return {
       character,
       slots: characterSlots(character.document, slots),
       languages: characterLanguages(character.document, slots),
       ...(deity === undefined ? {} : { deity }),
+      ...(authors.length === 0 ? {} : { authors }),
     };
   }
 

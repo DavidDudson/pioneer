@@ -6,7 +6,7 @@ import type { Character, ResourceMaxima } from '@pioneer/character/domain';
 import type { RuleId, VitalsInPlay } from '@pioneer/rules/engine';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
-import type { EntryPreviews, Investment, NamedStatistic, Vital } from '@pioneer/rules/ui';
+import type { EntryPreviews, Investment, NamedStatistic, OriginNames, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-registry-query';
@@ -40,6 +40,12 @@ export class SheetState {
   readonly #i18n = inject(TranslocoService);
   public readonly store = inject(CharacterStore);
   readonly #play = inject(PlayStore);
+
+  /** Who the sheet names where it says who set something by hand: the override authors the server named. */
+  public readonly originNames: Signal<OriginNames> = computed((): OriginNames => ({
+    users: new Map(this.store.authors()?.map(({ userId, displayName }) => [userId, displayName])),
+  }));
+
   /**
    * What the play state read says that derivations use: the conditions active now and the toggles as the player left
    * them. A play edit replaces it without touching the build.

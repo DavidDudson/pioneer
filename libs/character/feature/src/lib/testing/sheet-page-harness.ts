@@ -1,3 +1,4 @@
+// oxlint-disable max-lines -- the one harness every sheet spec opens through, so it grows with each thing a sheet reads
 /** Merisiel's sheet in a routed page, for the sheet page specs. */
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
@@ -98,9 +99,15 @@ const NO_LANGUAGES = { known: [], open: 0 } as const;
 
 function sheetOf(
   character: object,
-  { slots = MERISIEL_SLOTS, languages = NO_LANGUAGES, deity }: SheetOptions = {},
+  { slots = MERISIEL_SLOTS, languages = NO_LANGUAGES, deity, authors }: SheetOptions = {},
 ): object {
-  return { character, slots, languages, ...(deity === undefined ? {} : { deity }) };
+  return {
+    character,
+    slots,
+    languages,
+    ...(deity === undefined ? {} : { deity }),
+    ...(authors === undefined ? {} : { authors }),
+  };
 }
 
 /** Opens a sheet at the character's own address, with no tab named. */
@@ -113,6 +120,8 @@ export interface SheetOptions {
   readonly languages?: object;
   /** The deity the server read; none by default. */
   readonly deity?: object;
+  /** The names of the users who authored the character's overrides; none by default. */
+  readonly authors?: readonly object[];
   readonly packs?: readonly PackContentsLoader[];
   /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
   readonly tab?: SheetMode | typeof NO_TAB;

@@ -1,5 +1,7 @@
 export { type CharacterAudit, CharacterRepository, type PlayWrite } from './character-repository';
 export { CharacterService, type PatchedCharacter } from './character-service';
+export { OverrideAuthorDirectory } from './override-author-directory';
+export { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
 export { GenerateCharacterService } from './generate-character-service';
 export { PathbuilderImportService, type PathbuilderImportPorts } from './pathbuilder-import-service';
 export { InMemoryCharacterRepository } from './in-memory-character-repository';
