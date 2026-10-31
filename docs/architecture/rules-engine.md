@@ -584,6 +584,10 @@ Grant and choice predicates read facts the set itself provides, so resolution ru
 grants as above against the facts of the round before, then derives the facts again from the set it reached:
 
 - the level, as `self:level:<level>` (an input; a negative level sets none);
+- each attribute modifier, as `attribute:<attribute>:mod:<n>` (an input, `GrantInputs.attributes`, since boosts and
+  flaws are the character's picks and not rule elements; a negative modifier sets none). The `attribute` and
+  `perception` namespaces are known in the core table, so a feat prerequisite and a rule element predicate read the
+  same answer. Perception ranks, `perception:rank:<n>`, come from the character's skill ranks with the skills' (ADR-0053);
 - each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class or ancestry feature,
   `feat:<slug>`, `ancestry:`, `heritage:`, `background:`, `self:condition:<slug>`, `self:effect:<slug>`. Creatures
   and statistics set none;

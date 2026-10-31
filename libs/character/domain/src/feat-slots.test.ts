@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ChoiceValue, ContentRegistry } from '@pioneer/rules/sdk';
+import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
+import { ChoiceValue, ContentRegistry, Level, Predicate, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
@@ -8,7 +9,7 @@ import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { featSlots, withoutPick } from './feat-slots';
 import { PrerequisiteStatus } from './prerequisite-status';
-import { slotContent, slotRefusal } from './slot-offer';
+import { skillReads, slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,
   FEAT_SLOT_FIGHTER,
@@ -27,6 +28,7 @@ const { level1: LEVEL_1, level2: LEVEL_2, level4: LEVEL_4, bonus: BONUS } = FEAT
 const registry = new ContentRegistry();
 registry.register(skillFixtures());
 registry.register(FEAT_SLOT_FIXTURES);
+const LEVEL_ONE = Level.parse(1);
 const content = { ...slotContent(registry), namespaces: CORE_NAMESPACES };
 
 function fighter(level = 1): CharacterBuilder {
@@ -162,6 +164,15 @@ describe('featSlots', () => {
     const strong = fighter().picking('boost:1:class:0', 'str').picking('boost:1:free:0', 'str');
     expect(keyed['brawn']).toBe(PrerequisiteStatus.Unmet);
     expect(offered(strong, LEVEL_1)['brawn']).toBe(PrerequisiteStatus.Met);
+  });
+
+  test('reads the attribute modifiers the engine sets, so a rule element predicate reads the same', () => {
+    const strong = fighter().picking('boost:1:class:0', 'str').picking('boost:1:free:0', 'str');
+    const { facts, rollOptions } = skillReads(strong.build().document, content).grantsAt(LEVEL_ONE);
+
+    expect(rollOptions).toContain(RollOption.parse('attribute:str:mod:2'));
+    expect(evaluatePredicate(Predicate.parse([{ gte: ['attribute:str:mod', 2] }]), facts)).toBe(Truth.True);
+    expect(evaluatePredicate(Predicate.parse([{ gte: ['attribute:str:mod', 3] }]), facts)).toBe(Truth.False);
   });
 });
 

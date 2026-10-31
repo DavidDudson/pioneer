@@ -7,8 +7,8 @@ import { SlotStatus, SlotSubjectKind } from './character-slot';
 import type { CharacterSlot } from './character-slot';
 import { characterSlots } from './character-slot-status';
 import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
-import { picksOf, resolveSlotsAt } from './slot-reads';
-import type { SlotContent, SlotContext } from './slot-reads';
+import { resolveSlotsAt, slotContextOf } from './slot-reads';
+import type { SlotContent } from './slot-reads';
 
 /** A slot and the level it sits at; none for a slot the timeline leaves out. */
 interface Placed {
@@ -38,7 +38,7 @@ function allLevels(): Level[] {
  * above the character's level is planned and carries its own level.
  */
 function openingLevels(document: CharacterDocument, content: SlotContent): ReadonlyMap<SlotKey, Level> {
-  const context: SlotContext = { ...content, picks: picksOf(document) };
+  const context = slotContextOf(document, content);
   const opening = new Map<SlotKey, Level>();
   for (const at of allLevels().filter((level) => level <= document.level)) {
     const resolution = resolveSlotsAt(at, context);

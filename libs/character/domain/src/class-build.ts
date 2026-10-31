@@ -27,7 +27,7 @@ import type { CharacterDocument } from './character-document';
 import { CLASS_SLOT, SECOND_CLASS_SLOT } from './character-slots';
 import { grantedRules } from './granted-rules';
 import { pickedSkillRanks, withSkillPicks } from './skill-training';
-import { resolveSlotsAt, skillReads } from './slot-offer';
+import { resolveSlotsAt, skillReads, slotContextOf } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 
 /** What the builder reads of a class beyond its rule elements: its Hit Points and the tag of its subclass options. */
@@ -63,7 +63,7 @@ export function classContent(registry: ContentRegistry): ClassContent {
 /** The character's grants at its own level, over every pick it holds: its effective set. */
 export function characterGrants(document: CharacterDocument, content: SlotContent): GrantResolution {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
-  return resolveSlotsAt(Level.parse(document.level), { ...content, picks });
+  return resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
 }
 
 const AC = Selector.parse('ac');

@@ -1,7 +1,7 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ConditionValue, ContentId, Level, RollOption, Slug, Trait } from '@pioneer/rules/sdk';
+import { Attribute, ContentKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
+import type { AttributeModifiers, ConditionValue, ContentId, Level, RollOption, Slug, Trait } from '@pioneer/rules/sdk';
 
 import type { AnsweredSlot } from './choices';
 import type { GrantEntry } from './grant-entry';
@@ -13,6 +13,11 @@ import type { PlacedEntry, ToggleSlot, ToggleStates } from './toggles';
 
 /** Where the level is written: `self:level:5`. */
 const LEVEL_PREFIX = 'self:level';
+
+/** Where each attribute modifier is written: `attribute:str:mod:2`. */
+const ATTRIBUTE_PREFIX = 'attribute';
+
+const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
 
 /** Where each of the character's traits is written: `self:trait:humanoid`, `self:trait:holy`. */
 const TRAIT_PREFIX = 'self:trait';
@@ -77,6 +82,8 @@ export interface CharacterFacts extends FactState {
 /** What deriving a round's facts reads besides the walk. */
 export interface FactSources {
   readonly level: Level;
+  /** The character's attribute modifiers, an input; undefined for a set read without them. */
+  readonly attributes?: AttributeModifiers | undefined;
   /** The facts the walk was tested against, for `RollOption` predicates. */
   readonly facts: PredicateFacts;
   readonly toggles: ToggleStates;
@@ -86,6 +93,21 @@ export interface FactSources {
 export function levelOptions(level: Level): RollOption[] {
   const option = optionOf(LEVEL_PREFIX, String(level));
   return option === undefined ? [] : [option];
+}
+
+/**
+ * `attribute:<attribute>:mod:<n>` for each modifier. A negative one can't be written as a roll option, and no
+ * prerequisite asks for one, so it sets none: a minimum then reads as not met.
+ */
+export function attributeOptions(attributes: AttributeModifiers | undefined): RollOption[] {
+  return ATTRIBUTES.flatMap((attribute) => {
+    const modifier = attributes?.get(attribute);
+    const option =
+      modifier === undefined || modifier < 0
+        ? undefined
+        : optionOf(`${ATTRIBUTE_PREFIX}:${attribute}:mod`, String(modifier));
+    return option === undefined ? [] : [option];
+  });
 }
 
 /**
@@ -139,7 +161,7 @@ class FactCollector {
 
   public constructor(sources: FactSources) {
     this.#sources = sources;
-    for (const option of levelOptions(sources.level)) {
+    for (const option of [...levelOptions(sources.level), ...attributeOptions(sources.attributes)]) {
       tally(this.#setBy, option, undefined);
     }
   }
