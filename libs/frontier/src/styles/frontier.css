@@ -131,6 +131,21 @@
   --color-info-emphasis: var(--fr-info-emphasis);
   --color-info-on-emphasis: var(--fr-info-on-emphasis);
 
+  --color-damage-physical: var(--fr-damage-physical);
+  --color-damage-holy: var(--fr-damage-holy);
+  --color-damage-fire: var(--fr-damage-fire);
+  --color-damage-cold: var(--fr-damage-cold);
+  --color-damage-electricity: var(--fr-damage-electricity);
+  --color-damage-acid: var(--fr-damage-acid);
+  --color-damage-poison: var(--fr-damage-poison);
+  --color-damage-sonic: var(--fr-damage-sonic);
+  --color-damage-force: var(--fr-damage-force);
+  --color-damage-mental: var(--fr-damage-mental);
+  --color-damage-void: var(--fr-damage-void);
+  --color-damage-vitality: var(--fr-damage-vitality);
+  --color-damage-spirit: var(--fr-damage-spirit);
+  --color-damage-bleed: var(--fr-damage-bleed);
+
   /*
    * Forced colours (Windows High Contrast). The browser swaps every author colour for the user's palette,
    * except CSS system colours, so a state shown only by a fill (pressed, selected, a skeleton) disappears.

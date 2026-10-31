@@ -87,3 +87,39 @@ export const toneVariants = {
   warning: 'text-warning-fg',
   info: 'text-info-fg',
 } as const satisfies Record<Tone, string>;
+
+/** Damage types a roll's dice and numbers are coloured by. Physical covers bludgeoning, piercing and slashing. */
+export const DamageTone = {
+  Physical: 'physical',
+  Holy: 'holy',
+  Fire: 'fire',
+  Cold: 'cold',
+  Electricity: 'electricity',
+  Acid: 'acid',
+  Poison: 'poison',
+  Sonic: 'sonic',
+  Force: 'force',
+  Mental: 'mental',
+  Void: 'void',
+  Vitality: 'vitality',
+  Spirit: 'spirit',
+  Bleed: 'bleed',
+} as const;
+export type DamageTone = ValueOf<typeof DamageTone>;
+
+export const damageToneVariants = {
+  physical: 'text-damage-physical',
+  holy: 'text-damage-holy',
+  fire: 'text-damage-fire',
+  cold: 'text-damage-cold',
+  electricity: 'text-damage-electricity',
+  acid: 'text-damage-acid',
+  poison: 'text-damage-poison',
+  sonic: 'text-damage-sonic',
+  force: 'text-damage-force',
+  mental: 'text-damage-mental',
+  void: 'text-damage-void',
+  vitality: 'text-damage-vitality',
+  spirit: 'text-damage-spirit',
+  bleed: 'text-damage-bleed',
+} as const satisfies Record<DamageTone, string>;

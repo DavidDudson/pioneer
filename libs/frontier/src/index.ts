@@ -130,7 +130,7 @@ export { Text, TextElement } from './lib/text/text/text.component';
 export { ColorMode, ModeChoice, Theme, ThemeChoice } from './lib/theme/theme';
 export { ThemeStore } from './lib/theme/theme-store';
 
-export { Container, Size, Space, Tone } from './lib/tokens';
+export { Container, DamageTone, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';
 export { Distance } from './lib/locale/distance/distance.component';
 export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';

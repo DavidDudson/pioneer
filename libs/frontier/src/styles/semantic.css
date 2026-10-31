@@ -145,6 +145,22 @@
   --fr-info-emphasis: var(--fr-ramp-info-500);
   --fr-info-on-emphasis: var(--fr-ramp-neutral-950);
 
+  /* Damage types: fixed hues (not theme ramps), so a type reads the same in every theme. Text and dice colour; the type is always named too. */
+  --fr-damage-physical: oklch(0.8 0.015 250);
+  --fr-damage-holy: oklch(0.8 0.14 85);
+  --fr-damage-fire: oklch(0.8 0.19 28);
+  --fr-damage-cold: oklch(0.8 0.12 215);
+  --fr-damage-electricity: oklch(0.8 0.17 265);
+  --fr-damage-acid: oklch(0.8 0.17 125);
+  --fr-damage-poison: oklch(0.8 0.13 150);
+  --fr-damage-sonic: oklch(0.8 0.12 185);
+  --fr-damage-force: oklch(0.8 0.06 240);
+  --fr-damage-mental: oklch(0.8 0.15 335);
+  --fr-damage-void: oklch(0.8 0.14 300);
+  --fr-damage-vitality: oklch(0.8 0.10 105);
+  --fr-damage-spirit: oklch(0.8 0.09 60);
+  --fr-damage-bleed: oklch(0.8 0.17 15);
+
   /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
   --fr-chart-1: var(--fr-ramp-accent-400);
   --fr-chart-2: var(--fr-ramp-info-400);
@@ -232,6 +248,21 @@
   --fr-warning-on-emphasis: var(--fr-ramp-neutral-950);
   --fr-info-emphasis: var(--fr-ramp-info-700);
   --fr-info-on-emphasis: oklch(1 0 0);
+
+  --fr-damage-physical: oklch(0.45 0.015 250);
+  --fr-damage-holy: oklch(0.45 0.14 85);
+  --fr-damage-fire: oklch(0.45 0.19 28);
+  --fr-damage-cold: oklch(0.45 0.12 215);
+  --fr-damage-electricity: oklch(0.45 0.17 265);
+  --fr-damage-acid: oklch(0.45 0.17 125);
+  --fr-damage-poison: oklch(0.45 0.13 150);
+  --fr-damage-sonic: oklch(0.45 0.12 185);
+  --fr-damage-force: oklch(0.45 0.06 240);
+  --fr-damage-mental: oklch(0.45 0.15 335);
+  --fr-damage-void: oklch(0.45 0.14 300);
+  --fr-damage-vitality: oklch(0.45 0.10 105);
+  --fr-damage-spirit: oklch(0.45 0.09 60);
+  --fr-damage-bleed: oklch(0.45 0.17 15);
 
   --fr-chart-1: var(--fr-ramp-accent-600);
   --fr-chart-2: var(--fr-ramp-info-600);
