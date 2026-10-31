@@ -806,6 +806,13 @@
       "unknownItem": "an item",
       "unknownEntry": "an entry"
     },
+    "skills": {
+      "switch": "Skills or Lores",
+      "skills": "Skills",
+      "lores": "Lores",
+      "noSkills": "No skills.",
+      "noLores": "No Lores yet."
+    },
     "statistics": {
       "none": "No statistics.",
       "noStrikes": "No Strikes listed yet. Hold a weapon to add its Strike.",
