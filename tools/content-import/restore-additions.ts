@@ -91,7 +91,7 @@ async function writeAll(writes: readonly { file: string; merged: readonly Entry[
   await Promise.all(
     writes.map(async ({ file, merged }) => Bun.write(path.join(ROOT, file), JSON.stringify(merged, undefined, 2))),
   );
-  await Bun.spawn(['node_modules/.bin/oxfmt', ...writes.map(({ file }) => file)], { cwd: ROOT }).exited;
+  await Bun.spawn(['bun', 'fmt', ...writes.map(({ file }) => file)], { cwd: ROOT }).exited;
 }
 
 async function main(): Promise<void> {

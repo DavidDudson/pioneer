@@ -65,7 +65,7 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 
 ## Checks
 
-**CI runs the full checks; locally run only small, cheap ones.** Verify with oxlint and oxfmt on the changed files, the
+**CI runs the full checks; locally run only small, cheap ones.** Verify with oxlint and `bun fmt` on the files, the
 touched project's `typecheck`, and the specs next to the change (`bunx nx run <project>:test --include="**/<name>.spec.ts"`).
 Never run `bun run affected`, `nx affected`, `bun run lint:workspace` or `bun run check` locally: the affected space
 is often large and they use a lot of CPU. Run every lint, typecheck or test command through
@@ -81,27 +81,27 @@ little else. A new project needs no entry; a new job group does.
 
 Run these in the devshell (`nix develop -c bash -c '<cmd>'`). Hooks (`just hooks`, `prek.toml`) run the file-level
 ones on staged files; `bun run lint:workspace` runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier`
-or any other way: the formatter is `oxfmt`, and one Prettier pass rewrites unrelated files.
+or any other way: the formatter is `bun fmt`, and one Prettier pass rewrites unrelated files.
 
-| Tool                                                   | Owns                                                   | Check                                                                   | Fix                                       |
-| ------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------- |
-| oxfmt                                                  | Formatting: TS, HTML, JSON, MD, CSS                    | `bun run format:check`                                                  | `bun run format`, or `bunx oxfmt <files>` |
-| oxlint                                                 | TypeScript lint, incl. `pioneer/*` rules               | `bunx nx run <project>:lint`                                            | `bunx oxlint --fix <files>`               |
-| ESLint                                                 | Angular templates (`.html`)                            | `bunx nx run <project>:lint-templates`                                  | `bunx eslint --fix <files>`               |
-| Biome                                                  | CSS lint only                                          | `bunx biome lint --error-on-warnings`                                   | `bunx biome lint --write <files>`         |
-| taplo                                                  | TOML format and lint                                   | `taplo check && taplo fmt --check`                                      | `taplo fmt`                               |
-| rumdl                                                  | Markdown lint                                          | `rumdl check .`                                                         | `rumdl check --fix .`                     |
-| typos                                                  | Spelling                                               | `typos`                                                                 | `typos -w`                                |
-| knip                                                   | Unused files, exports, dependencies                    | `bunx knip`                                                             | Delete the export, or the file            |
-| hadolint, `tofu fmt`                                   | `Dockerfile`, `infra/`                                 | `hadolint Dockerfile`, `tofu fmt -check -recursive infra`               | `tofu fmt -recursive infra`               |
-| `check:messages`, `check:components`, `check:contrast` | Message keys, component coverage, token contrast       | `bun run check:messages` (and the others)                               | Fix the keys, stories or tokens           |
-| committed                                              | Conventional Commit subjects, 72 characters at most    | Runs in the `commit-msg` hook                                           | Reword the commit                         |
-| tsc                                                    | Types                                                  | `bunx nx run <project>:typecheck`                                       | Fix the code                              |
-| bun test, vitest                                       | Tests: `bun test` for libs and API, vitest for Angular | `bunx nx run <project>:test`; one spec: `--include="**/<name>.spec.ts"` | Fix the code                              |
+| Tool                                                   | Owns                                                   | Check                                                                   | Fix                                    |
+| ------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------- | -------------------------------------- |
+| bun fmt                                                | Formatting: TS, HTML, JSON, MD, CSS                    | `bun run format:check`                                                  | `bun run format`, or `bun fmt <files>` |
+| oxlint                                                 | TypeScript lint, incl. `pioneer/*` rules               | `bunx nx run <project>:lint`                                            | `bunx oxlint --fix <files>`            |
+| ESLint                                                 | Angular templates (`.html`)                            | `bunx nx run <project>:lint-templates`                                  | `bunx eslint --fix <files>`            |
+| Biome                                                  | CSS lint only                                          | `bunx biome lint --error-on-warnings`                                   | `bunx biome lint --write <files>`      |
+| taplo                                                  | TOML format and lint                                   | `taplo check && taplo fmt --check`                                      | `taplo fmt`                            |
+| rumdl                                                  | Markdown lint                                          | `rumdl check .`                                                         | `rumdl check --fix .`                  |
+| typos                                                  | Spelling                                               | `typos`                                                                 | `typos -w`                             |
+| knip                                                   | Unused files, exports, dependencies                    | `bunx knip`                                                             | Delete the export, or the file         |
+| hadolint, `tofu fmt`                                   | `Dockerfile`, `infra/`                                 | `hadolint Dockerfile`, `tofu fmt -check -recursive infra`               | `tofu fmt -recursive infra`            |
+| `check:messages`, `check:components`, `check:contrast` | Message keys, component coverage, token contrast       | `bun run check:messages` (and the others)                               | Fix the keys, stories or tokens        |
+| committed                                              | Conventional Commit subjects, 72 characters at most    | Runs in the `commit-msg` hook                                           | Reword the commit                      |
+| bun check / ngc                                        | Types                                                  | `bunx nx run <project>:typecheck`                                       | Fix the code                           |
+| bun test, vitest                                       | Tests: `bun test` for libs and API, vitest for Angular | `bunx nx run <project>:test`; one spec: `--include="**/<name>.spec.ts"` | Fix the code                           |
 
-| Scope                              | Command                                                        |
-| ---------------------------------- | -------------------------------------------------------------- |
-| Your change (run locally)          | oxlint/oxfmt on the files, one project's `typecheck` and specs |
-| Projects CI says are affected      | `bun run affected` (CI only, not locally)                      |
-| Repo-wide linters and format check | `bun run lint:workspace` (CI only, not locally)                |
-| Everything CI runs                 | `bun run check` (CI only, not locally)                         |
+| Scope                              | Command                                                            |
+| ---------------------------------- | ------------------------------------------------------------------ |
+| Your change (run locally)          | oxlint/`bun fmt` on the files, one project's `typecheck` and specs |
+| Projects CI says are affected      | `bun run affected` (CI only, not locally)                          |
+| Repo-wide linters and format check | `bun run lint:workspace` (CI only, not locally)                    |
+| Everything CI runs                 | `bun run check` (CI only, not locally)                             |

@@ -18,3 +18,11 @@ auto = "disable"
 # anything lands in node_modules. Free mode without a token; `socket login`
 # for org policy.
 scanner = "@socketsecurity/bun-security-scanner"
+
+[fmt]
+printWidth = 120
+singleQuote = true
+trailingComma = "all"
+sortImports = true
+sortPackageJson = true
+sortTailwindcss = { stylesheet = "./libs/frontier/src/styles/frontier.css" }

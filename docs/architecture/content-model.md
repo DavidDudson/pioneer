@@ -1145,7 +1145,7 @@ tradition of spell cast in the ritual` its `pick`. Its secondary checks are sepa
   element is dropped (a `GrantItem` of nothing stays untranslated), a `Ref` in rich text becomes its label, else the
   target's name, as text, and any other reference (a field of `data`) leaves the entry out too. Entries are written
   sorted by kind then slug, one `<kind>.json` per kind, with a `ContentEntry`'s key order, and formatted with
-  oxfmt, so a re-run is a clean diff; the target pack's entry files are replaced whole, its `pack.json` kept. The
+  bun fmt, so a re-run is a clean diff; the target pack's entry files are replaced whole, its `pack.json` kept. The
   catalog imports pack files statically (`json-packs.js`, `ogl-packs.js`, `orc-packs.js`), so the CLI names the files to
   register there and a test fails while any committed pack file is not.
 - **Backlog.** `content/import/<pack>.json`'s `backlog` (`BacklogItem`), sorted by entry: per entry, its gaps (an

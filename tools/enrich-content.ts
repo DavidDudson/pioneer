@@ -50,10 +50,10 @@ await Promise.all(
   changed.map(async ({ path: file, json }) => Bun.write(file, `${JSON.stringify(json, undefined, JSON_INDENT)}\n`)),
 );
 if (changed.length > 0) {
-  const format = Bun.spawn(['node_modules/.bin/oxfmt', ...changed.map((file) => file.path)], { cwd: ROOT });
+  const format = Bun.spawn(['bun', 'fmt', ...changed.map((file) => file.path)], { cwd: ROOT });
   const formatted = await format.exited;
   if (formatted !== 0) {
-    throw new Error(`oxfmt exited with ${formatted}`);
+    throw new Error(`bun fmt exited with ${formatted}`);
   }
 }
 

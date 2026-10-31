@@ -1,6 +1,6 @@
 /**
  * Writes pack output (`pack-writes.ts` says where): overwrites the target pack's entry files and replaces what its earlier runs
- * added to `core-rules`, writes the backlog beside the pin, and formats every file with oxfmt so a re-run is a clean
+ * added to `core-rules`, writes the backlog beside the pin, and formats every file with bun fmt so a re-run is a clean
  * diff. The catalog loads pack files through static imports in `json-packs.js`, which the import cannot add, so it
  * names the files to register there and the imports left pointing at files it removed.
  */
@@ -74,10 +74,10 @@ async function write({ path: file, json }: PackWrite): Promise<void> {
 }
 
 async function format(files: readonly string[]): Promise<void> {
-  const formatter = Bun.spawn(['node_modules/.bin/oxfmt', ...files], { cwd: ROOT });
+  const formatter = Bun.spawn(['bun', 'fmt', ...files], { cwd: ROOT });
   const exited = await formatter.exited;
   if (exited !== 0) {
-    throw new Error(`oxfmt exited with ${exited}`);
+    throw new Error(`bun fmt exited with ${exited}`);
   }
 }
 
