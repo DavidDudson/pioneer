@@ -27,7 +27,7 @@ const SHIELD = OverrideInput.parse({ target: 'ac', mode: 'adjust', value: 2, typ
 const ADD: CharacterPatch = { field: CharacterPatchField.AddOverride, override: SHIELD };
 const WRITE_APPEARANCE: CharacterPatch = { field: CharacterPatchField.SetAppearance, value: [] };
 
-function at(expectedVersion: Version, patch: CharacterPatch): PatchCharacterBody {
+function at(expectedVersion: Version, patch: object): PatchCharacterBody {
   return PatchCharacterBody.parse({ expectedVersion, patch });
 }
 
