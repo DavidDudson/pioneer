@@ -38,6 +38,7 @@
     "hitPoints": "HP",
     "armorClass": "AC",
     "traits": "Traits",
-    "source": "Source"
+    "source": "Source",
+    "legacy": "Edition"
   }
 }

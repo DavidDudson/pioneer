@@ -23,7 +23,10 @@
       <fr-list>
         @for (row of list().rows; track row.id) {
           <fr-list-item>
-            <fr-button [variant]="Variant.Inline" (pressed)="picked.emit(row.ref)">{{ row.name }}</fr-button>
+            <fr-stack direction="horizontal" gap="xs">
+              <fr-button [variant]="Variant.Inline" (pressed)="picked.emit(row.ref)">{{ row.name }}</fr-button>
+              <pio-legacy-badge [legacy]="row.legacy" />
+            </fr-stack>
           </fr-list-item>
         }
       </fr-list>

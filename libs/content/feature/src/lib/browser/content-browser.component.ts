@@ -24,7 +24,7 @@ import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
 import { ContentKind } from '@pioneer/rules/sdk';
-import type { ContentEntry, CreatureData, FilterState } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentLicense, CreatureData, FilterState, PackId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
 import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
@@ -33,6 +33,7 @@ import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry } from '../
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
+import { isLegacyEntry, packLicenses } from './browse-legacy';
 import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
 import { injectBrowseColumns, injectMessagesChanged } from './browse-messages';
@@ -44,6 +45,9 @@ import { filterConditions, filterFields, filterState } from './filter-bar-state'
 
 /** How many entries the list shows at first and each time "Show more" is pressed. */
 const PAGE_SIZE = 100;
+
+/** The licences before any pack has loaded. */
+const NO_LICENSES: ReadonlyMap<PackId, ContentLicense> = new Map();
 
 /**
  * The content browser (#955), embeddable at three tiers (`preview`, `panel`, `page`) over one `state`. It loads the
@@ -100,6 +104,12 @@ export class ContentBrowser {
   readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
     const registry = this.registry.data();
     return registry === undefined ? undefined : entriesOf(registry, this.#kinds());
+  });
+
+  /** The licence of each pack loaded, which says which entries are legacy. */
+  readonly #licenses = computed(() => {
+    const registry = this.registry.data();
+    return registry === undefined ? NO_LICENSES : packLicenses(registry);
   });
 
   readonly #words = computed(() => searchFromQuery(this.#current().query));
@@ -214,6 +224,7 @@ export class ContentBrowser {
       creature: entry.kind === ContentKind.Creature ? this.#creatureOf(entry.data) : undefined,
       traits,
       sources: entry.sources,
+      legacy: isLegacyEntry(entry, this.#licenses()),
     };
   }
 

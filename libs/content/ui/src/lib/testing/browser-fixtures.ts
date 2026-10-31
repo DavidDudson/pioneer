@@ -36,6 +36,7 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
     creature: undefined,
     traits: entry.traits.map((trait) => ({ label: trait, tone: 'neutral' as const })),
     sources: [BOOK],
+    legacy: false,
   };
 });
 
@@ -94,3 +95,14 @@ export const LISTING_STATE: ContentBrowserState = { ...EMPTY_BROWSER_STATE, kind
 export function loaded<TData>(data: TData): AsyncQuery<TData> {
   return { data: signal(data), error: signal(undefined), isPending: () => false, isError: () => false };
 }
+
+/** `row` with its legacy flag set. */
+function legacyRow(row: BrowseRow, legacy: boolean): BrowseRow {
+  return { ...row, legacy };
+}
+
+/** The feats again, the first of them from a pre-remaster book. */
+export const LEGACY_LIST: ContentBrowserList = {
+  ...BROWSER_LIST,
+  rows: BROWSER_ROWS.map((row, index) => legacyRow(row, index === 0)),
+};

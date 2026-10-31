@@ -32,4 +32,6 @@ export interface BrowseRow {
   readonly creature: BrowseCreature | undefined;
   readonly traits: readonly Chip[];
   readonly sources: readonly SourceRef[];
+  /** The entry is legacy content: under the Open Game License, from before the remaster. */
+  readonly legacy: boolean;
 }

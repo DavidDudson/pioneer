@@ -9,6 +9,7 @@ export const BrowseColumn = {
   ArmorClass: 'armorClass',
   Traits: 'traits',
   Source: 'source',
+  Legacy: 'legacy',
 } as const;
 
 /** The short code each column has in a shared view's `s` and `c` params (ADR-0068). Fixed: links name them. */
@@ -22,4 +23,5 @@ export const BrowseColumnCode = {
   ArmorClass: 'ac',
   Traits: 'trt',
   Source: 'src',
+  Legacy: 'legacy',
 } as const;

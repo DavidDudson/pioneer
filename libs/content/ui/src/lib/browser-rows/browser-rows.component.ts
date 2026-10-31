@@ -8,6 +8,7 @@ import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
 import type { BrowseRow } from '../browse-row';
 import type { ContentBrowserList } from '../browser-list';
 import type { ContentEntryRef } from '../browser-state';
+import { LegacyBadge } from '../legacy-badge/legacy-badge.component';
 
 const RowsMessage = {
   Caption: 'contentBrowser.list.caption',
@@ -26,7 +27,7 @@ const rowId = (row: BrowseRow): string => row.id;
  */
 @Component({
   selector: 'pio-browser-rows',
-  imports: [Button, EmptyState, List, ListItem, Stack, Table, Text, TranslocoPipe],
+  imports: [Button, EmptyState, LegacyBadge, List, ListItem, Stack, Table, Text, TranslocoPipe],
   templateUrl: './browser-rows.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
