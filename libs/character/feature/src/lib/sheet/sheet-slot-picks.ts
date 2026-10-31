@@ -47,10 +47,21 @@ export interface SlotPickField {
 /** A draft in a skill pick: a pick, none, or a Lore typed in the picker (`lore:Sailing`). */
 const SlotDraft = z.union([RootPick, TypedLore]);
 
-/** Picks what a draft says in `slot`: a typed Lore becomes the pick of its topic, with the name it was typed as. */
-async function saveDraft(sources: SlotPickSources, slot: SlotKey, draft: string): Promise<void> {
+/** A draft saved in `slot`, and the options the slot lists. */
+interface DraftIn {
+  readonly slot: SlotKey;
+  readonly draft: string;
+  readonly options: readonly SelectOption<string>[];
+}
+
+/**
+ * Picks what a draft says in `slot`: a typed Lore becomes the pick of its topic, with the name it was typed as. A draft
+ * the slot lists (`lore:sailing`, a Lore the character has) is that pick, not a typed name.
+ */
+async function saveDraft(sources: SlotPickSources, { slot, draft, options }: DraftIn): Promise<void> {
   const typed = TypedLore.safeParse(draft);
-  const lore = typed.success ? loreSelectionOf(typed.data) : undefined;
+  const listed = options.some((option) => option.value === draft);
+  const lore = typed.success && !listed ? loreSelectionOf(typed.data) : undefined;
   await (lore === undefined
     ? sources.select(slot, ChoiceValue.parse(draft))
     : sources.select(slot, lore.selection, lore.loreName));
@@ -91,7 +102,9 @@ export function slotField(
       if (key === undefined) {
         return;
       }
-      await (value === undefined || value === NOT_CHOSEN ? sources.clear(key) : saveDraft(sources, key, value));
+      await (value === undefined || value === NOT_CHOSEN
+        ? sources.clear(key)
+        : saveDraft(sources, { slot: key, draft: value, options: options() }));
     },
     format: (value) => {
       if (value === undefined || value === NOT_CHOSEN) {

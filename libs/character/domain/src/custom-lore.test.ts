@@ -69,6 +69,11 @@ describe('loreTopicOf', () => {
     expect(topic('海')).toBeUndefined();
   });
 
+  test('refuses a name whose topic is too long once compatibility characters expand', () => {
+    expect(topic('ﬃ'.repeat(30))).toBeUndefined();
+    expect(topic('ﬃ'.repeat(10))).toBe('ffi'.repeat(10));
+  });
+
   test('shows Lore after the name once', () => {
     const typed = [LoreName.parse('Sailing'), LoreName.parse('Sailing Lore')];
     expect(typed.map((name) => String(loreDisplayName(name)))).toEqual(['Sailing Lore', 'Sailing Lore']);

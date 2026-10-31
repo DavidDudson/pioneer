@@ -121,6 +121,8 @@ export {
   LORE_NAME_MAX_LENGTH,
   LORE_TOPIC_MAX,
   LoreChoice,
+  LoreText,
+  loreTopicSlug,
   PackId,
   Slug,
   slugKind,

@@ -31,6 +31,31 @@ export const LoreChoice = z
   .brand<'LoreChoice'>();
 export type LoreChoice = z.infer<typeof LoreChoice>;
 
+/** A Lore's name as typed or listed, before it is folded to a topic. */
+export const LoreText = z.string().brand<'LoreText'>();
+export type LoreText = z.infer<typeof LoreText>;
+
+const MARKS = /\p{Mark}/gu;
+const NOT_ALPHANUMERIC = /[^a-z\d]+/gu;
+const EDGE_HYPHENS = /^-+|-+$/gu;
+const TRAILING_LORE = /\s+lore$/iu;
+
+/**
+ * A Lore's topic from a name typed or listed, less the word Lore its selector already says: `Sailing Lore`,
+ * `sailing` and `Säiling!` are all `sailing`. Undefined when the name leaves no letters or digits, or a topic longer
+ * than `LORE_TOPIC_MAX` (compatibility characters can expand to more than they were typed as).
+ */
+export function loreTopicSlug(name: LoreText): Slug | undefined {
+  const topic = name
+    .replace(TRAILING_LORE, '')
+    .normalize('NFKD')
+    .replaceAll(MARKS, '')
+    .toLowerCase()
+    .replaceAll(NOT_ALPHANUMERIC, '-')
+    .replaceAll(EDGE_HYPHENS, '');
+  return topic.length > LORE_TOPIC_MAX ? undefined : Slug.safeParse(topic).data;
+}
+
 /** Separates an entry slug's kind from its name. */
 const KIND_SEPARATOR = ':';
 

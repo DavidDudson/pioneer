@@ -14,12 +14,12 @@ import type { SlotContent } from './slot-reads';
 function pickedTrainings(document: CharacterDocument, content: SlotContent): ReadonlySet<Selector> {
   const level = Level.parse(document.level);
   const slots = skillSlots(document, skillReads(document, content));
+  const skills = documentSkills(document, content.skills);
   return new Set(
     slots
       .filter((slot) => slot.kind === SkillSlotKind.Training && slot.level <= level)
       .flatMap((slot) => {
-        const named =
-          slot.stored === undefined ? undefined : documentSkills(document, content.skills).skill(slot.stored);
+        const named = slot.stored === undefined ? undefined : skills.skill(slot.stored);
         return named === undefined ? [] : [named.selector];
       }),
   );
@@ -36,6 +36,8 @@ interface Trained {
   readonly without: CharacterDocument;
   readonly entries: ReadonlyMap<Selector, readonly ContentId[]>;
   readonly picked: ReadonlySet<Selector>;
+  /** The skills and custom Lores the character has, by selector. */
+  readonly named: ReadonlyMap<Selector, SkillOption>;
 }
 
 /** The skills `value` in `slot` trains again over `trained`: those it adds a trainer of that are trained already. */
@@ -48,11 +50,10 @@ function repeatsOf(
   const trainers = trainingEntries(
     resolveSlotsAt(Level.parse(trained.without.level), slotContextOf(trained.without, content, picks)),
   );
-  const named = new Map(content.skills.skills.map((skill) => [skill.selector, skill]));
   return [...trainers].flatMap(([selector, entries]) => {
     const before = trained.entries.get(selector) ?? [];
     const adds = entries.some((entry) => !before.includes(entry));
-    const skill = named.get(selector);
+    const skill = trained.named.get(selector);
     return adds && (before.length > 0 || trained.picked.has(selector)) && skill !== undefined ? [skill] : [];
   });
 }
@@ -73,6 +74,7 @@ export function repeatedTrainings(
     without,
     entries: trainingEntries(skillReads(without, content).grantsAt(Level.parse(document.level))),
     picked: pickedTrainings(document, content),
+    named: new Map(documentSkills(document, content.skills).skills.map((skill) => [skill.selector, skill])),
   };
   const repeats = values.map((value): [ChoiceValue, readonly SkillOption[]] => [
     value,

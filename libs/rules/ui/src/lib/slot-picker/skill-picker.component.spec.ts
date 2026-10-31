@@ -136,6 +136,11 @@ describe(SkillPicker, () => {
       expect(rowLabels(host)).toStrictEqual(['Scribing Lore']);
     });
 
+    it('offers nothing for a name that folds to the topic of a listed Lore', async () => {
+      const { host } = await typed('Scribing!');
+      expect(rowLabels(host)).toStrictEqual([]);
+    });
+
     it('offers nothing unless the slot allows Lores', async () => {
       const { host } = await typed('Sailing', { allowLore: false });
       expect(rowLabels(host)).toStrictEqual([]);

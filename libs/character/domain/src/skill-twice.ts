@@ -14,8 +14,9 @@ import type { SlotContent } from './slot-reads';
 function slotTrainings(document: CharacterDocument, content: SlotContent): ReadonlyMap<Selector, readonly SlotKey[]> {
   const level = Level.parse(document.level);
   const picked = new Map<Selector, SlotKey[]>();
+  const skills = documentSkills(document, content.skills);
   for (const slot of skillSlots(document, skillReads(document, content))) {
-    const named = slot.stored === undefined ? undefined : documentSkills(document, content.skills).skill(slot.stored);
+    const named = slot.stored === undefined ? undefined : skills.skill(slot.stored);
     if (slot.kind === SkillSlotKind.Training && slot.level <= level && named !== undefined) {
       picked.set(named.selector, [...(picked.get(named.selector) ?? []), slot.key]);
     }

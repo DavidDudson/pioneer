@@ -5,6 +5,8 @@ import {
   LORE_CHOICE_PREFIX,
   LORE_NAME_MAX_LENGTH,
   LoreChoice,
+  LoreText,
+  loreTopicSlug,
   Selector,
   Slug,
   StatisticDefinition,
@@ -26,24 +28,12 @@ export type LoreNames = Readonly<Record<Slug, LoreName>>;
 /** Every custom Lore's selector starts so: `skill:lore:sailing`. */
 const LORE_SELECTOR_PREFIX = `${SKILL_PREFIX}lore:`;
 
-const MARKS = /\p{Mark}/gu;
-const NOT_ALPHANUMERIC = /[^a-z\d]+/gu;
-const EDGE_HYPHENS = /^-+|-+$/gu;
-const TRAILING_LORE = /\s+lore$/iu;
-
 /**
  * A Lore's topic from the name the player typed, less the word Lore its selector already says: `Sailing Lore` and
- * `sailing` are both `sailing`. Undefined when the name leaves no letters or digits.
+ * `sailing` are both `sailing`. Undefined when the name leaves no letters or digits, or a topic too long for a selector.
  */
 export function loreTopicOf(name: LoreName): Slug | undefined {
-  const topic = name
-    .replace(TRAILING_LORE, '')
-    .normalize('NFKD')
-    .replaceAll(MARKS, '')
-    .toLowerCase()
-    .replaceAll(NOT_ALPHANUMERIC, '-')
-    .replaceAll(EDGE_HYPHENS, '');
-  return Slug.safeParse(topic).data;
+  return loreTopicSlug(LoreText.parse(name));
 }
 
 /** The pick of the custom Lore on `topic`: `lore:sailing`. */
@@ -186,6 +176,14 @@ export function withoutUnpickedLores(document: CharacterDocument): CharacterDocu
     : { ...document, build: { ...document.build, lores } };
 }
 
+/** A statistic content read, which may be none. */
+interface StatisticContentRead {
+  readonly content: StatisticContent | undefined;
+}
+
+/** Statistic content already read, by registry and document: neither is ever changed in place. */
+const STATISTIC_CONTENT = new WeakMap<ContentRegistry, WeakMap<CharacterDocument, StatisticContentRead>>();
+
 /**
  * The statistics the registry defines, with those of the custom Lores the character names (#572): derived like a loaded
  * Lore, and left out for one a loaded statistic has the selector of. Undefined without a proficiency bonus table.
@@ -194,10 +192,21 @@ export function characterStatisticContent(
   registry: ContentRegistry,
   document: CharacterDocument,
 ): StatisticContent | undefined {
+  const byDocument = STATISTIC_CONTENT.get(registry) ?? new WeakMap<CharacterDocument, StatisticContentRead>();
+  STATISTIC_CONTENT.set(registry, byDocument);
+  const known = byDocument.get(document);
+  if (known !== undefined) {
+    return known.content;
+  }
   const content = statisticContent(registry);
-  return content === undefined
-    ? undefined
-    : { ...content, definitions: [...content.definitions, ...customLoreStatistics(document, content.definitions)] };
+  const read: StatisticContentRead = {
+    content:
+      content === undefined
+        ? undefined
+        : { ...content, definitions: [...content.definitions, ...customLoreStatistics(document, content.definitions)] },
+  };
+  byDocument.set(document, read);
+  return read.content;
 }
 
 /** A Lore the player typed into a skill picker, before it is a pick: its name after `lore:`, as in `lore:Sailing`. */
