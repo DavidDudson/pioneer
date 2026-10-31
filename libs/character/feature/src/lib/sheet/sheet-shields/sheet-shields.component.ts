@@ -73,13 +73,16 @@ export class SheetShields {
     const ready = ids !== undefined && shieldRaised(read.play, ids) && !read.play.turn.reactionUsed;
     return shieldLines(registry, character, read.play).map((line): ShownShield => ({
       line,
-      summary: this.#say('character.sheet.shields.summary', {
-        name: line.name,
-        state: this.#say(SHIELD_CONDITION_MESSAGES[line.condition]),
-        left: line.left,
-        hitPoints: line.hitPoints,
-        hardness: line.hardness,
-      }),
+      summary: this.#say(
+        line.undamageable ? 'character.sheet.shields.summaryUndamageable' : 'character.sheet.shields.summary',
+        {
+          name: line.name,
+          state: this.#say(SHIELD_CONDITION_MESSAGES[line.condition]),
+          left: line.left,
+          hitPoints: line.hitPoints,
+          hardness: line.hardness,
+        },
+      ),
       canBlock: ready && line.condition === ShieldCondition.Whole,
     }));
   });

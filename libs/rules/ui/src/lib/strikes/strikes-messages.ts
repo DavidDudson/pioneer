@@ -18,6 +18,8 @@ export const StrikesMessage = {
   NextAttack: 'rules.strikes.nextAttack',
   /** "Steel Shield: Hardness 5, HP 20, Broken Threshold 10": a held shield beside the Strikes. */
   Shield: 'rules.strikes.shield',
+  /** "Avatar of Iomedae: Hardness 15, can't be damaged": the shield a battle form carries. */
+  ShieldUndamageable: 'rules.strikes.shieldUndamageable',
   /** "1d6 persistent fire": a bomb's persistent damage beside its damage. */
   Persistent: 'rules.strikes.persistent',
   /** "1 fire splash": a bomb's splash damage. */

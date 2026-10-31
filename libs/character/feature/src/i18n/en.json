@@ -483,6 +483,7 @@
       "amount": "Damage coming in",
       "block": "Shield Block",
       "summary": "{name} ({state}): {left}/{hitPoints} HP, Hardness {hardness}",
+      "summaryUndamageable": "{name}: Hardness {hardness}, can't be damaged",
       "whole": "whole",
       "broken": "broken",
       "destroyed": "destroyed"

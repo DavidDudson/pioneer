@@ -815,6 +815,12 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
   Action entry the character has while the form lasts (Insect Form's Web). It joins the other candidates with the form
   as its origin, so the restrictions above and the frequency and affordability checks apply to it as to any action. A
   bracket or variant does not change the list.
+- **Form shield** (`heldShields`, `equipped.ts`): the form's `shield: { hardness }` is a shield the character holds while
+  the form lasts (Avatar's 15 Hardness). It is a `HeldShield` beside the inventory ones, flagged `undamageable`, with an
+  id derived from the form's rule id since no inventory item holds it. Raise a Shield and Shield Block treat it as any
+  shield: Hardness prevents its share and the character takes the rest, but the shield takes none, so it is never broken
+  or destroyed and no damage is kept for it (`shieldCondition`, `afterBlock`). Any other source of a shield made by a
+  spell can feed `heldShields` the same way.
 - **Melded gear and appearance** (sheet only, no engine change): in a form (and not in the base view,
   `SheetState.melded`) the worn and held items are melded into it. Inventory rows carry a `melded` note, and an
   invested item that still works says its constant effects apply but it cannot be activated. The form's traits

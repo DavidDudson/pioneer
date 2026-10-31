@@ -385,15 +385,8 @@ export { type FormLimits, formLimits, formTraits } from './form-limits';
 export { KeyItemId } from './key-item-id';
 export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';
-export {
-  buildRules,
-  type EquippedInputs,
-  equippedInputs,
-  equippedRules,
-  type EquippedRules,
-  type HeldShield,
-  heldShields,
-} from './equipped';
+export { buildRules, type EquippedInputs, equippedInputs, equippedRules, type EquippedRules } from './equipped';
+export { type HeldShield, heldShields } from './held-shields';
 export {
   characterStatisticInputs,
   characterStatistics,

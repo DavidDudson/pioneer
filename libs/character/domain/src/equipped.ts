@@ -8,8 +8,6 @@ import {
   CheckPenalty,
   ContentKind,
   Feet,
-  Hardness,
-  HitPoints,
   ItemCount,
   Level,
   Modifier,
@@ -19,7 +17,7 @@ import {
   slugName,
   Trait,
 } from '@pioneer/rules/sdk';
-import type { BaseWeapon, ContentId, Slug } from '@pioneer/rules/sdk';
+import type { BaseWeapon, Slug } from '@pioneer/rules/sdk';
 
 import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
 import type { ActiveItem } from './active-items';
@@ -32,7 +30,7 @@ import { encumberedRoots } from './encumbered-roots';
 import { fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
 import { environmentRoots } from './environments';
-import type { Inventory, InventoryItemId } from './inventory';
+import type { Inventory } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
@@ -154,49 +152,6 @@ export function equippedInputs(
   const altering = active.some(({ entry }) => entry.kind === ContentKind.Armor || entry.kind === ContentKind.Weapon);
   const inPlay = altering ? rules() : NO_MODIFIERS;
   return { ...armorInputs(worn, inPlay), weapons: weaponInputs(active, { favored, rules: inPlay }) };
-}
-
-/** A shield the character holds: what the sheet shows beside its Strikes. */
-export interface HeldShield {
-  /** The inventory item that holds it, which keeps the damage it has taken. */
-  readonly item: InventoryItemId;
-  readonly entry: ContentId;
-  readonly hardness: Hardness;
-  readonly hitPoints: HitPoints;
-  /** Half its Hit Points, rounded down: at or below it the shield is broken. */
-  readonly brokenThreshold: HitPoints;
-}
-
-const BROKEN_DIVISOR = 2;
-
-/**
- * Each shield held, in inventory order, with its Hardness, Hit Points and Broken Threshold from its content, as the
- * `ItemAlteration` elements in `rules` change them. A reinforcing rune does not change them yet.
- */
-export function heldShields(
-  inventory: Inventory,
-  content: ItemContent,
-  rules: () => ModifierInputs = () => NO_MODIFIERS,
-): readonly HeldShield[] {
-  const shields = itemsIn(inventory, content, equippedState).filter(({ entry }) => entry.kind === ContentKind.Shield);
-  const inPlay = shields.length === 0 ? NO_MODIFIERS : rules();
-  return shields.flatMap(({ entry, item }): HeldShield[] => {
-    if (entry.kind !== ContentKind.Shield) {
-      return [];
-    }
-    const { numbers } = alteredItem(inPlay, entry);
-    const hardness = Hardness.parse(numbers.get(NumericItemProperty.Hardness) ?? entry.data.hardness);
-    const hitPoints = HitPoints.parse(numbers.get(NumericItemProperty.HitPointsMax) ?? entry.data.hitPoints);
-    return [
-      {
-        entry: entry.id,
-        item: item.id,
-        hardness,
-        hitPoints,
-        brokenThreshold: HitPoints.parse(Math.floor(hitPoints / BROKEN_DIVISOR)),
-      },
-    ];
-  });
 }
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
