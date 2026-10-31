@@ -9,6 +9,7 @@ import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetCastItems } from '../sheet-cast-items/sheet-cast-items.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
+import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
@@ -39,6 +40,7 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
     Rail,
     SkillsView,
     SheetCastItems,
+    SheetResources,
     SheetSpells,
     SheetSpendLog,
     SheetTurnPanel,

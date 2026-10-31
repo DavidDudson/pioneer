@@ -1,5 +1,6 @@
 <fr-stack horizontalFrom="lg" gap="lg" align="start">
   <fr-rail [label]="sections.skills.headingKey | transloco">
+    <pio-sheet-resources pool="hero-points" />
     <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
       <fr-async-region>
         <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>

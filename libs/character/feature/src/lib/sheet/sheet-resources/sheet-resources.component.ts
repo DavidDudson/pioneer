@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { currentResource, PlayCommandField, Resource, ResourceCount } from '@pioneer/character/domain';
 import type { PlayCommand, ResourceMaxima, ResourcesSpent } from '@pioneer/character/domain';
@@ -37,9 +37,9 @@ function viewsOf(spent: ResourcesSpent, maxima: ResourceMaxima): readonly Resour
 }
 
 /**
- * Hero points and focus points for the sheet header (#345, #633), each a row of pips, one per point, filled for the points
- * held: a press fills up to a pip or empties the last filled one. Hero points always show; the focus pool shows once the
- * character's focus spells give one.
+ * Hero points and focus points (#345, #633), each a row of pips, one per point, filled for the points held: a press
+ * fills up to a pip or empties the last filled one. Hero points always show; the focus pool shows once the character's
+ * focus spells give one. `pool` shows only that one: the header shows focus points, the skills rail hero points.
  * Spending the last hero point of a dying character is Heroic Recovery, which the server applies.
  */
 @Component({
@@ -56,10 +56,16 @@ export class SheetResources {
   protected readonly playQuery = this.#play.play;
   protected readonly engineQuery = this.#sheet.engineQuery;
 
+  /** The one pool to show; all of them when unset. */
+  public readonly pool = input<Resource | undefined>();
+
   protected readonly rows = computed((): readonly ResourceView[] | undefined => {
     const maxima = this.#sheet.resourceMaxima();
     const read = this.#play.play.data();
-    return maxima === undefined || read === undefined ? undefined : viewsOf(read.play.resources, maxima);
+    const only = this.pool();
+    return maxima === undefined || read === undefined
+      ? undefined
+      : viewsOf(read.play.resources, maxima).filter(({ resource }) => only === undefined || resource === only);
   });
 
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
