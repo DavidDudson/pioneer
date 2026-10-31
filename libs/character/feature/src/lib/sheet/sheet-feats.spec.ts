@@ -144,4 +144,22 @@ describe(featRows, () => {
 
     expect(asked).toStrictEqual([['feat', 'other']]);
   });
+
+  it('leaves out the feats the filters hide, and asks nothing about them', () => {
+    const asked: (readonly string[])[] = [];
+    const again: TrainedAgain = (values) => {
+      asked.push(values);
+      return new Map();
+    };
+    const options = [
+      option({}),
+      option({ value: 'other', label: 'Other' }),
+      option({ value: 'third', label: 'Third' }),
+    ];
+
+    const rows = featRows(options, { translate, trainedAgain: again }, new Set(['feat', 'third']));
+
+    expect(rows.map((row) => row.id)).toStrictEqual(['other']);
+    expect(asked).toStrictEqual([['other']]);
+  });
 });
