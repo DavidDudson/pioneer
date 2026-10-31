@@ -54,6 +54,7 @@ describe('Player Core: Plant Shape', () => {
     const entries = rules.filter((rule) => rule.key === RuleElementKey.SpellcastingEntry);
 
     expect(entries).toHaveLength(1);
-    expect(entries[0]?.predicate).toStrictEqual([{ not: 'feat:untamed-form' }]);
+    const predicate: unknown = entries[0]?.predicate;
+    expect(predicate).toStrictEqual([{ not: 'feat:untamed-form' }]);
   });
 });
