@@ -25,7 +25,7 @@ const ONE_ITEM = ItemQuantity.parse(1);
 const SHARE = ItemQuantity.parse(2);
 
 /** What a weapon's runes are bought from: the rune and item content, the clock and the share of coins left they may cost. */
-export interface RuneShop {
+interface RuneShop {
   readonly items: ItemContent;
   readonly runes: RuneContent;
   readonly now: Temporal.Instant;

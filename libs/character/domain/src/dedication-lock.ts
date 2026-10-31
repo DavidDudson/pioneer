@@ -19,7 +19,7 @@ export interface DedicationWait {
 }
 
 /** The loaded feats among the picks in `earlier` slots (#467); a feature's grant is counted by `featsGranted`. */
-export function featsPicked(
+function featsPicked(
   choices: Readonly<Record<string, ChoiceValue>>,
   feats: FeatContent,
   earlier: readonly SlotKey[],

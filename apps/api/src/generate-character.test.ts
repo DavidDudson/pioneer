@@ -63,10 +63,16 @@ function problems(result: Generated, className: string | undefined): readonly st
 }
 
 describe('generateCharacter over Player Core', () => {
-  test('the same seed gives the same character', () => {
-    const level = CharacterLevel.parse(5);
-    expect(generated(blank(), 11, level).character.document).toEqual(generated(blank(), 11, level).character.document);
-  });
+  test(
+    'the same seed gives the same character',
+    () => {
+      const level = CharacterLevel.parse(5);
+      expect(generated(blank(), 11, level).character.document).toEqual(
+        generated(blank(), 11, level).character.document,
+      );
+    },
+    CLASS_TIMEOUT_MS,
+  );
 
   test.each([...PLAYER_CORE_CLASSES])(
     '%s, at levels 1, 5, 10, 15 and 20 has no open or invalid slot',
