@@ -1,5 +1,5 @@
 import { DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
-import type { DamageAmount, DieSize, PersistentDamage, Slug } from '@pioneer/rules/sdk';
+import type { DamageAmount, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
 
 import { strikesUnderForm } from './battle-form-strikes';
 import type { ModifierInputs } from './rule-in-play';
@@ -81,19 +81,23 @@ export interface StrikeRulesInput {
   readonly scope: StrikeScope;
 }
 
-/** The selectors and domains of a weapon's attack roll, as Foundry names them. */
-function attackTargets(slug: Slug): ReadonlySet<ModifierTarget> {
+/** The selectors and domains of a weapon's attack roll, as Foundry names them, and `picked:<flag>-attack` for each pick of it. */
+function attackTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
+  const { slug, picked = [] } = weapon;
+  const picks = picked.map((flag) => `picked:${flag}-attack`);
   return new Set(
-    [`${ATTACK}:${slug}`, ATTACK, `${slug}-attack`, 'attack', 'attack-roll', 'strike-attack-roll'].map((target) =>
-      ModifierTarget.parse(target),
+    [`${ATTACK}:${slug}`, ATTACK, `${slug}-attack`, 'attack', 'attack-roll', 'strike-attack-roll', ...picks].map(
+      (target) => ModifierTarget.parse(target),
     ),
   );
 }
 
 /** The selectors and domains of a weapon's damage roll, as Foundry names them. */
-function damageTargets(slug: Slug): ReadonlySet<ModifierTarget> {
+function damageTargets(weapon: WeaponInputs): ReadonlySet<ModifierTarget> {
+  const { slug, picked = [] } = weapon;
+  const picks = picked.map((flag) => `picked:${flag}-damage`);
   return new Set(
-    [`${DAMAGE}:${slug}`, DAMAGE, `${slug}-damage`, 'damage'].map((target) => ModifierTarget.parse(target)),
+    [`${DAMAGE}:${slug}`, DAMAGE, `${slug}-damage`, 'damage', ...picks].map((target) => ModifierTarget.parse(target)),
   );
 }
 
@@ -107,8 +111,8 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
     dice: damageDice(weapon) ?? DiceCount.parse(0),
     die: damage?.die,
     damageType: damage?.damageType ?? DamageType.Bludgeoning,
-    attack: attackTargets(weapon.slug),
-    damage: damageTargets(weapon.slug),
+    attack: attackTargets(weapon),
+    damage: damageTargets(weapon),
   });
 }
 

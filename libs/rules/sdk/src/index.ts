@@ -416,6 +416,7 @@ export {
 export {
   ChoiceOption,
   ChoiceQuery,
+  OwnedQuery,
   OwnTrait,
   ChoiceRef,
   ChoiceSetElement,

@@ -4329,32 +4329,6 @@
     {
       "type": "entry",
       "pack": "guns-and-gears",
-      "slug": "effect:effect-energized-cartridge",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.UjXwDvLoSe9infGg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": [
-                {
-                  "or": ["item:group:firearm", "item:group:crossbow"]
-                }
-              ],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
       "slug": "effect:effect-energy-shot",
       "foundry": "Compendium.pf2e.feat-effects.Item.zocU4IYIlWwRKUuE",
       "gaps": [
@@ -4609,74 +4583,6 @@
             "selector": "athletics",
             "type": "circumstance",
             "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-weapon-tampered-with-critical-success",
-      "foundry": "Compendium.pf2e.feat-effects.Item.o7qm13OmaYOMwgib",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "effectWeaponTamperedWithCriticalSuccess",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": [
-              "{item|flags.system.rulesSelections.effectWeaponTamperedWithCriticalSuccess}-attack",
-              "{item|flags.system.rulesSelections.effectWeaponTamperedWithCriticalSuccess}-damage"
-            ],
-            "type": "circumstance",
-            "value": -2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-weapon-tampered-with-success",
-      "foundry": "Compendium.pf2e.feat-effects.Item.4QWayYR3JSL9bk2T",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "effectWeaponTamperedWithSuccess",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": [
-              "{item|flags.system.rulesSelections.effectWeaponTamperedWithSuccess}-attack",
-              "{item|flags.system.rulesSelections.effectWeaponTamperedWithSuccess}-damage"
-            ],
-            "type": "circumstance",
-            "value": -2
           }
         }
       ]

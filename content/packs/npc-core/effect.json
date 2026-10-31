@@ -4528,7 +4528,46 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "temper-armament",
+        "choices": {
+          "ownedKinds": ["armor", "shield", "weapon"],
+          "filter": []
+        },
+        "prompt": "Select an item."
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:picked:temper-armament",
+          {
+            "or": ["item:type:armor", "item:type:shield"]
+          }
+        ],
+        "property": "hardness",
+        "mode": "add",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["picked:temper-armament-damage"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          "item:type:weapon",
+          {
+            "or": [
+              "item:trait:attached-to-shield",
+              {
+                "not": "item:group:shield"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.ERBJL8rBEURa05N8"
     },

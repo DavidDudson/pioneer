@@ -2073,6 +2073,34 @@
         ],
         "prompt": "Select shield or weapon.",
         "rollOption": "emblazon-antimagic:item"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon.",
+        "predicate": ["emblazon-antimagic:item:weapon"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["picked:weapon-attack"],
+        "title": "Effect: Emblazon Antimagic",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If you critically hit with the weapon, you can attempt to counteract a spell on your target, using half your level, rounded up, as the counteract level. If you attempt to do so, the emblazoned symbol immediately disappears."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["emblazon-antimagic:item:weapon"]
       }
     ],
     "externalIds": {
@@ -2169,6 +2197,41 @@
         ],
         "prompt": "Select shield or weapon.",
         "rollOption": "emblazon-armament:item"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "shield",
+        "choices": {
+          "ownedKinds": ["shield"],
+          "filter": []
+        },
+        "prompt": "Select a shield.",
+        "predicate": ["emblazon-armament:item:shield"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon.",
+        "predicate": ["emblazon-armament:item:weapon"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:shield"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 1,
+        "predicate": ["emblazon-armament:item:shield"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["picked:weapon-damage"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["emblazon-armament:item:weapon"]
       }
     ],
     "externalIds": {
@@ -2310,6 +2373,136 @@
         "prompt": "Matching domain?",
         "rollOption": "effect-emblazon-energy-die-size",
         "predicate": ["emblazon-energy:item:weapon"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon.",
+        "predicate": ["emblazon-energy:item:weapon"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "acid",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:acid",
+          "effect-emblazon-energy-die-size:d6"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "acid",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:acid",
+          "effect-emblazon-energy-die-size:d4"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "cold",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:cold",
+          "effect-emblazon-energy-die-size:d6"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "cold",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:cold",
+          "effect-emblazon-energy-die-size:d4"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:electricity",
+          "effect-emblazon-energy-die-size:d6"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "electricity",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:electricity",
+          "effect-emblazon-energy-die-size:d4"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:fire",
+          "effect-emblazon-energy-die-size:d6"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:fire",
+          "effect-emblazon-energy-die-size:d4"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "sonic",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:sonic",
+          "effect-emblazon-energy-die-size:d6"
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "sonic",
+        "predicate": [
+          "emblazon-energy:item:weapon",
+          "effect-emblazon-energy-damage:sonic",
+          "effect-emblazon-energy-die-size:d4"
+        ]
       }
     ],
     "externalIds": {

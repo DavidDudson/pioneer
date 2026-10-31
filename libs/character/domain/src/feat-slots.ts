@@ -46,7 +46,7 @@ function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
     return false;
   }
   if (!Array.isArray(element.choices)) {
-    return element.choices.kind === ContentKind.Feat;
+    return 'kind' in element.choices && element.choices.kind === ContentKind.Feat;
   }
   return (
     element.choices.length > 0 &&

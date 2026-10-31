@@ -1914,61 +1914,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "effect:effect-beastmasters-sigil-ranged-weapon",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.EPqnA5OlNpwr41Os",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": ["item:ranged"],
-              "types": ["weapon"]
-            },
-            "flag": "effectBeastmastersSigilRangedWeapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "critical": true,
-            "damageType": "bleed",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "hideIfDisabled": true,
-            "key": "DamageDice",
-            "predicate": [
-              "adjacent-sigil-summon",
-              {
-                "or": ["beastmasters-sigil:beastmasters-sigil", "beastmasters-sigil:beastmasters-sigil-greater"]
-              }
-            ],
-            "selector": "{item|flags.system.rulesSelections.effectBeastmastersSigilRangedWeapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "critical": true,
-            "damageType": "bleed",
-            "diceNumber": 2,
-            "dieSize": "d6",
-            "hideIfDisabled": true,
-            "key": "DamageDice",
-            "predicate": ["adjacent-sigil-summon", "beastmasters-sigil:beastmasters-sigil-major"],
-            "selector": "{item|flags.system.rulesSelections.effectBeastmastersSigilRangedWeapon}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "effect:effect-bendy-arm-mutagen-greater",
       "foundry": "Compendium.pf2e.equipment-effects.Item.HlUL7FmGLyS35Jpp",
       "gaps": [

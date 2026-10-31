@@ -71,6 +71,16 @@ export const ChoiceQuery = z.strictObject({
 export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 
 /**
+ * Every item the character owns of these kinds whose own roll options satisfy `filter` ("a weapon you wield"). The pick
+ * is the item's slug, the name its Strike has; rules reach it as `picked:<flag>` (ADR-0075).
+ */
+export const OwnedQuery = z.strictObject({
+  ownedKinds: z.array(ContentKindSchema).min(1),
+  filter: Predicate,
+});
+export type OwnedQuery = z.infer<typeof OwnedQuery>;
+
+/**
  * Asks the player to pick, and stores the pick under `flag`. Unanswered, it is an open slot in the
  * builder. With `rollOption`, a namespace (`favored-terrain`, `kinetic-gate:initial`), the pick also becomes a roll
  * option in it (`favored-terrain:forest`). With `optional`, the player may leave it unanswered (Foundry's
@@ -79,7 +89,7 @@ export type ChoiceQuery = z.infer<typeof ChoiceQuery>;
 export const ChoiceSetElement = z.strictObject({
   key: z.literal(RuleElementKey.ChoiceSet),
   flag: RuleSlug,
-  choices: z.union([z.array(ChoiceOption).min(1).max(CHOICES_MAX), ChoiceQuery]),
+  choices: z.union([z.array(ChoiceOption).min(1).max(CHOICES_MAX), ChoiceQuery, OwnedQuery]),
   prompt: ContentText.optional(),
   rollOption: RollOptionNamespace.optional(),
   optional: z.boolean().optional(),

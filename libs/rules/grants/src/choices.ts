@@ -20,6 +20,7 @@ import { GrantsMessage } from './messages';
 import { contextOf, isOffered, Offer, offeredOptions } from './offers';
 import type { OfferedOption } from './offers';
 import { optionOf } from './option-of';
+import type { OwnedItem } from './owned-items';
 import { earlierPicks, slotKeyOf } from './takes';
 
 /**
@@ -57,6 +58,8 @@ export interface ChoiceContext {
   readonly facts: PredicateFacts;
   readonly picks: ChoicePicks;
   readonly lookup: ContentLookup;
+  /** The items the character owns, which a `ChoiceSet` over owned items offers. */
+  readonly owned: readonly OwnedItem[];
 }
 
 /** An entry on the character and the hops down to it. */
