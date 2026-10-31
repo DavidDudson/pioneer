@@ -1,15 +1,12 @@
 <fr-stack horizontalFrom="lg" gap="lg" align="start">
   <fr-rail [label]="sections.skills.headingKey | transloco">
     <fr-section [anchor]="sections.skills.anchor" [heading]="sections.skills.headingKey | transloco">
-      <fr-stack gap="md">
-        <fr-async-region>
-          <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>
-          <ng-template [frAsyncData]="sheet.engineQuery()"
-            ><pio-skills [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
-          /></ng-template>
-        </fr-async-region>
-        <pio-sheet-pick-fields [fields]="picks.skillFields()" />
-      </fr-stack>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()"
+          ><pio-skills [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
+        /></ng-template>
+      </fr-async-region>
     </fr-section>
   </fr-rail>
 

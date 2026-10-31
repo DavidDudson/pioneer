@@ -11,6 +11,7 @@ import { pickRow, rowsShown } from '../../testing/origin-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Encounter);
+const openPlan = openerAt(SheetMode.Plan);
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
 const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1 trained skill 3'];
@@ -26,9 +27,13 @@ function skillsSection(root: HTMLElement): HTMLElement {
   return present(root.querySelector('section[aria-labelledby="sheet-skills"]'));
 }
 
-/** The labels of the Skills section's pickers. */
+function timelineSection(root: HTMLElement): HTMLElement {
+  return present(root.querySelector('section[aria-labelledby="sheet-timeline"]'));
+}
+
+/** The labels of the Plan tab's skill pickers. */
 function pickerLabels(root: HTMLElement): string[] {
-  return [...skillsSection(root).querySelectorAll('fr-inline-field')].map((field) =>
+  return [...timelineSection(root).querySelectorAll('pio-sheet-pick-fields fr-inline-field')].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );
 }
@@ -59,7 +64,7 @@ function rankOf(root: HTMLElement, name: string): ShownRank | undefined {
 
 describe('CharacterSheetPage skills', () => {
   it('asks a fighter for its three trained skills, one picker each', async () => {
-    const { root } = await openSheet(fighter());
+    const { root } = await openPlan(fighter());
 
     await vi.waitFor(() => {
       expect(pickerLabels(root)).toStrictEqual(TRAINING);
@@ -67,16 +72,26 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('has no skill pickers before a class is picked', async () => {
-    const { root } = await openSheet(MERISIEL);
+    const { root } = await openPlan(MERISIEL);
 
     await vi.waitFor(() => {
-      expect(skillRow(root, 'Athletics')).toBeDefined();
+      expect(timelineSection(root)).toBeDefined();
     });
     expect(pickerLabels(root)).toStrictEqual([]);
   });
 
-  it('picks a trained skill in its slot', async () => {
+  it('keeps the skill pickers off the Encounter rail, which lists skills only', async () => {
     const { root } = await openSheet(fighter());
+
+    await vi.waitFor(() => {
+      expect(skillRow(root, 'Athletics')).toBeDefined();
+    });
+    expect(skillsSection(root).querySelectorAll('fr-inline-field')).toHaveLength(0);
+    expect(skillsSection(root).textContent).not.toContain('Level 1 trained skill');
+  });
+
+  it('picks a trained skill in its slot', async () => {
+    const { root } = await openPlan(fighter());
     await pickRow(root, { label: FIRST_SLOT, type: SkillPicker }, 'Athletics');
 
     const request = await vi.waitFor(() =>
@@ -88,7 +103,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('offers each skill with its attribute, rank and modifier', async () => {
-    const { root } = await openSheet(fighter());
+    const { root } = await openPlan(fighter());
 
     const rows = await rowsShown<SkillPickerRow, SkillPicker>(root, { label: FIRST_SLOT, type: SkillPicker });
 
@@ -100,10 +115,12 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('says beside the pickers which earlier slot trained a skill they cannot offer', async () => {
-    const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }));
+    const { root } = await openPlan(fighter({ 'skill-training:1:0': ATHLETICS }));
 
     await vi.waitFor(() => {
-      expect(skillsSection(root).textContent).toContain('Already trained in Athletics (from Level 1 trained skill 1)');
+      expect(timelineSection(root).textContent).toContain(
+        'Already trained in Athletics (from Level 1 trained skill 1)',
+      );
     });
   });
 
@@ -112,20 +129,20 @@ describe('CharacterSheetPage skills', () => {
       ...MERISIEL,
       build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis' } },
     };
-    const { root } = await openSheet(cleric);
+    const { root } = await openPlan(cleric);
 
     await vi.waitFor(() => {
-      expect(skillsSection(root).textContent).toContain('Already trained in Religion (from Cleric)');
+      expect(timelineSection(root).textContent).toContain('Already trained in Religion (from Cleric)');
     });
   });
 
   it('says nothing about trained skills while none is trained', async () => {
-    const { root } = await openSheet(fighter());
+    const { root } = await openPlan(fighter());
 
     await vi.waitFor(() => {
       expect(pickerLabels(root)).toStrictEqual(TRAINING);
     });
-    expect(skillsSection(root).textContent).not.toContain('Already trained');
+    expect(timelineSection(root).textContent).not.toContain('Already trained');
   });
 
   it('totals an untrained skill from its attribute alone', async () => {
