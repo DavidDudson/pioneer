@@ -105,6 +105,7 @@ export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 export { Section } from './lib/layout/section/section.component';
 export { Dropdown, DropdownAlign } from './lib/layout/dropdown/dropdown.component';
 export { HeaderCrumbs } from './lib/layout/header-crumbs/header-crumbs';
+export { ShellWidth } from './lib/layout/shell-width/shell-width';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';

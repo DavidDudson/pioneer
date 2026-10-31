@@ -1,7 +1,7 @@
 <fr-stack direction="horizontal" justify="between" align="center" gap="xs">
   <fr-text>{{ name() }}</fr-text>
   <fr-stack direction="horizontal" gap="xs" align="center">
-    <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" />
+    <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" [note]="rankNote()" />
     @if (roller) {
       <pio-statistic-roll
         [name]="name()"

@@ -1,0 +1,28 @@
+<fr-rail [label]="'character.sheet.panels.label' | transloco">
+  <fr-stack gap="md">
+    <pio-sheet-resources pool="hero-points" />
+
+    <fr-disclosure [variant]="bordered" [open]="true">
+      <fr-text frDisclosureSummary>{{ sections.skills.headingKey | transloco }}</fr-text>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()"
+          ><pio-skills
+            [statistics]="picks.skills()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
+        /></ng-template>
+      </fr-async-region>
+    </fr-disclosure>
+
+    <fr-disclosure [variant]="bordered" [open]="true">
+      <fr-text frDisclosureSummary>{{ 'character.sheet.conditions.label' | transloco }}</fr-text>
+      <pio-sheet-conditions />
+    </fr-disclosure>
+
+    <fr-disclosure [variant]="bordered" [open]="true">
+      <fr-text frDisclosureSummary>{{ sections.environments.headingKey | transloco }}</fr-text>
+      <pio-sheet-environments />
+    </fr-disclosure>
+  </fr-stack>
+</fr-rail>

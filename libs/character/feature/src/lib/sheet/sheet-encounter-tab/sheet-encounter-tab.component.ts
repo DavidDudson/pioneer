@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Rail, Section, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Section, Stack } from '@pioneer/frontier';
 import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
-import { DefencesView, ENTRY_PREVIEWS, SensesView, SkillsView, SpellcastingView, StrikesView } from '@pioneer/rules/ui';
+import { DefencesView, ENTRY_PREVIEWS, SensesView, SpellcastingView, StrikesView } from '@pioneer/rules/ui';
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
@@ -21,9 +21,8 @@ import { rememberTab } from '../sheet-tab';
 import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
 
 /**
- * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total, in a rail
- * that stays in view, its Strikes, and its spellcasting with the spells it knows or prepares. Actions and usable items
- * join as their stories land.
+ * The Encounter tab: what the character does in a fight. Its defences, its Strikes, and its spellcasting with the
+ * spells it knows or prepares. Actions and usable items join as their stories land.
  */
 @Component({
   selector: 'pio-sheet-encounter-tab',
@@ -36,8 +35,6 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
     DefencesView,
     SensesView,
     Section,
-    Rail,
-    SkillsView,
     SheetCastItems,
     SheetSpells,
     SheetSpendLog,
@@ -59,12 +56,9 @@ export class SheetEncounterTab {
   readonly #spender = inject(SheetSpender);
   protected readonly sections = SHEET_SECTIONS;
   protected readonly Mode = ActionMode.Encounter;
-  /** The index leaves out Skills, which stays in view in the rail beside the tab. */
   /** The section the route names, bound from the route's `:section` parameter. */
   public readonly section = input<string>();
-  protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter].filter(
-    (section) => section !== SHEET_SECTIONS.skills,
-  );
+  protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Encounter];
   protected readonly shown = shownSection(this.sectionOrder, this.section);
   /** The Strikes with what using each spends, those the turn has no action for left out of reach. */
   protected readonly strikes = computed((): readonly NamedStrike[] | undefined => {

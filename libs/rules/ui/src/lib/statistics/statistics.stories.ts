@@ -1,6 +1,5 @@
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { provideRouter } from '@angular/router';
 import { Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
@@ -14,8 +13,6 @@ import {
 import { BEATEN_STATISTICS, CLAIMABLE_STATISTICS } from '../testing/conditional-fixtures';
 import { FORM_STATISTICS } from '../testing/form-fixtures';
 import { ADJUSTED_WILL, PINNED_STATISTICS } from '../testing/override-fixtures';
-import { STATISTIC_OVERRIDES } from './statistic-overrides';
-import type { StatisticOverrides } from './statistic-overrides';
 import { STATISTIC_ROLLER } from './statistic-roller';
 import type { StatisticRoller } from './statistic-roller';
 import { StatisticsMessage } from './statistics-messages';
@@ -176,23 +173,5 @@ export const InForm: StatisticsStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('from Golem Form')).toBeVisible();
-  },
-};
-
-/** Where the override form opens, as the sheet provides it. */
-const OVERRIDING: StatisticOverrides = {
-  link: (selector, mode) => ({ to: ['/'], queryParams: { override: 'open', statistic: selector, mode } }),
-};
-
-/** Each row offers Adjust and Set, links to the page's override form, named for the statistic for screen readers. */
-export const Overridable: StatisticsStory = {
-  args: { statistics: FIGHTER_STATISTICS },
-  decorators: [
-    applicationConfig({ providers: [provideRouter([]), { provide: STATISTIC_OVERRIDES, useValue: OVERRIDING }] }),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    await expect(canvas.getAllByRole('link', { name: /^Adjust /u })[0]).toBeVisible();
-    await expect(canvas.getAllByRole('link', { name: /^Set /u })[0]).toBeVisible();
   },
 };

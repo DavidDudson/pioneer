@@ -7,42 +7,45 @@
           <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
         }
       </fr-tabs>
-      <fr-stack gap="sm">
-        <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-          <fr-async-region>
-            <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
-            <ng-template [frAsyncData]="sheet.registry">
-              @if (sheet.identity(); as identity) {
-                <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-              } @else {
-                <fr-skeleton width="md" />
-              }
-            </ng-template>
-          </fr-async-region>
-          <pio-sheet-header-actions />
-        </fr-stack>
-        <pio-sheet-form />
-        <pio-sheet-form-picker />
-        <pio-sheet-hit-points />
-        <pio-sheet-death-track />
-        <pio-sheet-resources />
-        <pio-sheet-counted />
-        <pio-sheet-active-environments />
-        <pio-sheet-conditions />
-        <pio-sheet-last-roll />
-        <fr-async-region>
-          <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
-          <ng-template [frAsyncData]="sheet.engineQuery()">
-            <pio-vitals
-              [vitals]="sheet.vitals()"
-              [entryNames]="sheet.picks.entryNames()"
-              [originNames]="sheet.originNames()"
-            />
-          </ng-template>
-        </fr-async-region>
-      </fr-stack>
+      <fr-stack horizontalFrom="lg" gap="lg" align="start">
+        <pio-sheet-panels />
+        <fr-stack gap="lg" grow>
+          <fr-stack gap="sm">
+            <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
+              <fr-async-region>
+                <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+                <ng-template [frAsyncData]="sheet.registry">
+                  @if (sheet.identity(); as identity) {
+                    <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+                  } @else {
+                    <fr-skeleton width="md" />
+                  }
+                </ng-template>
+              </fr-async-region>
+              <pio-sheet-header-actions />
+            </fr-stack>
+            <pio-sheet-form />
+            <pio-sheet-form-picker />
+            <pio-sheet-hit-points />
+            <pio-sheet-death-track />
+            <pio-sheet-resources pool="focus-points" />
+            <pio-sheet-counted />
+            <pio-sheet-last-roll />
+            <fr-async-region>
+              <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
+              <ng-template [frAsyncData]="sheet.engineQuery()">
+                <pio-vitals
+                  [vitals]="sheet.vitals()"
+                  [entryNames]="sheet.picks.entryNames()"
+                  [originNames]="sheet.originNames()"
+                />
+              </ng-template>
+            </fr-async-region>
+          </fr-stack>
 
-      <router-outlet />
+          <router-outlet />
+        </fr-stack>
+      </fr-stack>
 
       @if (character(); as character) {
         <fr-text element="p" variant="caption" tone="subtle">

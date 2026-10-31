@@ -9,6 +9,7 @@
     [fromForm]="fromForm()"
     [rank]="rank()"
     [rankSources]="rankSources()"
+    [rankNote]="rankNote()"
     [entryNames]="entryNames()"
     [originNames]="originNames()"
   />
@@ -18,7 +19,7 @@
       <fr-disclosure>
         <fr-text frDisclosureSummary
           >{{ name() }}
-          <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" />
+          <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" [note]="rankNote()" />
           <pio-statistic-total
             [total]="total()"
             [computed]="computed()"

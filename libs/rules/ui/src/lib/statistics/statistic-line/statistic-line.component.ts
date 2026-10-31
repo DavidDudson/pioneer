@@ -38,6 +38,8 @@ export class StatisticLine {
   public readonly fromForm = input<string | undefined>();
   public readonly rank = input<Proficiency | undefined>();
   public readonly rankSources = input<readonly RankSource[]>([]);
+  /** The skill two sources train, worded, for the rank's popover. */
+  public readonly rankNote = input<string | undefined>();
   /** Lay the line out as a skill's. */
   public readonly skill = input(false, { transform: booleanAttribute });
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, input } from '@angular/core';
 
 import { Box, BoxWidth } from '../box/box.component';
+import { ShellWidth } from '../shell-width/shell-width';
 import { Stack } from '../stack/stack.component';
 
 /**
@@ -8,6 +9,7 @@ import { Stack } from '../stack/stack.component';
  * beside it and an optional `fr-drawer` docked after both. The page renders at once; regions load their own data behind skeletons.
  * It sits in `fr-shell`'s `<main>`, so it renders no landmark of its own.
  * Built only from layout primitives; it has no responsive CSS of its own.
+ * Its width is the shell's too (`ShellWidth`), so the header and footer line up with the content.
  *
  * ```html
  * <fr-page>
@@ -27,4 +29,9 @@ import { Stack } from '../stack/stack.component';
 export class Page {
   /** `page` caps the content at the page width and centres it; `full` uses all the room the shell gives it. */
   public readonly width = input<BoxWidth>(BoxWidth.Page);
+
+  public constructor() {
+    const release = inject(ShellWidth).show(this.width);
+    inject(DestroyRef).onDestroy(release);
+  }
 }

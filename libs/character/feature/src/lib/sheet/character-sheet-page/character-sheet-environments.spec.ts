@@ -29,10 +29,6 @@ function sectionOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-environments'));
 }
 
-function headerOf(root: HTMLElement): HTMLElement {
-  return present(root.querySelector<HTMLElement>('pio-sheet-active-environments'));
-}
-
 describe('CharacterSheetPage environments', () => {
   beforeAll(async () => {
     await prebuildServerStateTesting([], PACKS);
@@ -57,23 +53,6 @@ describe('CharacterSheetPage environments', () => {
       expect(toggle.getAttribute('aria-pressed')).toBe('true');
       expect(textOf(sectionOf(root))).toContain(NO_SPEECH);
     });
-  });
-
-  it('names the environments the character is in in the header', async () => {
-    const { root } = await openSheet(MERISIEL, { play: playIn([UNDERWATER]), packs: PACKS });
-
-    await vi.waitFor(() => {
-      expect(textOf(headerOf(root))).toContain('In:Underwater');
-    });
-  });
-
-  it('shows nothing in the header for a character in no environment', async () => {
-    const { root } = await openSheet(MERISIEL, { play: playIn([]), packs: PACKS });
-
-    await vi.waitFor(() => {
-      expect(textOf(sectionOf(root))).toContain('Underwater');
-    });
-    expect(textOf(headerOf(root))).not.toContain('In:');
   });
 
   it('sends the environment turned on at the revision last read, and shows what the server answers', async () => {

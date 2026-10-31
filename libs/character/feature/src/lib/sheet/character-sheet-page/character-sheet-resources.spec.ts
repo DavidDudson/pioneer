@@ -1,5 +1,6 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
@@ -27,14 +28,15 @@ function spentOf(spent: object, revision = 1): object {
   return { revision, play: { hp: { damage: 0, temp: 0 }, resources: spent } };
 }
 
-function resourcesOf(root: HTMLElement): HTMLElement {
-  return present(root.querySelector<HTMLElement>('pio-sheet-resources'));
+/** The text of every pool shown: the header's focus points and the rail's hero points. */
+function resourcesText(root: HTMLElement): string {
+  return [...root.querySelectorAll<HTMLElement>('pio-sheet-resources')].map((each) => textOf(each)).join(' ');
 }
 
 /** The pips of the group named `group`, in order. */
 function pipsOf(root: HTMLElement, group: string): HTMLButtonElement[] {
   const toolbar = present(
-    [...resourcesOf(root).querySelectorAll('[role="toolbar"]')].find(
+    [...root.querySelectorAll('pio-sheet-resources [role="toolbar"]')].find(
       (each) => each.getAttribute('aria-label') === group,
     ),
   );
@@ -52,16 +54,24 @@ describe('CharacterSheetPage hero and focus points', () => {
   }, PREBUILD_TIMEOUT);
 
   it('shows hero points held as filled pips out of 3, and no focus points without a focus spell', async () => {
-    const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 2 }), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('cleric'), {
+      tab: SheetMode.Encounter,
+      play: spentOf({ 'hero-points': 2 }),
+      packs: SPELL_PACKS,
+    });
 
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('100');
     });
-    expect(textOf(resourcesOf(root))).not.toContain('Focus Points');
+    expect(resourcesText(root)).not.toContain('Focus Points');
   });
 
   it("shows a bard's focus pool of 1 beside the hero points", async () => {
-    const { root } = await openSheet(as('bard'), { play: spentOf({ 'focus-points': 1 }), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('bard'), {
+      tab: SheetMode.Encounter,
+      play: spentOf({ 'focus-points': 1 }),
+      packs: SPELL_PACKS,
+    });
 
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
@@ -70,7 +80,7 @@ describe('CharacterSheetPage hero and focus points', () => {
   });
 
   it('spends a hero point by pressing the last filled pip, at the revision last read', async () => {
-    const { root } = await openSheet(as('cleric'), { play: spentOf({}), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('cleric'), { tab: SheetMode.Encounter, play: spentOf({}), packs: SPELL_PACKS });
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
     });
@@ -91,7 +101,11 @@ describe('CharacterSheetPage hero and focus points', () => {
   });
 
   it('regains a point by pressing the next empty pip', async () => {
-    const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 3 }), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('cleric'), {
+      tab: SheetMode.Encounter,
+      play: spentOf({ 'hero-points': 3 }),
+      packs: SPELL_PACKS,
+    });
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
     });
@@ -109,7 +123,11 @@ describe('CharacterSheetPage hero and focus points', () => {
   });
 
   it('sets the points when a press jumps more than one pip', async () => {
-    const { root } = await openSheet(as('cleric'), { play: spentOf({ 'hero-points': 3 }), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('cleric'), {
+      tab: SheetMode.Encounter,
+      play: spentOf({ 'hero-points': 3 }),
+      packs: SPELL_PACKS,
+    });
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('000');
     });
@@ -126,7 +144,7 @@ describe('CharacterSheetPage hero and focus points', () => {
   });
 
   it('puts the pips back when the server refuses the press', async () => {
-    const { root } = await openSheet(as('cleric'), { play: spentOf({}), packs: SPELL_PACKS });
+    const { root } = await openSheet(as('cleric'), { tab: SheetMode.Encounter, play: spentOf({}), packs: SPELL_PACKS });
     await vi.waitFor(() => {
       expect(filled(pipsOf(root, 'Hero Points'))).toBe('111');
     });

@@ -24,7 +24,7 @@ function fighter(choices: Readonly<Record<string, string>> = {}, lores: Readonly
 }
 
 function skillsSection(root: HTMLElement): HTMLElement {
-  return present(root.querySelector('section[aria-labelledby="sheet-skills"]'));
+  return present(root.querySelector('pio-sheet-panels pio-skills'));
 }
 
 function timelineSection(root: HTMLElement): HTMLElement {
@@ -38,7 +38,7 @@ function pickerLabels(root: HTMLElement): string[] {
   );
 }
 
-/** The text of the Skills section's row for `name`. */
+/** The text of the Skills panel's row for `name`. */
 function skillRow(root: HTMLElement, name: string): string | undefined {
   return [...skillsSection(root).querySelectorAll('fr-list-item')]
     .map((item) => item.textContent.trim())
@@ -80,7 +80,7 @@ describe('CharacterSheetPage skills', () => {
     expect(pickerLabels(root)).toStrictEqual([]);
   });
 
-  it('keeps the skill pickers off the Encounter rail, which lists skills only', async () => {
+  it('keeps the skill pickers out of the Skills panel, which lists skills only', async () => {
     const { root } = await openSheet(fighter());
 
     await vi.waitFor(() => {
@@ -181,9 +181,10 @@ describe('CharacterSheetPage skills', () => {
     (tab as HTMLElement).click();
 
     await vi.waitFor(() => {
-      expect(rankOf(root, 'Sailing Lore')).toStrictEqual({ letter: 'T', name: 'Trained' });
+      expect(rankOf(root, 'Sailing')).toStrictEqual({ letter: 'T', name: 'Trained' });
     });
-    expect(skillRow(root, 'Sailing Lore')).toMatch(/[+-]\d/u);
+    expect(skillRow(root, 'Sailing')).not.toContain('Lore');
+    expect(skillRow(root, 'Sailing')).toMatch(/[+-]\d/u);
   });
 
   it('saves a Lore typed in a skill picker as a pick of its topic, with the name as typed', async () => {
@@ -218,7 +219,7 @@ describe('CharacterSheetPage skills', () => {
     expect(choices.textContent).toContain('Athletics');
   });
 
-  it('notes beside a skill two sources train, naming both and that the second training is lost', async () => {
+  it('says in the rank popover, not on the row, that a skill two sources train loses the second training', async () => {
     const cleric = {
       ...MERISIEL,
       build: {
@@ -233,10 +234,17 @@ describe('CharacterSheetPage skills', () => {
     const { root } = await openSheet(cleric);
 
     await vi.waitFor(() => {
-      expect(skillRow(root, 'Religion')).toMatch(
+      expect(skillRow(root, 'Religion')).toBeDefined();
+    });
+    expect(skillRow(root, 'Religion')).not.toContain('the second training is lost');
+    const religion = [...skillsSection(root).querySelectorAll('fr-list-item')].find((item) =>
+      item.textContent.trim().startsWith('Religion'),
+    );
+    religion?.querySelector('button')?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      expect(document.querySelector('[role="tooltip"]')?.textContent).toMatch(
         /Trained by (?:Acolyte and Cleric|Cleric and Acolyte); the second training is lost/u,
       );
     });
-    expect(skillRow(root, 'Athletics')).not.toContain('Trained by');
   });
 });

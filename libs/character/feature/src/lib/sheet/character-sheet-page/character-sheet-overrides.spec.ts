@@ -1,7 +1,8 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { SheetMode } from '@pioneer/character/domain';
+import { Router } from '@angular/router';
+import { OverrideMode, SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
@@ -42,15 +43,13 @@ function fakeDialog(): void {
   });
 }
 
-function link(root: HTMLElement, name: string): HTMLAnchorElement {
-  return present(root.querySelector<HTMLAnchorElement>(`a[aria-label="${name}"]`));
-}
-
-async function open(name: string): Promise<HTMLElement> {
+/** Opens the override drawer on Perception the way the sheet's own URL does: no row offers a link to it. */
+async function open(mode: OverrideMode): Promise<HTMLElement> {
   fakeDialog();
   const { root } = await openSheet(FIGHTER);
-  const adjust = await vi.waitFor(() => link(root, name));
-  adjust.click();
+  const router = TestBed.inject(Router);
+  const page = router.url.split('?')[0] ?? router.url;
+  await router.navigateByUrl(`${page}?override=open&overrideStatistic=perception&overrideMode=${mode}`);
   await TestBed.inject(ApplicationRef).whenStable();
   return root;
 }
@@ -70,17 +69,18 @@ function type(element: HTMLInputElement | HTMLTextAreaElement, text: string): vo
 }
 
 describe('CharacterSheet overrides', () => {
-  it('offers Adjust and Set on a statistic, as links a keyboard reaches', async () => {
+  it('offers no Adjust or Set links on a statistic', async () => {
     const { root } = await openSheet(FIGHTER);
 
     await vi.waitFor(() => {
-      expect(link(root, 'Adjust Perception').tabIndex).toBe(0);
-      expect(link(root, 'Set Perception').tabIndex).toBe(0);
+      expect(root.querySelector('pio-statistic-line')).not.toBeNull();
     });
+    expect(root.querySelector('a[aria-label="Adjust Perception"]')).toBeNull();
+    expect(root.querySelector('a[aria-label="Set Perception"]')).toBeNull();
   });
 
   it('keeps submit off with no reason, and reads the error out', async () => {
-    const root = await open('Adjust Perception');
+    const root = await open(OverrideMode.Adjust);
 
     await vi.waitFor(() => {
       expect(submitOf(root).disabled).toBe(true);
@@ -93,7 +93,7 @@ describe('CharacterSheet overrides', () => {
   });
 
   it('sends an adjust override with its amount, type and reason', async () => {
-    const root = await open('Adjust Perception');
+    const root = await open(OverrideMode.Adjust);
     await vi.waitFor(() => {
       expect(formOf(root).tagName).toBe('PIO-SHEET-OVERRIDE-FORM');
     });
@@ -114,8 +114,8 @@ describe('CharacterSheet overrides', () => {
     });
   });
 
-  it('sends a set override for the Set link, with no modifier type', async () => {
-    const root = await open('Set Perception');
+  it('sends a set override for the Set mode, with no modifier type', async () => {
+    const root = await open(OverrideMode.Set);
     await vi.waitFor(() => {
       expect(formOf(root).tagName).toBe('PIO-SHEET-OVERRIDE-FORM');
     });
@@ -145,7 +145,7 @@ describe('CharacterSheet override authors', () => {
     overrides: [
       {
         id: '00000000-0000-4000-8000-00000000ff01',
-        target: 'perception',
+        target: 'ac',
         mode: 'adjust',
         value: 2,
         type: 'item',
@@ -160,7 +160,7 @@ describe('CharacterSheet override authors', () => {
   async function breakdownText(authors: readonly object[]): Promise<string> {
     const { root } = await openSheet(ADJUSTED, { authors });
     const row = await vi.waitFor(() => {
-      const found = [...root.querySelectorAll('fr-list-item')].find((item) => item.textContent.includes('Perception'));
+      const found = [...root.querySelectorAll('fr-list-item')].find((item) => item.textContent.includes('Armor Class'));
       return present(found);
     });
     present(row.querySelector<HTMLElement>('summary')).click();

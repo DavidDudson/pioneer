@@ -18,14 +18,6 @@
   </fr-section>
 
   <fr-section
-    [concealed]="shown()?.anchor !== sections.environments.anchor"
-    [anchor]="sections.environments.anchor"
-    [heading]="sections.environments.headingKey | transloco"
-  >
-    <pio-sheet-environments />
-  </fr-section>
-
-  <fr-section
     [concealed]="shown()?.anchor !== sections.actions.anchor"
     [anchor]="sections.actions.anchor"
     [heading]="sections.actions.headingKey | transloco"

@@ -37,6 +37,8 @@ export class SkillLine {
   public readonly fromForm = input<string | undefined>();
   public readonly rank = input<Proficiency | undefined>();
   public readonly rankSources = input<readonly RankSource[]>([]);
+  /** The skill two sources train, worded, for the rank's popover. */
+  public readonly rankNote = input<string | undefined>();
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 

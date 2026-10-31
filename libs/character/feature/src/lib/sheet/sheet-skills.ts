@@ -3,6 +3,7 @@ import {
   characterStatisticContent,
   formTraits,
   itemContent,
+  PERCEPTION,
   skillReads,
   skillSlots,
   skillsTrainedTwice,
@@ -44,7 +45,7 @@ const FORM_NOTED_SKILLS: ReadonlySet<string> = new Set(
 const FORM_TRAITS_KEY = 'character.sheet.skills.formTraits';
 
 /**
- * Every skill and Lore the loaded statistics define, by name, each with what the engine derives for it: its rank
+ * Perception, then every skill and Lore the loaded statistics define, by name, each with what the engine derives for it: its rank
  * comes from the class, the background and the skill picks. A skill no pack defines is left out.
  */
 export function sheetSkills(
@@ -57,7 +58,9 @@ export function sheetSkills(
     return [];
   }
   const results = sheetDerivation(registry, character);
-  const skills = content.definitions.filter((definition) => definition.selector.startsWith(SKILL_PREFIX));
+  const skills = content.definitions.filter(
+    (definition) => definition.selector === PERCEPTION || definition.selector.startsWith(SKILL_PREFIX),
+  );
   const twice = trainedTwiceNotes(registry, character, translate);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
   const rankSources = rankSourcesOf(registry, character, translate);
@@ -67,10 +70,7 @@ export function sheetSkills(
     .flatMap((definition): NamedStatistic[] => {
       const { selector } = definition;
       const result = results.get(selector);
-      const notes = [twice.get(selector), FORM_NOTED_SKILLS.has(selector) ? formNote : undefined].filter(
-        (each) => each !== undefined,
-      );
-      const note = notes.length === 0 ? undefined : notes.join(' ');
+      const note = FORM_NOTED_SKILLS.has(selector) ? formNote : undefined;
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
       return result === undefined
         ? []
@@ -80,12 +80,18 @@ export function sheetSkills(
               kind: definition.kind,
               result,
               note,
+              rankNote: twice.get(selector),
               rank,
               rankSources: rankSources.get(selector) ?? [],
             },
           ];
     })
-    .toSorted((left, right) => left.name.localeCompare(right.name));
+    .toSorted((left, right) => perceptionFirst(left, right) || left.name.localeCompare(right.name));
+}
+
+/** Orders Perception before every skill, and leaves any two others to the caller. */
+function perceptionFirst(left: NamedStatistic, right: NamedStatistic): number {
+  return Number(right.result.selector === PERCEPTION) - Number(left.result.selector === PERCEPTION);
 }
 
 /** A skill a trained skill slot can't offer, and one thing that trains it: "Religion", "Cleric". */

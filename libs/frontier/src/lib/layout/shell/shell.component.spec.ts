@@ -5,7 +5,9 @@ import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
 import { projectBySelector } from '../../testing/project-by-selector';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
+import { BoxWidth } from '../box/box.component';
 import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
+import { ShellWidth } from '../shell-width/shell-width';
 import { Shell } from './shell.component';
 
 interface Rendered {
@@ -78,6 +80,15 @@ async function pressEntry(name: string): Promise<void> {
   const entries = [...document.querySelectorAll<HTMLElement>('.cdk-overlay-container button')];
   entries.find((button) => button.textContent.trim() === name)?.click();
   await TestBed.inject(ApplicationRef).whenStable();
+}
+
+/** The classes of the box that holds a header's or footer's content, which cap its width. */
+function boxClasses(region: HTMLElement): string[] {
+  const box = region.querySelector('fr-box');
+  if (box === null) {
+    throw new Error('Expected the region to hold an fr-box');
+  }
+  return [...box.classList];
 }
 
 describe(Shell, () => {
@@ -267,5 +278,18 @@ describe(Shell, () => {
     const { footer } = await render();
     expect(footer.textContent.trim()).toBe('Licence notice');
     expect([...footer.classList]).toContain('pb-safe-bottom');
+  });
+
+  it('caps the header and footer at the page width when no page says otherwise', async () => {
+    const { header, footer } = await render();
+    expect(boxClasses(header)).toContain('max-w-page');
+    expect(boxClasses(footer)).toContain('max-w-page');
+  });
+
+  it('makes the header and footer as wide as a full-width page, so the brand and actions sit at its edges', async () => {
+    TestBed.inject(ShellWidth).show(signal<BoxWidth>(BoxWidth.Full));
+    const { header, footer } = await render();
+    expect(boxClasses(header)).not.toContain('max-w-page');
+    expect(boxClasses(footer)).not.toContain('max-w-page');
   });
 });

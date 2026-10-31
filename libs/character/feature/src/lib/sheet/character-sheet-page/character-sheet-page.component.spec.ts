@@ -31,10 +31,10 @@ describe('CharacterSheetPage', () => {
       ['Variant rules', true],
       ['Table limits', true],
       ['Overrides', true],
+      ['Custom effects', true],
     ]);
-    await openTab(root, 'Encounter', 'Skills');
+    await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
-      ['Skills', true],
       ['Defences', true],
       ['Senses', true],
       ['Strikes', true],
@@ -45,7 +45,6 @@ describe('CharacterSheetPage', () => {
     expect(regionsOf(root)).toStrictEqual([
       ['Appearance and personality', true],
       ['Exploration activity', true],
-      ['Environments', true],
       ['Actions', true],
       ['Deity', true],
       ['Languages', true],
@@ -59,7 +58,7 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
-  it("indexes the open tab's sections with skip links that move focus to their headings", async () => {
+  it("lists the open tab's sections as tabs", async () => {
     const { root } = await openSheet();
     const nav = present(root.querySelector('nav[aria-label="Sheet sections"]'));
     const links = [...nav.querySelectorAll('a')];
@@ -75,12 +74,8 @@ describe('CharacterSheetPage', () => {
       'Variant rules',
       'Table limits',
       'Overrides',
+      'Custom effects',
     ]);
-
-    links[2]?.click();
-
-    expect(document.activeElement?.textContent.trim()).toBe('Attributes');
-    expect(document.activeElement?.tagName).toBe('H2');
   });
 
   it('lists a row for each level from 1 to 20 on the Plan tab, marking the current one in text', async () => {

@@ -1,4 +1,4 @@
-@if (shown().length === 0) {
+@if (!hasPopover()) {
   <pio-proficiency-rank [rank]="rank()" />
 } @else {
   <fr-hover-card>
@@ -14,6 +14,11 @@
                 | transloco
                   : { rank: line.params.rank | transloco, source: line.params.source, level: line.params.level }
             }}</fr-text>
+          </fr-list-item>
+        }
+        @if (note(); as noted) {
+          <fr-list-item>
+            <fr-text tone="muted">{{ noted }}</fr-text>
           </fr-list-item>
         }
       </fr-list>

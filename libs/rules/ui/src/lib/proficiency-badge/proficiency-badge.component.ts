@@ -45,7 +45,10 @@ export class ProficiencyBadge {
   public readonly rank = input<Proficiency | undefined>();
   /** What gave the current rank, then the ranks ahead, in the order to list them. */
   public readonly sources = input<readonly RankSource[]>([]);
+  /** A line under the sources, already worded: the skill two sources train. */
+  public readonly note = input<string | undefined>();
 
+  protected readonly hasPopover = computed((): boolean => this.sources().length > 0 || this.note() !== undefined);
   protected readonly inline = ButtonVariant.Inline;
   protected readonly shown = computed((): readonly ShownSource[] =>
     this.sources().map(({ rank, source, level, future }) => ({

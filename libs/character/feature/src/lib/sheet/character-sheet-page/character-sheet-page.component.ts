@@ -20,8 +20,6 @@ import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
-import { SheetActiveEnvironments } from '../sheet-active-environments/sheet-active-environments.component';
-import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
@@ -32,8 +30,9 @@ import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
+// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
@@ -59,15 +58,14 @@ import { SheetState } from '../sheet-state';
     PageHeader,
     RouterOutlet,
     SheetDeathTrack,
-    SheetActiveEnvironments,
-    SheetConditions,
     SheetCounted,
     SheetForm,
     SheetFormPicker,
     SheetHeaderActions,
-    SheetResources,
     SheetHitPoints,
     SheetLastRoll,
+    SheetPanels,
+    SheetResources,
     SheetDrawers,
     SheetSidePanelHost,
     Skeleton,
