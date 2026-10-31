@@ -41,7 +41,7 @@ async function open(url: string, homebrew: readonly ContentPackId[] = []): Promi
       ...provideContentTesting(delivery),
       {
         provide: CONTENT_SCOPE,
-        useValue: signal({ homebrew, ready: true }),
+        useValue: signal({ homebrew, legacy: true, ready: true }),
       },
     ],
   });

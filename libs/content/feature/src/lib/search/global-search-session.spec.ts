@@ -1,6 +1,8 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import { ContentLicense, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentPack, PackContentsLoader } from '@pioneer/rules/sdk';
@@ -48,7 +50,7 @@ interface Started {
   readonly delivery: TestContentDelivery;
 }
 
-function start(): Started {
+function start(legacy = true): Started {
   const delivery = new TestContentDelivery([LOADER, LEGACY_LOADER]);
   TestBed.configureTestingModule({
     providers: [
@@ -64,6 +66,7 @@ function start(): Started {
         },
       },
       ...provideContentTesting(delivery),
+      { provide: CONTENT_SCOPE, useValue: signal({ homebrew: [], legacy, ready: true }) },
       GlobalSearchIndex,
       GlobalSearchSession,
     ],
@@ -117,6 +120,18 @@ describe(GlobalSearchSession, () => {
     expect(started.session.options().map((option) => option.tags?.map((tag) => tag.label))).toStrictEqual([
       ['Feat', 'Legacy', 'Level 1'],
     ]);
+  });
+
+  it('leaves out an entry of a pre-remaster pack while legacy content is off', async () => {
+    const started = start(false);
+
+    started.session.type('attack');
+    await listsNames(started, NAMES_FOR_ATTACK);
+
+    started.session.type('sudden');
+
+    await listsNames(started, []);
+    expect(started.session.words()).toBe('sudden');
   });
 
   it('adds the server matches below the names once typing goes quiet, and never moves the ones listed', async () => {

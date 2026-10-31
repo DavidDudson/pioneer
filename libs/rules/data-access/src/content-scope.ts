@@ -3,16 +3,18 @@ import type { Signal } from '@angular/core';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 
 /**
- * The homebrew packs a page may browse and search besides the official ones. `ready` is false while the list is still
+ * The homebrew packs a page may browse and search besides the official ones, and whether it shows legacy content (the
+ * Legacy Content variant rule in force). `ready` is false while the list is still
  * loading, so a page waits for it instead of building over official packs alone and then again.
  */
 export interface ContentScope {
   readonly homebrew: readonly ContentPackId[];
+  readonly legacy: boolean;
   readonly ready: boolean;
 }
 
-/** Official packs only, which is all anyone sees with no character open (ADR-0007). */
-const OFFICIAL_ONLY: ContentScope = { homebrew: [], ready: true };
+/** Official packs only, remaster content alone, which is all anyone sees with no character open (ADR-0007). */
+const OFFICIAL_ONLY: ContentScope = { homebrew: [], legacy: false, ready: true };
 
 /**
  * What the content around a page may show. A container that knows the open character's effective packs (its

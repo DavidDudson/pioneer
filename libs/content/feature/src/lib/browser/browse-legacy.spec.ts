@@ -3,7 +3,7 @@ import type { ContentEntry, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
-import { isLegacyEntry, packLicenses } from './browse-legacy';
+import { isLegacyEntry, packLicenses, shownEntries } from './browse-legacy';
 
 const PACK = new ContentPackBuilder().withId('legacy-test').withFeat('sudden-charge').build();
 const FIRST = PACK.otherEntries.at(0);
@@ -36,5 +36,18 @@ describe(packLicenses, () => {
     const registry = new ContentRegistry();
     registry.register(PACK);
     expect(packLicenses(registry)).toStrictEqual(licensed(ContentLicense.Homebrew));
+  });
+});
+
+describe(shownEntries, () => {
+  const entries = [ENTRY, { ...ENTRY, license: ContentLicense.Ogl }];
+
+  it('shows every entry while legacy content is on', () => {
+    expect(shownEntries(entries, licensed(ContentLicense.Orc), true)).toStrictEqual(entries);
+  });
+
+  it('shows only the remaster entries while it is off', () => {
+    expect(shownEntries(entries, licensed(ContentLicense.Orc), false)).toStrictEqual([ENTRY]);
+    expect(shownEntries(entries, licensed(ContentLicense.Ogl), false)).toStrictEqual([]);
   });
 });
