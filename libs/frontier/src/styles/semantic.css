@@ -37,7 +37,7 @@
   --fr-size-item-md: 16rem;
   --fr-size-item-lg: 24rem;
   --fr-size-term: 10rem;
-  /* The shell's sticky top bar, which a sticky rail sits under, and the height left below it. */
+  /* The shell's sticky top bar, whose real height the shell publishes (it wraps on narrow screens), and the height left below it. */
   --fr-size-shell-header: 4.5rem;
   --fr-size-rail-height: calc(100dvh - var(--fr-size-shell-header));
   /* fr-image widths (the height follows the aspect ratio) and fr-avatar squares. */

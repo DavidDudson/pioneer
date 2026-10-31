@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  input,
+  viewChild,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
@@ -13,6 +22,10 @@ const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-b
 
 /** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */
 const MAIN_ID = 'fr-main';
+
+/** The tokens the shell sets on itself from its header's measured height, which wraps on narrow screens: a sticky rail sits below it. */
+const HEADER_HEIGHT_PROPERTY = '--fr-size-shell-header';
+const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
 
 /**
  * App chrome: top bar with brand, nav slot and actions slot (`frShellActions`,
@@ -44,4 +57,25 @@ export class Shell {
   // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
   protected readonly contentClasses = cva('flex-1 focus:outline-hidden')();
   protected readonly footerClasses = footerClasses;
+
+  readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
+  readonly #destroyRef = inject(DestroyRef);
+  private readonly header = viewChild.required<ElementRef<HTMLElement>>('header');
+
+  public constructor() {
+    afterNextRender(() => {
+      const header = this.header().nativeElement;
+      const publish = (): void => {
+        const { style } = this.#host.nativeElement;
+        style.setProperty(HEADER_HEIGHT_PROPERTY, `${header.offsetHeight}px`);
+        style.setProperty(RAIL_HEIGHT_PROPERTY, `calc(100dvh - ${header.offsetHeight}px)`);
+      };
+      publish();
+      const observer = new ResizeObserver(publish);
+      observer.observe(header);
+      this.#destroyRef.onDestroy(() => {
+        observer.disconnect();
+      });
+    });
+  }
 }
