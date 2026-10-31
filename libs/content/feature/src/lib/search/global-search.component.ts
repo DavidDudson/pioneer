@@ -6,6 +6,7 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
 import { ShellSearch } from '@pioneer/shared/web';
 
+import { GlobalSearchIndex } from './global-search-index';
 import { GlobalSearchSession } from './global-search-session';
 import { isSearchShortcut } from './global-search-shortcut';
 
@@ -24,7 +25,7 @@ const SearchMessage = {
   selector: 'pio-global-search',
   imports: [Combobox, TranslocoPipe],
   templateUrl: './global-search.component.html',
-  providers: [GlobalSearchSession],
+  providers: [GlobalSearchIndex, GlobalSearchSession],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '(document:keydown)': 'shortcut($event)', '(focusin)': 'session.warm()' },
 })

@@ -23,6 +23,7 @@ import { ShellSearch } from '@pioneer/shared/web';
 
 import { refOf } from '../browser/browse-state';
 import { ContentBrowser } from '../browser/content-browser.component';
+import { GlobalSearchIndex } from '../search/global-search-index';
 import { GlobalSearchSession } from '../search/global-search-session';
 import { isSearchShortcut } from '../search/global-search-shortcut';
 import { browserLink, ORIGIN_STATE } from './open-in-browser';
@@ -47,7 +48,7 @@ const PanelMessage = {
   selector: 'pio-content-side-panel',
   imports: [Button, Combobox, ContentBrowser, Link, Stack, TranslocoPipe],
   templateUrl: './content-side-panel.component.html',
-  providers: [GlobalSearchSession],
+  providers: [GlobalSearchIndex, GlobalSearchSession],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '(document:keydown)': 'shortcut($event)', '(focusin)': 'session.warm()' },
 })

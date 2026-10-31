@@ -76,3 +76,17 @@ export const BROWSE_LOADER: PackContentsLoader = {
   id: BROWSE_PACK.id,
   load: async () => packContentsFromFiles(BROWSE_PACK.manifest, [BROWSE_PACK.otherEntries, [GIANT_RAT]]),
 };
+
+const HOMEBREW_BUILDER = new ContentPackBuilder().withId('browse-brew');
+
+/** A homebrew pack with one feat, for specs of the browser listing what a character's packs add. */
+export const HOMEBREW_PACK: ContentPack = HOMEBREW_BUILDER.withFeat('brew-strike', {
+  level: 1,
+  traits: ['general'],
+}).build();
+
+/** The homebrew pack as a delivery serves it to a signed-in user. */
+export const HOMEBREW_LOADER: PackContentsLoader = {
+  id: HOMEBREW_PACK.id,
+  load: async () => packContentsFromFiles(HOMEBREW_PACK.manifest, [HOMEBREW_PACK.otherEntries]),
+};

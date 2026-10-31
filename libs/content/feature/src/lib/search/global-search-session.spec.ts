@@ -9,6 +9,7 @@ import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { GlobalSearchIndex } from './global-search-index';
 import { GlobalSearchSession } from './global-search-session';
 
 const PACK: ContentPack = new ContentPackBuilder()
@@ -63,6 +64,7 @@ function start(): Started {
         },
       },
       ...provideContentTesting(delivery),
+      GlobalSearchIndex,
       GlobalSearchSession,
     ],
   });
