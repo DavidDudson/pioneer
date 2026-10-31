@@ -1,0 +1,82 @@
+[
+  {
+    "id": "54bba5e4-e121-5b53-b9ff-5e1304944b22",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:android",
+    "name": "Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "1a596c46-24bb-5c95-abe8-9c55c9171e73",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:geniekin",
+    "name": "Geniekin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": [
+        "action",
+        "ancestry",
+        "ancestry-feature",
+        "class-feature",
+        "creature",
+        "equipment",
+        "feat",
+        "heritage",
+        "weapon"
+      ]
+    }
+  },
+  {
+    "id": "772ec0d7-2ad4-5d86-b521-941ae98ceb82",
+    "pack": "core-rules",
+    "kind": "trait",
+    "slug": "trait:resonant",
+    "name": "Resonant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "appliesTo": ["weapon"]
+    }
+  }
+]

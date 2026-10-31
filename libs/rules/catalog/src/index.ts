@@ -35,6 +35,7 @@ import {
 } from './more-orc-packs';
 import {
   advancedPlayersGuidePack,
+  ancestryGuidePack,
   characterGuidePack,
   coreRulebookPack,
   impossibleLandsPack,
@@ -131,6 +132,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('secrets-of-magic', secretsOfMagicPack),
   checkedLoader('rage-of-elements', rageOfElementsPack),
   checkedLoader('impossible-lands', impossibleLandsPack),
+  checkedLoader('ancestry-guide', ancestryGuidePack),
   checkedLoader('character-guide', characterGuidePack),
   checkedLoader('core-rulebook', coreRulebookPack),
   checkedLoader('advanced-players-guide', advancedPlayersGuidePack),

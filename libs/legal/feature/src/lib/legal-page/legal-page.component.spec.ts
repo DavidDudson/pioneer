@@ -131,6 +131,7 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -156,6 +157,7 @@ describe('LegalPage', () => {
       'Dark Archive (Remastered)',
       'Lost Omens Character Guide',
       'Lost Omens Impossible Lands',
+      'Lost Omens Ancestry Guide',
       'Impossible Magic',
       'Guns & Gears',
       'Battlecry!',
@@ -195,6 +197,7 @@ describe('LegalPage', () => {
       ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
       'ORC License',
       'ORC License',
+      'Open Game License 1.0a',
       'Open Game License 1.0a',
       'Open Game License 1.0a',
       'ORC License',
@@ -252,6 +255,7 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Dark Archive \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Impossible Lands\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Lost Omens Ancestry Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Core Rulebook\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Advanced Player's Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^The Show Must Go On\s*Foundry release pf2e-8\.6\.0$/u),

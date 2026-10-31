@@ -1,0 +1,840 @@
+[
+  {
+    "id": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94",
+    "pack": "ancestry-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:android",
+    "name": "Android",
+    "rarity": "rare",
+    "traits": ["android", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Technological wonders from another world, androids have synthetic bodies and living souls. Their dual nature makes them quick-thinking and calm under pressure, but comfortable in stillness and solitude.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Android",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "b7c6770f-582f-5c2b-b202-f412574ba727"
+      },
+      {
+        "key": "GrantItem",
+        "item": "c2c9de09-f2b4-533b-91fb-c6c6e2d52b05"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:android",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Android feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:android",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Android feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:android",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Android feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:android",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Android feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:android",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Android feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.GfLwE884NoRC7cRi"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["dex"], ["int"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["cha"],
+      "languages": ["23923b6a-6ffe-5c88-9fcb-eb845712bf22", "444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "ae9c727a-c819-5c5f-9329-c79ac7b4b03d",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e",
+          "276f9100-0ab7-552f-9522-ac588f13c106"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "e2101776-f83a-5828-b46a-ffd770e095d1",
+    "pack": "ancestry-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:fleshwarp",
+    "name": "Fleshwarp",
+    "rarity": "rare",
+    "traits": ["aberration", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fleshwarps are people whose forms were created or radically transformed by magic, alchemy, or unnatural energies. Their unorthodox appearance can make it difficult for them to find a place for themselves in the world.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fleshwarp",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "7190a8ca-b9e0-5b34-9eb5-1561d45471b9"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fleshwarp",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fleshwarp feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fleshwarp",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fleshwarp feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fleshwarp",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fleshwarp feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fleshwarp",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fleshwarp feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:fleshwarp",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Fleshwarp feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.FXlXmNBFiiz9oasi"
+    },
+    "data": {
+      "hitPoints": 10,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["con"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "9eb3fc7c-9993-5e7e-8187-82c5e231659b",
+    "pack": "ancestry-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:kitsune",
+    "name": "Kitsune",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "kitsune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kitsune are a charismatic and witty people with a connection to the spiritual that grants them many magical abilities, chiefly the power to shapechange into other forms. Whether they pass unseen among other peoples or hold their tails high, kitsune are clever observers of the societies around them.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kitsune"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "divine"
+      },
+      {
+        "key": "GrantItem",
+        "item": "c23a1f29-c710-58ff-8ca9-151a291a5615"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kitsune",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kitsune feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kitsune",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kitsune feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kitsune",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kitsune feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kitsune",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kitsune feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kitsune",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kitsune feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.4BL5wf1VF9feC2rY"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "dd8ed85b-b70c-5816-8ddc-31590346f8d5",
+    "pack": "ancestry-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:sprite",
+    "name": "Sprite",
+    "rarity": "rare",
+    "traits": ["fey", "sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sprites are diminutive, whimsical, and exuberant creatures from the fey realm known as the First World. They love playing pranks, exploring new things, and embracing everything to do with magic.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sprite",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "aef285a7-8248-5a60-b51b-14dc36da90af"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sprite",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sprite feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sprite",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sprite feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sprite",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sprite feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sprite",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sprite feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:sprite",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Sprite feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "tiny",
+      "speed": 20,
+      "boosts": [["dex"], ["int"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["str"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "c60a69f8-1fae-5452-9c94-4cf2bd4662b1",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "315eced7-9fa5-595b-bdab-002877559cff"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 0
+    }
+  }
+]

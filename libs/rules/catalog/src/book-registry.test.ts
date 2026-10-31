@@ -38,6 +38,7 @@ describe('book registry', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
       [
         'advanced-players-guide',
+        'ancestry-guide',
         'bastion-of-blasphemies',
         'battlecry',
         'character-guide',

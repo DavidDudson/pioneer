@@ -1,0 +1,2030 @@
+[
+  {
+    "id": "1a36cce8-eab2-5a5d-a220-859bf3c8527a",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-augment-senses",
+    "name": "Effect: Augment Senses",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "365a4a2c-0527-54b2-a571-01c9dfefcf92"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can't be flanked."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.JwDCoBIwyhOFnDGZ"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c95501d7-f870-5899-8dad-8da724b639e4",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-azarketi-purification",
+    "name": "Effect: Azarketi Purification",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e88dcc1a-7f85-516b-b73e-3d0b784ead62"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to your ongoing saves against poisons already present in your body."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["item:trait:poison", "option:ongoing-poison"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8rDbWcWmQL0N5FFG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "3cb79a2d-3a9f-562e-bf6d-4163410a3444",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-conduct-energy",
+    "name": "Effect: Conduct Energy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "24302806-33f2-56cc-b973-1b8e4a8d9510"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon deals 1 additional damage per weapon damage die. This damage type matches the trait of the triggering action or spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lU8IO9FIGK1DXVMy"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d47bacaf-c024-5957-bf18-3ea2c3982819",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-elemental-assault",
+    "name": "Effect: Elemental Assault",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "797d0549-a231-5d16-b13b-01dbebb7f351"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your Strikes deal an additional 1d6 damage of the indicated type and have the trait corresponding to the element: electricity for air, bludgeoning for earth, fire for fire, or cold for water."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "electricity",
+            "label": "Air",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:air"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:earth"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:fire"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cold",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:water"
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "elemental-assault"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "air",
+        "predicate": ["elemental-assault:electricity"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "earth",
+        "predicate": ["elemental-assault:bludgeoning"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "fire",
+        "predicate": ["elemental-assault:fire"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "water",
+        "predicate": ["elemental-assault:cold"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.XaZdQHF9GvaJINqH"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1c1eb8a7-1de1-514f-b26a-ee70b7a5c01b",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-elemental-bulwark",
+    "name": "Effect: Elemental Bulwark",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7eff9c7b-992e-5d9e-8327-6b31647250f8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain resistance against the triggering damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:air"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": [
+              {
+                "not": "feat:dualborn"
+              }
+            ]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": [
+              {
+                "not": "feat:dualborn"
+              }
+            ]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:earth"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:fire"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "feat:dualborn"
+                  },
+                  "dualborn:water"
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an element."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.U6BAwYT5iC8cmBDG"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9895d6a3-ffe6-5e5f-9ed8-eb37f6ab9360",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-energize-wings",
+    "name": "Effect: Energize Wings",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "878f392a-b291-515f-bb90-b7ae8a486677"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed of 30 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.8E5SCmFndGAvgkTw"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c88096d4-981f-5e7d-8cce-4f69c8031b6f",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-favorable-winds",
+    "name": "Effect: Favorable Winds",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c40dca40-49ef-51e7-9dcf-49754757cfc8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your weapon has a range increment of 10 feet or less, increase its range increment by 10 feet for that Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "strikes": [
+          {
+            "lte": ["item:range-increment", 10]
+          },
+          {
+            "not": "item:category:unarmed"
+          }
+        ],
+        "property": "range-increment",
+        "mode": "add",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.X1pGyhMKrCTvHB0q"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "25195b81-105c-5e02-bd2f-0aedefcce63a",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-fortify-shield",
+    "name": "Effect: Fortify Shield",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2e6c6727-accc-5ee0-b669-87bbb12ab0a5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Raise your Shield. Add your character level to your shield's Hardness."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6d28ce6a-b876-5711-b183-9f1528122d4b"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": "@level"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ghZFZWUh5Z20vOlR"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8d9bdda1-b62e-5412-b395-f4cee4bdcda1",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-guided-by-the-stars",
+    "name": "Effect: Guided by the Stars",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d993cfab-ad46-5f06-87e3-a064e3fc7826"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You roll twice and take the better result on your next skill check or saving throw. If it's night and you can see the stars, you gain a +1 circumstance bonus to the triggering roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-guided-by-the-stars",
+        "choices": [
+          {
+            "value": "skill-check",
+            "label": "Skill"
+          },
+          {
+            "value": "saving-throw",
+            "label": "Save"
+          }
+        ],
+        "prompt": "Select saving throw or skill.",
+        "rollOption": "guided-by-the-stars"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["option:night-time", "option:can-see-stars"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.raLQ458uiyd3lI2K"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "26e57ff6-05bd-514d-84f4-4609bf5b5a60",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-hybrid-shape-beastkin",
+    "name": "Effect: Hybrid Shape (Beastkin)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In hybrid shape, you appear as a mix between your ancestry and your inherent animal. While in hybrid shape, you gain a jaws unarmed Strike resembling the features of your inherent animal (fangs for bats, beaks for eagles, mandibles for wasps, and so on). Your jaws deal 1d4 piercing damage, have the agile, finesse, and unarmed traits, and are in the brawling weapon group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "beastkin-jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.qIOEe4kUN7FOBifb"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "edc3255c-415d-56fa-ada0-f280cc342607",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-hydraulic-deflection",
+    "name": "Effect: Hydraulic Deflection",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "2c758c03-2fed-5684-a00a-d95675982159"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IfsglZ7fdegwem0E"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ef27e09d-2dc1-52e9-88e4-8f62e4c36cee",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-juvenile-flight",
+    "name": "Effect: Juvenile Flight",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your land Speed while your wings are unfurled."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "5ea3de2f-e6b7-500c-b660-ea7a78b22e10"
+          },
+          {
+            "type": "text",
+            "text": ", you gain a +10-foot status bonus to your fly Speed with Juvenile Flight. As normal, since your fly Speed is derived from your land Speed, this status bonus isn't cumulative with a status bonus to your land Speed, if you have one."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land",
+        "predicate": [
+          {
+            "not": "feat:fully-flighted"
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": [
+          "feat:fledgling-flight",
+          {
+            "not": "feat:fully-flighted"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.0JrHvdUgJBl631En"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "caf51c1c-0fa0-5193-82d2-48de8e023766",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-maidens-mending",
+    "name": "Effect: Maiden's Mending",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b081d5f1-25cd-5c32-9b2d-911451050dcb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a number of temporary Hit Points equal to half your level (minimum 1) that last until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "max(floor(@level / 2), 1)"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.FIgud5jqZgIjwkRE"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "4a6c9360-e3f4-5301-b2ff-6e72fcffef22",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-mutate-weapon",
+    "name": "Effect: Mutate Weapon",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9e5b37d7-9989-5d9d-9e02-b645a9adeed8"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The damage die for the attack you gained with Living Weapon increases by one step. In addition, choose to either have the attack gain a reach of 10 feet or for you to gain a +1 status bonus to attack rolls with the chosen unarmed attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "mutate-weapon-target",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw",
+            "predicate": ["living-weapon:claw"]
+          },
+          {
+            "value": "horn",
+            "label": "Horn",
+            "predicate": ["living-weapon:horn"]
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws",
+            "predicate": ["living-weapon:jaws"]
+          },
+          {
+            "value": "tusk",
+            "label": "Tusk",
+            "predicate": ["living-weapon:tusk"]
+          },
+          {
+            "value": "tail",
+            "label": "Tail",
+            "predicate": ["living-weapon:tail"]
+          }
+        ],
+        "prompt": "Select one of your living weapons.",
+        "rollOption": "mutate-weapon-target"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-mutate-weapon",
+        "choices": [
+          {
+            "value": "reach",
+            "label": "Gain reach 10"
+          },
+          {
+            "value": "accuracy",
+            "label": "Gain +1 status bonus to attacks"
+          }
+        ],
+        "prompt": "Select a bonus.",
+        "rollOption": "mutate-weapon-bonus"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ITvyvbB234bxceRK"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5374f96e-be37-5f6f-a2ff-85a8d76cd3d3",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-nanite-surge",
+    "name": "Effect: Nanite Surge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b4395586-9f24-59d2-b032-c65a311ce3d9"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your circuitry glows, lighting a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " with dim light for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "033120b6-5ded-54ba-865b-d6bf92ea65fd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ErLweSmVAN57QIpp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "033120b6-5ded-54ba-865b-d6bf92ea65fd",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-nanite-surge-bonus",
+    "name": "Effect: Nanite Surge (Bonus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "b4395586-9f24-59d2-b032-c65a311ce3d9"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 status bonus to the triggering skill check."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.pFo9DVyaDb4LdURY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1a64d262-cbf7-5b60-88af-32a8744fab41",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-radiant-circuitry",
+    "name": "Effect: Radiant Circuitry",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "24f64132-4fbb-5abd-a27c-cb41d902a311"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You emit bright light in a 20-foot radius (and dim light for the next 20 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.263Cd5JMj8Lgc9yz"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0d5647a6-83b4-5f15-8ba1-4e13bc92020e",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-rampaging-form",
+    "name": "Effect: Rampaging Form",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "87e01256-bd75-5bfe-a4c1-7e7b6cc888f6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Change Shape into a form of living ice for 1 minute or until you shift back. Your battle form is Huge and has the following statistics:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 18 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "20 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Low-light vision and imprecise scent 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A Speed of 30, a Fly speed of 40, and you don't need to breathe"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Melee",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "one"
+                },
+                {
+                  "type": "text",
+                  "text": " jaws, "
+                },
+                {
+                  "type": "text",
+                  "text": "Damage",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2d8 piercing + 1d4 fire damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your unarmed attacks deal 1d4 additional fire damage, and your fire spells deal one additional die of fire damage (of the same damage die the spell uses)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can cast "
+                },
+                {
+                  "type": "ref",
+                  "id": "5f652603-de54-511c-aead-1966a7166ca8"
+                },
+                {
+                  "type": "text",
+                  "text": " as an innate spell; the casting is reduced from 2 actions to 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Athletics modifier of +20, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frozen Winds Kitsune:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Melee",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "action-cost",
+                  "cost": "one"
+                },
+                {
+                  "type": "text",
+                  "text": " jaws, "
+                },
+                {
+                  "type": "text",
+                  "text": "Damage",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2d8 piercing + 1d4 cold damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your unarmed attacks deal 1d4 additional cold damage, and your cold spells deal one additional die of cold damage (of the same damage die the spell uses)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can cast Ray of Frost as an innate spell; the casting is reduced from 2 actions to 1."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "cold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "18 + @level"
+          },
+          "size": "huge",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 20
+            }
+          ],
+          "speeds": {
+            "fly": 40,
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "tempHP": 20,
+          "immunities": [
+            {
+              "type": "fire"
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "cold",
+              "value": 5
+            },
+            {
+              "type": "water",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "precision",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15"],
+              "modifier": 18,
+              "damage": {
+                "dice": 4,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 7
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "predicate": [
+          {
+            "not": "self:heritage:frozen-wind-kitsune"
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "predicate": [
+          "option:unarmed",
+          {
+            "not": "self:heritage:frozen-wind-kitsune"
+          }
+        ]
+      },
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "18 + @level"
+          },
+          "size": "huge",
+          "skills": [
+            {
+              "skill": "skill:athletics",
+              "modifier": 20
+            }
+          ],
+          "speeds": {
+            "fly": 40,
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+            },
+            {
+              "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+              "acuity": "imprecise",
+              "range": 30
+            }
+          ],
+          "tempHP": 20,
+          "immunities": [
+            {
+              "type": "cold"
+            }
+          ],
+          "weaknesses": [
+            {
+              "type": "fire",
+              "value": 5
+            },
+            {
+              "type": "water",
+              "value": 5
+            }
+          ],
+          "resistances": [
+            {
+              "type": "precision",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "jaws",
+              "baseType": "jaws",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed", "reach-15"],
+              "modifier": 18,
+              "damage": {
+                "dice": 4,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 7
+              }
+            }
+          ],
+          "traits": ["animal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": false
+        },
+        "predicate": ["self:heritage:frozen-wind-kitsune"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "cold",
+        "predicate": ["option:unarmed", "self:heritage:frozen-wind-kitsune"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "damageType": "fire",
+        "predicate": [
+          "option:fire",
+          {
+            "not": "self:heritage:frozen-wind-kitsune"
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spell-damage"],
+        "diceNumber": 1,
+        "damageType": "fire",
+        "predicate": ["option:cold", "self:heritage:frozen-wind-kitsune"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DWrsDJte9sez0Ppi"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d7758615-c8cd-5812-a151-5ef7149726d9",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-repair-module",
+    "name": "Effect: Repair Module",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "98c7402c-3efa-5c87-a5a9-bb02e5f09529"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain fast healing equal to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.DjxZpQ4xJWWvYQqY"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0c732cf8-dd12-59aa-b500-8f610c090a68",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-striking-retribution",
+    "name": "Effect: Striking Retribution",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "590a1e75-4856-5438-ba6c-85acce0ec97f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your circumstance bonus to damage with weapons and unarmed attacks against creatures from the alghollthu family and those that serve alghollthus increases to +4"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "striking-retribution",
+        "mode": "add",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["target:mark:striking-retribution", "target:tag:alghollthu", "target:tag:alghollthu-servant"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.EzgW32MCOGov9h5C"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "94c5f316-1829-5801-bb19-584153a9aa5e",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-tidal-shield",
+    "name": "Effect: Tidal Shield",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ffb882f2-fa0a-5603-986a-cec5ac081cde"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.UBC6HbfqbfPQYlMq"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round",
+        "expiry": "turn-end",
+        "sustained": true
+      }
+    }
+  },
+  {
+    "id": "1cad936d-0e28-5230-809e-cb54121ceac1",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-wings-of-air",
+    "name": "Effect: Wings of Air",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "1755e7ad-766d-5433-9908-68a4a6012ef1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a fly Speed equal to your land Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": "@stat.speed.land"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.k1J2SaHPwZb2Y6Bp"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "957551d2-bd91-56eb-a759-5ed56187dd90",
+    "pack": "ancestry-guide",
+    "kind": "effect",
+    "slug": "effect:effect-change-shape-kitsune",
+    "name": "Effect: Change Shape (Kitsune)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Change Shape"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take on a human form. You can Dismiss the effect to return to your natural shape."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

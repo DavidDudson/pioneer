@@ -32,6 +32,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Secrets of Magic', BookId.parse('secrets-of-magic')],
   ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
   ['Pathfinder Lost Omens Impossible Lands', BookId.parse('impossible-lands')],
+  ['Pathfinder Lost Omens Ancestry Guide', BookId.parse('ancestry-guide')],
   ['Pathfinder Lost Omens Character Guide', BookId.parse('character-guide')],
   ['Pathfinder Core Rulebook', BookId.parse('core-rulebook')],
   ["Pathfinder Advanced Player's Guide", BookId.parse('advanced-players-guide')],
@@ -107,6 +108,7 @@ const OGL_BOOKS: ReadonlySet<BookId> = new Set([
   BookId.parse('rage-of-elements'),
   BookId.parse('character-guide'),
   BookId.parse('impossible-lands'),
+  BookId.parse('ancestry-guide'),
 ]);
 
 /**

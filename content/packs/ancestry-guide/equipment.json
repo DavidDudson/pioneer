@@ -1,0 +1,279 @@
+[
+  {
+    "id": "5aa20f42-72be-5fc8-abbc-1cce4db211c4",
+    "pack": "ancestry-guide",
+    "kind": "equipment",
+    "slug": "equipment:orc-warmask",
+    "name": "Orc Warmask",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9f73f700-d870-5e62-9d87-f7abf79f9b1e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You paint your face to create a "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", an invested magic item of negligible Bulk with an item level equal to your level and a usage of worn (mask). It has the divination trait and a magical tradition trait depending on its type. Donning or removing your "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires 1 minute of work, though you don't need to Invest the mask each time. The "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is unique to you and might signify your hold, your accomplishments, or your faith. While creating your mask, you must choose the source of your "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s power from the options below. This source determines the mask's associated skill as well as magical tradition. Once you select this source, it can't be changed. You become trained in the associated skill, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ea6c8962-0fc5-5db6-8fbd-0ad99296eae2"
+          },
+          {
+            "type": "text",
+            "text": " skill feat as a bonus feat. You can spend 1 hour performing a ceremony that costs 50 gp to attune yourself more deeply with your "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If you do, you gain a +1 item bonus to the associated skill whenever you wear the "
+          },
+          {
+            "type": "text",
+            "text": "warmask",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Gods",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Religion, divine tradition"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Land",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Nature, primal tradition"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Magic",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Arcana, arcane tradition"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The Unknown",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Occultism, occult tradition"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "tradition",
+        "choices": [
+          {
+            "value": "religion",
+            "label": "The Gods"
+          },
+          {
+            "value": "nature",
+            "label": "The Land"
+          },
+          {
+            "value": "arcana",
+            "label": "Magic"
+          },
+          {
+            "value": "occultism",
+            "label": "The Unknown"
+          }
+        ],
+        "prompt": "Choose the source of your warmask's power."
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZEDDVQDtUZ2qOB5q"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  },
+  {
+    "id": "3241787c-7b75-5f3b-91bb-9f4fefe09dca",
+    "pack": "ancestry-guide",
+    "kind": "equipment",
+    "slug": "equipment:splendid-skull-mask",
+    "name": "Splendid Skull Mask",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["ratfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisite: "
+          },
+          {
+            "type": "ref",
+            "id": "03b8e847-3b1f-57f5-bd6f-15aca17bafdb"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mask grants you a +1 item bonus to Intimidation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HYnwTFuLsFSsUAMG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "mask"
+      }
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "3dae15e4-287e-532a-b938-7a3ab547a02c",
+    "pack": "ancestry-guide",
+    "kind": "consumable",
+    "slug": "consumable:wooden-taws",
+    "name": "Wooden Taws",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wooden Taws to be fired from a Taw launcher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YrNmw0Rn3MqT0yKP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        },
+        "per": 10
+      },
+      "bulk": "negligible",
+      "category": "ammunition",
+      "ammunition": ["wooden-taws"]
+    }
+  }
+]

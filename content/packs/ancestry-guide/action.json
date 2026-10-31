@@ -1,0 +1,580 @@
+[
+  {
+    "id": "24302806-33f2-56cc-b973-1b8e4a8d9510",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:conduct-energy",
+    "name": "Conduct Energy",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your last action or spell this turn had the acid, cold, electricity, fire, or sonic trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel energy into your weapon. The weapon deals 1 additional damage per weapon damage die until the start of your next turn. This damage type matches the trait of the triggering action or spell. If your triggering action or spell had multiple eligible traits, you select one of those traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3cb79a2d-3a9f-562e-bf6d-4163410a3444"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.BKnN9la3WNrRgZ6n"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your last action or spell this turn had the acid, cold, electricity, fire, or sonic trait."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "17f42ac9-9067-5f48-bfee-f0212d3ab0df",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:invigorating-fear",
+    "name": "Invigorating Fear",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 60 feet gains the "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are invigorated by the shock of a prank or the thrum of terror. You gain temporary Hit Points equal to the creature's level or 3, whichever is higher. You lose any temporary Hit Points after 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ul4I0ER6pj3U5eAk"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 60 feet gains the Frightened condition."
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "1de365ef-427b-597a-bfb1-79043c6b93f5",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:invoke-celestial-privilege",
+    "name": "Invoke Celestial Privilege",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against a divine effect, but you haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You rise above the triggering effect, refusing to be harmed by it. You gain a +1 circumstance bonus to the triggering saving throw and to any other saving throws you attempt against divine effects until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:divine", "option:celestial-privilege"]
+      },
+      {
+        "key": "RollOption",
+        "option": "option:celestial-privilege",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Aq2mXT2hLlstFL5C"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a saving throw against a divine effect, but you haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "2720db6e-c857-528e-b504-2c13497f1a1e",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:mist-blending",
+    "name": "Mist Blending",
+    "rarity": "common",
+    "traits": ["undine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature attempts a flat check to target you because you're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " due to fog, haze, mist, or smoke"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shroud yourself in mist, making it harder for your foe to hit you. If you're concealed, the DC of the flat check increases from 5 to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 7
+          },
+          {
+            "type": "text",
+            "text": "; if you're hidden, it increases from 11 to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 13
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.I9k9qe4gOT8UVK4e"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature attempts a flat check to target you because you're Concealed or Hidden due to fog, haze, mist, or smoke"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9d07e39b-50c1-5afb-b95d-4c810765b450",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:salt-wound",
+    "name": "Salt Wound",
+    "rarity": "common",
+    "traits": ["undine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature that has blood and is not at its maximum Hit Points hits you with a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You channel salt and brine from your blood into the creature's wounds. The creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": {
+              "against": "class-or-spell-dc"
+            }
+          },
+          {
+            "type": "text",
+            "text": " using your class DC or spell DC, whichever is higher. On a failure, the creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " by the pain. On a critical failure, it instead takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "acid",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.b6CanpXyUKJgxEwq"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature that has blood and is not at its maximum Hit Points hits you with a melee Strike"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "0d3dad03-357a-523d-9ffb-c14cb35176d6",
+    "pack": "ancestry-guide",
+    "kind": "action",
+    "slug": "action:smoke-blending",
+    "name": "Smoke Blending",
+    "rarity": "common",
+    "traits": ["sylph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature attempts a flat check to target you because you're "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " due to fog, haze, mist, or smoke"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You shroud yourself in smoke, making it harder for your foe to hit you. If you're concealed, the DC of the flat check increases from 5 to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 7
+          },
+          {
+            "type": "text",
+            "text": "; if you're hidden, it increases from 11 to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 13
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.pTHMZLqWDJ3lkan9"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature attempts a flat check to target you because you're Concealed or Hidden due to fog, haze, mist, or smoke"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

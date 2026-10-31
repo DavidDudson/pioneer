@@ -1,0 +1,160 @@
+[
+  {
+    "id": "15084988-d217-52ce-a0f3-d0894050a606",
+    "pack": "ancestry-guide",
+    "kind": "rune",
+    "slug": "rune:conducting",
+    "name": "Conducting",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A conducting weapon can channel energy through it. The weapon gains the resonant weapon trait, except that when you "
+          },
+          {
+            "type": "ref",
+            "id": "24302806-33f2-56cc-b973-1b8e4a8d9510"
+          },
+          {
+            "type": "text",
+            "text": ", the weapon deals an additional 1d8 damage of the selected type instead of 1 additional damage per die; if the weapon already had the resonant weapon trait, it deals 1d8 damage plus 1 damage per die instead. On a critical hit, the weapon deals 1d8 persistent damage of the same type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cHCaDiKel0qAIQmC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "b3cb8e75-3dac-5585-9eba-603cef971553",
+    "pack": "ancestry-guide",
+    "kind": "rune",
+    "slug": "rune:soaring",
+    "name": "Soaring",
+    "level": 14,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A set of soaring armor helps you fly faster and protects you and nearby allies from falling. While wearing soaring armor, you gain a +10-foot item bonus to your fly Speed, if you have one. As normal, if your fly Speed is based on your land Speed and you already have an item bonus to your land Speed, these bonuses aren't cumulative."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or a creature within 60 feet of you is falling"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "9d83db58-4a62-5f49-b04a-55d6b4f18e7b"
+          },
+          {
+            "type": "text",
+            "text": " on the triggering creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CJtn848AL7Q0Lxf2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3750
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  }
+]
