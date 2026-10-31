@@ -321,15 +321,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "MovementCost",
+        "extra": 5,
+        "predicate": [
+          {
+            "not": "self:immunity:difficult-terrain"
+          }
+        ]
+      }
+    ],
     "data": {
       "group": "terrain-difficulty",
-      "restrictions": [
-        {
-          "id": "movement-cost",
-          "reason": "Each square of difficult terrain you move into costs 5 extra feet of movement."
-        }
-      ],
+      "restrictions": [],
       "consequences": []
     }
   },
@@ -360,15 +365,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "MovementCost",
+        "extra": 10,
+        "predicate": [
+          {
+            "not": "self:immunity:greater-difficult-terrain"
+          }
+        ]
+      }
+    ],
     "data": {
       "group": "terrain-difficulty",
-      "restrictions": [
-        {
-          "id": "movement-cost",
-          "reason": "Each square of greater difficult terrain you move into costs 10 extra feet of movement."
-        }
-      ],
+      "restrictions": [],
       "consequences": []
     }
   },

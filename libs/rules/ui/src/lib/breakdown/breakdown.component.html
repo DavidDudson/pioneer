@@ -6,6 +6,9 @@
   @if (breakdown.form; as form) {
     <fr-text>{{ form }}</fr-text>
   }
+  @if (breakdown.movementCost; as movementCost) {
+    <fr-text>{{ movementCost }}</fr-text>
+  }
   <fr-text variant="caption" tone="muted">{{ breakdown.base }}</fr-text>
   <pio-base-terms [terms]="breakdown.terms" />
   <fr-text variant="caption" tone="muted">{{ Message.Modifiers | transloco }}</fr-text>

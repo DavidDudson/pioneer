@@ -11736,10 +11736,6 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
-      },
-      {
         "key": "Immunity",
         "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
@@ -12071,10 +12067,6 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
-      },
-      {
         "key": "Immunity",
         "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
@@ -12282,10 +12274,6 @@
           ],
           "traits": []
         }
-      },
-      {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
       },
       {
         "key": "Immunity",
@@ -12497,10 +12485,6 @@
           ],
           "traits": []
         }
-      },
-      {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
       },
       {
         "key": "Immunity",
@@ -13024,10 +13008,6 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
-      },
-      {
         "key": "Immunity",
         "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
@@ -13471,10 +13451,6 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
-      },
-      {
         "key": "Immunity",
         "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
@@ -13794,10 +13770,6 @@
           ],
           "traits": []
         }
-      },
-      {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
       },
       {
         "key": "Immunity",

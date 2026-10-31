@@ -14,6 +14,7 @@ import { FastHealingElement, TempHPElement } from './rule-element-healing';
 import { ItemAlterationElement } from './rule-element-item-alteration';
 import { LanguageElement } from './rule-element-language';
 import { LiftRestrictionElement } from './rule-element-lift-restriction';
+import { MovementCostElement } from './rule-element-movement-cost';
 import { NoteElement } from './rule-element-note';
 import {
   AdjustModifierElement,
@@ -86,6 +87,7 @@ const Element = z.discriminatedUnion('key', [
   SubstituteRollElement,
   AuraElement,
   LiftRestrictionElement,
+  MovementCostElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

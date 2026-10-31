@@ -852,6 +852,22 @@ Threshold beside the Strikes, and a weapon's traits, range increment and damage 
 materials and the property runes an element adds are listed on its Strike. A property rune etched on the item works
 through its own rules, not through this list. `speed-penalty` is altered but nothing reads armour's speed penalty yet.
 
+### Movement cost
+
+A `MovementCost` element (a Pioneer element: Foundry has none) says what entering each 5-foot square costs beyond the
+square itself while its predicate holds. Difficult terrain carries 5 and greater difficult terrain 10, as rules of the
+two environments. `deriveStatistics` applies it as the last step of a Speed, after a battle form: the Speeds the element
+names (land unless it says otherwise) drop to the distance a Stride covers, `floor(speed / (5 + extra)) * 5`, so a Speed
+of 25 covers 10 over difficult terrain and 5 over greater difficult terrain. It works on the total, so every bonus to
+the Speed counts first. When several elements reach a Speed the costliest counts, and a Speed a set override pinned, one
+that failed, and one the cost would not lower stay as they are. The result carries `movementCost` (the source, the extra
+cost and the Speed before it), which the breakdown words as "Difficult Terrain: a Stride covers 10 feet, not 25".
+
+Immunity to the terrain is a fact. `factsUnderForm` adds `self:immunity:<type>` for each `Immunity` element whose
+predicate holds and each immunity of a battle form, so the environment's cost is predicated on
+`not self:immunity:difficult-terrain` and a character with that immunity keeps the Speed. The immunity also shows in the
+immunity list like any other.
+
 ## Predicates and conditional modifiers
 
 Predicates use Foundry's JSON shape so imported content needs no rewriting: an array means _all_, plus `or`, `and`,

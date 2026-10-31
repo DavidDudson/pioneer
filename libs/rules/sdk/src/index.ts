@@ -421,6 +421,7 @@ export {
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SenseElement } from './rule-element-sense';
 export { LiftRestrictionElement } from './rule-element-lift-restriction';
+export { MovementCostElement } from './rule-element-movement-cost';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';

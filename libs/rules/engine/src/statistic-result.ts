@@ -1,6 +1,6 @@
 import { FORMULA_VALUE_MAX, TextPosition } from '@pioneer/rules/formula';
 import type { FormulaReference, FormulaValue } from '@pioneer/rules/formula';
-import type { Selector } from '@pioneer/rules/sdk';
+import type { Feet, Selector } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
@@ -36,6 +36,18 @@ export interface FormReplacement {
 }
 
 /**
+ * How terrain that costs extra movement bears on a Speed: the Speed shown is what a Stride covers, `was` the Speed
+ * before the cost. The sheet names the source with `label` and words it with `EngineMessage.MovementCostReduces`.
+ */
+export interface MovementCostReduction {
+  readonly rule: RuleId;
+  readonly label: ModifierLabel;
+  /** What each square costs beyond itself, in feet. */
+  readonly extra: Feet;
+  readonly was: FormulaValue;
+}
+
+/**
  * A statistic's breakdown: its base formula term by term and the value they add up to, the `Change`s that turned
  * that into its base, every modifier that reaches it as a line, the total those compute, and the total shown,
  * which a set override may pin.
@@ -59,6 +71,8 @@ export interface StatisticValue {
   readonly pinnedBy: RuleId | undefined;
   /** Set when a battle form replaces this statistic; absent otherwise. */
   readonly form?: FormReplacement;
+  /** Set when terrain that costs extra movement lowers this Speed; absent otherwise. */
+  readonly movementCost?: MovementCostReduction;
 }
 
 /** Why a statistic has no value, pointing into its base formula. */
