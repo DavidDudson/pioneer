@@ -5,6 +5,7 @@ import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { kebab, slugOf } from './foundry-flags';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
+import { ownedQueryOf } from './translate-owned-picks';
 import { SKILL_CHOICES, skillChoicesWhere } from './translate-skill-choices';
 
 /**
@@ -171,7 +172,8 @@ function choicesOf(choices: unknown, references: EntryReferences): unknown {
     'config' in choices && typeof choices.config === 'string' && fields.length === 1
       ? CONFIG_CHOICES.get(choices.config)
       : undefined;
-  return configured ?? queryOf(choices);
+  const owned = ownedQueryOf(choices, (statement) => withItemLevel(namespacedStatement(statement)));
+  return configured ?? (owned === choices ? queryOf(choices) : owned);
 }
 
 /**

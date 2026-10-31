@@ -35,9 +35,17 @@ import {
   withNamespacedOptions,
 } from './translate-modifiers';
 import { withNoteText } from './translate-notes';
+import {
+  ambiguousOwned,
+  danglingPick,
+  ownedFlagsOf,
+  ownedFlagsOnce,
+  pickedFlagsIn,
+  withOwnedPicks,
+} from './translate-owned-picks';
 import { withRollOption } from './translate-roll-options';
-import { withSkillPathChoices } from './translate-skill-raises';
 // oxlint-disable-next-line import/max-dependencies -- where every Foundry rule element is shaped, one translator module for each kind
+import { withSkillPathChoices } from './translate-skill-raises';
 import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
@@ -150,9 +158,13 @@ function withGrants(raw: unknown, references: EntryReferences): unknown {
   return withAura(granted, references);
 }
 
-function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey[]): Shaped {
+function shapeRule(
+  raw: unknown,
+  context: RuleContext,
+  { unresolved, owned }: { readonly unresolved: UnresolvedKey[]; readonly owned: ReadonlySet<string> },
+): Shaped {
   const references = context.references ?? NO_REFERENCES;
-  const text = withDisplayLabel(localized(raw, context, unresolved));
+  const text = withDisplayLabel(localized(withOwnedPicks(raw, owned), context, unresolved));
   const rolled = withRollOption(withNamespacedOptions(text), context.values.item);
   const scoped = withDiceFormula(withDefenceTypes(withItemScope(rolled)));
   const options = withNoteText(scoped, context);
@@ -203,7 +215,32 @@ function isStranded(element: RuleElement, flags: ReadonlySet<string>): boolean {
     return flags.has(String(element.flag));
   }
   const text = JSON.stringify(element);
-  return [...flags].some((flag) => text.includes(`"choice":"${flag}"`));
+  const picked = pickedFlagsIn(element);
+  return [...flags].some((flag) => text.includes(`"choice":"${flag}"`) || picked.includes(flag));
+}
+
+/**
+ * The elements of `standing` (undefined for one already kept for the backlog) that translate, and those kept: a rule
+ * that reads a pick no single `ChoiceSet` over owned items declares, and a `ChoiceSet` over owned items whose flag another
+ * `ChoiceSet` of the entry shares (ADR-0075), are kept too.
+ */
+function partition(
+  entry: ContentId,
+  shaped: readonly Shaped[],
+  standing: readonly (RuleElement | undefined)[],
+): Pick<RuleTranslation, 'rules' | 'untranslated'> {
+  const declared = ownedFlagsOnce(standing);
+  const rules: RuleElement[] = [];
+  const untranslated: UntranslatedRule[] = [];
+  for (const [index, { raw }] of shaped.entries()) {
+    const element = standing[index];
+    if (element !== undefined && !danglingPick(element, declared) && !ambiguousOwned(element, declared)) {
+      rules.push(element);
+    } else {
+      untranslated.push({ entry, key: keyOf(raw), raw });
+    }
+  }
+  return { rules, untranslated };
 }
 
 /**
@@ -217,23 +254,23 @@ function settle(
   parsed: readonly Parsed[],
 ): Pick<RuleTranslation, 'rules' | 'untranslated'> {
   const reads = (flag: string): boolean =>
-    parsed.some((element) => element.success && JSON.stringify(element.data).includes(`"choice":"${flag}"`));
+    parsed.some(
+      (element) =>
+        element.success &&
+        (JSON.stringify(element.data).includes(`"choice":"${flag}"`) || pickedFlagsIn(element.data).includes(flag)),
+    );
   const kept = shaped.map(({ plain }, index) => {
     const element = parsed[index];
     return element?.success === true && !isUnread(element.data, plain, reads);
   });
   const stranded = strandedFlags(shaped, kept);
-  const rules: RuleElement[] = [];
-  const untranslated: UntranslatedRule[] = [];
-  for (const [index, { raw }] of shaped.entries()) {
+  const standing = shaped.map((_shaped, index) => {
     const element = parsed[index];
-    if (kept[index] === true && element?.success === true && !isStranded(element.data, stranded)) {
-      rules.push(element.data);
-    } else {
-      untranslated.push({ entry, key: keyOf(raw), raw });
-    }
-  }
-  return { rules, untranslated };
+    return kept[index] === true && element?.success === true && !isStranded(element.data, stranded)
+      ? element.data
+      : undefined;
+  });
+  return partition(entry, shaped, standing);
 }
 
 export function translateRules(entry: ContentId, raws: readonly unknown[], context: RuleContext): RuleTranslation {
@@ -241,8 +278,9 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
   const granted = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references)));
+  const owned = ownedFlagsOf(granted);
   const shaped = withChoiceValues(withSkillPathChoices(granted), context.values.item).map((raw) =>
-    shapeRule(raw, context, unresolved),
+    shapeRule(raw, context, { unresolved, owned }),
   );
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
