@@ -86,6 +86,15 @@ describe('spells that conjure a shield', () => {
     expect(rule).toMatchObject({ hardnessAgainst: [{ types: ['piercing', 'slashing'], bonus: 2 }] });
   });
 
+  test('Glass Shield shards deal 1d4 piercing, heightened to 3d4, 4d4, 5d4 and 6d4', async () => {
+    const rule = await shieldOf('rage-of-elements', 'effect:spell-effect-glass-shield');
+
+    expect(rule).toMatchObject({
+      shards: { damageType: 'piercing', damage: '1d4' },
+      brackets: ['3d4', '4d4', '5d4', '6d4'].map((damage) => ({ shards: damage })),
+    });
+  });
+
   test('Shielded Arm has 15 Hit Points and no Broken Threshold, and ends when they are spent', async () => {
     const rule = await shieldOf('rage-of-elements', 'effect:spell-effect-shielded-arm');
 

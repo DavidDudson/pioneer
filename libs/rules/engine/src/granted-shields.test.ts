@@ -66,6 +66,19 @@ describe('shieldsInPlay', () => {
     expect(plain?.hardnessAgainst).toStrictEqual([]);
   });
 
+  test('the shards of a shield are heightened with its rank', () => {
+    const glass = {
+      key: 'GrantShield',
+      hardness: 2,
+      shards: { damageType: 'piercing', damage: '1d4' },
+      brackets: [{ start: 3, shards: '3d4' }],
+    };
+    const damageAt = (itemLevel: number): string | undefined =>
+      shieldsInPlay({ rules: [inPlay(glass, 'glass', { itemLevel })], facts: FACTS })[0]?.shards?.damage;
+
+    expect([damageAt(2), damageAt(3), damageAt(4)]).toStrictEqual(['1d4', '3d4', '3d4']);
+  });
+
   test('a bracket changes the Hit Points too, and a Broken Threshold of 0 stays', () => {
     const [shield] = shieldsInPlay({ rules: [inPlay(ARM, 'arm', { itemLevel: 3 })], facts: FACTS });
 

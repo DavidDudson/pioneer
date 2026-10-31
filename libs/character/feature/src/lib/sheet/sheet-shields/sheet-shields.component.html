@@ -1,6 +1,9 @@
 <fr-async-region>
   <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
   <ng-template [frAsyncData]="playQuery">
+    @if (shardsDue() !== '') {
+      <fr-text>{{ shardsDue() }}</fr-text>
+    }
     @if (shields().length > 0) {
       <fr-stack gap="xs">
         <fr-number-input

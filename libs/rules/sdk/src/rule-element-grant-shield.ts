@@ -1,6 +1,7 @@
 import * as z from 'zod';
 
 import { DamageTypeSchema } from './damage';
+import { DamageFormula } from './damage-formula';
 import { Hardness } from './physical-item';
 import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { SpellRank } from './spell-rank';
@@ -19,12 +20,17 @@ export type HardnessBonus = z.infer<typeof HardnessBonus>;
 /** How many ranks a shield can be heightened to: spell ranks 2 to 10, with room for the rank it starts at. */
 const BRACKETS_MAX = 10;
 
+/** The damage the shards of a shield that breaks deal, to roll with a basic save: Glass Shield's. */
+export const ShardDamage = z.strictObject({ damageType: DamageTypeSchema, damage: DamageFormula });
+export type ShardDamage = z.infer<typeof ShardDamage>;
+
 /** What a heightened shield changes from `start`: the spell rank (or higher) at which it applies. */
 const ShieldBracket = z.strictObject({
   start: SpellRank,
   hardness: Hardness.optional(),
   hitPoints: HitPoints.optional(),
   brokenThreshold: HitPoints.optional(),
+  shards: DamageFormula.optional(),
 });
 
 /**
@@ -34,7 +40,7 @@ const ShieldBracket = z.strictObject({
  * `endsOnBlock` ends the effect after one Shield Block; `endsWhenDestroyed` ends it when the Hit Points are spent, and
  * without it a destroyed shield is whole again for the next block. `raised` is a shield the cast raises: it can Shield
  * Block with no Raise a Shield. `hardnessAgainst` adds Hardness against a block of damage that is all of the types it
- * names.
+ * names. `shards` is the damage to roll, with a basic save, when the block that ends the effect breaks it.
  */
 export const GrantedShield = z.strictObject({
   hardness: Hardness,
@@ -44,6 +50,7 @@ export const GrantedShield = z.strictObject({
   endsWhenDestroyed: z.literal(true).optional(),
   raised: z.literal(true).optional(),
   hardnessAgainst: z.array(HardnessBonus).readonly().optional(),
+  shards: ShardDamage.optional(),
   brackets: z.array(ShieldBracket).max(BRACKETS_MAX).readonly().optional(),
 });
 export type GrantedShield = z.infer<typeof GrantedShield>;

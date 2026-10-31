@@ -1,7 +1,7 @@
 import { NO_MODIFIERS, shieldsInPlay } from '@pioneer/rules/engine';
 import type { ModifierInputs, ShieldInPlay } from '@pioneer/rules/engine';
 import { ContentKind, Hardness, HitPoints, NumericItemProperty } from '@pioneer/rules/sdk';
-import type { ContentId, HardnessBonus } from '@pioneer/rules/sdk';
+import type { ContentId, HardnessBonus, ShardDamage } from '@pioneer/rules/sdk';
 import { ContentNamespace, derivedId } from '@pioneer/shared/kernel';
 
 import { itemsIn } from './active-items';
@@ -16,6 +16,8 @@ export interface ShieldGrant {
   readonly effect: ContentId;
   readonly endsOnBlock: boolean;
   readonly endsWhenDestroyed: boolean;
+  /** The damage to roll when the block that ends the effect breaks the shield. */
+  readonly shards?: ShardDamage;
   /** The cast raised it, so it can block with no Raise a Shield. */
   readonly raised: boolean;
 }
@@ -52,6 +54,7 @@ function grantedShield({
   endsWhenDestroyed,
   raised,
   hardnessAgainst,
+  shards,
 }: ShieldInPlay): HeldShield {
   const held: HeldShield = {
     item: InventoryItemId.parse(derivedId(ContentNamespace, `granted-shield/${id}`)),
@@ -59,7 +62,7 @@ function grantedShield({
     hardness,
     hitPoints: hitPoints ?? NO_HIT_POINTS,
     brokenThreshold,
-    granted: { effect: source, endsOnBlock, endsWhenDestroyed, raised },
+    granted: { effect: source, endsOnBlock, endsWhenDestroyed, raised, ...(shards === undefined ? {} : { shards }) },
   };
   const typed = hardnessAgainst.length === 0 ? held : { ...held, hardnessAgainst };
   return hitPoints === undefined ? { ...typed, undamageable: true } : typed;

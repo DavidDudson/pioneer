@@ -4879,7 +4879,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Granted by "
+            "text": "Granted by  When you Shield Block, the shield explodes: the shards deal piercing damage to the creature that broke it if it is within 5 feet, with a basic Reflex save."
           },
           {
             "type": "ref",
@@ -4892,7 +4892,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You gain a +1 circumstance bonus to AC. You can Shield Block with the glass shield."
+            "text": "You gain a +1 circumstance bonus to AC. You can Shield Block with the glass shield. When you Shield Block, the shield explodes: the shards deal piercing damage to the creature that broke it if it is within 5 feet, with a basic Reflex save."
           }
         ]
       }
@@ -4914,22 +4914,30 @@
         "brackets": [
           {
             "start": 3,
-            "hardness": 4
+            "hardness": 4,
+            "shards": "3d4"
           },
           {
             "start": 5,
-            "hardness": 7
+            "hardness": 7,
+            "shards": "4d4"
           },
           {
             "start": 7,
-            "hardness": 10
+            "hardness": 10,
+            "shards": "5d4"
           },
           {
             "start": 9,
-            "hardness": 12
+            "hardness": 12,
+            "shards": "6d4"
           }
         ],
-        "raised": true
+        "raised": true,
+        "shards": {
+          "damageType": "piercing",
+          "damage": "1d4"
+        }
       }
     ],
     "externalIds": {
