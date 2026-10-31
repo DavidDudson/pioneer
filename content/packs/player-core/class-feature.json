@@ -4642,7 +4642,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3094544c-ebbb-538b-9281-28aa546ed805",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "18a90f60-1221-56c3-8839-9bb833a2b5c3",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Zb7DuGbFoLEp0H1K"
     },
@@ -4857,7 +4868,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8d135d23-e339-5cfa-9dfc-1f69d299dbbd",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "557e5e59-f70f-5425-a1c4-ce2cdc17099c",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.urBGOPrUwBmkixAo"
     },
@@ -5000,7 +5022,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "01bccd1e-341a-5e65-afd2-806bff6c77db",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "663e3e43-67a9-5b9c-bbc3-8de585de2c57",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Qejo7FUWQtPTpgWH"
     },
@@ -5328,7 +5361,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "02e4f8f8-91f3-507c-b925-7e76f61571c0",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "384198f5-fa8a-5570-8dff-e9c35d2f0d0b",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.o8nHreMyiLi64rZz"
     },
@@ -12746,7 +12790,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "281fa16b-978a-5417-b6df-c4755dadcd4e",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "2da25522-53aa-572d-8a71-fcf05c0ccede",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.OnfrrwCfDFCFw0tc"
     },
@@ -14617,7 +14672,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "cff1c9a4-2335-5fab-a390-39ec88ca587f",
+        "predicate": ["feature:warpriest"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "8092ca68-c354-5f1a-9e25-30a5cc3db2ba",
+        "predicate": ["feature:cloistered-cleric"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gxNxfN9OBlQ1icus"
     },
