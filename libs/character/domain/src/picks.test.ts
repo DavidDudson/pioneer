@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { PickIndex, Seed, seededPicks } from './pick-source';
 import type { PickSource } from './pick-source';
-import { PickRefusal, PickWeight, pickOne, pickWeighted, shuffle } from './picks';
+import { pickOne, PickRefusal, PickWeight, pickWeighted, shuffle } from './picks';
 import type { PickOutcome, Weighted } from './picks';
 import { scriptedPicks } from './testing';
 

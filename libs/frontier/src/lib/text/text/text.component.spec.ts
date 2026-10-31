@@ -28,7 +28,7 @@ async function render(inputs: Readonly<Record<string, unknown>>, content = 'AC')
     rendered = rendered.firstElementChild;
   }
   if (!(rendered instanceof HTMLElement)) {
-    throw new Error('fr-text rendered no element');
+    throw new TypeError('fr-text rendered no element');
   }
   return rendered;
 }

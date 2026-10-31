@@ -23,7 +23,7 @@ import {
 } from '@pioneer/character/domain/testing';
 import { DieFace } from '@pioneer/rules/dice';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, nextVersion, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, nextVersion, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

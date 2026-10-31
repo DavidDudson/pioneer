@@ -6,7 +6,7 @@ function base64Url(bytes: Uint8Array): string {
   return btoa(String.fromCodePoint(...bytes))
     .replaceAll('+', '-')
     .replaceAll('/', '_')
-    .replace(/=+$/u, '');
+    .replace(/[=]+$/u, '');
 }
 
 function hex(bytes: Uint8Array): string {

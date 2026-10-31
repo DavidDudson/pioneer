@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { BoostSource, CLASS_SLOT, SECOND_CLASS_SLOT } from '@pioneer/character/domain';
 import type { Character, CharacterVariantRule } from '@pioneer/character/domain';
-import { Occurrences, PathbuilderName, ImportKind, UnmatchedReason } from '@pioneer/interop/pathbuilder';
+import { ImportKind, Occurrences, PathbuilderName, UnmatchedReason } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport, UnmatchedName } from '@pioneer/interop/pathbuilder';
 import { mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { Attribute, ChoiceValue, ContentKind, SlotKey, VariantRuleId, VariantStructure } from '@pioneer/rules/sdk';

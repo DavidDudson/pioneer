@@ -21,7 +21,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
   await appRef.whenStable();
   const rendered = (message.location.nativeElement as HTMLElement).firstElementChild;
   if (!(rendered instanceof HTMLElement)) {
-    throw new Error('fr-message rendered no element');
+    throw new TypeError('fr-message rendered no element');
   }
   return rendered;
 }

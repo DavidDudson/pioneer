@@ -24,7 +24,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
   await appRef.whenStable();
   const rendered = (heading.location.nativeElement as HTMLElement).firstElementChild;
   if (!(rendered instanceof HTMLElement)) {
-    throw new Error('fr-heading rendered no element');
+    throw new TypeError('fr-heading rendered no element');
   }
   return rendered;
 }

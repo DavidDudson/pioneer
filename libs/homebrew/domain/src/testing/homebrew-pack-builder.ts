@@ -1,5 +1,5 @@
 import { contentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
-import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
+import { derivedId, fixedClock, FixtureNamespace, UserId } from '@pioneer/shared/kernel';
 import type { Temporal } from '@pioneer/shared/kernel';
 
 import { HomebrewPack } from '../homebrew-pack';

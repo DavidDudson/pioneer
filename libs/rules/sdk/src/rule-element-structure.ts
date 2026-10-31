@@ -9,7 +9,7 @@ import { ConditionValue } from './origin';
 import { Predicate } from './predicate';
 import { RollOption } from './roll-option';
 import { RollOptionNamespace } from './roll-option-namespace';
-import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Domain } from './selector';
 
 /** A choice's stored value: a content entry (`ContentId`) or a plain option (`forest`). */

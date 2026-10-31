@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { Count, embeddedOf, itemSystem, itemsOfType } from './creature-embedded';
+import { Count, embeddedOf, itemsOfType, itemSystem } from './creature-embedded';
 import type { Embedded } from './creature-embedded';
 import { resolveSlug } from './entry-references';
 import { FOUNDRY_TYPE_KINDS } from './entry-slugs';

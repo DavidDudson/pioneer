@@ -7,7 +7,7 @@ import { SkillTrainingSourceKind } from './skill-trained';
 import type { SkillTrainingSource } from './skill-trained';
 import { skillsTrainedTwice } from './skill-twice';
 import { slotContent } from './slot-reads';
-import { CharacterBuilder, playerCoreClassId, playerCoreClasses, skillFixtureId, skillFixtures } from './testing';
+import { CharacterBuilder, playerCoreClasses, playerCoreClassId, skillFixtureId, skillFixtures } from './testing';
 
 const ALL = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 const backgrounds = new ContentPackBuilder()

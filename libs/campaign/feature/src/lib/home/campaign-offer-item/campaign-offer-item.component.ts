@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CampaignContract, CharacterId, CampaignId, ReviewedItemId } from '@pioneer/campaign/domain';
+import { CampaignContract, CampaignId, CharacterId, ReviewedItemId } from '@pioneer/campaign/domain';
 import type { CampaignParty, PartyCharacter } from '@pioneer/campaign/domain';
 import { AsyncButton, Disclosure, Message, Stack, Text } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';

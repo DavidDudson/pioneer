@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import {
   AncestryId,
   contentId,
-  contentPackId,
   ContentKind,
+  contentPackId,
   EntrySlug,
   packContentsFromFiles,
   PackId,

@@ -7,7 +7,7 @@ import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { Rarity } from './entry-fields';
-import { COMMON_FACETS, FacetType, facetValues, FacetValue, RangeBound } from './facet';
+import { COMMON_FACETS, FacetType, FacetValue, facetValues, RangeBound } from './facet';
 import type { FacetDefinition, FacetId } from './facet';
 import { facetCounts, filterEntries, onlyValue, SelectionKind } from './facet-filter';
 import type { FacetSelection, FilterState } from './facet-filter';

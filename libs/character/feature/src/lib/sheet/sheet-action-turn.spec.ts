@@ -3,7 +3,7 @@ import type { ActionCostRange, SpendCost, TurnState } from '@pioneer/character/d
 import { ActionCost } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { offTurnWithoutTrigger, TurnReasonMessage, turnReason } from './sheet-action-turn';
+import { offTurnWithoutTrigger, turnReason, TurnReasonMessage } from './sheet-action-turn';
 
 const TWO_ACTIONS: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(2) };
 const THREE_ACTIONS: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(3) };

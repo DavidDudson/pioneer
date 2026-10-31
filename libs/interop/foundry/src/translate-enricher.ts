@@ -1,4 +1,4 @@
-import { AreaShapeSchema, AreaShape, DurationCount, DurationUnit, Feet, InlineKind } from '@pioneer/rules/sdk';
+import { AreaShape, AreaShapeSchema, DurationCount, DurationUnit, Feet, InlineKind } from '@pioneer/rules/sdk';
 import type { DurationNode, TemplateNode } from '@pioneer/rules/sdk';
 
 import { checkRun } from './enricher-check';

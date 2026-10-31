@@ -9,7 +9,7 @@
  */
 import path from 'node:path';
 
-import { creatureCoverage, ImportFile, importCoverage } from '@pioneer/interop/foundry';
+import { creatureCoverage, importCoverage, ImportFile } from '@pioneer/interop/foundry';
 import type { BacklogItem } from '@pioneer/interop/foundry';
 import {
   bookRegistry,

@@ -10,7 +10,7 @@ export const comboboxPopupClasses = cva(
 export const comboboxListboxClasses = cva('relative block w-full')();
 /** Placed by the virtualizer: absolute, offset with a runtime transform. */
 export const comboboxOptionClasses = cva([
-  'absolute top-none start-none block w-full cursor-pointer px-sm py-sm text-body aria-selected:bg-accent-subtle aria-selected:text-accent-fg highlighted:bg-surface-sunken pointer-fine:py-xs aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle',
+  'absolute start-none top-none block w-full cursor-pointer px-sm py-sm text-body aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle aria-selected:bg-accent-subtle aria-selected:text-accent-fg pointer-fine:py-xs highlighted:bg-surface-sunken',
   forcedOptionClasses,
 ])();
 export const comboboxStatusClasses = cva('block px-sm py-sm')();

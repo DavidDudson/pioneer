@@ -1,4 +1,4 @@
-import { DamageTypeSchema, BlockKind, InlineKind, RichTextString, Trait } from '@pioneer/rules/sdk';
+import { BlockKind, DamageTypeSchema, InlineKind, RichTextString, Trait } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 

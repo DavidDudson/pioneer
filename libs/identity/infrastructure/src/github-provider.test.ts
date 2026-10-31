@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { AvatarUrl, DisplayName, EmailAddress, OAuthProvider, ProviderSubject } from '@pioneer/identity/domain';
 
-import { GitHubProvider, gitHubProfile } from './github-provider';
+import { gitHubProfile, GitHubProvider } from './github-provider';
 
 const user = {
   id: 583_231,

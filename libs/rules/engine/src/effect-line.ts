@@ -12,8 +12,8 @@ import type {
   Origin,
   RuleElementKey,
   RuleNumber,
-  SenseAcuity,
   Selector,
+  SenseAcuity,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
@@ -128,9 +128,4 @@ export interface NotSummarisedEffect extends Omit<LineBase, 'status'> {
 
 /** One concrete effect of an entry on a character; rendering it to text is the UI's job. */
 export type EffectLine =
-  | ModifierEffect
-  | SetEffect
-  | DamageAdjustmentEffect
-  | ImmunityEffect
-  | SenseEffect
-  | NotSummarisedEffect;
+  ModifierEffect | SetEffect | DamageAdjustmentEffect | ImmunityEffect | SenseEffect | NotSummarisedEffect;

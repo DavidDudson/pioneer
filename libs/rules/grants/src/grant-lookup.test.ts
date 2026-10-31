@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
 import {
-  contentId,
   ContentId,
+  contentId,
   ContentKind,
   ContentRegistry,
   EntrySlug,

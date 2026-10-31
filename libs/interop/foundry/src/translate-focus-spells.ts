@@ -27,18 +27,18 @@ import {
 } from './translate-champion-devotion';
 import {
   DRUID_DEDICATION_RULES,
+  order,
   ORDER_EXPLORER,
   ORDER_EXPLORER_RULES,
   ORDER_MAGIC_RULES,
   ORDER_SPELL_RULES,
   ORDERS,
-  order,
 } from './translate-druid-orders';
-import { FIRST_REVELATION_RULES, mystery, MYSTERIES, ORACLE_DEDICATION_RULES } from './translate-oracle-mysteries';
+import { FIRST_REVELATION_RULES, MYSTERIES, mystery, ORACLE_DEDICATION_RULES } from './translate-oracle-mysteries';
 import {
   BASIC_BLOODLINE_SPELL_RULES,
-  BLOODLINES,
   bloodline,
+  BLOODLINES,
   SORCERER_DEDICATION_RULES,
 } from './translate-sorcerer-bloodlines';
 import { ARCANE_SCHOOL_SPELL_RULES, school, SCHOOLS, WIZARD_DEDICATION_RULES } from './translate-wizard-schools';

@@ -1,8 +1,8 @@
 import {
   addItem,
-  Character,
   carryItem,
   CarryState,
+  Character,
   characterGrants,
   classContent,
   EMPTY_INVENTORY,

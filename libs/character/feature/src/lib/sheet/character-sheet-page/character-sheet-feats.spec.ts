@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it, vi } from 'vitest';

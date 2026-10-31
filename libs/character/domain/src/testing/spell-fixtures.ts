@@ -1,4 +1,4 @@
-import { contentId, ContentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { ContentPack } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
+import { derivedId, fixedClock, FixtureNamespace, UserId } from '@pioneer/shared/kernel';
 
 import { CampaignId, CampaignInviteId, InviteTokenHash } from './campaign-fields';
 import { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './campaign-invite';

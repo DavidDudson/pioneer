@@ -3,7 +3,7 @@ import { HeadingLevel } from '@pioneer/frontier';
 import { contentId, ContentText, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { richTextJson } from '@pioneer/rules/sdk/testing';
-import { asyncProperty, assert } from 'fast-check';
+import { assert, asyncProperty } from 'fast-check';
 import { describe, expect, it } from 'vitest';
 
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';

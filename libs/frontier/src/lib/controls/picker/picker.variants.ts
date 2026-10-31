@@ -24,7 +24,7 @@ const columnWidthClasses = {
 /** A body cell. The row's highlight and picked state are on its cells, which is where the grid puts them. */
 export const pickerCellVariants = cva(
   [
-    'block shrink-0 px-sm py-sm text-body text-start text-fg-default pointer-fine:py-xs',
+    'block shrink-0 px-sm py-sm text-start text-body text-fg-default pointer-fine:py-xs',
     'aria-selected:bg-accent-subtle aria-selected:text-accent-fg highlighted:bg-surface-sunken',
     'aria-disabled:cursor-not-allowed aria-disabled:text-fg-subtle',
     forcedOptionClasses,

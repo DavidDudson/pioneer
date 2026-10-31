@@ -2,15 +2,15 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   BundleHash,
+  bundlePath,
   ByteCount,
   canonicalJson,
-  PackBundles,
-  bundlePath,
   contentPackFromBundles,
   descriptionFromBundle,
   descriptionShard,
+  PackBundles,
 } from './content-bundle';
-import type { BundleBody, CanonicalJson, BundleFile, KindBundles } from './content-bundle';
+import type { BundleBody, BundleFile, CanonicalJson, KindBundles } from './content-bundle';
 import { contentBundles } from './content-bundle-write';
 import type { ContentBundles } from './content-bundle-write';
 import { ContentId, contentId, EntrySlug, PackId } from './content-id';

@@ -10,8 +10,7 @@ export type PickRefusal = ValueOf<typeof PickRefusal>;
 
 /** A pick, or why there was none. */
 export type PickOutcome<Item> =
-  | { readonly ok: true; readonly picked: Item }
-  | { readonly ok: false; readonly refusal: PickRefusal };
+  { readonly ok: true; readonly picked: Item } | { readonly ok: false; readonly refusal: PickRefusal };
 
 /** How likely an entry is against the others in its list; zero never comes up. */
 export const PickWeight = z.int().nonnegative().brand<'PickWeight'>();

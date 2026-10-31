@@ -81,7 +81,7 @@ async function render(rows: readonly DeityPickerRow[], value?: string): Promise<
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('Expected a rendered deity picker');
+    throw new TypeError('Expected a rendered deity picker');
   }
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }

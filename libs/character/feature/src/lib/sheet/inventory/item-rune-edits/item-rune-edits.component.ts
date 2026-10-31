@@ -3,7 +3,7 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CharacterPatchField, InventoryItemId, RuneEtchingSchema, runedItemOf } from '@pioneer/character/domain';
+import { CharacterPatchField, InventoryItemId, runedItemOf, RuneEtchingSchema } from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemEntry, RunedContent, RuneRef } from '@pioneer/character/domain';
 import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 import type { InlineEdit } from '@pioneer/frontier';

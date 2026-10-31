@@ -12,7 +12,7 @@ import type { ActiveCondition, Character, PlayCommand } from '@pioneer/character
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ConditionValue, ContentId, ContentKind, HitPoints, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, nextVersion, UserId, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, nextVersion, UserId, ValidationError } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';

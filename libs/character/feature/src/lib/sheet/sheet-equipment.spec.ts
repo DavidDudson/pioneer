@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import {
   addItem,
-  Character,
   carryItem,
   CarryState,
+  Character,
   CoinsSchema,
   ConditionInstanceId,
   EMPTY_INVENTORY,

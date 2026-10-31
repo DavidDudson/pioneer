@@ -16,12 +16,12 @@ import {
   Wounded,
 } from '@pioneer/character/domain';
 import type { Character, PlayCommand } from '@pioneer/character/domain';
-import { HUMAN_HIT_POINTS, hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
+import { hitPointsContent, HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { DegreeOfSuccess, HitPoints, Slug, SpellRank } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import {
-  fixedClock,
   FIRST_VERSION,
+  fixedClock,
   newId,
   nextVersion,
   NotFoundError,

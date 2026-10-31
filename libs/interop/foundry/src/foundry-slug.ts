@@ -18,12 +18,12 @@ export function slugify(text: string): string {
     return text;
   }
   return text
-    .replace(LOWER_THEN_UPPER, '$<lower>-$<upper>')
+    .replaceAll(LOWER_THEN_UPPER, '$<lower>-$<upper>')
     .toLowerCase()
-    .replace(APOSTROPHES, '')
-    .replace(NON_WORD, ' ')
+    .replaceAll(APOSTROPHES, '')
+    .replaceAll(NON_WORD, ' ')
     .trim()
-    .replace(SEPARATORS, '-');
+    .replaceAll(SEPARATORS, '-');
 }
 
 /** A document's Foundry slug: `system.slug` when set, otherwise its name, slugified. */
@@ -42,7 +42,7 @@ export function asciiSlug(document: FoundryDocument): string {
 }
 
 function folded(slug: string): string {
-  return slug.normalize('NFKD').replace(MARKS, '');
+  return slug.normalize('NFKD').replaceAll(MARKS, '');
 }
 
 /** A name slugified as Foundry does it, diacritics folded: for what Foundry names but keeps no item for (a journal page). */

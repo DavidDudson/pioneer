@@ -6,10 +6,10 @@ import {
   itemContent,
   ResourceCount,
   spentStaffOf,
-  StaffCommandField,
-  StaffCastProblem,
   staffCastCost,
+  StaffCastProblem,
   staffCastProblem,
+  StaffCommandField,
   staffSources,
 } from '@pioneer/character/domain';
 import type {

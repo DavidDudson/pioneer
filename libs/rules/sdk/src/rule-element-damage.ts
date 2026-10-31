@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { DamageTypeSchema } from './damage';
 import { FormulaSource } from './formula-source';
 import { RulesMessage } from './messages';
-import { ModifierTargets, RuleElementKey, ruleElementBase, RuleSlug, RuleValue } from './rule-element-base';
+import { ModifierTargets, ruleElementBase, RuleElementKey, RuleSlug, RuleValue } from './rule-element-base';
 import { NumericAlterationMode } from './rule-element-item-alteration';
 import { DiceCount, DieSize } from './weapon';
 

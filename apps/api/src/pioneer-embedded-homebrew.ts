@@ -5,7 +5,7 @@ import { DrizzleHomebrewPackRepository } from '@pioneer/homebrew/infrastructure'
 import { HomebrewPackStatus } from '@pioneer/interop/pioneer';
 import type { EmbeddedPack, ExistingPack, ExistingPacks, HomebrewPackPlan } from '@pioneer/interop/pioneer';
 import { contentEntries, contentEntryRow, contentHash, contentPacks } from '@pioneer/rules/infrastructure';
-import { contentPackId, ContentEntry, ContentLicense } from '@pioneer/rules/sdk';
+import { ContentEntry, ContentLicense, contentPackId } from '@pioneer/rules/sdk';
 import type { ContentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { nextVersion } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';

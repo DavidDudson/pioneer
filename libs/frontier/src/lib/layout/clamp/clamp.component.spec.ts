@@ -19,7 +19,7 @@ async function render(lines: ClampLines): Promise<HTMLElement> {
   await appRef.whenStable();
   const clamped = (clamp.location.nativeElement as HTMLElement).firstElementChild;
   if (!(clamped instanceof HTMLElement)) {
-    throw new Error('fr-clamp rendered no wrapper');
+    throw new TypeError('fr-clamp rendered no wrapper');
   }
   return clamped;
 }

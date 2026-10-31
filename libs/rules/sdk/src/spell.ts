@@ -9,7 +9,7 @@ import { DamageFormula, SpellDamageFormula } from './damage-formula';
 import { RulesMessage } from './messages';
 import { Predicate } from './predicate';
 import { DamageCategorySchema, RichText } from './rich-text';
-import { CastTime, castingFields, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
+import { castingFields, CastTime, SpellArea, SpellDefense, SpellDuration, SpellRange } from './spell-casting';
 import { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 import { SpellTargets } from './spell-targets';
 import { MagicTraditionSchema } from './spellcasting-tradition';

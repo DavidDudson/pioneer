@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
-import { CORE_RULES_CACHE, failed, loaded, stillLoading, PLAYER_CORE_CACHE } from '../testing/cache-fixtures';
+import { CORE_RULES_CACHE, failed, loaded, PLAYER_CORE_CACHE, stillLoading } from '../testing/cache-fixtures';
 import { ContentCachesView } from './content-caches-view.component';
 
 type ContentCachesStory = StoryObj<ContentCachesView>;

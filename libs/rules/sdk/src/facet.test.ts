@@ -4,7 +4,7 @@ import { FEAT_FACETS } from './action-facets';
 import { ContentEntry } from './content-entry';
 import { contentId, entrySlug, PackId, Slug, slugName } from './content-id';
 import { ContentKind } from './content-kind';
-import { COMMON_FACETS, FacetId, FacetType, facetValues, FacetValue, RangeBound, UNKNOWN } from './facet';
+import { COMMON_FACETS, FacetId, FacetType, FacetValue, facetValues, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition } from './facet';
 import { EntryCount, facetCounts, filterEntries, onlyValue, SelectionKind } from './facet-filter';
 import type { FacetCounts, FacetSelection, FilterState } from './facet-filter';

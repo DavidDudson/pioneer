@@ -5,8 +5,8 @@ import {
   isSpendCommand,
   SpendCommandField,
   SpendProblem,
-  SpendTime,
   spendRefusal,
+  SpendTime,
 } from '@pioneer/character/domain';
 import type {
   CountedMaxima,

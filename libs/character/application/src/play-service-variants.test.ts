@@ -2,10 +2,10 @@ import { beforeEach, describe, expect, test } from 'bun:test';
 
 import { CharacterName, PlayCommandField, untypedDamage } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import { HUMAN_HIT_POINTS, hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
+import { hitPointsContent, HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentLicense, ContentPack, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import type { VariantRuleEntry } from '@pioneer/rules/sdk';
-import { fixedClock, FIRST_VERSION, newId, UserId } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
 import type { CharacterContentSource } from './character-content';
 import { CharacterService } from './character-service';

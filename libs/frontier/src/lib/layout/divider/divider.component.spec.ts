@@ -20,7 +20,7 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
   await appRef.whenStable();
   const rule = (divider.location.nativeElement as HTMLElement).firstElementChild;
   if (!(rule instanceof HTMLElement)) {
-    throw new Error('fr-divider rendered no rule');
+    throw new TypeError('fr-divider rendered no rule');
   }
   return rule;
 }

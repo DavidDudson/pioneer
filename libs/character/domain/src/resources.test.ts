@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { FocusPoints, HitPoints } from '@pioneer/rules/sdk';
 
 import { Dying, Wounded } from './death-track';
-import { FRESH_PLAY, PlayCommandField, applyPlayCommand } from './play-state';
+import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayState } from './play-state';
 import { currentResource, HERO_POINTS_MAX, NO_RESOURCES, Resource, ResourceCount, resourceMaxima } from './resources';
 import type { ResourceMaxima } from './resources';

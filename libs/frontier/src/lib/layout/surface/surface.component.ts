@@ -11,7 +11,7 @@ const surfaceVariants = cva('block', {
   variants: {
     variant: {
       base: 'bg-surface-base forced-colors:border',
-      raised: 'bg-surface-raised border border-line-default',
+      raised: 'border border-line-default bg-surface-raised',
       sunken: 'bg-surface-sunken forced-colors:border',
       outline: 'border border-line-default',
     } satisfies Record<SurfaceVariant, string>,

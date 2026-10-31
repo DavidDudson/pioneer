@@ -10,7 +10,7 @@ import {
   SpellRank,
 } from '@pioneer/rules/sdk';
 
-import { ConditionInstanceId, ConditionDurationKind } from './conditions';
+import { ConditionDurationKind, ConditionInstanceId } from './conditions';
 import type { ActiveCondition } from './conditions';
 import { abilityUseKey, Boundary, slotCountKey } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
@@ -19,7 +19,7 @@ import { NO_ENVIRONMENT_GROUPS } from './environments';
 import { InventoryItemId } from './inventory';
 import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';
-import { Resource, resourceMaxima, ResourceCount } from './resources';
+import { Resource, ResourceCount, resourceMaxima } from './resources';
 import { preparedDaily, refocused, rested, sessionStarted } from './rest-actions';
 import { RestChangeKind } from './rest-types';
 import { NO_SHIELDS } from './shield-commands';

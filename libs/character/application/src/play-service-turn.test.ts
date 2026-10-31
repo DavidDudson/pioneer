@@ -14,7 +14,7 @@ import type { ActiveCondition, Character, PlayEdit } from '@pioneer/character/do
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ConditionValue, ContentId, ContentKind, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, UserId } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
 import { CharacterService } from './character-service';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';

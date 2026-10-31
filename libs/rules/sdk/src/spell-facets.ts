@@ -1,5 +1,5 @@
 import { ContentKind } from './content-kind';
-import { facetLabels, FacetId, FacetLabel, FacetType } from './facet';
+import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
 import type { FacetDefinition, FacetDerive } from './facet';
 import {
   AreaValue,

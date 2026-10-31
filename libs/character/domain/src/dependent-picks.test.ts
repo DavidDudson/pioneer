@@ -9,7 +9,7 @@ import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS, HERITAGE_SLOT } from './character-slots';
 import { ClearedPick, unfitPicks } from './dependent-picks';
 import type { SlotContent } from './slot-offer';
-import { BOOST_FIXTURES, NO_FEATS, NO_LANGUAGES, NO_SKILLS, NO_SPELLS, CharacterBuilder } from './testing';
+import { BOOST_FIXTURES, CharacterBuilder, NO_FEATS, NO_LANGUAGES, NO_SKILLS, NO_SPELLS } from './testing';
 
 function named(base: GrantEntry, kind: ContentKind, name: string): GrantEntry {
   return { ...base, kind, name: ContentText.parse(name) };

@@ -1,9 +1,9 @@
 import {
-  characterSlots,
   CharacterDocumentSchema,
   CharacterId,
   CharacterLevel,
   CharacterName,
+  characterSlots,
   CLASS_SLOT,
   CURRENT_SCHEMA_VERSION,
   itemContent,

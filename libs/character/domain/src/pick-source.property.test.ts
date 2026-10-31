@@ -3,7 +3,7 @@ import { describe, test } from 'bun:test';
 import { array, assert, integer, nat, property } from 'fast-check';
 
 import { PickBound, Seed, seededPicks } from './pick-source';
-import { pickOne, pickWeighted, PickWeight, shuffle } from './picks';
+import { pickOne, PickWeight, pickWeighted, shuffle } from './picks';
 
 const SEED_MAX = 2_147_483_647;
 const seeds = integer({ min: 0, max: SEED_MAX }).map((value) => Seed.parse(value));

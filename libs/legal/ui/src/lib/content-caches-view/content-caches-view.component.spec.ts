@@ -3,7 +3,7 @@ import type { AsyncQuery } from '@pioneer/frontier';
 import { describe, expect, it } from 'vitest';
 
 import type { CachePack } from '../cache-pack';
-import { CORE_RULES_CACHE, failed, loaded, stillLoading, PLAYER_CORE_CACHE } from '../testing/cache-fixtures';
+import { CORE_RULES_CACHE, failed, loaded, PLAYER_CORE_CACHE, stillLoading } from '../testing/cache-fixtures';
 import { provideLegalUiI18nTesting } from '../testing/provide-legal-ui-testing';
 import { ContentCachesView } from './content-caches-view.component';
 

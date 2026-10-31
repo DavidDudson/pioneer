@@ -33,7 +33,7 @@ import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { spellEntries, sustainedCast } from './sheet-active-list';
 import { activeFormOf } from './sheet-effects';
-import { formCastOf, FORM_CAST_CONTENT_KINDS } from './sheet-form-cast';
+import { FORM_CAST_CONTENT_KINDS, formCastOf } from './sheet-form-cast';
 import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
 import { raisedEdit, shieldIds } from './sheet-shields';
 import { sheetSources } from './sheet-sources';

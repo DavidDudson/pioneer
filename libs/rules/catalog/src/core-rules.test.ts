@@ -20,10 +20,10 @@ import { assert, property } from 'fast-check';
 import {
   AC_BASE,
   anyInputs,
-  COUNTS,
   contentOf,
   core,
   coreRules,
+  COUNTS,
   fighter,
   LORE_SELECTORS,
   noFacts,

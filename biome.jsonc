@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   // Biome lints CSS only (frontier's stylesheets): oxlint owns TypeScript,
-  // ESLint owns Angular templates, oxfmt owns formatting.
+  // ESLint owns Angular templates, bun fmt owns formatting.
   "files": { "includes": ["libs/frontier/src/styles/**/*.css", "apps/web/src/**/*.css"] },
   "formatter": { "enabled": false },
   "assist": { "enabled": false },
@@ -13,6 +13,6 @@
   },
   "linter": {
     "enabled": true,
-    "rules": { "recommended": true },
+    "rules": { "preset": "recommended" },
   },
 }

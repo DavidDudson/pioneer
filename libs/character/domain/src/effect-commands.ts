@@ -2,7 +2,7 @@ import { ContentId, EffectBadgeType, HitPoints, RollOption, SpellRank } from '@p
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { EFFECTS_MAX, EffectBadgeValue, EffectInstanceId, EffectRounds, EffectSourceSchema, SELF } from './effects';
+import { EffectBadgeValue, EffectInstanceId, EffectRounds, EFFECTS_MAX, EffectSourceSchema, SELF } from './effects';
 import type { ActiveEffect, CounterTerms, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 
 /** The play edits that apply, change and remove effects. */

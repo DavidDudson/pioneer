@@ -195,7 +195,7 @@ describe.skipIf(adminUrl === undefined)('withdrawing a campaign transfer over po
 
     const results = await Promise.all([withdraw(offer), withdraw(offer)]);
 
-    expect(results.toSorted()).toStrictEqual([false, true]);
+    expect(results.toSorted((first, second) => Number(first) - Number(second))).toStrictEqual([false, true]);
     expect(await statusOf(offer)).toBe(TransferStatus.Withdrawn);
   });
 });

@@ -7,7 +7,7 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 import { characterLanguages } from './character-languages';
 import { SlotStatus, SlotSubjectKind } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { knownLanguages, LanguageSource, languageSlots, openLanguageSlots } from './languages';
+import { knownLanguages, languageSlots, LanguageSource, openLanguageSlots } from './languages';
 import { languageReads, slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,

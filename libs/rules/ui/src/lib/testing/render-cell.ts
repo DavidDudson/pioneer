@@ -16,7 +16,7 @@ export async function renderCell<TCell>(
   await fixture.whenStable();
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('The cell rendered no host element');
+    throw new TypeError('The cell rendered no host element');
   }
   return host;
 }

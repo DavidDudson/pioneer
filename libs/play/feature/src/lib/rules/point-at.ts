@@ -14,6 +14,6 @@ export function pointAt(text: string, position: TextPosition): string {
   const lineStart = text.lastIndexOf(NEWLINE, index - 1) + 1;
   const nextNewline = text.indexOf(NEWLINE, index);
   const lineEnd = nextNewline === -1 ? text.length : nextNewline;
-  const lead = text.slice(lineStart, index).replace(NOT_TAB, ' ');
+  const lead = text.slice(lineStart, index).replaceAll(NOT_TAB, ' ');
   return `${text.slice(0, lineEnd)}\n${lead}${CARET}${text.slice(lineEnd)}`;
 }

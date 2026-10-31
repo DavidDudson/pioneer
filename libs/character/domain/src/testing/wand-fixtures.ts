@@ -41,6 +41,7 @@ const WAND_RANKS = Array.from({ length: FIREBALL_RANK }, (_unused, index) => ind
 
 /** A prepared entry of `tradition` with one slot of each of `ranks`. */
 export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number[]): SpellcastingInPlay {
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the engine's entry has more fields than a wand reads
   return {
     slug: 'wizard',
     tradition,
@@ -53,7 +54,6 @@ export function wandEntry(tradition: 'arcane' | 'divine', ranks: readonly number
     focusSpells: [],
     innateSpells: [],
     deitySpells: false,
-    // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- the engine's entry has more fields than a wand reads
   } as unknown as SpellcastingInPlay;
 }
 

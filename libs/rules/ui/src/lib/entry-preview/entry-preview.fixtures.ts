@@ -3,8 +3,8 @@ import type { EffectStatus } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import {
   ConditionValue,
-  contentId,
   ContentId,
+  contentId,
   ContentLevel,
   ContentText,
   DamageAmount,

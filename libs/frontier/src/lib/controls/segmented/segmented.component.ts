@@ -7,7 +7,7 @@ import { RovingFocus } from '../../focus/roving-focus.directive';
 import { Control } from '../control';
 import type { SelectOption } from '../select/select.component';
 
-const trackVariants = cva('grid grid-flow-col auto-cols-fr gap-3xs border border-line-default bg-surface-base p-3xs', {
+const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border-line-default bg-surface-base p-3xs', {
   variants: { invalid: { true: 'border-danger-line', false: '' } },
 });
 

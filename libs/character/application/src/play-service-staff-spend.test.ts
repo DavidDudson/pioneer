@@ -22,7 +22,7 @@ import {
   staffSpellId,
 } from '@pioneer/character/domain/testing';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

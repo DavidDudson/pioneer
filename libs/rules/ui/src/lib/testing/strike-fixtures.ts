@@ -3,14 +3,14 @@ import type { ExtraDice, RuleId, StatisticValue, Strike, StrikeDamage, WeaponInp
 import { TextPosition } from '@pioneer/rules/formula';
 import {
   ContentId,
-  ContentText,
   contentId,
+  ContentText,
   DamageAmount,
   DiceCount,
+  EntrySlug,
   Feet,
   ItemCount,
   ModifierType,
-  EntrySlug,
   PackId,
   RichText,
   RuneGrade,

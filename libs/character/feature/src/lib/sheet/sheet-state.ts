@@ -17,7 +17,7 @@ import { sheetConditionPreviews } from './sheet-condition-previews';
 import { activeFormOf, withoutForms } from './sheet-effects';
 import type { EffectView } from './sheet-effects';
 import { sheetFetchingPreviews } from './sheet-entry-previews';
-import { readsEquipment, EQUIPMENT_CONTENT_KINDS, sheetInvestments } from './sheet-equipment';
+import { EQUIPMENT_CONTENT_KINDS, readsEquipment, sheetInvestments } from './sheet-equipment';
 import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, ContentId, ContentLicense, ContentText, EntrySlug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentLicense, ContentText, EntrySlug } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { sample } from 'fast-check';

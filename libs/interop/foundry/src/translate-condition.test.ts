@@ -7,8 +7,8 @@ import { idOf, translate } from './testing/import-fixtures';
 import {
   BLINDED,
   condition,
-  DAZZLED,
   dataOf,
+  DAZZLED,
   entryOf,
   FRIGHTENED,
   gapsOf,

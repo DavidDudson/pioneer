@@ -1,4 +1,4 @@
-import { bundlePath, BundleFile, PackId } from '@pioneer/rules/sdk';
+import { BundleFile, bundlePath, PackId } from '@pioneer/rules/sdk';
 import { IDBFactory } from 'fake-indexeddb';
 import { describe, expect, it } from 'vitest';
 

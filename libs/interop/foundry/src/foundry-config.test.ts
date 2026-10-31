@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { bactrian, FoundryLanguageRarity, foundryConfig, langLabel, TraitList } from './foundry-config';
+import { bactrian, foundryConfig, FoundryLanguageRarity, langLabel, TraitList } from './foundry-config';
 import { config, lang } from './testing/import-fixtures';
 
 describe('foundryConfig', () => {

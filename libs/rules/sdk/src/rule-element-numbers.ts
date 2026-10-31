@@ -7,7 +7,7 @@ import { DamageTypeSchema } from './damage';
 import { FormulaSource } from './formula-source';
 import { RulesMessage } from './messages';
 import { ModifierType } from './modifier-type';
-import { ModifierTargets, RuleElementKey, ruleElementBase, RuleSlug, RuleValue } from './rule-element-base';
+import { ModifierTargets, ruleElementBase, RuleElementKey, RuleSlug, RuleValue } from './rule-element-base';
 import { Selector } from './selector';
 import { Modifier } from './units';
 

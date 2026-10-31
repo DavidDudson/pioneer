@@ -6,7 +6,7 @@ import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
 import { equippedRules } from './equipped';
-import { addItem, carryItem, EMPTY_INVENTORY, investItem, InventoryItemId, ItemQuantity } from './inventory';
+import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, investItem, ItemQuantity } from './inventory';
 import { CarryState } from './item-carry';
 import { slotContent } from './slot-offer';
 import { CharacterBuilder, ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry } from './testing';

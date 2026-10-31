@@ -13,7 +13,7 @@ import {
   SlotKey,
 } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
-import { fixedClock, FixtureNamespace, derivedId } from '@pioneer/shared/kernel';
+import { derivedId, fixedClock, FixtureNamespace } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { Character } from './character';

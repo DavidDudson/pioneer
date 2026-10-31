@@ -6,8 +6,8 @@ import {
   PlayCommandField,
   spellContent,
   StaffSpellProblem,
-  wandOutcome,
   WandOutcome,
+  wandOutcome,
   wandProblem,
   wandSources,
 } from '@pioneer/character/domain';

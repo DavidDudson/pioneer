@@ -8,10 +8,10 @@ import { PLAY_COMMANDS } from './character-command';
 import {
   ActiveEnvironmentsSchema,
   applyEnvironmentCommand,
-  ENVIRONMENTS_MAX,
   EnvironmentCommandField,
   environmentContent,
   environmentRoots,
+  ENVIRONMENTS_MAX,
   isEnvironmentCommand,
   restrictionBlocking,
   restrictionsHolding,

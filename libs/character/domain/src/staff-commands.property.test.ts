@@ -10,7 +10,7 @@ import { ResourcesSpentSchema } from './resources';
 import type { ResourcesSpent } from './resources';
 import { spellContent } from './spell-content';
 import { StaffChargesSchema } from './staff-charges';
-import { StaffCommandField, staffCastCost, staffCastProblem, staffResourcesAfter } from './staff-commands';
+import { staffCastCost, staffCastProblem, StaffCommandField, staffResourcesAfter } from './staff-commands';
 import type { StaffCommand } from './staff-commands';
 import { staffSources } from './staff-sources';
 import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry, staffSpellId } from './testing';

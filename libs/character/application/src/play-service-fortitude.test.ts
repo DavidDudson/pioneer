@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
+  CharacterName,
   characterStatisticInputs,
   characterStatistics,
   NO_EFFECTS,
-  CharacterName,
   slotContent,
   turnCommandInputs,
 } from '@pioneer/character/domain';

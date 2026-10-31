@@ -47,12 +47,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'justify-center font-medium bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
+          'justify-center bg-accent-solid font-medium text-accent-on-solid hover:bg-accent-solid-hover active:bg-accent-solid-active',
         secondary:
-          'justify-center font-medium bg-surface-base text-fg-default border border-line-default hover:bg-surface-sunken',
+          'justify-center border border-line-default bg-surface-base font-medium text-fg-default hover:bg-surface-sunken',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
         danger:
-          'justify-center font-medium bg-danger-solid text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
+          'justify-center bg-danger-solid font-medium text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
         inline:
           '-mx-2xs min-h-touch min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
         toggle: [

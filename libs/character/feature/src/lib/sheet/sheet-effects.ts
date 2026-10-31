@@ -1,8 +1,8 @@
 import { effectContent, EffectSourceKind, formRanks, isPolymorphEntry, steppedBadge } from '@pioneer/character/domain';
 import type {
   ActiveEffect,
-  EffectBadgeValue,
   CounterTerms,
+  EffectBadgeValue,
   EffectInstanceId,
   EffectTerms,
 } from '@pioneer/character/domain';

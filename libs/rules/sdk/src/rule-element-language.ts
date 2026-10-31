@@ -4,7 +4,7 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 import { Rarity } from './entry-fields';
 import { RulesMessage } from './messages';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { uniqueItems } from './unique-items';
 
 const GRANTED_MAX = 16;

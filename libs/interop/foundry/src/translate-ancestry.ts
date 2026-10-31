@@ -8,8 +8,8 @@ import type { GapLog, KindInput } from './kind-data-gaps';
 import {
   attributeSlots,
   featSlots,
-  FoundryAttributeSlots,
   FOUNDRY_SIZES,
+  FoundryAttributeSlots,
   FoundryGrantedItems,
   grantItems,
   systemOf,

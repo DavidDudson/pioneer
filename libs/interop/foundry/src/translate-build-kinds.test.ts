@@ -5,9 +5,9 @@ import { ContentEntry, ContentKind, KIND_DATA, RuleElementKey } from '@pioneer/r
 import { KindDataGapReason } from './kind-data-gaps';
 import {
   ACOLYTE,
-  BRAVERY,
   ANCESTRY_OUTSIDE,
   ARCHETYPES_JOURNAL,
+  BRAVERY,
   BUILD,
   CLAN_DAGGER,
   DWARF,

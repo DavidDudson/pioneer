@@ -15,7 +15,7 @@ import {
 import type { Generated, RunedContent, SlotContent } from '@pioneer/character/domain';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { AncestryId, ChoiceValue, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
-import { derivedId, FixtureNamespace, fixedClock, UserId } from '@pioneer/shared/kernel';
+import { derivedId, fixedClock, FixtureNamespace, UserId } from '@pioneer/shared/kernel';
 
 /** Time to generate a character at every level. */
 export const CLASS_TIMEOUT_MS = 180_000;

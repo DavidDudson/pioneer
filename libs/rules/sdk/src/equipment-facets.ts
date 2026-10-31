@@ -13,7 +13,7 @@ import {
   UsageValue,
 } from './equipment-facet-values';
 import type { EquipmentEntry } from './equipment-facet-values';
-import { facetLabels, FacetId, FacetLabel, FacetType, RangeScale } from './facet';
+import { FacetId, FacetLabel, facetLabels, FacetType, RangeScale } from './facet';
 import type { FacetDefinition, FacetDerive } from './facet';
 import { DAMAGE_TYPE_FACET } from './spell-facets';
 import { WeaponGroup } from './weapon';

@@ -1,11 +1,11 @@
 import {
-  contentId,
   ContentId,
+  contentId,
   ContentKind,
   ContentRegistry,
   EntrySlug,
-  PackId,
   packContentsFromFiles,
+  PackId,
 } from '@pioneer/rules/sdk';
 import type { ContentPack, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
@@ -22,7 +22,7 @@ import { FIRE_STAFF, FIRE_STAFF_SPELLS, FIREBALL_WAND } from './fire-staff';
 import { HUNTERS_BLADE } from './hunters-blade';
 import { HUNTERS_CLOAK } from './hunters-cloak';
 import { MOVEMENT_CHARM } from './movement-charm';
-import { RUNES, RuneFixture } from './rune-fixtures';
+import { RuneFixture, RUNES } from './rune-fixtures';
 import { ALCHEMISTS_FIRE, HOLY_WATER } from './thrown-items';
 import { LEVEL_TONIC, UNREADABLE_TONIC } from './tonic-items';
 

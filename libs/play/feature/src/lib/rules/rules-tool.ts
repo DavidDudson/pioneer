@@ -14,7 +14,7 @@ import { checkGrants, GrantsStatus } from './grants-check';
 import type { GrantsCheck } from './grants-check';
 import { checkVerdict, VerdictStatus } from './predicate-verdict';
 import type { VerdictCheck } from './predicate-verdict';
-import { CheckStatus, checkOutcome, checkRulesJson, readJson, RulesSchema, RulesTool } from './rules-check';
+import { checkOutcome, checkRulesJson, CheckStatus, readJson, RulesSchema, RulesTool } from './rules-check';
 import type { CheckOutcome } from './rules-check';
 import { checkStatistics, StatisticsStatus } from './statistics-check';
 import type { StatisticProficiency, StatisticsCheck } from './statistics-check';

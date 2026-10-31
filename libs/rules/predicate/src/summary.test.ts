@@ -11,7 +11,7 @@ import { formatSummary, ListStyle } from './format';
 import type { SummaryFormat } from './format';
 import messages from './i18n/en.json';
 import { PredicateMessage } from './messages';
-import { Negated, SummaryKind, summarisePredicate } from './summary';
+import { Negated, summarisePredicate, SummaryKind } from './summary';
 import type { PredicateSummary } from './summary';
 
 function facts(...options: readonly string[]): PredicateFacts {

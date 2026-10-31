@@ -6,16 +6,16 @@ import {
   CharacterPatchField,
   generateCharacter,
   itemContent,
-  runeContent,
   rollPersona,
+  runeContent,
   Seed,
   slotContent,
 } from '@pioneer/character/domain';
 import type {
   CharacterName,
   GenerateCharacterBody,
-  GenerateLock,
   GeneratedCharacter,
+  GenerateLock,
   Persona,
   SlotContent,
 } from '@pioneer/character/domain';

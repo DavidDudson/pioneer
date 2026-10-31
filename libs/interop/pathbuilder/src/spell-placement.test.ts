@@ -64,6 +64,7 @@ function ranked(at: ImportedSpellRank['rank'], ...spells: readonly string[]): Im
   return { rank: at, spells: spells.map((spell) => PathbuilderName.parse(spell)) };
 }
 
+// oxlint-disable-next-line eslint/max-params -- a fixture builder: the rest parameter is the ranks
 function caster(
   name: string,
   tradition: string,

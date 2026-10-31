@@ -4,7 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
 import { Tone } from '../../tokens';
-import { textVariants, TextVariant } from '../text.variants';
+import { TextVariant, textVariants } from '../text.variants';
 import type { FontWeight } from '../text.variants';
 import { PhraseElement, TextPhrase } from './phrase.component';
 import { StressElement, TextStress } from './stress.component';
@@ -43,8 +43,8 @@ const elementVariants = cva('', {
     element: {
       [TextElement.Span]: '',
       [TextElement.Paragraph]: '',
-      [TextElement.Preformatted]: 'whitespace-pre-wrap break-words font-mono',
-      [TextElement.Code]: 'wrap-anywhere font-mono',
+      [TextElement.Preformatted]: 'font-mono break-words whitespace-pre-wrap',
+      [TextElement.Code]: 'font-mono wrap-anywhere',
       [TextElement.Keyboard]: 'border border-line-default bg-surface-sunken px-3xs font-mono',
       [TextElement.Abbreviation]: '',
       [TextElement.Quotation]: '',

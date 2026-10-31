@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { contentId, ContentEntry, ContentKind, EntrySlug, PackId, SourceKind } from '@pioneer/rules/sdk';
+import { ContentEntry, contentId, ContentKind, EntrySlug, PackId, SourceKind } from '@pioneer/rules/sdk';
 
 import { carrySources } from './carried-sources';
 import { packOutput } from './pack-output';

@@ -15,8 +15,8 @@ import type {
   InventoryItemId,
   ItemContent,
   ItemEntry,
-  RunedContent,
   RuneContent,
+  RunedContent,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';

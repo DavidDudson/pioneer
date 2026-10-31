@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { HitPoints, RollOption, Size, Trait, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { HitPoints, RollOption, Size, StatisticDefinition, StatisticKind, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';

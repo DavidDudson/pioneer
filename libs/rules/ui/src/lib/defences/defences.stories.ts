@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import {
-  adjustment,
   ADAMANTINE,
+  adjustment,
   BARBARIAN_DEFENCES,
   DWARF,
   ENTRY_NAMES,
-  FORM_DEFENCES,
   FIRE_RING,
+  FORM_DEFENCES,
   GOLEM_FORM,
-  IN_DARKNESS,
   immunity,
+  IN_DARKNESS,
   NO_DEFENCES,
   OUT_OF_RANGE,
   RAGE,

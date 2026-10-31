@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { DegreeChangeSchema } from './degree-of-success';
 import { RulesMessage } from './messages';
-import { ModifierTargets, RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { ModifierTargets, ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 
 /** How an `AdjustDegreeOfSuccess` reads which degrees it changes: all of them, or one named degree. */
 const DegreeAdjustments = z.strictObject({

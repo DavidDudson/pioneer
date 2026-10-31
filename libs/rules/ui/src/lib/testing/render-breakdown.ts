@@ -61,7 +61,7 @@ export async function render(value: StatisticValue, inputs: Inputs = {}): Promis
   await fixture.whenStable();
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('The breakdown rendered no host element');
+    throw new TypeError('The breakdown rendered no host element');
   }
   return read(host);
 }

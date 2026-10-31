@@ -11,7 +11,7 @@ import {
 } from '@pioneer/character/domain/testing';
 import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

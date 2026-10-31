@@ -7,7 +7,7 @@ import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
 import { Stack } from '../stack/stack.component';
 
-const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pl-safe-left pr-safe-right')();
+const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 

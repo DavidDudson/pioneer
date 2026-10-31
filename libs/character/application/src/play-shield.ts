@@ -7,8 +7,8 @@ import {
   itemContent,
   removeItem,
   ShieldCondition,
-  ShieldProblem,
   shieldContent,
+  ShieldProblem,
 } from '@pioneer/character/domain';
 import type { Character, Inventory, PlayEdit, PlayState, ShieldContent } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';

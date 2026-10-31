@@ -1,4 +1,4 @@
-import { characterGrants, deityContent, DEITY_SLOT, needsDeity, rootSlotOptions } from '@pioneer/character/domain';
+import { characterGrants, DEITY_SLOT, deityContent, needsDeity, rootSlotOptions } from '@pioneer/character/domain';
 import type { Character, SheetDeity } from '@pioneer/character/domain';
 import { RichText, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry, DeityData } from '@pioneer/rules/sdk';

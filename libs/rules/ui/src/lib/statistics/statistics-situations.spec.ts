@@ -4,7 +4,7 @@ import type { Selector } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
-import { CLAIMABLE_STATISTICS, claimable, FOOTING_RULE } from '../testing/conditional-fixtures';
+import { claimable, CLAIMABLE_STATISTICS, FOOTING_RULE } from '../testing/conditional-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { STATISTIC_ROLLER } from './statistic-roller';
 import type { StatisticRoller } from './statistic-roller';

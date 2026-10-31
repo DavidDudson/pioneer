@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { ContentId } from './content-id';
 import { FormulaSource } from './formula-source';
-import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Trait } from './trait';
 import { uniqueItems } from './unique-items';
 import { Feet } from './units';

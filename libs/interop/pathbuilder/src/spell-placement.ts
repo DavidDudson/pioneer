@@ -7,7 +7,7 @@ import { pairCasters } from './caster-pairing';
 import type { ContentLookup } from './content-lookup';
 import { placeInnate } from './innate-placement';
 import type { ImportedCaster } from './read-spells';
-import { SpellGapReason, listed } from './spell-listing';
+import { listed, SpellGapReason } from './spell-listing';
 import type { Listed, SpellGap, SpellPlacement, SpellPlacementContent } from './spell-listing';
 
 export { SpellGap, SpellGapReason } from './spell-listing';

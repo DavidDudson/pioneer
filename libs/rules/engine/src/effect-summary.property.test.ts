@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { contentId, ContentId, ContentKind, entrySlug, PackId, Selector, Slug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, entrySlug, PackId, Selector, Slug } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 import { array, assert, constantFrom, integer, property, record } from 'fast-check';
 import type { Arbitrary } from 'fast-check';

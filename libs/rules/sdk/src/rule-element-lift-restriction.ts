@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 import { ContentId, Slug } from './content-id';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 
 /**
  * Lifts one restriction of an environment while its predicate holds: a swim speed or the aquatic trait lifts underwater's

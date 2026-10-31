@@ -9,8 +9,7 @@ import type { StatisticInputs } from './statistic-inputs';
 
 /** A damage formula read against a character: the dice to roll, or the text that has no value (`@ancestry.hp`). */
 export type ResolvedDamageFormula =
-  | { readonly ok: true; readonly expression: DiceExpression }
-  | { readonly ok: false; readonly unresolved: FormulaText };
+  { readonly ok: true; readonly expression: DiceExpression } | { readonly ok: false; readonly unresolved: FormulaText };
 
 /** The `d` of a dice term, which the formula grammar reads as a product once swapped for `*`. */
 const DICE_D = /(?<=[\d)])d(?=\d)/gu;

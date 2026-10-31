@@ -1,7 +1,7 @@
 import { signal } from '@angular/core';
 import { FilterKind } from '@pioneer/frontier';
 import type { AsyncQuery, FilterField } from '@pioneer/frontier';
-import { ContentKind, ContentText, facetCounts, facetsFor, RichText, SourceRef, slugName } from '@pioneer/rules/sdk';
+import { ContentKind, ContentText, facetCounts, facetsFor, RichText, slugName, SourceRef } from '@pioneer/rules/sdk';
 import type { FacetCounts, FilterState } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { EntryPreview } from '@pioneer/rules/ui';

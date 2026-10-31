@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { assert, integer, property } from 'fast-check';
 
-import { InvestedCount, Hands } from './item-carry';
+import { Hands, InvestedCount } from './item-carry';
 import { CORE_RULE_LIMITS, RuleLimitsSchema } from './rule-limits';
 import { inventoryViolations, RuleBreak } from './rule-violations';
 import { inventory, itemFixtureContent, runeFixtureContent } from './testing';

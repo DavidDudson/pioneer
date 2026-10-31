@@ -23,7 +23,7 @@ const linkVariants = cva('focus-visible:focus-ring', {
     appearance: {
       inline: 'text-accent-fg underline underline-offset-link hover:decoration-accent-fg',
       // Touch-sized; a tab's label never wraps, the tab row scrolls instead.
-      tab: 'inline-flex h-touch items-center whitespace-nowrap px-sm text-label font-medium underline-offset-link pointer-fine:h-control-sm',
+      tab: 'inline-flex h-touch items-center px-sm text-label font-medium whitespace-nowrap underline-offset-link pointer-fine:h-control-sm',
       // Touch-sized like a tab, but reads as a link: the index wraps instead of scrolling.
       index:
         'inline-flex h-touch items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg pointer-fine:h-control-sm',

@@ -2,21 +2,21 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { SEARCH_DEBOUNCE } from '../search-input/search-input.component';
 import {
+  describedText,
   FEATS,
   grid,
   headerCells,
   highlighted,
-  longList,
   LONG_LIST,
+  longList,
   open,
   press,
   render,
   rowCells,
-  describedText,
   searchBox,
   selectedStates,
-  sortButton,
   settle,
+  sortButton,
   stubLayout,
   type,
 } from './picker-testing';

@@ -35,8 +35,7 @@ function failed({ error, position }: ValueFailure): LineStatus {
 
 /** One adjustment's effect: the new value, or the status that ends the line there (suppressed or failed). */
 type Step =
-  | { readonly value: FormulaValue }
-  | { readonly value: FormulaValue | undefined; readonly status: LineStatus };
+  { readonly value: FormulaValue } | { readonly value: FormulaValue | undefined; readonly status: LineStatus };
 
 /** Collects, adjusts, gates and stacks the modifiers that reach one statistic. */
 class Collection {

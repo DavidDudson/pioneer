@@ -4,8 +4,8 @@ import { DamageProperty, DiceCount, Domain, RuleElementKey, RuleNumber } from '@
 import type {
   ContentText,
   DamageAlterationElement,
-  DamageDiceElement,
   DamageDiceCategory,
+  DamageDiceElement,
   DamageType,
   DegreeOfSuccess,
   DieSize,

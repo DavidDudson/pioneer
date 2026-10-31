@@ -5,8 +5,8 @@ import {
   preparedReads,
   preparedSlots,
   signatureSlots,
-  SlotStatus,
   slotCountKey,
+  SlotStatus,
 } from '@pioneer/character/domain';
 import type {
   Character,
@@ -14,8 +14,8 @@ import type {
   PickedPreparation,
   PreparedSlot,
   SignatureSlot,
-  SlotCountKey,
   SlotContent,
+  SlotCountKey,
   SpellOption,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';

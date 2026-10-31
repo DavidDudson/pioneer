@@ -1,4 +1,4 @@
-import { contentId, ContentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { MagicItemFields } from '@pioneer/rules/sdk/testing';
 
 import { ITEM_PACK } from './condition-fixture-ids';

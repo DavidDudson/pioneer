@@ -14,7 +14,7 @@ import { ActionKind } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import type { SheetFeatSlot, SheetFeatOption } from './sheet-feats';
+import type { SheetFeatOption, SheetFeatSlot } from './sheet-feats';
 import { slotsOpenTo } from './sheet-unplaced-feat-slots';
 
 const pack = PackId.parse('player-core');
