@@ -50,12 +50,12 @@ export function checkShield(play: PlayState, command: PlayEdit, shields: ShieldC
 
 /**
  * The inventory after a block: the shield marked broken once it falls to its Broken Threshold, or removed when it is
- * destroyed. Undefined when the inventory stays as it is.
+ * destroyed. Undefined when the inventory stays as it is, as for a shield an effect gives, which no item holds.
  */
 export function shieldInventoryAfter(inventory: Inventory, before: PlayState, block: Block): Inventory | undefined {
   const { command, shields } = block;
   const stats = isShieldCommand(command) ? shields.get(command.item) : undefined;
-  if (!isShieldCommand(command) || stats === undefined) {
+  if (!isShieldCommand(command) || stats === undefined || stats.granted !== undefined) {
     return undefined;
   }
   const { item, damage } = command;

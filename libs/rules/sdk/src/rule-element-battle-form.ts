@@ -5,10 +5,10 @@ import { AttributeSchema } from './attribute';
 import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { DamageAdjustmentTargetSchema, DamageExceptions, DamageTypeSchema } from './damage';
-import { Hardness } from './physical-item';
 import { Predicate } from './predicate';
 import { ruleElementBase, RuleElementKey, RuleValue } from './rule-element-base';
 import { DefenceValue } from './rule-element-defences';
+import { GrantedShield } from './rule-element-grant-shield';
 import { WeaponCategory } from './rule-element-proficiency';
 import { SkillSelector } from './selector';
 import { SenseAcuitySchema } from './sense';
@@ -54,9 +54,6 @@ const FormSense = z.strictObject({
 
 /** An action the form grants while it is in effect: the content entry of the action (Insect Form's Web). */
 const FormAction = z.strictObject({ action: ContentId });
-
-/** A shield the form carries: it has `hardness`, belongs to the form (not an inventory item) and cannot be damaged. */
-const FormShield = z.strictObject({ hardness: Hardness });
 
 const FormImmunity = z.strictObject({ type: Immunity });
 
@@ -148,7 +145,7 @@ export const BattleFormElement = z.strictObject({
     /** The actions the form grants beside the character's own: those that come with the form, not the spell's. */
     actions: z.array(FormAction).max(LIST_MAX).readonly().optional(),
     /** The shield the form carries, which raises and blocks as a held shield does while the form lasts. */
-    shield: FormShield.optional(),
+    shield: GrantedShield.omit({ brackets: true }).optional(),
     ...flagFields,
   }),
   brackets: z.array(BattleFormBracket).max(BRACKETS_MAX).readonly().optional(),

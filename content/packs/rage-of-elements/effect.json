@@ -4449,6 +4449,29 @@
             "or": ["self:type:character", "self:type:npc"]
           }
         ]
+      },
+      {
+        "key": "GrantShield",
+        "hardness": 2,
+        "endsOnBlock": true,
+        "brackets": [
+          {
+            "start": 3,
+            "hardness": 4
+          },
+          {
+            "start": 5,
+            "hardness": 7
+          },
+          {
+            "start": 7,
+            "hardness": 10
+          },
+          {
+            "start": 9,
+            "hardness": 12
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -7161,6 +7184,86 @@
       "category": "feat",
       "duration": {
         "type": "encounter"
+      }
+    }
+  },
+  {
+    "id": "3bde73c3-be1a-51b1-b436-e93c4e05355e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-shielded-arm",
+    "name": "Spell Effect: Shielded Arm",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can raise its arm with the Raise a Shield action and Shield Block with it, reducing the damage as if it had a shield with Hardness 4 and 15 Hit Points and no Broken Threshold. The spell ends if the shield's Hit Points are spent. The +2 circumstance bonus to AC is not modelled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantShield",
+        "hardness": 4,
+        "hitPoints": 15,
+        "brokenThreshold": 0,
+        "endsWhenDestroyed": true,
+        "brackets": [
+          {
+            "start": 3,
+            "hardness": 8,
+            "hitPoints": 30
+          },
+          {
+            "start": 5,
+            "hardness": 12,
+            "hitPoints": 45
+          },
+          {
+            "start": 7,
+            "hardness": 16,
+            "hitPoints": 60
+          },
+          {
+            "start": 9,
+            "hardness": 20,
+            "hitPoints": 75
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
       }
     }
   }

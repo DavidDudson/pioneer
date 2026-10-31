@@ -3,12 +3,13 @@ import { describe, expect, test } from 'bun:test';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
 import { entry, idOf, lookupOf } from '@pioneer/rules/grants/testing';
-import { Hardness, HitPoints, Level } from '@pioneer/rules/sdk';
+import { Hardness, HitPoints, Level, SpellRank } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { ActiveEffectSchema, EffectInstanceId, effectRoots } from './effects';
 import { rulesOf } from './entry-rules';
 import { heldShields } from './held-shields';
+import type { HeldShield } from './held-shields';
 import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, ONE_HAND } from './item-carry';
@@ -57,16 +58,20 @@ describe('heldShields', () => {
 });
 
 const AVATAR = entry('avatar', [{ key: 'BattleForm', form: { shield: { hardness: 15 } } }]);
+const SHIELD_SPELL = entry('shield-spell', [
+  { key: 'GrantShield', hardness: 5, endsOnBlock: true, brackets: [{ start: 3, hardness: 10 }] },
+]);
 
-/** The rules of an Avatar effect that is on, as `heldShields` reads them. */
-function avatarRules(): ModifierInputs {
+/** The rules of the effect `name` that is on, cast at `rank`, as `heldShields` reads them. */
+function rulesOfEffect(name: string, rank?: number): ModifierInputs {
   const effect = ActiveEffectSchema.parse({
     id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000001'),
-    effect: idOf('avatar'),
+    effect: idOf(name),
+    ...(rank === undefined ? {} : { rank: SpellRank.parse(rank) }),
   });
   const resolution = resolveGrants({
     roots: effectRoots([effect]),
-    lookup: lookupOf([AVATAR]),
+    lookup: lookupOf([AVATAR, SHIELD_SPELL]),
     level: Level.parse(10),
     situation: [],
     picks: new Map(),
@@ -77,6 +82,7 @@ function avatarRules(): ModifierInputs {
   const rules = rulesOf(resolution, { inventory: EMPTY_INVENTORY, content: itemFixtureContent() }, () => true);
   return { rules, facts: resolution.facts };
 }
+const avatarRules = (): ModifierInputs => rulesOfEffect('avatar');
 
 describe('heldShields in a battle form with a shield', () => {
   test('the form carries a shield with its Hardness that cannot be damaged, beside the inventory shields', () => {
@@ -95,5 +101,24 @@ describe('heldShields in a battle form with a shield', () => {
 
     expect(first?.item).toBe(second?.item);
     expect(heldShields(EMPTY_INVENTORY, content)).toStrictEqual([]);
+  });
+});
+
+const held = (rank: number): readonly HeldShield[] =>
+  heldShields(EMPTY_INVENTORY, content, () => rulesOfEffect('shield-spell', rank));
+
+describe('heldShields with a shield an effect gives', () => {
+  test('the shield is heightened to the rank of the spell and names the effect that ends with it', () => {
+    const [shield] = held(3);
+
+    expect(shield).toMatchObject({
+      hardness: Hardness.parse(10),
+      undamageable: true,
+      granted: { effect: idOf('shield-spell'), endsOnBlock: true, endsWhenDestroyed: false },
+    });
+  });
+
+  test('it is the base shield at the lowest rank', () => {
+    expect(held(1)[0]?.hardness).toBe(Hardness.parse(5));
   });
 });
