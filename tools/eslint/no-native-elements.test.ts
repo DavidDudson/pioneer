@@ -35,6 +35,10 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: frontier('data/table/table.component.html'), code: `<table><colgroup><col /></colgroup></table>` },
     { filename: frontier('data/chart/chart.component.html'), code: `<tanstack-chart />` },
     { filename: frontier('icon/icon.component.html'), code: `<svg><path d="M0 0" /></svg>` },
+    {
+      filename: frontier('media/character-avatar/character-avatar.component.html'),
+      code: `<svg><path d="M0 0" /></svg>`,
+    },
     { filename: frontier('layout/stack/stack.component.html'), code: `<fr-text><fr-icon /></fr-text>` },
     {
       filename: frontier('text/text/text.component.html'),

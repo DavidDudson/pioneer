@@ -8,7 +8,7 @@
  * Inside frontier each native element that carries behaviour or semantics
  * has exactly one owning primitive: only `fr-button` renders `<button>`, only
  * the text controls render `<input>`, and so on. Everything else composes
- * those primitives (`<svg>` only in `fr-icon`, which draws Lucide icons).
+ * those primitives (`<svg>` only in `fr-icon`, which draws Lucide icons, and in `fr-character-avatar`, whose health arc is a path).
  * Structural elements (`div`, `span`, landmarks) stay free inside frontier.
  * Any other element must be in the map: one frontier has never classified
  * fails, so a new semantic element gets an owner before it ships.
@@ -92,7 +92,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   ['track', []],
   ['map', []],
   ['area', []],
-  ['svg', ['icon/']],
+  ['svg', ['icon/', 'media/character-avatar/']],
   ['math', []],
   ['canvas', []],
   ['tanstack-chart', ['data/chart/']],

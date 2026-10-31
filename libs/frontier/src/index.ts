@@ -117,6 +117,7 @@ export { ListItem } from './lib/list/list-item/list-item.component';
 
 // Media
 export { Avatar } from './lib/media/avatar/avatar.component';
+export { CharacterAvatar } from './lib/media/character-avatar/character-avatar.component';
 export { ImageAspect, ImageDisplay, ImageFit, ImageLoading, ImageSize } from './lib/media/image/image.component';
 
 // Text

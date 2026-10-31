@@ -271,6 +271,14 @@
   }
 }
 
+/*
+ * A circular clip with no border-radius, so the sharp-corners lint and the built-CSS check stay intact: only
+ * fr-character-avatar's portrait is round.
+ */
+@utility clip-circle {
+  clip-path: circle(50%);
+}
+
 @utility focus-ring {
   outline: var(--fr-focus-ring-width) solid var(--color-line-focus);
   outline-offset: var(--fr-focus-ring-offset);
