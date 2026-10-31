@@ -4,6 +4,8 @@ import { HeadingLevel } from '@pioneer/frontier';
 import { contentId, ContentText, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
+import { INLINE_ROLLER } from './inline-roller';
+import type { InlineRoller } from './inline-roller';
 import { provideRichTextLinks } from './rich-text-links';
 import type { RichTextLinks } from './rich-text-links';
 import { RichTextView } from './rich-text.component';
@@ -77,6 +79,34 @@ export const Structure: RichTextStory = {
         header: [[{ type: 'text', text: 'Rank' }], [{ type: 'text', text: 'Damage' }]],
         rows: [
           [[{ type: 'text', text: '4th' }], [{ type: 'damage', instances: [{ formula: '8d6', damageType: 'fire' }] }]],
+        ],
+      },
+    ]),
+  },
+};
+
+/** A roller that rolls nothing, for a story: the character knows Reflex and nothing else. */
+const REFLEX_ONLY: InlineRoller = {
+  hasStatistic: (selector): boolean => selector === 'save:reflex',
+  check: (): void => undefined,
+  damage: (): void => undefined,
+};
+
+/** Where a roller is provided, a check and damage are buttons; a check the reader lacks a statistic for says so. */
+export const Rollable: RichTextStory = {
+  decorators: [applicationConfig({ providers: [{ provide: INLINE_ROLLER, useValue: REFLEX_ONLY }] })],
+  args: {
+    text: RichText.parse([
+      {
+        type: 'paragraph',
+        content: [
+          { type: 'text', text: 'The blast deals ' },
+          { type: 'damage', instances: [{ formula: '6d6', damageType: 'fire' }] },
+          { type: 'text', text: ' to a creature that fails a ' },
+          { type: 'check', statistic: 'save:reflex', dc: 24 },
+          { type: 'text', text: '; to avoid the smoke, attempt ' },
+          { type: 'check', statistic: 'skill:athletics', dc: 20 },
+          { type: 'text', text: '.' },
         ],
       },
     ]),
