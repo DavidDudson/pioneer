@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentId, ContentKind, ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
-import { classPickerContent } from './class-options';
+import { classesForRole, classPickerContent } from './class-options';
 
 const ids = new ContentPackBuilder();
 const pack = new ContentPackBuilder()
@@ -22,7 +22,7 @@ const pack = new ContentPackBuilder()
       { key: 'GrantItem', item: ids.idOf(ContentKind.ClassFeature, 'wizard-spellcasting') },
     ],
   })
-  .withClass('fighter', ['str', 'dex']);
+  .withClass('fighter', ['str', 'dex'], { roles: ['melee', 'tank'] });
 const registry = new ContentRegistry();
 registry.register(pack.build());
 const content = classPickerContent(registry);
@@ -33,6 +33,16 @@ describe('classPickerContent', () => {
     const fighter = content.classes.at(0);
     expect(fighter?.keyAttribute).toEqual(['str', 'dex']);
     expect(content.classes.at(1)?.hitPoints).toBe(HitPoints.parse(6));
+  });
+
+  test('carries the roles a class plays, none when it sets none', () => {
+    expect(content.classes.map((each) => each.roles)).toEqual([['melee', 'tank'], []]);
+  });
+
+  test('lists the classes that play a role', () => {
+    const names = classesForRole(content.classes, 'tank').map((each) => String(each.name));
+    expect(names).toEqual(['Fighter']);
+    expect(classesForRole(content.classes, 'healer')).toEqual([]);
   });
 
   test('splits the skills a class trains from its other starting ranks', () => {

@@ -210,12 +210,12 @@ export class ContentPackBuilder {
   public withClass(
     name: string,
     keyAttribute: readonly string[],
-    { hitPoints = 10, rules = [] }: ClassFields = {},
+    { hitPoints = 10, rules = [], roles }: ClassFields = {},
   ): this {
     this.#entries.push({
       kind: ContentKind.Class,
       name,
-      data: { keyAttribute, hitPoints, additionalSkills: 3 },
+      data: { keyAttribute, hitPoints, additionalSkills: 3, ...(roles === undefined ? {} : { roles }) },
       rules,
     });
     return this;

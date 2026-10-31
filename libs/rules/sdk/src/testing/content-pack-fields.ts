@@ -55,6 +55,7 @@ export interface SpellFields {
 export interface ClassFields {
   readonly hitPoints?: number;
   readonly rules?: readonly object[];
+  readonly roles?: readonly string[];
 }
 
 /** What a test class feature has. */

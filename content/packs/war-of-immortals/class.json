@@ -975,7 +975,8 @@
       "keyAttribute": ["wis"],
       "hitPoints": 8,
       "additionalSkills": 2,
-      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
+      "roles": ["spellcaster", "healer"]
     }
   },
   {
@@ -2019,7 +2020,8 @@
       "keyAttribute": ["dex", "str"],
       "hitPoints": 10,
       "additionalSkills": 3,
-      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19]
+      "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
+      "roles": ["melee"]
     }
   }
 ]

@@ -114,7 +114,7 @@ Lists of attributes, slugs and ids name each item once.
 | `ancestry-feature` | `action?`; granted by its ancestry or heritage, never picked                                                                                                |
 | `heritage`         | `ancestry?`, absent for a versatile heritage                                                                                                                |
 | `background`       | `boosts`; trained skills and lore are `Proficiency` elements, its skill feat a `GrantItem`                                                                  |
-| `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; progression in `rules`                         |
+| `class`            | `keyAttribute`, the attributes it may be; `hitPoints` per level; `additionalSkills`; `skillIncreaseLevels?`; `roles?`; progression in `rules`               |
 | `class-feature`    | `action?`; `tags?`; `keyAttributeOptions?`; always has a `level`                                                                                            |
 | `feat`             | `category`; `prerequisites?` as rich text; `prerequisitePredicate?`; `onlyLevel1?`; `maxTakable?`; `action?`; `skills?`; `archetype?`; always has a `level` |
 | `archetype`        | `dedication`; `multiclass?`, the class it is the multiclass archetype of                                                                                    |
@@ -144,6 +144,10 @@ Lists of attributes, slugs and ids name each item once.
   (`["item:tag:cleric-doctrine"]`), with the `GrantItem` of its pick; a class feature's `tags` are its roll options
   `tag:<tag>`, and the class's `subclass` names the tag its subclass options carry, since a class may have more than
   one such query (a wizard's arcane school and thesis) ([ADR-0036](../adr/0036-class-names-its-subclass-by-tag.md)).
+  A class's `roles` (`spellcaster`, `melee`, `ranged`, `tank`, `healer`) say what it does at the table, for the generator
+  and for pickers that filter classes by play style. A class may have several; every official class has at least one,
+  and every role has a class (a catalog test). The field is `roles`, not `archetypes`, to keep that word for the
+  Pathfinder kind. A homebrew class that sets none is not offered by a role filter.
 - **Feats.** `category` is Foundry's: `ancestry`, `class`, `general`, `skill` or `bonus`; an archetype feat is a
   class feat with the `archetype` trait. `maxTakable` is a count or `unlimited` (Foundry's `null`), once when
   absent. A feat with `onlyLevel1` must be level 1. `action` is an `action` kind's `data`, for a feat or class
