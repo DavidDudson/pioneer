@@ -109,6 +109,7 @@ export class HttpPathbuilderExportFetcher extends PathbuilderExportFetcher {
     try {
       const response = await this.#follow(url, AbortSignal.timeout(this.#limits.timeoutMs), MAX_REDIRECTS);
       if (response === undefined || !response.ok) {
+        await response?.body?.cancel();
         return { ok: false, problem: ExportFetchProblem.Unavailable };
       }
       const text = await boundedText(response, this.#limits.maxBytes);
@@ -124,6 +125,7 @@ export class HttpPathbuilderExportFetcher extends PathbuilderExportFetcher {
     if (!REDIRECT_STATUSES.has(response.status)) {
       return response;
     }
+    await response.body?.cancel();
     const next = redirectTarget(response, url);
     return next === undefined || redirectsLeft === 0 ? undefined : this.#follow(next, signal, redirectsLeft - 1);
   }

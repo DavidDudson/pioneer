@@ -19,7 +19,7 @@ export type PathbuilderExportUrl = z.infer<typeof PathbuilderExportUrl>;
 export const ExportUrlProblem = {
   /** Not a URL at all. */
   NotUrl: 'not-url',
-  /** A URL on another host, or another path or protocol than Pathbuilder's export. */
+  /** A URL on another host, or on another path or port than Pathbuilder's export, or with credentials. */
   ForeignHost: 'foreign-host',
   /** No `id`, or one that is not a number. */
   BadId: 'bad-id',
@@ -40,7 +40,7 @@ export function looksLikeUrl(text: string): boolean {
 /**
  * The URL an export is fetched from, given what the user pasted. Only the numeric `id` is kept: every other parameter
  * (`fbclid`, a fragment) is dropped, and any other host or path is refused, so the server never fetches a URL the
- * user chose.
+ * user chose. An `http:` link is upgraded to `https:`; if `id` repeats, the first one is used.
  */
 export function exportUrlOf(text: string): ExportUrlResult {
   const parsed = URL.parse(text.trim());

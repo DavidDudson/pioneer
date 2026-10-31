@@ -154,10 +154,24 @@ describe('PathbuilderImportPage link', () => {
     expect(root.textContent).not.toContain('Fetch export');
   });
 
-  it('shows why the server refused the link', async () => {
+  it('refuses a foreign link without asking the server', async () => {
     const { harness, root } = await openPage();
     const http = TestBed.inject(HttpTestingController);
     await paste(harness, root, 'https://evil.test/json.php?id=1');
+
+    button(root, 'Fetch export').click();
+    await harness.fixture.whenStable();
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Only links to pathbuilder2e.com can be fetched');
+    });
+    http.expectNone('/api/characters/import/pathbuilder/fetch');
+  });
+
+  it('shows why the server refused the link', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, LINK);
 
     button(root, 'Fetch export').click();
     await harness.fixture.whenStable();
@@ -167,14 +181,14 @@ describe('PathbuilderImportPage link', () => {
         title: 'Validation failed',
         status: 422,
         message: { key: 'problem.validation' },
-        issues: [{ path: ['url'], message: { key: 'character.validation.exportUrl.foreignHost' } }],
+        issues: [{ path: ['url'], message: { key: 'character.validation.exportUrl.unavailable' } }],
       },
       { status: 422, statusText: 'Unprocessable Content' },
     );
 
     await vi.waitFor(() => {
       harness.detectChanges();
-      expect(root.textContent).toContain('Only links to pathbuilder2e.com can be fetched');
+      expect(root.textContent).toContain('Pathbuilder could not be reached for that link');
     });
   });
 });

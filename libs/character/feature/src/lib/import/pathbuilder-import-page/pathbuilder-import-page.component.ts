@@ -20,6 +20,8 @@ import {
 } from '@pioneer/frontier';
 import {
   buildImportReport,
+  exportUrlOf,
+  ExportUrlProblem,
   looksLikeUrl,
   PathbuilderProblem,
   readPathbuilderExport,
@@ -45,6 +47,13 @@ interface ImportModel {
 const PROBLEM_KEYS: Readonly<Record<PathbuilderProblem, string>> = {
   [PathbuilderProblem.Malformed]: 'character.import.problem.malformed',
   [PathbuilderProblem.ExportFailed]: 'character.import.problem.exportFailed',
+};
+
+/** The server's words for a link it would refuse, so the same message shows without a round trip. */
+const LINK_PROBLEM_KEYS: Readonly<Record<ExportUrlProblem, string>> = {
+  [ExportUrlProblem.NotUrl]: 'character.validation.exportUrl.notUrl',
+  [ExportUrlProblem.ForeignHost]: 'character.validation.exportUrl.foreignHost',
+  [ExportUrlProblem.BadId]: 'character.validation.exportUrl.badId',
 };
 
 /** An attribute modifier, signed in the viewer's locale (+5, −1). */
@@ -91,10 +100,16 @@ export class PathbuilderImportPage {
   readonly #route = inject(ActivatedRoute);
   readonly #i18n = inject(TranslocoService);
 
+  /** The message for a pasted link refused before asking the server; undefined once the server is the one asked. */
+  #refusedLinkKey: string | undefined;
+
   protected readonly model = signal<ImportModel>({ json: '' });
   protected readonly form = form(this.model);
 
-  /** A pasted link, not JSON: the server fetches the export it points at (#663). */
+  /**
+   * A pasted link, not JSON: the server fetches the export it points at (#663 feat(interop): import a Pathbuilder
+   * character from its JSON URL).
+   */
   protected readonly isLink = computed((): boolean => looksLikeUrl(this.model().json));
 
   readonly #result = computed((): PathbuilderReadResult | undefined => {
@@ -137,8 +152,17 @@ export class PathbuilderImportPage {
 
   /** Has the server fetch the export a pasted link points at, and puts it in the field to be read like a pasted one. */
   protected readonly fetchExport = async (): Promise<void> => {
-    const fetched = await this.#exports.fetch(this.model().json.trim());
-    this.model.set({ json: JSON.stringify(fetched) });
+    const link = this.model().json.trim();
+    const checked = exportUrlOf(link);
+    this.#refusedLinkKey = checked.ok ? undefined : LINK_PROBLEM_KEYS[checked.problem];
+    if (!checked.ok) {
+      throw new Error(LINK_PROBLEM_KEYS[checked.problem]);
+    }
+    const fetched = await this.#exports.fetch(link);
+    const stillRequested = this.model().json.trim() === link;
+    if (stillRequested) {
+      this.model.set({ json: JSON.stringify(fetched) });
+    }
   };
 
   /**
@@ -156,7 +180,9 @@ export class PathbuilderImportPage {
 
   /** The server's reason the link was refused (another host, no id, no answer), else a generic retry. */
   protected readonly describeFetchError = (error: unknown): string =>
-    this.#describe(error, 'character.import.fetchFailed');
+    this.#refusedLinkKey !== undefined && !(error instanceof ApiError)
+      ? this.#i18n.translate(this.#refusedLinkKey)
+      : this.#describe(error, 'character.import.fetchFailed');
 
   #describe(error: unknown, fallbackKey: string): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
