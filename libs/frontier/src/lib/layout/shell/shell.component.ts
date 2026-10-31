@@ -29,7 +29,7 @@ import { Stack } from '../stack/stack.component';
 const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
-const searchVariants = cva('', { variants: { open: { true: 'min-w-none flex-1', false: 'hidden' } } });
+const searchVariants = cva('', { variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } } });
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 
 /** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */

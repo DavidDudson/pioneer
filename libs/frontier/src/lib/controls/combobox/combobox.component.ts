@@ -27,6 +27,7 @@ import { ComboboxStatus } from './combobox-status.component';
 import { samePicked, sameTextSource, textOf } from './combobox-text';
 import type { Picked, TextSource } from './combobox-text';
 import {
+  comboboxHostClasses,
   comboboxInputClasses,
   comboboxListboxClasses,
   comboboxOptionClasses,
@@ -68,7 +69,7 @@ export interface ComboboxOption<TValue extends string> extends SelectOption<TVal
   imports: [AriaCombobox, Badge, ComboboxPopup, ComboboxStatus, ComboboxWidget, Listbox, Option],
   templateUrl: './combobox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { '[class]': 'hostClasses()' },
 })
 export class Combobox<TValue extends string> extends Control {
   /** The picked value; `undefined` until the user picks. */
@@ -80,6 +81,8 @@ export class Combobox<TValue extends string> extends Control {
   /** Options are loading: the listbox shows skeleton rows. */
   public readonly loading = input(false, { transform: booleanAttribute });
   public readonly placeholder = input('');
+  /** The list floats over the content below the input instead of pushing it down. */
+  public readonly floating = input(false, { transform: booleanAttribute });
   /** Every keystroke, as typed: for matches that must follow the text at once. Never fired for a pick's label. */
   public readonly typed = output<string>();
   /** The typed query, debounced. Never fired for the label a pick fills in. */
@@ -123,7 +126,8 @@ export class Combobox<TValue extends string> extends Control {
   });
 
   protected readonly inputClasses = comboboxInputClasses;
-  protected readonly popupClasses = comboboxPopupClasses;
+  protected readonly popupClasses = computed(() => comboboxPopupClasses({ floating: this.floating() }));
+  protected readonly hostClasses = computed(() => comboboxHostClasses({ floating: this.floating() }));
   protected readonly listboxClasses = comboboxListboxClasses;
   protected readonly optionClasses = comboboxOptionClasses;
   protected readonly descriptionClasses = comboboxOptionDescriptionClasses;
@@ -136,7 +140,6 @@ export class Combobox<TValue extends string> extends Control {
   protected readonly optionElements = viewChildren<ElementRef<HTMLElement>>('optionElement');
   protected readonly ariaOptions = viewChildren<Option<TValue>>(Option);
   protected readonly listbox = viewChild<Listbox<TValue>>(Listbox);
-
   readonly #indexByValue = computed(
     () => new Map(this.options().map((option, index): [TValue, number] => [option.value, index])),
   );
@@ -284,8 +287,7 @@ export class Combobox<TValue extends string> extends Control {
   }
 
   #labelOf(value: TValue): string | undefined {
-    const index = this.#indexByValue().get(value);
-    return index === undefined ? undefined : this.options()[index]?.label;
+    return this.options()[this.#indexByValue().get(value) ?? -1]?.label;
   }
 
   #search(query: string): void {
