@@ -1,7 +1,7 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantResolution, GrantRoot, OwnedItem, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
-import { Level, SlotKey } from '@pioneer/rules/sdk';
+import { LEGACY_CONTENT_VARIANT, Level, SlotKey } from '@pioneer/rules/sdk';
 import type {
   AttributeModifiers,
   ChoiceValue,
@@ -54,11 +54,18 @@ export interface SlotContent {
   readonly items?: ItemContent | undefined;
 }
 
-/** The slot content a registry gives, for a character with `variants` in force. */
-export function slotContent(registry: ContentRegistry, variants: readonly VariantRuleEntry[] = []): SlotContent {
+/**
+ * The slot content a registry gives, for a character with `variants` in force. Legacy content is on while its variant
+ * rule is in force, or when `legacyContent` says so: an import reads a build for what it holds, whatever the table allows.
+ */
+export function slotContent(
+  registry: ContentRegistry,
+  variants: readonly VariantRuleEntry[] = [],
+  legacyContent = variants.some((variant) => variant.id === LEGACY_CONTENT_VARIANT),
+): SlotContent {
   const rootSlots = characterRootSlots(variants);
   return {
-    lookup: grantLookup(registry),
+    lookup: grantLookup(registry, legacyContent),
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),

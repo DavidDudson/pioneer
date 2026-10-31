@@ -342,6 +342,24 @@
     }
   },
   {
+    "id": "d92b05a2-c2d4-56b0-b03e-2f96d848bed5",
+    "pack": "core-rules",
+    "kind": "variant-rule",
+    "slug": "variant-rule:legacy-content",
+    "name": "Legacy Content",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gm-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  },
+  {
     "id": "740e30fe-b997-5430-9a5b-6eab94136a61",
     "pack": "core-rules",
     "kind": "variant-rule",

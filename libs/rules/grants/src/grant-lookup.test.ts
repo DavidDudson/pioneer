@@ -62,6 +62,22 @@ describe('grantLookup', () => {
     expect(feat()).toBe(true);
   });
 
+  test('holds legacy content back as unsupported until the character has legacy content on', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withLicense(ContentLicense.Ogl).withFeat('sudden-charge').build());
+    const feat = (legacyContent: boolean): boolean | undefined =>
+      grantLookup(registry, legacyContent).ofKind(ContentKind.Feat)[0]?.facts?.unsupported;
+
+    expect(feat(false)).toBe(true);
+    expect(feat(true)).toBeUndefined();
+  });
+
+  test('never holds back remaster content for want of legacy content', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withLicense(ContentLicense.Orc).withFeat('sudden-charge').build());
+    expect(grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported).toBeUndefined();
+  });
+
   test('lists ancestries by kind, and nothing of a kind the registry lacks', () => {
     const lookup = grantLookup(registryOf('human', 'elf'));
     expect(lookup.ofKind(ContentKind.Ancestry).map((entry) => String(entry.slug))).toEqual(['human', 'elf']);
