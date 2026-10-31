@@ -11,10 +11,10 @@ import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { visibleFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
 import { featSlotFilter } from './sheet-feat-slot-filter';
-import type { FeatFilterSources, FeatSlotFilter } from './sheet-feat-slot-filter';
 import { featRows, sheetFeats } from './sheet-feats';
 import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
 import { sheetField } from './sheet-field';
+import type { FilterSources, SlotFilter } from './sheet-slot-filter';
 
 /** What the feat pickers read and write through. */
 export interface FeatPickSources {
@@ -31,7 +31,7 @@ export interface FeatPickSources {
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
   /** Where the pickers keep their filters; without it they list everything their slot offers, unfiltered. */
-  readonly filters?: FeatFilterSources;
+  readonly filters?: FilterSources;
 }
 
 /** A feat slot as an inline pick: the feats it offers as table rows, and why its pick counts for nothing. */
@@ -41,7 +41,7 @@ export interface FeatField {
   readonly rows: Signal<readonly FeatPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The filter panel's state, when the pickers filter. */
-  readonly filter: FeatSlotFilter | undefined;
+  readonly filter: SlotFilter | undefined;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -152,7 +152,11 @@ export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | unde
     const hasGrantOnly = read.groups.some((group) =>
       group.feats.some((feat) => feat.category === DisplayCategory.GrantOnly),
     );
-    return { fields: fields(), groups: visibleFeatGroups(read.groups, sources.showGrantOnly()), hasGrantOnly };
+    return {
+      fields: fields(),
+      groups: visibleFeatGroups(read.groups, sources.showGrantOnly()),
+      hasGrantOnly,
+    };
   });
 }
 

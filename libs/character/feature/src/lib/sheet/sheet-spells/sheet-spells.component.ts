@@ -13,6 +13,7 @@ import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { sheetCounted } from '../sheet-counted';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
+import { injectFilterSources } from '../sheet-filter-sources';
 import { sheetFocus, sheetInnate } from '../sheet-focus-spells';
 import { SheetFormLimits } from '../sheet-form-limits/sheet-form-limits.component';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
@@ -27,8 +28,8 @@ import {
   SpellTargetFilter,
 } from '../sheet-spell-targets';
 import type { SpellSpend } from '../sheet-spell-use';
-import { SheetSpender } from '../sheet-spender';
 // oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
+import { SheetSpender } from '../sheet-spender';
 import { SpellAccess } from '../spell-access/spell-access.component';
 
 /**
@@ -65,6 +66,7 @@ export class SheetSpells {
   public readonly focuses = input(false);
 
   readonly #store = inject(CharacterStore);
+  readonly #filters = injectFilterSources();
   readonly #play = inject(PlayStore);
   readonly #spender = inject(SheetSpender);
   readonly #i18n = inject(TranslocoService);
@@ -104,6 +106,7 @@ export class SheetSpells {
     translate: (key, params) => this.#i18n.translate(key, params),
     messages: this.#messages,
     spend: this.spend,
+    filters: this.#filters,
   });
   /** The character's focus spells and focus pool; undefined without a focus entry or while the spells load. */
   protected readonly focus = computed((): FocusLine | undefined => {

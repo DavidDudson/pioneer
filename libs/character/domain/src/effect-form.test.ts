@@ -67,7 +67,7 @@ describe('an effect carrying the tradition it was cast with', () => {
     });
 
     expect(effectRoots([effect]).map(({ hop }) => hop)).toEqual([
-      { kind: 'effect', effect: idOf('plant-form'), rank: 6, tradition: 'divine' },
+      { kind: 'effect', effect: idOf('plant-form'), rank: SpellRank.parse(6), tradition: 'divine' },
     ]);
   });
 });

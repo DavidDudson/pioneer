@@ -1,8 +1,8 @@
-import { computed, untracked } from '@angular/core';
+import { computed, signal, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot, PickedPreparation } from '@pioneer/character/domain';
 import type { InlineEdit } from '@pioneer/frontier';
-import { ChoiceValue, ContentId, SpellPreparation } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, ContentKind, facetsFor, SpellPreparation } from '@pioneer/rules/sdk';
 import type { ContentRegistry, MagicTradition, SlotKey, Slug } from '@pioneer/rules/sdk';
 import type { SpellDetailLine, SpellPickerRow, Translate, UsableLine } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -12,6 +12,8 @@ import { sheetField } from './sheet-field';
 import { sheetPreparedSlots } from './sheet-prepared-spells';
 import type { SheetPreparedEntry, SheetPreparedSlot } from './sheet-prepared-spells';
 import { sheetSlotContent } from './sheet-slot-content';
+import { slotFilter } from './sheet-slot-filter';
+import type { FilterSources, SlotFilter } from './sheet-slot-filter';
 import { sheetSpellDetail } from './sheet-spell-details';
 import { spellRows } from './sheet-spell-rows';
 import type { SpellSpend } from './sheet-spell-use';
@@ -31,6 +33,8 @@ export interface SpellPickSources {
   readonly messages: Signal<unknown>;
   /** What casting is checked against; undefined while the turn and the play state load, when no spell can be cast. */
   readonly spend?: Signal<SpellSpend | undefined>;
+  /** Where the pickers keep their filters; without it they list everything their slot offers, unfiltered. */
+  readonly filters?: FilterSources;
 }
 
 /** A prepared slot as an inline pick: the spells it offers as table rows, and why its pick counts for nothing. */
@@ -41,6 +45,8 @@ export interface PreparedField {
   readonly reason: Signal<MessageDescriptor | undefined>;
   /** The spell the slot holds, with what casting it takes and does at the rank it is cast; undefined while the slot is empty. */
   readonly detail: Signal<SpellDetailLine | undefined>;
+  /** The filter panel's state, for a slot whose pickers filter. */
+  readonly filter: SlotFilter | undefined;
   /** The spell a gift fills the slot with, which can't be changed; undefined for a slot the player picks. */
   readonly grantedSpell: Signal<string | undefined>;
   /** What casting the spell it holds spends, and whether it can be cast now; undefined while the slot is empty or no spend is known. */
@@ -72,6 +78,13 @@ function slotKeys(entries: readonly SheetPreparedEntry[]): string {
 
 function slotIn(entries: readonly SheetPreparedEntry[] | undefined, key: SlotKey): SheetPreparedSlot | undefined {
   return entries?.flatMap((entry) => entry.ranks.flatMap((rank) => rank.slots)).find((slot) => slot.key === key);
+}
+
+const SPELL_FACETS = facetsFor([ContentKind.Spell]);
+
+/** `rows` less the spells the filters leave out; all of them where there are no filters. */
+function without(rows: readonly SpellPickerRow[], hidden: ReadonlySet<string> | undefined): readonly SpellPickerRow[] {
+  return hidden === undefined ? rows : rows.filter((row) => !hidden.has(row.id));
 }
 
 const NONE_TAKEN: ReadonlySet<ContentId> = new Set();
@@ -111,6 +124,25 @@ function castLine(sources: SpellPickSources, held: SheetPreparedSlot | undefined
   return spend === undefined || option === undefined ? undefined : spellUse(option, { slot: held?.slotKey }, spend);
 }
 
+/** The filter of a slot's picker: it opens on the slot's **Available to you** preset; none where the pickers do not filter. */
+function spellSlotFilter(
+  sources: SpellPickSources,
+  read: SheetPreparedSlot,
+  slot: Signal<SheetPreparedSlot | undefined>,
+): SlotFilter | undefined {
+  const { filters } = sources;
+  return filters === undefined || read.preset === undefined
+    ? undefined
+    : slotFilter({
+        registry: sources.registry,
+        filters,
+        key: read.key,
+        offered: computed(() => (slot()?.spells ?? []).map((spell) => spell.id)),
+        facets: signal(SPELL_FACETS),
+        available: computed(() => slot()?.preset),
+      });
+}
+
 /** One prepared slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function preparedField(
   sources: SpellPickSources,
@@ -137,18 +169,18 @@ function preparedField(
       return named ?? sources.translate('character.sheet.prepared.unknownSpell');
     },
   });
+  const filter = spellSlotFilter(sources, read, slot);
   return {
     key,
     label,
     rows: computed(() => {
       sources.messages();
-      return spellRows(slot()?.spells ?? [], {
-        translate: sources.translate,
-        castRank: slot()?.castRank,
-        taken: takenElsewhere(entries(), sources.character(), key),
-      });
+      const taken = takenElsewhere(entries(), sources.character(), key);
+      const rows = spellRows(slot()?.spells ?? [], { translate: sources.translate, castRank: slot()?.castRank, taken });
+      return without(rows, filter?.hidden());
     }),
     reason: computed(() => slot()?.reason),
+    filter,
     grantedSpell: computed(() => (slot()?.granted === true ? slot()?.spell?.name : undefined)),
     use: computed(() => castLine(sources, slot())),
     detail: computed(() => {

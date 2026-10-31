@@ -3,6 +3,10 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { InlineField, Stack, Text } from '@pioneer/frontier';
 import { SpellDetails, SpellPicker, UseButtons } from '@pioneer/rules/ui';
 
+import {
+  SheetSlotFilterPanel,
+  SPELL_FILTER_MESSAGES,
+} from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
 import type { PreparedField } from '../sheet-spell-picks';
 
 /**
@@ -12,10 +16,11 @@ import type { PreparedField } from '../sheet-spell-picks';
  */
 @Component({
   selector: 'pio-sheet-prepared-slot',
-  imports: [InlineField, SpellDetails, SpellPicker, Stack, Text, TranslocoPipe, UseButtons],
+  imports: [InlineField, SheetSlotFilterPanel, SpellDetails, SpellPicker, Stack, Text, TranslocoPipe, UseButtons],
   templateUrl: './sheet-prepared-slot.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetPreparedSlot {
   public readonly slot = input.required<PreparedField>();
+  protected readonly filterMessages = SPELL_FILTER_MESSAGES;
 }
