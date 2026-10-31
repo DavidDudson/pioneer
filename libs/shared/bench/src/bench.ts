@@ -14,10 +14,16 @@ export const DEFAULT_TIMED_RUNS = 51;
 const HALF = 2;
 const DECIMALS = 1000;
 
+/** How much slower a shared CI runner is than a dev machine: the ratio of the two, measured across the suite, ran 2.3 to 2.8. */
+export const CI_RUNNER_MULTIPLIER = 2.5;
+
 export interface BenchSpec<Given> {
   /** The key the history tracks the case under: renaming it starts a new chart. */
   readonly name: string;
-  /** A budget in milliseconds. The fastest run over it fails the case, as a hard assertion. */
+  /**
+   * A budget in milliseconds on a dev machine. The fastest run over it fails the case, as a hard assertion. On CI
+   * (`CI` set) the budget is scaled by `CI_RUNNER_MULTIPLIER`, so one number holds on both.
+   */
   readonly budgetMs?: number | undefined;
   /** Builds what one run is given, outside the timer, fresh for every run. */
   readonly prepare: () => Given;
@@ -44,6 +50,11 @@ export function median(times: readonly number[]): number {
   const upper = sorted[middle] ?? Number.NaN;
   const lower = sorted[middle - 1] ?? upper;
   return sorted.length % HALF === 0 ? (lower + upper) / HALF : upper;
+}
+
+/** The budget a run is held to: the dev-machine budget, scaled up on a CI runner. */
+export function budgetFor(budgetMs: number | undefined, onCi: boolean): number | undefined {
+  return budgetMs === undefined || !onCi ? budgetMs : budgetMs * CI_RUNNER_MULTIPLIER;
 }
 
 /** Milliseconds to three decimals, so a result reads as it will in a chart. */
@@ -94,7 +105,8 @@ export function benchmark<Given>(spec: BenchSpec<Given>): BenchResult {
     spec.run(given);
     return performance.now() - start;
   });
-  const result = summarise(spec, times, warmupRuns);
+  const onCi = Bun.env['CI'] !== undefined && Bun.env['CI'] !== '';
+  const result = summarise({ name: spec.name, budgetMs: budgetFor(spec.budgetMs, onCi) }, times, warmupRuns);
   report(result);
   return result;
 }

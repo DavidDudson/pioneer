@@ -30,7 +30,9 @@ benchmark({
 ```
 
 - `prepare` builds what a run is given, outside the timer, fresh for every run. `run` is the only thing timed.
-- `budgetMs` is optional. A fastest run at or over it fails the benchmark, as a hard assertion, after its result is
+- `budgetMs` is optional, and set for a dev machine: with `CI` set it is multiplied by `CI_RUNNER_MULTIPLIER` (2.5, the
+  measured slowdown of a shared runner), so one number holds in both places. A fastest run at or over it fails the
+  benchmark, as a hard assertion, after its result is
   written. A benchmark without a budget is tracked only.
 - Check the result is right with `expect` before the benchmark: a fast wrong answer is not a result.
 - `name` is the key the history tracks the benchmark under, so renaming one starts a new chart. Prefix it with its

@@ -22,9 +22,9 @@ for (const { name, document } of level20Builds(registry)) {
 }
 
 const ROGUE = 'Rogue';
-/* About 7 and 20 ms on a dev machine, 12 and 33 ms on a shared runner; a budget a bench run on a shared runner stays under, and a return to a grant resolution per level does not. */
-const RANKS_BUDGET_MS = 16;
-const SLOTS_BUDGET_MS = 40;
+/* About 7 and 20 ms on a dev machine, 16 and 44 ms on a shared runner. Budgets are for a dev machine and scale on CI; they sit above what either machine takes, and a return to a grant resolution per level does not. */
+const RANKS_BUDGET_MS = 10;
+const SLOTS_BUDGET_MS = 26;
 const rogue = level20Builds(registry).find((build) => build.name === ROGUE);
 if (rogue === undefined) {
   throw new Error(`The catalog has no ${ROGUE} to bench`);
