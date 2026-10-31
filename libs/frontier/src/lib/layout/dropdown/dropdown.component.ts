@@ -7,7 +7,8 @@ import { cva } from 'class-variance-authority';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
 
-const originClasses = cva('contents')();
+/** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
+const originClasses = cva('inline-flex')();
 const panelClasses = cva(
   'z-overlay mt-2xs max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs',
 )();

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, Stack, Text } from '@pioneer/frontier';
+import { Button, Dropdown, Stack, Text } from '@pioneer/frontier';
 import { SessionStore } from '@pioneer/identity/data-access';
 import { DEV_USERS, DevSignInPath } from '@pioneer/identity/dev-users';
 import type { DevUser } from '@pioneer/identity/dev-users';
@@ -13,7 +13,7 @@ import { returnPathOr } from '@pioneer/identity/domain';
  */
 @Component({
   selector: 'pio-dev-user-switch',
-  imports: [Button, Stack, Text, TranslocoPipe],
+  imports: [Button, Dropdown, Stack, Text, TranslocoPipe],
   templateUrl: './dev-user-switch.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

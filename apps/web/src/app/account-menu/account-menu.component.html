@@ -4,25 +4,29 @@
       <fr-avatar frDropdownTrigger size="sm" decorative [name]="user.displayName" />
     }
     <fr-stack gap="sm">
-      @if (session.user(); as user) {
-        <fr-link exact [to]="accountPath">{{ user.displayName }}</fr-link>
-      }
       <fr-stack gap="2xs">
-        <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.theme' | transloco }}</fr-text>
-        <pio-theme-menu />
-      </fr-stack>
-      <fr-stack gap="2xs">
-        <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.darkMode' | transloco }}</fr-text>
-        <pio-dark-mode-toggle />
+        @if (session.user(); as user) {
+          <fr-link exact appearance="menu" [to]="accountPath">{{ user.displayName }}</fr-link>
+        }
+        <fr-stack direction="horizontal" align="center" justify="between" gap="sm">
+          <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.theme' | transloco }}</fr-text>
+          <pio-theme-menu />
+        </fr-stack>
+        <fr-stack direction="horizontal" align="center" justify="between" gap="sm">
+          <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.darkMode' | transloco }}</fr-text>
+          <pio-dark-mode-toggle />
+        </fr-stack>
       </fr-stack>
       <fr-divider />
       @if (signedIn()) {
         <pio-account-links />
       } @else {
-        <fr-link [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
-        <fr-button variant="ghost" size="sm" (pressed)="session.showSignIn()">{{
-          'shell.account.signIn' | transloco
-        }}</fr-button>
+        <fr-stack gap="2xs">
+          <fr-link appearance="menu" [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
+          <fr-button variant="menu" size="sm" (pressed)="session.showSignIn()">{{
+            'shell.account.signIn' | transloco
+          }}</fr-button>
+        </fr-stack>
       }
     </fr-stack>
   </fr-dropdown>

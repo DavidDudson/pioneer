@@ -8,6 +8,8 @@ export const ButtonVariant = {
   Primary: 'primary',
   Secondary: 'secondary',
   Ghost: 'ghost',
+  /** One row of a menu or dropdown panel: the panel's full width, content left-aligned, the accent when pressed. */
+  Menu: 'menu',
   Danger: 'danger',
   /** A text roll or value button: border and text in the accent, on a muted accent background. */
   OutlineSubtle: 'outline-subtle',
@@ -53,6 +55,10 @@ const buttonVariants = cva(
         secondary:
           'justify-center border border-line-default bg-surface-base font-medium text-fg-default hover:bg-surface-sunken',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
+        menu: [
+          'w-full justify-start font-medium text-start text-fg-default hover:bg-surface-sunken',
+          'aria-pressed:bg-accent-subtle aria-pressed:text-accent-fg',
+        ].join(' '),
         'outline-subtle': [
           'justify-center font-medium border border-accent-line bg-accent-subtle text-accent-fg',
           'hover:border-accent-solid hover:text-accent-fg',

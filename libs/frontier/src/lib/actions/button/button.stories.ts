@@ -41,6 +41,7 @@ export const Primary: ButtonStory = { args: { variant: ButtonVariant.Primary } }
 export const Secondary: ButtonStory = {};
 
 export const Ghost: ButtonStory = { args: { variant: ButtonVariant.Ghost } };
+export const Menu: ButtonStory = { args: { variant: ButtonVariant.Menu, size: 'sm' } };
 
 export const Danger: ButtonStory = { args: { variant: ButtonVariant.Danger, label: 'Delete character' } };
 

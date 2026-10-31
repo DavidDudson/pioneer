@@ -1,8 +1,12 @@
-<fr-stack gap="2xs">
+<fr-stack direction="horizontal" align="center" justify="between" gap="sm">
   <fr-text variant="caption" tone="subtle">{{ 'identityDev.switch.heading' | transloco }}</fr-text>
-  @for (user of users; track user.id) {
-    <fr-button variant="ghost" size="sm" [toggled]="current()?.id === user.id" (pressed)="switchTo(user)">{{
-      user.displayName
-    }}</fr-button>
-  }
+  <fr-dropdown [label]="'identityDev.switch.heading' | transloco" [caption]="current()?.displayName ?? ''">
+    <fr-stack gap="2xs">
+      @for (user of users; track user.id) {
+        <fr-button variant="menu" size="sm" [toggled]="current()?.id === user.id" (pressed)="switchTo(user)">{{
+          user.displayName
+        }}</fr-button>
+      }
+    </fr-stack>
+  </fr-dropdown>
 </fr-stack>
