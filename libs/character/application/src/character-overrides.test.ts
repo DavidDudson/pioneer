@@ -4,6 +4,7 @@ import {
   CharacterCommand,
   CharacterName,
   CharacterPatchField,
+  OverrideAuthorName,
   OverrideInput,
   PatchCharacterBody,
 } from '@pioneer/character/domain';
@@ -94,6 +95,6 @@ describe('CharacterService sheet authors', () => {
     const adjusted = await service.sheet(character);
 
     expect(plain.authors).toBeUndefined();
-    expect(adjusted.authors).toStrictEqual([{ userId: amiri, displayName: 'Amiri' }]);
+    expect(adjusted.authors).toStrictEqual([{ userId: amiri, displayName: OverrideAuthorName.parse('Amiri') }]);
   });
 });
