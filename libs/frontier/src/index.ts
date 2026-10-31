@@ -55,7 +55,8 @@ export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';
 export { ScreenOverlay } from './lib/feedback/screen-overlay/screen-overlay.component';
-export { Toast } from './lib/feedback/toast/toast.component';
+export { Toast, ToastEmphasis } from './lib/feedback/toast/toast.component';
+export { NaturalBurst, NaturalBurstKind } from './lib/feedback/natural-burst/natural-burst.component';
 
 // Focus
 export { RovingFocus } from './lib/focus/roving-focus.directive';

@@ -12,7 +12,7 @@ import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { DegreeOfSuccess } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { presentRoll, withSave } from './roll-presentation';
+import { Natural, presentRoll, withSave } from './roll-presentation';
 
 /** Rolls `text` with the dice landing on `faces`, in order. */
 function roll(text: string, faces: readonly number[]): RollResult {
@@ -93,5 +93,28 @@ describe(presentRoll, () => {
     expect(withSave(presentRoll(10, 'Spark', rolled), damage).lines).toStrictEqual([
       { total: 5, unadjusted: undefined, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' },
     ]);
+  });
+
+  describe('a natural die', () => {
+    it.each([
+      [20, Natural.High],
+      [1, Natural.Low],
+    ] as const)('a d20 landing on %d is a %s natural', (face, natural) => {
+      expect(presentRoll(11, 'Strike', roll('1d20+7', [face])).natural).toBe(natural);
+    });
+
+    it('is no natural for any other face', () => {
+      expect(presentRoll(12, 'Strike', roll('1d20+7', [19])).natural).toBeUndefined();
+      expect(presentRoll(13, 'Strike', roll('1d20+7', [2])).natural).toBeUndefined();
+    });
+
+    it('goes by the d20 that counted when fortune kept the other', () => {
+      expect(presentRoll(14, 'Strike', roll('2d20kh1+7', [1, 20])).natural).toBe(Natural.High);
+      expect(presentRoll(15, 'Strike', roll('2d20kl1+7', [1, 20])).natural).toBe(Natural.Low);
+    });
+
+    it('is no natural for a roll with no d20', () => {
+      expect(presentRoll(16, 'Damage', roll('1d8[fire]', [1])).natural).toBeUndefined();
+    });
   });
 });

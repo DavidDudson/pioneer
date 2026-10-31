@@ -1,1 +1,4 @@
 <div #surface [class]="surfaceClass"></div>
+@if (burst(); as kind) {
+  <fr-natural-burst [kind]="kind" />
+}

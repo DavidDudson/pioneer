@@ -6,6 +6,7 @@ import { RollTotal } from '@pioneer/rules/dice';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { DICE_ROLLER_FACTORY, threeDiceRoller } from './dice-roller';
+import { Natural } from './roll-presentation';
 import type { RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 import { RollStage } from './roll-stage.component';
@@ -46,6 +47,22 @@ const DEMO_ROLLS: readonly RollPresentation[] = [
       { notation: '1d6@6', tone: DamageTone.Fire },
     ],
   },
+  {
+    id: 5,
+    label: 'Natural 20',
+    total: RollTotal.parse(27),
+    lines: [{ total: 27, tone: undefined, typeKey: undefined }],
+    groups: [{ notation: '1d20@20', tone: undefined }],
+    natural: Natural.High,
+  },
+  {
+    id: 6,
+    label: 'Natural 1',
+    total: RollTotal.parse(8),
+    lines: [{ total: 8, tone: undefined, typeKey: undefined }],
+    groups: [{ notation: '1d20@1', tone: undefined }],
+    natural: Natural.Low,
+  },
 ];
 
 /** Buttons that roll the demo rolls, with the stage they play on. */
@@ -80,5 +97,23 @@ export const Rolls: RollStageStory = {
     await userEvent.click(canvas.getByRole('button', { name: 'Fireball' }));
     await expect(await canvas.findByText('21', undefined, { timeout: 15_000 })).toBeVisible();
     await expect(canvas.getByText('Fireball', { selector: 'span' })).toBeVisible();
+  },
+};
+
+/** A natural 20: gold numerals on the die, a gold flash as it settles, and a gold-edged toast that pops in. */
+export const NaturalTwenty: RollStageStory = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Natural 20' }));
+    await expect(await canvas.findByText('Natural 20!', undefined, { timeout: 15_000 })).toBeVisible();
+  },
+};
+
+/** A natural 1: red numerals, a red flash that shakes, and a red-edged toast. */
+export const NaturalOne: RollStageStory = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Natural 1' }));
+    await expect(await canvas.findByText('Natural 1!', undefined, { timeout: 15_000 })).toBeVisible();
   },
 };

@@ -5,8 +5,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DICE_ROLLER_FACTORY } from './dice-roller';
 import type { DiceRoller, DiceRollerFactory } from './dice-roller';
+import { Natural } from './roll-presentation';
 import type { RollPresentation } from './roll-presentation';
-import { DICE_LINGER, RollPresenter, TOAST_DURATION } from './roll-presenter';
+import { DICE_LINGER, NATURAL_TOAST_DURATION, RollPresenter, TOAST_DURATION } from './roll-presenter';
 
 const surface = document.createElement('div');
 const NOTHING = (): void => undefined;
@@ -26,6 +27,7 @@ const DICE = [{ notation: '6d6@3,4,3,4,3,4', tone: DamageTone.Fire }] as const;
 interface Stage {
   readonly presenter: RollPresenter;
   readonly thrown: string[];
+  readonly naturals: (string | undefined)[];
   readonly disposed: number[];
   readonly finish: () => void;
 }
@@ -33,6 +35,7 @@ interface Stage {
 /** A presenter whose dice wait until `finish()`, recording what was thrown and how many rollers were disposed. */
 function stage(options: { readonly load?: Promise<never> } = {}): Stage {
   const thrown: string[] = [];
+  const naturals: (string | undefined)[] = [];
   const disposed: number[] = [];
   let release = NOTHING;
   const factory: DiceRollerFactory = async () => {
@@ -40,7 +43,8 @@ function stage(options: { readonly load?: Promise<never> } = {}): Stage {
       await options.load;
     }
     const roller: DiceRoller = {
-      roll: async (groups) => {
+      roll: async (groups, natural) => {
+        naturals.push(natural);
         thrown.push(...groups.map(({ notation }) => notation));
         await new Promise<void>((resolve) => {
           release = resolve;
@@ -56,6 +60,7 @@ function stage(options: { readonly load?: Promise<never> } = {}): Stage {
   return {
     presenter: TestBed.inject(RollPresenter),
     thrown,
+    naturals,
     disposed,
     finish: () => {
       release();
@@ -148,5 +153,53 @@ describe(RollPresenter, () => {
     presenter.present(roll);
     await presenter.play(surface, roll);
     expect(presenter.toast()).toBe(roll);
+  });
+
+  describe('a natural die', () => {
+    const twenty: RollPresentation = { ...rollOf(1, DICE), natural: Natural.High };
+
+    it('tells the dice which natural it was, and flashes only once they settle', async () => {
+      const { presenter, naturals, finish } = stage();
+      presenter.present(twenty);
+      const playing = presenter.play(surface, twenty);
+      await vi.advanceTimersByTimeAsync(0);
+      expect(naturals).toStrictEqual([Natural.High]);
+      expect(presenter.burst()).toBeUndefined();
+      finish();
+      await playing;
+      expect(presenter.burst()).toBe(Natural.High);
+    });
+
+    it('ends the flash with the dice', async () => {
+      const { presenter, finish } = stage();
+      presenter.present(twenty);
+      const playing = presenter.play(surface, twenty);
+      await vi.advanceTimersByTimeAsync(0);
+      finish();
+      await playing;
+      await vi.advanceTimersByTimeAsync(DICE_LINGER);
+      expect(presenter.burst()).toBeUndefined();
+    });
+
+    it('keeps the toast longer than a plain result', async () => {
+      const { presenter, finish } = stage();
+      presenter.present(twenty);
+      const playing = presenter.play(surface, twenty);
+      await vi.advanceTimersByTimeAsync(0);
+      finish();
+      await playing;
+      await vi.advanceTimersByTimeAsync(TOAST_DURATION);
+      expect(presenter.toast()).toBe(twenty);
+      await vi.advanceTimersByTimeAsync(NATURAL_TOAST_DURATION - TOAST_DURATION);
+      expect(presenter.toast()).toBeUndefined();
+    });
+
+    it('skips the flash when motion is reduced, and still shows the toast', () => {
+      reduceMotion(true);
+      const { presenter } = stage();
+      presenter.present(twenty);
+      expect(presenter.burst()).toBeUndefined();
+      expect(presenter.toast()).toBe(twenty);
+    });
   });
 });
