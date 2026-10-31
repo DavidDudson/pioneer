@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentId, ContentKind, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SkillTrainingSourceKind } from './skill-trained';
@@ -36,7 +37,7 @@ function skill(name: SkillFixture): ContentId {
 
 /** A skill a trained skill slot can't offer, by id, with its sources. */
 interface TrainedRead {
-  readonly skill: ContentId;
+  readonly skill: ChoiceValue;
   readonly sources: readonly SkillTrainingSource[];
 }
 

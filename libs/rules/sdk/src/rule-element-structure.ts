@@ -1,7 +1,7 @@
 import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { ContentId, Slug } from './content-id';
+import { ContentId, LoreChoice, Slug } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
@@ -12,8 +12,8 @@ import { RollOptionNamespace } from './roll-option-namespace';
 import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Domain } from './selector';
 
-/** A choice's stored value: a content entry (`ContentId`) or a plain option (`forest`). */
-export const ChoiceValue = z.union([ContentId, Slug]);
+/** A choice's stored value: a content entry (`ContentId`), a plain option (`forest`) or a custom Lore (`lore:sailing`). */
+export const ChoiceValue = z.union([ContentId, Slug, LoreChoice]);
 export type ChoiceValue = z.infer<typeof ChoiceValue>;
 
 /** Grants the selection a `ChoiceSet` stored under `choice`, rather than a fixed entry. */

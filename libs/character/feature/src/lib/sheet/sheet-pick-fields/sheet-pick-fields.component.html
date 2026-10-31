@@ -8,6 +8,7 @@
           @if (rows.kind === 'skills') {
             <pio-skill-picker
               frInlineEditor
+              [allowLore]="true"
               [rows]="rows.rows"
               [ariaLabel]="pick.label.key | transloco: pick.label.params"
               [value]="pick.field.draft()"

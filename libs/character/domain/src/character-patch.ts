@@ -4,6 +4,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
+import { LoreName } from './custom-lore';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
 import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
@@ -79,7 +80,13 @@ export type CharacterPatchField = ValueOf<typeof CharacterPatchField>;
 export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.Name), value: CharacterName }),
   z.object({ field: z.literal(CharacterPatchField.Level), value: CharacterLevel }),
-  z.object({ field: z.literal(CharacterPatchField.SelectSlot), slot: SlotKey, selection: ChoiceValue }),
+  z.object({
+    field: z.literal(CharacterPatchField.SelectSlot),
+    slot: SlotKey,
+    selection: ChoiceValue,
+    /** The player's name for the custom Lore a `lore:<topic>` selection picks (#572). */
+    loreName: LoreName.optional(),
+  }),
   z.object({ field: z.literal(CharacterPatchField.ClearSlot), slot: SlotKey }),
   z.object({
     field: z.literal(CharacterPatchField.GiftItem),

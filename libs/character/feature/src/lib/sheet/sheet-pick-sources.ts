@@ -1,6 +1,6 @@
 import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
-import type { Character, CharacterSlot } from '@pioneer/character/domain';
+import type { Character, CharacterSlot, LoreName } from '@pioneer/character/domain';
 import type { ChoiceValue, ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, NamedStrike, SpellcastingEntryLine, StrikesShield } from '@pioneer/rules/ui';
 
@@ -20,7 +20,7 @@ export interface BuildPickSources {
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
-  readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
+  readonly select: (slot: SlotKey, selection: ChoiceValue, loreName?: LoreName) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: object) => string;
   /** The situations claimed for the next roll of each statistic; the statistics are derived with them counted. */

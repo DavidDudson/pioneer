@@ -7,7 +7,7 @@ import { filter, merge } from 'rxjs';
 
 import { originRowDisabled, originRowLabel, originRowValue } from '../origin-picker/origin-picker-table';
 import type { SkillPickerRow } from './slot-picker-row';
-import { shownSkillRows, skillPickerColumns } from './slot-picker-table';
+import { shownSkillRows, skillPickerColumns, typedLoreRow } from './slot-picker-table';
 
 /**
  * Pick a skill from a table of its governing attribute and the character's rank and modifier in it. Opens inline and
@@ -32,6 +32,8 @@ export class SkillPicker {
   public readonly ariaLabel = input<string | undefined>(undefined);
   public readonly placeholder = input<string | undefined>(undefined);
   public readonly disabled = input(false);
+  /** What is typed in the search box and names no skill on offer can be added as a Lore (a custom-named one). */
+  public readonly allowLore = input(false);
   /** The content is still loading: the table shows its loading state instead of the empty one. */
   public readonly loading = input(false);
   /** A skill was picked: save now. */
@@ -47,13 +49,19 @@ export class SkillPicker {
   /** Changes when the language changes or the messages load, so the headers and labels are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
+  readonly #say = (key: string, params?: object): string => this.#i18n.translate(key, params);
+
   protected readonly columns = computed(() => {
     this.#messages();
-    return skillPickerColumns((key, params) => this.#i18n.translate(key, params));
+    return skillPickerColumns(this.#say);
   });
 
   /** The rows whose name holds what was typed, in the order asked for. */
-  protected readonly shown = computed(() => shownSkillRows(this.rows(), this.query(), this.sorting()));
+  protected readonly shown = computed(() => {
+    const rows = shownSkillRows(this.rows(), this.query(), this.sorting());
+    const lore = this.allowLore() ? typedLoreRow(this.query(), this.rows(), this.#say) : undefined;
+    return lore === undefined ? rows : [...rows, lore];
+  });
 
   protected readonly rowValue = originRowValue;
   protected readonly rowLabel = originRowLabel;

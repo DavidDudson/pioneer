@@ -1,9 +1,10 @@
-import { ChoiceValue, ContentId, Level, PackId, RichText, SlotKey, uniqueItems } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, Level, PackId, RichText, SlotKey, Slug, uniqueItems } from '@pioneer/rules/sdk';
 import { UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
+import { LoreName } from './custom-lore';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 import { OVERRIDES_MAX, OverrideSchema } from './override-schema';
 import { FRESH_PLAY, PlayStateSchema } from './play-state';
@@ -38,6 +39,8 @@ export const BuildSchema = z.strictObject({
   unplacedFeats: z.array(ContentId).max(UNPLACED_FEATS_MAX).readonly().check(uniqueItems).default([]),
   unplacedHeritage: ContentId.optional(),
   unplacedLanguages: z.array(ContentId).max(UNPLACED_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
+  /** The custom Lores the player named, by topic: `lore:sailing` picks read their name here (#572). */
+  lores: z.record(Slug, LoreName).default({}),
   /** The repertoire slot swapped at each level, one a level-up (#594). */
   repertoireSwaps: z.array(RepertoireSwapRecord).readonly().default([]),
   boons: None.default([]),
@@ -61,6 +64,7 @@ export const CharacterDocumentSchema = z.strictObject({
     spellAccess: [],
     unplacedFeats: [],
     unplacedLanguages: [],
+    lores: {},
     repertoireSwaps: [],
     boons: [],
   }),

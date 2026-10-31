@@ -40,4 +40,5 @@ Alternatives:
 - Slot production is split, as ADR-0032 avoided for root slots: boosts, flaws and now skills are the character
   domain's, `ChoiceSet` and root slots the engine's. Each new domain slot family is added to `characterSlots` and
   `slotRefusal`.
-- A custom-named Lore with no loaded statistic can't be picked yet.
+- A custom-named Lore with no loaded statistic is picked by name as `lore:<topic>`, with the name kept on the
+  character and the statistic derived, never stored (character-model.md, "Custom-named Lores").
