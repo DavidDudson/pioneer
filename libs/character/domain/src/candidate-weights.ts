@@ -6,6 +6,7 @@ import type { CharacterSlot, SlotStatus } from './character-slot';
 import { CLASS_SLOT } from './character-slots';
 import { composeWeights, themeWeight } from './generation-theme';
 import type { GenerationTheme } from './generation-theme';
+import type { ItemEntry } from './inventory-content';
 import type { Weighted } from './picks';
 import type { SlotContent } from './slot-offer';
 import { weaponAffinity } from './weapon-affinity';
@@ -17,6 +18,8 @@ type OpenSlot = Extract<CharacterSlot, { status: typeof SlotStatus.Open }>;
 export interface Themed {
   readonly theme: GenerationTheme;
   readonly content: SlotContent;
+  /** The weapons on sale that fit the theme's weapon, whose traits a proficiency may be gated on. */
+  readonly fitting: readonly ItemEntry[];
 }
 
 const ATTRIBUTES: readonly Attribute[] = Object.values(Attribute);
@@ -47,7 +50,7 @@ function attributesOf(slot: OpenSlot, pick: ChoiceValue, content: SlotContent): 
 export function weighCandidates(
   slot: OpenSlot,
   picks: readonly ChoiceValue[],
-  { theme, content }: Themed,
+  { theme, content, fitting }: Themed,
 ): readonly Weighted<ChoiceValue>[] {
   const { weapon } = theme;
   return picks.map((item): Weighted<ChoiceValue> => {
@@ -55,7 +58,7 @@ export function weighCandidates(
     const weight =
       weapon === undefined || slot.subject.kind === SlotSubjectKind.Boost
         ? attribute
-        : composeWeights(attribute, weaponAffinity(content, item, weapon));
+        : composeWeights(attribute, weaponAffinity(content, item, { ...weapon, fitting }));
     return { item, weight };
   });
 }

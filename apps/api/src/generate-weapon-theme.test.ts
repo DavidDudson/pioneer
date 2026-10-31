@@ -13,7 +13,7 @@ import {
   WeaponThemeSchema,
   withWeapon,
 } from '@pioneer/character/domain';
-import type { Character, WeaponTheme } from '@pioneer/character/domain';
+import type { Character, ItemEntry, WeaponTheme } from '@pioneer/character/domain';
 import { Attribute, ChoiceValue, ContentKind, WeaponGroup } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 
@@ -33,6 +33,19 @@ const SWORD: WeaponTheme = WeaponThemeSchema.parse({ category: 'martial', group:
 function classPick(name: string): ChoiceValue {
   const found = content.lookup.ofKind(ContentKind.Class).find((entry) => entry.name === name);
   return ChoiceValue.parse(found?.id);
+}
+
+const AXE: WeaponTheme = WeaponThemeSchema.parse({ category: 'martial', group: WeaponGroup.Axe });
+
+/** The feat named `name`, as a pick. */
+function featPick(name: string): ChoiceValue {
+  const found = content.lookup.ofKind(ContentKind.Feat).find((entry) => entry.name === name);
+  return ChoiceValue.parse(found?.id);
+}
+
+/** The weapons on sale of `theme`'s group. */
+function fittingOf(theme: WeaponTheme): readonly ItemEntry[] {
+  return [...items.values()].filter((entry) => entry.kind === ContentKind.Weapon && entry.data.group === theme.group);
 }
 
 /** A character of `LEVEL` for `seed`, themed and outfitted with items and runes. */
@@ -78,6 +91,15 @@ describe('a weapon theme', () => {
     expect(weaponAffinity(content, classPick('Fighter'), SWORD)).toBeGreaterThanOrEqual(TRAINS_WEAPON);
     expect(weaponAffinity(content, classPick('Wizard'), SWORD)).toBe(UNTHEMED);
     expect(FAVOURED).toBeGreaterThan(TRAINS_WEAPON);
+  });
+
+  test('favours a feat that trains a weapon of the group by trait, only when such a weapon is on sale', () => {
+    const dwarven = featPick('Dwarven Weapon Familiarity');
+    expect(weaponAffinity(content, dwarven, AXE)).toBe(UNTHEMED);
+    expect(weaponAffinity(content, dwarven, { ...AXE, fitting: fittingOf(AXE) })).toBe(TRAINS_WEAPON);
+    expect(weaponAffinity(content, featPick('Elven Weapon Familiarity'), { ...AXE, fitting: fittingOf(AXE) })).toBe(
+      UNTHEMED,
+    );
   });
 
   test(

@@ -61,7 +61,7 @@ interface Want {
 }
 
 /** Whether `entry` is a weapon of the group and base `theme` names, with no runes of its own so it can take the best. */
-function fitsTheme(entry: ItemEntry, { group, base }: WeaponTheme): boolean {
+export function fitsTheme(entry: ItemEntry, { group, base }: WeaponTheme): boolean {
   return (
     entry.kind === ContentKind.Weapon &&
     entry.data.runes === undefined &&

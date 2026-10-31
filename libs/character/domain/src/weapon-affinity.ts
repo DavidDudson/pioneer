@@ -1,9 +1,12 @@
 import type { GrantEntry } from '@pioneer/rules/grants';
-import { ContentId, RuleElementKey, Selector } from '@pioneer/rules/sdk';
-import type { ChoiceValue } from '@pioneer/rules/sdk';
+import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
+import type { NamespaceTable } from '@pioneer/rules/predicate';
+import { ContentId, ContentKind, MartialKind, RollOption, RuleElementKey, Selector } from '@pioneer/rules/sdk';
+import type { ChoiceValue, Trait } from '@pioneer/rules/sdk';
 
 import { FAVOURED, TRAINS_WEAPON, UNTHEMED } from './generation-theme';
 import type { ThemeWeight, WeaponTheme } from './generation-theme';
+import type { ItemEntry } from './inventory-content';
 import type { SlotContent } from './slot-offer';
 
 /** A weapon group or base as content names it: `group:sword`, `base:longsword`. */
@@ -32,11 +35,72 @@ function trains(entry: GrantEntry, { category }: WeaponTheme): boolean {
   return entry.rules.some((rule) => rule.key === RuleElementKey.Proficiency && rule.selector === `attack:${category}`);
 }
 
+/** The themed weapon, and the weapons on sale that fit it, whose traits a `MartialProficiency` may be gated on. */
+export type WeaponFit = WeaponTheme & { readonly fitting?: readonly ItemEntry[] | undefined };
+
+/** What an `item:` roll option names: a weapon's category, group, base or trait. */
+type ItemFact = WeaponTheme['category'] | NonNullable<WeaponTheme['group']> | NonNullable<WeaponTheme['base']> | Trait;
+
+function optionOf(namespace: 'category' | 'group' | 'base' | 'trait', value: ItemFact): RollOption {
+  return RollOption.parse(`item:${namespace}:${value}`);
+}
+
+/** The roll options of the themed weapon alone, for when no weapon on sale fits it. */
+function themeOptions({ category, group, base }: WeaponTheme): readonly RollOption[] {
+  const options = [optionOf('category', category)];
+  if (group !== undefined) {
+    options.push(optionOf('group', group));
+  }
+  if (base !== undefined) {
+    options.push(optionOf('base', base));
+  }
+  return options;
+}
+
+/** The roll options of one weapon on sale: its category, group, base and traits. */
+function itemOptions(entry: ItemEntry): readonly RollOption[] {
+  const traits = entry.traits.map((trait) => optionOf('trait', trait));
+  if (entry.kind !== ContentKind.Weapon) {
+    return traits;
+  }
+  const { category, group, baseItem } = entry.data;
+  return [
+    optionOf('category', category),
+    ...(group === undefined ? [] : [optionOf('group', group)]),
+    ...(baseItem === undefined ? [] : [optionOf('base', baseItem)]),
+    ...traits,
+  ];
+}
+
+/** The facts of each weapon the theme may be armed with, read once per set of weapons as content never changes. */
+const FACTS = new WeakMap<readonly ItemEntry[], readonly PredicateFacts[]>();
+
+function factsOf({ fitting = [], ...theme }: WeaponFit, namespaces: NamespaceTable): readonly PredicateFacts[] {
+  const read =
+    FACTS.get(fitting) ??
+    (fitting.length === 0 ? [themeOptions(theme)] : fitting.map((each) => itemOptions(each))).map(
+      (options) => new PredicateFacts(options, namespaces),
+    );
+  FACTS.set(fitting, read);
+  return read;
+}
+
+/** Whether a `MartialProficiency` of `entry` covers some weapon the theme may be armed with. */
+function trainsByDefinition(entry: GrantEntry, weapon: WeaponFit, namespaces: NamespaceTable): boolean {
+  const facts = factsOf(weapon, namespaces);
+  return entry.rules.some(
+    (rule) =>
+      rule.key === RuleElementKey.MartialProficiency &&
+      (rule.kind ?? MartialKind.Attack) === MartialKind.Attack &&
+      facts.some((each) => evaluatePredicate(rule.definition, each) === Truth.True),
+  );
+}
+
 /**
  * How much a class, ancestry or feat favours `weapon`: `FAVOURED` when its rules or prerequisites name the weapon's
- * group or base, `TRAINS_WEAPON` when it trains its category, and the least when it does neither.
+ * group or base, `TRAINS_WEAPON` when it trains its category or a `MartialProficiency` covers the weapon, and the least when it does neither.
  */
-export function weaponAffinity(content: SlotContent, pick: ChoiceValue, weapon: WeaponTheme): ThemeWeight {
+export function weaponAffinity(content: SlotContent, pick: ChoiceValue, weapon: WeaponFit): ThemeWeight {
   const id = ContentId.safeParse(pick);
   const entry = id.success ? content.lookup.entry(id.data) : undefined;
   if (entry === undefined) {
@@ -45,5 +109,5 @@ export function weaponAffinity(content: SlotContent, pick: ChoiceValue, weapon: 
   if (names(namedBy(entry, content.feats.feat(entry.id)?.predicate), weapon)) {
     return FAVOURED;
   }
-  return trains(entry, weapon) ? TRAINS_WEAPON : UNTHEMED;
+  return trains(entry, weapon) || trainsByDefinition(entry, weapon, content.namespaces) ? TRAINS_WEAPON : UNTHEMED;
 }
