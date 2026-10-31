@@ -904,6 +904,38 @@
         "display": {
           "label": "Target adjacent to beastmaster's sigil summon"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-beastmasters-sigil-ranged-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:ranged"]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:effect-beastmasters-sigil-ranged-weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": [
+          "option:adjacent-sigil-summon",
+          {
+            "or": ["beastmasters-sigil:beastmasters-sigil", "beastmasters-sigil:beastmasters-sigil-greater"]
+          }
+        ]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:effect-beastmasters-sigil-ranged-weapon-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "critical": true,
+        "predicate": ["option:adjacent-sigil-summon", "beastmasters-sigil:beastmasters-sigil-major"]
       }
     ],
     "externalIds": {

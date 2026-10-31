@@ -1742,6 +1742,32 @@
         ],
         "prompt": "Select an item variety.",
         "rollOption": "thorn-of-milani"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "slug": "thorn-of-milani",
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit"
+      },
+      {
+        "key": "DamageAlteration",
+        "selectors": ["picked:weapon-damage"],
+        "slug": "thorn-of-milani",
+        "property": "dice-number",
+        "mode": "upgrade",
+        "value": 2,
+        "predicate": ["thorn-of-milani:thorn-of-milani-moderate"]
       }
     ],
     "externalIds": {

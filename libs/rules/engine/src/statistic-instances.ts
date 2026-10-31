@@ -24,6 +24,21 @@ export interface StatisticInstance {
 const SEPARATOR = ':';
 const ATTRIBUTE_DOMAIN_SUFFIX = '-based';
 
+/** The families a weapon's `picked:<flag>-<roll>` domain reaches: its attack roll and its flat damage (ADR-0075). */
+const PICKED_ROLLS: ReadonlyMap<string, string> = new Map([
+  ['strike', 'attack'],
+  ['strike-damage', 'damage'],
+]);
+
+/** The domains a weapon's picks add to its instance of `family`: `picked:<flag>-damage` for each flag that picked it. */
+function pickedDomains(family: StatisticDefinition, source: SourceInputs): readonly Domain[] {
+  const roll = PICKED_ROLLS.get(family.selector);
+  if (roll === undefined || source.per !== StatisticPer.Weapon) {
+    return [];
+  }
+  return (source.weapon.picked ?? []).map((flag) => Domain.parse(`picked:${flag}-${roll}`));
+}
+
 function same(selector: Selector): Selector {
   return selector;
 }
@@ -51,7 +66,8 @@ function instanceOf(
   }
   const keyAttribute = sourceAttribute(source, attributes);
   const domain = Domain.parse(`${keyAttribute}${ATTRIBUTE_DOMAIN_SUFFIX}`);
-  const domains = family.domains.includes(domain) ? family.domains : [...family.domains, domain];
+  const added = [domain, ...pickedDomains(family, source)].filter((each) => !family.domains.includes(each));
+  const domains = added.length === 0 ? family.domains : [...family.domains, ...added];
   return { ...family, selector: selector.data, domains, keyAttribute };
 }
 

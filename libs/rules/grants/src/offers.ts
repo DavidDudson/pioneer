@@ -1,12 +1,20 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
 import { ContentId, RollOptionNamespace } from '@pioneer/rules/sdk';
-import type { ChoiceOption, ChoiceQuery, ChoiceSetElement, ChoiceValue, ContentText } from '@pioneer/rules/sdk';
+import type {
+  ChoiceOption,
+  ChoiceQuery,
+  ChoiceSetElement,
+  ChoiceValue,
+  ContentText,
+  OwnedQuery,
+} from '@pioneer/rules/sdk';
 
 import { candidateOptions } from './candidate-options';
 import type { ChoiceContext } from './choices';
 import type { GrantEntry } from './grant-entry';
 import { byCodeUnit } from './order';
+import type { OwnedItem } from './owned-items';
 
 /** An option the player may pick. `summary` says when it applies, for one whose predicate is unknown. */
 export interface OfferedOption {
@@ -75,8 +83,47 @@ function queriedOptions(query: ChoiceQuery, context: ChoiceContext): OfferedOpti
   return offered.toSorted(byLabel);
 }
 
+/** Whether `choices` is a query of the items the character owns, not of content. */
+function isOwnedQuery(choices: ChoiceQuery | OwnedQuery): choices is OwnedQuery {
+  return 'ownedKinds' in choices;
+}
+
+/** The facts for one owned item: its own roll options under `item:`. */
+function ownedFacts(item: OwnedItem, { facts }: ChoiceContext): PredicateFacts {
+  return facts.withNamespace(CANDIDATE_NAMESPACE, item.rollOptions);
+}
+
+/** The owned item the query reaches whose filter is not false, as an option; unknown carries when it would hold. */
+function ownedOption(query: OwnedQuery, item: OwnedItem, context: ChoiceContext): OfferedOption | undefined {
+  if (!query.ownedKinds.includes(item.kind)) {
+    return undefined;
+  }
+  const itemFacts = ownedFacts(item, context);
+  const truth = evaluatePredicate(query.filter, itemFacts);
+  if (truth === Truth.False) {
+    return undefined;
+  }
+  return {
+    value: item.slug,
+    label: item.name,
+    summary: truth === Truth.True ? undefined : summarisePredicate(query.filter, itemFacts),
+  };
+}
+
+/** Every owned item of the query's kinds whose filter is not false, sorted by name, then slug. */
+function ownedOptions(query: OwnedQuery, context: ChoiceContext): OfferedOption[] {
+  const offered = context.owned.flatMap((item): OfferedOption[] => {
+    const option = ownedOption(query, item, context);
+    return option === undefined ? [] : [option];
+  });
+  return offered.toSorted(byLabel);
+}
+
 export function offeredOptions({ choices }: ChoiceSetElement, context: ChoiceContext): OfferedOption[] {
-  return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context);
+  if (Array.isArray(choices)) {
+    return listedOptions(choices, context.facts);
+  }
+  return isOwnedQuery(choices) ? ownedOptions(choices, context) : queriedOptions(choices, context);
 }
 
 /** Whether `value` is a listed option whose predicate is not false. */
@@ -102,8 +149,17 @@ function isQueried(query: ChoiceQuery, value: ChoiceValue, context: ChoiceContex
 }
 
 /** Whether the slot offers `value`, without working out the rest of what it offers. */
+/** Whether `value` is the slug of an owned item the query reaches. */
+function isOwned(query: OwnedQuery, value: ChoiceValue, context: ChoiceContext): boolean {
+  const item = context.owned.find((each) => each.slug === value);
+  return item !== undefined && ownedOption(query, item, context) !== undefined;
+}
+
 export function isOffered({ choices }: ChoiceSetElement, value: ChoiceValue, context: ChoiceContext): boolean {
-  return Array.isArray(choices) ? isListed(choices, value, context.facts) : isQueried(choices, value, context);
+  if (Array.isArray(choices)) {
+    return isListed(choices, value, context.facts);
+  }
+  return isOwnedQuery(choices) ? isOwned(choices, value, context) : isQueried(choices, value, context);
 }
 
 /** A slot's offer, worked out the first time it is read and kept. */

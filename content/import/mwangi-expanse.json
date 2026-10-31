@@ -1108,38 +1108,6 @@
     {
       "type": "entry",
       "pack": "mwangi-expanse",
-      "slug": "effect:effect-oath-of-the-devoted",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.zY7cemRcFD2zAVbC",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "effectOathOfTheDevoted",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "fire",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "selector": "{item|flags.system.rulesSelections.effectOathOfTheDevoted}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "mwangi-expanse",
       "slug": "effect:effect-watchful-gaze",
       "foundry": "Compendium.pf2e.feat-effects.Item.a7qiSYdlaIRPe57i",
       "gaps": [

@@ -13,6 +13,7 @@ import { walkGrants } from './grant-walk';
 import type { ConditionalGrant, GrantedItem } from './grant-walk';
 import { GrantsMessage } from './messages';
 import { byCodeUnit } from './order';
+import type { OwnedItem } from './owned-items';
 import { readRootSlots } from './root-slots';
 import type { RootSlot, RootSlotDefinition } from './root-slots';
 import { RoundLog } from './round-log';
@@ -29,6 +30,8 @@ export interface GrantInputs {
   /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
   readonly situation: readonly RollOption[];
   readonly picks: ChoicePicks;
+  /** The items the character owns, which a `ChoiceSet` over them offers; none when the caller has no inventory. */
+  readonly owned?: readonly OwnedItem[];
   /** The slots the character has itself (its ancestry); their picks are roots too. */
   readonly rootSlots: readonly RootSlotDefinition[];
   readonly toggles: ToggleStates;

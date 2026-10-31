@@ -7542,7 +7542,57 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:equipped"]
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": "ceil((@item.level - 2) / 2)",
+        "dieSize": "d8",
+        "damageType": "force"
+      },
+      {
+        "key": "Note",
+        "selectors": ["picked:weapon-attack"],
+        "title": "Spell Effect: Blink Charge",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a failure, the Strike deals no damage, but the target takes (ceil((@actor.flags.system.blinkCharge - 4)/2))d8[force] damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["failure"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["picked:weapon-attack"],
+        "title": "Spell Effect: Blink Charge",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a critical failure, the Strike deals no damage and you take (ceil((@actor.flags.system.blinkCharge - 4)/2))d8[force] damage."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalFailure"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.lUL4nvIVYqFOwxAZ"
     },

@@ -79,6 +79,7 @@ Accepted. To change a decision, add a new ADR that supersedes the old one; do no
 | [0072](0072-treasure-by-level-is-table-data.md)                          | Treasure by level is table data: the budget a generated character's gear is bought with       |
 | [0073](0073-aon-page-numbers-come-from-aons-search-index.md)             | AoN page numbers come from AoN's search index, fetched politely                               |
 | [0074](0074-dice-roll-overlay-and-result-toast.md)                       | A full-screen dice overlay and a result toast are allowed for rolls                           |
+| [0075](0075-a-choice-set-can-pick-an-owned-item.md)                      | A ChoiceSet can pick an owned item, and rules reach the pick by `picked:<flag>`               |
 
 Template:
 

@@ -2,7 +2,7 @@ import { alterItem } from '@pioneer/rules/engine';
 import type { AlteredItem, ItemNumbers, ModifierInputs } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import { ContentKind, NumericItemProperty, RollOptionTail, slugName } from '@pioneer/rules/sdk';
-import type { DamageType, Slug } from '@pioneer/rules/sdk';
+import type { DamageType, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
 
@@ -88,9 +88,9 @@ function rollOptionsOf(entry: ItemEntry): readonly RollOptionTail[] {
  * bonus, Dexterity cap, check penalty and Strength, a shield's Hardness and Hit Points, a weapon's range increment),
  * its traits and damage type, and the materials and property runes the elements add to what its content names.
  */
-export function alteredItem(rules: ModifierInputs, entry: ItemEntry): AlteredItem {
+export function alteredItem(rules: ModifierInputs, entry: ItemEntry, picked: readonly RuleSlug[] = []): AlteredItem {
   return alterItem(rules, {
-    rollOptions: rollOptionsOf(entry),
+    rollOptions: [...rollOptionsOf(entry), ...picked.map((flag) => RollOptionTail.parse(`picked:${flag}`))],
     numbers: numbersOf(entry),
     traits: entry.traits,
     damageType: damageTypeOf(entry),

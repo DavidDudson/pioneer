@@ -3102,38 +3102,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "effect:spell-effect-serrate",
-      "foundry": "Compendium.pf2e.spell-effects.Item.CDNKDV3UsAp95D1m",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "serrateWeapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "slashing",
-            "diceNumber": "ceil(@item.level/2)",
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "selector": "{item|flags.system.rulesSelections.serrateWeapon}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "effect:spell-effect-swear-oath",
       "foundry": "Compendium.pf2e.spell-effects.Item.GcEFca6I8f5Y06z7",
       "gaps": [
