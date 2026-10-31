@@ -2051,6 +2051,13 @@
       },
       {
         "key": "FlatModifier",
+        "selectors": ["attack-roll", "strike-damage"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["self:effect:effect-entitys-resurgence"]
+      },
+      {
+        "key": "FlatModifier",
         "selectors": ["saving-throw"],
         "type": "status",
         "value": 1,
