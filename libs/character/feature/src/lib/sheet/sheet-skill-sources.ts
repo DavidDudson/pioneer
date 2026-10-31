@@ -1,4 +1,4 @@
-import { SkillSlotKind, SkillTrainingSourceKind, skillReads, skillSlots } from '@pioneer/character/domain';
+import { skillReads, SkillSlotKind, skillSlots, SkillTrainingSourceKind } from '@pioneer/character/domain';
 import type { Character, SkillSlot, SkillTrainingSource } from '@pioneer/character/domain';
 import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';

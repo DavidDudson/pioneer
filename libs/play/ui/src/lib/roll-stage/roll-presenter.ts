@@ -37,7 +37,8 @@ export class RollPresenter {
   /** Starts showing `roll`, replacing whatever was showing. */
   public present(roll: RollPresentation): void {
     this.#reset();
-    const noMotion = this.#document.defaultView?.matchMedia(REDUCED_MOTION).matches === true;
+    // oxlint-disable-next-line typescript/no-unnecessary-condition -- the typings promise matchMedia, but jsdom (specs) has none
+    const noMotion = this.#document.defaultView?.matchMedia?.(REDUCED_MOTION).matches === true;
     if (noMotion || roll.groups.length === 0) {
       this.#show(roll);
       return;
