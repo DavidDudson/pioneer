@@ -1,0 +1,36 @@
+<span [class]="portraitClasses">
+  <fr-avatar decorative [name]="name()" [src]="src()" [size]="size()" />
+</span>
+@if (hasBar()) {
+  <svg
+    viewBox="0 0 100 100"
+    fill="none"
+    stroke-width="6"
+    role="img"
+    [class]="svgClasses"
+    [attr.aria-label]="
+      (dashes().hasTemp ? 'frontier.characterAvatar.hpTemp' : 'frontier.characterAvatar.hp') | transloco: numbers()
+    "
+  >
+    <path [class]="trackClasses" [attr.d]="arcPath" [attr.pathLength]="arcLength" />
+    <path
+      [class]="fillClasses()"
+      [attr.d]="arcPath"
+      [attr.pathLength]="arcLength"
+      [attr.stroke-dasharray]="dashes().hp"
+    />
+    @if (dashes().hasTemp) {
+      <path
+        [class]="tempClasses"
+        [attr.d]="arcPath"
+        [attr.pathLength]="arcLength"
+        [attr.stroke-dasharray]="dashes().temp"
+      />
+    }
+  </svg>
+}
+<span [class]="nameClasses"
+  ><span [class]="nameTextClasses">{{ name() }}</span></span
+>
+<span [class]="startClasses"><ng-content select="[frCharacterAvatarStart]" /></span>
+<span [class]="endClasses"><ng-content select="[frCharacterAvatarEnd]" /></span>

@@ -43,6 +43,10 @@
       "label": "Load more",
       "failed": "Could not load more. Try again."
     },
+    "characterAvatar": {
+      "hp": "Hit points {current} of {max}",
+      "hpTemp": "Hit points {current} of {max}, plus {temp} temporary"
+    },
     "meter": {
       "valueText": "{value} of {max}",
       "fraction": "{value}/{max}"
