@@ -18,6 +18,9 @@
       "replaces": "{value} from {form}; yours {own}",
       "ownHigher": "Yours {own} is higher than the {value} from {form}"
     },
+    "movementCost": {
+      "reduces": "{name}: a Stride covers {value} feet, not {was}; each square costs {extra} feet more"
+    },
     "change": {
       "outOfRange": "This change takes the value out of range. Values must stay between −{maximum} and {maximum}."
     },

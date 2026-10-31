@@ -52,6 +52,7 @@ export const RuleElementKey = {
   SubstituteRoll: 'SubstituteRoll',
   Aura: 'Aura',
   LiftRestriction: 'LiftRestriction',
+  MovementCost: 'MovementCost',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

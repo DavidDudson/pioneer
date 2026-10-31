@@ -47,6 +47,8 @@ export interface ShownBreakdown {
   readonly pinned: string | undefined;
   /** "22 from Plant Form (arboreal); yours 19"; undefined when no battle form replaces the statistic. */
   readonly form: string | undefined;
+  /** "Difficult Terrain: a Stride covers 10 feet, not 25; each square costs 5 feet more"; undefined when no terrain lowers it. */
+  readonly movementCost: string | undefined;
   readonly base: string;
   readonly terms: readonly ShownTerm[];
   readonly lines: readonly ShownLine[];
