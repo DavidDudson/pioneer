@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { SheetMode } from '@pioneer/character/domain';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { RANDOM_SOURCE } from '@pioneer/play/ui';
+import { RANDOM_SOURCE, RollPresenter } from '@pioneer/play/ui';
 import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { describe, expect, it, vi } from 'vitest';
@@ -73,6 +73,23 @@ describe('CharacterSheetPage rolls', () => {
       expect(text).toContain('Breakdown');
     });
     expect(lastRoll(root).querySelector('pio-breakdown')).not.toBeNull();
+  });
+
+  it('hands the engine roll to the roll stage: the dice land on the d20 it rolled, and the total is the same', async () => {
+    rolling(12);
+    const { root } = await openSheet(FIGHTER);
+    const button = await vi.waitFor(() => rollButton(root, 'Athletics'));
+    const modifier = await vi.waitFor(() => modifierOf(root, 'Athletics'));
+
+    button.click();
+    render();
+
+    const presenter = TestBed.inject(RollPresenter);
+    await vi.waitFor(() => {
+      expect(presenter.throwing()?.label).toBe('Athletics');
+    });
+    expect(presenter.throwing()?.groups.map(({ notation }) => notation)).toStrictEqual(['1d20@12']);
+    expect(presenter.throwing()?.total).toBe(12 + modifier);
   });
 
   it('shows no degree until a DC is typed, then the degree against it', async () => {

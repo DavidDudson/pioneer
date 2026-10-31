@@ -3,7 +3,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { initiativeRoll, PlayCommandField } from '@pioneer/character/domain';
 import type { RollAs, RollSetup } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
-import { RANDOM_SOURCE, rollView } from '@pioneer/play/ui';
+import { keptRoll, presentRoll, RANDOM_SOURCE, RollPresenter, rollView } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
 import {
   checkOutcome,
@@ -77,6 +77,7 @@ function checkText(total: number): DiceExpressionText {
 @Injectable()
 export class SheetRolls implements StatisticRoller {
   readonly #random = inject(RANDOM_SOURCE);
+  readonly #presenter = inject(RollPresenter);
   readonly #state = inject(SheetState);
   readonly #play = inject(PlayStore);
   readonly #i18n = inject(TranslocoService);
@@ -241,6 +242,10 @@ export class SheetRolls implements StatisticRoller {
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons });
+    const counted = keptRoll(roll);
+    if (counted !== undefined) {
+      this.#presenter.present(presentRoll(this.#count, name, counted));
+    }
   }
 }
 

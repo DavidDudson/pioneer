@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { RANDOM_SOURCE, RollCard, rollView } from '@pioneer/play/ui';
+import { keptRoll, presentRoll, RANDOM_SOURCE, RollCard, RollPresenter, rollView } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
 import { NO_FORTUNE, rollWithFortune } from '@pioneer/rules/dice';
 import type { FortunedRoll } from '@pioneer/rules/dice';
@@ -46,6 +46,7 @@ const CONSUMABLE_KINDS: readonly ContentKind[] = ACTION_CONTENT_KINDS;
 })
 export class SheetConsumables {
   readonly #i18n = inject(TranslocoService);
+  readonly #presenter = inject(RollPresenter);
   readonly #characters = inject(CharacterStore);
   readonly #play = inject(PlayStore);
   readonly #sheet = inject(SheetState);
@@ -113,6 +114,10 @@ export class SheetConsumables {
       damage: undefined,
     });
     this.rolled.set({ name: line.name, view });
+    const counted = keptRoll(fortuned);
+    if (counted !== undefined) {
+      this.#presenter.present(presentRoll(this.#count, line.name, counted));
+    }
   }
 
   #say(key: string, params?: Readonly<Record<string, string | number>>): string {

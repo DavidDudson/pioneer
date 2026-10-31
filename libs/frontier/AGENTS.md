@@ -51,7 +51,7 @@ Read this before touching any UI.
   (`pioneer/class-tokens`), the base layer squares off native controls, and
   the built-CSS check fails on any radius or shadow. Separate and elevate
   with borders (`border-line-*`, or `fr-divider` between regions) and
-  surface colours instead.
+  surface colours instead. The one exception is `rounded-toast` on the roll toast (`fr-toast`, ADR-0074).
 - **No arbitrary values, pixels or raw numbers** in class strings
   (`pioneer/class-tokens`): no `h-[2.75rem]`, `p-(--x)`, `data-[x=y]:`,
   `h-px`, `opacity-50`, `z-10`, `duration-150`, `w-1/2`, `bg-x/50` or `!`.

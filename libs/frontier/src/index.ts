@@ -53,6 +53,8 @@ export { Message, MessageTone } from './lib/feedback/message/message.component';
 export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';
+export { ScreenOverlay } from './lib/feedback/screen-overlay/screen-overlay.component';
+export { Toast } from './lib/feedback/toast/toast.component';
 
 // Focus
 export { RovingFocus } from './lib/focus/roving-focus.directive';
@@ -130,7 +132,7 @@ export { Text, TextElement } from './lib/text/text/text.component';
 export { ColorMode, ModeChoice, Theme, ThemeChoice } from './lib/theme/theme';
 export { ThemeStore } from './lib/theme/theme-store';
 
-export { Container, Size, Space, Tone } from './lib/tokens';
+export { Container, DamageTone, Size, Space, Tone } from './lib/tokens';
 export { default as frontierMessages } from './i18n/en.json';
 export { Distance } from './lib/locale/distance/distance.component';
 export { DISTANCE_UNIT, LocaleFormat } from './lib/locale/locale-format';
