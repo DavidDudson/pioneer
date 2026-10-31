@@ -39,6 +39,9 @@ export const CharacterCommand = {
   DismissUnplacedFeat: 'dismissUnplacedFeat',
   DismissUnplacedHeritage: 'dismissUnplacedHeritage',
   DismissUnplacedLanguage: 'dismissUnplacedLanguage',
+  AddOverride: 'addOverride',
+  EditOverride: 'editOverride',
+  RemoveOverride: 'removeOverride',
   /** Play state (#343, #344, #345): written to `character_play`, never to the build. */
   CastWand: 'castWand',
   OverchargeWand: 'overchargeWand',
@@ -124,6 +127,9 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.DismissUnplacedFeat]: CharacterCommand.DismissUnplacedFeat,
   [CharacterPatchField.DismissUnplacedHeritage]: CharacterCommand.DismissUnplacedHeritage,
   [CharacterPatchField.DismissUnplacedLanguage]: CharacterCommand.DismissUnplacedLanguage,
+  [CharacterPatchField.AddOverride]: CharacterCommand.AddOverride,
+  [CharacterPatchField.EditOverride]: CharacterCommand.EditOverride,
+  [CharacterPatchField.RemoveOverride]: CharacterCommand.RemoveOverride,
   [CharacterPatchField.SetAppearance]: CharacterCommand.SetAppearance,
   [CharacterPatchField.SetPersonality]: CharacterCommand.SetPersonality,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

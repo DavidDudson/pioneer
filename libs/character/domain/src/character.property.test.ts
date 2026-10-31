@@ -8,11 +8,14 @@ import { assert, nat, option, pre, property, record, uuid } from 'fast-check';
 import * as z from 'zod';
 
 import { Character } from './character';
-import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
-import type { CharacterPatch, UnplacedPickPatch } from './character-patch';
+import { overrideProblem } from './character-override';
+import type { OverrideProblem } from './character-override';
+import { CharacterPatchField, CharacterPatchSchema, isOverridePatch } from './character-patch';
+import type { CharacterPatch, OverridePatch, UnplacedPickPatch } from './character-patch';
 import { InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { InventoryEdit, InventoryItem, NewItem } from './inventory';
 import { inventoryTarget } from './inventory-target';
+import { OverrideId } from './override-schema';
 import { CharacterBuilder, inventory } from './testing';
 
 installRulesFakes();
@@ -85,6 +88,7 @@ type UnaimedField =
   | typeof CharacterPatchField.GrantSpellAccess
   | typeof CharacterPatchField.RevokeSpellAccess
   | UnplacedPickPatch['field']
+  | OverridePatch['field']
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
@@ -100,6 +104,9 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.AddOverride,
+  CharacterPatchField.EditOverride,
+  CharacterPatchField.RemoveOverride,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
@@ -157,6 +164,14 @@ function kitLines(patch: CharacterPatch, id: InventoryItemId): readonly NewItem[
   return isKit ? [{ id, item: patch.kit, quantity: ONE, container: patch.container }] : undefined;
 }
 
+/** The id an added override takes. */
+const OVERRIDE = OverrideId.parse('00000000-0000-4000-8000-0000000000c1');
+
+/** Why `patch` is not allowed as an override edit of `character`; undefined for any other edit. */
+function overrideRefusal(held: Character, patch: CharacterPatch): OverrideProblem | undefined {
+  return isOverridePatch(patch) ? overrideProblem(held.document, patch) : undefined;
+}
+
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
 function touched(patch: CharacterPatch): InventoryEdit {
   return inventoryTarget(patch) ?? {};
@@ -181,7 +196,15 @@ describe('Character (properties)', () => {
         const patch = aimed(fakeSeeded(GeneratedPatchSchema, seed), items, { index, target });
         // Only a move of a container into itself or what it holds is left for the service to refuse.
         pre(inventoryRefusal(original.document.inventory, touched(patch)) === undefined);
-        const next = original.apply(patch, later, { newItemId, kitItems: kitLines(patch, newItemId), cost: FREE });
+        // Likewise an override edit names one the character has, which the service checks.
+        pre(overrideRefusal(original, patch) === undefined);
+        const next = original.apply(patch, later, {
+          newItemId,
+          kitItems: kitLines(patch, newItemId),
+          cost: FREE,
+          actor: original.ownerId,
+          newOverrideId: OVERRIDE,
+        });
         expect(next.id).toBe(original.id);
         expect(next.version).toBe(original.version);
         expect(next.createdAt.equals(original.createdAt)).toBe(true);

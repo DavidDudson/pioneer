@@ -629,10 +629,19 @@ interface Override {
   type?: ModifierType; // adjust only, defaults to untyped
   predicate?: Predicate; // overrides can be conditional too
   reason: string; // required: why the statistic differs from what the rules give
-  by: UserId;
-  at: Instant;
+  by: UserId; // the latest author
+  at: Instant; // when they made it
+  revisions: OverrideRevision[]; // the states an edit replaced, each with its author and time
+  removed?: { by: UserId; at: Instant; reason: string }; // set once taken off; the override stays on record
 }
 ```
+
+`CharacterDocument.overrides` stores these as the author's inputs (schema version 14, #1127); the rule element each
+compiles to is derived on every read (`overrideRules`), an adjust as a typed `FlatModifier` and a set as a `Change`
+that overrides, so removing one restores the total without it. `addOverride`, `editOverride` and `removeOverride` are
+the patches; each runs as its own audited command. An edit keeps the state it replaces in `revisions`, and a removal
+keeps the override with `removed` set (ADR-0062), so nothing is silent. An override with no reason, or only spaces,
+is refused with `character.validation.overrideReasonRequired`.
 
 Overrides are compiled into rule elements with an `override` origin and run through the engine like anything
 else (see [rules-engine.md](rules-engine.md#overrides)). The sheet shows a marker on every overridden statistic and

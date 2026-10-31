@@ -7,16 +7,13 @@ import {
   CharacterPatchField,
   characterSlots,
   deityContent,
+  OverrideId,
   PATCH_COMMANDS,
   RepertoireSwap,
   repertoireSwap,
   repertoireSwapRefusal,
   slotContent,
   slotRefusal,
-  SPELL_ACCESS_MAX,
-  SpellAccessProblem,
-  spellAccessProblem,
-  spellContent,
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
@@ -31,7 +28,7 @@ import type {
   SlotContent,
   SlotPick,
 } from '@pioneer/character/domain';
-import type { AncestryId, ContentId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
+import type { AncestryId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
@@ -41,13 +38,8 @@ import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
 import { assertInventoryAllows } from './inventory-guard';
-
-/** Why access to a spell is refused, by the problem. */
-const SPELL_ACCESS_REFUSALS: Readonly<Record<SpellAccessProblem, string>> = {
-  [SpellAccessProblem.UnknownSpell]: 'character.validation.unknownSpell',
-  [SpellAccessProblem.Common]: 'character.validation.spellAccessCommon',
-  [SpellAccessProblem.Full]: 'character.validation.spellAccessFull',
-};
+import { assertOverrideAllowed } from './override-guard';
+import { assertSpellNeedsAccess } from './spell-access-guard';
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
 export interface PatchedCharacter {
@@ -187,6 +179,8 @@ export class CharacterService {
       ...(await editInputs(this.#contentOf(current), current, patch)),
       countsAsSwap: (await this.#swapOf(current, patch)) === RepertoireSwap.Counts,
       limits: await this.#limitsOf(current),
+      actor,
+      newOverrideId: OverrideId.parse(newId()),
     };
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
@@ -217,25 +211,13 @@ export class CharacterService {
       await this.#assertSwapAllowed(current, patch);
     }
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
-      await this.#assertSpellNeedsAccess(current, patch.spell);
+      assertSpellNeedsAccess(await this.#contentOf(current).registry(), current, patch.spell);
     }
+    assertOverrideAllowed(current, patch);
     await assertInventoryAllows(current, patch, {
       content: this.#contentOf(current),
       tableLimits: await this.#limitsOf(current),
     });
-  }
-
-  /** Refuses access to a spell no loaded pack has for a slot (a focus spell among them), a common one, or past the most. */
-  async #assertSpellNeedsAccess(character: Character, spell: ContentId): Promise<void> {
-    const content = await this.#contentOf(character).registry();
-    const problem = spellAccessProblem(spellContent(content), character.document.build.spellAccess, spell);
-    if (problem !== undefined) {
-      const refusal =
-        problem === SpellAccessProblem.Full
-          ? message(SPELL_ACCESS_REFUSALS[problem], { maximum: SPELL_ACCESS_MAX })
-          : message(SPELL_ACCESS_REFUSALS[problem]);
-      throw new ValidationError([{ path: ['patch', 'spell'], message: refusal }]);
-    }
   }
 
   /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
