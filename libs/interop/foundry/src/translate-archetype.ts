@@ -17,7 +17,7 @@ import type { KindDataGap } from './kind-data-gaps';
  * Archetype entries from the pages of Foundry's archetypes journal (content-model.md, "Archetypes"). Foundry has no
  * archetype item: a page names the archetype and links its feats, the one with the `dedication` trait and the page's
  * name opening it (another archetype's dedication can appear as a prerequisite).
- * An archetype is imported when its dedication is, and takes the dedication's rarity and source; a multiclass
+ * An archetype is imported when its dedication is, and takes the dedication's rarity, source and licence (the page is as legacy as its dedication); a multiclass
  * archetype links the class it is named after. Each archetype feat learns its archetype from the pages that link it.
  */
 
@@ -130,7 +130,7 @@ function multiclassOf(envelope: ImportedEnvelope, { references }: ArchetypeConte
     : { data: { multiclass }, gaps: [] };
 }
 
-/** The archetype entry's envelope: the page's name, introduction and UUID, with the dedication's rarity and source. */
+/** The archetype entry's envelope: the page's name, introduction and UUID, with the dedication's rarity, source and licence. */
 function envelopeOf(page: Page, dedication: ImportedEnvelope, context: ArchetypeContext): ImportedEnvelope | undefined {
   const { name: text, text: body } = page.page;
   const slug = EntrySlug.safeParse(`${ContentKind.Archetype}:${asciiNameSlug(text)}`);
@@ -149,6 +149,7 @@ function envelopeOf(page: Page, dedication: ImportedEnvelope, context: Archetype
     sources: dedication.sources,
     description: htmlToRichText(introduction, context.links).richText,
     rules: [],
+    ...(dedication.license === undefined ? {} : { license: dedication.license }),
     externalIds: { foundry: pageUuid(page) },
   };
 }

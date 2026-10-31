@@ -37,12 +37,14 @@ describe('book registry', () => {
   test('books.json validates and has the remaster core books', () => {
     expect(bookRegistry.books.map((book) => book.id).toSorted()).toStrictEqual(
       [
+        'advanced-players-guide',
         'bastion-of-blasphemies',
         'battlecry',
         'character-guide',
         'cheliax-infernal-inheritance',
         'claws-of-the-tyrant',
         'clockwork-mystery',
+        'core-rulebook',
         'curtain-call',
         'dark-archive-remastered',
         'divine-mysteries',
@@ -76,6 +78,7 @@ describe('book registry', () => {
         'shining-kingdoms',
         'spore-war',
         'the-dead-gods-hand',
+        'the-show-must-go-on',
         'tian-xia-character-guide',
         'tian-xia-world-guide',
         'treasure-vault',
@@ -98,7 +101,7 @@ describe('book registry', () => {
     const book = bookRegistry.book(PLAYER_CORE);
     expect(book?.license).toBe(ContentLicense.Orc);
     expect(book?.released?.equals(Temporal.PlainDate.from('2023-11-15'))).toBe(true);
-    expect(bookRegistry.book(BookId.parse('core-rulebook'))).toBeUndefined();
+    expect(bookRegistry.book(BookId.parse('bestiary'))).toBeUndefined();
   });
 
   test('rejects a book listed twice', () => {
@@ -111,11 +114,11 @@ describe('book registry', () => {
   });
 
   test('rejects a book without a title key', () => {
-    expect(registryIssues([playerCore({ id: 'core-rulebook' })])).toStrictEqual([
+    expect(registryIssues([playerCore({ id: 'bestiary' })])).toStrictEqual([
       {
         path: [0, 'id'],
         message: message(RulesMessage.BookUntitled, {
-          book: 'core-rulebook',
+          book: 'bestiary',
         }),
       },
     ]);

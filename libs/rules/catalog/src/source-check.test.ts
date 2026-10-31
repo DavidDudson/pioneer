@@ -60,13 +60,13 @@ describe('source checks', () => {
   });
 
   test('names the entry, the source and the book that is not registered', () => {
-    expect(issuesCiting(book('player-core'), book('core-rulebook'))).toStrictEqual([
+    expect(issuesCiting(book('player-core'), book('bestiary'))).toStrictEqual([
       {
         path: ['sources', 1, 'book'],
         message: message(RulesMessage.SourceUnknownBook, {
           entry: 'homebrew/statistic:sanity',
           index: 1,
-          book: 'core-rulebook',
+          book: 'bestiary',
         }),
       },
     ]);
@@ -94,7 +94,7 @@ describe('source checks', () => {
   test('a wrongly sourced pack fails with every rejected entry', () => {
     const pack = new ContentPackBuilder()
       .withId('homebrew')
-      .withAncestry('lizardfolk', { sources: [book('core-rulebook')] })
+      .withAncestry('lizardfolk', { sources: [book('bestiary')] })
       .withStatistic('sanity', { sources: [homebrew('someone-else')] })
       .withStatistic('luck')
       .build();
@@ -106,7 +106,7 @@ describe('source checks', () => {
       manifest: { id: 'homebrew', title: 'Homebrew', publisher: 'Tests', license: ContentLicense.Homebrew },
       ancestries: [],
       creatures: [],
-      variantRules: [{ slug: 'variant-rule:gritty', name: 'Gritty', sources: [book('core-rulebook')], rules: [] }],
+      variantRules: [{ slug: 'variant-rule:gritty', name: 'Gritty', sources: [book('bestiary')], rules: [] }],
     });
     expect(rejected(pack)).toStrictEqual(['homebrew/variant-rule:gritty']);
   });
@@ -124,7 +124,7 @@ describe('source checks', () => {
             name: 'Lizard',
             rarity: 'common',
             traits: [],
-            sources: [book('core-rulebook')],
+            sources: [book('bestiary')],
             description: [],
             rules: [],
             data: {},

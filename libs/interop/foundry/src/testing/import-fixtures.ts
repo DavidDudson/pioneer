@@ -1,3 +1,4 @@
+import type { ContentLicense } from '@pioneer/rules/sdk';
 import { BookId, ContentId, contentId, ContentKind, EntrySlug, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
@@ -42,6 +43,8 @@ export interface DocumentFixture {
   readonly system?: object;
   /** Foundry's pack, when not the one its type usually lives in (a class feature in `classfeatures`). */
   readonly pack?: FoundryPack;
+  /** The licence an entry carries beside its pack's (`OGL_ENTRIES`). */
+  readonly license?: ContentLicense;
   /** The items an actor embeds. */
   readonly items?: readonly object[];
 }
@@ -68,7 +71,7 @@ export function parseFixture(json: string): DocumentFixture {
   };
 }
 
-function selected({ id, name, type, system = {}, pack: given, items }: DocumentFixture): SelectedEntry {
+function selected({ id, name, type, system = {}, pack: given, license, items }: DocumentFixture): SelectedEntry {
   if (!isFoundryItemType(type)) {
     throw new Error(`${type} is not a Foundry item type`);
   }
@@ -85,6 +88,7 @@ function selected({ id, name, type, system = {}, pack: given, items }: DocumentF
     }),
     type,
     book: playerCore,
+    ...(license === undefined ? {} : { license }),
   };
 }
 

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, ContentLicense } from '@pioneer/rules/sdk';
 
 import type { FoundryJournalPage } from './foundry-journal';
 import type { JournalDocument } from './foundry-release';
@@ -185,6 +185,14 @@ describe('translateKindData: kits at their limits', () => {
 });
 
 describe('importArchetypes', () => {
+  test('an archetype takes the licence of its dedication', () => {
+    const legacy = translate([{ ...FIGHTER_DEDICATION, license: ContentLicense.Ogl }], {
+      journals: [ARCHETYPES_JOURNAL],
+    });
+    expect(legacy.archetypes[0]?.envelope.license).toBe(ContentLicense.Ogl);
+    expect(translation.archetypes[0]?.envelope).not.toHaveProperty('license');
+  });
+
   test('a page whose dedication is imported is an archetype, multiclass linking its class', () => {
     const [archetype] = translation.archetypes;
     const uuid = 'Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.pAgEfIgHtEr00001';

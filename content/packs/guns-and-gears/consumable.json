@@ -9192,6 +9192,76 @@
     }
   },
   {
+    "id": "6146912f-0b6f-5203-9526-7de2fc7cf1ae",
+    "pack": "guns-and-gears",
+    "kind": "consumable",
+    "slug": "consumable:repeating-crossbow-magazine",
+    "name": "Repeating Crossbow Magazine",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=181"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Dlsv1n0Bk1zVJaJM"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "uses": 5,
+      "ammunition": ["repeating-crossbow-magazine"]
+    }
+  },
+  {
+    "id": "fda2b3c0-8761-5acb-a63d-fd72bb5d474c",
+    "pack": "guns-and-gears",
+    "kind": "consumable",
+    "slug": "consumable:repeating-heavy-crossbow-magazine",
+    "name": "Repeating Heavy Crossbow Magazine",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=183"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F5JDZSMYYKYfyeEE"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 9
+        }
+      },
+      "bulk": "light",
+      "category": "ammunition",
+      "uses": 5,
+      "ammunition": ["repeating-heavy-crossbow-magazine"]
+    }
+  },
+  {
     "id": "fd8efcdb-0cd6-5417-b285-133ce314ab41",
     "pack": "guns-and-gears",
     "kind": "consumable",

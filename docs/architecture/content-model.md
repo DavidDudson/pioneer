@@ -519,7 +519,9 @@ The hand-authored pack (`core-rules`) lives
 there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`, `monster-core`, `monster-core-2`, `npc-core`,
 `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
-`tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`, `impossible-magic`,
+`tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`,
+`core-rulebook`, `advanced-players-guide`, `the-show-must-go-on`,
+`impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
 `hellfire-dispatches`, `high-seas`, `season-of-ghosts`, `hellbreakers`, `gatewalkers`, `myth-speakers`,
 `revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies`,
@@ -527,7 +529,8 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the
-books it takes that way).
+books it takes that way; `core-rulebook`, `advanced-players-guide` and `the-show-must-go-on` hold only the items
+`OGL_ENTRIES` lists, and every entry under the OGL, in an OGL pack or beside an ORC one, is legacy).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
 characters, so changing an entry's slug, its kind included, is a data

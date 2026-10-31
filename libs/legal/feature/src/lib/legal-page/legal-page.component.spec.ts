@@ -128,6 +128,9 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -182,6 +185,9 @@ describe('LegalPage', () => {
       'Pathfinder Society Clockwork Mystery',
       'Lost Omens Tian Xia World Guide',
       'Foolish Housekeeping and Other Articles',
+      'Core Rulebook',
+      "Advanced Player's Guide",
+      'The Show Must Go On',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
     expect(licenses).toStrictEqual([
@@ -220,6 +226,7 @@ describe('LegalPage', () => {
       'ORC License',
       'ORC License',
       'ORC License',
+      ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
     ]);
   });
 
@@ -245,6 +252,9 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Dark Archive \(Remastered\)\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Character Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Lost Omens Impossible Lands\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Core Rulebook\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Advanced Player's Guide\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^The Show Must Go On\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Impossible Magic\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Guns & Gears\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Battlecry!\s*Foundry release pf2e-8\.6\.0$/u),

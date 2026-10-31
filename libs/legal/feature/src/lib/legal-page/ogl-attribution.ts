@@ -1,7 +1,8 @@
 /**
  * Open Game License 1.0a section 15 notice for each pre-remaster book Pioneer imports, copied from the Foundry pf2e
- * system's `static/licenses/OpenGameLicense.md`. Treasure Vault is an ORC book; its notice is here for the few items in it that
- * are Open Game Content (`OGL_ENTRIES`). Proper names and credits, never translated. Rage of Elements is OGL in
+ * system's `static/licenses/OpenGameLicense.md`. Treasure Vault and Guns & Gears are ORC books; their notices are here for the few items in them that
+ * are Open Game Content (`OGL_ENTRIES`), as are the notices of the Core Rulebook, the Advanced Player Guide and
+ * Pathfinder #151, which Pioneer takes only those items from. Proper names and credits, never translated. Rage of Elements is OGL in
  * Foundry's data but credited in its `ORCLicense.md`, so its notice is in `orc-attribution.ts`.
  */
 export const OGL_ATTRIBUTION: readonly string[] = [
@@ -10,4 +11,8 @@ export const OGL_ATTRIBUTION: readonly string[] = [
   'Pathfinder Lost Omens Character Guide (Second Edition) © 2019, Paizo Inc.; Authors: John Compton, Sasha Lindley Hall, Amanda Hamon, Mike Kimmel, Luis Loza, Ron Lundeen, Matt Morris, Patchen Mortimer, Andrew Mullen, Mikhail Rekun, Micheal Sayre, Owen K.C. Stephens, Isabelle Thorne, and Linda Zayas-Palmer.',
   'Pathfinder Treasure Vault © 2023, Paizo Inc.; Authors: Michael Sayre, Mark Seifter, Kendra Leigh Speedling, Logan Bonner, Dan Cascone, Jessica Catalan, Kim Frandsen, Andrew Geels, Steven Hammond, Sen H.H.S., Joshua Kim, Dustin Knight, Luis Loza, Jacob W. Michaels, Matt Morris, Dave Nelson, Stephen Radney-McFarland, Jessica Redekop, Andrew Stoeckle, Mari Tokuda, and Andrew White.',
   'Pathfinder Lost Omens Impossible Lands © 2022, Paizo Inc.; Authors: Mariam Ahmad, Saif Ansari, Alexandria Bustion, Basheer Ghouse, Michelle Jones, TJ Kahn, Matt Morris, Dave Nelson, Shiv Ramdas, Mikhail Rekun, Michael Sayre, Tan Shao Han, Ruvaid Virk, Jabari Weathers, and Brian Yaksha.',
+  'Pathfinder Core Rulebook (Second Edition) © 2019, Paizo Inc.; Designers: Logan Bonner, Jason Bulmahn, Stephen Radney-MacFarland, and Mark Seifter.',
+  'Pathfinder Advanced Player Guide © 2020, Paizo Inc.; Authors: Logan Bonner, Lyz Liddell, and Mark Seifter.',
+  'Pathfinder Adventure Path #151: The Show Must Go On © 2020, Paizo Inc.; Authors: Jason Tondro, with Andrew Mullen, Patrick Renie, David N. Ross, and Michael Sayre.',
+  'Pathfinder Guns & Gears © 2021, Paizo Inc.; Authors: Logan Bonner, Jessica Catalan, John Compton, Andrew D. Geels, Steven Hammond, Sen H.H.S., Brent Holtsberry, Jason Keeley, Dustin Knight, Luis Loza, Ron Lundeen, Chris Mastey, Liane Merciel, Jacob W. Michaels, Dave Nelson, Samantha Phelan, Mikhail Rekun, Stephen Radney-MacFarland, Sydney Meeker, Kendra Leigh Speedling, Michael Sayre., Mark Seifter, Andrew Stoeckle, Calliope Lee Taylor, Andrew White, and Scott D. Young.',
 ];

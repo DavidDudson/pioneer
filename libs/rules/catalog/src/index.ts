@@ -33,7 +33,13 @@ import {
   foolishHousekeepingPack,
   theDeadGodsHandPack,
 } from './more-orc-packs';
-import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
+import {
+  advancedPlayersGuidePack,
+  characterGuidePack,
+  coreRulebookPack,
+  impossibleLandsPack,
+  theShowMustGoOnPack,
+} from './ogl-packs';
 import {
   bastionOfBlasphemiesPack,
   battlecryPack,
@@ -126,6 +132,9 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('rage-of-elements', rageOfElementsPack),
   checkedLoader('impossible-lands', impossibleLandsPack),
   checkedLoader('character-guide', characterGuidePack),
+  checkedLoader('core-rulebook', coreRulebookPack),
+  checkedLoader('advanced-players-guide', advancedPlayersGuidePack),
+  checkedLoader('the-show-must-go-on', theShowMustGoOnPack),
   checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
   checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),
   checkedLoader('impossible-magic', impossibleMagicPack),

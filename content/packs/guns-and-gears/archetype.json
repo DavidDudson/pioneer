@@ -1236,6 +1236,171 @@
     }
   },
   {
+    "id": "15951b0c-10d0-52ba-9cb3-5f365dcd8693",
+    "pack": "guns-and-gears",
+    "kind": "archetype",
+    "slug": "archetype:unexpected-sharpshooter",
+    "name": "Unexpected Sharpshooter",
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 142,
+        "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=123"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Uncommon"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "\"Oh would you look at that, there's a bunch of bullet holes around here... so that's what all the ruckus was about! Six... seven... eight of you, huh? Oh, but did you notice the northern finch over there in that tree a minute ago? Its nest is up there, but I think all those gunshots startled it. You think you could quiet down so maybe it'll come back\""
+          },
+          {
+            "type": "line-break"
+          },
+          {
+            "type": "text",
+            "text": "-Viri, gnome ornithologist, just before a series of strange accidents mysteriously took down a hardened bandit squad of eight former Alkenstar veterans."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some people say you must be the luckiest soul in all of Golarion to still be alive and kicking after all the dangers you've seen. Others say that, given the circumstances and the number of foes who you've defeated seemingly by accident, that there's no way you can really be as incompetent as you seem. These critics claim there has to be some kind of angle, some racket you're running. Either way, you sure don't look or act dangerous, except possibly to yourself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Somehow, despite your apparent clumsiness, professed confusion, and known propensity to incite calamity, you find yourself standing after every battle. The same can't often be said for your enemies. Funny how that works out, isn't it?"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Skilled or Lucky"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Part of the fun of roleplaying an unexpected sharpshooter is the ambiguity and mystery of how your character achieves their surprising success. Your character at first seems like they bumble into their successes through sheer circumstance. However, when the circumstances pile up, others might start to suspect another possibility: perhaps your character is secretly so incredible that they not only achieve impressive results but do so in a way that hides their skill behind a veneer of lucky breaks. Ultimately, either could be true about your character, or some combination of both. You might decide the truth together with the GM as soon as you take this archetype or hold off until later to make that call. Because this archetype hints at hidden talent intentionally obfuscated, it offers a good choice for a character who's secretly more powerful or skilled than they seem or who must hide their abilities for some reason-perhaps associated with the plot of the campaign."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "If your inclination is to play a character who hides their abilities, consider training in the Deception skill and taking skill feats like Charming Liar and Confabulator that emphasize your character's crafty nature and skill at concealing their true intent."
+              },
+              {
+                "type": "line-break"
+              },
+              {
+                "type": "text",
+                "text": "If you instead prefer to play a character who's legitimately a bit uncoordinated but abnormally lucky, you might choose to pursue actions that have a high chance of earning you a Hero Point. You could also consider taking abilities with the fortune or misfortune traits, such as Halfling Luck or Harbinger's Caw."
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats:",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "4th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a1ee6d80-abb8-5911-971a-6855a80e9170"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "ref",
+            "id": "28037aec-48a6-52c3-bad2-2b7a76377b3f"
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "text",
+            "text": "10th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b3a615f2-410e-50dc-bcf9-db5bb57db0d1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.nVfhX1aisz6jY8qf"
+    },
+    "license": "OGL",
+    "data": {
+      "dedication": "2961e791-e52f-5a87-9392-d011e29152ad"
+    }
+  },
+  {
     "id": "12264d5c-b3f8-57d0-8621-42f48deabcff",
     "pack": "guns-and-gears",
     "kind": "archetype",

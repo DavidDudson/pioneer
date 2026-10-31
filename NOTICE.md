@@ -51,10 +51,20 @@ Only Open Game Content is used; Product Identity is not. Section 15 of the licen
 for each such book. Adding a book to `OGL_BOOKS` means adding its Section 15 notice there too.
 
 A few items in an ORC book are still Open Game Content, reprinted from a pre-remaster work: Treasure Vault's Atlatl,
-Authorized, Buckle Armor, Purloining Cloak, Spraysling, Taw Launcher and Three-Section Naginata, which Foundry marks
-`OGL`. They stay in the book's ORC pack, each entry carrying `license: OGL`, and are listed in `OGL_ENTRIES`
-(`libs/interop/foundry/src/select-entries.ts`). Adding one means adding the Section 15 notice of its work on the Legal
-page too.
+Authorized, Buckle Armor, Purloining Cloak, Spraysling, Taw Launcher and Three-Section Naginata, and Guns & Gears'
+Chain Reaction, Unbelievable Luck, Unexpected Sharpshooter Dedication (with the Unexpected Sharpshooter archetype
+page built from it), Repeating Crossbow, Repeating Heavy Crossbow and their magazines, which Foundry marks `OGL`.
+They stay in the book's ORC pack, each entry carrying `license: OGL`, and are listed in `OGL_ENTRIES`
+(`libs/interop/foundry/src/ogl-entries.ts`).
+
+Four more are printed only in a pre-remaster book: Vital Luminance (Core Rulebook), Eye for Numbers and Quick Change
+(Advanced Player Guide) and Verdant Sprout (Pathfinder #151: The Show Must Go On). Each book is registered as
+`core-rulebook`, `advanced-players-guide` or `the-show-must-go-on`, OGL and not remaster, with a pack that holds
+only those listed items (`LEGACY_ENTRY_BOOKS`). Adding an item means adding the Section 15 notice of its work to the
+Legal page too.
+
+All Open Game Content in the packs is legacy: an entry whose licence (its own, else its pack's) is `OGL`
+(`isLegacyLicense`).
 
 ## Foundry pf2e system data
 
@@ -94,6 +104,9 @@ from, and offers the content caches for download without an account.
 | `dark-archive-remastered`      | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `character-guide`              | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `impossible-lands`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `core-rulebook`                | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `advanced-players-guide`       | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
+| `the-show-must-go-on`          | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `impossible-magic`             | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `guns-and-gears`               | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |
 | `battlecry`                    | [foundryvtt/pf2e `pf2e-8.6.0`](https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0) |

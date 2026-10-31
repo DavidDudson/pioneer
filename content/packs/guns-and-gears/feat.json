@@ -3730,6 +3730,97 @@
     }
   },
   {
+    "id": "79552010-1e79-5aa5-bc8c-a6a1ac7307ff",
+    "pack": "guns-and-gears",
+    "kind": "feat",
+    "slug": "feat:chain-reaction",
+    "name": "Chain Reaction",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 143,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3279"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fire your gun once, creating a devastating and unpredictable chain of events; perhaps your bullet strikes exactly the right spot on a water tower, causing it to flood and incite a stampede of horses which knock over a lantern that sets a city on fire. Whatever the exact chain reaction, and no matter how improbable, the indiscriminate catastrophe creates significant challenges for your enemies across a wide area while leaving everyone else alone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make a Strike with a ranged weapon, and if you hit, you can make another Strike at a target within 30 feet of the first target. If you hit the second target, attempt to Strike a third target within 30 feet of the second target, and so on, continuing until you miss a target. You can cease the chain at any point; otherwise, it ends when you first miss an attack. However, you can't target the same creature more than once; each time you move to a new target, it must be a target you haven't made a Strike against yet during this particular use of Chain Reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This damage is caused by some improbable set of events that injures one target after another, rather than from actually making several shots. Perhaps you shot at a tree branch that then fell on the targets, or one target's scream caused another to accidentally set off their gun and shoot themselves in the foot. This means that only the first target suffers any special effects tied to the bullet (if it was magical ammunition, for example), but each target you hit still takes the same damage dealt by your Strike. Normally, all damage is of the same damage type as the initial bullet. However, the GM might choose to change the damage type based on their description of the chain reaction. For example, if one target was burned by fire, that target might take fire damage instead of physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nPwzElPvV29eM5as"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unexpected Sharpshooter Dedication"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "three",
+        "frequency": {
+          "max": 1,
+          "per": "ten-minutes"
+        }
+      },
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
+    }
+  },
+  {
     "id": "c9a0c454-3a45-501f-99a6-d928e3edcb27",
     "pack": "guns-and-gears",
     "kind": "feat",
@@ -10689,7 +10780,8 @@
           "max": 1,
           "per": "hour"
         }
-      }
+      },
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {
@@ -11650,7 +11742,8 @@
           "max": 1,
           "per": "day"
         }
-      }
+      },
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {
@@ -12728,7 +12821,8 @@
             }
           ]
         }
-      ]
+      ],
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {
@@ -18214,7 +18308,8 @@
           "max": 1,
           "per": "round"
         }
-      }
+      },
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {
@@ -18953,7 +19048,65 @@
             }
           ]
         }
-      ]
+      ],
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
+    }
+  },
+  {
+    "id": "f9aea34c-d79d-5482-8074-063f74e91222",
+    "pack": "guns-and-gears",
+    "kind": "feat",
+    "slug": "feat:unbelievable-luck",
+    "name": "Unbelievable Luck",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 143,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3276"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While no one, not even you, might appear to understand why, you demonstrate a greater ability to hit your targets regardless of the obstacles in your way. You can use the "
+          },
+          {
+            "type": "ref",
+            "id": "9dd41f49-da29-5f87-87dd-16e2f526d0d7"
+          },
+          {
+            "type": "text",
+            "text": " activity granted to you by the Unexpected Sharpshooter Dedication once per hour instead of once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QQCxSQaX8UEZHfUz"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unexpected Sharpshooter Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {
@@ -19000,6 +19153,89 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "2961e791-e52f-5a87-9392-d011e29152ad",
+    "pack": "guns-and-gears",
+    "kind": "feat",
+    "slug": "feat:unexpected-sharpshooter-dedication",
+    "name": "Unexpected Sharpshooter Dedication",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["archetype", "dedication"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 142,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=3272"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Who needs skill when you've got dumb luck? Sometimes your shots hit miraculously, regardless of the fact that you seemed to slip when you pulled the trigger or that you weren't aiming at your foe when you fired. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9dd41f49-da29-5f87-87dd-16e2f526d0d7"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unexpected Sharpshooter"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9dd41f49-da29-5f87-87dd-16e2f526d0d7"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.lotpVdFhxNsNP0Ru"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "class",
+      "action": {
+        "frequency": {
+          "max": 1,
+          "per": "day"
+        }
+      },
+      "archetype": "15951b0c-10d0-52ba-9cb3-5f365dcd8693"
     }
   },
   {

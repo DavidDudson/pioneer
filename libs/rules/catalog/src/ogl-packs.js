@@ -36,3 +36,21 @@ export async function impossibleLandsPack() {
     import('@pioneer/content/packs/impossible-lands/weapon.json'),
   ]);
 }
+
+export async function coreRulebookPack() {
+  return pack(import('@pioneer/content/packs/core-rulebook/pack.json'), [
+    import('@pioneer/content/packs/core-rulebook/spell.json'),
+  ]);
+}
+
+export async function advancedPlayersGuidePack() {
+  return pack(import('@pioneer/content/packs/advanced-players-guide/pack.json'), [
+    import('@pioneer/content/packs/advanced-players-guide/feat.json'),
+  ]);
+}
+
+export async function theShowMustGoOnPack() {
+  return pack(import('@pioneer/content/packs/the-show-must-go-on/pack.json'), [
+    import('@pioneer/content/packs/the-show-must-go-on/spell.json'),
+  ]);
+}
