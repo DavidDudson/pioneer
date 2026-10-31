@@ -3,17 +3,9 @@ import { TranslocoService } from '@jsverse/transloco';
 import { initiativeRoll, PlayCommandField } from '@pioneer/character/domain';
 import type { RollAs, RollSetup } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
-import { keptRoll, presentRoll, RANDOM_SOURCE, RollPresenter, rollView } from '@pioneer/play/ui';
+import { keptRoll, presentRoll, RANDOM_SOURCE, RollPresenter, rollView, withDegree } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
-import {
-  checkOutcome,
-  degreeOfSuccess,
-  DiceExpressionText,
-  NO_FORTUNE,
-  parseDiceExpression,
-  rollWithFortune,
-  Sign,
-} from '@pioneer/rules/dice';
+import { DiceExpressionText, NO_FORTUNE, parseDiceExpression, rollWithFortune, Sign } from '@pioneer/rules/dice';
 import type { DiceExpression, FortunedRoll } from '@pioneer/rules/dice';
 import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
@@ -24,6 +16,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { PlayStore } from '../data/play-store';
 import { describeSaveError } from './sheet-field';
+import { rolledDegree } from './sheet-roll-degree';
 import { sheetRollSetup } from './sheet-roll-setup';
 import { SheetState } from './sheet-state';
 
@@ -54,6 +47,12 @@ interface CheckRoll {
   readonly name: string;
   readonly statistic: StatisticValue;
   readonly reasons: readonly string[];
+  readonly dc: Dc | undefined;
+  readonly check?: CheckNode | undefined;
+}
+
+/** What a check on the stage is compared with, and the check in text behind it, when there is one. */
+interface Against {
   readonly dc: Dc | undefined;
   readonly check?: CheckNode | undefined;
 }
@@ -116,9 +115,7 @@ export class SheetRolls implements StatisticRoller {
       return undefined;
     }
     const dc = this.cardDc();
-    const kept = rolled.roll.rolls.find((entry) => entry.kept);
-    const checked = rolled.statistic !== undefined && dc !== undefined && kept !== undefined;
-    const degree = checked ? degreeOfSuccess(checkOutcome(kept.result), dc) : undefined;
+    const degree = rolled.statistic === undefined ? undefined : rolledDegree(rolled.roll, dc);
     const { id, name, statistic, expression, roll, reasons, check } = rolled;
     return { name, statistic, view: rollView(id, { expression, roll, degree, damage: undefined, reasons, check }) };
   });
@@ -281,14 +278,18 @@ export class SheetRolls implements StatisticRoller {
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
     this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
-    this.#present(name, roll);
+    this.#present(name, roll, { dc: this.cardDc(), check });
   }
 
-  #present(name: string, roll: FortunedRoll): void {
+  /** Shows the roll on the stage; a check also names its degree and what it does (`against` is what it was rolled for). */
+  #present(name: string, roll: FortunedRoll, against?: Against): void {
     const counted = keptRoll(roll);
-    if (counted !== undefined) {
-      this.#presenter.present(presentRoll(this.#count, name, counted));
+    if (counted === undefined) {
+      return;
     }
+    const shown = presentRoll(this.#count, name, counted);
+    const degree = rolledDegree(roll, against?.dc);
+    this.#presenter.present(degree === undefined ? shown : withDegree(shown, degree.degree, against?.check));
   }
 }
 

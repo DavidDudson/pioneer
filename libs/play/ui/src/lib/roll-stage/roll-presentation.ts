@@ -1,9 +1,11 @@
 import type { DamageTone } from '@pioneer/frontier';
 import { TermKind } from '@pioneer/rules/dice';
 import type { DiceTermResult, FortunedRoll, RollResult, RollTotal, TermResult } from '@pioneer/rules/dice';
-import type { DamageType } from '@pioneer/rules/sdk';
+import type { CheckNode, DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
 
-import { DAMAGE_TYPE_KEYS } from '../roll-labels';
+import { DAMAGE_TYPE_KEYS, DEGREE_KEYS } from '../roll-labels';
+import { outcomeView } from '../roll-view';
+import type { OutcomeView } from '../roll-view';
 import { damageTone } from './damage-tone';
 
 /** The die sizes the dice library has a model for; a term of any other size is only shown in the toast. */
@@ -32,6 +34,10 @@ export interface RollPresentation {
   /** One line per damage type, in the order the types are first written; an untyped roll has one plain line. */
   readonly lines: readonly DamageLine[];
   readonly groups: readonly DiceGroup[];
+  /** The message key of the degree of success, when the roll was a check against a DC. */
+  readonly degreeKey?: string | undefined;
+  /** What that degree does, when the check says. */
+  readonly outcome?: OutcomeView | undefined;
 }
 
 function isDiceTerm(entry: TermResult): boolean {
@@ -71,4 +77,13 @@ export function presentRoll(id: number, label: string, result: RollResult): Roll
 /** The roll that counted of a fortuned roll, the one fortune or misfortune kept; unset only for a roll with none. */
 export function keptRoll(roll: FortunedRoll): RollResult | undefined {
   return roll.rolls.find(({ kept }) => kept)?.result;
+}
+
+/** `presentation` for a check rolled against a DC: the degree it reached, and what that degree does per `check`. */
+export function withDegree(
+  presentation: RollPresentation,
+  degree: DegreeOfSuccess,
+  check?: CheckNode,
+): RollPresentation {
+  return { ...presentation, degreeKey: DEGREE_KEYS[degree], outcome: outcomeView(degree, check) };
 }
