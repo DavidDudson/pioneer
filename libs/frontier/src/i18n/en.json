@@ -63,7 +63,10 @@
     },
     "shell": {
       "skipToContent": "Skip to content",
-      "openSearch": "Search"
+      "openSearch": "Search",
+      "menu": "More",
+      "hidePanel": "Hide {{panel}}",
+      "showPanel": "Show {{panel}}"
     },
     "inlineEdit": {
       "conflict": "Changed elsewhere. Showing the latest version.",

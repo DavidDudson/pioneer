@@ -26,10 +26,11 @@ function element(tag: string, slot: string | undefined, text: string): Element {
 }
 
 /** Renders `fr-shell` branded "Pioneer" with an element projected into each slot. */
-async function render(inputs: Readonly<Record<string, boolean>> = {}): Promise<Rendered> {
+async function render(inputs: Readonly<Record<string, boolean | string>> = {}): Promise<Rendered> {
   const elements = [
     element('input', 'frShellSearch', 'Search'),
     element('button', 'frShellActions', 'Appearance'),
+    element('p', 'frShellPanel', 'Avatars'),
     element('p', undefined, 'Routed page'),
     element('small', 'frShellFooter', 'Licence notice'),
   ];
@@ -57,6 +58,26 @@ async function render(inputs: Readonly<Record<string, boolean>> = {}): Promise<R
     throw new Error('fr-shell rendered no header, search slot, main or footer');
   }
   return { shell, header, search, content, footer };
+}
+
+function panelOf(shell: HTMLElement): HTMLElement | null {
+  return shell.querySelector<HTMLElement>(':scope > aside:not(.hidden)');
+}
+
+function menuTrigger(shell: HTMLElement): HTMLElement | null {
+  return shell.querySelector<HTMLElement>('header button[aria-label="More"]');
+}
+
+async function openMenu(shell: HTMLElement): Promise<void> {
+  menuTrigger(shell)?.click();
+  await TestBed.inject(ApplicationRef).whenStable();
+}
+
+/** Presses the entry of the open header menu with this text. */
+async function pressEntry(name: string): Promise<void> {
+  const entries = [...document.querySelectorAll<HTMLElement>('.cdk-overlay-container button')];
+  entries.find((button) => button.textContent.trim() === name)?.click();
+  await TestBed.inject(ApplicationRef).whenStable();
 }
 
 describe(Shell, () => {
@@ -158,11 +179,61 @@ describe(Shell, () => {
     });
   });
 
+  describe('panel', () => {
+    const MINIMISED_KEY = 'fr-shell-panel-minimised';
+
+    beforeEach(() => {
+      localStorage.removeItem(MINIMISED_KEY);
+      onTestFinished(() => {
+        localStorage.removeItem(MINIMISED_KEY);
+      });
+    });
+
+    it('takes no space and adds no menu while the page has no panel', async () => {
+      const { shell, content } = await render();
+      expect(panelOf(shell)).toBeNull();
+      expect(menuTrigger(shell)).toBeNull();
+      expect(content.className).not.toContain('pb-shell-panel-bar');
+    });
+
+    it('fixes the panel outside main, padded for the home indicator, and keeps the page clear of it', async () => {
+      const { shell, content } = await render({ panelAvailable: true, panelLabel: 'Party' });
+      const panel = panelOf(shell);
+      expect(panel?.getAttribute('aria-label')).toBe('Party');
+      expect(panel?.textContent.trim()).toBe('Avatars');
+      expect(content.contains(panel)).toBe(false);
+      expect(panel?.className).toMatch(/\bfixed\b.*\bpb-safe-bottom\b/u);
+      expect([...content.classList]).toContain('pb-shell-panel-bar');
+    });
+
+    it('minimises and restores from the header menu, remembering the choice', async () => {
+      const { shell } = await render({ panelAvailable: true, panelLabel: 'Party' });
+      await openMenu(shell);
+      await pressEntry('Hide Party');
+      expect(panelOf(shell)).toBeNull();
+      expect(localStorage.getItem(MINIMISED_KEY)).toBe('true');
+
+      // A control pressed in the dropdown leaves it open, now offering to show the panel again.
+      await pressEntry('Show Party');
+      expect(panelOf(shell)).not.toBeNull();
+      expect(localStorage.getItem(MINIMISED_KEY)).toBeNull();
+    });
+
+    it('starts minimised when the browser remembers it', async () => {
+      localStorage.setItem(MINIMISED_KEY, 'true');
+      const { shell, content } = await render({ panelAvailable: true, panelLabel: 'Party' });
+      expect(panelOf(shell)).toBeNull();
+      expect(content.className).not.toContain('pb-shell-panel-bar');
+      expect(menuTrigger(shell)).not.toBeNull();
+    });
+  });
+
   it('projects routed content into main, between the header and the footer', async () => {
     const { content, header, footer } = await render();
     expect(content.textContent.trim()).toBe('Routed page');
     expect(content.previousElementSibling).toBe(header);
-    expect(content.nextElementSibling).toBe(footer);
+    // The panel's aside, hidden while empty, sits between main and the footer.
+    expect(content.nextElementSibling?.nextElementSibling).toBe(footer);
     expect([...content.classList]).toContain('flex-1');
   });
 
