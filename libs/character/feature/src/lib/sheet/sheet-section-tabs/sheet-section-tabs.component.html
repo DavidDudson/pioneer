@@ -1,5 +1,21 @@
-<fr-tabs centered [appearance]="Appearance.Segment" [label]="'character.sheet.sections' | transloco">
-  @for (link of links(); track link.headingKey) {
-    <fr-tab [to]="link.to">{{ link.headingKey | transloco }}</fr-tab>
-  }
-</fr-tabs>
+<fr-responsive showFrom="lg">
+  <fr-tabs centered [appearance]="Appearance.Segment" [label]="'character.sheet.sections' | transloco">
+    @for (link of links(); track link.headingKey) {
+      <fr-tab [to]="link.to">{{ link.headingKey | transloco }}</fr-tab>
+    }
+  </fr-tabs>
+</fr-responsive>
+
+<fr-responsive hideFrom="lg">
+  <fr-stack gap="sm">
+    <pio-option-picker
+      [ariaLabel]="'character.sheet.sections' | transloco"
+      [options]="options()"
+      [value]="current()"
+      (valueChange)="open($event)"
+    />
+    @if (panel(); as shown) {
+      <pio-sheet-panel [panel]="shown" />
+    }
+  </fr-stack>
+</fr-responsive>

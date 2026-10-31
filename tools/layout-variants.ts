@@ -12,7 +12,7 @@
  * `@[…]` sizes and viewport variants (`sm:`, `max-*:`, …) are all banned.
  */
 export const LAYOUT_PRIMITIVE =
-  /(?:^|\/)libs\/frontier\/src\/lib\/layout\/(?:(?:box|grid|stack)\/|page-aside\/page-aside\.component\.ts$|rail\/rail\.component\.ts$|shell\/shell\.component\.ts$|drawer\/drawer\.component\.ts$)/u;
+  /(?:^|\/)libs\/frontier\/src\/lib\/layout\/(?:(?:box|grid|stack)\/|page-aside\/page-aside\.component\.ts$|rail\/rail\.component(?:\.spec)?\.ts$|responsive\/responsive\.component(?:\.spec)?\.ts$|shell\/shell\.component\.ts$|drawer\/drawer\.component\.ts$)/u;
 
 const VIEWPORT_VARIANT = /(?:^|[\s:])(?<variant>(?:sm|md|lg|xl|2xl|tablet|desktop|max-[\w[\]().-]+|min-\[[^\]]*\]):)/u;
 const CONTAINER_VARIANT = /(?:^|[\s:])(?<variant>@[^\s:]+:)/gu;

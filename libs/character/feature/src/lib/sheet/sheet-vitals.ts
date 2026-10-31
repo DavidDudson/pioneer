@@ -6,8 +6,10 @@ import { VitalBasisKind } from '@pioneer/rules/ui';
 import type { NamedStatistic, Vital, VitalBasis } from '@pioneer/rules/ui';
 
 import { statisticInputsOf } from './sheet-inputs';
+import { sheetSpellcasting } from './sheet-spellcasting';
 
 const AC = Selector.parse('ac');
+const SPELL_DC = 'spell-dc:';
 
 /** What the engine derived for the sheet, which the vitals row shows. */
 export interface VitalReads {
@@ -31,8 +33,8 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
  */
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
-  // Perception is a row of the Skills panel, not a vital.
-  return reads.statistics
+  const own = reads.statistics
+    // Perception is a row of the Skills panel, not a vital.
     .filter(({ result }) => result.selector !== PERCEPTION)
     .map((statistic): Vital => {
       const { selector } = statistic.result;
@@ -42,4 +44,30 @@ export function sheetVitals(registry: ContentRegistry, character: Character, rea
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
       return selector === AC ? { statistic, rank, basis: armorBasis(registry, character, reads) } : { statistic, rank };
     });
+  return [...own, ...spellDcVitals(registry, character)];
+}
+
+/**
+ * The spell DC of the character's spellcasting: one when every entry gives the same value, else one for each entry,
+ * named by its source. It has no rank: the sheet reads none for spellcasting yet.
+ */
+function spellDcVitals(registry: ContentRegistry, character: Character): readonly Vital[] {
+  const entries = sheetSpellcasting(registry, character);
+  const found = entries.flatMap(({ source, statistics }) =>
+    statistics.filter(({ result }) => result.selector.startsWith(SPELL_DC)).map((statistic) => ({ source, statistic })),
+  );
+  const [first] = found;
+  if (
+    first !== undefined &&
+    found.every(
+      ({ statistic }) =>
+        statistic.result.ok && first.statistic.result.ok && statistic.result.total === first.statistic.result.total,
+    )
+  ) {
+    return [{ statistic: first.statistic, rank: undefined }];
+  }
+  return found.map(({ source, statistic }): Vital => ({
+    statistic: { ...statistic, name: `${statistic.name} · ${source}` },
+    rank: undefined,
+  }));
 }

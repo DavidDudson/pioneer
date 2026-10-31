@@ -1315,7 +1315,8 @@
       }
     },
     "vitals": {
-      "unarmored": "Unarmored"
+      "unarmored": "Unarmored",
+      "proficiency": "Proficiency"
     },
     "form": {
       "active": "In form: {name}",

@@ -28,3 +28,8 @@ export default meta;
 
 /** Beside the content from the `lg` container size, sticky and full height; stacked above it when narrower. */
 export const Default: RailStory = {};
+
+/** With `hiddenNarrow`, gone below the `lg` container size, for a page that offers its content another way there. */
+export const HiddenNarrow: RailStory = {
+  args: { hiddenNarrow: true },
+};

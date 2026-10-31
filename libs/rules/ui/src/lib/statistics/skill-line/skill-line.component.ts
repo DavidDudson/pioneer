@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { Stack, Text } from '@pioneer/frontier';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { Button, ButtonVariant, HoverCard, HoverCardContent, Stack, Text } from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
-import type { ContentId, Proficiency, StatisticKind } from '@pioneer/rules/sdk';
+import { StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId, Proficiency } from '@pioneer/rules/sdk';
 
+import { BreakdownView } from '../../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
 import type { OriginNames } from '../../origin-chain/origin-names';
 import { ProficiencyBadge } from '../../proficiency-badge/proficiency-badge.component';
@@ -21,7 +23,17 @@ import { StatisticTotal } from '../statistic-total/statistic-total.component';
  */
 @Component({
   selector: 'pio-skill-line',
-  imports: [ProficiencyBadge, Stack, StatisticRoll, StatisticTotal, Text],
+  imports: [
+    BreakdownView,
+    Button,
+    HoverCard,
+    HoverCardContent,
+    ProficiencyBadge,
+    Stack,
+    StatisticRoll,
+    StatisticTotal,
+    Text,
+  ],
   templateUrl: './skill-line.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -43,4 +55,7 @@ export class SkillLine {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly roller = inject(STATISTIC_ROLLER, { optional: true });
+  protected readonly inline = ButtonVariant.Inline;
+  /** Only a check is rolled, and only where the page rolls; a DC or a value shows its total, the breakdown on hover. */
+  protected readonly rollable = computed((): boolean => this.roller !== null && this.kind() === StatisticKind.Check);
 }

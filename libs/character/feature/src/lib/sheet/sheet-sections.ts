@@ -17,6 +17,8 @@ export const SHEET_SECTIONS = {
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
   senses: { anchor: 'sheet-senses', headingKey: 'character.sheet.sensesHeading' },
   skills: { anchor: 'sheet-skills', headingKey: 'character.sheet.skillsHeading' },
+  /** The side panel of the character's conditions (#1525). */
+  conditions: { anchor: 'sheet-conditions', headingKey: 'character.sheet.conditions.label' },
   strikes: { anchor: 'sheet-strikes', headingKey: 'character.sheet.strikesHeading' },
   /** What the character can do now and ever, in the tab's mode (#353). */
   actions: { anchor: 'sheet-actions', headingKey: 'character.sheet.actionsHeading' },
@@ -112,11 +114,32 @@ export function firstSectionPath(mode: SheetMode): string {
 
 /**
  * The section of `order` the route names: the first when the route names none, or one this tab has no section by. A
- * tab renders every section and conceals all but this one, so each keeps its state while another is open.
+ * tab renders every section and conceals all but this one, so each keeps its state while another is open. None is
+ * shown when the route names a side panel.
  */
 export function shownSection(
   order: readonly SheetSection[],
   path: Signal<string | undefined>,
 ): Signal<SheetSection | undefined> {
-  return computed(() => order.find((section) => sectionPath(section) === path()) ?? order[0]);
+  return computed(() =>
+    panelOfPath(path()) === undefined
+      ? (order.find((section) => sectionPath(section) === path()) ?? order[0])
+      : undefined,
+  );
+}
+
+/** A side panel of the sheet, on every mode. */
+export const SheetPanel = { Skills: 'skills', Conditions: 'conditions', Environments: 'environments' } as const;
+export type SheetPanel = (typeof SheetPanel)[keyof typeof SheetPanel];
+
+/** The side panels in order, each as the section whose heading and path it takes. */
+export const SHEET_PANELS: readonly (SheetSection & { readonly panel: SheetPanel })[] = [
+  { ...SHEET_SECTIONS.skills, panel: SheetPanel.Skills },
+  { ...SHEET_SECTIONS.conditions, panel: SheetPanel.Conditions },
+  { ...SHEET_SECTIONS.environments, panel: SheetPanel.Environments },
+];
+
+/** The side panel a section path names, below the `lg` width where a panel is a route of its own. */
+export function panelOfPath(path: string | undefined): SheetPanel | undefined {
+  return SHEET_PANELS.find((each) => sectionPath(each) === path)?.panel;
 }

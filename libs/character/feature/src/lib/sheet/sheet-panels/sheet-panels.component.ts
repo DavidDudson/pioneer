@@ -1,51 +1,23 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import {
-  AsyncData,
-  AsyncPending,
-  AsyncRegion,
-  Disclosure,
-  DisclosureVariant,
-  Rail,
-  Stack,
-  Text,
-} from '@pioneer/frontier';
-import { ENTRY_PREVIEWS, SkillsView } from '@pioneer/rules/ui';
-import type { EntryPreviews } from '@pioneer/rules/ui';
+import { Disclosure, DisclosureVariant, Rail, Stack, Text } from '@pioneer/frontier';
 
-import { SheetConditions } from '../sheet-conditions/sheet-conditions.component';
-import { SheetEnvironments } from '../sheet-environments/sheet-environments.component';
+import { SheetPanelContent } from '../sheet-panel/sheet-panel.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
-import { SHEET_SECTIONS } from '../sheet-sections';
-import { SheetState } from '../sheet-state';
+import { SHEET_PANELS } from '../sheet-sections';
 
 /**
- * The sheet's side panels, in a rail that stays in view beside every mode: the hero points, then the Skills,
- * Conditions and Environments panels, each of which folds away. Below `lg` the rail stacks above the tab.
+ * The sheet's side panels, in a rail that stays in view beside every mode from `lg`: the hero points, then the Skills,
+ * Conditions and Environments panels, each of which folds away. Narrower there is no rail: the panels are entries of
+ * the section dropdown (`pio-sheet-section-tabs`).
  */
 @Component({
   selector: 'pio-sheet-panels',
-  imports: [
-    AsyncData,
-    AsyncPending,
-    AsyncRegion,
-    Disclosure,
-    Rail,
-    SheetConditions,
-    SheetEnvironments,
-    SheetResources,
-    SkillsView,
-    Stack,
-    Text,
-    TranslocoPipe,
-  ],
+  imports: [Disclosure, Rail, SheetPanelContent, SheetResources, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-panels.component.html',
-  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetState).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetPanels {
-  protected readonly sheet = inject(SheetState);
-  protected readonly picks = this.sheet.picks;
-  protected readonly sections = SHEET_SECTIONS;
+  protected readonly panels = SHEET_PANELS;
   protected readonly bordered = DisclosureVariant.Bordered;
 }

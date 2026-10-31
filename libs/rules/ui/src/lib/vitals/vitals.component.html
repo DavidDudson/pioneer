@@ -1,21 +1,13 @@
-<fr-grid minItem="sm" gap="sm">
+<fr-grid minItem="md" gap="sm">
   @if (blocks(); as shown) {
     @for (block of shown; track block.key) {
       <fr-surface padding="sm">
         @if (block.tile; as tile) {
-          <fr-stack gap="3xs">
-            <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" [originNames]="originNames()" />
-            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-              <pio-proficiency-rank [rank]="tile.rank" />
-              @if (tile.caption; as caption) {
-                <fr-text variant="caption" tone="muted">{{ caption }}</fr-text>
-              }
-            </fr-stack>
-          </fr-stack>
+          <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" [originNames]="originNames()" />
         } @else {
           <pio-statistics
             skillRows
-            [statistics]="block.saves"
+            [statistics]="block.rows"
             [entryNames]="entryNames()"
             [originNames]="originNames()"
           />

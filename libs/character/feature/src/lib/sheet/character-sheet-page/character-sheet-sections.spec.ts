@@ -85,4 +85,39 @@ describe('CharacterSheetPage sections', () => {
 
     expect(shownHeadings(root)).toStrictEqual(['Appearance and personality']);
   });
+
+  it('offers the sections and then the panels in a dropdown, with the open section chosen', async () => {
+    const { root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-sheet-section-tabs fr-select')).not.toBeNull();
+    });
+    const select = present(root.querySelector('pio-sheet-section-tabs fr-select'));
+
+    select.querySelector('button, [role="combobox"]')?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await settle();
+
+    const labels = [...document.querySelectorAll('[role="option"]')].map((option) => textOf(option));
+    expect(labels).toStrictEqual([
+      'Defences',
+      'Senses',
+      'Strikes',
+      'Actions',
+      'Spellcasting',
+      'Skills',
+      'Conditions',
+      'Environments',
+    ]);
+  });
+
+  it('opens a panel at its own address, below the dropdown, with no section shown', async () => {
+    const { root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    await TestBed.inject(Router).navigateByUrl(`/characters/${id}/encounter/conditions`);
+    await settle();
+
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-sheet-section-tabs pio-sheet-panel pio-sheet-conditions')).not.toBeNull();
+    });
+    expect(shownHeadings(root)).toStrictEqual([]);
+    expect(root.querySelector('pio-sheet-section-tabs pio-sheet-panel pio-skills')).toBeNull();
+  });
 });

@@ -1,0 +1,19 @@
+@switch (panel()) {
+  @case (Panel.Skills) {
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>
+      <ng-template [frAsyncData]="sheet.engineQuery()"
+        ><pio-skills
+          [statistics]="picks.skills()"
+          [entryNames]="picks.entryNames()"
+          [originNames]="sheet.originNames()"
+      /></ng-template>
+    </fr-async-region>
+  }
+  @case (Panel.Conditions) {
+    <pio-sheet-conditions />
+  }
+  @default {
+    <pio-sheet-environments />
+  }
+}

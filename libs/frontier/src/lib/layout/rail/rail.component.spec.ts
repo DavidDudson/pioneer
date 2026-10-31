@@ -10,4 +10,14 @@ describe(Rail, () => {
     expect(landmark.getAttribute('aria-label')).toBe('Skills');
     expect(landmark.textContent.trim()).toBe('Acrobatics');
   });
+
+  it('stacks above the content when narrower, unless it is hidden there', async () => {
+    const stacked = await renderProjected(Rail, { label: 'Skills' }, []);
+    const hidden = await renderProjected(Rail, { label: 'Skills', hiddenNarrow: true }, []);
+
+    expect(stacked.classList.contains('block')).toBe(true);
+    expect(stacked.classList.contains('hidden')).toBe(false);
+    expect(hidden.classList.contains('hidden')).toBe(true);
+    expect(hidden.classList.contains('@lg:block')).toBe(true);
+  });
 });

@@ -2,7 +2,26 @@
   <fr-text>{{ name() }}</fr-text>
   <fr-stack direction="horizontal" gap="xs" align="center">
     <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" [note]="rankNote()" />
-    @if (roller) {
+    @if (!rollable()) {
+      <fr-hover-card>
+        <fr-button [variant]="inline">
+          <pio-statistic-total
+            [total]="total()"
+            [computed]="computed()"
+            [adjusted]="adjusted()"
+            [fromForm]="fromForm()"
+          />
+        </fr-button>
+        <ng-template frHoverCardContent>
+          <pio-breakdown
+            [statistic]="statistic()"
+            [kind]="kind()"
+            [entryNames]="entryNames()"
+            [originNames]="originNames()"
+          />
+        </ng-template>
+      </fr-hover-card>
+    } @else {
       <pio-statistic-roll
         [name]="name()"
         [kind]="kind()"
@@ -10,8 +29,6 @@
         [entryNames]="entryNames()"
         [originNames]="originNames()"
       />
-    } @else {
-      <pio-statistic-total [total]="total()" [computed]="computed()" [adjusted]="adjusted()" [fromForm]="fromForm()" />
     }
   </fr-stack>
 </fr-stack>
