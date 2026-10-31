@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
+  ActiveSpellId,
   canRollBadge,
   EffectAllyName,
   EffectBadgeValue,
@@ -28,6 +29,7 @@ import { newId } from '@pioneer/shared/kernel';
 
 import { injectCharacterAllies } from '../../data/character-allies-query';
 import type { EffectOption } from '../sheet-effects';
+import { SheetEffectSpell } from './sheet-effect-spell.component';
 
 /** The message each source of an effect is worded with. */
 const SOURCE_LABELS = {
@@ -55,7 +57,7 @@ const TRADITION_LABELS = {
  */
 @Component({
   selector: 'pio-sheet-effect-add',
-  imports: [AsyncButton, OptionPicker, Stack, TextInput, TranslocoPipe],
+  imports: [AsyncButton, OptionPicker, SheetEffectSpell, Stack, TextInput, TranslocoPipe],
   templateUrl: './sheet-effect-add.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -69,6 +71,8 @@ export class SheetEffectAdd {
   public readonly describeError = input.required<(error: unknown) => string>();
   /** The temporary Hit Points the character would get from `effect`, worked out by the engine; none when it gives none. */
   public readonly tempHpFor = input.required<(effect: ActiveEffect) => HitPoints | undefined>();
+  /** The active spells an effect can be cast from, so sustaining one recreates a destroyed shield it gave. */
+  public readonly spells = input.required<readonly SelectOption<string>[]>();
 
   protected readonly choices = computed((): readonly SelectOption<string>[] =>
     this.options().map(({ id, name }) => ({ value: id, label: name })),
@@ -128,6 +132,8 @@ export class SheetEffectAdd {
       : [],
   );
   protected readonly tradition = signal<string | undefined>(undefined);
+  /** The active spell the picked effect is cast from, if any. */
+  protected readonly spell = signal<string | undefined>(undefined);
   /** The form and rank chosen for the picked effect; the rank starts at the effect's own. */
   protected readonly form = signal<string | undefined>(undefined);
   protected readonly rank = signal<string | undefined>(undefined);
@@ -141,6 +147,7 @@ export class SheetEffectAdd {
   protected readonly choose = (id: string | undefined): void => {
     this.picked.set(id);
     this.tradition.set(undefined);
+    this.spell.set(undefined);
     this.form.set(undefined);
     const floor = this.options().find((each) => each.id === id)?.rankFloor;
     this.rank.set(floor === undefined ? undefined : String(floor));
@@ -177,6 +184,7 @@ export class SheetEffectAdd {
     const rank = option.polymorph ? SpellRank.parse(Number(this.rank() ?? option.rankFloor)) : undefined;
     const picked = MagicTraditionSchema.safeParse(this.tradition());
     const tradition = option.polymorph && picked.success ? picked.data : undefined;
+    const cast = this.spell();
     const applying = {
       id: EffectInstanceId.parse(newId()),
       effect: ContentId.parse(option.id),
@@ -184,6 +192,7 @@ export class SheetEffectAdd {
       ...(form === undefined ? {} : { form }),
       ...(rank === undefined ? {} : { rank }),
       ...(tradition === undefined ? {} : { tradition }),
+      ...(cast === undefined ? {} : { spell: ActiveSpellId.parse(cast) }),
     };
     const tempHp = this.tempHpFor()(applying);
     return {

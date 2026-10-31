@@ -18237,7 +18237,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You can Shield Block with the bone shield, which has Hardness 3 and 1 Hit Point and no Broken Threshold. A destroyed shield is whole again for the next block. It has +2 Hardness against piercing and slashing damage. While the shield is raised, the +2 circumstance bonus to AC applies."
+            "text": "You can Shield Block with the bone shield, which has Hardness 3 and 1 Hit Point and no Broken Threshold. A destroyed shield stays destroyed until you Sustain the spell, which recreates it already raised. It has +2 Hardness against piercing and slashing damage. While the shield is raised, the +2 circumstance bonus to AC applies."
           }
         ]
       }
@@ -18248,6 +18248,7 @@
         "hardness": 3,
         "hitPoints": 1,
         "brokenThreshold": 0,
+        "recreatedOnSustain": true,
         "brackets": [
           {
             "start": 3,

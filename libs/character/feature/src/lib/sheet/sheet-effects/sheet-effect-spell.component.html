@@ -1,0 +1,9 @@
+@if (spells().length > 0) {
+  <pio-option-picker
+    [ariaLabel]="'character.sheet.effects.spellPick' | transloco"
+    [placeholder]="'character.sheet.effects.spellPick' | transloco"
+    [options]="spells()"
+    [value]="value()"
+    (valueChange)="valueChange.emit($event)"
+  />
+}

@@ -2,6 +2,7 @@ import { ContentId, EffectBadgeType, HitPoints, MagicTraditionSchema, RollOption
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellId } from './active-spell-id';
 import { EffectBadgeValue, EffectInstanceId, EffectRounds, EFFECTS_MAX, EffectSourceSchema, SELF } from './effects';
 import type { ActiveEffect, CounterTerms, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 
@@ -30,6 +31,8 @@ export const EffectCommandSchema = z.discriminatedUnion('field', [
     rank: SpellRank.optional(),
     /** The tradition of the spellcasting entry that casts it. */
     tradition: MagicTraditionSchema.optional(),
+    /** The active spell that casts it, so sustaining that spell makes a destroyed shield it gave whole. */
+    spell: ActiveSpellId.optional(),
     /** The temporary Hit Points the form gives, worked out by the sheet from the engine; they leave with the effect. */
     tempHp: HitPoints.optional(),
   }),
@@ -130,6 +133,7 @@ function applied(
     ...(command.form === undefined ? {} : { form: command.form }),
     ...(command.rank === undefined ? {} : { rank: command.rank }),
     ...(command.tradition === undefined ? {} : { tradition: command.tradition }),
+    ...(command.spell === undefined ? {} : { spell: command.spell }),
     ...(command.tempHp === undefined || command.tempHp === 0 ? {} : { tempHp: command.tempHp }),
   };
 }

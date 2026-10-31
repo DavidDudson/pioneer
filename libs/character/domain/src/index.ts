@@ -686,7 +686,6 @@ export {
   SHIELD_LAYERS_MAX,
   SHIELDS_MAX,
   ShieldLayers,
-  shieldCleared,
   ShieldCommandField,
   ShieldCommandSchema,
   ShieldCondition,
@@ -698,6 +697,7 @@ export {
   ShieldProblem,
 } from './shield-commands';
 export type { Block, ShieldCommand, ShieldContent, ShieldDamage, ShieldStats } from './shield-commands';
+export { shieldCleared } from './shield-recreation';
 export { applySpendCommand, isSpendCommand, spendRefusal, spentStaffOf, turnAllows } from './spend-commands';
 export type { SpendEffects, SpendLimits, SpendPlay } from './spend-commands';
 export {

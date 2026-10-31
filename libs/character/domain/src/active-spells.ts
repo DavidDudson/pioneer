@@ -1,17 +1,15 @@
 import { ContentId, SpellDurationType, SpellRank, SpellTimeUnit } from '@pioneer/rules/sdk';
 import type { SpellData } from '@pioneer/rules/sdk';
-import { Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellId } from './active-spell-id';
 import { EffectRounds } from './effects';
+
+export { ActiveSpellId } from './active-spell-id';
 
 /** The most spells a character keeps active at once. */
 export const ACTIVE_SPELLS_MAX = 32;
-
-/** One active spell on a character, apart from its content: a cast may be sustained or dismissed on its own. */
-export const ActiveSpellId = Uuid.brand<'ActiveSpellId'>();
-export type ActiveSpellId = z.infer<typeof ActiveSpellId>;
 
 /**
  * A sustained spell the character cast and keeps up: which spell, the rank it was cast at, the rounds it can still last

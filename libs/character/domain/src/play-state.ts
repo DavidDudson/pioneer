@@ -5,7 +5,7 @@ import { Uuid, Version } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { ActiveSpellCommandField, ActiveSpellCommandSchema, ActiveSpellsSchema } from './active-spells';
+import { ActiveSpellCommandField, ActiveSpellCommandSchema, ActiveSpellsSchema, SpellSpendKind } from './active-spells';
 import { BreathCommandField, BreathCommandSchema, BreathSchema } from './breath';
 import { ActiveConditionsSchema, ConditionCommandField, ConditionCommandSchema } from './conditions';
 import type { ConditionValued } from './conditions';
@@ -39,6 +39,7 @@ import { ResourcesSpentSchema } from './resources';
 import { RestCommandField, RestCommandSchema } from './rest-types';
 import { afterBlock, ShieldCommandField, ShieldCommandSchema, ShieldDamageSchema } from './shield-commands';
 import type { ShieldContent } from './shield-commands';
+import { shieldsRecreated } from './shield-recreation';
 import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-log';
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
@@ -213,9 +214,27 @@ export function applyPlayCommand(play: PlayState, command: PlayCommand, limits: 
   if (isConsumableCommand(command)) {
     return afterConsumable(play, command, limits);
   }
-  return isCountingCommand(command)
-    ? applyCountingCommand(play, command, limits)
-    : applyHitPointsEdit(play, command, limits);
+  if (isCountingCommand(command)) {
+    return afterSustain(play, applyCountingCommand(play, command, limits), { command, limits });
+  }
+  return applyHitPointsEdit(play, command, limits);
+}
+
+/** The edit that was applied, and what it was applied within. */
+interface Applied {
+  readonly command: CountingCommand;
+  readonly limits: PlayLimits;
+}
+
+/** `after` with the shields recreated when `command` sustained an active spell that `before` had not yet sustained this turn. */
+function afterSustain(before: PlayState, after: PlayState, { command, limits }: Applied): PlayState {
+  if (command.field !== SpendCommandField.SpendAction || command.spell?.kind !== SpellSpendKind.Sustain) {
+    return after;
+  }
+  const { id } = command.spell;
+  const wasSustained = before.activeSpells.find((each) => each.id === id)?.sustainedThisTurn;
+  const isSustained = after.activeSpells.find((each) => each.id === id)?.sustainedThisTurn;
+  return wasSustained === false && isSustained === true ? shieldsRecreated(after, id, limits.shields) : after;
 }
 
 /** The edits of Hit Points and the death track: every play edit that does not count. */

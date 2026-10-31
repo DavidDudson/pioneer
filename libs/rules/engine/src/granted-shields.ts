@@ -24,6 +24,8 @@ export interface ShieldInPlay {
   readonly raised: boolean;
   /** Three layers, kept as the effect's badge, that blocks break. */
   readonly layered: boolean;
+  /** A destroyed shield stays so until the spell that cast it is sustained. */
+  readonly recreatedOnSustain: boolean;
   /** Extra Hardness against damage of some types. */
   readonly hardnessAgainst: readonly HardnessBonus[];
   /** The damage the shards deal when the block that ends the effect breaks it, at the rank it was cast at. */
@@ -75,6 +77,7 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
     endsWhenDestroyed: shield.endsWhenDestroyed === true,
     raised: shield.raised === true,
     layered: shield.layered === true,
+    recreatedOnSustain: shield.recreatedOnSustain === true,
     hardnessAgainst: shield.hardnessAgainst ?? [],
     shards: shield.shards,
   };

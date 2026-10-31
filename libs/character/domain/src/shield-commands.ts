@@ -10,6 +10,7 @@ import type { HeldShield, ShieldGrant } from './held-shields';
 import { afterDamage } from './hit-point-edits';
 import { InventoryItemId } from './inventory';
 import type { PlayLimits, PlayState } from './play-state';
+import { awaitsSustain, shieldCleared } from './shield-recreation';
 
 const NONE = HitPoints.parse(0);
 
@@ -233,11 +234,6 @@ export function shieldDamaged(shields: ShieldDamage, item: InventoryItemId, blow
   return { ...shields, [item]: damage };
 }
 
-/** `shields` without the damage on the shield `item`, as when it is destroyed or repaired. */
-export function shieldCleared(shields: ShieldDamage, item: InventoryItemId): ShieldDamage {
-  return Object.fromEntries(Object.entries(shields).filter(([key]) => key !== item));
-}
-
 /** Whether `command` is one of the shield edits. */
 export function isShieldCommand<Command extends { readonly field: unknown }>(
   command: Command,
@@ -265,7 +261,8 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
     conditionAfterBlock(stats, play.shields[item] ?? NONE, damage) === ShieldCondition.Destroyed;
   const shields =
     stats.undamageable === true ? hurt.shields : shieldDamaged(hurt.shields, item, { stats, amount: remaining });
-  const kept = { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };
+  const gone = destroyed && !awaitsSustain(play.effects, stats.granted);
+  const kept = { ...hurt, shields: gone ? shieldCleared(shields, item) : shields };
   return afterEffect(kept, { item, stats, destroyed, layers });
 }
 
