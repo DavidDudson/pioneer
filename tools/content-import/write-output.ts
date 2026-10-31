@@ -1,27 +1,22 @@
 /**
- * Writes pack output (`pack-writes.ts` says where): overwrites the target pack's entry files and replaces what its earlier runs
- * added to `core-rules`, writes the backlog beside the pin, and formats every file with bun fmt so a re-run is a clean
- * diff. The catalog loads pack files through static imports in `json-packs.js`, which the import cannot add, so it
- * names the files to register there and the imports left pointing at files it removed.
+ * Takes the rules a re-run of the import gives into the committed pack (`apply-rules.ts`), writes the backlog beside the
+ * pin, and formats every file with bun fmt so a re-run is a clean diff. A committed pack is never replaced.
  */
-import { mkdir, rm, stat } from 'node:fs/promises';
+import { mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
-import { ImportFile, packFiles } from '@pioneer/interop/foundry';
-import type { ImportPin, PackOutput } from '@pioneer/interop/foundry';
+import { ImportFile } from '@pioneer/interop/foundry';
+import type { PackOutput } from '@pioneer/interop/foundry';
 import { ContentEntryFile } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
 import { clearAppliedGaps, gappedEntries, mergeRules, withMergedRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
-import { backlogPath, importedDirectory, missing, PACKS_DIRECTORY, packWrites, unregistered } from './pack-writes.ts';
+import { backlogPath, importedDirectory, PACKS_DIRECTORY } from './pack-writes.ts';
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
-/** The directory of the files that import pack files for the catalog: `json-packs.js`, `ogl-packs.js`, `orc-packs.js`. */
-const CATALOG_DIRECTORY = 'libs/rules/catalog/src';
-const CATALOG_PATTERN = '*-packs.js';
 const MANIFEST = 'pack.json';
 const JSON_INDENT = 2;
 
@@ -55,19 +50,6 @@ export async function committedEntries({ pack }: PackTargets): Promise<readonly 
   return entries.flat();
 }
 
-/**
- * Clears what this pack's earlier runs added to the vocabulary pack. The target pack's entry files are overwritten
- * where the import writes them and left alone where it does not, so a hand-made file (`environment.json`) survives.
- */
-async function removeReplaced(targets: PackTargets): Promise<void> {
-  const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
-  const manifest = await Bun.file(path.join(ROOT, directory, MANIFEST)).exists();
-  if (!manifest) {
-    throw new Error(`${directory}/${MANIFEST} is missing; commit the pack's manifest first`);
-  }
-  await rm(path.join(ROOT, importedDirectory(targets)), { recursive: true, force: true });
-}
-
 async function write({ path: file, json }: PackWrite): Promise<void> {
   await mkdir(path.dirname(path.join(ROOT, file)), { recursive: true });
   await Bun.write(path.join(ROOT, file), `${JSON.stringify(json, undefined, JSON_INDENT)}\n`);
@@ -79,48 +61,6 @@ async function format(files: readonly string[]): Promise<void> {
   if (exited !== 0) {
     throw new Error(`bun fmt exited with ${exited}`);
   }
-}
-
-/** Replaces the import's files with `output`, and returns the paths written. */
-export async function writeOutput(
-  output: PackOutput,
-  targets: PackTargets,
-  pin: ImportPin,
-): Promise<readonly string[]> {
-  const backlog = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: output.backlog }) };
-  const writes = [...packWrites(packFiles(output.entries), targets), backlog];
-  await removeReplaced(targets);
-  await Promise.all(writes.map(async (each) => write(each)));
-  const written = writes.map(({ path: file }) => file);
-  await format(written);
-  return written;
-}
-
-/** What to change in the catalog files so they load exactly the pack files now committed. */
-async function registrationReport(): Promise<string> {
-  const catalogs = await scan(CATALOG_PATTERN, CATALOG_DIRECTORY);
-  const sources = await Promise.all(catalogs.map(async (file) => Bun.file(path.join(ROOT, file)).text()));
-  const catalog = sources.join('\n');
-  const scanned = await scan('*/**/*.json', PACKS_DIRECTORY);
-  const files = scanned.toSorted();
-  const toAdd = unregistered(catalog, files);
-  const toRemove = missing(catalog, files);
-  const where = catalogs.join(' or ');
-  return [
-    ...(toAdd.length > 0 ? [`Import these in ${where}:`, ...toAdd.map((file) => `  ${file}`)] : []),
-    ...(toRemove.length > 0 ? [`Remove these imports from ${where}:`, ...toRemove.map((each) => `  ${each}`)] : []),
-  ].join('\n');
-}
-
-/**
- * The spelling `typos` (part of `lint:workspace`) finds in `files`, one per line; empty when there is none. Foundry's text
- * carries Paizo's own misspellings, which `_typos.toml` allowlists as imported, so the import names them rather than
- * leaving them to fail CI.
- */
-async function spellingReport(files: readonly string[]): Promise<string> {
-  const checker = Bun.spawn(['typos', '--format', 'brief', ...files], { cwd: ROOT, stdout: 'pipe', stderr: 'pipe' });
-  const [report, exited] = await Promise.all([new Response(checker.stdout).text(), checker.exited]);
-  return exited === 0 ? '' : report.trim();
 }
 
 /** The pack's committed pin and backlog. */
@@ -142,9 +82,10 @@ async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promis
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
   const changed = await Promise.all(
     files.map(async (file) => {
-      const entries = ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json());
+      const raw: unknown = await Bun.file(path.join(ROOT, file)).json();
+      const entries = ContentEntryFile.parse(raw);
       const touched = entries.some(({ id }) => merge.has(id));
-      return touched ? [{ path: file, json: withMergedRules(entries, merge) }] : [];
+      return touched && Array.isArray(raw) ? [{ path: file, json: withMergedRules(raw, merge) }] : [];
     }),
   );
   return changed.flat();
@@ -183,16 +124,4 @@ export async function applyRules(
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAndFormat([...files, cleared]);
   return { written, applied: merge.size };
-}
-
-/** What is left to do after a write: the catalog registration and the spelling `lint:workspace` would fail on. */
-export async function writeChecks(written: readonly string[]): Promise<string> {
-  const registration = await registrationReport();
-  const spelling = await spellingReport(written);
-  return [
-    registration === '' ? 'The catalog imports every pack file.' : registration,
-    spelling === ''
-      ? 'typos finds nothing in the written files.'
-      : `typos finds these in the written files; fix them, or allowlist Paizo's own spelling in _typos.toml:\n${spelling}`,
-  ].join('\n');
 }

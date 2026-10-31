@@ -53,7 +53,7 @@ import { formatCoverage, formatCreatureCoverage } from './coverage-table.ts';
 import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import { applyRules, committedEntries, previousImport, writeChecks, writeOutput } from './write-output.ts';
+import { applyRules, committedEntries, previousImport } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -68,8 +68,19 @@ interface Options {
   readonly pack: PackId;
   readonly books: ReadonlySet<BookId>;
   readonly dryRun: boolean;
-  /** Keep the committed pack and take only the rules the translators now cover (`apply-rules.ts`). */
-  readonly applyRules: ReadonlySet<string> | undefined;
+  /** The rule element keys whose rules the translators now cover, which are taken into the committed pack (`apply-rules.ts`). */
+  readonly applyRules: ReadonlySet<string>;
+}
+
+/** The keys of `--apply-rules`; a run that writes names some, as a committed pack is never replaced. */
+function ruleKeys(argument: string | undefined, dryRun: boolean): ReadonlySet<string> {
+  const keys = (argument ?? '').split(',').filter((key) => key !== '');
+  if (keys.length === 0 && !dryRun) {
+    throw new Error(
+      'Name the rule element keys to take with --apply-rules <Key>[,<Key>...]; a committed pack is never replaced',
+    );
+  }
+  return new Set(keys);
 }
 
 function options(): Options {
@@ -97,7 +108,7 @@ function options(): Options {
     pack: PackId.parse(values.pack),
     books: new Set(books),
     dryRun: values['dry-run'],
-    applyRules: values['apply-rules'] === undefined ? undefined : new Set(values['apply-rules'].split(',')),
+    applyRules: ruleKeys(values['apply-rules'], values['dry-run']),
   };
 }
 
@@ -288,7 +299,7 @@ const output = { ...generated, entries: carrySources(generated.entries, await co
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
 console.log(formatCreatureCoverage(creatureCoverage(output.entries)));
-if (!dryRun && rulesOnly !== undefined) {
+if (!dryRun) {
   const { written, applied } = await applyRules(output, targets, rulesOnly);
   console.log(
     [
@@ -296,8 +307,4 @@ if (!dryRun && rulesOnly !== undefined) {
       ...written.map((file) => `  ${file}`),
     ].join('\n'),
   );
-} else if (!dryRun) {
-  const written = await writeOutput(output, targets, pin);
-  console.log([`Wrote ${written.length} files:`, ...written.map((file) => `  ${file}`)].join('\n'));
-  console.log(await writeChecks(written));
 }

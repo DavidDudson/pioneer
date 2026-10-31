@@ -788,7 +788,7 @@ flowchart LR
   flat bonus, and an `effect` item are reported, not translated.
   `just content-import --pack player-core --book player-core --dry-run` prints what would be imported by Foundry
   type and book, what is skipped and why, what did not translate, what pack output leaves out, and the coverage
-  table; without `--dry-run` it also writes the pack (Pack output, below).
+  table. A run that writes needs `--apply-rules` (below): the import never replaces a committed pack.
 - **Translation.** One translator per Foundry rule element key. Untranslatable elements, unresolved labels and
   links, and fields with no place in a schema go to the pack's backlog, `content/import/<pack>.json`, with the
   entry and Foundry's raw JSON; the entry is imported without them. The backlog is committed with the pack and is

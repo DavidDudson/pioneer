@@ -39,7 +39,7 @@ down: && db-down
       [ -n "$pids" ] && kill -TERM $pids 2>/dev/null || true
     done
 
-# One-off Foundry pf2e import at a pack's pin (ADR-0031): --pack player-core --book player-core [--dry-run]
+# Foundry pf2e import at a pack's pin (ADR-0031): --pack player-core --book player-core --apply-rules <Key>,... | --dry-run
 content-import *args:
     bun tools/content-import/main.ts {{args}}
 
