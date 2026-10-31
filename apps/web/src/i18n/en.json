@@ -1,6 +1,10 @@
 {
   "shell": {
     "brand": "Pioneer",
+    "badge": "Pre-Alpha",
+    "sections": {
+      "label": "Sections"
+    },
     "nav": {
       "characters": "Characters",
       "content": "Content",
@@ -19,12 +23,19 @@
     "appearance": {
       "theme": "Theme",
       "themes": {
+        "dynamic": "Dynamic",
         "frontier": "Frontier",
         "tavern": "Tavern"
       },
-      "darkMode": "Dark mode"
+      "darkMode": "Dark mode",
+      "modes": {
+        "system": "System",
+        "dark": "Dark",
+        "light": "Light"
+      }
     },
     "account": {
+      "menu": "Account menu",
       "signIn": "Sign in",
       "settings": "Settings",
       "signOut": "Sign out",

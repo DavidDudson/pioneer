@@ -142,6 +142,18 @@ describe(Link, () => {
     expect([...anchor.classList]).not.toContain('text-fg-muted');
   });
 
+  it('draws a menu link as a full-width, touch-sized row without an underline', async () => {
+    const anchor = await render({ to: '/campaigns', appearance: LinkAppearance.Menu }, '/characters');
+    expect([...anchor.classList]).toStrictEqual(expect.arrayContaining(['flex', 'w-full', 'h-touch', 'font-medium']));
+    expect([...anchor.classList]).not.toContain('underline');
+    expect([...anchor.classList]).not.toContain('bg-accent-subtle');
+  });
+
+  it('fills the menu link of the page being shown', async () => {
+    const anchor = await render({ to: '/characters', appearance: LinkAppearance.Menu }, '/characters');
+    expect([...anchor.classList]).toContain('bg-accent-subtle');
+  });
+
   it('inherits the typography of the text around it without a variant', async () => {
     const anchor = await render({ to: '/' });
     expect([...anchor.classList]).not.toContain('text-body');

@@ -22,7 +22,7 @@ export const Default: PageHeaderStory = {};
 /** `title` is `undefined` while the page's subject loads: the heading shows a skeleton. */
 export const LoadingTitle: PageHeaderStory = { args: { title: undefined, description: undefined } };
 
-/** Actions beside the title, tabs below it. Breadcrumbs come from the active route, not from the page. */
+/** Actions beside the title, tabs below it. Breadcrumbs come from the active route and show in the shell's header, not on the page. */
 export const AllSlots: PageHeaderStory = {
   render: (args) => ({
     props: args,

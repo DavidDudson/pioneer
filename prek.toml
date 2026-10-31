@@ -46,7 +46,7 @@ priority = 10
 id = "eslint-templates"
 name = "eslint (templates)"
 language = "system"
-entry = "node_modules/.bin/eslint --max-warnings=0 --fix"
+entry = "node_modules/.bin/eslint --max-warnings=0 --no-warn-ignored --fix"
 files = "^(apps|libs)/.*\\.html$"
 priority = 10
 

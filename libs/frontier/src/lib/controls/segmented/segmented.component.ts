@@ -2,8 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, input, model } from '@ang
 import { cva } from 'class-variance-authority';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
+import type { ButtonSize } from '../../actions/button/button.component';
 import { RovingFocusItem } from '../../focus/roving-focus-item.directive';
 import { RovingFocus } from '../../focus/roving-focus.directive';
+import { Icon } from '../../icon/icon.component';
+import { Size } from '../../tokens';
 import { Control } from '../control';
 import type { SelectOption } from '../select/select.component';
 
@@ -15,7 +18,8 @@ const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border
  * Single-select, preferred for two or three options: every option visible as one equal-width button in a
  * track, the chosen one filled with the accent. A pick sets `value` and fires `committed`; pressing
  * the chosen option again does nothing. In a form use `fr-segmented-field`. Past three options
- * the row gets cramped on a phone; prefer `fr-select` there. The group is one Tab stop (the chosen
+ * the row gets cramped on a phone; prefer `fr-picker` there. An option with an `icon` is an icon-only button named
+ * by its label. The group is one Tab stop (the chosen
  * option); arrow keys, Home and End move between options without picking one.
  *
  * ```html
@@ -24,7 +28,7 @@ const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border
  */
 @Component({
   selector: 'fr-segmented',
-  imports: [Button, RovingFocus, RovingFocusItem],
+  imports: [Button, Icon, RovingFocus, RovingFocusItem],
   templateUrl: './segmented.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -32,6 +36,8 @@ const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border
 export class Segmented<TValue extends string> extends Control {
   public readonly value = model<TValue | undefined>(undefined);
   public readonly options = input.required<readonly SelectOption<TValue>[]>();
+  /** The size of every option's button; `sm` or `xs` for a control in a menu. */
+  public readonly size = input<ButtonSize>(Size.Md);
 
   protected readonly variant = ButtonVariant.Segment;
   protected readonly trackClasses = computed(() => trackVariants({ invalid: this.ariaInvalid() }));

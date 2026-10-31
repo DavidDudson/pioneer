@@ -48,6 +48,10 @@ const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
   primary: { has: ['bg-accent-solid', 'hover:bg-accent-solid-hover'], lacks: [] },
   secondary: { has: ['bg-surface-base', 'border-line-default'], lacks: ['aria-pressed:border-accent-solid'] },
   ghost: { has: ['text-fg-default', 'hover:bg-surface-sunken'], lacks: ['border', 'bg-surface-base', 'text-start'] },
+  menu: {
+    has: ['w-full', 'justify-start', 'text-start', 'aria-pressed:bg-accent-subtle'],
+    lacks: ['border', 'justify-center'],
+  },
   danger: {
     has: ['bg-danger-solid', 'text-danger-on-solid', 'hover:bg-danger-solid-hover', 'active:bg-danger-solid-active'],
     lacks: ['text-accent-on-solid'],

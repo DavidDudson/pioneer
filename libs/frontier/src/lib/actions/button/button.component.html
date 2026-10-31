@@ -7,6 +7,8 @@
   [attr.aria-describedby]="describedBy() ?? null"
   [attr.aria-invalid]="invalid() || null"
   [attr.aria-pressed]="toggled() ?? null"
+  [attr.aria-expanded]="expanded() ?? null"
+  [attr.aria-haspopup]="expanded() === undefined ? null : 'true'"
   [attr.aria-busy]="busy() || null"
   [attr.aria-disabled]="busy() || null"
   (click)="press($event)"

@@ -59,7 +59,7 @@ export const Tones: IconStory = {
   }),
 };
 
-/** Lines stay 2px at every size. */
+/** Lines stay 1px at every size. */
 export const Stroke: IconStory = {
   render: () => ({
     props: { sizes: Object.values(Size), icon: LucideSwords },

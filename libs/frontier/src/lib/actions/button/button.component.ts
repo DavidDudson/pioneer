@@ -8,6 +8,8 @@ export const ButtonVariant = {
   Primary: 'primary',
   Secondary: 'secondary',
   Ghost: 'ghost',
+  /** One row of a menu or dropdown panel: the panel's full width, content left-aligned, the accent when pressed. */
+  Menu: 'menu',
   Danger: 'danger',
   /** A text roll or value button: border and text in the accent, on a muted accent background. */
   OutlineSubtle: 'outline-subtle',
@@ -19,6 +21,9 @@ export const ButtonVariant = {
   Segment: 'segment',
 } as const;
 export type ButtonVariant = ValueOf<typeof ButtonVariant>;
+
+/** The shared sizes plus `xs`, which only a button has. */
+export type ButtonSize = Size | 'xs';
 
 export const ButtonType = { Button: 'button', Submit: 'submit' } as const;
 export type ButtonType = ValueOf<typeof ButtonType>;
@@ -53,6 +58,10 @@ const buttonVariants = cva(
         secondary:
           'justify-center border border-line-default bg-surface-base font-medium text-fg-default hover:bg-surface-sunken',
         ghost: 'justify-center font-medium text-fg-default hover:bg-surface-sunken',
+        menu: [
+          'w-full justify-start font-medium text-start text-fg-default hover:bg-surface-sunken',
+          'aria-pressed:bg-accent-subtle aria-pressed:text-accent-fg',
+        ].join(' '),
         'outline-subtle': [
           'justify-center font-medium border border-accent-line bg-accent-subtle text-accent-fg',
           'hover:border-accent-solid hover:text-accent-fg',
@@ -75,6 +84,7 @@ const buttonVariants = cva(
         ].join(' '),
       } satisfies Record<ButtonVariant, string>,
       size: {
+        xs: 'h-touch text-caption pointer-fine:h-control-xs',
         sm: 'h-touch text-label pointer-fine:h-control-sm',
         md: 'h-touch text-body pointer-fine:h-control-md',
         lg: 'h-control-lg text-lead',
@@ -85,6 +95,7 @@ const buttonVariants = cva(
       iconOnly: { true: 'aspect-square justify-center', false: '' },
     },
     compoundVariants: [
+      { iconOnly: false, size: 'xs', class: 'px-xs' },
       { iconOnly: false, size: 'sm', class: 'px-sm' },
       { iconOnly: false, size: 'md', class: 'px-md' },
       { iconOnly: false, size: 'lg', class: 'px-lg' },
@@ -109,7 +120,8 @@ const buttonVariants = cva(
 })
 export class Button {
   public readonly variant = input<ButtonVariant>(ButtonVariant.Secondary);
-  public readonly size = input<Size>(Size.Md);
+  /** `xs` is a compact control for a dense panel: smaller only under a fine pointer, like every size. */
+  public readonly size = input<ButtonSize>(Size.Md);
   public readonly type = input<ButtonType>(ButtonType.Button);
   public readonly disabled = input(false, { transform: booleanAttribute });
   /** Work is in flight: announced as busy and presses are ignored, but focus stays. */
@@ -126,6 +138,8 @@ export class Button {
    * with the accent when on. Unset for a plain button. Features use `fr-toggle-button` or `fr-segmented`.
    */
   public readonly toggled = input<boolean | undefined>(undefined);
+  /** The button opens a popup, and whether it is open now (`aria-expanded`, `aria-haspopup`). Unset for a plain button. */
+  public readonly expanded = input<boolean | undefined>(undefined);
   /** The content is a lone `fr-icon`: a square button. Give it an `ariaLabel`. */
   public readonly iconOnly = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();

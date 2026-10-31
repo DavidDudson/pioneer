@@ -1,0 +1,13 @@
+<fr-dropdown align="end" [label]="'shell.appearance.theme' | transloco" [caption]="current()">
+  <fr-stack gap="2xs">
+    @for (option of options(); track option.choice) {
+      <fr-button
+        variant="menu"
+        size="sm"
+        [toggled]="option.choice === appearance.choice()"
+        (pressed)="choose(option.choice)"
+        >{{ option.label }}</fr-button
+      >
+    }
+  </fr-stack>
+</fr-dropdown>
