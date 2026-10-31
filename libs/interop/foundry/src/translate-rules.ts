@@ -28,8 +28,9 @@ import {
 } from './translate-modifiers';
 import { withNoteText } from './translate-notes';
 import { withRollOption } from './translate-roll-options';
-import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
+import { withSkillPathChoices } from './translate-skill-raises';
 // oxlint-disable-next-line import/max-dependencies -- where every Foundry rule element is shaped, one translator module for each kind
+import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
 
@@ -198,7 +199,9 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
   const granted = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references)));
-  const shaped = withChoiceValues(granted, context.values.item).map((raw) => shapeRule(raw, context, unresolved));
+  const shaped = withChoiceValues(withSkillPathChoices(granted), context.values.item).map((raw) =>
+    shapeRule(raw, context, unresolved),
+  );
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
   return {

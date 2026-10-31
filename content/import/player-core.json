@@ -1679,52 +1679,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:mastermind",
-      "foundry": "Compendium.pf2e.classfeatures.Item.RyOkmu0W9svavuAB",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Arcana",
-                "value": "system.skills.arcana.rank"
-              },
-              {
-                "label": "PF2E.Skill.Nature",
-                "value": "system.skills.nature.rank"
-              },
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "system.skills.occultism.rank"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "system.skills.religion.rank"
-              }
-            ],
-            "flag": "mastermind",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Rogue.TrainSkill.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "{item|flags.system.rulesSelections.mastermind}",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:medium-armor-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.FCEp9jjxxgRJDJV3",
       "gaps": [
@@ -11991,40 +11945,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:natural-skill",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Rfyhlyql1GSoDkI2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:0"]
-            },
-            "flag": "skillOne",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:0"]
-            },
-            "flag": "skillTwo",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:nonlethal-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.6QOcQ8ooP1vjQACX",
       "gaps": [
@@ -12787,36 +12707,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.bCWieNDC1CD35tin",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Stealth",
-                "value": "system.skills.stealth.rank"
-              },
-              {
-                "label": "PF2E.Skill.Thievery",
-                "value": "system.skills.thievery.rank"
-              }
-            ],
-            "flag": "rogueDedication",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Rogue.TrainSkill.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "{item|flags.system.rulesSelections.rogueDedication}",
-            "value": 1
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-field",
           "field": "subfeatures.proficiencies.rogue.attribute",
@@ -13280,40 +13170,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": [
-                {
-                  "gte": ["skill:{choice|value}:rank", 2]
-                }
-              ]
-            },
-            "flag": "skillMaster",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SkillMastery.MasterPrompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": [
-                {
-                  "gte": ["skill:{choice|value}:rank", 1]
-                }
-              ]
-            },
-            "flag": "skillExpert",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SkillMastery.ExpertPrompt"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "{item|_id}",
@@ -13340,27 +13196,6 @@
                 "title": "PF2E.SpecificRule.Feat.SkillMastery.Special.Title"
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:skill-training",
-      "foundry": "Compendium.pf2e.feats-srd.Item.P6icK2DbRoZ3H6kc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:0"]
-            },
-            "flag": "skill",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
           }
         }
       ]

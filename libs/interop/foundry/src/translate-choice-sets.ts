@@ -4,8 +4,8 @@ import * as z from 'zod';
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { kebab, slugOf } from './foundry-flags';
-import { SKILLS } from './foundry-skills';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
+import { SKILL_CHOICES, skillChoicesWhere } from './translate-skill-choices';
 
 /**
  * Foundry's `ChoiceSet` in Pioneer's spelling (ADR-0008): its flag is a slug, a choice's value is text, a choice's
@@ -19,8 +19,8 @@ import { namespacedStatement, withNamespacedOptions } from './translate-modifier
 /** Foundry's `allowNoSelection` (the pick may be left empty), which Pioneer spells `optional`. */
 const NO_SELECTION_FIELD = 'allowNoSelection';
 
-/** Fields that only steer Foundry's display. */
-const DISPLAY_ONLY_FIELDS: ReadonlySet<string> = new Set(['adjustName']);
+/** Fields that only steer Foundry's display, or the order it applies the rule in. */
+const DISPLAY_ONLY_FIELDS: ReadonlySet<string> = new Set(['adjustName', 'priority']);
 
 /** The kinds a query by Foundry's `itemType` can name. */
 const QUERY_KINDS: ReadonlyMap<string, ContentKind> = new Map([
@@ -62,7 +62,11 @@ function withChosenEntry(choice: object, references: EntryReferences): object {
   if (name === undefined || id === undefined || DOCUMENT_ID.test(name)) {
     return choice;
   }
-  return { ...choice, value: id, label: 'label' in choice ? choice.label : name };
+  return {
+    ...choice,
+    value: id,
+    label: 'label' in choice ? choice.label : name,
+  };
 }
 
 /** Foundry's injection of the level of the item holding the `ChoiceSet`, which Pioneer reads as `item:level`. */
@@ -105,13 +109,6 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
   return withNamespacedOptions(withChosenEntry({ ...fields, value: asText(choice.value) }, references));
 }
 
-function titleCase(slug: string): string {
-  return `${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-}
-
-/** The skills Foundry's `skills` config lists, as choices. */
-const SKILL_CHOICES: readonly unknown[] = [...SKILLS].map((skill) => ({ value: skill, label: titleCase(skill) }));
-
 /** A roll option of a class feature tag, which a subclass query filters on. */
 const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
 
@@ -130,7 +127,10 @@ function queryOf(choices: object): unknown {
   // Foundry files class features under the `feat` item type: a query on class feature tags alone is of those.
   const byTagAlone =
     filter.length > 0 && filter.every((statement) => typeof statement === 'string' && TAG_STATEMENT.test(statement));
-  return { kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind, filter };
+  return {
+    kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind,
+    filter,
+  };
 }
 
 function choicesOf(choices: unknown, references: EntryReferences): unknown {
@@ -140,8 +140,16 @@ function choicesOf(choices: unknown, references: EntryReferences): unknown {
   if (typeof choices !== 'object' || choices === null) {
     return choices;
   }
-  const isSkills = 'config' in choices && choices.config === 'skills' && Object.keys(choices).length === 1;
-  return isSkills ? SKILL_CHOICES : queryOf(choices);
+  const isSkills =
+    'config' in choices &&
+    choices.config === 'skills' &&
+    Object.keys(choices).every((field) => field === 'config' || field === 'predicate');
+  if (!isSkills) {
+    return queryOf(choices);
+  }
+  return 'predicate' in choices
+    ? skillChoicesWhere(choices.predicate).map((choice) => choiceOf(choice, references))
+    : SKILL_CHOICES;
 }
 
 /**
@@ -181,7 +189,11 @@ const FoundryTagChoices = z
   })
   .check((choices) => {
     if (!choices.value.filter.some((statement) => typeof statement === 'string')) {
-      choices.issues.push({ code: 'custom', message: 'a tag query names a tag', input: choices.value });
+      choices.issues.push({
+        code: 'custom',
+        message: 'a tag query names a tag',
+        input: choices.value,
+      });
     }
   });
 

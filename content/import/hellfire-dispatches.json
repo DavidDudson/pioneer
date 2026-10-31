@@ -1714,23 +1714,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "config": "skills",
-              "predicate": [
-                {
-                  "gte": ["skill:{choice|value}:rank", 3]
-                }
-              ]
-            },
-            "flag": "mortalPossibility",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",

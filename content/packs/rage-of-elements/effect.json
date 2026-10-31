@@ -3961,6 +3961,56 @@
         "prompt": "Select an item variety.",
         "rollOption": "thorn-triad",
         "priority": 50
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thorn-triad-weapon",
+        "choices": [
+          {
+            "value": "ba66e1c3-91d3-55f0-be72-a4261a7474b7",
+            "label": "Thorn Triad",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3671c81a-7f65-5475-b1c8-7a888a4f0809",
+            "label": "Thorn Triad (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "513280c7-bdf2-55ac-bb21-8b27962f4f96",
+            "label": "Thorn Triad (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thorn-triad"
       }
     ],
     "externalIds": {

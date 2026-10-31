@@ -36627,6 +36627,180 @@
           "prefix": "skill"
         },
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-one",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": ["skill:acrobatics:rank:0"]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["skill:arcana:rank:0"]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": ["skill:athletics:rank:0"]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": ["skill:crafting:rank:0"]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": ["skill:deception:rank:0"]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": ["skill:diplomacy:rank:0"]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": ["skill:intimidation:rank:0"]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": ["skill:medicine:rank:0"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["skill:nature:rank:0"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["skill:occultism:rank:0"]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": ["skill:performance:rank:0"]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": ["skill:religion:rank:0"]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": ["skill:society:rank:0"]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": ["skill:stealth:rank:0"]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": ["skill:survival:rank:0"]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": ["skill:thievery:rank:0"]
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-two",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": ["skill:acrobatics:rank:0"]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["skill:arcana:rank:0"]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": ["skill:athletics:rank:0"]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": ["skill:crafting:rank:0"]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": ["skill:deception:rank:0"]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": ["skill:diplomacy:rank:0"]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": ["skill:intimidation:rank:0"]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": ["skill:medicine:rank:0"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["skill:nature:rank:0"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["skill:occultism:rank:0"]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": ["skill:performance:rank:0"]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": ["skill:religion:rank:0"]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": ["skill:society:rank:0"]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": ["skill:stealth:rank:0"]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": ["skill:survival:rank:0"]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": ["skill:thievery:rank:0"]
+          }
+        ],
+        "prompt": "Select a skill."
       }
     ],
     "externalIds": {
@@ -47263,6 +47437,29 @@
         "item": {
           "choice": "skill-feat"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "rogue-dedication",
+        "choices": [
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "prompt": "Select a skill to become trained in."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "rogue-dedication",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -50652,6 +50849,308 @@
         "item": {
           "choice": "skill-mastery"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-master",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": [
+              {
+                "gte": ["skill:acrobatics:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": [
+              {
+                "gte": ["skill:arcana:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": [
+              {
+                "gte": ["skill:athletics:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": [
+              {
+                "gte": ["skill:crafting:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": [
+              {
+                "gte": ["skill:deception:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": [
+              {
+                "gte": ["skill:diplomacy:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": [
+              {
+                "gte": ["skill:intimidation:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": [
+              {
+                "gte": ["skill:medicine:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": [
+              {
+                "gte": ["skill:nature:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": [
+              {
+                "gte": ["skill:occultism:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": [
+              {
+                "gte": ["skill:performance:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": [
+              {
+                "gte": ["skill:religion:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": [
+              {
+                "gte": ["skill:society:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": [
+              {
+                "gte": ["skill:stealth:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": [
+              {
+                "gte": ["skill:survival:rank", 2]
+              }
+            ]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": [
+              {
+                "gte": ["skill:thievery:rank", 2]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a skill to become master in."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill-expert",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": [
+              {
+                "gte": ["skill:acrobatics:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": [
+              {
+                "gte": ["skill:arcana:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": [
+              {
+                "gte": ["skill:athletics:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": [
+              {
+                "gte": ["skill:crafting:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": [
+              {
+                "gte": ["skill:deception:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": [
+              {
+                "gte": ["skill:diplomacy:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": [
+              {
+                "gte": ["skill:intimidation:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": [
+              {
+                "gte": ["skill:medicine:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": [
+              {
+                "gte": ["skill:nature:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": [
+              {
+                "gte": ["skill:occultism:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": [
+              {
+                "gte": ["skill:performance:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": [
+              {
+                "gte": ["skill:religion:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": [
+              {
+                "gte": ["skill:society:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": [
+              {
+                "gte": ["skill:stealth:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": [
+              {
+                "gte": ["skill:survival:rank", 1]
+              }
+            ]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": [
+              {
+                "gte": ["skill:thievery:rank", 1]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a skill to become expert in."
       }
     ],
     "externalIds": {
@@ -50740,6 +51239,93 @@
           "prefix": "skill"
         },
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics",
+            "predicate": ["skill:acrobatics:rank:0"]
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana",
+            "predicate": ["skill:arcana:rank:0"]
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics",
+            "predicate": ["skill:athletics:rank:0"]
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting",
+            "predicate": ["skill:crafting:rank:0"]
+          },
+          {
+            "value": "deception",
+            "label": "Deception",
+            "predicate": ["skill:deception:rank:0"]
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy",
+            "predicate": ["skill:diplomacy:rank:0"]
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation",
+            "predicate": ["skill:intimidation:rank:0"]
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine",
+            "predicate": ["skill:medicine:rank:0"]
+          },
+          {
+            "value": "nature",
+            "label": "Nature",
+            "predicate": ["skill:nature:rank:0"]
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism",
+            "predicate": ["skill:occultism:rank:0"]
+          },
+          {
+            "value": "performance",
+            "label": "Performance",
+            "predicate": ["skill:performance:rank:0"]
+          },
+          {
+            "value": "religion",
+            "label": "Religion",
+            "predicate": ["skill:religion:rank:0"]
+          },
+          {
+            "value": "society",
+            "label": "Society",
+            "predicate": ["skill:society:rank:0"]
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth",
+            "predicate": ["skill:stealth:rank:0"]
+          },
+          {
+            "value": "survival",
+            "label": "Survival",
+            "predicate": ["skill:survival:rank:0"]
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery",
+            "predicate": ["skill:thievery:rank:0"]
+          }
+        ],
+        "prompt": "Select a skill."
       }
     ],
     "externalIds": {

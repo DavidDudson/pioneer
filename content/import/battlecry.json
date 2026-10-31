@@ -9445,55 +9445,6 @@
           "raw": {
             "adjustName": false,
             "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:0"]
-            },
-            "flag": "firstTrainedSkill",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "system.skills.{item|flags.system.rulesSelections.firstTrainedSkill}",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:0"]
-            },
-            "flag": "secondTrainedSkill",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "config": "skills",
-              "predicate": ["skill:{choice|value}:rank:1"]
-            },
-            "flag": "expertSkill",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
               "filter": [
                 {
                   "gte": ["self:level", "item:level"]
