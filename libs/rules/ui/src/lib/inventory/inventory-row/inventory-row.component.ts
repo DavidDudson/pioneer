@@ -10,6 +10,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ContentPreview } from '../../entry-preview/content-preview.component';
 import { InventoryBreaks } from '../inventory-breaks/inventory-breaks.component';
 import type { InventoryLine } from '../inventory-line';
+import { InventoryLoad } from '../inventory-load/inventory-load.component';
 import { BULK_WEIGHT_MESSAGES, InventoryMessage } from '../inventory-messages';
 import { InventoryNote } from '../inventory-note/inventory-note.component';
 import type { LineNote } from '../inventory-note/inventory-note.component';
@@ -49,6 +50,7 @@ interface ShownLine {
   imports: [
     ContentPreview,
     InventoryBreaks,
+    InventoryLoad,
     InventoryNote,
     List,
     ListItem,

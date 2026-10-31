@@ -36,6 +36,7 @@ const dormant = CharacterId.parse(newId());
 const longsword = ReviewedItemId.parse(newId());
 const caliburn = ReviewedItemId.parse(newId());
 const dagger = ReviewedItemId.parse(newId());
+const backpack = ReviewedItemId.parse(newId());
 const GIVER_VERSION = Version.parse(7);
 
 function memberIdOf(campaign: Campaign, userId: UserId): CampaignMemberId {
@@ -69,6 +70,10 @@ describe('CampaignItemTransferService', () => {
         lines: new InMemoryTransferLines()
           .hasLine(kyra, longsword, { version: GIVER_VERSION, name: ReviewedName.parse('Longsword') })
           .hasLine(kyra, caliburn, { keyItem: true })
+          .hasLine(kyra, backpack, {
+            name: ReviewedName.parse('Backpack'),
+            contents: [ReviewedName.parse('Rope'), ReviewedName.parse('Rations')],
+          })
           .hasLine(dormant, dagger, { version: GIVER_VERSION })
           .hasCoins(kyra, { gp: 10, sp: 5 }, GIVER_VERSION)
           .hasCoins(dormant, { gp: 1 }, GIVER_VERSION),
@@ -235,10 +240,19 @@ describe('CampaignItemTransferService', () => {
         kind: 'item' as const,
         item: longsword,
         itemName: ReviewedName.parse('Longsword'),
+        contents: [],
       };
 
       expect(await service.list(ezren, vaults.id)).toStrictEqual([{ ...shared, asGiver: true, asRecipient: false }]);
       expect(await service.list(merisiel, vaults.id)).toStrictEqual([{ ...shared, asGiver: false, asRecipient: true }]);
+    });
+
+    test('shows the recipient the names of what an offered container holds', async () => {
+      await service.offer(ezren, vaults.id, { from: kyra, to: seelah, item: backpack });
+
+      const [offer] = await service.list(merisiel, vaults.id);
+
+      expect(offer).toMatchObject({ itemName: 'Backpack', contents: ['Rope', 'Rations'] });
     });
 
     test('shows a coin offer beside an item one, oldest first, with its coins', async () => {

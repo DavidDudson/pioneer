@@ -667,8 +667,10 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   repositories on it: the offer must still be pending, the giver must be at the version the offer was made at, and the
   recipient is written at the version read in the transaction. A stale side is a 409 `VersionConflictError`, a giver
   who no longer holds the line or coins, a key item, or a recipient with no room a 409 with a message key, and the
-  whole accept rolls back. A line moves with what it holds, stowed and not invested. Coin offers do not reserve coins,
-  so the purse is checked again at accept. The offer and both characters are audited under the accepting commands.
+  whole accept rolls back. A line moves with what it holds, stowed and not invested, and the pending offer lists the
+  names of everything inside it, however deep (`contents`), so the recipient sees what comes with a container before
+  accepting. Coin offers do not reserve coins, so the purse is checked again at accept. The offer and both characters
+  are audited under the accepting commands.
   `POST /campaigns/:id/transfers/:transferId/withdraw` is the giver owner's alone (anyone else, the recipient
   included, gets a 404). It only marks the offer withdrawn, audited as `withdraw-campaign-transfer`, and touches
   neither character. Withdrawing again is a no-op that answers the same; withdrawing an accepted or declined offer is

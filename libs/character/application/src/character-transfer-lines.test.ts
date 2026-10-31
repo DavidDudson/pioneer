@@ -22,6 +22,9 @@ import { InMemoryCharacterRepository } from './in-memory-character-repository';
 const amiri = UserId.parse(newId());
 const plain = InventoryItemId.parse(newId());
 const keyed = InventoryItemId.parse(newId());
+const pack = InventoryItemId.parse(newId());
+const pouch = InventoryItemId.parse(newId());
+const inPouch = InventoryItemId.parse(newId());
 
 describe('CharacterTransferLines', () => {
   let lines: CharacterTransferLines;
@@ -41,6 +44,9 @@ describe('CharacterTransferLines', () => {
     const items = [
       { ...base, id: plain },
       { ...base, id: keyed, name: InventoryItemName.parse('Caliburn'), keyItem: KeyItemId.parse(newId()) },
+      { ...base, id: pack, item: itemFixtureId(ItemFixture.Backpack) },
+      { ...base, id: pouch, name: InventoryItemName.parse('Pouch'), container: pack },
+      { ...base, id: inPouch, name: InventoryItemName.parse('Spare rope'), container: pouch },
     ];
     mordred = await repository.update(
       mordred.withInventory({ ...inventory, items }, mordred.updatedAt),
@@ -62,6 +68,11 @@ describe('CharacterTransferLines', () => {
 
     expect(named?.name).toBe('Caliburn');
     expect(unnamed?.name).toBeString();
+  });
+
+  test('lists the names of what a container holds, however deep, and none for a plain line', async () => {
+    expect(await lines.describe(mordred.id, pack)).toMatchObject({ contents: ['Pouch', 'Spare rope'] });
+    expect(await lines.describe(mordred.id, plain)).toMatchObject({ contents: [] });
   });
 
   test("flags a key item's line", async () => {

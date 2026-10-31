@@ -150,6 +150,7 @@
     "none": "No offers waiting.",
     "incoming": "{count, plural, one {You have an offer to answer.} other {You have # offers to answer.}}",
     "offerLine": "{item}: {giver} offers it to {recipient}",
+    "includes": "With it: {items}",
     "accept": "Accept",
     "acceptConfirm": "Accept {item} from {giver}? Press again",
     "accepting": "Accepting",
