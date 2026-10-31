@@ -116,7 +116,7 @@ export const WordedOutcome: RollCardStory = {
   args: { roll: WORDED_FAILURE },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('You flee for 1 round.')).toBeVisible();
+    await expect(await canvas.findByText('You flee for 1 round.')).toBeVisible();
   },
 };
 
@@ -125,6 +125,6 @@ export const BasicSaveOutcome: RollCardStory = {
   args: { roll: BASIC_SAVE_FAILURE },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Takes full damage')).toBeVisible();
+    await expect(await canvas.findByText('Takes full damage')).toBeVisible();
   },
 };

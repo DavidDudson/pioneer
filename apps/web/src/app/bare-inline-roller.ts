@@ -24,7 +24,7 @@ function bareCheck(): DiceExpression {
  * formula that reads the character (`@attr.str`) rolls nothing.
  */
 @Injectable()
-export class BareInlineRoller implements InlineRoller {
+class BareInlineRoller implements InlineRoller {
   readonly #random = inject(RANDOM_SOURCE);
   readonly #presenter = inject(RollPresenter);
   #count = 0;

@@ -80,7 +80,7 @@ export const BROWSE_LOADER: PackContentsLoader = {
 const HOMEBREW_BUILDER = new ContentPackBuilder().withId('browse-brew');
 
 /** A homebrew pack with one feat, for specs of the browser listing what a character's packs add. */
-export const HOMEBREW_PACK: ContentPack = HOMEBREW_BUILDER.withFeat('brew-strike', {
+const HOMEBREW_PACK: ContentPack = HOMEBREW_BUILDER.withFeat('brew-strike', {
   level: 1,
   traits: ['general'],
 }).build();
