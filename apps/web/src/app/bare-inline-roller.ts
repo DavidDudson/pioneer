@@ -1,14 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import type { Provider } from '@angular/core';
+import { presentRoll, RANDOM_SOURCE, RollPresenter } from '@pioneer/play/ui';
 import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
 import type { DiceExpression, RollResult } from '@pioneer/rules/dice';
 import { resolveDamageNode } from '@pioneer/rules/engine';
 import { INLINE_ROLLER } from '@pioneer/rules/ui';
 import type { InlineCheckRoll, InlineDamageRoll, InlineRoller } from '@pioneer/rules/ui';
-
-import { RANDOM_SOURCE } from '../random-source';
-import { presentRoll } from '../roll-stage/roll-presentation';
-import { RollPresenter } from '../roll-stage/roll-presenter';
 
 /** A check with no character behind it is one d20 and no modifier. */
 const BARE_CHECK = DiceExpressionText.parse('1d20');
@@ -27,7 +24,7 @@ function bareCheck(): DiceExpression {
  * formula that reads the character (`@attr.str`) rolls nothing.
  */
 @Injectable()
-export class BareInlineRoller implements InlineRoller {
+class BareInlineRoller implements InlineRoller {
   readonly #random = inject(RANDOM_SOURCE);
   readonly #presenter = inject(RollPresenter);
   #count = 0;

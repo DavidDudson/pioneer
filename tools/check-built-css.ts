@@ -19,8 +19,8 @@ const REQUIRED_UTILITIES = [
 const FORBIDDEN_DIRECTIVES = ['@theme', '@source', '@utility'];
 // Frontier has no viewport breakpoints; only media queries for preferences and input remain.
 const VIEWPORT_QUERY = /@media\s*\((?:min-|max-)?width/u;
-// Frontier is sharp and flat; the only radius and shadow allowed are the base layer's resets and the roll toast's corners (ADR-0074).
-const ROUNDED = /radius:(?!0[;}]|var\(--radius-toast\)[;}])/u;
+// Frontier is sharp and flat; the only radius and shadow allowed are the base layer's resets and the roll toast's corners (ADR-0074), which `@theme inline` writes as its value, 1rem.
+const ROUNDED = /radius:(?!0[;}]|1rem[;}]|var\(--radius-toast\)[;}])/u;
 const SHADOW = /(?:box|text)-shadow:(?!none[;}])|drop-shadow\(/u;
 
 const stylesheet = readdirSync(OUTPUT).find((file) => file.startsWith('styles') && file.endsWith('.css'));

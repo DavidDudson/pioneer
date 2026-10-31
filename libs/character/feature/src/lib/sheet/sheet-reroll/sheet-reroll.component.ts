@@ -58,7 +58,7 @@ export class SheetReroll {
     this.problems.set(new Map());
     try {
       const made = await this.#generator.generate({ level: character.level, name: character.document.name, locks });
-      await this.#router.navigate(['../..', made.character.id], { relativeTo: this.#route });
+      await this.#router.navigate(['../../..', made.character.id], { relativeTo: this.#route });
     } catch (error) {
       this.problems.set(lockProblems(error, locks));
       throw error;

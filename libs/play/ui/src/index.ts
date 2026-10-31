@@ -1,4 +1,3 @@
-export { BareInlineRoller, provideBareInlineRoller } from './lib/inline-roller/bare-inline-roller';
 export { RANDOM_SOURCE } from './lib/random-source';
 export { localised } from './lib/localise';
 export { RollCard } from './lib/roll-card/roll-card.component';

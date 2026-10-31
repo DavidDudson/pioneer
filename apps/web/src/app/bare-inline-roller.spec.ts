@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { RANDOM_SOURCE, RollPresenter } from '@pioneer/play/ui';
 import { DieFace } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { DamageFormula, DamageType, Dc, InlineKind, Selector } from '@pioneer/rules/sdk';
@@ -7,8 +8,6 @@ import { INLINE_ROLLER } from '@pioneer/rules/ui';
 import type { InlineRoller } from '@pioneer/rules/ui';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { RANDOM_SOURCE } from '../random-source';
-import { RollPresenter } from '../roll-stage/roll-presenter';
 import { provideBareInlineRoller } from './bare-inline-roller';
 
 const check = { type: InlineKind.Check, statistic: Selector.parse('save:reflex'), dc: Dc.parse(20) } as const;
