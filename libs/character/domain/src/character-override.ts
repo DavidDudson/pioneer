@@ -87,7 +87,7 @@ function revised(override: Override, input: OverrideInput, edit: OverrideEdit): 
     predicate: input.predicate,
     reason: input.reason,
     by: edit.actor,
-    byRole: edit.actorRole ?? OverrideRole.Player,
+    byRole: override.byRole === OverrideRole.Gm ? OverrideRole.Gm : (edit.actorRole ?? OverrideRole.Player),
     at: overrideTime(edit.now),
     revisions: [...override.revisions, revisionOf(override)],
   };

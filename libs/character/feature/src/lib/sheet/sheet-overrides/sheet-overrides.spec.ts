@@ -172,7 +172,7 @@ describe('CharacterSheet overrides section', () => {
     });
   });
 
-  it('marks an override the GM set and leaves the player no way to edit or remove it', async () => {
+  it('marks an override the GM set and leaves the player no way to remove it', async () => {
     const root = await openWith([{ ...GOGGLES, byRole: 'gm' }]);
 
     const text = textOf(
@@ -183,8 +183,8 @@ describe('CharacterSheet overrides section', () => {
       }),
     );
     expect(text).toContain('GM');
-    expect(text).toContain('Your GM set this, so only your GM can change or remove it.');
-    expect(root.querySelector('a[aria-label="Edit the override on Perception"]')).toBeNull();
+    expect(text).toContain('Your GM set this, so only your GM can remove it.');
+    expect(root.querySelector('a[aria-label="Edit the override on Perception"]')).not.toBeNull();
     expect(root.querySelector('button[aria-label="Remove the override on Perception"]')).toBeNull();
   });
 });

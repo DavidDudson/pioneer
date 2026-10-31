@@ -145,7 +145,7 @@ const VERSION_14 = {
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
  */
-export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map([
+export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map<CharacterSchemaVersion, unknown>([
   [CharacterSchemaVersion.parse(1), VERSION_1],
   [CharacterSchemaVersion.parse(2), VERSION_2],
   [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],

@@ -85,17 +85,17 @@ describe('CharacterService overrides by a campaign GM', () => {
     expect(error).toBeInstanceOf(NotFoundError);
   });
 
-  test('leaves the owner unable to edit or remove an override the GM wrote, and the GM able to', async () => {
+  test('lets the owner edit an override the GM wrote, which stays the GM’s to remove', async () => {
     const { character: added } = await service.patch(gm, kyra.id, at(FIRST_VERSION, ADD));
     const id = added.document.overrides[0]?.id;
     const edit = { field: CharacterPatchField.EditOverride, id, override: { ...SHIELD, value: 3 } };
     const remove = { field: CharacterPatchField.RemoveOverride, id, reason: 'Not wanted' };
 
-    const refusedEdit = await rejection(service.patch(amiri, kyra.id, at(added.version, edit)));
-    const refusedRemove = await rejection(service.patch(amiri, kyra.id, at(added.version, remove)));
-    const { character: removed } = await service.patch(gm, kyra.id, at(added.version, remove));
+    const { character: edited } = await service.patch(amiri, kyra.id, at(added.version, edit));
+    const refusedRemove = await rejection(service.patch(amiri, kyra.id, at(edited.version, remove)));
+    const { character: removed } = await service.patch(gm, kyra.id, at(edited.version, remove));
 
-    expect(refusedEdit).toBeInstanceOf(ForbiddenError);
+    expect(edited.document.overrides[0]).toMatchObject({ by: amiri, byRole: OverrideRole.Gm, value: 3 });
     expect(refusedRemove).toBeInstanceOf(ForbiddenError);
     expect(removed.document.overrides[0]?.removed).toMatchObject({ by: gm });
   });

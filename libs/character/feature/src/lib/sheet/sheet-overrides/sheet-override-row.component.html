@@ -30,17 +30,17 @@
       }
     </fr-stack>
   }
+  <fr-stack direction="horizontal" gap="xs" align="start" wrap>
+    <fr-link
+      [to]="editLink().to"
+      [queryParams]="editLink().queryParams"
+      [ariaLabel]="Message.EditLabel | transloco: { name: row().name }"
+      >{{ Message.Edit | transloco }}</fr-link
+    >
+  </fr-stack>
   @if (row().current.gm) {
     <fr-text variant="caption" tone="muted">{{ Message.GmLocked | transloco }}</fr-text>
   } @else {
-    <fr-stack direction="horizontal" gap="xs" align="start" wrap>
-      <fr-link
-        [to]="editLink().to"
-        [queryParams]="editLink().queryParams"
-        [ariaLabel]="Message.EditLabel | transloco: { name: row().name }"
-        >{{ Message.Edit | transloco }}</fr-link
-      >
-    </fr-stack>
     <fr-text-field
       [label]="Message.RemoveReason | transloco: { name: row().name }"
       [hint]="Message.RemoveReasonHint | transloco"
