@@ -1,0 +1,39 @@
+@if (skill()) {
+  <pio-skill-line
+    [name]="name()"
+    [kind]="kind()"
+    [statistic]="statistic()"
+    [total]="total()"
+    [computed]="computed()"
+    [fromForm]="fromForm()"
+    [rank]="rank()"
+    [rankSources]="rankSources()"
+    [entryNames]="entryNames()"
+    [originNames]="originNames()"
+  />
+} @else {
+  <fr-stack direction="horizontal" gap="xs" align="start">
+    <fr-stack grow>
+      <fr-disclosure>
+        <fr-text frDisclosureSummary
+          >{{ name() }}
+          <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" />
+          <pio-statistic-total [total]="total()" [computed]="computed()" [fromForm]="fromForm()"
+        /></fr-text>
+        <pio-breakdown
+          [statistic]="statistic()"
+          [kind]="kind()"
+          [entryNames]="entryNames()"
+          [originNames]="originNames()"
+        />
+      </fr-disclosure>
+    </fr-stack>
+    <pio-statistic-roll
+      [name]="name()"
+      [kind]="kind()"
+      [statistic]="statistic()"
+      [entryNames]="entryNames()"
+      [originNames]="originNames()"
+    />
+  </fr-stack>
+}

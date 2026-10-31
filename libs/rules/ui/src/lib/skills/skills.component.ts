@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Segmented, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
+import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
@@ -21,8 +22,8 @@ const LORE_PREFIX = 'skill:lore:';
 
 /**
  * Every skill and Lore of a character in one panel, the skills and the Lores on tabs of their own, so each list is
- * short enough to read whole. Each row is a `pio-statistics` row: the rank as a letter, the total, the breakdown
- * under it and the roll.
+ * short enough to read whole. Each row is a `pio-statistics` row laid out as a skill's: the name, the rank badge and the
+ * roll, whose popover holds the breakdown. The Lores tab lists the character's own Lores only.
  *
  * Read-only and presentational (ADR-0028): the caller passes the statistics in display order, or undefined while
  * they load.
@@ -62,9 +63,16 @@ export class SkillsView {
     ];
   });
 
-  /** The statistics of the tab shown; undefined while they load. */
+  /**
+   * The statistics of the tab shown; undefined while they load. The Lores tab lists only the character's own: those it
+   * has any rank in, not every Lore the content defines.
+   */
   protected readonly shown = computed((): readonly NamedStatistic[] | undefined => {
     const lores = this.tab() === SkillsTab.Lores;
-    return this.statistics()?.filter(({ result }) => result.selector.startsWith(LORE_PREFIX) === lores);
+    return this.statistics()?.filter(
+      ({ result, rank }) =>
+        result.selector.startsWith(LORE_PREFIX) === lores &&
+        (!lores || (rank !== undefined && rank !== Proficiency.Untrained)),
+    );
   });
 }

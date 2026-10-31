@@ -1,26 +1,23 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Badge, Disclosure, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { Badge, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { FormSource, RuleId } from '@pioneer/rules/engine';
 import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import { BreakdownView } from '../breakdown/breakdown.component';
 import { labelName } from '../breakdown/line-words';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import { ProficiencyBadge } from '../proficiency-badge/proficiency-badge.component';
 import type { RankSource } from '../proficiency-badge/proficiency-badge.component';
 import { conditionalLines, conditionalLineText } from './conditional-lines';
 import type { ConditionWords } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
-import { StatisticRoll } from './statistic-roll/statistic-roll.component';
+import { StatisticLine } from './statistic-line/statistic-line.component';
 import { STATISTIC_ROLLER } from './statistic-roller';
-import { StatisticTotal } from './statistic-total/statistic-total.component';
 import { StatisticsMessage } from './statistics-messages';
 
 /** The conditional lines of a statistic whose situation can be claimed, as the sheet shows them, and the rules claimed. */
@@ -91,17 +88,13 @@ const LOADING_ROWS = 5;
   selector: 'pio-statistics',
   imports: [
     Badge,
-    BreakdownView,
-    Disclosure,
     EmptyState,
     List,
     ListItem,
-    ProficiencyBadge,
     Skeleton,
     Stack,
     StatisticConditions,
-    StatisticRoll,
-    StatisticTotal,
+    StatisticLine,
     Text,
     TranslocoPipe,
   ],
@@ -117,6 +110,8 @@ export class StatisticsView {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
   /** What an empty list says: no statistics, unless the caller names what it lists (no Strikes). */
   public readonly noneKey = input<string>(StatisticsMessage.None);
+  /** Lay each row out as a skill's: name, rank badge, then the roll, with no breakdown disclosure. */
+  public readonly skillRows = input(false, { transform: booleanAttribute });
 
   protected readonly Message = StatisticsMessage;
   protected readonly loadingRows = [...Array.from({ length: LOADING_ROWS }).keys()];

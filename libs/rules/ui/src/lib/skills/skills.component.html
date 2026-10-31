@@ -1,6 +1,7 @@
 <fr-stack gap="md">
   <fr-segmented [options]="options()" [ariaLabel]="Message.Switch | transloco" [(value)]="tab" />
   <pio-statistics
+    skillRows
     [statistics]="shown()"
     [entryNames]="entryNames()"
     [originNames]="originNames()"
