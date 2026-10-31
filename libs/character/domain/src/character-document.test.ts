@@ -10,6 +10,7 @@ import {
 } from './character-document-upgrades';
 import { CharacterLevel } from './character-fields';
 import { EMPTY_INVENTORY } from './inventory';
+import { OverrideRole } from './override-schema';
 import { FRESH_PLAY } from './play-state';
 import { fixtureOwnerId, humanAncestryId, PAST_DOCUMENTS } from './testing';
 
@@ -89,5 +90,11 @@ describe('decodeCharacterDocument', () => {
     const upgraded = decodeCharacterDocument(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(5)));
     expect(upgraded.appearance).toStrictEqual([]);
     expect(upgraded.personality).toStrictEqual([]);
+  });
+
+  test('reads an override and its earlier states from a version 14 document as the player’s', () => {
+    const upgraded = decodeCharacterDocument(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(14)));
+    expect(upgraded.overrides[0]).toMatchObject({ byRole: OverrideRole.Player });
+    expect(upgraded.overrides[0]?.revisions[0]).toMatchObject({ byRole: OverrideRole.Player });
   });
 });

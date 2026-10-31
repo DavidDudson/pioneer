@@ -49,3 +49,5 @@ export { CharacterKeyItems } from './character-key-items';
 export { CharacterKeyItemPromotion, type KeyLink, type PromotableLine } from './character-key-item-promotion';
 export { CharacterTransferLines, type TransferLine, type TransferPurse } from './character-transfer-lines';
 export { type CoinHandover, CharacterTransferSettlement, type LineHandover } from './character-transfer-settlement';
+export { CharacterCampaignRoles } from './character-campaign-roles';
+export { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-roles';

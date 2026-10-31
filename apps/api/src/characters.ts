@@ -46,6 +46,7 @@ import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
 import { CampaignPackDirectory } from './attached-campaign-pack-directory';
+import { CampaignCharacterRoles } from './campaign-character-roles';
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
@@ -123,9 +124,9 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     variants,
     limits: ruleLimits,
   });
-  const service = new CharacterService(repository, characterContent, clock).withAuthors(
-    new UserOverrideAuthorDirectory(db),
-  );
+  const service = new CharacterService(repository, characterContent, clock)
+    .withCampaignRoles(new CampaignCharacterRoles(db))
+    .withAuthors(new UserOverrideAuthorDirectory(db));
   const importer = new PathbuilderImportService(
     { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
     clock,

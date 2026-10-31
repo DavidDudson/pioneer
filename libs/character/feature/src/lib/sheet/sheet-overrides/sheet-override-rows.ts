@@ -1,4 +1,4 @@
-import { activeOverrides } from '@pioneer/character/domain';
+import { activeOverrides, OverrideRole } from '@pioneer/character/domain';
 import type { Character, Override, OverrideRevision } from '@pioneer/character/domain';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
@@ -11,6 +11,8 @@ export interface OverrideState {
   readonly author: string | undefined;
   readonly at: Temporal.Instant;
   readonly reason: string;
+  /** The GM of the character's campaign set it, so the player can neither edit nor remove it. */
+  readonly gm: boolean;
 }
 
 /** An override in the list: the statistic it is on, its current state, and the states an edit replaced. */
@@ -32,7 +34,7 @@ export interface OverrideWords {
 
 function stateOf(
   override: Override,
-  state: Pick<OverrideRevision, 'value' | 'type' | 'by' | 'at' | 'reason'>,
+  state: Pick<OverrideRevision, 'value' | 'type' | 'by' | 'byRole' | 'at' | 'reason'>,
   words: OverrideWords,
 ): OverrideState {
   return {
@@ -40,6 +42,7 @@ function stateOf(
     author: words.authors.get(state.by),
     at: Temporal.Instant.from(state.at),
     reason: state.reason,
+    gm: state.byRole === OverrideRole.Gm,
   };
 }
 

@@ -14,7 +14,7 @@ import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
 import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
 import type { OverridePatch } from './character-patch';
-import { OVERRIDE_REVISIONS_MAX, OverrideMode, OVERRIDES_MAX, overrideTime } from './override-schema';
+import { OVERRIDE_REVISIONS_MAX, OverrideMode, OverrideRole, OVERRIDES_MAX, overrideTime } from './override-schema';
 import type { Override, OverrideId, OverrideInput, OverrideRevision } from './override-schema';
 
 /** The overrides in force: the ones nobody has removed. */
@@ -64,14 +64,16 @@ export function overrideRules(document: CharacterDocument): readonly RuleInPlay[
 /** What the caller of an override edit supplies: who makes it, when, and the id a new override takes. */
 export interface OverrideEdit {
   readonly actor: UserId;
+  /** What the actor is to the character; absent reads as its player. */
+  readonly actorRole?: OverrideRole | undefined;
   readonly now: Temporal.Instant;
   readonly newOverrideId?: OverrideId | undefined;
 }
 
 /** The previous state of `override`, to keep when it is edited. */
 function revisionOf(override: Override): OverrideRevision {
-  const { by, at, value, type, predicate, reason } = override;
-  return { by, at, value, type, predicate, reason };
+  const { by, byRole, at, value, type, predicate, reason } = override;
+  return { by, byRole, at, value, type, predicate, reason };
 }
 
 /** `override` as an edit changes it: the new inputs, the editor and time, and the state it replaces kept. */
@@ -85,6 +87,7 @@ function revised(override: Override, input: OverrideInput, edit: OverrideEdit): 
     predicate: input.predicate,
     reason: input.reason,
     by: edit.actor,
+    byRole: edit.actorRole ?? OverrideRole.Player,
     at: overrideTime(edit.now),
     revisions: [...override.revisions, revisionOf(override)],
   };
@@ -118,7 +121,8 @@ function added(input: OverrideInput, edit: OverrideEdit): Override {
   if (edit.newOverrideId === undefined) {
     throw new TypeError('An added override needs the id its caller makes');
   }
-  return { id: edit.newOverrideId, ...input, by: edit.actor, at: overrideTime(edit.now), revisions: [] };
+  const byRole = edit.actorRole ?? OverrideRole.Player;
+  return { id: edit.newOverrideId, ...input, by: edit.actor, byRole, at: overrideTime(edit.now), revisions: [] };
 }
 
 /** `document` with the override `id` replaced by what `change` makes of it. */

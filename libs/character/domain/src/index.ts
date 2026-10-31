@@ -817,6 +817,7 @@ export {
   OverrideMode,
   OverrideModifierType,
   OverrideReason,
+  OverrideRole,
   OverrideSchema,
   OverrideTime,
   overrideTime,

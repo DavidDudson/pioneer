@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, OverrideReason } from '@pioneer/character/domain';
-import { AsyncButton, DateDisplay, Link, Stack, Text, TextField } from '@pioneer/frontier';
+import { AsyncButton, BadgeTone, DateDisplay, Link, Stack, Tag, Text, TextField } from '@pioneer/frontier';
 import type { StatisticLink } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
@@ -17,6 +17,8 @@ const RemoveInput = z.object({ reason: OverrideReason });
 /** Message keys the row renders with, spelled out so the key check sees them. */
 const Message = {
   SetBy: 'character.sheet.overrides.setBy',
+  GmTag: 'character.sheet.overrides.gmTag',
+  GmLocked: 'character.sheet.overrides.gmLocked',
   UnknownUser: 'character.sheet.overrides.unknownUser',
   History: 'character.sheet.overrides.history',
   Earlier: 'character.sheet.overrides.earlier',
@@ -37,7 +39,7 @@ const Message = {
  */
 @Component({
   selector: 'pio-sheet-override-row',
-  imports: [AsyncButton, DateDisplay, FormField, Link, Stack, Text, TextField, TranslocoPipe],
+  imports: [AsyncButton, DateDisplay, FormField, Link, Stack, Tag, Text, TextField, TranslocoPipe],
   templateUrl: './sheet-override-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -49,6 +51,7 @@ export class SheetOverrideRow {
   readonly #overrides = inject(SheetOverrides);
 
   protected readonly Message = Message;
+  protected readonly Tone = BadgeTone;
   protected readonly editLink = computed((): StatisticLink => this.#overrides.edit(this.row().override.id));
   protected readonly model = signal({ reason: '' });
   protected readonly form = form(this.model, (path) => {
