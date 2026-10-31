@@ -10,7 +10,7 @@ import { SKILL_CHOICES, skillChoicesWhere } from './translate-skill-choices';
 /**
  * Foundry's `ChoiceSet` in Pioneer's spelling (ADR-0008): its flag is a slug, a choice's value is text, a choice's
  * predicate and a query's filter read bare roll options as every predicate does, a query by `itemType` names a kind of
- * entry, and the `skills` config is the skills it lists. `adjustName` (renaming the item after the pick) only steers
+ * entry, and the `skills`, `ranks` and `baseWeaponTypes` configs are the skills, ranks and weapons they list. `adjustName` (renaming the item after the pick) only steers
  * Foundry's display and is dropped. What this cannot carry over (a choice whose value is an object, a query
  * of the character's items or attacks, other configs, `allowedDrops`, `actorFlag`, a `slug`, a roll option with a
  * namespace of its own) is left as it is, so the element fails and is kept for the backlog.
@@ -109,6 +109,25 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
   return withNamespacedOptions(withChosenEntry({ ...fields, value: asText(choice.value) }, references));
 }
 
+/** Foundry's `ranks` config: ranks one to ten, valued as their number. */
+const RANK_CHOICES: readonly unknown[] = Array.from({ length: 10 }, (_unused, index) => ({
+  value: String(index + 1),
+  label: `Rank ${index + 1}`,
+}));
+
+/**
+ * Foundry's `baseWeaponTypes` config lists every base weapon (369), more than a list of choices holds, so it is a
+ * query of every weapon: the pick is the weapon's slug, which is its base.
+ */
+const BASE_WEAPON_QUERY = { kind: ContentKind.Weapon, filter: [] };
+
+/** What each `config` choice Pioneer has a meaning for offers. */
+const CONFIG_CHOICES: ReadonlyMap<string, unknown> = new Map<string, unknown>([
+  ['skills', SKILL_CHOICES],
+  ['ranks', RANK_CHOICES],
+  ['baseWeaponTypes', BASE_WEAPON_QUERY],
+]);
+
 /** A roll option of a class feature tag, which a subclass query filters on. */
 const TAG_STATEMENT = /^item:tag:[a-z0-9-]+$/u;
 
@@ -140,16 +159,19 @@ function choicesOf(choices: unknown, references: EntryReferences): unknown {
   if (typeof choices !== 'object' || choices === null) {
     return choices;
   }
+  const fields = Object.keys(choices);
   const isSkills =
     'config' in choices &&
     choices.config === 'skills' &&
-    Object.keys(choices).every((field) => field === 'config' || field === 'predicate');
-  if (!isSkills) {
-    return queryOf(choices);
+    fields.every((field) => field === 'config' || field === 'predicate');
+  if (isSkills && 'predicate' in choices) {
+    return skillChoicesWhere(choices.predicate).map((choice) => choiceOf(choice, references));
   }
-  return 'predicate' in choices
-    ? skillChoicesWhere(choices.predicate).map((choice) => choiceOf(choice, references))
-    : SKILL_CHOICES;
+  const configured =
+    'config' in choices && typeof choices.config === 'string' && fields.length === 1
+      ? CONFIG_CHOICES.get(choices.config)
+      : undefined;
+  return configured ?? queryOf(choices);
 }
 
 /**

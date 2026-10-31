@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentId, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
@@ -82,5 +82,34 @@ describe('ChoiceSet from Foundry: a pick an ActiveEffectLike reads', () => {
 
     expect(untranslated).toEqual([]);
     expect(rules[0]).not.toHaveProperty('priority');
+  });
+});
+
+describe('ChoiceSet from Foundry: a config Pioneer has a meaning for', () => {
+  test('the ranks config offers ranks one to ten', () => {
+    const { rules, untranslated } = translated({
+      choices: { config: 'ranks' },
+      flag: 'rank',
+      rollOption: 'rank-pick',
+      key: RuleElementKey.ChoiceSet,
+    });
+
+    expect(untranslated).toEqual([]);
+    const { choices } = rules[0] as { choices: { value: string; label: string }[] };
+    expect(choices).toHaveLength(10);
+    expect(choices[0]).toEqual({ value: '1', label: 'Rank 1' });
+    expect(choices[9]).toEqual({ value: '10', label: 'Rank 10' });
+  });
+
+  test('the baseWeaponTypes config is a query of weapons', () => {
+    const { rules, untranslated } = translated({
+      choices: { config: 'baseWeaponTypes' },
+      flag: 'weaponOne',
+      rollOption: 'weapon-one',
+      key: RuleElementKey.ChoiceSet,
+    });
+
+    expect(untranslated).toEqual([]);
+    expect((rules[0] as { choices: unknown }).choices).toEqual({ kind: ContentKind.Weapon, filter: [] });
   });
 });
