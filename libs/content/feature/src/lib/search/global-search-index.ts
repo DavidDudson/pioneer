@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { ContentLoader } from '@pioneer/rules/data-access';
+import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
@@ -8,13 +8,14 @@ import type { BrowseKind } from '../browser/browse-kinds';
 import { entriesOf } from '../browser/browse-list';
 
 /**
- * The official entries the global search matches names in, loaded one kind at a time when the browser is idle. A
+ * The entries, official and in the homebrew packs in scope, the global search matches names in, loaded one kind at a time when the browser is idle. A
  * kind already in the browser's store costs no request. Typing never waits for it: it matches what has loaded so far,
  * and a kind that fails to load is tried again on the next `warm`.
  */
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class GlobalSearchIndex {
   readonly #loader = inject(ContentLoader);
+  readonly #scope = inject(CONTENT_SCOPE);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #byId = signal<ReadonlyMap<ContentId, ContentEntry>>(new Map());
   readonly #done = new Set<BrowseKind>();
@@ -26,6 +27,9 @@ export class GlobalSearchIndex {
 
   /** Starts loading the kinds not loaded yet, a kind per idle moment. Does nothing while a pass is running. */
   public warm(): void {
+    if (!this.#scope().ready) {
+      return;
+    }
     if (this.#running) {
       return;
     }
@@ -47,7 +51,7 @@ export class GlobalSearchIndex {
 
   async #load(kind: BrowseKind): Promise<void> {
     try {
-      const registry = await this.#loader.registry([kind]);
+      const registry = await this.#loader.registry([kind], this.#scope().homebrew);
       const loaded = entriesOf(registry, [kind]);
       this.#byId.update(
         (held) => new Map([...held, ...loaded.map((entry): [ContentId, ContentEntry] => [entry.id, entry])]),

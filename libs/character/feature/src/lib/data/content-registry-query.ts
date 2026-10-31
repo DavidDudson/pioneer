@@ -79,7 +79,7 @@ export function contentRegistryQuery(
 }
 
 /** The homebrew packs a character uses: the ones in its pack list that are not official. */
-function homebrewOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
+export function homebrewOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
   return (packs?.enabled ?? []).filter((pack) => !pack.official).map((pack) => pack.packId);
 }
 

@@ -1,16 +1,20 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
+import { contentPackId } from '@pioneer/rules/sdk';
+import type { ContentPackId } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { contentRoutes } from '../content.routes';
-import { BROWSE_LOADER } from '../testing/browse-fixtures';
+import { BROWSE_LOADER, HOMEBREW_LOADER } from '../testing/browse-fixtures';
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -25,8 +29,8 @@ interface Opened {
   readonly delivery: TestContentDelivery;
 }
 
-async function open(url: string): Promise<Opened> {
-  const delivery = new TestContentDelivery([BROWSE_LOADER]);
+async function open(url: string, homebrew: readonly ContentPackId[] = []): Promise<Opened> {
+  const delivery = new TestContentDelivery([BROWSE_LOADER], [HOMEBREW_LOADER]);
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'content', children: contentRoutes }]),
@@ -35,6 +39,10 @@ async function open(url: string): Promise<Opened> {
       provideHttpClientTesting(),
       provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
       ...provideContentTesting(delivery),
+      {
+        provide: CONTENT_SCOPE,
+        useValue: signal({ homebrew, ready: true }),
+      },
     ],
   });
   const harness = await RouterTestingHarness.create(url);
@@ -77,6 +85,14 @@ describe('ContentBrowserPage', () => {
       'Shield-block',
       'Toughness',
     ]);
+  });
+
+  it('lists a homebrew entry from the packs in scope, and none without them', async () => {
+    const official = await open('/content');
+    await expect(loaded(official.root, 4)).resolves.not.toContain('Brew-strike');
+    TestBed.resetTestingModule();
+    const scoped = await open('/content', [contentPackId(HOMEBREW_LOADER.id)]);
+    await expect(loaded(scoped.root, 5)).resolves.toContain('Brew-strike');
   });
 
   it('previews an entry from its name in the table, with a link to open it', async () => {

@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { ContentLoader } from '@pioneer/rules/data-access';
+import { CONTENT_SCOPE, ContentLoader } from '@pioneer/rules/data-access';
 import { SearchLimit, SearchOffset, SearchText } from '@pioneer/rules/sdk';
 import type { ContentId, ContentSearchQuery } from '@pioneer/rules/sdk';
 import { SOURCE_LOCALE } from '@pioneer/shared/kernel';
@@ -33,11 +33,13 @@ export function searchFromQuery(text: unknown): SearchText | undefined {
  */
 export function injectBrowseSearch(search: () => BrowseSearch | undefined): CreateQueryResult<readonly ContentId[]> {
   const loader = inject(ContentLoader);
+  const scope = inject(CONTENT_SCOPE);
   return injectQuery(() => {
     const wanted = search();
+    const { homebrew, ready } = scope();
     return {
-      queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted()],
-      enabled: wanted !== undefined,
+      queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted()],
+      enabled: wanted !== undefined && ready,
       staleTime: SEARCH_STALE_MS,
       queryFn: async (): Promise<readonly ContentId[]> => {
         if (wanted === undefined) {
@@ -47,7 +49,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
           query: wanted.words,
           locale: SOURCE_LOCALE,
           kinds: [...wanted.kinds],
-          packs: [],
+          packs: [...homebrew],
           limit: MATCHES_MAX,
           offset: FIRST_PAGE,
         };
