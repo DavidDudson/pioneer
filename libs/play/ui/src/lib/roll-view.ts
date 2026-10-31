@@ -174,7 +174,7 @@ export interface FinishedRoll {
 }
 
 /** The result the rolled degree has: a basic save's fixed one, or the text the check gives for it. */
-function outcomeView(degree: DegreeOfSuccess, check: CheckNode | undefined): OutcomeView | undefined {
+export function outcomeView(degree: DegreeOfSuccess, check: CheckNode | undefined): OutcomeView | undefined {
   const text = check?.outcomes?.[degree];
   if (check?.basic === true) {
     return { kind: OutcomeKind.Message, key: BASIC_SAVE_OUTCOME_KEYS[degree] };

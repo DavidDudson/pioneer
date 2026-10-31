@@ -2,11 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { DamageTone } from '@pioneer/frontier';
 import { RollTotal } from '@pioneer/rules/dice';
+import { DegreeOfSuccess, InlineKind, Selector } from '@pioneer/rules/sdk';
+import type { CheckNode } from '@pioneer/rules/sdk';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { providePlayUiI18nTesting } from '../testing/provide-play-ui-testing';
 import { DICE_ROLLER_FACTORY } from './dice-roller';
 import type { DiceRollerFactory } from './dice-roller';
+import { withDegree } from './roll-presentation';
 import type { RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 import { RollStage } from './roll-stage.component';
@@ -29,6 +32,8 @@ const LONGSWORD: RollPresentation = {
   ],
   groups: [],
 };
+
+const BASIC_REFLEX: CheckNode = { type: InlineKind.Check, statistic: Selector.parse('save:reflex'), basic: true };
 
 const PERCEPTION: RollPresentation = {
   id: 2,
@@ -90,6 +95,24 @@ describe(RollStage, () => {
     expect(status?.textContent).toContain('Fireball');
     expect(status?.textContent).toContain('Fire');
     expect(status?.querySelector('.text-damage-fire')?.textContent.trim()).toBe('21');
+  });
+
+  it('names the degree a check reached and what it does in the toast', async () => {
+    reduceMotion(true);
+    const { fixture, presenter } = await render();
+    presenter.present(withDegree(PERCEPTION, DegreeOfSuccess.Success, BASIC_REFLEX));
+    await fixture.whenStable();
+    const status = hostOf(fixture).querySelector('[role="status"]');
+    expect(status?.textContent).toContain('Success');
+    expect(status?.textContent).toContain('Takes half damage');
+  });
+
+  it('names no degree for a roll that was not against a DC', async () => {
+    reduceMotion(true);
+    const { fixture, presenter } = await render();
+    presenter.present(PERCEPTION);
+    await fixture.whenStable();
+    expect(hostOf(fixture).querySelector('[role="status"]')?.textContent).not.toContain('Takes');
   });
 
   it('shows one toast row per damage type, each in its own colour', async () => {
