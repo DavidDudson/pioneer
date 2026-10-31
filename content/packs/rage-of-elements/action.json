@@ -1084,6 +1084,17 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected" }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage, and you add some of its elemental matter to your kinetic aura. Your impulses bypass any immunity the creature has to their elemental trait or traits, and the target takes a -1 circumstance penalty to its saves and AC against your impulses. If the target normally has a resistance that would apply to damage from one of your impulses, ignore that resistance; if it normally would be immune to that damage type, it instead has resistance equal to its level to damage from the impulse. You can't target a creature with Extract Element if elemental matter you extracted from it is already in your kinetic aura. These effects last for 5 minutes or until your kinetic aura ends, whichever comes first"
+                }
+              ],
+              "failure": [{ "type": "text", "text": "As success, but the creature takes full damage." }],
+              "criticalFailure": [{ "type": "text", "text": "As failure, but the creature takes double damage." }]
             }
           },
           {

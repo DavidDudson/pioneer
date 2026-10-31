@@ -954,7 +954,35 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "options": ["inflicts:drained"]
+            "options": ["inflicts:drained"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "No effect." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon drains a small amount of life force. The enemy takes additional void damage equal to half your level."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon drains enough life force to satisfy itself. The enemy takes additional void damage equal to half your level and is "
+                },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
+                {
+                  "type": "text",
+                  "text": ". Your eidolon gains temporary Hit Points equal to the enemy's level, which last for 1 minute."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon drains an incredible amount of life force and is thoroughly glutted with energy. As failure, but the enemy is "
+                },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 2" },
+                { "type": "text", "text": " and the temporary Hit Points are equal to double the enemy's level." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -1240,7 +1268,28 @@
           },
           {
             "type": "check",
-            "statistic": "save:reflex"
+            "statistic": "save:reflex",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The enemy takes no damage, but takes a –10 foot circumstance penalty to its Speeds."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The enemy takes half damage, takes a –10-foot circumstance penalty to its Speeds, and at the end of each of its turns, takes half damage again."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The enemy is immobilized, takes full damage, and at the end of each of its turns, takes full damage again."
+                }
+              ]
+            }
           },
           {
             "type": "text",

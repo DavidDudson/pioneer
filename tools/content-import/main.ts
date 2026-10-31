@@ -53,7 +53,7 @@ import { formatCoverage, formatCreatureCoverage } from './coverage-table.ts';
 import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
-import { applyRules, committedEntries, previousImport } from './write-output.ts';
+import { applyOutcomes, applyRules, committedEntries, previousImport } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -70,14 +70,16 @@ interface Options {
   readonly dryRun: boolean;
   /** The rule element keys whose rules the translators now cover, which are taken into the committed pack (`apply-rules.ts`). */
   readonly applyRules: ReadonlySet<string>;
+  /** Whether to lay the import's check outcomes on the committed descriptions (`apply-outcomes.ts`). */
+  readonly applyOutcomes: boolean;
 }
 
 /** The keys of `--apply-rules`; a run that writes names some, as a committed pack is never replaced. */
-function ruleKeys(argument: string | undefined, dryRun: boolean): ReadonlySet<string> {
+function ruleKeys(argument: string | undefined, writesElsewhere: boolean): ReadonlySet<string> {
   const keys = (argument ?? '').split(',').filter((key) => key !== '');
-  if (keys.length === 0 && !dryRun) {
+  if (keys.length === 0 && !writesElsewhere) {
     throw new Error(
-      'Name the rule element keys to take with --apply-rules <Key>[,<Key>...]; a committed pack is never replaced',
+      'Name the rule element keys to take with --apply-rules <Key>[,<Key>...], or use --apply-outcomes; a committed pack is never replaced',
     );
   }
   return new Set(keys);
@@ -90,6 +92,7 @@ function options(): Options {
       book: { type: 'string', multiple: true },
       'dry-run': { type: 'boolean', default: false },
       'apply-rules': { type: 'string' },
+      'apply-outcomes': { type: 'boolean', default: false },
     },
   });
   const books = (values.book ?? []).map((book) => BookId.parse(book));
@@ -108,7 +111,8 @@ function options(): Options {
     pack: PackId.parse(values.pack),
     books: new Set(books),
     dryRun: values['dry-run'],
-    applyRules: ruleKeys(values['apply-rules'], values['dry-run']),
+    applyRules: ruleKeys(values['apply-rules'], values['dry-run'] || values['apply-outcomes']),
+    applyOutcomes: values['apply-outcomes'],
   };
 }
 
@@ -269,7 +273,7 @@ function formatKindData(translation: ImportTranslation): string {
   ].join('\n');
 }
 
-const { pack, books, dryRun, applyRules: rulesOnly } = options();
+const { pack, books, dryRun, applyRules: rulesOnly, applyOutcomes: outcomesOnly } = options();
 const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
 const pin = await readPin(pack);
 const files = await archiveFiles(await archive(pin));
@@ -299,7 +303,18 @@ const output = { ...generated, entries: carrySources(generated.entries, await co
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
 console.log(formatCreatureCoverage(creatureCoverage(output.entries)));
-if (!dryRun) {
+if (!dryRun && outcomesOnly) {
+  const { written, report } = await applyOutcomes(output, targets);
+  console.log(
+    [
+      `Laid check outcomes on ${report.added} checks in ${report.changed} committed entries; wrote:`,
+      ...written.map((file) => `  ${file}`),
+      `Left alone: ${report.kept} basic or already filled, ${report.ambiguous} ambiguous checks.`,
+      `Skipped ${report.handFixed.length} hand-fixed descriptions:`,
+      ...report.handFixed.map((entry) => `  ${entry}`),
+    ].join('\n'),
+  );
+} else if (!dryRun) {
   const { written, applied } = await applyRules(output, targets, rulesOnly);
   console.log(
     [

@@ -461,7 +461,21 @@
             "type": "check",
             "statistic": "save:fortitude",
             "dc": 18,
-            "options": ["inflicts:off-guard", "inflicts:slowed"]
+            "options": ["inflicts:off-guard", "inflicts:slowed"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature becomes distracted by vengeful spirits and becomes " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of your next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but the creature is also " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "As failure, but the creature is slowed 1 for 1 minute." }]
+            }
           },
           {
             "type": "text",
@@ -764,7 +778,33 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 29
+            "dc": 29,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The possessing creature is unaffected, and you remain unaware of if the target is actually possessed or not."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The possessing creature is unaffected, but you sense that creature's control over the target and confirm that the target is possessed."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You confirm that the target is possessed. The possessing creature can't control the target for 1 minute."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You confirm the target is possessed an instant before you automatically counteract the possession, causing the possessing creature to vacate the target's body."
+                }
+              ]
+            }
           },
           {
             "type": "text",

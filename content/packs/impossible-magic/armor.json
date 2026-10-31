@@ -1417,7 +1417,26 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 36
+            "dc": 36,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, and the creature can't use any hostile action against you for 1 round."
+                }
+              ]
+            }
           },
           {
             "type": "text",

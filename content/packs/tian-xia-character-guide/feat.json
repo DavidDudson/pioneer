@@ -94,7 +94,27 @@
           },
           {
             "type": "check",
-            "statistic": "skill:medicine"
+            "statistic": "skill:medicine",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You grant your ally the choice of a +2 circumstance bonus to one downtime activity skill check within the next week, or the ability to roll twice on their next saving throw within the next week against an affliction and take the higher result; this is a fortune effect."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You grant your ally a +1 circumstance bonus to one downtime activity skill check within the next week."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Your ally takes a –1 circumstance penalty to all downtime activity skill checks within the next week."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -2943,7 +2963,21 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Your shadow and the opponent's synchronize, forcing your target to match your movements step for step. You perform any two of the following actions: Drop Prone, Release an object, Stand, Step, or Stride. You must perform two different actions. Your opponent also takes these actions, moving in the same direction as you (for instance, if you Stride north, so does your opponent) or Releasing an object when you do. The target is then temporarily immune to your Dance of the Jester for 1 day."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, except you can take only one action, not two, before your target becomes temporarily immune to your dance, and you cannot move the target into hazardous terrain."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3021,7 +3055,34 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Imaginary shadows rise up in the target's vision, hiding you from sight. You gain greater cover against that enemy, which provides a +4 circumstance bonus to AC and to Stealth checks to Hide, "
+                },
+                { "type": "ref", "id": "7e4e48de-b626-5513-9518-73261c58b5f4" },
+                {
+                  "type": "text",
+                  "text": ", or otherwise avoid detection. As the shadows are illusory, you don't gain the typical bonus to Reflex saves from greater cover. These benefits last until the beginning of your next turn, or until you move from your current space, use an attack action, or become "
+                },
+                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
+                { "type": "text", "text": ", whichever comes first." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, except you gain only standard cover (a +2 circumstance bonus instead)."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The opponent grasps the movements of your dance, becoming temporarily immune to your Dance of the Mousedeer for 1 day."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3129,7 +3190,22 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "You step on the foe's shadow, bringing a cold dread. The opponent is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                {
+                  "type": "text",
+                  "text": "; its shadow remains pinned underfoot, stretching and deforming to remain connected to your square, and indicates where it has gone even if you lose sight of the foe. The creature can't reduce its frightened condition below 1 as long as you remain on its shadow. Your connection to its shadow breaks if the distance between you and the target exceeds 120 feet or if you don't end your turn adjacent to the target. Once your connection to its shadow breaks, the enemy is immune to Dance of the Tiger for 1 hour."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "As critical success, except the creature is only " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": " and your connection to its shadow breaks at 60 feet instead of 120." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -10027,6 +10103,18 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "failure": [
+                { "type": "text", "text": "The creature is knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is knocked prone and takes " },
+                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "bludgeoning" }] },
+                { "type": "text", "text": " damage." }
+              ]
             }
           },
           {
@@ -11712,7 +11800,27 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:fleeing", "inflicts:frightened"]
+            "options": ["inflicts:fleeing", "inflicts:frightened"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -13135,6 +13243,30 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The grab ends." }],
+              "success": [
+                { "type": "text", "text": "The grab ends, and the target takes " },
+                { "type": "damage", "instances": [{ "formula": "1", "damageType": "fire", "category": "persistent" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "floor(@level/2)", "damageType": "fire", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage equal to half your level." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "@level", "damageType": "fire", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage equal to your level." }
+              ]
             }
           },
           {
@@ -13763,6 +13895,24 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The enemy is " },
+                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The enemy is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The enemy is " },
+                { "type": "ref", "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947" },
+                { "type": "text", "text": " for 1 round." }
+              ]
             }
           },
           {
@@ -14012,7 +14162,28 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for as long as they're stunned." }
+              ],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " and dazzled for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The creature is dazzled for 1 round." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected and temporarily immune to further uses of Peony's Flourish for 24 hours."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -14891,7 +15062,28 @@
           },
           {
             "type": "check",
-            "statistic": "skill:medicine"
+            "statistic": "skill:medicine",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You accurately diagnose your patient. The GM decides the elemental imbalance causing the patient's symptoms (which elements, as well as whether it's in excess or deficiency) and then, using the information from the Pei Zing Elemental Associations table, notifies you what element of medicine is needed to remedy it. With this information, you then accurately identify the elemental property of a given ingredient, and then use it to prepare an excellent elemental medicine that grants the recipient a +2 circumstance bonus to saves against the affliction."
+                }
+              ],
+              "success": [{ "type": "text", "text": "As critical success, but the bonus is +1." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You fail to diagnose your patient. The GM doesn't tell you what elemental imbalance is causing the patient's symptoms, and therefore, you can't prepare an elemental medicine."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You misdiagnose your patient. The GM decides the elemental imbalance causing the patient's symptoms and then tells you a different, false diagnosis or notifies you that the elemental ingredient you're attempting to treat the symptoms with is actually incorrect. Either way, your mistaken treatment imposes a –1 circumstance penalty to saves against the affliction."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -17761,6 +17953,15 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The silk imposes a –10 foot status penalty to all the target's Speeds for 1 round."
+                }
+              ]
             }
           },
           {
@@ -18200,6 +18401,23 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [
+                { "type": "text", "text": "The creature is unaffected beyond a strong craving for pickles." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                { "type": "text", "text": ", and " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " for 1 round from the smell." }
+              ]
             }
           },
           {
@@ -22323,6 +22541,24 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is frightened 1 and " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " and off-guard." }
+              ]
             }
           },
           {

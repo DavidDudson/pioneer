@@ -480,6 +480,28 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is distracted by giggles and can't use reactions until the beginning of your next turn."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target laughs uncontrollably. It can't use reactions until the beginning of your next turn and is "
+                },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target also immediately falls " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
@@ -5037,6 +5059,30 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                {
+                  "type": "text",
+                  "text": ". If you have a free hand and they are not larger than you, you can attempt an Athletics check to "
+                },
+                { "type": "ref", "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5" },
+                { "type": "text", "text": " them as a free action." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but if you succeed at the Athletics check to Grapple them, you get a critical success instead."
+                }
+              ]
             }
           },
           {

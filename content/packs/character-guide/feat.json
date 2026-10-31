@@ -4444,7 +4444,20 @@
           },
           {
             "type": "check",
-            "statistic": "skill:athletics"
+            "statistic": "skill:athletics",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The target is temporarily immune for 1 minute." }]
+            }
           },
           {
             "type": "text",

@@ -149,7 +149,31 @@
             "type": "check",
             "statistic": "save:will",
             "dc": 0,
-            "options": ["inflicts:enfeebled", "inflicts:stupefied"]
+            "options": ["inflicts:enfeebled", "inflicts:stupefied"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature takes half damage." }],
+              "success": [{ "type": "text", "text": "The creature takes full damage." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes "
+                },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 1" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                {
+                  "type": "text",
+                  "text": " for 1 day; this is a curse effect that uses the Will save DC as the counteract DC."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, except the creature becomes " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -1559,7 +1583,28 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "options": ["inflicts:frightened", "inflicts:immobilized", "inflicts:restrained"]
+            "options": ["inflicts:frightened", "inflicts:immobilized", "inflicts:restrained"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                { "type": "text", "text": " by fear until the end of the nosferatu's next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "b374c4c9-d230-5167-8878-38e08932a071" },
+                {
+                  "type": "text",
+                  "text": " and takes a –2 circumstance penalty to its Fortitude DC against the nosferatu's Drink Blood ability until the end of the nosferatu's next turn."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, and the target is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",

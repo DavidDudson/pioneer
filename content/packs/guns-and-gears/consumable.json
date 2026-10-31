@@ -537,7 +537,24 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 20
+            "dc": 20,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes full damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and " },
+                { "type": "damage", "instances": [{ "formula": "5", "damageType": "acid", "category": "persistent" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "10", "damageType": "acid", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -1345,7 +1362,23 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 28
+            "dc": 28,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                { "type": "text", "text": " for 1 round (Escape)." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage, is knocked prone, and is " },
+                { "type": "ref", "id": "b374c4c9-d230-5167-8878-38e08932a071" },
+                { "type": "text", "text": " for 1 round (Escape DC 28)." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3107,7 +3140,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 43
+            "dc": 43,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 4" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3257,7 +3304,21 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 19
+            "dc": 19,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and " },
+                { "type": "damage", "instances": [{ "formula": "3", "damageType": "bleed" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and " },
+                { "type": "damage", "instances": [{ "formula": "6", "damageType": "bleed" }] },
+                { "type": "text", "text": " damage." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3450,7 +3511,35 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The creature is unaffected and becomes temporarily immune for 1 minute." }
+              ],
+              "success": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "5e3582c3-701c-5169-9c69-4221096722c2" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature becomes fatigued and slowed 1, and must attempt another Fortitude save at the end of each of its turns. If it fails, its slowed condition increases by 1. A successful save reduces the slowed condition by 1. If the slowed condition is removed or reduced to 0, the effect and the fatigued condition end. If the target's actions are reduced to 0 by this effect, it immediately falls into a deep sleep and is "
+                },
+                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
+                {
+                  "type": "text",
+                  "text": ", during which it no longer attempts a save at the end of its turn. It wakes up automatically after 1 hour or if it takes damage, but not due to non-painful stimuli (such as noise or being nudged). When it wakes up, its slowed condition decreases by 1, though it must once again save at the end of each of its turns and might risk falling asleep again."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, except the target is initially " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3619,7 +3708,20 @@
           },
           {
             "type": "check",
-            "statistic": "skill:crafting"
+            "statistic": "skill:crafting",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "You gain the " },
+                { "type": "ref", "id": "6517bbf2-8085-534b-be6a-187d52739fa0" },
+                {
+                  "type": "text",
+                  "text": " condition for 1 minute and can use the extra action each round only to Stride or Strike."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "As critical success, but you also take 3 persistent electricity damage." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -8675,7 +8777,21 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 18
+            "dc": 18,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 minute." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -9074,7 +9190,21 @@
             "type": "check",
             "statistic": "save:fortitude",
             "dc": 25,
-            "options": ["inflicts:sickened"]
+            "options": ["inflicts:sickened"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -10894,7 +11024,35 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 31
+            "dc": 31,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature in unaffected," }],
+              "success": [
+                { "type": "text", "text": "The creature takes half damage and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage, " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2d6", "damageType": "piercing", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage, and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 minute." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage, " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "4d6", "damageType": "piercing", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage, and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 minute." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -12143,7 +12301,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 21
+            "dc": 21,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8" },
+                { "type": "text", "text": " 1." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8" },
+                { "type": "text", "text": " 2." }
+              ]
+            }
           },
           {
             "type": "text",

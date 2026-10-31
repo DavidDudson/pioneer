@@ -8216,6 +8216,19 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected and temporarily immune for 24 hours." }],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " for 1 minute." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": " for 1 minute." }
+              ]
             }
           },
           {
@@ -9744,6 +9757,24 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
+                { "type": "text", "text": " until the end of your next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947" },
+                { "type": "text", "text": " for 4 rounds." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is paralyzed for 4 rounds, knocked " },
+                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
+                { "type": "text", "text": " for 2 hours, or killed (your choice)." }
+              ]
             }
           },
           {

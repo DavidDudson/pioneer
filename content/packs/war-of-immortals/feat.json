@@ -4474,6 +4474,11 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [{ "type": "text", "text": "The target's attitude toward you improves by one step." }],
+              "criticalFailure": [{ "type": "text", "text": "The target's attitude toward you improves by two steps." }]
             }
           },
           {
@@ -7373,6 +7378,33 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "If the target is 14th level or lower, it drops to 1 Hit point. If the target is 15th level or higher, it takes "
+                },
+                { "type": "damage", "instances": [{ "formula": "50", "damageType": "spirit" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "If the target is 14th level or lower, it dies instantly. If the target is 15th level or higher, it takes "
+                },
+                { "type": "damage", "instances": [{ "formula": "50", "damageType": "spirit" }] },
+                {
+                  "type": "text",
+                  "text": " damage; if this damage brings it to 0 Hit Points, it dies instantly. Otherwise, it gains weakness 20 to all damage for 1 minute."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but a target who survives the damage is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " for 1 minute." }
+              ]
             }
           },
           {
@@ -13113,6 +13145,26 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is transported into a cell within your extradimensional dungeon for 1 minute. It is unable to leave or damage the cell in any way. Teleportation effects can't carry the target outside the cell unless they can also traverse the planes, such as interplanar teleport. At the end of each of its turns, it can attempt a new Will save to reduce the remaining duration it is imprisoned by 1 round or end it entirely on a critical success. When the duration ends, the target returns to the space it occupied when it was imprisoned, or to the nearest space if the original is now filled."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the target is stunned for the first round it is imprisoned."
+                }
+              ]
             }
           },
           {
@@ -15625,6 +15677,28 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "For the next 3 rounds, if the target performs an activity that requires three or more actions, they take "
+                },
+                { "type": "damage", "instances": [{ "formula": "12d8", "damageType": "mental" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "For the next 3 rounds, if the target performs an activity that requires two or more actions, they take 12d8 mental damage."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target is also " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " as its mind struggles to function." }
+              ]
             }
           },
           {
@@ -18070,6 +18144,26 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is blinded for as long as they are taking the persistent bleed damage and for 1 additional round thereafter."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the target also takes a –2 circumstance penalty to the flat check to remove the persistent bleed damage; a creature Administering First Aid to stop this persistent bleed damage takes a –2 circumstance penalty to the Medicine check."
+                }
+              ]
             }
           },
           {
@@ -19671,6 +19765,18 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [
+                { "type": "text", "text": "The creature regains the full number of Hit Points that would be healed." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature regains only half the number of Hit Points as the contradictory energies swirl within it."
+                }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The creature doesn't regain any Hit Points." }]
             }
           },
           {
@@ -21168,6 +21274,20 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature is pushed 5 feet away from you." }],
+              "failure": [
+                { "type": "text", "text": "The creature is pushed 10 feet away from you and takes " },
+                { "type": "damage", "instances": [{ "formula": "8d6", "damageType": "sonic" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is pushed 15 feet away from you and takes " },
+                { "type": "damage", "instances": [{ "formula": "16d6", "damageType": "sonic" }] },
+                { "type": "text", "text": " damage." }
+              ]
             }
           },
           {
@@ -22129,6 +22249,28 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": ", but can immediately Step as long it moves away from you." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " and you are " },
+                { "type": "ref", "id": "f410da96-b56a-5c7c-857b-7096defec0a1" },
+                { "type": "text", "text": " to that creature while it has the frightened condition." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": " and you are " },
+                { "type": "ref", "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa" },
+                { "type": "text", "text": " to that creature while it has the frightened condition." }
+              ]
             }
           },
           {
@@ -25418,7 +25560,56 @@
           {
             "type": "check",
             "statistic": "flat",
-            "dc": 5
+            "dc": 5,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "Enemies within a " },
+                { "type": "template", "shape": "burst", "size": 10 },
+                {
+                  "type": "text",
+                  "text": " centered on the target of the spell or within the spell's area of effect take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2*@level", "damageType": "sonic" }],
+                  "label": "sonic damage"
+                },
+                { "type": "text", "text": " equal to twice your level (" },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": { "against": "class-or-spell-dc" },
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " saving throw against your class DC or spell DC, whichever is higher). Those who fail the save are also knocked "
+                },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Enemies within a 10-foot radius burst centered on the target of the spell or within the spell's area of effect take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "@level", "damageType": "sonic" }],
+                  "label": "sonic damage"
+                },
+                {
+                  "type": "text",
+                  "text": " equal to your level (basic Fortitude saving throw against your class DC or spell DC, whichever is higher). Those who critically fail the save are also knocked prone."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "All creatures within a 10-foot radius burst centered on you take sonic damage equal to your level (basic Fortitude saving throw against your class DC or spell DC, whichever is higher). Those who fail the save are also knocked prone."
+                }
+              ]
+            }
           },
           {
             "type": "text",

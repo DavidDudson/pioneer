@@ -4137,7 +4137,25 @@
           {
             "type": "check",
             "statistic": "flat",
-            "dc": 5
+            "dc": 5,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "As success, but the ritual lasts for 1 year." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You ward the affected creatures from each other. This ritual lasts for 1 month."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "You fail to bend the fates of the targets away from each other." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You accidentally intertwine your fate with those of the targets. For the next year, whenever you start your turn within 100 feet of one of the targets, you must spend at least one action per turn moving closer to them. If you are adjacent to one of the targets at the start of your turn, you must spend an action that turn doing nothing but looking at them. If you start your turn within 100 feet of both targets, these effects are cumulative, so you must spend one action moving toward one target and then another action moving toward the other."
+                }
+              ]
+            }
           },
           {
             "type": "text",

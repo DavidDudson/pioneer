@@ -46,6 +46,27 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target avoids any additional effect." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target takes a –5 circumstance penalty to all their movement Speeds for 1 round as arcane coils of magic meddle with their mobility."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but a –5 foot circumstance penalty for 1 minute. While the target is affected by this, Anchoring Arrow attempts to counteract any teleportation effect that would move the target, or any effect that would transport the target to a different plane. The arrow has a counteract rank of 7th and a +20 modifier to the roll."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, except a –10 foot circumstance penalty, and the duration is 10 minutes."
+                }
+              ]
             }
           },
           {
@@ -357,6 +378,20 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The demon takes no damage." }],
+              "success": [{ "type": "text", "text": "The demon takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The demon takes full damage and is " },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The demon takes full damage and is permanently " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {

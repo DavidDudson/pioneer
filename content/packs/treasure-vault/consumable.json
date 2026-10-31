@@ -3377,7 +3377,23 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 39
+            "dc": 39,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " but gains a +2 circumstance bonus to " },
+                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
+                { "type": "text", "text": " the ammunition's effect." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is slowed 1." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3552,7 +3568,23 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 25
+            "dc": 25,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " but gains a +2 circumstance bonus to " },
+                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
+                { "type": "text", "text": " the ammunition's effect." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is slowed 1." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3727,7 +3759,23 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 31
+            "dc": 31,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " but gains a +2 circumstance bonus to " },
+                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
+                { "type": "text", "text": " the ammunition's effect." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is slowed 1." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -6748,7 +6796,30 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 25
+            "dc": 25,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The creature is clumsy 1 and stupefied 1 for 1d4 rounds." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": ", " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": ", and " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                {
+                  "type": "text",
+                  "text": ". The clumsy and stupefied conditions last until 1d4 rounds after the sickened condition ends."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -6954,7 +7025,30 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 31
+            "dc": 31,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The creature is clumsy 1 and stupefied 1 for 1d4 rounds." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": ", " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": ", and " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                {
+                  "type": "text",
+                  "text": ". The clumsy and stupefied conditions last until 1d4 rounds after the sickened condition ends."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -7160,7 +7254,30 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 40
+            "dc": 40,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The creature is clumsy 1 and stupefied 1 for 1d4 rounds." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": ", " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": ", and " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                {
+                  "type": "text",
+                  "text": ". The clumsy and stupefied conditions last until 1d4 rounds after the sickened condition ends."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -18684,7 +18801,25 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 29
+            "dc": 29,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is stupefied 1 for 1 minute and " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1d4 rounds." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": " and slowed 1 for 1 minute." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -18862,7 +18997,25 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 37
+            "dc": 37,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is stupefied 1 for 1 minute and " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1d4 rounds." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": " and slowed 1 for 1 minute." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -19040,7 +19193,25 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 23
+            "dc": 23,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is stupefied 1 for 1 minute and " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1d4 rounds." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": " and slowed 1 for 1 minute." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -20730,7 +20901,24 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 38
+            "dc": 38,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The oil becomes inert, and the effect ends." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target reduces its slowed condition by 1. If the slowed condition's value is 0, the effect ends."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target increases its slowed condition by 1, to a maximum of " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 3" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target increases its slowed condition by 2, to a maximum of slowed 3." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -20890,7 +21078,24 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 20
+            "dc": 20,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The oil becomes inert, and the effect ends." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target reduces its slowed condition by 1. If the slowed condition's value is 0, the effect ends."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target increases its slowed condition by 1, to a maximum of " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 3" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target increases its slowed condition by 2, to a maximum of slowed 3." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -21050,7 +21255,24 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 29
+            "dc": 29,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The oil becomes inert, and the effect ends." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target reduces its slowed condition by 1. If the slowed condition's value is 0, the effect ends."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target increases its slowed condition by 1, to a maximum of " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 3" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target increases its slowed condition by 2, to a maximum of slowed 3." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -22422,7 +22644,22 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 33
+            "dc": 33,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature must roll twice and take the worse result on the next check it attempts."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature must roll twice and take the worse result on all checks until the end of its next turn."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -24232,7 +24469,27 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 38
+            "dc": 38,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The dust becomes inert, and the creature returns to its normal size." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target increases in size one step, up to its normal size. If it's at its normal size after the increase, the effect ends."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target decreases in size one step, to a minimum of Tiny. The reach of each of its Strikes decreases by 5 feet, to a minimum of 5 feet if the creature is Small or larger, or a minimum of 0 feet if the creature is Tiny. Shrinking also imposes a status penalty to the creature's physical melee damage. This penalty is –2 for every step lower than its normal size the creature is."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target decreases in size by two steps." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -24374,7 +24631,27 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 20
+            "dc": 20,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The dust becomes inert, and the creature returns to its normal size." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target increases in size one step, up to its normal size. If it's at its normal size after the increase, the effect ends."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target decreases in size one step, to a minimum of Tiny. The reach of each of its Strikes decreases by 5 feet, to a minimum of 5 feet if the creature is Small or larger, or a minimum of 0 feet if the creature is Tiny. Shrinking also imposes a status penalty to the creature's physical melee damage. This penalty is –2 for every step lower than its normal size the creature is."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target decreases in size by two steps." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -24516,7 +24793,27 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 29
+            "dc": 29,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The dust becomes inert, and the creature returns to its normal size." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target increases in size one step, up to its normal size. If it's at its normal size after the increase, the effect ends."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target decreases in size one step, to a minimum of Tiny. The reach of each of its Strikes decreases by 5 feet, to a minimum of 5 feet if the creature is Small or larger, or a minimum of 0 feet if the creature is Tiny. Shrinking also imposes a status penalty to the creature's physical melee damage. This penalty is –2 for every step lower than its normal size the creature is."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target decreases in size by two steps." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -27813,7 +28110,33 @@
           {
             "type": "check",
             "statistic": "skill:crafting",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The object you painted emerges from the surface as a real, permanent object no larger than 10 feet in any dimension. It's non-magical and inanimate and has no value except to certain art collectors. If you paint a creature, machine, or form of energy (such as a campfire), these depictions appear only as inanimate sculptures. The created object has a painterly appearance that clearly marks its unusual origin, but is as real as any other."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the object constantly sheds flakes of paint until it falls apart, destroyed, after 24 hours."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The pigments leave a painting that doesn't quite look right and doesn't become an object."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Is it a dog? Whatever you made is a pretty lousy painting and doesn't resemble what you set out to make."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -31611,7 +31934,27 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 23
+            "dc": 23,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " for 1 round." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -34977,7 +35320,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 38
+            "dc": 38,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -35256,7 +35613,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 24
+            "dc": 24,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -35535,7 +35906,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -60720,7 +61105,25 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                { "type": "text", "text": " and unable to breathe until this sickened condition ends." }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As success, but " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 3" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -60898,7 +61301,17 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 28
+            "dc": 28,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature is pushed 10 feet." }],
+              "failure": [{ "type": "text", "text": "The creature is pushed 20 feet." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is pushed 20 feet and knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",

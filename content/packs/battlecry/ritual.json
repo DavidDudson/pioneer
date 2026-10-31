@@ -1213,7 +1213,25 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 20
+            "dc": 20,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Each affected siege weapon's Hardness increases by 10, and its maximum Hit Points increase by an amount equal to three times the siege weapon's level."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Each affected siege weapon's Hardness increases by 5, and its maximum Hit Points increase by an amount equal to twice the siege weapon's level."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The ritual has no effect." }],
+              "criticalFailure": [
+                { "type": "text", "text": "All allied siege weapons in the area gain the broken condition." }
+              ]
+            }
           },
           {
             "type": "text",

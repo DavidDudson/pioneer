@@ -566,7 +566,28 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 18
+            "dc": 18,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
+                }
+              ],
+              "success": [{ "type": "text", "text": "The character is unaffected by Meloth's influence this round." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "Meloth's Lifedrinker fuses with the character. As part of this bond, Meloth absorbs some of the character's life, reducing the character's maximum HP by 6 (to a minimum of 1) for as long as the character remains fused to the sword. Meloth now communicates with the fused character via telepathy—encouraging them through lies, coercion, and threats to commit more and more atrocities while seeking a way to somehow free him from this prison."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but it reduces the character's maximum HP by 12 (to a minimum of 1)."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -800,7 +821,28 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 18
+            "dc": 18,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
+                }
+              ],
+              "success": [{ "type": "text", "text": "The character is unaffected by Meloth's influence this round." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "Meloth's Lifedrinker fuses with the character. As part of this bond, Meloth absorbs some of the character's life, reducing the character's maximum HP by 6 (to a minimum of 1) for as long as the character remains fused to the sword. Meloth now communicates with the fused character via telepathy—encouraging them through lies, coercion, and threats to commit more and more atrocities while seeking a way to somehow free him from this prison."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but it reduces the character's maximum HP by 12 (to a minimum of 1)."
+                }
+              ]
+            }
           },
           {
             "type": "text",

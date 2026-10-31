@@ -947,7 +947,21 @@
           {
             "type": "check",
             "statistic": "skill:crafting",
-            "dc": 35
+            "dc": 35,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Once in the next hour, the creature wearing the polished armor can use a reaction to shine majestically. This reaction is triggered when they would be affected by a spell or ability with the darkness trait. The creature attempts a counteract check against the triggering effect using your Crafting modifier. Additionally, the creature wearing the polished armor gains an additional reaction at the start of each of their turns that can be only used for this reaction."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the creature wearing the polished armor doesn't gain an additional reaction at the start of each of their turns."
+                }
+              ]
+            }
           },
           {
             "type": "text",

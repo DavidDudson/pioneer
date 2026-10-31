@@ -364,6 +364,20 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is stupefied 1 for 1d4 rounds." }],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is stupefied 1 and " },
+                { "type": "ref", "id": "6f53a234-670f-5b02-a986-7cce57585fc8" },
+                { "type": "text", "text": " for 1d4 rounds." }
+              ]
             }
           },
           {

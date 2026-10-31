@@ -11,8 +11,12 @@ import { ContentEntryFile } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
+import { addOutcomesToText } from './apply-outcomes.ts';
+import type { FreshDescriptions } from './apply-outcomes.ts';
 import { clearAppliedGaps, gappedEntries, mergeRules, withMergedRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
+import { addReports, NO_REPORT } from './outcomes-report.ts';
+import type { OutcomesReport } from './outcomes-report.ts';
 import { backlogPath, importedDirectory, PACKS_DIRECTORY } from './pack-writes.ts';
 import type { PackTargets, PackWrite } from './pack-writes.ts';
 
@@ -124,4 +128,56 @@ export async function applyRules(
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAndFormat([...files, cleared]);
   return { written, applied: merge.size };
+}
+
+/** The files `applyOutcomes` wrote, and what the merge did. */
+export interface OutcomesOutput {
+  readonly written: readonly string[];
+  readonly report: OutcomesReport;
+}
+
+/** A committed file, its text once the outcomes are in, and what that did. */
+interface FileMerge {
+  readonly file: string;
+  readonly text: string;
+  readonly report: OutcomesReport;
+}
+
+/** The import's description of each entry, by id. */
+function freshDescriptions(output: PackOutput): FreshDescriptions {
+  return new Map(output.entries.map((entry) => [entry.id, entry.description]));
+}
+
+/** Each entry file of the target pack with the outcomes of `fresh` in its text. */
+async function outcomeMerges(fresh: FreshDescriptions, targets: PackTargets): Promise<readonly FileMerge[]> {
+  const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
+  const scanned = await scan('*.json', directory);
+  const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
+  return Promise.all(
+    files.map(async (file): Promise<FileMerge> => {
+      const merge = addOutcomesToText(await Bun.file(path.join(ROOT, file)).text(), fresh);
+      return { file, text: merge.text, report: merge.report };
+    }),
+  );
+}
+
+function totalReport(merges: readonly FileMerge[]): OutcomesReport {
+  let report = NO_REPORT;
+  for (const each of merges) {
+    report = addReports(report, each.report);
+  }
+  return report;
+}
+
+/**
+ * Adds the outcomes the import builds for each check to the committed descriptions (`apply-outcomes.ts`), in the files'
+ * own text so nothing else in them moves, and formats the entry files that changed. The backlog stays as it is.
+ */
+export async function applyOutcomes(output: PackOutput, targets: PackTargets): Promise<OutcomesOutput> {
+  const merged = await outcomeMerges(freshDescriptions(output), targets);
+  const changed = merged.filter(({ report }) => report.added > 0);
+  await Promise.all(changed.map(async ({ file, text }) => Bun.write(path.join(ROOT, file), text)));
+  const written = changed.map(({ file }) => file);
+  await format(written);
+  return { written, report: totalReport(merged) };
 }

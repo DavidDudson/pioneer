@@ -102,7 +102,20 @@
             "type": "check",
             "statistic": "save:will",
             "dc": 19,
-            "options": ["inflicts:clumsy"]
+            "options": ["inflicts:clumsy"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [{ "type": "text", "text": "The target can't use reactions until the end your turn." }],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " and can't use reactions until the beginning of your next turn." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" }
+              ]
+            }
           },
           {
             "type": "text",

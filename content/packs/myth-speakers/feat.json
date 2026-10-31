@@ -1427,7 +1427,33 @@
           },
           {
             "type": "check",
-            "statistic": "skill:religion"
+            "statistic": "skill:religion",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The next time the afflicted creature attempts a saving throw against the affliction, they automatically gain a critical success. If this results in the affliction coming to an end, you gain 1 Mythic Point."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The next time the afflicted creature attempts a saving throw against the affliction, they gain a +1 circumstance bonus to the roll and increase the result of the saving throw by one degree of success."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The next time the afflicted creature attempts a saving throw against the affliction, they gain a +1 circumstance bonus."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You share the afflicted's fate, and are exposed to their affliction. You must immediately save against the affliction's effect."
+                }
+              ]
+            }
           },
           {
             "type": "text",

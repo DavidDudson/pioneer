@@ -1896,7 +1896,25 @@
             "type": "check",
             "statistic": "save:fortitude",
             "dc": 28,
-            "options": ["inflicts:off-guard", "inflicts:slowed", "inflicts:stunned"]
+            "options": ["inflicts:off-guard", "inflicts:slowed", "inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of your next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " and is then slowed 1 for 1 round after the stun effect ends." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -2058,7 +2076,21 @@
             "type": "check",
             "statistic": "save:fortitude",
             "dc": 16,
-            "options": ["inflicts:off-guard", "inflicts:immobilized"]
+            "options": ["inflicts:off-guard", "inflicts:immobilized"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The creature is immobilized until it Escapes." }]
+            }
           },
           {
             "type": "text",

@@ -1941,6 +1941,17 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The creature is unaffected, and the curse's energy dissipates harmlessly." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature comes to house the maelstrom's wrath within it. It takes a -1 status penalty to all saving throws and skill checks for 1 minute."
+                }
+              ]
             }
           },
           {
@@ -2103,7 +2114,35 @@
           },
           {
             "type": "check",
-            "statistic": "skill:lore:esoteric"
+            "statistic": "skill:lore:esoteric",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You remember the creature's weaknesses, and as you empower your esoterica, you have a flash of insight that grants even more knowledge about the creature. You learn all of the creature's resistances, weaknesses, and immunities, including the amounts of the resistances and weaknesses and any unusual weaknesses or vulnerabilities, such as an oni's bean panic. You can exploit either the creature's mortal weakness or personal antithesis (see below). Your unarmed and weapon Strikes against the creature also become magical if they weren't already."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You recall an important fact about the creature, learning its highest weakness (or one of its highest weaknesses, if it has multiple with the same value) but not its other weaknesses, resistances, or immunities. You can exploit either the creature's mortal weakness or personal antithesis. Your unarmed and weapon Strikes against the creature also become magical if they weren't already."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "Failing to recall a salient weakness about the creature, you instead attempt to exploit a more personal vulnerability. You can exploit only the creature's personal antithesis. Your unarmed and weapon Strikes against the creature also become magical if they weren't already."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You couldn't remember the right object to use and become distracted while you rummage through your esoterica. You become "
+                },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of your next turn." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3796,7 +3835,33 @@
           },
           {
             "type": "check",
-            "statistic": "skill:society"
+            "statistic": "skill:society",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Not only is the secret society member exonerated but they also manage to stay clean in the eyes of the public. Those who attempted to bring them to justice are called in for harassment, libel, filing frivolous charges, or other trumped-up indictments."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The secret society member is declared not guilty and exonerated of their crimes in the eyes of the law."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "While the secret society member is initially declared guilty, they're released on a technicality, or manage to bribe or sneak their way out. While they're free, their reputation has been damaged."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Justice prevails, and the secret society member can't escape their sentence. Their society likely cuts ties with them and might turn to more dramatic means to ensure they can't expose the society."
+                }
+              ]
+            }
           },
           {
             "type": "text",

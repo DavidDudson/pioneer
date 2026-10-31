@@ -1472,6 +1472,18 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "Your condemnation frays the fabric of the target's soul. The target gains weakness to fire and spirit damage equal to half your level for 1 minute. Only you can trigger this weakness."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but any creature can trigger the creature's weakness." }
+              ]
             }
           },
           {
@@ -1935,6 +1947,22 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The enemy is unable to use reactions until the start of their next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, and they are " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As success, and they are " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": " for 1 round." }
+              ]
             }
           },
           {
@@ -4633,6 +4661,34 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target knows of your intent, but is otherwise unaffected. The target becomes temporarily immune to this ritual for 1 week."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is wracked by a sense of dread at your approach. The next time the target sees you before your next daily preparations, they become "
+                },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but the target becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " when they see you. They also become " },
+                { "type": "ref", "id": "5e3582c3-701c-5169-9c69-4221096722c2" },
+                { "type": "text", "text": " by the impending terror for 10 minutes after you perform this ritual." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target is " },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
+                { "type": "text", "text": " for as long as it is fatigued." }
+              ]
             }
           },
           {
@@ -7995,7 +8051,21 @@
           },
           {
             "type": "check",
-            "statistic": "skill:intimidation"
+            "statistic": "skill:intimidation",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The ally gains temporary Hit Points equal to twice your level that remain for 1 round. The ally gains a +10-foot circumstance bonus to their Speeds for 1 round. Reduce the ally's frightened value by 2. If the ally wasn't frightened, they instead gain a +1 circumstance bonus to saving throws against fear for 1 minute."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The ally gains temporary Hit Points equal to your level that remain for 1 round. The ally gains a +5-foot circumstance bonus to their Speeds for 1 round. Reduce the ally's frightened value by 1. If the ally wasn't frightened, they instead gain a +1 circumstance bonus to their next saving throw against fear they attempt within the next minute."
+                }
+              ]
+            }
           },
           {
             "type": "text",

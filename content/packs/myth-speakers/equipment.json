@@ -828,7 +828,16 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 21
+            "dc": 21,
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature's fond memory of the doll's approval overwhelms any hard feelings the creature has toward you; it doesn't act against you as a result of your coercion unless your demands were truly shocking (such as forcing them to violate any anathema they have or betray a close ally)."
+                }
+              ]
+            }
           },
           {
             "type": "text",

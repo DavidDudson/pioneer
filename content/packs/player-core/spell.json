@@ -29704,7 +29704,17 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The composition lasts 4 rounds." }],
+              "success": [{ "type": "text", "text": "The composition lasts 3 rounds." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The composition lasts 1 round, but you don't spend the Focus Point for casting this spell."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -39815,7 +39825,23 @@
           },
           {
             "type": "check",
-            "statistic": "skill:thievery"
+            "statistic": "skill:thievery",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target solves the puzzle and escapes." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is on the right path to the solution. If it was already on the right path, it solves the puzzle and escapes."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The target makes no progress toward a solution." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target makes no progress and, if it was on the right path, it no longer is."
+                }
+              ]
+            }
           },
           {
             "type": "text",

@@ -557,6 +557,42 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2", "damageType": "spirit", "category": "persistent" }]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "4", "damageType": "spirit", "category": "persistent" }]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "6", "damageType": "spirit", "category": "persistent" }]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. The first time the creature fails their flat check to recover from this, the persistent spirit damage doubles."
+                }
+              ]
             }
           },
           {

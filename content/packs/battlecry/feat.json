@@ -1914,7 +1914,22 @@
           },
           {
             "type": "check",
-            "statistic": "skill:thievery"
+            "statistic": "skill:thievery",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The next time the weapon is Launched or the vehicle moves, it targets or moves to a square of your choice instead of its intended target."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the weapon or vehicle targets or moves to a random square."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The sabotage fails." }]
+            }
           },
           {
             "type": "text",
@@ -2252,7 +2267,24 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:stunned"]
+            "options": ["inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Choose an ally. Until the start of your next turn, the creature can't use reactions against that ally."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature can't use reactions until the start of your next turn." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, plus the creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -4624,7 +4656,29 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:fleeing", "inflicts:prone"]
+            "options": ["inflicts:fleeing", "inflicts:prone"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature cannot take any hostile actions that include you as a target for 1 round."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, and the target is " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature drops any weapons or items it is holding, lies " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                {
+                  "type": "text",
+                  "text": " on the ground, and does not take any hostile actions against you or your allies for 1 minute, or until you or one of your allies attacks it."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -4761,7 +4815,28 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:clumsy", "inflicts:off-guard"]
+            "options": ["inflicts:clumsy", "inflicts:off-guard"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target takes no additional effect." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the end of your next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn. Once it loses this clumsy condition, it's off-guard for 1 round."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 3" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -5117,7 +5192,25 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:off-guard", "inflicts:prone", "inflicts:stunned"]
+            "options": ["inflicts:off-guard", "inflicts:prone", "inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target takes no additional effect." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " to you until the end of the current turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is knocked prone and " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -6106,7 +6199,19 @@
           },
           {
             "type": "check",
-            "statistic": "skill:deception"
+            "statistic": "skill:deception",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -6643,7 +6748,27 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:frightened", "inflicts:fleeing"]
+            "options": ["inflicts:frightened", "inflicts:fleeing"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " for 1 round." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -8530,7 +8655,18 @@
           },
           {
             "type": "check",
-            "statistic": "skill:deception"
+            "statistic": "skill:deception",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target gains weakness to the selected type of damage equal to 3 + half your level for 1 round."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "The target gains weakness 5 to the selected type of damage for 1 round." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -10978,7 +11114,39 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:controlled", "inflicts:stunned"]
+            "options": ["inflicts:controlled", "inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is uninterested in joining you and is temporarily immune to further uses of this ability for 24 hours."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " as it is forced to consider the merits of your offer." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target swaps sides and joins you for the duration of the battle. It gains the "
+                },
+                { "type": "ref", "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341" },
+                { "type": "text", "text": " condition, but it can attempt a " },
+                { "type": "check", "statistic": "save:will", "dc": { "against": "class-dc" } },
+                {
+                  "type": "text",
+                  "text": " save whenever it takes damage or whenever you direct it to take an action that goes against its nature. On a success, the effect ends and it rejoins its former allies."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As a failure, but the target is so impressed by your leadership that it thanks you for the privilege of fighting alongside you; if it is still alive at the end of combat, it turns over any coins, wealth or other monetary possessions it has as tribute."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -13504,7 +13672,27 @@
           },
           {
             "type": "check",
-            "statistic": "skill:diplomacy"
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You adjust the starting attitude of the settlement's inhabitants toward the targeted faction by two steps. In addition, you gain a +1 circumstance bonus on initiative rolls made in encounters that include members of your targeted faction while in the settlement for 1 week."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the inhabitants' attitude is adjusted by one step."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The propaganda attempt backfires. The attitude of the settlement's inhabitants toward you decreases by one step."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -15265,7 +15453,25 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:stunned"]
+            "options": ["inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -17389,6 +17595,16 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The opponent completes its attack against your ally." }],
+              "failure": [{ "type": "text", "text": "The opponent targets you with the triggering attack instead." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, and you gain a +2 circumstance bonus to your AC against the triggering attack."
+                }
+              ]
             }
           },
           {
@@ -17602,7 +17818,25 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:off-guard", "inflicts:prone"]
+            "options": ["inflicts:off-guard", "inflicts:prone"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the end of your turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is knocked prone and takes " },
+                { "type": "damage", "instances": [{ "formula": "1d6", "damageType": "bludgeoning" }] },
+                { "type": "text", "text": " damage from the fall." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -19157,6 +19391,24 @@
             "statistic": "save:will",
             "dc": {
               "against": "spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature takes half damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature takes full damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
