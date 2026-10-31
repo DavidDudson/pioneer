@@ -1142,6 +1142,13 @@
       "ruleBreaking": "Breaks a rule",
       "approvedByGm": "Approved by the GM",
       "keyItem": "Key item",
+      "load": "Holds {held} of {capacity} Bulk",
+      "loadUnlimited": "Holds {held} Bulk",
+      "loadEffect": {
+        "addsAll": "Everything inside counts",
+        "ignores": "Ignores some of what it holds",
+        "addsNone": "Adds no Bulk"
+      },
       "runedName": "{runes} {name}"
     },
     "runes": {
