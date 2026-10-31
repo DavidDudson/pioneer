@@ -70,7 +70,7 @@ describe('classTokenProblem: sharp and flat', () => {
     expect(classTokenProblem(classes, false)?.messageId).toBe('sharp');
   });
 
-  test('allows the one pill radius (ADR-0074)', () => {
-    expect(classTokenProblem('rounded-pill', false)).toBeUndefined();
+  test('allows the one toast radius (ADR-0074)', () => {
+    expect(classTokenProblem('rounded-toast', false)).toBeUndefined();
   });
 });

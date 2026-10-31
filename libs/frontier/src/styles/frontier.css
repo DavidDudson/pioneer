@@ -28,8 +28,8 @@
   --font-*: initial;
   --font-weight-*: initial;
   --radius-*: initial;
-  /* The one radius: the roll toast is a pill (ADR-0074). Everything else stays square. */
-  --radius-pill: 9999px;
+  /* The one radius: the roll toast has large rounded corners (ADR-0074). Everything else stays square. */
+  --radius-toast: 1rem;
   --shadow-*: initial;
   --inset-shadow-*: initial;
   --drop-shadow-*: initial;

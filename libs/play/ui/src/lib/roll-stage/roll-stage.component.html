@@ -4,6 +4,7 @@
 <fr-toast [open]="view() !== undefined">
   @if (view(); as shown) {
     <fr-stack align="center" gap="2xs">
+      <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
       @for (line of shown.lines; track $index) {
         <fr-stack direction="horizontal" align="baseline" gap="xs">
           <fr-text [variant]="Heading" [weight]="Bold" [damage]="line.tone" [numeric]="true">{{ line.total }}</fr-text>
@@ -12,7 +13,6 @@
           }
         </fr-stack>
       }
-      <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
     </fr-stack>
   }
 </fr-toast>

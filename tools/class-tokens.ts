@@ -49,8 +49,8 @@ export interface ClassTokenProblem {
 
 const ARBITRARY = /[[\]()]/u;
 const PIXEL = /(?:^|-)px$|\dpx\b/u;
-/** Corner radius (but for the one `rounded-pill`, ADR-0074) and every shadow-like utility (box, inset, ring, drop, text). */
-const SHARP = /^(?:rounded(?!-pill$)|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-shadow)(?:-|$)/u;
+/** Corner radius (but for the one `rounded-toast`, ADR-0074) and every shadow-like utility (box, inset, ring, drop, text). */
+const SHARP = /^(?:rounded(?!-toast$)|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-shadow)(?:-|$)/u;
 /** Token steps like `2xs` / `3xl`: digits that are part of a name, not a value. */
 const TOKEN_STEP = /(?<=-)\d?x[sl](?=$|-)/gu;
 const DIGIT = /\d/u;

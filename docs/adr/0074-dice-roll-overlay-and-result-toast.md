@@ -17,8 +17,8 @@ the play page and inline text rolls.
 1. **Roll overlay.** While a roll plays, a transparent canvas covers the viewport. It is `aria-hidden`,
    `pointer-events: none` and holds no focus, so the page stays interactive underneath. It is mounted for the roll
    and removed when the dice have settled and faded out.
-2. **Roll toast.** When the dice settle, a small pill-shaped `role="status"` toast at the bottom centre shows one
-   row per damage type, each its total in that type's colour with the type's name, then the roll's name. Dice and flat
+2. **Roll toast.** When the dice settle, a small rounded `role="status"` toast at the bottom centre shows the
+   roll's name, then one row per damage type, each its total in that type's colour with the type's name. Dice and flat
    terms count alike: `1d6[fire]+10[force]` shows a fire row and a force row. Terms with no type share one plain row,
    so an untyped roll shows its total alone. It dismisses itself after a short delay, a newer roll replaces it, and it
    is the accessible way to learn the result. It never holds a control the player must use, with one future exception: a
@@ -31,8 +31,8 @@ the play page and inline text rolls.
 6. **Library.** `@3d-dice/dice-box-threejs` (Three.js and cannon-es), loaded with a dynamic import on the first roll
    so it stays out of the initial bundle. It was chosen over `@3d-dice/dice-box` because only it can land on faces
    the caller gives it. Its textures are static assets of the web app.
-7. **Pill.** The toast is round-ended, which frontier's sharp-and-flat rule forbids. `--radius-pill` and
-   `rounded-pill` are the one radius, used by `fr-toast` alone; `pioneer/class-tokens` and the built-CSS check allow
+7. **Corners.** The toast has large rounded corners, which frontier's sharp-and-flat rule forbids. `--radius-toast` and
+   `rounded-toast` are the one radius, used by `fr-toast` alone; `pioneer/class-tokens` and the built-CSS check allow
    that utility and nothing else.
 8. **Colour.** Dice and each row's total are coloured by damage type from frontier tokens (`--fr-damage-<type>`), read
    from the computed style when the dice are built, so both themes and modes work. Each row also names its type: colour

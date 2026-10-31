@@ -18,7 +18,7 @@ const meta: Meta<Toast> = {
 };
 export default meta;
 
-/** The roll result pill, bottom centre. */
+/** The roll result toast, bottom centre. */
 export const Open: ToastStory = {};
 
 /** Only the empty status region is left in the page. */

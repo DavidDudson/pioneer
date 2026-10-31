@@ -24,7 +24,7 @@ interface DamageLine {
   readonly typeKey: string | undefined;
 }
 
-/** A finished roll as the stage shows it: the dice to throw, then the pill that names the result. */
+/** A finished roll as the stage shows it: the dice to throw, then the toast that names the result. */
 export interface RollPresentation {
   readonly id: number;
   readonly label: string;

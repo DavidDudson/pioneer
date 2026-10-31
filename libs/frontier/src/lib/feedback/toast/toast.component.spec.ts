@@ -21,7 +21,7 @@ async function render(open: boolean): Promise<HTMLElement> {
 }
 
 describe(Toast, () => {
-  it('is a polite status region, pinned to the bottom centre and click-through around the pill', async () => {
+  it('is a polite status region, pinned to the bottom centre and click-through around the toast', async () => {
     const host = await render(true);
     expect([...host.classList]).toStrictEqual(
       expect.arrayContaining(['fixed', 'bottom-lg', 'justify-center', 'pointer-events-none']),
@@ -29,14 +29,14 @@ describe(Toast, () => {
     expect(host.querySelector('[role="status"]')).not.toBeNull();
   });
 
-  it('shows the projected content in a pill while open', async () => {
+  it('shows the projected content in the toast while open', async () => {
     const host = await render(true);
-    const pill = host.querySelector('[role="status"] > div');
-    expect(pill?.textContent.trim()).toBe('16');
-    expect(pill?.classList.contains('rounded-pill')).toBe(true);
+    const toast = host.querySelector('[role="status"] > div');
+    expect(toast?.textContent.trim()).toBe('16');
+    expect(toast?.classList.contains('rounded-toast')).toBe(true);
   });
 
-  it('keeps an empty status region while closed, with no pill', async () => {
+  it('keeps an empty status region while closed, with no toast', async () => {
     const host = await render(false);
     const status = host.querySelector('[role="status"]');
     expect(status).not.toBeNull();

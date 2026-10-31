@@ -23,7 +23,7 @@ describe(presentRoll, () => {
     expect(shown.lines).toStrictEqual([{ total: 16, tone: undefined, typeKey: undefined }]);
   });
 
-  it('colours the dice and the pill by damage type and names the type', () => {
+  it('colours the dice and the toast by damage type and names the type', () => {
     const shown = presentRoll(2, 'Fireball', roll('6d6[fire]', [1, 2, 3, 4, 5, 6]));
     expect(shown.groups).toStrictEqual([{ notation: '6d6@1,2,3,4,5,6', tone: DamageTone.Fire }]);
     expect(shown.lines).toStrictEqual([{ total: 21, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' }]);

@@ -73,7 +73,7 @@ const meta: Meta<RollStageDemo> = {
 };
 export default meta;
 
-/** Press a button: the dice roll across the whole canvas, then the pill appears bottom centre. */
+/** Press a button: the dice roll across the whole canvas, then the toast appears bottom centre. */
 export const Rolls: RollStageStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

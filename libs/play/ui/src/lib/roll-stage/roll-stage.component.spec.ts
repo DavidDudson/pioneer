@@ -80,7 +80,7 @@ describe(RollStage, () => {
     expect(host.querySelector('fr-screen-overlay')).toBeNull();
   });
 
-  it('names the result in a pill: the total, the roll and the damage type, coloured by that type', async () => {
+  it('names the result in the toast: the total, the roll and the damage type, coloured by that type', async () => {
     reduceMotion(true);
     const { fixture, presenter } = await render();
     presenter.present(FIREBALL);
@@ -92,7 +92,7 @@ describe(RollStage, () => {
     expect(status?.querySelector('.text-damage-fire')?.textContent.trim()).toBe('21');
   });
 
-  it('shows one pill row per damage type, each in its own colour', async () => {
+  it('shows one toast row per damage type, each in its own colour', async () => {
     reduceMotion(true);
     const { fixture, presenter } = await render();
     presenter.present(LONGSWORD);
@@ -114,7 +114,7 @@ describe(RollStage, () => {
     expect(status?.querySelector('[class*="text-damage-"]')).toBeNull();
   });
 
-  it('puts the dice on an overlay while they roll, and shows no pill until they settle', async () => {
+  it('puts the dice on an overlay while they roll, and shows no toast until they settle', async () => {
     reduceMotion(false);
     const { fixture, presenter, surfaces } = await render();
     presenter.present(FIREBALL);

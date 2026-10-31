@@ -20,9 +20,9 @@ interface ToastView {
 }
 
 /**
- * Where rolls play: the dice tumbling across the whole screen, then a pill at the bottom centre with the result,
+ * Where rolls play: the dice tumbling across the whole screen, then a toast at the bottom centre with the result,
  * coloured by damage type (ADR-0074). Mounted once on a page that rolls; `RollPresenter` says what to show. The dice
- * never take a click, and the pill is a polite status for screen readers.
+ * never take a click, and the toast is a polite status for screen readers.
  *
  * ```html
  * <pio-roll-stage />
