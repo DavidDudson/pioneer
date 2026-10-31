@@ -38,6 +38,8 @@ const NAMES: PrerequisiteNames = {
     ['sarenrae', [named(ContentKind.Deity, 'deity:primary:sarenrae')]],
     ["warden's boon", [named(ContentKind.Feat, 'feat:wardens-boon')]],
     ['animal companion', [named(ContentKind.Feat, 'feat:animal-companion')]],
+    ['warrior muse', [named(ContentKind.ClassFeature, 'feature:warrior')]],
+    ['storm order', [named(ContentKind.ClassFeature, 'feature:storm-order')]],
   ]),
   variants: new Map([
     ['animal companion', [named(ContentKind.Feat, 'feat:animal-companion-ranger')]],
@@ -121,6 +123,8 @@ describe('prerequisite matcher', () => {
     ['Fighter Dedication class feat', ['feat:fighter-dedication']],
     ['Cat Fall ancestry feat', ['feat:cat-fall']],
     ['Fighter Dedication or Rogue Dedication', [{ or: ['feat:fighter-dedication', 'feat:rogue-dedication'] }]],
+    ['warrior muse', ['feature:warrior']],
+    ['Storm Order', ['feature:storm-order']],
   ])('reads a name as the option its entry sets: "%s"', (words, expected) => {
     expect(read(words)).toStrictEqual(predicate(expected));
   });
@@ -166,7 +170,7 @@ describe('prerequisite matcher', () => {
 
   test.each([
     ['an unknown name', 'Swashbuckler Dedication'],
-    ['a class feature, which an archetype gives without its option', 'warrior muse'],
+    ['a class feature no dedication offers', 'reactive strike'],
     ['an unknown skill', 'trained in Lore'],
     ['a rank in anything but a statistic', 'expert in Reflex saves'],
     ['a list that mixes "and" and "or"', 'trained in Athletics and Nature or Religion'],
@@ -228,11 +232,11 @@ const skill = (name: string, selector: string): ContentEntry =>
   entry(name, 'statistic', { selector, domains: ['skill-check'], base: '@attr.str', kind: 'check' });
 
 describe('prerequisite names', () => {
-  test('index named kinds but class features by name, variants by their name without brackets, and ranked statistics', () => {
+  test('index named kinds, and the class features a dedication offers, but other class features not by name, variants by their name without brackets, and ranked statistics', () => {
     const names = prerequisiteNames([
       entry('Shield Block', 'feat', { category: 'general' }),
       entry('Shield Block', 'class-feature', {}),
-      entry('Leaf Order', 'class-feature', {}),
+      entry('Leaf Order', 'class-feature', { tags: ['druid-order'] }),
       entry('Counterspell (Prepared)', 'feat', { category: 'class' }),
       skill('Athletics', 'skill:athletics'),
       skill('Perception', 'perception'),
@@ -240,7 +244,11 @@ describe('prerequisite names', () => {
     ]);
 
     expect(names.entries.get('shield block')).toStrictEqual([named(ContentKind.Feat, 'feat:shield-block')]);
-    expect(names.entries.has('leaf order')).toBe(false);
+    expect(names.entries.get('leaf order')).toStrictEqual([named(ContentKind.ClassFeature, 'feature:leaf-order')]);
+    expect(names.entries.get('leaf order muse')).toBeUndefined();
+    expect(names.entries.get('shield block')).not.toContainEqual(
+      named(ContentKind.ClassFeature, 'feature:shield-block'),
+    );
     expect(names.variants.get('counterspell')).toStrictEqual([named(ContentKind.Feat, 'feat:counterspell-prepared')]);
     expect(names.statistics).toStrictEqual(
       new Map([

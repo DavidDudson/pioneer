@@ -1414,6 +1414,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:zoophonia"],
       "action": {
         "cost": "one"
       }
@@ -2137,7 +2138,8 @@
       ],
       "prerequisiteClauses": [
         {
-          "text": "zoophonia muse"
+          "text": "zoophonia muse",
+          "predicate": ["feature:zoophonia"]
         },
         {
           "text": "mature animal companion",
@@ -4077,7 +4079,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:zoophonia"]
     }
   },
   {
@@ -8799,6 +8802,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:zoophonia"],
       "action": {
         "cost": "three"
       }
@@ -9831,6 +9835,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:zoophonia"],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -14155,7 +14160,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:zoophonia"]
     }
   },
   {
@@ -19656,7 +19662,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:zoophonia"]
     }
   },
   {
@@ -19721,6 +19728,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:zoophonia"],
       "action": {
         "cost": "free",
         "requirementsText": [

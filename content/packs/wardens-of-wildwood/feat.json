@@ -777,7 +777,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:spore-order"]
     }
   },
   {
@@ -895,7 +896,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:cultivation-order"]
     }
   },
   {

@@ -5,18 +5,27 @@ import type { ContentEntry, RollOption } from '@pioneer/rules/sdk';
 /**
  * The kinds a prerequisite names by their name: other feats, ancestry features, ancestries, heritages, classes and
  * deities. Backgrounds, spells and the rest share names with these (Warrior, Untamed Form) but no prerequisite means
- * them. Class features are left out: an archetype gives a muse, order or school without the class feature (Bard
- * Dedication has no muse to pick yet), so `feature:warrior` would read as false for a character who meets it. A
- * class feature that is also a feat (Shield Block) grants the feat, which names it.
+ * them. Class features are left out, bar the options a class dedication offers (a muse, a druidic order): Bard and
+ * Druid Dedication pick one and set `feature:<slug>` for it (#618), so `feature:warrior` reads true for a character
+ * who has it either way. The rest an archetype gives without the class feature, so a name would read false for a
+ * character who meets it. A class feature that is also a feat (Shield Block) grants the feat, which names it.
  */
 export const NAMED_KINDS: readonly ContentKind[] = [
   ContentKind.Feat,
+  ContentKind.ClassFeature,
   ContentKind.AncestryFeature,
   ContentKind.Ancestry,
   ContentKind.Heritage,
   ContentKind.Class,
   ContentKind.Deity,
 ];
+
+/** The tags of the class features a class dedication offers as a pick: Bard Dedication's muses, Druid Dedication's orders. */
+const DEDICATION_OPTION_TAGS: ReadonlySet<string> = new Set(['bard-muse', 'druid-order']);
+
+/** A muse is named with its kind, "warrior muse", and an order by its name, "storm order". */
+const MUSE_TAG = 'bard-muse';
+const MUSE_SUFFIX = ' muse';
 
 /** The statistics a rank prerequisite names: skills, Lores and Perception. */
 const RANKED_SELECTOR = /^(?:skill:|perception$)/u;
@@ -53,9 +62,22 @@ function addNamed(names: Map<string, NamedEntry[]>, name: string, named: NamedEn
   }
 }
 
+/** Whether `entry` is a class feature a class dedication offers as a pick. */
+function isDedicationOption(entry: ContentEntry): boolean {
+  return (
+    entry.kind === ContentKind.ClassFeature && (entry.data.tags ?? []).some((tag) => DEDICATION_OPTION_TAGS.has(tag))
+  );
+}
+
+/** Whether `entry` is one of Bard Dedication's muses. */
+function isMuse(entry: ContentEntry): boolean {
+  return entry.kind === ContentKind.ClassFeature && (entry.data.tags ?? []).some((tag) => tag === MUSE_TAG);
+}
+
 /** The option `entry` sets as a kind a prerequisite names; undefined for any other kind. */
 function namedEntry(entry: ContentEntry): NamedEntry | undefined {
-  const option = NAMED_KINDS.includes(entry.kind) ? kindOption(entry.kind, slugName(entry.slug)) : undefined;
+  const named = entry.kind === ContentKind.ClassFeature ? isDedicationOption(entry) : NAMED_KINDS.includes(entry.kind);
+  const option = named ? kindOption(entry.kind, slugName(entry.slug)) : undefined;
   return option === undefined ? undefined : { kind: entry.kind, option };
 }
 
@@ -73,6 +95,15 @@ interface NameIndex {
   readonly statistics: Map<string, string>;
 }
 
+/** Adds `named` under the name of `entry`, and of a muse under "warrior muse" too. */
+function addNamedKind(names: Map<string, NamedEntry[]>, entry: ContentEntry, named: NamedEntry): void {
+  const name = normalise(entry.name);
+  addNamed(names, name, named);
+  if (isMuse(entry)) {
+    addNamed(names, `${name}${MUSE_SUFFIX}`, named);
+  }
+}
+
 /** Indexes `entry` by its name: as a named kind, under its name without brackets too, or as a ranked statistic. */
 function index(names: NameIndex, entry: ContentEntry): void {
   const name = normalise(entry.name);
@@ -84,7 +115,7 @@ function index(names: NameIndex, entry: ContentEntry): void {
   if (named === undefined) {
     return;
   }
-  addNamed(names.entries, name, named);
+  addNamedKind(names.entries, entry, named);
   const base = VARIANT_NAME.exec(name)?.groups?.['base'];
   if (base !== undefined) {
     addNamed(names.variants, base, named);
