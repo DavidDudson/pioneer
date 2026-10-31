@@ -25,6 +25,14 @@
       "failure": "Failure",
       "criticalFailure": "Critical failure"
     },
+    "outcome": {
+      "basicSave": {
+        "criticalSuccess": "Takes no damage",
+        "success": "Takes half damage",
+        "failure": "Takes full damage",
+        "criticalFailure": "Takes double damage"
+      }
+    },
     "damageCategory": {
       "persistent": "Persistent",
       "splash": "Splash"

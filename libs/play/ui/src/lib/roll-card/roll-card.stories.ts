@@ -4,6 +4,7 @@ import { expect, within } from 'storybook/test';
 
 import {
   ADJUSTED_DEGREE,
+  BASIC_SAVE_FAILURE,
   CANCELLED_CHECK,
   CRITICAL_FAILURE,
   CRITICAL_SUCCESS,
@@ -14,6 +15,7 @@ import {
   SUCCESS,
   TOGGLE_REASONS,
   WITH_TOGGLES,
+  WORDED_FAILURE,
 } from '../testing/roll-fixtures';
 import { RollCard } from './roll-card.component';
 
@@ -106,5 +108,23 @@ export const RolledWithToggles: RollCardStory = {
     const canvas = within(canvasElement);
     await expect(canvas.getByText('Rolled with')).toBeVisible();
     await Promise.all(TOGGLE_REASONS.map(async (reason) => expect(canvas.getByText(reason)).toBeVisible()));
+  },
+};
+
+/** A check in text that spells out its failure: the card shows those words under the degree. */
+export const WordedOutcome: RollCardStory = {
+  args: { roll: WORDED_FAILURE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('You flee for 1 round.')).toBeVisible();
+  },
+};
+
+/** A basic save: the rule's fixed result for the degree rolled. */
+export const BasicSaveOutcome: RollCardStory = {
+  args: { roll: BASIC_SAVE_FAILURE },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Takes full damage')).toBeVisible();
   },
 };

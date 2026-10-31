@@ -492,6 +492,7 @@ export {
   type BlockNode,
   CheckDc,
   type CheckNode,
+  type CheckOutcomes,
   DamageCategory,
   DamageCategorySchema,
   DamageInstance,

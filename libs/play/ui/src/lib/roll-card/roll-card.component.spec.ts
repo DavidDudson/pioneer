@@ -7,6 +7,7 @@ import type { RollView } from '../roll-view';
 import { providePlayUiI18nTesting } from '../testing/provide-play-ui-testing';
 import {
   ADJUSTED_DEGREE,
+  BASIC_SAVE_FAILURE,
   CANCELLED_CHECK,
   CRITICAL_FAILURE,
   CRITICAL_SUCCESS,
@@ -16,7 +17,9 @@ import {
   PLAIN_CHECK,
   SUCCESS,
   TOGGLE_REASONS,
+  UNWORDED_SUCCESS,
   WITH_TOGGLES,
+  WORDED_FAILURE,
 } from '../testing/roll-fixtures';
 import { RollCard } from './roll-card.component';
 
@@ -107,6 +110,23 @@ describe(RollCard, () => {
 
     expect(present(degreeBadge(host)).textContent.trim()).toBe('Critical success');
     expect(textOf(host)).toContain('Success to Critical success, from Juggernaut');
+  });
+
+  it('shows the words a check in text gives for the degree rolled', async () => {
+    const host = hostOf(await render(WORDED_FAILURE));
+    expect(textOf(host)).toContain('You flee for 1 round.');
+  });
+
+  it('shows what a basic save does at the degree rolled', async () => {
+    const host = hostOf(await render(BASIC_SAVE_FAILURE));
+    expect(textOf(host)).toContain('Takes full damage');
+  });
+
+  it('shows no outcome when the check has no words for the degree rolled', async () => {
+    const host = hostOf(await render(UNWORDED_SUCCESS));
+    const text = textOf(host);
+    expect(text).not.toContain('You flee');
+    expect(text).not.toContain('Takes');
   });
 
   it('says nothing of a degree without a DC', async () => {

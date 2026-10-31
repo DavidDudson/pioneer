@@ -17,7 +17,7 @@ import {
 import type { DiceExpression, FortunedRoll } from '@pioneer/rules/dice';
 import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
-import type { Dc, Selector } from '@pioneer/rules/sdk';
+import type { CheckNode, Dc, Selector } from '@pioneer/rules/sdk';
 import { conditionalLineText, STATISTIC_ROLLER } from '@pioneer/rules/ui';
 import type { ConditionWords, RollableStatistic, StatisticRoller } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -33,6 +33,8 @@ interface RolledCheck {
   readonly name: string;
   /** The statistic a check was rolled for; unset for damage, which has none. */
   readonly statistic: StatisticValue | undefined;
+  /** The check in text that was rolled, for the outcomes it spells out; unset for any other roll. */
+  readonly check?: CheckNode | undefined;
   readonly expression: DiceExpression;
   readonly roll: FortunedRoll;
   readonly reasons: readonly string[];
@@ -53,6 +55,7 @@ interface CheckRoll {
   readonly statistic: StatisticValue;
   readonly reasons: readonly string[];
   readonly dc: Dc | undefined;
+  readonly check?: CheckNode | undefined;
 }
 
 /** A check being set up: what it is, and the situations the roll has claimed so far. */
@@ -116,8 +119,8 @@ export class SheetRolls implements StatisticRoller {
     const kept = rolled.roll.rolls.find((entry) => entry.kept);
     const checked = rolled.statistic !== undefined && dc !== undefined && kept !== undefined;
     const degree = checked ? degreeOfSuccess(checkOutcome(kept.result), dc) : undefined;
-    const { id, name, statistic, expression, roll, reasons } = rolled;
-    return { name, statistic, view: rollView(id, { expression, roll, degree, damage: undefined, reasons }) };
+    const { id, name, statistic, expression, roll, reasons, check } = rolled;
+    return { name, statistic, view: rollView(id, { expression, roll, degree, damage: undefined, reasons, check }) };
   });
 
   /**
@@ -146,18 +149,18 @@ export class SheetRolls implements StatisticRoller {
   }
 
   /** Rolls the check like `roll`; the card compares it to `dc` (a check in text gives its own) until one is typed. */
-  public rollAgainst({ name, statistic }: RollableStatistic, dc: Dc | undefined): void {
+  public rollAgainst({ name, statistic }: RollableStatistic, dc: Dc | undefined, check?: CheckNode): void {
     const { selector } = statistic;
     const chosen = this.#state.claims().get(selector) ?? new Set<RuleId>();
     const offered = this.#offered(selector, chosen);
     this.saveError.set(undefined);
     this.#state.release(selector);
     if (offered === undefined) {
-      this.#finish({ name, statistic, reasons: [], dc });
+      this.#finish({ name, statistic, reasons: [], dc, check });
       return;
     }
     const reasons = this.#reasons({ ...offered, name, selector, chosen });
-    this.#finish({ name, statistic: offered.statistic, reasons, dc });
+    this.#finish({ name, statistic: offered.statistic, reasons, dc, check });
   }
 
   /** Rolls damage or healing named in text: no statistic and no DC, so the card shows the dice and the total only. */
@@ -270,14 +273,14 @@ export class SheetRolls implements StatisticRoller {
   #words(): ConditionWords {
     return { i18n: this.#i18n, format: this.#format, names: { entries: this.#state.picks.entryNames() } };
   }
-  #finish({ name, statistic, reasons, dc }: CheckRoll): void {
+  #finish({ name, statistic, reasons, dc, check }: CheckRoll): void {
     const outcome = parseDiceExpression(checkText(statistic.total));
     if (!outcome.ok) {
       return;
     }
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
-    this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc });
+    this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc, check });
     this.#present(name, roll);
   }
 

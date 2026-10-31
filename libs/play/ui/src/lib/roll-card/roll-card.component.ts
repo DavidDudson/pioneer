@@ -11,8 +11,9 @@ import type { AttemptDisplay } from '../roll-attempt/roll-attempt.component';
 import { RollDamage } from '../roll-damage/roll-damage.component';
 import { RollDc } from '../roll-dc/roll-dc.component';
 import { RollDegree } from '../roll-degree/roll-degree.component';
+import { RollOutcome } from '../roll-outcome/roll-outcome.component';
 import { RollReasons } from '../roll-reasons/roll-reasons.component';
-import type { AttemptView, DamageView, DegreeView, RollView } from '../roll-view';
+import type { AttemptView, DamageView, DegreeView, OutcomeView, RollView } from '../roll-view';
 
 interface RollDisplay {
   readonly notation: DiceExpressionText;
@@ -20,13 +21,15 @@ interface RollDisplay {
   readonly explanation: MessageDescriptor | undefined;
   readonly attempts: readonly AttemptDisplay[];
   readonly degree: DegreeView | undefined;
+  readonly outcome: OutcomeView | undefined;
   readonly damage: DamageView | undefined;
   readonly reasons: readonly string[];
 }
 
 /**
  * One finished roll: its expression and total, then each roll made (two with fortune or misfortune)
- * with the dice behind it, its degree of success when rolled against a DC, and the damage a target takes.
+ * with the dice behind it, its degree of success when rolled against a DC, what that degree does when the check says,
+ * and the damage a target takes.
  *
  * With `dcEditable` the card has a DC box; typing a DC emits it, and the caller hands back the roll with its degree
  * worked out (the card holds no dice rules). Emptying the box emits undefined, and the degree goes.
@@ -37,7 +40,19 @@ interface RollDisplay {
  */
 @Component({
   selector: 'pio-roll-card',
-  imports: [Heading, RollAttempt, RollDamage, RollDc, RollDegree, RollReasons, Stack, Surface, Text, TranslocoPipe],
+  imports: [
+    Heading,
+    RollAttempt,
+    RollDamage,
+    RollDc,
+    RollDegree,
+    RollOutcome,
+    RollReasons,
+    Stack,
+    Surface,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './roll-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -61,6 +76,7 @@ export class RollCard {
       explanation: roll.explanation,
       attempts: roll.attempts.map((attempt, index) => this.#attempt(attempt, several ? index : undefined)),
       degree: roll.degree,
+      outcome: roll.outcome,
       damage: roll.damage,
       reasons: roll.reasons,
     };

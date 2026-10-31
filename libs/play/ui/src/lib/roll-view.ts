@@ -11,10 +11,17 @@ import type {
   RollTotal,
   TermResult,
 } from '@pioneer/rules/dice';
-import type { DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { BlockKind } from '@pioneer/rules/sdk';
+import type { CheckNode, DegreeOfSuccess, RichText } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { DAMAGE_CATEGORY_KEYS, DAMAGE_TYPE_KEYS, DEGREE_KEYS, UNTYPED_DAMAGE_KEY } from './roll-labels';
+import {
+  BASIC_SAVE_OUTCOME_KEYS,
+  DAMAGE_CATEGORY_KEYS,
+  DAMAGE_TYPE_KEYS,
+  DEGREE_KEYS,
+  UNTYPED_DAMAGE_KEY,
+} from './roll-labels';
 
 /** One term of a roll as shown: signed notation, damage labels, dice and its share of the total. */
 interface TermView {
@@ -70,6 +77,15 @@ export interface DamageView {
   readonly persistent: readonly DamageInstanceView[];
 }
 
+/** How an outcome is worded: a message key (a basic save's fixed result) or the check's own text. */
+export const OutcomeKind = { Message: 'message', Text: 'text' } as const;
+export type OutcomeKind = (typeof OutcomeKind)[keyof typeof OutcomeKind];
+
+/** What the rolled degree does, per the check in the text: the rule's fixed result, or the paragraph the text gives. */
+export type OutcomeView =
+  | { readonly kind: typeof OutcomeKind.Message; readonly key: string }
+  | { readonly kind: typeof OutcomeKind.Text; readonly text: RichText };
+
 export interface RollView {
   readonly id: number;
   readonly notation: DiceExpressionText;
@@ -79,6 +95,8 @@ export interface RollView {
   readonly attempts: readonly AttemptView[];
   /** Unset when the roll was not against a DC. */
   readonly degree: DegreeView | undefined;
+  /** Unset unless the roll was a check in text whose rolled degree has a result to show. */
+  readonly outcome: OutcomeView | undefined;
   /** Unset when the roll was not applied to a target. */
   readonly damage: DamageView | undefined;
   /** The toggles the roll was made with, worded, so the card can say why the total is what it is; none for a plain roll. */
@@ -151,9 +169,25 @@ export interface FinishedRoll {
   readonly damage: DamageApplication | undefined;
   /** The toggles the roll was made with, worded; none when left out. */
   readonly reasons?: readonly string[];
+  /** The check in text that was rolled; its outcomes are shown for the degree. Unset for any other roll. */
+  readonly check?: CheckNode | undefined;
 }
 
-export function rollView(id: number, { expression, roll, degree, damage, reasons = [] }: FinishedRoll): RollView {
+/** The result the rolled degree has: a basic save's fixed one, or the text the check gives for it. */
+function outcomeView(degree: DegreeOfSuccess, check: CheckNode | undefined): OutcomeView | undefined {
+  const text = check?.outcomes?.[degree];
+  if (check?.basic === true) {
+    return { kind: OutcomeKind.Message, key: BASIC_SAVE_OUTCOME_KEYS[degree] };
+  }
+  return text === undefined
+    ? undefined
+    : { kind: OutcomeKind.Text, text: [{ type: BlockKind.Paragraph, content: text }] };
+}
+
+export function rollView(
+  id: number,
+  { expression, roll, degree, damage, reasons = [], check }: FinishedRoll,
+): RollView {
   return {
     id,
     notation: formatExpression(expression),
@@ -162,6 +196,7 @@ export function rollView(id: number, { expression, roll, degree, damage, reasons
     attempts: roll.rolls.map(attemptView),
     degree: degree === undefined ? undefined : degreeView(degree),
     damage: damage === undefined ? undefined : damageView(damage),
+    outcome: degree === undefined ? undefined : outcomeView(degree.degree, check),
     reasons,
   };
 }
