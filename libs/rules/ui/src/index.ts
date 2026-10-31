@@ -19,6 +19,12 @@ export {
   type StatisticLink,
   provideEntryPreviews,
 } from './lib/entry-preview/entry-preview';
+export {
+  INLINE_ROLLER,
+  type InlineCheckRoll,
+  type InlineDamageRoll,
+  type InlineRoller,
+} from './lib/rich-text/inline-roller';
 export { RichTextView } from './lib/rich-text/rich-text.component';
 export { provideRichTextLinks, RICH_TEXT_LINKS, type RichTextLinks } from './lib/rich-text/rich-text-links';
 export { SourceBadge, SourceBadgeMode } from './lib/source-badge/source-badge.component';
