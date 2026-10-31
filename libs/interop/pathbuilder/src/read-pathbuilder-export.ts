@@ -45,7 +45,7 @@ export interface PathbuilderIdentity {
  */
 export type PathbuilderReported = Pick<
   PathbuilderBuild,
-  'acTotal' | 'attributes' | 'focus' | 'focusPoints' | 'mods' | 'proficiencies'
+  'acTotal' | 'attributes' | 'focus' | 'focusPoints' | 'keyability' | 'mods' | 'proficiencies'
 >;
 
 /** A Pathbuilder export read into Pioneer's terms, before any content is matched. */
@@ -226,6 +226,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
       attributes: build.attributes,
       focus: build.focus,
       focusPoints: build.focusPoints,
+      keyability: build.keyability,
       mods: build.mods,
       proficiencies: build.proficiencies,
     },

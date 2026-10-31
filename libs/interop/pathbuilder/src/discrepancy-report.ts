@@ -3,6 +3,7 @@ import * as z from 'zod';
 
 import { pairCasters } from './caster-pairing';
 import type { CasterHome } from './caster-pairing';
+import { derivedTotals } from './derived-totals';
 import { RANK_BY_NUMBER } from './read-pathbuilder-export';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 
@@ -225,7 +226,7 @@ function totalOf(values: PioneerValues, selector: Selector): number | undefined 
 
 function totalDifferences(value: PathbuilderImport, values: PioneerValues): [number, TotalDiscrepancy[]] {
   const compared: Pair[] = [
-    ...[...reportedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
+    ...[...reportedTotals(value), ...derivedTotals(value)].flatMap(([selector, pathbuilder]): Pair[] => {
       const pioneer = totalOf(values, selector);
       return pioneer === undefined ? [] : [{ selector, pathbuilder, pioneer }];
     }),

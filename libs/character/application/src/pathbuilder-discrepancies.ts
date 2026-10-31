@@ -8,6 +8,7 @@ import {
 import type { Character, SlotContent } from '@pioneer/character/domain';
 import {
   ARMOR_CLASS,
+  DERIVED_TOTAL_STATISTICS,
   discrepancyReport,
   documentFocus,
   LAND_SPEED,
@@ -27,7 +28,7 @@ import { Proficiency, Selector as SelectorSchema, SPELL_RANK_MAX, SpellPreparati
 import type { ContentRegistry, Selector, VariantRuleEntry } from '@pioneer/rules/sdk';
 
 /** The totals the report compares. */
-const TOTALS: readonly Selector[] = [ARMOR_CLASS, MAX_HIT_POINTS, LAND_SPEED];
+const TOTALS: readonly Selector[] = [ARMOR_CLASS, MAX_HIT_POINTS, LAND_SPEED, ...DERIVED_TOTAL_STATISTICS];
 
 /** What the statistics are derived from beside the character: the registry, its slot content and the variants in force. */
 export interface DerivationContent {
