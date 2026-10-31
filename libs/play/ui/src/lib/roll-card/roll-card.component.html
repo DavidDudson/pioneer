@@ -11,7 +11,10 @@
     @if (shown.degree; as degree) {
       <pio-roll-degree [degree]="degree" />
     }
-    <pio-roll-outcome [outcome]="shown.outcome" />
+    <!-- Deferred: its rich text brings in the rules UI, which the app shell would otherwise load at start. -->
+    @defer {
+      <pio-roll-outcome [outcome]="shown.outcome" />
+    }
     @if (shown.damage; as damage) {
       <pio-roll-damage [damage]="damage" />
     }

@@ -1,5 +1,6 @@
 import type { Routes } from '@angular/router';
-import { provideBareInlineRoller } from '@pioneer/play/ui';
+
+import { provideBareInlineRoller } from './bare-inline-roller';
 
 /**
  * `routes` with the roller for text read where no character is. It lives in its own lazily loaded file, not in
