@@ -2,6 +2,7 @@ import { DamageTotal } from '@pioneer/rules/dice';
 import type { DamageApplication } from '@pioneer/rules/dice';
 import { HitPoints } from '@pioneer/rules/sdk';
 
+import { criticallyHit } from './breath';
 import { knockedOut, recovered } from './death-track';
 import type { DeathTrack } from './death-track';
 import type { HitPointsState, PlayState } from './play-state';
@@ -52,7 +53,7 @@ function afterRestoring(play: PlayState, before: HitPoints, after: HitPoints): P
   return revived ? withTrack(play, recovered(trackOf(play))) : play;
 }
 
-/** `play` after `application` of damage: temporary Hit Points take it first, and what gets through at 0 advances dying. */
+/** `play` after `application` of damage: temporary Hit Points take it first, and what gets through at 0 advances dying. A critical hit also costs a character holding its breath a round of air. */
 export function afterDamage(play: PlayState, application: DamageApplication, max: HitPoints): PlayState {
   const { hp } = play;
   const { taken, critical } = application;
@@ -62,6 +63,7 @@ export function afterDamage(play: PlayState, application: DamageApplication, max
   const hurt: PlayState = {
     ...play,
     hp: { temp: less(hp.temp, absorbed), damage },
+    ...(critical && play.breath !== undefined && { breath: criticallyHit(play.breath) }),
   };
   const down = through > NONE && currentHitPoints(hurt.hp, max) === NONE;
   return down ? withTrack(hurt, knockedOut(trackOf(hurt), critical)) : hurt;
