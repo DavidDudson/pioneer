@@ -1,3 +1,4 @@
+import { BadgeTone } from '@pioneer/frontier';
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 import {
   Attribute,
@@ -45,16 +46,18 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
   });
 }
 
-/** The traits as chips, an entry above common rarity first and toned by it. */
+/** The traits as chips, a legacy entry's "Legacy" first, then an entry above common rarity and its traits, toned by rarity. */
 function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip[] {
   if (facts === undefined) {
     return [];
   }
+  const legacy: Chip[] =
+    facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : [];
   const traits = facts.traits.map((label): Chip => ({ label }));
   if (facts.rarity === Rarity.Common) {
-    return traits;
+    return [...legacy, ...traits];
   }
-  return [{ label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
+  return [...legacy, { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
 }
 
 /**

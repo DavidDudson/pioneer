@@ -27,6 +27,7 @@ import { sheetPlannedSlots } from './sheet-planned-slots';
 import { sheetSenses } from './sheet-senses';
 import { markTrainedAgain, sheetTrainedAgain } from './sheet-skill-repeats';
 import { sheetSkillSlots } from './sheet-skills';
+import { sheetSlotContent } from './sheet-slot-content';
 import { slotField, slotFieldsOf } from './sheet-slot-picks';
 import type { SlotPickField } from './sheet-slot-picks';
 import { sheetTimeline } from './sheet-timeline';
@@ -189,7 +190,10 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     }),
     choices: computed(() => {
       const slots = sources.slots();
-      return slots === undefined ? undefined : sheetChoices(slots);
+      const registry = sources.registry();
+      return slots === undefined
+        ? undefined
+        : sheetChoices(slots, registry === undefined ? undefined : sheetSlotContent(registry).lookup);
     }),
     timeline: loaded(sources, sheetTimeline),
     ...engineReads(sources),

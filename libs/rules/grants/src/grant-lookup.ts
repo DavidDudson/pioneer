@@ -1,4 +1,12 @@
-import { ContentId, contentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
+import {
+  ContentId,
+  contentId,
+  ContentKind,
+  effectiveLicense,
+  isLegacyLicense,
+  RollOption,
+  slugName,
+} from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentPack,
@@ -144,14 +152,15 @@ function levelOptions(entry: ContentEntry): RollOption[] {
   return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
 }
 
-/** The facts a list shows of an envelope entry: its level when it has one, rarity, traits and description. */
-function factsOf(entry: ContentEntry): EntryFacts {
+/** The facts a list shows of an envelope entry: its level when it has one, rarity, traits, description, and whether it is legacy. */
+function factsOf(entry: ContentEntry, pack: ContentPack): EntryFacts {
   const level = 'level' in entry ? entry.level : undefined;
   return {
     ...(level === undefined ? {} : { level }),
     rarity: entry.rarity,
     traits: entry.traits,
     description: entry.description,
+    ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
   };
 }
 
@@ -174,7 +183,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
 }
 
 /** A background, class, class feature, feat or heritage, read from its envelope with its rule elements. */
-function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
+function envelopeEntry(entry: ContentEntry, pack: ContentPack): GrantEntry | undefined {
   const [source, ...sources] = entry.sources;
   if (source === undefined || !ENVELOPE_KINDS.has(entry.kind)) {
     return undefined;
@@ -193,7 +202,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
       ...levelOptions(entry),
       ...domainOptions(entry),
     ],
-    facts: factsOf(entry),
+    facts: factsOf(entry, pack),
     ...belongsTo(entry),
     ...archetypeFields(entry),
     ...valued(entry),
@@ -224,7 +233,7 @@ function packEntries(pack: ContentPack): GrantEntry[] {
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
-    ...pack.otherEntries.flatMap((each) => envelopeEntry(each) ?? []),
+    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack) ?? []),
   ];
 }
 

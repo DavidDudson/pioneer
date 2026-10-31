@@ -73,6 +73,7 @@ type AncestryFields = Sourceable<typeof AncestryDefinition> & { readonly rules?:
  */
 export class ContentPackBuilder {
   #id = 'test-pack';
+  #license: ContentLicense = ContentLicense.Homebrew;
   readonly #ancestries: AncestryFields[] = [];
   readonly #creatures: Sourceable<typeof CreatureDefinition>[] = [];
   readonly #statistics: Sourceable<typeof StatisticDefinition>[] = [];
@@ -336,6 +337,12 @@ export class ContentPackBuilder {
     return this;
   }
 
+  /** The licence the pack is published under; homebrew unless set. */
+  public withLicense(license: ContentLicense): this {
+    this.#license = license;
+    return this;
+  }
+
   public withNamespace(namespace: string, kind: NamespaceKind): this {
     this.#namespaces[namespace] = kind;
     return this;
@@ -344,7 +351,7 @@ export class ContentPackBuilder {
   public build(): ContentPack {
     const sources = [{ kind: SourceKind.Homebrew, author: TEST_AUTHOR, pack: this.#id }];
     return ContentPack.define({
-      manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: ContentLicense.Homebrew },
+      manifest: { id: this.#id, title: 'Test pack', publisher: 'Pioneer tests', license: this.#license },
       ancestries: this.#ancestries.map((ancestry) => ({ sources, ...ancestry })),
       creatures: this.#creatures.map((creature) => ({ sources, ...creature })),
       statistics: this.#statistics.map((statistic) => ({ sources, ...statistic })),

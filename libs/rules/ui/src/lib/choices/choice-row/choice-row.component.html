@@ -6,6 +6,9 @@
     } @else if (shown().selectionName; as name) {
       <fr-text>{{ name }}</fr-text>
     }
+    @if (shown().legacy) {
+      <fr-badge [tone]="Tone.Warning">{{ Message.Legacy | transloco }}</fr-badge>
+    }
     <fr-badge [tone]="shown().tone">{{ shown().badge.key | transloco: shown().badge.params }}</fr-badge>
     @if (canLock()) {
       <fr-toggle-button

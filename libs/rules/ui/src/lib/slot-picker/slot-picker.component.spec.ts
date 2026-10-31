@@ -52,6 +52,13 @@ describe(SlotPicker, () => {
     ).toStrictEqual([]);
   });
 
+  it('says "Legacy" for an option whose entry is from a pre-remaster book', async () => {
+    const legacy = slotRow({ id: 'ember', name: 'Ember', facts: { ...SLOT_FACTS, legacy: true } });
+    const { host } = await render(SlotPicker, { rows: [legacy, EMBER] });
+    expect(rowText(host, 0)).toContain('Legacy');
+    expect(rowText(host, 1)).not.toContain('Legacy');
+  });
+
   it('falls back to the name and source for an option no entry stands behind', async () => {
     const { host } = await render(SlotPicker, { rows: [FIRE, EMBER] });
     expect(rowLabels(host)).toStrictEqual(['Fire', 'Ember']);

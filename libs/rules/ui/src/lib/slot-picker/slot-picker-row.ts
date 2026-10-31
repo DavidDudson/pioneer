@@ -20,6 +20,8 @@ export interface SlotPickerFacts {
   /** Trait names. */
   readonly traits: readonly string[];
   readonly summary: RichText;
+  /** From a pre-remaster book, so the table says so beside its traits. */
+  readonly legacy?: true;
 }
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */
