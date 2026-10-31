@@ -9,7 +9,8 @@ import {
 } from '@pioneer/rules/dice';
 import type { DegreeAdjustment, DiceExpression, FortuneSources } from '@pioneer/rules/dice';
 import { scriptedRandom } from '@pioneer/rules/dice/testing';
-import { Dc, DegreeChange, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { Dc, DegreeChange, DegreeOfSuccess, InlineKind, RichTextString, Selector } from '@pioneer/rules/sdk';
+import type { CheckNode } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import { rollView } from '../roll-view';
@@ -33,6 +34,8 @@ const BOTH: FortuneSources = { fortune: FORTUNE.fortune, misfortune: MISFORTUNE.
 interface Against {
   readonly dc: number;
   readonly adjustments?: readonly DegreeAdjustment[];
+  /** The check in text that was rolled, when it was. */
+  readonly inText?: CheckNode;
 }
 
 function expressionOf(text: string): DiceExpression {
@@ -52,7 +55,7 @@ function check(faces: readonly number[], sources: FortuneSources = NO_FORTUNE, a
     against === undefined || kept === undefined
       ? undefined
       : degreeOfSuccess(checkOutcome(kept.result), Dc.parse(against.dc), against.adjustments);
-  return rollView(1, { expression, roll, degree, damage: undefined });
+  return rollView(1, { expression, roll, degree, damage: undefined, check: against?.inText });
 }
 
 /** A d20 of 12 and +7: 19. */
@@ -85,3 +88,22 @@ export const ADJUSTED_DEGREE = check([MIDDLING], NO_FORTUNE, {
     },
   ],
 });
+
+const CHECK_DC = Dc.parse(EASY_DC);
+const WILL = Selector.parse('save:will');
+const REFLEX = Selector.parse('save:reflex');
+
+/** The failure words of a Will save in text. */
+const FLEE = [{ type: InlineKind.Text, text: RichTextString.parse('You flee for 1 round.') }] as const;
+
+/** A save in text rolled against DC 15, with the words it gives. */
+function saveInText(statistic: Selector, rest: Partial<CheckNode>): Against {
+  return { dc: EASY_DC, inText: { type: InlineKind.Check, statistic, dc: CHECK_DC, ...rest } };
+}
+
+/** A Will save in text that spells out its failure: rolled and missed. */
+export const WORDED_FAILURE = check([MISSING], NO_FORTUNE, saveInText(WILL, { outcomes: { failure: FLEE } }));
+/** The same save in text with no words for the degree rolled. */
+export const UNWORDED_SUCCESS = check([MIDDLING], NO_FORTUNE, saveInText(WILL, { outcomes: { failure: FLEE } }));
+/** A basic Reflex save in text, missed: the rule's fixed result. */
+export const BASIC_SAVE_FAILURE = check([MISSING], NO_FORTUNE, saveInText(REFLEX, { basic: true }));

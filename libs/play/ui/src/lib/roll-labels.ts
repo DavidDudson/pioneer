@@ -35,3 +35,11 @@ export const DEGREE_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
 
 /** Label for damage with no type tag: its own instance, touched only by `all`-damage weakness and resistance. */
 export const UNTYPED_DAMAGE_KEY = 'roll.damageType.untyped';
+
+/** What a basic save does to the damage at each degree (PF2e Player Core, "Basic Saves"); spelled out for the key check. */
+export const BASIC_SAVE_OUTCOME_KEYS: Readonly<Record<DegreeOfSuccess, string>> = {
+  [DegreeOfSuccess.CriticalSuccess]: 'roll.outcome.basicSave.criticalSuccess',
+  [DegreeOfSuccess.Success]: 'roll.outcome.basicSave.success',
+  [DegreeOfSuccess.Failure]: 'roll.outcome.basicSave.failure',
+  [DegreeOfSuccess.CriticalFailure]: 'roll.outcome.basicSave.criticalFailure',
+};

@@ -1,0 +1,7 @@
+@if (outcome(); as shown) {
+  @if (shown.kind === kinds.Message) {
+    <fr-text>{{ shown.key | transloco }}</fr-text>
+  } @else {
+    <pio-rich-text [text]="shown.text" />
+  }
+}

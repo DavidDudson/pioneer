@@ -30,7 +30,7 @@ export class SheetInlineRolls implements InlineRoller {
   public check({ node, label }: InlineCheckRoll): void {
     const statistic = this.#statistic(node.statistic);
     if (statistic !== undefined) {
-      this.#rolls.rollAgainst({ name: label, statistic }, this.#dcOf(node.dc));
+      this.#rolls.rollAgainst({ name: label, statistic }, this.#dcOf(node.dc), node);
     }
   }
 

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { RollPresenter } from '@pioneer/play/ui';
-import { DamageFormula, DamageType, Dc, InlineKind, Selector } from '@pioneer/rules/sdk';
+import { OutcomeKind, RollPresenter } from '@pioneer/play/ui';
+import { DamageFormula, DamageType, Dc, InlineKind, RichTextString, Selector } from '@pioneer/rules/sdk';
 import type { CheckNode, DamageNode } from '@pioneer/rules/sdk';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -56,6 +56,26 @@ describe(SheetInlineRolls, () => {
     expect(TestBed.inject(RollPresenter).toast()?.label).toBe('DC 20 Reflex save');
     expect(rolls.cardDc()).toBe(20);
     expect(rolls.dc()).toBeUndefined();
+  });
+
+  it('gives a basic save the fixed outcome of the degree it rolled', async () => {
+    const { inline, rolls } = await open();
+    inline.check({ node: { ...reflexCheck, basic: true }, label: 'basic Reflex save' });
+    expect(rolls.last()?.view.outcome?.kind).toBe(OutcomeKind.Message);
+  });
+
+  it('gives a check the words its text has for the degree it rolled', async () => {
+    const { inline, rolls } = await open();
+    const worded = [{ type: InlineKind.Text, text: RichTextString.parse('You flee.') }] as const;
+    const outcomes = { criticalSuccess: worded, success: worded, failure: worded, criticalFailure: worded };
+    inline.check({ node: { ...reflexCheck, outcomes }, label: 'DC 20 Reflex save' });
+    expect(rolls.last()?.view.outcome?.kind).toBe(OutcomeKind.Text);
+  });
+
+  it('shows no outcome for a check whose text has none', async () => {
+    const { inline, rolls } = await open();
+    inline.check({ node: reflexCheck, label: 'DC 20 Reflex save' });
+    expect(rolls.last()?.view.outcome).toBeUndefined();
   });
 
   it('lets a DC typed afterwards replace the one the text gave', async () => {

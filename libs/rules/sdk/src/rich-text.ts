@@ -5,6 +5,8 @@ import * as z from 'zod';
 import { ContentId } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { DamageFormula } from './damage-formula';
+import { DegreeOfSuccessSchema } from './degree-of-success';
+import type { DegreeOfSuccess } from './degree-of-success';
 import { exceededBound, JsonBound, JsonSize } from './json-bounds';
 import type { JsonBounds } from './json-bounds';
 import { RulesMessage } from './messages';
@@ -115,7 +117,10 @@ export type CheckDc = z.infer<typeof CheckDc>;
 /** Basic outcomes only exist for saving throws, whose selectors start `save:`. */
 const SAVE_PREFIX = 'save:';
 
-/** A check the text asks for ("DC 20 Athletics", "basic Reflex save"), rollable once dice arrive. */
+/** What a check does at each degree, in the text's words; only the degrees it names. */
+export type CheckOutcomes = Partial<Record<DegreeOfSuccess, InlineContent>>;
+
+/** A check the text asks for ("DC 20 Athletics"), rollable once dice arrive; `outcomes` are the paragraphs it spells out. */
 const CheckNode = z
   .strictObject({
     type: z.literal(InlineKind.Check),
@@ -124,6 +129,10 @@ const CheckNode = z
     basic: z.boolean().optional(),
     options: z.array(RollOption).readonly().optional(),
     label: InlineLabel.optional(),
+    get outcomes(): z.ZodOptional<z.ZodType<CheckOutcomes>> {
+      // oxlint-disable-next-line no-use-before-define -- Inline lists CheckNode, so the getter reads it lazily
+      return z.partialRecord(DegreeOfSuccessSchema, z.array(Inline).min(1).readonly()).optional();
+    },
   })
   .refine((check) => check.basic !== true || check.statistic.startsWith(SAVE_PREFIX), {
     ...issueParams(message(RulesMessage.RichTextBasicSave)),

@@ -5,6 +5,7 @@ import type { ChildNode, Element } from 'domhandler';
 import { parseDocument } from 'htmlparser2';
 
 import { actionGlyph } from './action-glyph';
+import { attachCheckOutcomes } from './check-outcomes';
 import { NO_LINKS } from './enricher-context';
 import type { FoundryLinks } from './enricher-context';
 import { tableOf } from './html-table';
@@ -284,7 +285,7 @@ function flattened(blocks: readonly BlockNode[]): BlockNode[] {
  */
 export function htmlToRichText(html: string, links: FoundryLinks = NO_LINKS): RichTextTranslation {
   const context: Context = { marks: [], depth: 0, unknown: new Set(), enrichers: new Set(), links };
-  const blocks = blocksOf(parseDocument(html).children, context);
+  const blocks = attachCheckOutcomes(blocksOf(parseDocument(html).children, context));
   const richText = RichText.safeParse(blocks);
   const reported = { untranslatedEnrichers: [...context.enrichers] };
   if (richText.success) {
