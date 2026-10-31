@@ -2,7 +2,7 @@ import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { ContentId, FundamentalRune } from '@pioneer/rules/sdk';
 
-import { RuneBadgeKind } from './rune-badge-data';
+import { RuneBadgeKind, RuneNote } from './rune-badge-data';
 import { RuneBadge } from './rune-badge.component';
 
 type RuneBadgeStory = StoryObj<RuneBadge>;
@@ -36,3 +36,27 @@ export const Flaming: RuneBadgeStory = {
   },
 };
 export const EmptySlot: RuneBadgeStory = { args: { rune: { kind: RuneBadgeKind.Hole } } };
+
+/** A property rune the engine does not apply yet: hover it, or read its description, for the note. */
+export const NotApplied: RuneBadgeStory = {
+  args: {
+    rune: {
+      kind: RuneBadgeKind.Property,
+      id: ContentId.parse('00000000-0000-4000-8000-000000000001'),
+      name: 'Flaming',
+      note: RuneNote.NotApplied,
+    },
+  },
+};
+
+/** A property rune past what the item's potency rune holds room for. */
+export const NoEffect: RuneBadgeStory = {
+  args: {
+    rune: {
+      kind: RuneBadgeKind.Property,
+      id: ContentId.parse('00000000-0000-4000-8000-000000000001'),
+      name: 'Flaming',
+      note: RuneNote.NoEffect,
+    },
+  },
+};

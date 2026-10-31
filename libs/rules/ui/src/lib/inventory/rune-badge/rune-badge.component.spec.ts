@@ -5,7 +5,7 @@ import { runicPair } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
 import { provideRulesUiI18nTesting } from '../../testing/provide-rich-text-testing';
-import { RuneBadgeKind } from './rune-badge-data';
+import { RuneBadgeKind, RuneNote } from './rune-badge-data';
 import type { RuneBadgeData } from './rune-badge-data';
 import { RuneBadge } from './rune-badge.component';
 import { FUNDAMENTAL_GLYPHS } from './rune-glyphs';
@@ -46,6 +46,31 @@ describe(RuneBadge, () => {
     expect(glyphsOf(host)).toBe(runicPair(FLAMING));
     expect(host.querySelector('.sr-only')?.textContent).toBe('Flaming');
     expect(host.querySelector('.bg-rune-base')).not.toBeNull();
+  });
+
+  it('says a rune is not applied in its description and on hover, not by colour alone', async () => {
+    const host = await render({
+      kind: RuneBadgeKind.Property,
+      id: FLAMING,
+      name: 'Flaming',
+      note: RuneNote.NotApplied,
+    });
+
+    expect(host.querySelector('.sr-only')?.textContent).toBe('Flaming. Not applied: apply it by hand.');
+    expect(host.querySelector('.bg-rune-void')).not.toBeNull();
+    expect(host.querySelector('[class*="animate-rune-pulse"]')).toBeNull();
+  });
+
+  it('says a rune has no effect when the potency rune is too low', async () => {
+    const host = await render({ kind: RuneBadgeKind.Property, id: FLAMING, name: 'Flaming', note: RuneNote.NoEffect });
+
+    expect(host.querySelector('.sr-only')?.textContent).toContain('No effect');
+  });
+
+  it('adds nothing to a rune that works', async () => {
+    const host = await render({ kind: RuneBadgeKind.Property, id: FLAMING, name: 'Flaming' });
+
+    expect(host.querySelector('.sr-only')?.textContent).toBe('Flaming');
   });
 
   it('shows an empty slot as a plus in an outline, with no tier colour', async () => {

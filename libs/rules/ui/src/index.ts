@@ -103,7 +103,7 @@ export { BulkStatus, type CarriedBulk } from './lib/inventory/bulk/carried-bulk'
 export { BulkView } from './lib/inventory/bulk/bulk.component';
 export { type InventoryLineContext } from './lib/inventory/inventory-row/inventory-row.component';
 export { RuneBadge } from './lib/inventory/rune-badge/rune-badge.component';
-export { RuneBadgeKind, type RuneBadgeData } from './lib/inventory/rune-badge/rune-badge-data';
+export { RuneBadgeKind, RuneNote, type RuneBadgeData } from './lib/inventory/rune-badge/rune-badge-data';
 export {
   GRADED_RUNE_MESSAGES,
   type GradedRune,

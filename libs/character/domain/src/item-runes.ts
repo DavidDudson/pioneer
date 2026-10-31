@@ -1,4 +1,4 @@
-import { ContentKind, RunedItem } from '@pioneer/rules/sdk';
+import { ContentKind, RunedItem, RuneType } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
@@ -137,4 +137,16 @@ export function workingPropertyRunes(
 ): readonly ContentId[] {
   const runes = itemRunes(item, entry);
   return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
+}
+
+/**
+ * Whether the engine applies `rune`: a property rune does when it has rules or an activation, and is not flagged
+ * `unapplied`. Fundamental runes are applied by the item's own numbers.
+ */
+export function runeApplied(rune: RuneEntry): boolean {
+  const { data } = rune;
+  if (data.type !== RuneType.Property) {
+    return true;
+  }
+  return data.unapplied !== true && (rune.rules.length > 0 || data.activations !== undefined);
 }

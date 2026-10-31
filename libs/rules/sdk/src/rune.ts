@@ -96,11 +96,15 @@ const FundamentalRuneData = z
     }
   });
 
-/** "Flaming": what it does is its `rules`. */
+/**
+ * "Flaming": what it does is its `rules` and `activations`. `unapplied` records that the engine applies only part of
+ * that, or none: the sheet marks the rune "not applied" so the player applies it by hand.
+ */
 const PropertyRuneData = z.strictObject({
   ...physicalFields,
   type: z.literal(RuneType.Property),
   etchedOnto: EtchedOnto,
+  unapplied: z.literal(true).optional(),
 });
 
 /**

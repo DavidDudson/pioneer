@@ -301,6 +301,8 @@ invested or identified is play state, not content.
   `potency` (weapon or armour, separate entries), `striking` (weapon), `resilient` (armour) or `reinforcing`
   (shield), at a `grade` up to 4, or 6 for reinforcing. `etchedOnto` is the `item` (`weapon`, `armor`, `shield`)
   and a `restriction` slug from Foundry's usage (`melee`, `metal`).
+  A `property` rune with no `rules` and no `activations`, or with `unapplied: true` (the engine applies only part of it),
+  shows as "not applied" on the sheet, so the player applies it by hand; the mark goes as the rune's content lands.
 - **Consumables.** `category` is Foundry's (`potion`, `scroll`, `wand`, `talisman`…) plus `ammunition`. `uses` is
   how many times it is used before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a
   day). `damage` is a formula, type and `kind`

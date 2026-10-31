@@ -29,6 +29,14 @@ describe(Gem, () => {
     expect(host.querySelector('.sr-only')?.textContent).toBe('Greater striking');
   });
 
+  it('holds a black gem still, in the void colour', async () => {
+    const host = await render({ tone: 'black', glyphs: 'ᚠ', label: 'Not applied' });
+
+    expect(host.querySelector('.bg-rune-void')).not.toBeNull();
+    expect(host.querySelector('[class*="animate-rune-pulse"]')).toBeNull();
+    expect(host.querySelector('[aria-hidden="true"]')?.className).toContain('text-rune-void');
+  });
+
   it('pulses a filled gem in its tone and holds a hole still', async () => {
     const filled = await render({ tone: 'gold', glyphs: 'ᚦ', label: 'Mythic striking' });
     const hole = await render({ glyphs: '+', label: 'Empty rune slot' });

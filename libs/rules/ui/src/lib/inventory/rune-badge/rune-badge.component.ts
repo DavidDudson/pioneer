@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { Gem, GemTone } from '@pioneer/frontier';
+import { Gem, GemTone, HoverCard, HoverCardContent } from '@pioneer/frontier';
 import { FundamentalRune } from '@pioneer/rules/sdk';
 import { runicPair } from '@pioneer/shared/kernel';
 
 import { GRADED_RUNE_MESSAGES, RuneMessage } from '../rune-name';
-import { RuneBadgeKind } from './rune-badge-data';
+import { RuneBadgeKind, RuneNote } from './rune-badge-data';
 import type { RuneBadgeData } from './rune-badge-data';
 import { FUNDAMENTAL_GLYPHS } from './rune-glyphs';
 
@@ -27,6 +27,10 @@ interface ShownRune {
   readonly glyphs: string;
   readonly tone: GemTone | undefined;
   readonly label: string;
+  /** Why it does nothing, in words, shown on hover; undefined when it works. */
+  readonly note: string | undefined;
+  /** The label with its note after it, as screen readers get it. */
+  readonly described: string;
 }
 
 const HOLE_GLYPH = '+';
@@ -42,7 +46,7 @@ const HOLE_GLYPH = '+';
  */
 @Component({
   selector: 'pio-rune-badge',
-  imports: [Gem],
+  imports: [Gem, HoverCard, HoverCardContent],
   templateUrl: './rune-badge.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,14 +54,50 @@ export class RuneBadge {
   public readonly rune = input.required<RuneBadgeData>();
 
   readonly #i18n = inject(TranslocoService);
+  readonly #noteText = (note: RuneNote | undefined): string | undefined => {
+    switch (note) {
+      case RuneNote.NotApplied: {
+        return this.#i18n.translate(RuneMessage.NotApplied);
+      }
+      case RuneNote.NoEffect: {
+        return this.#i18n.translate(RuneMessage.NoEffect);
+      }
+      case undefined: {
+        return undefined;
+      }
+      default: {
+        return note satisfies never;
+      }
+    }
+  };
   protected readonly shown = computed((): ShownRune => {
     const rune = this.rune();
+    const { label, note, ...rest } = this.#shownBase(rune);
+    return {
+      ...rest,
+      label,
+      note,
+      described: note === undefined ? label : this.#i18n.translate(RuneMessage.Described, { label, note }),
+    };
+  });
+
+  readonly #shownBase = (rune: RuneBadgeData): Omit<ShownRune, 'described'> => {
     switch (rune.kind) {
       case RuneBadgeKind.Hole: {
-        return { glyphs: HOLE_GLYPH, tone: undefined, label: this.#i18n.translate(RuneMessage.EmptySlot) };
+        return {
+          glyphs: HOLE_GLYPH,
+          tone: undefined,
+          label: this.#i18n.translate(RuneMessage.EmptySlot),
+          note: undefined,
+        };
       }
       case RuneBadgeKind.Property: {
-        return { glyphs: runicPair(rune.id), tone: GemTone.Blue, label: rune.name };
+        return {
+          glyphs: runicPair(rune.id),
+          tone: rune.note === undefined ? GemTone.Blue : GemTone.Black,
+          label: rune.name,
+          note: this.#noteText(rune.note),
+        };
       }
       case RuneBadgeKind.Fundamental: {
         const tones = rune.rune === FundamentalRune.Reinforcing ? REINFORCING_TONES : GRADE_TONES;
@@ -67,11 +107,12 @@ export class RuneBadge {
           glyphs: FUNDAMENTAL_GLYPHS[rune.rune],
           tone: tones[rune.grade - 1] ?? GemTone.Blue,
           label: this.#i18n.translate(message, { grade: rune.grade }),
+          note: undefined,
         };
       }
       default: {
         return rune satisfies never;
       }
     }
-  });
+  };
 }

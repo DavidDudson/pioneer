@@ -1156,6 +1156,9 @@
       "potency": "+{grade}",
       "potencyName": "+{grade} Potency",
       "emptySlot": "Empty rune slot",
+      "notApplied": "Not applied: apply it by hand.",
+      "noEffect": "No effect: the item's potency rune is too low for it.",
+      "described": "{label}. {note}",
       "striking": "{grade, plural, =1 {Striking} =2 {Greater Striking} =3 {Major Striking} other {Mythic Striking}}",
       "resilient": "{grade, plural, =1 {Resilient} =2 {Greater Resilient} =3 {Major Resilient} other {Mythic Resilient}}",
       "reinforcing": "{grade, plural, =1 {Minor Reinforcing} =2 {Lesser Reinforcing} =3 {Moderate Reinforcing} =4 {Greater Reinforcing} =5 {Major Reinforcing} other {Supreme Reinforcing}}"
