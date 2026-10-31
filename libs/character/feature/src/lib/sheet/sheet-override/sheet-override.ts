@@ -2,7 +2,8 @@ import { computed, inject, Injectable } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OverrideMode } from '@pioneer/character/domain';
+import { OverrideId, OverrideMode, overrideOf } from '@pioneer/character/domain';
+import type { Override } from '@pioneer/character/domain';
 import { Selector } from '@pioneer/rules/sdk';
 import { STATISTIC_OVERRIDES, StatisticOverrideMode } from '@pioneer/rules/ui';
 import type { NamedStatistic, StatisticLink, StatisticOverrides } from '@pioneer/rules/ui';
@@ -19,6 +20,9 @@ const OVERRIDE_STATISTIC_PARAM = 'overrideStatistic';
 
 /** The query parameter that names how: `adjust` or `set`. */
 const OVERRIDE_MODE_PARAM = 'overrideMode';
+
+/** The query parameter that names the override being edited, by id; it replaces the statistic and the mode. */
+const OVERRIDE_ID_PARAM = 'overrideId';
 
 const OPEN = 'open';
 
@@ -38,6 +42,8 @@ export interface OverrideTarget {
   readonly selector: Selector;
   readonly mode: OverrideMode;
   readonly statistic: NamedStatistic;
+  /** The override being edited; undefined when a new one is being made. */
+  readonly existing: Override | undefined;
 }
 
 /**
@@ -64,16 +70,27 @@ export class SheetOverrides implements StatisticOverrides {
     },
   });
 
+  /** Where editing the override `id` opens: the page being shown, with the drawer open on that override. */
+  public readonly edit = (id: OverrideId): StatisticLink => ({
+    to: [pathOf(this.#router.url)],
+    queryParams: { [OVERRIDE_DRAWER_PARAM]: OPEN, [OVERRIDE_ID_PARAM]: id },
+  });
+
   public readonly target: Signal<OverrideTarget | undefined> = computed(() => {
     const registry = this.#sheet.engine();
     const character = this.#sheet.character();
-    const selector = Selector.safeParse(this.#query()?.get(OVERRIDE_STATISTIC_PARAM));
-    const mode = z.enum(OverrideMode).safeParse(this.#query()?.get(OVERRIDE_MODE_PARAM));
-    if (registry === undefined || character === undefined || !selector.success || !mode.success) {
+    if (registry === undefined || character === undefined) {
       return undefined;
     }
-    const statistic = namedStatistics(registry, character, [selector.data]).get(selector.data);
-    return statistic === undefined ? undefined : { selector: selector.data, mode: mode.data, statistic };
+    const id = OverrideId.safeParse(this.#query()?.get(OVERRIDE_ID_PARAM));
+    const existing = id.success ? overrideOf(character.document, id.data) : undefined;
+    const selector = existing?.target ?? Selector.safeParse(this.#query()?.get(OVERRIDE_STATISTIC_PARAM)).data;
+    const mode = existing?.mode ?? z.enum(OverrideMode).safeParse(this.#query()?.get(OVERRIDE_MODE_PARAM)).data;
+    if (selector === undefined || mode === undefined) {
+      return undefined;
+    }
+    const statistic = namedStatistics(registry, character, [selector]).get(selector);
+    return statistic === undefined ? undefined : { selector, mode, statistic, existing };
   });
 }
 

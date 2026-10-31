@@ -30,6 +30,7 @@ describe('CharacterSheetPage', () => {
       ['Content packs', true],
       ['Variant rules', true],
       ['Table limits', true],
+      ['Overrides', true],
     ]);
     await openTab(root, 'Encounter', 'Skills');
     expect(regionsOf(root)).toStrictEqual([
@@ -73,6 +74,7 @@ describe('CharacterSheetPage', () => {
       'Content packs',
       'Variant rules',
       'Table limits',
+      'Overrides',
     ]);
 
     links[2]?.click();

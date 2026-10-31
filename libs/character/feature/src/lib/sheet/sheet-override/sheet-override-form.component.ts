@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal, output } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { CharacterPatchField, OverrideInput, OverrideMode, OverrideModifierType } from '@pioneer/character/domain';
@@ -29,6 +29,13 @@ interface OverrideModel {
 
 const EMPTY: OverrideModel = { value: 0, type: ModifierType.Untyped, reason: '' };
 
+/** What the form opens with: the override being edited, else nothing. */
+function modelOf({ existing }: OverrideTarget): OverrideModel {
+  return existing === undefined
+    ? EMPTY
+    : { value: existing.value, type: existing.type ?? ModifierType.Untyped, reason: existing.reason };
+}
+
 /** The part of an override the form gives; the rest is the statistic and the mode it was opened for. */
 const FormInput = OverrideInput.pick({ value: true, type: true, reason: true });
 
@@ -44,6 +51,7 @@ const Message = {
   ReasonRequired: 'character.validation.overrideReasonRequired',
   ReasonHint: 'character.sheet.override.reasonHint',
   Submit: 'character.sheet.override.submit',
+  SubmitEdit: 'character.sheet.override.submitEdit',
   Pending: 'character.sheet.override.pending',
   Done: 'character.sheet.override.done',
 } as const;
@@ -90,7 +98,8 @@ export class SheetOverrideForm {
     }),
   );
 
-  protected readonly model = signal<OverrideModel>(EMPTY);
+  protected readonly model = linkedSignal((): OverrideModel => modelOf(this.target()));
+  protected readonly editing = computed(() => this.target().existing !== undefined);
   /** Why the reason is not accepted, once the author has touched it: submit is off until it is given. */
   protected readonly reasonError = computed((): string | undefined => {
     const reason = this.form.reason();
@@ -102,7 +111,7 @@ export class SheetOverrideForm {
   });
 
   protected readonly save = async ({ value, type, reason }: OverrideModel): Promise<void> => {
-    const { selector, mode } = this.target();
+    const { selector, mode, existing } = this.target();
     const override = OverrideInput.parse({
       target: selector,
       mode,
@@ -110,8 +119,12 @@ export class SheetOverrideForm {
       ...(mode === OverrideMode.Adjust ? { type } : {}),
       reason,
     });
-    await this.#store.patch({ field: CharacterPatchField.AddOverride, override });
-    this.form().reset(EMPTY);
+    await this.#store.patch(
+      existing === undefined
+        ? { field: CharacterPatchField.AddOverride, override }
+        : { field: CharacterPatchField.EditOverride, id: existing.id, override },
+    );
+    this.form().reset(existing === undefined ? EMPTY : { value, type, reason });
     this.saved.emit();
   };
 

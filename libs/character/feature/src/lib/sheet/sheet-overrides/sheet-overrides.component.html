@@ -1,0 +1,9 @@
+@if (rows().length === 0) {
+  <fr-empty-state [title]="Message.Empty | transloco" [description]="Message.EmptyHint | transloco" />
+} @else {
+  <fr-list gap="md">
+    @for (row of rows(); track row.override.id) {
+      <fr-list-item><pio-sheet-override-row [row]="row" /></fr-list-item>
+    }
+  </fr-list>
+}
