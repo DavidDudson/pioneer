@@ -34,12 +34,6 @@ export interface RestrictionSources {
   readonly character: Character | undefined;
 }
 
-/** The names of the environments in `active`, in the order the character turned them on; ones the content lacks are left out. */
-export function activeEnvironmentNames(registry: ContentRegistry, active: ActiveEnvironments): readonly string[] {
-  const names = new Map(environmentOptions(registry).map(({ id, name }) => [id, name]));
-  return active.flatMap((id) => names.get(id) ?? []);
-}
-
 /** The restrictions of the environments the character is in, with what lifts each. */
 export function sheetRestrictions(
   { registry, engine, character }: RestrictionSources,
