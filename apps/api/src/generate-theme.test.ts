@@ -10,6 +10,8 @@ import { blankIn, contentOf } from './generate-character-testing';
 const LEVEL = CharacterLevel.parse(5);
 const SEEDS = Array.from({ length: 16 }, (_unused, index) => index + 1);
 const TIMEOUT_MS = 120_000;
+/** A class that fills every slot, so a slot left open is the theme's doing, not the class's. */
+const WIZARD = 'Wizard';
 const now = fixedClock('2026-01-01T00:00:00Z').now();
 const content = await contentOf();
 
@@ -46,8 +48,14 @@ describe('a generation theme', () => {
       const theme = favouring([Attribute.Intelligence]);
       const open = SEEDS.slice(0, 4).map(
         (seed) =>
-          generateCharacter({ start: blankIn(content), seed: Seed.parse(seed), level: LEVEL, content, now, theme })
-            .unfilled,
+          generateCharacter({
+            start: blankIn(content, WIZARD),
+            seed: Seed.parse(seed),
+            level: LEVEL,
+            content,
+            now,
+            theme,
+          }).unfilled,
       );
       expect(open).toEqual([[], [], [], []]);
     },
