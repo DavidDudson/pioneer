@@ -811,6 +811,10 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
   states all three for every form (casting and speech forbidden, hands only where Foundry gives them), as the Battle Form
   trait says; the sheet words them beside the spell lists and on the action rows (play-and-campaigns.md, "Sheet
   modes"). An action needing several things the form lacks gives a reason for each.
+- **Granted actions** (`characterActions`, `available-actions.ts`): each `{ action }` in the form's `actions` names an
+  Action entry the character has while the form lasts (Insect Form's Web). It joins the other candidates with the form
+  as its origin, so the restrictions above and the frequency and affordability checks apply to it as to any action. A
+  bracket or variant does not change the list.
 - **Melded gear and appearance** (sheet only, no engine change): in a form (and not in the base view,
   `SheetState.melded`) the worn and held items are melded into it. Inventory rows carry a `melded` note, and an
   invested item that still works says its constant effects apply but it cannot be activated. The form's traits

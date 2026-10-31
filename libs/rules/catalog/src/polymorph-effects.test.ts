@@ -72,6 +72,12 @@ async function movementCostOf(slug: string): Promise<readonly unknown[]> {
   );
 }
 
+/** A player-core action entry, by slug; undefined when the pack has none. */
+async function playerCoreAction(slug: string): Promise<ContentEntry | undefined> {
+  const file = await import('@pioneer/content/packs/player-core/action.json');
+  return ContentEntryFile.parse(file.default).find((entry) => entry.kind === ContentKind.Action && entry.slug === slug);
+}
+
 describe('polymorph effect gaps in Player Core', () => {
   test('difficult terrain costs 5 feet a square unless you are immune to it', async () => {
     const costs = await movementCostOf('environment:difficult-terrain');
@@ -119,6 +125,14 @@ describe('polymorph effect gaps in Player Core', () => {
     const [rule] = await rulesOf('effect:effect-ritual-reversion', RuleElementKey.RollOption);
 
     expect(rule).toMatchObject({ option: 'self:effect:ritual-reversion' });
+  });
+
+  test('Insect Form (spider) grants the Web action, a two-action offensive ability', async () => {
+    const [form] = await rulesOf('effect:spell-effect-insect-form-spider', RuleElementKey.BattleForm);
+    const web = await playerCoreAction('action:insect-form-web');
+
+    expect(form).toMatchObject({ form: { actions: [{ action: 'd2d52bf1-a10a-5ecf-bed8-b1effb3dd12d' }] } });
+    expect(web).toMatchObject({ id: 'd2d52bf1-a10a-5ecf-bed8-b1effb3dd12d', data: { cost: 'two' } });
   });
 });
 

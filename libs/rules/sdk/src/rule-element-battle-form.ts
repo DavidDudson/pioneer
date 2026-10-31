@@ -51,6 +51,9 @@ const FormSense = z.strictObject({
   range: Feet.positive().optional(),
 });
 
+/** An action the form grants while it is in effect: the content entry of the action (Insect Form's Web). */
+const FormAction = z.strictObject({ action: ContentId });
+
 const FormImmunity = z.strictObject({ type: Immunity });
 
 const FormAdjustment = z.strictObject({
@@ -138,6 +141,8 @@ export const BattleFormElement = z.strictObject({
     ...statisticFields,
     strikes: z.array(FormStrike).max(LIST_MAX).readonly().optional(),
     traits: z.array(Trait).max(LIST_MAX).readonly().optional(),
+    /** The actions the form grants beside the character's own: those that come with the form, not the spell's. */
+    actions: z.array(FormAction).max(LIST_MAX).readonly().optional(),
     ...flagFields,
   }),
   brackets: z.array(BattleFormBracket).max(BRACKETS_MAX).readonly().optional(),

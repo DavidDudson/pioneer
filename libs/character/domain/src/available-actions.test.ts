@@ -33,12 +33,17 @@ builder.withItem(ContentKind.Action, 'sneak-attack', { cost: 'free' });
 builder.withItem(ContentKind.Action, 'escape', { cost: 'one' });
 builder.withCondition('prone');
 builder.withCondition('grabbed', [{ key: 'GrantItem', item: builder.idOf(ContentKind.Action, 'escape') }]);
+builder.withItem(ContentKind.Action, 'spin-web', { cost: 'two' });
+builder.withCondition('spidery', [
+  { key: 'BattleForm', form: { actions: [{ action: builder.idOf(ContentKind.Action, 'spin-web') }] } },
+]);
 builder.withNamespace('self', NamespaceKind.Known);
 const registry = new ContentRegistry();
 registry.register(builder.build());
 
 const prone = ContentId.parse(builder.idOf(ContentKind.Condition, 'prone'));
 const grabbed = ContentId.parse(builder.idOf(ContentKind.Condition, 'grabbed'));
+const spidery = ContentId.parse(builder.idOf(ContentKind.Condition, 'spidery'));
 const id = (name: string): ContentId => ContentId.parse(builder.idOf(ContentKind.Action, name));
 
 function actionsOf(document: CharacterDocument): readonly AvailableAction[] {
@@ -99,5 +104,22 @@ describe('characterActions granted by a condition', () => {
 
   test('it is not on the list once the condition is gone', () => {
     expect(find(actionsOf(standing), 'escape')).toBeUndefined();
+  });
+});
+
+describe('characterActions granted by a battle form', () => {
+  const spiderDocument: CharacterDocument = {
+    ...standing,
+    play: { ...FRESH_PLAY, conditions: [{ id: INSTANCE, condition: spidery, duration: { kind: 'unlimited' } }] },
+  };
+
+  test('an action the form grants appears while the form holds, with the form as its origin', () => {
+    const web = find(actionsOf(spiderDocument), 'spin-web');
+
+    expect(web?.origin.kind).toBe(ActionOriginKind.Granted);
+  });
+
+  test('it is not on the list once the form is gone', () => {
+    expect(find(actionsOf(standing), 'spin-web')).toBeUndefined();
   });
 });

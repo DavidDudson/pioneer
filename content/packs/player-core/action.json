@@ -15956,5 +15956,37 @@
       },
       "modes": ["encounter"]
     }
+  },
+  {
+    "id": "d2d52bf1-a10a-5ecf-bed8-b1effb3dd12d",
+    "pack": "player-core",
+    "kind": "action",
+    "slug": "action:insect-form-web",
+    "name": "Web",
+    "rarity": "common",
+    "traits": ["attack"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Insect Form (Spider). You shoot a web at a creature within range, as the web spell, using the DC of the spell that gave you the form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "modes": ["encounter"]
+    }
   }
 ]

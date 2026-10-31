@@ -23544,7 +23544,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison. Its web is not modelled."
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison."
           }
         ]
       }
@@ -23582,7 +23582,12 @@
               }
             }
           ],
-          "traits": ["animal"]
+          "traits": ["animal"],
+          "actions": [
+            {
+              "action": "d2d52bf1-a10a-5ecf-bed8-b1effb3dd12d"
+            }
+          ]
         },
         "brackets": [
           {
