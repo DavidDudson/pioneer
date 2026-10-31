@@ -14,7 +14,7 @@ import type { ValueNode, ValueTextContext } from './value-text';
 /** What pressing a rolled value does, and the name a screen reader gives the button. */
 interface ValueRoll {
   readonly name: string;
-  readonly run: () => void;
+  readonly run: () => void | Promise<void>;
 }
 
 /**
@@ -64,9 +64,7 @@ export class RichValue {
     if (node.type === InlineKind.Damage) {
       return {
         name,
-        run: (): void => {
-          roller.damage({ node, label });
-        },
+        run: (): void | Promise<void> => roller.damage({ node, label }),
       };
     }
     if (node.type === InlineKind.Check && roller.hasStatistic(node.statistic)) {

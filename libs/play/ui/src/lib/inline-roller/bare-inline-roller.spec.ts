@@ -50,16 +50,16 @@ describe('the roller for text read with no character', () => {
     expect(toast?.total).toBe(13);
   });
 
-  it('rolls damage in its type', () => {
+  it('rolls damage in its type', async () => {
     const roller = rollerWith(4, 5);
-    roller.damage({ node: damageOf('2d6'), label: '2d6 fire' });
+    await roller.damage({ node: damageOf('2d6'), label: '2d6 fire' });
     const lines = TestBed.inject(RollPresenter).toast()?.lines;
     expect(lines).toStrictEqual([expect.objectContaining({ total: 9, typeKey: 'roll.damageType.fire' })]);
   });
 
-  it('rolls nothing for a formula that reads a character', () => {
+  it('rolls nothing for a formula that reads a character', async () => {
     const roller = rollerWith(4);
-    roller.damage({ node: damageOf('1d8 + @attr.str'), label: '1d8 + Strength fire' });
+    await roller.damage({ node: damageOf('1d8 + @attr.str'), label: '1d8 + Strength fire' });
     expect(TestBed.inject(RollPresenter).toast()).toBeUndefined();
   });
 });
