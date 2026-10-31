@@ -1,6 +1,9 @@
 <fr-stack gap="xs">
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-heading variant="subheading" [level]="3">{{ Message.Level | transloco: { level: row().level } }}</fr-heading>
+    @if (breaks()) {
+      <fr-badge [tone]="BadgeTone.Danger">{{ Message.Breaks | transloco }}</fr-badge>
+    }
     @if (row().current) {
       <fr-badge [tone]="BadgeTone.Info">{{ Message.Current | transloco }}</fr-badge>
     }
