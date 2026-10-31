@@ -238,6 +238,7 @@ function translate({ source, slug }: Slugged, context: EnvelopeContext): Transla
       ...fields,
       traits: traits.traits,
       sources: [{ kind: SourceKind.Book, book }],
+      ...(source.license === undefined ? {} : { license: source.license }),
       rules: rules.rules,
       externalIds: { foundry: compendiumUuid(foundryPack, documentId, document.type) },
     },

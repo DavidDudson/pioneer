@@ -948,5 +948,10 @@
     "book": "rival-academies",
     "page": 118,
     "aon": "https://2e.aonprd.com/Spells.aspx?ID=2324"
+  },
+  "consumable:fake-blood-pack": {
+    "book": "rival-academies",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3528",
+    "page": 56
   }
 }

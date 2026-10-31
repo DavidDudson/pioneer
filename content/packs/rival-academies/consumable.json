@@ -1830,7 +1830,9 @@
     "sources": [
       {
         "kind": "book",
-        "book": "rival-academies"
+        "book": "rival-academies",
+        "page": 56,
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=3528"
       }
     ],
     "description": [

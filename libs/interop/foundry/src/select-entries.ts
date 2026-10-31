@@ -5,6 +5,8 @@ import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
 import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
 import { foundrySlug } from './foundry-slug';
+import { isOglEntry } from './ogl-entries';
+import type { LicenseField } from './ogl-entries';
 
 /**
  * Foundry's `publication.title` for each book in the registry. A title not here is a book Pioneer does not
@@ -134,6 +136,8 @@ export type SkipReason = ValueOf<typeof SkipReason>;
 export interface SelectedEntry extends PackDocument {
   readonly type: FoundryItemType;
   readonly book: BookId;
+  /** Set for an item under the Open Game License in an ORC book (`OGL_ENTRIES`). */
+  readonly license?: ContentLicense;
 }
 
 export interface SkippedEntry {
@@ -154,13 +158,23 @@ interface Skip {
   readonly detail: string;
 }
 
-/** The target book an entry's publication names, or why it has none. */
-function targetBook(publication: FoundryPublication | undefined, targets: ReadonlySet<BookId>): BookId | Skip {
+/** `license: OGL` for a listed item in an ORC book; nothing for every other entry. */
+function entryLicense(publication: FoundryPublication | undefined, book: BookId, slug: string): LicenseField {
+  const licensed = publication !== undefined && isOglEntry(publication, book, slug) && !OGL_BOOKS.has(book);
+  return licensed ? { license: ContentLicense.Ogl } : {};
+}
+
+/** The target book an entry's publication names, or why it has none; `slug` is the Foundry slug of an item. */
+function targetBook(
+  publication: FoundryPublication | undefined,
+  targets: ReadonlySet<BookId>,
+  slug?: string,
+): BookId | Skip {
   if (publication === undefined) {
     return { reason: SkipReason.UnknownBook, detail: '' };
   }
   const book = FOUNDRY_BOOK_TITLES.get(publication.title);
-  const ogl = book !== undefined && OGL_BOOKS.has(book);
+  const ogl = (book !== undefined && OGL_BOOKS.has(book)) || isOglEntry(publication, book, slug);
   if (!ogl && !publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
   }
@@ -179,13 +193,15 @@ function select(entry: PackDocument, targets: ReadonlySet<BookId>): SelectedEntr
   if (!isFoundryItemType(type)) {
     return { pack, path, reason: SkipReason.UnsupportedType, detail: type };
   }
-  const book = targetBook(document.system.publication, targets);
+  const slug = foundrySlug(document);
+  const book = targetBook(document.system.publication, targets, slug);
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
-  return SUPERSEDED_SLUGS.has(foundrySlug(document))
-    ? { pack, path, reason: SkipReason.Superseded, detail: foundrySlug(document) }
-    : { ...entry, type, book };
+  if (SUPERSEDED_SLUGS.has(slug)) {
+    return { pack, path, reason: SkipReason.Superseded, detail: slug };
+  }
+  return { ...entry, type, book, ...entryLicense(document.system.publication, book, slug) };
 }
 
 /** Keeps remaster entries of supported types from the target books; reports every other document and why. */

@@ -1776,6 +1776,55 @@
     }
   },
   {
+    "id": "d42b7276-4485-58f3-959a-cbe5655c721a",
+    "pack": "treasure-vault",
+    "kind": "armor",
+    "slug": "armor:buckle-armor",
+    "name": "Buckle Armor",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["adjusted", "noisy"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault",
+        "page": 10,
+        "aon": "https://2e.aonprd.com/Armor.aspx?ID=18"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Absalom style once led famous adventurers to wear clothing with an unusual number of buckles, pouches, and straps. This fashion birthed a trend that led to \"buckle armor,\" a colloquial name for chic armor with spacious tool storage. Buckle armor comes with the storage armor adjustment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.emh9kvqSJtxTX8He"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "light",
+      "group": "leather",
+      "baseItem": "buckle-armor",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  },
+  {
     "id": "c4cbc876-bf80-5356-92c6-f94924cbd20c",
     "pack": "treasure-vault",
     "kind": "armor",

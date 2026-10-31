@@ -2915,5 +2915,20 @@
     "book": "guns-and-gears",
     "page": 64,
     "aon": "https://2e.aonprd.com/Weapons.aspx?ID=171"
+  },
+  "background:discarded-duplicate": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=262",
+    "page": 46
+  },
+  "equipment:blazons-of-shared-power": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1221",
+    "page": 183
+  },
+  "equipment:blazons-of-shared-power-greater": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1221",
+    "page": 183
   }
 }

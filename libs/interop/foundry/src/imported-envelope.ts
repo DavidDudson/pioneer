@@ -1,5 +1,6 @@
 import type {
   ContentId,
+  ContentLicense,
   ContentLevel,
   ContentText,
   EntrySlug,
@@ -34,6 +35,7 @@ export interface EnvelopeFields {
   readonly sources: readonly SourceRef[];
   readonly description: RichText;
   readonly rules: readonly RuleElement[];
+  readonly license?: ContentLicense;
 }
 
 /** The envelope of an entry translated from a Foundry document, which carries its compendium UUID. */
