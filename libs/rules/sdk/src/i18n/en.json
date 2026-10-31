@@ -353,6 +353,48 @@
     "condition": {
       "impliesWithoutGrant": "Grant this condition with a GrantItem rule too; listing it in implies does not apply it."
     },
+    "conditionBadge": {
+      "other": "Condition",
+      "name": {
+        "dying": "Dying",
+        "doomed": "Doomed",
+        "wounded": "Wounded",
+        "unconscious": "Unconscious",
+        "paralyzed": "Paralyzed",
+        "petrified": "Petrified",
+        "persistentDamage": "Persistent damage",
+        "stunned": "Stunned",
+        "controlled": "Controlled",
+        "confused": "Confused",
+        "restrained": "Restrained",
+        "grabbed": "Grabbed",
+        "immobilized": "Immobilized",
+        "fleeing": "Fleeing",
+        "frightened": "Frightened",
+        "blinded": "Blinded",
+        "deafened": "Deafened",
+        "slowed": "Slowed",
+        "sickened": "Sickened",
+        "stupefied": "Stupefied",
+        "enfeebled": "Enfeebled",
+        "clumsy": "Clumsy",
+        "drained": "Drained",
+        "fascinated": "Fascinated",
+        "fatigued": "Fatigued",
+        "dazzled": "Dazzled",
+        "quickened": "Quickened",
+        "broken": "Broken",
+        "encumbered": "Encumbered",
+        "offGuard": "Off-guard",
+        "prone": "Prone",
+        "concealed": "Concealed",
+        "hidden": "Hidden",
+        "undetected": "Undetected",
+        "unnoticed": "Unnoticed",
+        "invisible": "Invisible",
+        "observed": "Observed"
+      }
+    },
     "trait": {
       "duplicateKind": "The kind {kind} is listed more than once."
     },

@@ -75,8 +75,8 @@ const nameClasses = cva('absolute inset-x-none -bottom-2xs flex justify-center')
 const nameTextClasses = cva(
   'max-w-full truncate border border-line-default bg-surface-raised px-xs text-caption text-fg-default',
 )();
-const startClasses = cva('absolute -start-2xs -top-2xs')();
-const endClasses = cva('absolute -end-2xs -top-2xs')();
+const startClasses = cva('absolute -start-2xs -top-2xs clip-circle')();
+const endClasses = cva('absolute -end-2xs -top-2xs clip-circle')();
 
 const fillVariants = cva('', {
   variants: {

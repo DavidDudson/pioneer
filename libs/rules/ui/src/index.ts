@@ -266,3 +266,5 @@ export { OptionPicker } from './lib/option-picker/option-picker.component';
 export { injectOptionColumns, injectOptionRows } from './lib/option-picker/inject-option-rows';
 export { optionLabel, optionValue } from './lib/option-picker/option-rows';
 export { PickerRows, shownRows, type RowOrder } from './lib/option-picker/picker-rows';
+export { ConditionBadge } from './lib/condition-badge/condition-badge.component';
+export { bySeriousness, CONDITIONS_BY_SERIOUSNESS, ConditionSlug } from './lib/condition-badge/condition-seriousness';
