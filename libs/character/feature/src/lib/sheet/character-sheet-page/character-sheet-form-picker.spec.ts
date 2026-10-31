@@ -5,8 +5,10 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+import type { OpenSheet } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
@@ -35,6 +37,9 @@ const DRUID = {
 
 const PLAY = { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn: OWN_TURN } };
 
+/** What a pick reaches: the harness holding the sheet and its root. */
+type Opened = Pick<OpenSheet, 'harness' | 'root'>;
+
 function pickerOf(root: HTMLElement): HTMLElement | null {
   return root.querySelector<HTMLElement>('pio-form-picker');
 }
@@ -45,8 +50,8 @@ function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
 }
 
 /** Casts Animal Form from its use button and waits for the picker to open. */
-async function openPicker(): Promise<HTMLElement> {
-  const { root } = await openSheet(DRUID, { packs: PACKS, play: PLAY });
+async function openPicker(): Promise<Opened> {
+  const { harness, root } = await openSheet(DRUID, { packs: PACKS, play: PLAY });
   const cast = await vi.waitFor(() =>
     present(root.querySelector<HTMLButtonElement>('pio-sheet-prepared-spells pio-use-buttons button')),
   );
@@ -54,16 +59,12 @@ async function openPicker(): Promise<HTMLElement> {
   await vi.waitFor(() => {
     expect(pickerOf(root)).not.toBeNull();
   });
-  return root;
+  return { harness, root };
 }
 
 /** Picks the form whose label contains `name`. */
-async function pickForm(root: HTMLElement, name: string): Promise<void> {
-  present(pickerOf(root)?.querySelector<HTMLElement>('fr-select button')).click();
-  const option = await vi.waitFor(() =>
-    present([...document.querySelectorAll<HTMLElement>('[role="option"]')].find((each) => textOf(each).includes(name))),
-  );
-  option.click();
+function pickForm({ harness, root }: Opened, name: string): void {
+  pickRow(harness, present(pickerOf(root)), { matches: (label) => label.includes(name) });
 }
 
 describe('CharacterSheetPage casting a form spell', () => {
@@ -72,14 +73,14 @@ describe('CharacterSheetPage casting a form spell', () => {
   }, PREBUILD_TIMEOUT);
 
   it('opens the form picker and spends nothing until a form is confirmed', async () => {
-    const root = await openPicker();
+    const { root } = await openPicker();
 
     expect(textOf(pickerOf(root))).toContain('Cast Animal Form: choose a form');
     TestBed.inject(HttpTestingController).expectNone({ method: 'PATCH', url: PLAY_URL });
   });
 
   it('closes on Cancel and spends nothing', async () => {
-    const root = await openPicker();
+    const { root } = await openPicker();
 
     buttonIn(root, 'Cancel').click();
 
@@ -90,8 +91,9 @@ describe('CharacterSheetPage casting a form spell', () => {
   });
 
   it('spends the cast and puts the form on the character in one edit when a form is confirmed', async () => {
-    const root = await openPicker();
-    await pickForm(root, 'Ape');
+    const opened = await openPicker();
+    const { root } = opened;
+    pickForm(opened, 'Ape');
     await vi.waitFor(() => {
       expect(textOf(pickerOf(root))).toContain('in the form');
     });

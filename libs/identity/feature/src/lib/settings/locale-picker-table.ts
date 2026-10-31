@@ -2,11 +2,6 @@ import { tableSchema } from '@pioneer/frontier/data';
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
 import { Locale } from '@pioneer/shared/kernel';
 
-/** How much of the UI each locale translates, 0 to 1. The source locale is whole by definition. */
-const LOCALE_COVERAGE = {
-  [Locale.English]: 1,
-} as const satisfies Record<Locale, number>;
-
 /** One locale to pick: its name in itself, its name in English and how much of the UI is translated. */
 export interface LocaleRow {
   readonly locale: Locale;
@@ -17,13 +12,38 @@ export interface LocaleRow {
 
 const PERCENT = new Intl.NumberFormat(undefined, { style: 'percent', maximumFractionDigits: 0 });
 
+/** A locale's messages: text, or groups of them. */
+interface Messages {
+  readonly [key: string]: string | Messages;
+}
+
+/** The dotted key of every message under `messages`, nested groups walked. */
+function messageKeys(messages: Messages, prefix = ''): readonly string[] {
+  return Object.entries(messages).flatMap(([key, message]) =>
+    typeof message === 'string' ? [`${prefix}${key}`] : messageKeys(message, `${prefix}${key}.`),
+  );
+}
+
+/** How much of the UI `target` translates, 0 to 1: the share of the `source` messages it has. A source with none is whole. */
+export function translatedShare(source: Messages, target: Messages): number {
+  const wanted = messageKeys(source);
+  if (wanted.length === 0) {
+    return 1;
+  }
+  const have = new Set(messageKeys(target));
+  return wanted.filter((key) => have.has(key)).length / wanted.length;
+}
+
 /** Every locale as a row, the native name read by `Intl` so it needs no message of its own. */
-export function localeRows(englishName: (locale: Locale) => string): readonly LocaleRow[] {
+export function localeRows(
+  englishName: (locale: Locale) => string,
+  coverage: (locale: Locale) => number,
+): readonly LocaleRow[] {
   return Object.values(Locale).map((locale) => ({
     locale,
     nativeName: new Intl.DisplayNames(locale, { type: 'language' }).of(locale) ?? locale,
     englishName: englishName(locale),
-    coverage: LOCALE_COVERAGE[locale],
+    coverage: coverage(locale),
   }));
 }
 

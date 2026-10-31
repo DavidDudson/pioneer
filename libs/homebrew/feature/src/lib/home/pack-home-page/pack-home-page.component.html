@@ -43,13 +43,18 @@
           </fr-surface>
           <fr-surface>
             <fr-stack gap="sm">
-              <fr-select-field
+              <fr-picker-field
                 [label]="'homebrew.pack.visibilityLabel' | transloco"
                 [error]="visibilityError()"
-                [options]="visibilityOptions()"
+                [rows]="visibility.rows.shown()"
+                [columns]="visibility.columns()"
+                [rowValue]="visibility.value"
+                [rowLabel]="visibility.label"
                 [value]="chosen() ?? pack.visibility"
                 [disabled]="saving()"
                 (valueChange)="chooseVisibility(pack, $event)"
+                (searched)="visibility.rows.query.set($event)"
+                (sorted)="visibility.rows.ordering.set($event)"
               />
               <fr-text>{{ 'homebrew.pack.visibilityHint' | transloco }}</fr-text>
             </fr-stack>

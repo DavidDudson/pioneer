@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { Select, Stack, Text } from '@pioneer/frontier';
+import { Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { SPELL_RANK_MAX, SpellRank } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { spellCastLine } from '../spell-list/spell-detail-line-of';
 import type { SpellCastLine } from '../spell-list/spell-detail-line-of';
 import { SpellFields } from '../spell-list/spell-fields.component';
@@ -24,7 +25,7 @@ import { EntryPreviewMessage } from './entry-preview-messages';
  */
 @Component({
   selector: 'pio-entry-ranks',
-  imports: [EntryEffectsView, Select, SpellFields, Stack, Text, TranslocoPipe],
+  imports: [EntryEffectsView, OptionPicker, SpellFields, Stack, Text, TranslocoPipe],
   templateUrl: './entry-ranks.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -5,7 +5,7 @@ import { Glyph, LocaleFormat } from '@pioneer/frontier';
 import { PickerCellMessage } from '../picker-cell-messages';
 
 /**
- * A level as its number, read out as "Level 3".
+ * A level as its number, read out as "Level 3". Nothing when the row has no level.
  *
  * ```html
  * <pio-level-cell [level]="feat.level" />
@@ -18,9 +18,12 @@ import { PickerCellMessage } from '../picker-cell-messages';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LevelCell {
-  public readonly level = input.required<number>();
+  public readonly level = input.required<number | undefined>();
 
   readonly #format = inject(LocaleFormat);
   protected readonly Message = PickerCellMessage;
-  protected readonly shown = computed(() => this.#format.number(this.level()));
+  protected readonly shown = computed(() => {
+    const level = this.level();
+    return level === undefined ? undefined : this.#format.number(level);
+  });
 }

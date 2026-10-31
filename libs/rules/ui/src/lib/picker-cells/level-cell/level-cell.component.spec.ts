@@ -9,4 +9,9 @@ describe(LevelCell, () => {
     expect(host.querySelector('[aria-hidden="true"]')?.textContent.trim()).toBe('3');
     expect(host.querySelector('.sr-only')?.textContent.trim()).toBe('Level 3');
   });
+
+  it('shows nothing for a row with no level', async () => {
+    const host = await renderCell(LevelCell, { level: undefined });
+    expect(host.querySelector('fr-glyph')).toBeNull();
+  });
 });

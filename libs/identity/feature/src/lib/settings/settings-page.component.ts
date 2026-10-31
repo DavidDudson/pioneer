@@ -7,11 +7,18 @@ import { PickerField } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
-import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
+import { DistanceUnit, Locale, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import { LocalePreferences } from '@pioneer/shared/web';
 import { filter, merge } from 'rxjs';
 
-import { localeColumns, localeLabel, localeRows, localeValue, shownLocales } from './locale-picker-table';
+import {
+  localeColumns,
+  localeLabel,
+  localeRows,
+  localeValue,
+  shownLocales,
+  translatedShare,
+} from './locale-picker-table';
 import type { LocaleRow } from './locale-picker-table';
 
 /** Each locale's name, spelled out so the message check sees every key. */
@@ -50,7 +57,11 @@ export class SettingsPage {
   /** Every locale; the list is short, so the pickers search and sort these in the page. */
   readonly #locales = computed((): readonly LocaleRow[] => {
     this.#messages();
-    return localeRows((locale) => this.#i18n.translate(LOCALE_NAMES[locale]));
+    const source = this.#i18n.getTranslation(SOURCE_LOCALE);
+    return localeRows(
+      (locale) => this.#i18n.translate(LOCALE_NAMES[locale]),
+      (locale) => translatedShare(source, this.#i18n.getTranslation(locale)),
+    );
   });
   protected readonly uiQuery = signal('');
   protected readonly uiSort = signal<PickerSort | undefined>(undefined);

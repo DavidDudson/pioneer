@@ -11,7 +11,6 @@ import {
   Heading,
   Link,
   NumberField,
-  Select,
   Stack,
   Surface,
   Text,
@@ -20,6 +19,7 @@ import {
 } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import type { Attribute, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
+import { OptionPicker } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterGenerator } from '../../data/character-generator';
@@ -71,8 +71,8 @@ const DEFAULT_LEVEL = CHARACTER_LEVEL_MIN;
     Heading,
     Link,
     NumberField,
+    OptionPicker,
     RollTableInput,
-    Select,
     Stack,
     Surface,
     Text,
@@ -97,6 +97,11 @@ export class GenerateCharacter {
   protected readonly names = CHARACTER_NAMES;
   protected readonly themeAttributes = THEME_ATTRIBUTES;
   protected readonly themeChoice = signal<GenerationThemeChoice>(NO_THEME_CHOICE);
+  /** What a weapon picker shows while none is chosen. */
+  protected readonly noChoice = computed(() => {
+    this.#messages();
+    return this.#i18n.translate('character.list.theme.weaponNone');
+  });
   protected readonly categoryOptions = computed(() => {
     this.#messages();
     return this.#options(WEAPON_CATEGORY_MESSAGES);

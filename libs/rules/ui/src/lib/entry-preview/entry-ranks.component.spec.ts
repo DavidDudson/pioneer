@@ -2,11 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
-import { Select } from '@pioneer/frontier';
 import { spellAtRank } from '@pioneer/rules/engine';
 import { SpellRank } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
+import { OptionPicker } from '../option-picker/option-picker.component';
 import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
 import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
 import type { PreviewRanks } from './entry-preview';
@@ -32,7 +32,7 @@ function textOf(fixture: ComponentFixture<EntryRanksView>): string {
 }
 
 function pick(fixture: ComponentFixture<EntryRanksView>, rank: string): void {
-  const select = fixture.debugElement.query(By.directive(Select)).componentInstance as Select<string>;
+  const select = fixture.debugElement.query(By.directive(OptionPicker)).componentInstance as OptionPicker<string>;
   select.value.set(rank);
   fixture.detectChanges();
 }

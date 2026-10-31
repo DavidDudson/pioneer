@@ -1,12 +1,11 @@
 <fr-surface padding="sm">
   <fr-stack gap="sm">
     <fr-text weight="semibold">{{ Message.Title | transloco: { spell: spell() } }}</fr-text>
-    <fr-select
+    <pio-option-picker
       [ariaLabel]="Message.Pick | transloco"
       [placeholder]="Message.Pick | transloco"
       [options]="selectOptions()"
-      [value]="picked()"
-      (valueChange)="picked.set($event)"
+      [(value)]="picked"
     />
     @if (preview(); as shown) {
       @if (shown.rows.length === 0) {

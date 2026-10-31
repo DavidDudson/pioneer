@@ -32,22 +32,25 @@
       <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.weaponLabel' | transloco">
         <fr-text tone="muted">{{ 'character.list.theme.weaponHint' | transloco }}</fr-text>
         <fr-stack direction="horizontal" gap="sm" wrap>
-          <fr-select
+          <pio-option-picker
             [ariaLabel]="'character.list.theme.categoryLabel' | transloco"
             [options]="categoryOptions()"
-            [value]="themeChoice().category ?? ''"
+            [placeholder]="noChoice()"
+            [value]="themeChoice().category"
             (valueChange)="chooseCategory($event)"
           />
-          <fr-select
+          <pio-option-picker
             [ariaLabel]="'character.list.theme.groupLabel' | transloco"
             [options]="groupOptions()"
-            [value]="themeChoice().group ?? ''"
+            [placeholder]="noChoice()"
+            [value]="themeChoice().group"
             (valueChange)="chooseGroup($event)"
           />
-          <fr-select
+          <pio-option-picker
             [ariaLabel]="'character.list.theme.baseLabel' | transloco"
             [options]="baseOptions()"
-            [value]="themeChoice().base ?? ''"
+            [placeholder]="noChoice()"
+            [value]="themeChoice().base"
             (valueChange)="chooseBase($event)"
           />
         </fr-stack>

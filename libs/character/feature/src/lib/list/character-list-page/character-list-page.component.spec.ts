@@ -165,8 +165,8 @@ describe('CharacterListPage', () => {
     await harness.fixture.whenStable();
 
     const root = present(harness.routeNativeElement);
-    const selects = [...root.querySelectorAll('pio-generate-character fr-select button')];
-    expect(selects.map((select) => select.getAttribute('aria-label'))).toStrictEqual([
+    const selects = [...root.querySelectorAll('pio-generate-character pio-option-picker button')];
+    expect(selects.map((select) => select.getAttribute('aria-label')?.split(': ')[0])).toStrictEqual([
       'Weapon category',
       'Weapon group',
       'Weapon base',

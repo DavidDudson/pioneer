@@ -23,8 +23,8 @@ export interface RuneRow {
   readonly label: string;
   /** "Fundamental" or "Property", already translated. */
   readonly kind: string;
-  /** The rune's level; 0 for no rune at all. */
-  readonly level: number;
+  /** The rune's level; undefined for no rune at all, or when no content has it. */
+  readonly level: number | undefined;
   readonly effect: RichText;
   readonly price: Price | undefined;
   /** The property slots it takes: one for a property rune, none for a fundamental one. */
@@ -45,11 +45,18 @@ export interface RuneHeaders {
 
 const NO_EFFECT: RichText = [];
 const ONE_SLOT = 1;
+/** Where a row with no level sorts: before every level. */
+const NO_LEVEL = -1;
 
 /** How the rune rows are searched and sorted. */
 export const RUNE_ORDER: RowOrder<RuneRow> = {
   text: (row) => `${row.label} ${row.kind}`,
-  sortKey: { name: (row) => row.label, kind: (row) => row.kind, level: (row) => row.level, slots: (row) => row.slots },
+  sortKey: {
+    name: (row) => row.label,
+    kind: (row) => row.kind,
+    level: (row) => row.level ?? NO_LEVEL,
+    slots: (row) => row.slots,
+  },
 };
 
 /** The columns of a rune picker: the name, its kind, level, effect, price, and the property slot it uses. */
@@ -100,7 +107,7 @@ function rowOf(entry: RuneEntry | undefined, shown: Shown): RuneRow {
     label: shown.label,
     kind: shown.kind,
     slots: shown.slots,
-    level: entry === undefined ? 0 : entry.level,
+    level: entry?.level,
     effect: entry === undefined ? NO_EFFECT : entry.description,
     price: entry?.data.price,
   };

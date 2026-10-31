@@ -57,7 +57,7 @@ describe(gradeRows, () => {
     expect(rows.map((row) => row.value)).toStrictEqual(['', '1', '2', '3', '4']);
     expect(new Set(rows.map((row) => row.kind))).toStrictEqual(new Set([WORDS.fundamental]));
     expect(new Set(rows.map((row) => row.slots))).toStrictEqual(new Set([0]));
-    expect(rows[0]?.level).toBe(0);
+    expect(rows[0]?.level).toBeUndefined();
   });
 });
 
