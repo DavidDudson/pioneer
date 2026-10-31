@@ -55,7 +55,7 @@ const ROWS: readonly Row<unknown>[] = [
   {
     name: 'action',
     component: ActionRow,
-    inputs: { action: { line: STANDING_ACTIONS[0], detail: '', reasons: [] } },
+    inputs: { action: { line: STANDING_ACTIONS[0], detail: '', reasons: [], conditions: [] } },
   },
   { name: 'kit item', component: KitContents, inputs: { lines: [kitLine('Longsword', 1)] } },
 ];
