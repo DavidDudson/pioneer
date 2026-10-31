@@ -1,4 +1,3 @@
-// oxlint-disable import/max-dependencies -- The contract names the schema of every character endpoint, so it grows with them.
 import { AncestryId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import { Endpoint, HttpMethod, listQuery, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -6,18 +5,14 @@ import * as z from 'zod';
 
 import { Character } from './character';
 import { CharacterAllies } from './character-allies';
-import { SheetDeity } from './character-deity';
 import { CharacterId, CharacterName } from './character-fields';
-import { CharacterLanguages } from './character-languages';
 import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterRuleLimitContract } from './character-rule-limit-contract';
-import { CharacterSlot } from './character-slot';
+import { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
 import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
-import { ClearedPick } from './dependent-picks';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { GenerateCharacterBody, GeneratedCharacter } from './generate-character-contract';
-import { OverrideAuthor } from './override-schema';
 import { CharacterPlay, PatchedPlay, PatchPlayBody } from './play-state';
 import { RuleLimitsSchema } from './rule-limits';
 import { SetSheetModeBody, SheetModeChoice } from './sheet-mode';
@@ -36,28 +31,6 @@ export type CharacterListQuery = z.output<typeof CharacterListQuery>;
 
 export const CreateCharacterBody = z.object({ name: CharacterName, ancestry: AncestryId });
 export type CreateCharacterBody = z.infer<typeof CreateCharacterBody>;
-
-/**
- * One character as its sheet reads it: the character, every slot it has with its status (#419), its languages (#470)
- * and its deity (#469), with the description the browser's content has no copy of. They are worked out from the picks
- * and the server's content on each read, never stored, so the character's wire stays inputs only.
- */
-export const CharacterSheet = z.object({
-  character: Character.codec,
-  slots: z.array(CharacterSlot).readonly(),
-  languages: CharacterLanguages,
-  deity: SheetDeity.optional(),
-  /** The names of the users who authored the character's overrides; a user nobody can name is left out. */
-  authors: z.array(OverrideAuthor).readonly().optional(),
-});
-export type CharacterSheet = z.output<typeof CharacterSheet>;
-
-/**
- * A PATCH's answer: the sheet, and the picks the edit cleared because a slot they are within changed (a heritage of
- * the old ancestry). Reported once, here; a later read has no record of them.
- */
-export const PatchedCharacterSheet = CharacterSheet.extend({ cleared: z.array(ClearedPick).readonly() });
-export type PatchedCharacterSheet = z.output<typeof PatchedCharacterSheet>;
 
 /** The character HTTP API, shared by `character-infrastructure` and `character-feature`. */
 export const CharacterContract = {
