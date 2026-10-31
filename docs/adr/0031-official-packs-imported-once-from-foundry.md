@@ -46,7 +46,9 @@ fixes to any field Foundry also changed).
 - The coverage report runs over the committed packs and their backlog, in CI on PRs touching `content/`. It
   reports; it never fails the build.
 - Supersedes ADR-0003's generated packs, errata by re-import and importer backlog, and ADR-0005's enrichment by the
-  importer; content as data, remaster-only selection, the id scheme and mandatory sources stand.
+  importer; content as data, the id scheme and mandatory sources stand. Selection is remaster-only except for the
+  pre-remaster OGL books the book registry flags `legacy` (Epic 9.8, #1258), whose entries are imported and shown as
+  legacy.
 
 ## Consequences
 

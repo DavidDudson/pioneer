@@ -48,7 +48,7 @@ published under the [Open Game License 1.0a](https://github.com/foundryvtt/pf2e/
 Pioneer imports those books whole (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide`,
 `impossible-lands`, `ancestry-guide`) and declares them `OGL` in the book registry and pack manifest.
 Only Open Game Content is used; Product Identity is not. Section 15 of the licence is reproduced on the Legal page
-for each such book. Adding a book to `OGL_BOOKS` means adding its Section 15 notice there too.
+for each such book. Flagging a book `legacy: whole` in the book registry means adding its Section 15 notice there too.
 
 A few items in an ORC book are still Open Game Content, reprinted from a pre-remaster work: Treasure Vault's Atlatl,
 Authorized, Buckle Armor, Purloining Cloak, Spraysling, Taw Launcher and Three-Section Naginata, and Guns & Gears'
@@ -60,8 +60,8 @@ They stay in the book's ORC pack, each entry carrying `license: OGL`, and are li
 Four more are printed only in a pre-remaster book: Vital Luminance (Core Rulebook), Eye for Numbers and Quick Change
 (Advanced Player Guide) and Verdant Sprout (Pathfinder #151: The Show Must Go On). Each book is registered as
 `core-rulebook`, `advanced-players-guide` or `the-show-must-go-on`, OGL and not remaster, with a pack that holds
-only those listed items (`LEGACY_ENTRY_BOOKS`). Adding an item means adding the Section 15 notice of its work to the
-Legal page too.
+only those listed items (`legacy: listed` in the book registry). Adding an item means adding the Section 15 notice of
+its work to the Legal page too.
 
 All Open Game Content in the packs is legacy: an entry whose licence (its own, else its pack's) is `OGL`
 (`isLegacyLicense`).
@@ -141,8 +141,8 @@ The vocabulary each import adds to `core-rules` (traits, senses, damage types,
 Lore statistics), under `content/packs/core-rules/imported/<pack>/`, comes from
 the same release; the rest of `core-rules` is written by hand.
 
-Only remastered, ORC-licensed entries are imported, except from the books listed in `OGL_BOOKS`
-(`libs/interop/foundry/src/select-entries.ts`): pre-remaster books under the Open Game License that the remaster
+Only remastered, ORC-licensed entries are imported, except from the books the book registry flags `legacy`
+(`libs/rules/catalog/src/books.json`): pre-remaster books under the Open Game License that the remaster
 books still point at (see below). Pioneer is not affiliated
 with Foundry Gaming LLC or the pf2e system maintainers.
 

@@ -261,10 +261,10 @@ const pin = await readPin(pack);
 const files = await archiveFiles(await archive(pin));
 const release = readFoundryRelease(files);
 const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
-const selection = selectEntries(release, books);
+const selection = selectEntries(release, books, bookRegistry.books);
 console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
-const creatures = selectCreatures(release, books);
+const creatures = selectCreatures(release, books, bookRegistry.books);
 console.log(formatCreatures(creatures));
 const known = await knownEntries(targets);
 const translation = translateImport([...selection.selected, ...creatures.selected.map((each) => creatureEntry(each))], {

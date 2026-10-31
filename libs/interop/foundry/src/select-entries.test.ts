@@ -6,6 +6,7 @@ import { dryRunReport } from './dry-run-report';
 import { readFoundryRelease } from './foundry-release';
 import type { FoundryRelease } from './foundry-release';
 import { selectEntries, SkipReason } from './select-entries';
+import { LEGACY } from './testing/legacy';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const playerCore = BookId.parse('player-core');
@@ -112,14 +113,14 @@ const mwangi = (license: string): string =>
 
 describe('selectEntries', () => {
   test('keeps remaster entries of supported types from the target books', () => {
-    const { selected } = selectEntries(release(), new Set([playerCore]));
+    const { selected } = selectEntries(release(), new Set([playerCore]), LEGACY);
 
     expect(names(selected).toSorted()).toEqual(['longsword.json', 'power-attack.json', 'toughness.json']);
     expect(selected.every(({ book }) => book === playerCore)).toBe(true);
   });
 
   test('reports every other document with its reason and detail', () => {
-    const { skipped } = selectEntries(release({ 'packs/pf2e/feats/broken.json': '{' }), new Set([playerCore]));
+    const { skipped } = selectEntries(release({ 'packs/pf2e/feats/broken.json': '{' }), new Set([playerCore]), LEGACY);
     const [broken, ...rest] = skipped;
     const reasons = rest.map(({ path, reason, detail }) => [fileName(path), reason, detail]);
 
@@ -144,6 +145,7 @@ describe('selectEntries', () => {
         }),
       }),
       new Set([playerCore]),
+      LEGACY,
     );
 
     expect(names(selected)).not.toContain('aquatic.json');
@@ -158,6 +160,7 @@ describe('selectEntries', () => {
     const { selected, skipped } = selectEntries(
       release({ 'packs/pf2e/feats/cup.json': JSON.stringify(cup) }),
       new Set([playerCore]),
+      LEGACY,
     );
 
     expect(names(selected)).not.toContain('cup.json');
@@ -172,6 +175,7 @@ describe('selectEntries', () => {
       const { selected } = selectEntries(
         release({ 'packs/pf2e/feats/goloma.json': mwangi('OGL') }),
         new Set([mwangiExpanse]),
+        LEGACY,
       );
 
       expect(selected.map(({ book }) => book)).toEqual([mwangiExpanse]);
@@ -181,6 +185,7 @@ describe('selectEntries', () => {
       const { skipped } = selectEntries(
         release({ 'packs/pf2e/feats/goloma.json': mwangi('ORC') }),
         new Set([mwangiExpanse]),
+        LEGACY,
       );
 
       expect(skipped.find(({ path }) => path.endsWith('goloma.json'))).toMatchObject({
@@ -193,6 +198,7 @@ describe('selectEntries', () => {
       const { selected, skipped } = selectEntries(
         release({ 'packs/pf2e/feats/goloma.json': mwangi('OGL') }),
         new Set([playerCore]),
+        LEGACY,
       );
 
       expect(names(selected)).not.toContain('goloma.json');
@@ -211,6 +217,7 @@ describe('selectEntries', () => {
       const { skipped } = selectEntries(
         release({ 'packs/pf2e/feats/old.json': JSON.stringify(legacy) }),
         new Set([mwangiExpanse]),
+        LEGACY,
       );
 
       expect(skipped.find(({ path }) => path.endsWith('old.json'))?.reason).toBe(SkipReason.Legacy);
@@ -227,6 +234,7 @@ describe('selectEntries', () => {
           'packs/pf2e/equipment/buckle-armor.json': vault('Buckle Armor', 'OGL', false),
         }),
         new Set([treasureVault]),
+        LEGACY,
       );
 
       expect(selected.map(({ book, license }) => [book, license])).toEqual([
@@ -239,6 +247,7 @@ describe('selectEntries', () => {
       const { skipped } = selectEntries(
         release({ 'packs/pf2e/equipment/other.json': vault('Other Thing', 'OGL', true) }),
         new Set([treasureVault]),
+        LEGACY,
       );
 
       expect(skipped.find(({ path }) => path.endsWith('other.json'))?.reason).toBe(SkipReason.NotOrc);
@@ -248,6 +257,7 @@ describe('selectEntries', () => {
       const { selected } = selectEntries(
         release({ 'packs/pf2e/equipment/atlatl.json': vault('Atlatl', 'ORC', true) }),
         new Set([treasureVault]),
+        LEGACY,
       );
 
       expect(selected.map(({ license }) => license)).toEqual([undefined]);
@@ -255,7 +265,7 @@ describe('selectEntries', () => {
   });
 
   test('selects from every target book', () => {
-    const { selected } = selectEntries(release(), new Set([playerCore, gmCore]));
+    const { selected } = selectEntries(release(), new Set([playerCore, gmCore]), LEGACY);
 
     expect(names(selected)).toContain('staff.json');
   });
@@ -269,7 +279,7 @@ describe('dryRunReport', () => {
       'packs/pf2e/feats/bad.json': '[',
       'packs/pf2e/feats/older-feat.json': JSON.stringify(legacy),
     };
-    const report = dryRunReport(selectEntries(release(extra), new Set([playerCore])));
+    const report = dryRunReport(selectEntries(release(extra), new Set([playerCore]), LEGACY));
 
     expect(report).toEqual({
       imported: [
