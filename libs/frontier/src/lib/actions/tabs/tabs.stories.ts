@@ -79,6 +79,20 @@ export const ManySections: TabsStory = {
   }),
 };
 
+/** The segment look in a prose-width box with more sections than fit: the track scrolls sideways, as on a phone. */
+export const SegmentNarrow: TabsStory = {
+  render: () => ({
+    props: { sections: SECTIONS.map((label) => ({ label, to: route(label) })) },
+    template: `<fr-box width="prose">
+      <fr-tabs centered appearance="segment" label="Sheet sections">
+        @for (section of sections; track section.to) {
+          <fr-tab [to]="section.to" [exact]="section.to === '/'">{{ section.label }}</fr-tab>
+        }
+      </fr-tabs>
+    </fr-box>`,
+  }),
+};
+
 interface SectionTabs {
   readonly overview: HTMLElement;
   readonly attributes: HTMLElement;
