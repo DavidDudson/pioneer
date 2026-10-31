@@ -109,3 +109,24 @@ describe('blockProblem', () => {
     expect(blockProblem(HELD, {}, OTHER)).toBe(ShieldProblem.NotHeld);
   });
 });
+
+describe('Shield Block with the shield of a battle form', () => {
+  const FORM: ShieldStats = { ...STEEL, hardness: Hardness.parse(15), undamageable: true };
+  const formBlock = (taken: number): PlayState =>
+    applyPlayCommand(
+      FRESH_PLAY,
+      { field: PlayCommandField.BlockWithShield, item: ITEM, damage: untypedDamage(hp(taken)) },
+      { ...within(MAX), shields: new Map([[ITEM, FORM]]) },
+    );
+
+  test('Hardness prevents its share, the character takes the rest and no damage is kept on the shield', () => {
+    const after = formBlock(20);
+
+    expect(currentHitPoints(after.hp, MAX)).toBe(hp(25));
+    expect(after.shields).toStrictEqual({});
+  });
+
+  test('it is never broken or destroyed, however much it blocks', () => {
+    expect(shieldCondition(FORM, hp(100))).toBe(ShieldCondition.Whole);
+  });
+});

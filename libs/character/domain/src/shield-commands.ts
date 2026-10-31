@@ -4,7 +4,7 @@ import type { Hardness } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { HeldShield } from './equipped';
+import type { HeldShield } from './held-shields';
 import { afterDamage } from './hit-point-edits';
 import { InventoryItemId } from './inventory';
 import type { PlayLimits, PlayState } from './play-state';
@@ -24,6 +24,8 @@ export interface ShieldStats {
   readonly hitPoints: HitPoints;
   /** Half its Hit Points, rounded down: at or below it the shield is broken. */
   readonly brokenThreshold: HitPoints;
+  /** A battle form's shield: it takes no damage, so it never breaks and none is kept on it. */
+  readonly undamageable?: true;
 }
 
 /** The shields the character holds, by the inventory item, as the server's content gives them. */
@@ -35,9 +37,9 @@ export const NO_SHIELDS: ShieldContent = new Map();
 /** The shields `held` as content, by the inventory item that holds each. */
 export function shieldContent(held: readonly HeldShield[]): ShieldContent {
   return new Map(
-    held.map(({ item, hardness, hitPoints, brokenThreshold }): [InventoryItemId, ShieldStats] => [
+    held.map(({ item, hardness, hitPoints, brokenThreshold, undamageable }): [InventoryItemId, ShieldStats] => [
       item,
-      { hardness, hitPoints, brokenThreshold },
+      { hardness, hitPoints, brokenThreshold, ...(undamageable === true ? { undamageable } : {}) },
     ]),
   );
 }
@@ -74,6 +76,9 @@ export function shieldHitPoints({ hitPoints }: ShieldStats, damage: HitPoints): 
 
 /** How a shield that has taken `damage` stands: destroyed at 0 Hit Points, broken at or below its Broken Threshold. */
 export function shieldCondition(stats: ShieldStats, damage: HitPoints): ShieldCondition {
+  if (stats.undamageable === true) {
+    return ShieldCondition.Whole;
+  }
   const left = shieldHitPoints(stats, damage);
   if (left === NONE) {
     return ShieldCondition.Destroyed;
@@ -153,6 +158,9 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
   }
   const { remaining } = blocked(damage.taken, stats.hardness);
   const hurt = afterDamage(play, { ...damage, taken: remaining }, limits.hitPoints);
+  if (stats.undamageable === true) {
+    return hurt;
+  }
   const shields = shieldDamaged(play.shields, item, { stats, amount: remaining });
   const destroyed = conditionAfterBlock(stats, play.shields[item] ?? NONE, damage.taken) === ShieldCondition.Destroyed;
   return { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };

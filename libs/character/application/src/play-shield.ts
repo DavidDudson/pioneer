@@ -2,6 +2,7 @@ import {
   blockProblem,
   breakItem,
   conditionAfterBlock,
+  equippedRules,
   heldShields,
   isShieldCommand,
   itemContent,
@@ -9,6 +10,7 @@ import {
   ShieldCondition,
   shieldContent,
   ShieldProblem,
+  slotContent,
 } from '@pioneer/character/domain';
 import type { Character, Inventory, PlayEdit, PlayState, ShieldContent } from '@pioneer/character/domain';
 import { HitPoints } from '@pioneer/rules/sdk';
@@ -31,7 +33,11 @@ const SHIELD_MESSAGES = {
 
 /** The shields the character holds, with the Hardness and Hit Points the server's content gives them. */
 export function shieldsOf(character: Character, registry: ContentRegistry): ShieldContent {
-  return shieldContent(heldShields(character.document.inventory, itemContent(registry)));
+  const items = itemContent(registry);
+  const slots = slotContent(registry);
+  return shieldContent(
+    heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots)),
+  );
 }
 
 /** Refuses a block with a shield the character does not hold, or one that is broken. */

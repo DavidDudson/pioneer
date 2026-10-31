@@ -6,7 +6,8 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { AttributeModifier, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
-import { equippedInputs, heldShields } from './equipped';
+import { equippedInputs } from './equipped';
+import { heldShields } from './held-shields';
 import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, ONE_HAND } from './item-carry';

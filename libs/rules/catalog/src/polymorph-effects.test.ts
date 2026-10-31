@@ -127,6 +127,12 @@ describe('polymorph effect gaps in Player Core', () => {
     expect(rule).toMatchObject({ option: 'self:effect:ritual-reversion' });
   });
 
+  test.each(['iomedae', 'torag'])('Avatar (%s) carries a shield with 15 Hardness', async (deity) => {
+    const [form] = await rulesOf(`effect:spell-effect-avatar-${deity}`, RuleElementKey.BattleForm);
+
+    expect(form).toMatchObject({ form: { shield: { hardness: 15 } } });
+  });
+
   test('Insect Form (spider) grants the Web action, a two-action offensive ability', async () => {
     const [form] = await rulesOf('effect:spell-effect-insect-form-spider', RuleElementKey.BattleForm);
     const web = await playerCoreAction('action:insect-form-web');

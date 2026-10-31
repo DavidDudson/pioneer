@@ -96,11 +96,12 @@ export function sheetShields(registry: ContentRegistry, character: Character): r
   const items = itemContent(registry);
   const rules = (): ModifierInputs => equippedRules(character.document, items, slots);
   return heldShields(character.document.inventory, items, rules).map(
-    ({ entry, hardness, hitPoints, brokenThreshold }): StrikesShield => ({
+    ({ entry, hardness, hitPoints, brokenThreshold, undamageable }): StrikesShield => ({
       name: slots.lookup.entry(entry)?.name ?? entry,
       hardness,
       hitPoints,
       brokenThreshold,
+      undamageable: undamageable === true,
     }),
   );
 }
