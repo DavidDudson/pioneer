@@ -258,10 +258,9 @@ boot):
   steps, so every theme gets both modes for free.
 - **Theme** (`data-theme`): a file in `src/styles/themes/`. `frontier.css`
   is the default on plain `:root` and defines every parameter; others
-  (`tavern.css`) override under `:root[data-theme='<name>']`. A theme sets
-  each role's hue and chroma, and may override mode-independent tokens:
-  `--fr-font-body|display|mono`. If a theme needs a different
-  mode-dependent value (tavern's parchment surfaces), scope it to
+  override under `:root[data-theme='<name>']`. A theme sets
+  each role's hue and chroma. If a theme needs a different
+  mode-dependent value, scope it to
   `:root[data-theme='<name>'][data-mode='light']` or
   `…:not([data-mode='light'])` so it beats the mode block.
 
@@ -319,6 +318,14 @@ off when the test finishes (`onTestFinished`), not in a Storybook cleanup,
 which never runs after a file's last story. In Chrome
 DevTools, Rendering → "Emulate CSS media feature forced-colors" shows any
 story the same way.
+
+## Fonts
+
+Typefaces are tokens too (`styles/fonts.css`): `--fr-font-body|display|mono|brand`, with the player's choice as
+`data-font-body` / `data-font-mono` on `<html>`. Display text uses the body face; only the wordmark
+(`fr-text` variant `brand`) uses the brand face, which never changes. A font file is not bundled: the app loads
+the chosen face's stylesheet from Google Fonts on demand (`FontStylesheets` in `@pioneer/shared/web`). Every stack
+ends in a generic family. Never hard-code a family in a component; use the `font-*` utilities.
 
 ## Components
 

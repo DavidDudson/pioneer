@@ -1,7 +1,7 @@
 import { ApplicationInitStatus, DOCUMENT } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
-import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
+import { BodyFont, DistanceUnit, Locale, MonoFont } from '@pioneer/shared/kernel';
 import { throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -34,6 +34,33 @@ describe(LocalePreferences, () => {
     expect(TestBed.inject(TranslocoService).translate('hello')).toBe('Hello');
     expect(root.lang).toBe('en');
     expect(root.dir).toBe('ltr');
+  });
+
+  it('shows the thematic fonts by default and tells the CSS which faces to use', async () => {
+    const preferences = await setup();
+    const root = TestBed.inject(DOCUMENT).documentElement;
+
+    expect([preferences.bodyFont(), preferences.monoFont()]).toStrictEqual(['thematic', 'standard']);
+    expect([root.dataset['fontBody'], root.dataset['fontMono']]).toStrictEqual(['thematic', 'standard']);
+  });
+
+  it('adopts, applies and caches the font choices', async () => {
+    const preferences = await setup();
+    const root = TestBed.inject(DOCUMENT).documentElement;
+
+    await preferences.adopt({ bodyFont: BodyFont.OpenDyslexic, monoFont: MonoFont.Typewriter });
+
+    expect([root.dataset['fontBody'], root.dataset['fontMono']]).toStrictEqual(['opendyslexic', 'typewriter']);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(
+      JSON.stringify({ bodyFont: 'opendyslexic', monoFont: 'typewriter' }),
+    );
+  });
+
+  it('ignores unknown cached fonts', async () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ bodyFont: 'comic-sans', monoFont: 'lexend' }));
+    const preferences = await setup();
+
+    expect([preferences.bodyFont(), preferences.monoFont()]).toStrictEqual(['thematic', 'standard']);
   });
 
   it('starts from the cached choices of the last signed-in user', async () => {

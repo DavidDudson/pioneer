@@ -1,15 +1,17 @@
-import { DistanceUnitSchema, LocaleSchema } from '@pioneer/shared/kernel';
+import { BodyFontSchema, DistanceUnitSchema, LocaleSchema, MonoFontSchema } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 /**
  * A signed-in user's display preferences. A field is absent until chosen, and absent shows the
- * defaults that signed-out visitors get: the source locale (`en`) and feet as written. Unknown
+ * defaults that signed-out visitors get: the source locale (`en`), feet as written and the thematic fonts. Unknown
  * fields are rejected.
  */
 export const Preferences = z.strictObject({
   uiLocale: LocaleSchema.optional(),
   contentLocale: LocaleSchema.optional(),
   distanceUnit: DistanceUnitSchema.optional(),
+  bodyFont: BodyFontSchema.optional(),
+  monoFont: MonoFontSchema.optional(),
 });
 export type Preferences = z.output<typeof Preferences>;
 
@@ -25,5 +27,7 @@ export function patchPreferences(current: Preferences, patch: Preferences): Pref
     uiLocale: patch.uiLocale ?? current.uiLocale,
     contentLocale: patch.contentLocale ?? current.contentLocale,
     distanceUnit: patch.distanceUnit ?? current.distanceUnit,
+    bodyFont: patch.bodyFont ?? current.bodyFont,
+    monoFont: patch.monoFont ?? current.monoFont,
   };
 }

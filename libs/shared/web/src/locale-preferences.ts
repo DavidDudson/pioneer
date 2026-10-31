@@ -1,9 +1,21 @@
 import { DOCUMENT, inject, Injectable, InjectionToken, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { DistanceUnit, DistanceUnitSchema, LocaleSchema, SOURCE_LOCALE, textDirection } from '@pioneer/shared/kernel';
+import {
+  BodyFont,
+  BodyFontSchema,
+  DistanceUnit,
+  DistanceUnitSchema,
+  LocaleSchema,
+  MonoFont,
+  MonoFontSchema,
+  SOURCE_LOCALE,
+  textDirection,
+} from '@pioneer/shared/kernel';
 import type { Locale } from '@pioneer/shared/kernel';
 import { firstValueFrom } from 'rxjs';
 import * as z from 'zod';
+
+import { FontStylesheets } from './font-stylesheets';
 
 const STORAGE_KEY = 'pioneer.locale';
 
@@ -12,10 +24,20 @@ export interface DisplayChoices {
   readonly ui?: Locale | undefined;
   readonly content?: Locale | undefined;
   readonly distanceUnit?: DistanceUnit | undefined;
+  readonly bodyFont?: BodyFont | undefined;
+  readonly monoFont?: MonoFont | undefined;
 }
 
 /** The cache as stored; each field is checked on its own, so one unknown value loses only itself. */
-const CachedChoices = z.object({ ui: z.unknown(), content: z.unknown(), distanceUnit: z.unknown() }).partial();
+const CachedChoices = z
+  .object({
+    ui: z.unknown(),
+    content: z.unknown(),
+    distanceUnit: z.unknown(),
+    bodyFont: z.unknown(),
+    monoFont: z.unknown(),
+  })
+  .partial();
 
 /** Where the signed-in user's choices are cached between visits; `undefined` when storage is blocked. */
 export const PREFERENCE_STORAGE = new InjectionToken<Storage | undefined>('PREFERENCE_STORAGE', {
@@ -41,6 +63,8 @@ function readCached(storage: Storage | undefined): DisplayChoices {
       ui: LocaleSchema.safeParse(parsed.data.ui).data,
       content: LocaleSchema.safeParse(parsed.data.content).data,
       distanceUnit: DistanceUnitSchema.safeParse(parsed.data.distanceUnit).data,
+      bodyFont: BodyFontSchema.safeParse(parsed.data.bodyFont).data,
+      monoFont: MonoFontSchema.safeParse(parsed.data.monoFont).data,
     };
   } catch {
     // Unreadable or corrupt choices behave like none.
@@ -49,9 +73,9 @@ function readCached(storage: Storage | undefined): DisplayChoices {
 }
 
 /**
- * The viewer's UI locale, content locale and distance unit. A signed-in user's account choices
+ * The viewer's UI locale, content locale, distance unit and fonts. A signed-in user's account choices
  * win; anything not chosen, and everything for signed-out visitors, is the default: the source
- * locale (`en`) and feet as written. The two locales are independent: English rules text with a
+ * locale (`en`), feet as written and the thematic fonts. The two locales are independent: English rules text with a
  * German UI is valid.
  *
  * Identity owns the account: it calls `adopt` with the signed-in user's choices and `reset` when
@@ -63,18 +87,24 @@ export class LocalePreferences {
   readonly #i18n = inject(TranslocoService);
   readonly #document = inject(DOCUMENT);
   readonly #storage = inject(PREFERENCE_STORAGE);
+  readonly #fonts = inject(FontStylesheets);
   readonly #cached = readCached(this.#storage);
   readonly #ui = signal(this.#cached.ui ?? SOURCE_LOCALE);
   readonly #content = signal(this.#cached.content ?? SOURCE_LOCALE);
   readonly #distanceUnit = signal(this.#cached.distanceUnit ?? DistanceUnit.Feet);
+  readonly #bodyFont = signal(this.#cached.bodyFont ?? BodyFont.Thematic);
+  readonly #monoFont = signal(this.#cached.monoFont ?? MonoFont.Standard);
 
   public readonly ui = this.#ui.asReadonly();
   public readonly content = this.#content.asReadonly();
   public readonly distanceUnit = this.#distanceUnit.asReadonly();
+  public readonly bodyFont = this.#bodyFont.asReadonly();
+  public readonly monoFont = this.#monoFont.asReadonly();
 
   /** Loads the UI locale's root messages and activates it. Runs once before bootstrap. */
   public async apply(): Promise<void> {
     await this.#activate(this.#ui());
+    this.#showFonts();
   }
 
   /**
@@ -88,6 +118,9 @@ export class LocalePreferences {
     this.#ui.set(ui);
     this.#content.set(choices.content ?? SOURCE_LOCALE);
     this.#distanceUnit.set(choices.distanceUnit ?? DistanceUnit.Feet);
+    this.#bodyFont.set(choices.bodyFont ?? BodyFont.Thematic);
+    this.#monoFont.set(choices.monoFont ?? MonoFont.Standard);
+    this.#showFonts();
     this.#cache(choices);
   }
 
@@ -108,6 +141,14 @@ export class LocalePreferences {
     const root = this.#document.documentElement;
     root.lang = locale;
     root.dir = textDirection(locale);
+  }
+
+  /** Sets the face attributes the CSS reads and starts loading any face not yet loaded. */
+  #showFonts(): void {
+    const root = this.#document.documentElement;
+    root.dataset['fontBody'] = this.#bodyFont();
+    root.dataset['fontMono'] = this.#monoFont();
+    this.#fonts.load(this.#bodyFont(), this.#monoFont());
   }
 
   #forgetCache(): void {

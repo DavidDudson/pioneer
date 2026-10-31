@@ -138,7 +138,7 @@ describe(App, () => {
     await openMenu(element, 'Account menu');
     await fixture.whenStable();
     const panel = accountPanel();
-    expect(panel.querySelector('a[href="/account"]')?.textContent.trim()).toBe('Amiri');
+    expect(panel.querySelector('a[href="/account"]')?.textContent).toContain('Amiri');
     expect(panel.querySelector('a[href="/account/settings"]')?.textContent.trim()).toBe('Settings');
     expect(panel.querySelector('a[href="/account/report-bug"]')).not.toBeNull();
     expect(buttonLabels(panel)).toContain('Sign out');
@@ -175,17 +175,10 @@ describe(App, () => {
     trigger?.click();
     await fixture.whenStable();
     const options = [...document.querySelectorAll<HTMLButtonElement>('[role="group"][aria-label="Theme"] button')];
-    expect(options.map((option) => option.textContent.trim())).toStrictEqual(['Dynamic', 'Frontier', 'Tavern']);
+    expect(options.map((option) => option.textContent.trim())).toStrictEqual(['Dynamic', 'Frontier']);
 
-    options[2]?.click();
+    options[1]?.click();
     await fixture.whenStable();
-    expect(store.theme()).toBe(Theme.Tavern);
-  });
-
-  it('follows the open page theme while dynamic', async () => {
-    await renderShell();
-    const store = TestBed.inject(ThemeStore);
-    store.context.set(Theme.Tavern);
-    expect(store.theme()).toBe(Theme.Tavern);
+    expect(store.choice()).toBe(ThemeChoice.Frontier);
   });
 });

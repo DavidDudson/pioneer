@@ -17,7 +17,7 @@ import type {
   UserId,
   UserRole,
 } from '@pioneer/identity/domain';
-import type { DistanceUnit, Locale, Uuid } from '@pioneer/shared/kernel';
+import type { BodyFont, DistanceUnit, Locale, MonoFont, Uuid } from '@pioneer/shared/kernel';
 import { sql } from 'drizzle-orm';
 import { boolean, index, jsonb, pgTable, text, timestamp, uniqueIndex, uuid } from 'drizzle-orm/pg-core';
 
@@ -102,6 +102,8 @@ export const userPreferences = pgTable('user_preferences', {
   uiLocale: text().$type<Locale>(),
   contentLocale: text().$type<Locale>(),
   distanceUnit: text().$type<DistanceUnit>(),
+  bodyFont: text().$type<BodyFont>(),
+  monoFont: text().$type<MonoFont>(),
   updatedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
 });
 

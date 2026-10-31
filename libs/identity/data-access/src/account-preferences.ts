@@ -17,7 +17,13 @@ async function settled(step: Promise<void>): Promise<void> {
 }
 
 function toChoices(preferences: Preferences): DisplayChoices {
-  return { ui: preferences.uiLocale, content: preferences.contentLocale, distanceUnit: preferences.distanceUnit };
+  return {
+    ui: preferences.uiLocale,
+    content: preferences.contentLocale,
+    distanceUnit: preferences.distanceUnit,
+    bodyFont: preferences.bodyFont,
+    monoFont: preferences.monoFont,
+  };
 }
 
 /**

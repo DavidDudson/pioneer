@@ -27,20 +27,19 @@ describe(ThemeStore, () => {
 
   it('applies and remembers a change', () => {
     const store = create();
-    store.choice.set(Theme.Tavern);
     store.modeChoice.set(ColorMode.Light);
     TestBed.tick();
-    expect(document.documentElement.dataset['theme']).toBe('tavern');
+    expect(document.documentElement.dataset['theme']).toBe('frontier');
     expect(document.documentElement.dataset['mode']).toBe('light');
-    expect(localStorage.getItem('fr-theme')).toBe('tavern');
+    expect(localStorage.getItem('fr-theme')).toBe('dynamic');
     expect(localStorage.getItem('fr-mode')).toBe('light');
   });
 
   it('restores the stored choice', () => {
-    localStorage.setItem('fr-theme', 'tavern');
+    localStorage.setItem('fr-theme', 'frontier');
     localStorage.setItem('fr-mode', 'light');
     const store = create();
-    expect(store.theme()).toBe(Theme.Tavern);
+    expect(store.choice()).toBe(ThemeChoice.Frontier);
     expect(store.mode()).toBe(ColorMode.Light);
   });
 
@@ -54,8 +53,8 @@ describe(ThemeStore, () => {
 
   it('follows the context theme while dynamic, and ignores it for a fixed pick', () => {
     const store = create();
-    store.context.set(Theme.Tavern);
-    expect(store.theme()).toBe(Theme.Tavern);
+    store.context.set(Theme.Frontier);
+    expect(store.theme()).toBe(Theme.Frontier);
     store.choice.set(Theme.Frontier);
     expect(store.theme()).toBe(Theme.Frontier);
     store.choice.set(ThemeChoice.Dynamic);

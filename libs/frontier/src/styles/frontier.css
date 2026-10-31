@@ -14,7 +14,7 @@
 @import './primitives.color.css';
 @import './primitives.scale.css';
 @import './themes/frontier.css';
-@import './themes/tavern.css';
+@import './fonts.css';
 @import './semantic.css';
 
 @source '../lib';
@@ -218,6 +218,7 @@
   --font-body: var(--fr-font-body);
   --font-display: var(--fr-font-display);
   --font-mono: var(--fr-font-mono);
+  --font-brand: var(--fr-font-brand);
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;

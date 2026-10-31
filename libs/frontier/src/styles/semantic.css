@@ -183,7 +183,7 @@
   --fr-surface-skeleton: var(--fr-ramp-neutral-200);
 
   --fr-fg-default: var(--fr-ramp-neutral-900);
-  /* Muted 800, subtle 700: subtle at 600 drops under 4.5:1 on tavern's parchment and on sunken surfaces. */
+  /* Muted 800, subtle 700: subtle at 600 drops under 4.5:1 on sunken surfaces. */
   --fr-fg-muted: var(--fr-ramp-neutral-800);
   --fr-fg-subtle: var(--fr-ramp-neutral-700);
   --fr-fg-disabled: var(--fr-ramp-neutral-400);
@@ -212,7 +212,7 @@
   --fr-danger-on-solid: oklch(1 0 0);
   --fr-danger-line: var(--fr-ramp-danger-300);
   /*
-   * Success, warning and info text at 800: at 700 they drop under 4.5:1 on tavern's sunken parchment.
+   * Success, warning and info text at 800: at 700 they drop under 4.5:1.
    * Success and info solids at 700, not 600: no text colour reaches 4.5:1 on 600. Warning stays light, with dark text.
    */
   --fr-success-solid: var(--fr-ramp-success-700);

@@ -21,11 +21,9 @@ export class ThemeMenu {
   protected readonly appearance = inject(ThemeStore);
   readonly #dynamic = translateSignal('shell.appearance.themes.dynamic');
   readonly #frontier = translateSignal('shell.appearance.themes.frontier');
-  readonly #tavern = translateSignal('shell.appearance.themes.tavern');
   protected readonly options = computed<readonly ThemeOption[]>(() => [
     { choice: ThemeChoice.Dynamic, label: this.#dynamic() },
     { choice: ThemeChoice.Frontier, label: this.#frontier() },
-    { choice: ThemeChoice.Tavern, label: this.#tavern() },
   ]);
   protected readonly current = computed(
     () => this.options().find((option) => option.choice === this.appearance.choice())?.label ?? '',
