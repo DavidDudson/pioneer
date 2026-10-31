@@ -68,6 +68,20 @@ describe('a cleric’s doctrine', () => {
     expect(translation.envelopes.untranslatedRules).toEqual([]);
   });
 
+  test('keeps the flag of a doctrine it grants nothing for, so the report lists it', () => {
+    const other = classFeature('pAtHfInDeR000000', 'Other Doctrine', [
+      {
+        key: 'ActiveEffectLike',
+        mode: 'override',
+        path: 'flags.system.cleric',
+        value: { firstDoctrine: DOCTRINE('First Doctrine (Other)') },
+      },
+    ]);
+    const translation = translate([other, FIRST]);
+
+    expect(translation.envelopes.untranslatedRules).toHaveLength(1);
+  });
+
   test('grants nothing for a doctrine whose feature is not in the import', () => {
     const translation = translate([FIRST, FIRST_WARPRIEST]);
     const rules = translation.entries.find(({ envelope }) => String(envelope.slug) === 'class-feature:first-doctrine')

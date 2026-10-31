@@ -8,7 +8,8 @@ import type { EntryReferences } from './entry-references';
  * (granted by the class at their levels) grant whichever the flag names:
  * `GrantItem { uuid: "{actor|flags.system.cleric.firstDoctrine}" }`. Pioneer has no actor flags (ADR-0008), so each
  * generic feature grants its doctrine's feature for each doctrine, gated on the doctrine feature being on the
- * character. The `ActiveEffectLike` sets only that flag, so it is dropped.
+ * character. The `ActiveEffectLike` sets only that flag, so it is dropped when it names Player Core's doctrines; one that
+ * names any other doctrine is left for the import report, as nothing replaces it.
  */
 
 /** Player Core's two doctrines: the name Foundry gives them after a feature's name, and the option each one sets. */
@@ -29,11 +30,21 @@ const DoctrineGrant = z.object({
 const DoctrineFlag = z.object({
   key: z.literal('ActiveEffectLike'),
   path: z.literal(FLAG_PATH),
+  value: z.record(z.string(), z.string()),
 });
 
-/** Whether `raw` is the `ActiveEffectLike` a doctrine feature uses to set the flag the generic doctrine features read. */
+/** Whether `uuid` names a doctrine feature of one of the doctrines `withDoctrineGrants` grants for. */
+function isKnownDoctrine(uuid: string): boolean {
+  return DOCTRINES.some(({ name }) => uuid.endsWith(`(${name})`));
+}
+
+/**
+ * Whether `raw` is the `ActiveEffectLike` a doctrine feature uses to set the flag the generic doctrine features read,
+ * for doctrines whose grants are replaced: another doctrine's flag has no grant to stand for it.
+ */
 export function isDoctrineFlag(raw: unknown): boolean {
-  return DoctrineFlag.safeParse(raw).success;
+  const flag = DoctrineFlag.safeParse(raw);
+  return flag.success && Object.values(flag.data.value).every((uuid) => isKnownDoctrine(uuid));
 }
 
 /** `firstDoctrine` as `First Doctrine`, the name of the generic feature that reads the flag. */
