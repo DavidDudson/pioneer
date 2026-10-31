@@ -3,7 +3,10 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Segmented, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ActionMode } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import type { ActionLine } from './action-line';
 import { ActionWords } from './action-words';
 import { ActionsAll } from './actions-all.component';
@@ -35,6 +38,9 @@ export class ActionsView {
   public readonly lines = input.required<readonly ActionLine[] | undefined>();
   /** The sheet mode the Now view follows. */
   public readonly mode = input<ActionMode>(ActionMode.Encounter);
+  /** What names the entries and items a conditional line comes from. */
+  public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
   /** The view that is open. */
   public readonly view = model<ActionsViewKind>(ActionsViewKind.Now);
 

@@ -65,6 +65,8 @@ UI behaviour:
   opens the setup panel with the claims already chosen. A Strike's attack row offers its conditional attack lines the
   same way, and the attack total and the multiple attack penalty steps follow what is claimed. `RollOption` toggles
   stay on the character.
+  An action row words the conditional lines of its roll beneath its cost and source, in both views, as a statistic
+  row does.
 
 Turn tracking (actions spent, reaction used, start/end of turn effects such as frightened decreasing) is local to the
 sheet. Campaign play runs in Foundry VTT, which tracks turns itself (ADR-0018).

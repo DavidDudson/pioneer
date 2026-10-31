@@ -6,11 +6,15 @@ import { LocaleFormat } from '@pioneer/frontier';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import { filter, merge } from 'rxjs';
 
+import type { LabelNames } from '../breakdown/line-words';
+import { conditionalLines } from '../statistics/conditional-lines';
 import type { ActionLine } from './action-line';
 import type { ShownAction } from './action-row.component';
 import { PASSIVE } from './actions-list';
 import type { CostGroup } from './actions-list';
 import { ACTION_COST_MESSAGES, ACTION_SOURCE_MESSAGES, ActionsMessage } from './actions-messages';
+
+const NO_NAMES: LabelNames = { entries: new Map() };
 
 /**
  * Words the actions list in the UI locale. Read `changed` inside a `computed` so the result is worded again when the
@@ -45,11 +49,13 @@ export class ActionWords {
   }
 
   /** The line with its cost and source worded together, and the reasons it is not plainly available worded. */
-  public shown(line: ActionLine): ShownAction {
+  public shown(line: ActionLine, names: LabelNames = NO_NAMES): ShownAction {
     return {
       line,
       detail: this.#format.list([this.cost(line.cost ?? PASSIVE), this.source(line)], 'unit'),
       reasons: line.reasons.map(({ key, params }) => this.#i18n.translate(key, params)),
+      conditions:
+        line.roll === undefined ? [] : conditionalLines(line.roll, { i18n: this.#i18n, format: this.#format, names }),
     };
   }
 }

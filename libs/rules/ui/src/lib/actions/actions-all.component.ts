@@ -4,7 +4,10 @@ import { Disclosure, FilterChips, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { ActionOriginKind } from '@pioneer/rules/engine';
 import { ActionMode } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import type { ActionLine } from './action-line';
 import { ActionList } from './action-list.component';
 import type { ShownAction } from './action-row.component';
@@ -26,6 +29,9 @@ import { ACTION_MODE_MESSAGES, ACTION_SOURCE_MESSAGES, ActionsMessage } from './
 export class ActionsAll {
   /** Undefined while loading. */
   public readonly lines = input.required<readonly ActionLine[] | undefined>();
+  /** What names the entries and items a conditional line comes from. */
+  public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly Message = ActionsMessage;
   readonly #words = inject(ActionWords);
@@ -38,7 +44,10 @@ export class ActionsAll {
 
   protected readonly modeOptions = computed((): readonly SelectOption<ActionMode>[] => {
     this.#words.changed();
-    return Object.values(ActionMode).map((value) => ({ value, label: this.#words.say(ACTION_MODE_MESSAGES[value]) }));
+    return Object.values(ActionMode).map((value) => ({
+      value,
+      label: this.#words.say(ACTION_MODE_MESSAGES[value]),
+    }));
   });
 
   protected readonly costOptions = computed((): readonly SelectOption<CostGroup>[] => {
@@ -56,7 +65,10 @@ export class ActionsAll {
 
   protected readonly traitOptions = computed((): readonly SelectOption<string>[] => {
     this.#words.changed();
-    return traitsOf(this.lines() ?? [], this.#words.compare).map((value) => ({ value, label: value }));
+    return traitsOf(this.lines() ?? [], this.#words.compare).map((value) => ({
+      value,
+      label: value,
+    }));
   });
 
   /** Every action the filters let through. */
@@ -65,7 +77,9 @@ export class ActionsAll {
     const lines = this.lines();
     return lines === undefined
       ? undefined
-      : filterActions(lines, this.#filters()).map((line) => this.#words.shown(line));
+      : filterActions(lines, this.#filters()).map((line) =>
+          this.#words.shown(line, { entries: this.entryNames(), items: this.originNames().items }),
+        );
   });
 
   protected setModes(modes: ReadonlySet<ActionMode>): void {
