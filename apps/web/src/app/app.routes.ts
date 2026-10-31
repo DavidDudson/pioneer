@@ -118,8 +118,11 @@ export const appRoutes: Routes = [
     // The content browser is public, like Legal: content needs no account (ADR-0007).
     path: 'content',
     loadChildren: async () => {
-      const { contentRoutes } = await import('@pioneer/content/feature');
-      return contentRoutes;
+      const [{ contentRoutes }, { withBareRoller }] = await Promise.all([
+        import('@pioneer/content/feature'),
+        import('./bare-roller-routes'),
+      ]);
+      return withBareRoller(contentRoutes);
     },
   },
   {

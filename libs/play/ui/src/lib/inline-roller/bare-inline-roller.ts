@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import type { Provider } from '@angular/core';
 import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
 import type { DiceExpression, RollResult } from '@pioneer/rules/dice';
+import { resolveDamageNode } from '@pioneer/rules/engine';
 import { INLINE_ROLLER } from '@pioneer/rules/ui';
 import type { InlineCheckRoll, InlineDamageRoll, InlineRoller } from '@pioneer/rules/ui';
 
@@ -41,9 +42,7 @@ export class BareInlineRoller implements InlineRoller {
     this.#show(label, rollDice(bareCheck(), this.#random));
   }
 
-  /** The engine loads with the first damage rolled: the roller is provided to the whole app, so it stays out of the initial bundle. */
-  public async damage({ node, label }: InlineDamageRoll): Promise<void> {
-    const { resolveDamageNode } = await import('@pioneer/rules/engine');
+  public damage({ node, label }: InlineDamageRoll): void {
     const resolved = resolveDamageNode(node, undefined);
     if (resolved.ok) {
       this.#show(label, rollDice(resolved.expression, this.#random));

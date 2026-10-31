@@ -21,8 +21,7 @@ export interface InlineRoller {
   /** Whether the reader has a value for the statistic a check rolls; a check without one is shown as text. */
   readonly hasStatistic: (selector: Selector) => boolean;
   readonly check: (roll: InlineCheckRoll) => void;
-  /** Damage may load what it resolves with on its first roll, so it can finish later. */
-  readonly damage: (roll: InlineDamageRoll) => void | Promise<void>;
+  readonly damage: (roll: InlineDamageRoll) => void;
 }
 
 export const INLINE_ROLLER = new InjectionToken<InlineRoller>('INLINE_ROLLER');
