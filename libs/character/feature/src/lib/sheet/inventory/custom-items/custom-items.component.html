@@ -1,0 +1,23 @@
+@if (items().length > 0) {
+  <fr-stack gap="2xs">
+    <fr-heading variant="subheading" [level]="3">{{
+      'character.sheet.inventory.customHeading' | transloco
+    }}</fr-heading>
+    <fr-text tone="muted">{{ 'character.sheet.inventory.customExplain' | transloco }}</fr-text>
+    <fr-list gap="xs">
+      @for (item of items(); track item.id) {
+        <fr-list-item>
+          <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+            <fr-stack direction="horizontal" align="center" gap="xs">
+              <fr-text>{{
+                'character.sheet.inventory.customLine' | transloco: { name: item.name, count: item.quantity }
+              }}</fr-text>
+              <fr-badge [tone]="Tone.Warning">{{ 'character.sheet.inventory.customBadge' | transloco }}</fr-badge>
+            </fr-stack>
+            <pio-item-remove [id]="item.id" [name]="item.name" />
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  </fr-stack>
+}

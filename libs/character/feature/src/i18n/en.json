@@ -302,6 +302,10 @@
       },
       "remove": "Remove {name}",
       "removeConfirm": "Remove {name}? Press again",
+      "customHeading": "Items with no content",
+      "customExplain": "The import kept these by the name Pathbuilder gave them because no loaded content has them. They weigh nothing. Remove one once you have added the real item.",
+      "customLine": "{name} × {count}",
+      "customBadge": "Imported",
       "removing": "Removing…",
       "coinsHeading": "Coins",
       "coin": {

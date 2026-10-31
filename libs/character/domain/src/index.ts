@@ -322,6 +322,8 @@ export {
   CoinAmount,
   type Coins,
   CoinsSchema,
+  type CustomItem,
+  CustomItemSchema,
   EMPTY_INVENTORY,
   INVENTORY_ITEM_NAME_MAX_LENGTH,
   INVENTORY_ITEMS_MAX,

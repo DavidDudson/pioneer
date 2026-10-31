@@ -38,7 +38,7 @@ const COINS: Inventory['coins'] = {
   sp: 0,
   cp: 0,
 } as Inventory['coins'];
-const STOCK: Inventory = { items: [WAND], coins: COINS };
+const STOCK: Inventory = { items: [WAND], customItems: [], coins: COINS };
 const SPENT = afterWandCommand(FRESH_PLAY, [WAND], CAST_WAND);
 const FLAT = (face: number): DieFace => DieFace.parse(face);
 

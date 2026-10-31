@@ -60,7 +60,10 @@ describe.skipIf(adminUrl === undefined)('accepting a campaign transfer over post
       rope === undefined
         ? []
         : [{ id: rope, item: itemFixtureId(ItemFixture.Rope), quantity: ROPE_QUANTITY, carry: STOWED }];
-    const stocked = built.withInventory({ items: lines, coins: CoinsSchema.parse({}), ...inventory }, built.updatedAt);
+    const stocked = built.withInventory(
+      { items: lines, customItems: [], coins: CoinsSchema.parse({}), ...inventory },
+      built.updatedAt,
+    );
     return characters.insert(stocked, { actor: owner, command: CharacterCommand.CreateCharacter });
   }
 

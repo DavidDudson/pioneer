@@ -505,6 +505,10 @@ content it is (`ContentId` of an armour, consumable, equipment, shield, treasure
 item it is stowed in, if any, the player's name for it, if any, how it is carried and whether it is invested (schema
 version 3, #472). `inventory.coins` holds platinum, gold, silver and copper, each 0 or more.
 
+`inventory.customItems` lists the items an import found no content for (schema version 19, #310): an id, the name
+Pathbuilder gave, a quantity and `origin: import`. A custom item weighs nothing, takes no container, carry state, rune
+or investment, and is never dropped by the import. `removeItem` takes it off by its id.
+
 - **Containers.** An item can go in another item whose content is equipment with a `container` (a backpack), and
   containers nest. The document refuses an item in one it hasn't and containers that hold each other.
 - **Commands.** `giftItem { item, quantity, container? }` (adds without paying; the server gives the item its id),

@@ -83,6 +83,18 @@ describe('InventorySchema', () => {
 });
 
 describe('inventory edits', () => {
+  test('removing a custom item takes it off the list and leaves the items alone', () => {
+    const custom = {
+      id: missingId,
+      name: InventoryItemName.parse('Moon-silver comb'),
+      quantity: one,
+      origin: 'import',
+    } as const;
+    const inventory = removeItem({ ...packed(), customItems: [custom] }, missingId);
+    expect(inventory.customItems).toStrictEqual([]);
+    expect(inventory.items).toHaveLength(3);
+  });
+
   test('removing a container moves what it held out to where it was', () => {
     const inventory = removeItem(packed(), pouchId);
     expect(inventory.items.map((each) => each.id)).toStrictEqual([backpackId, ropeId]);

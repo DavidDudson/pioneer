@@ -97,6 +97,14 @@ describe('importedInventory (Mordred)', () => {
     expect(items).toHaveLength(7);
   });
 
+  test('keeps every line the packs lack as a custom item under its own name, never dropping it', async () => {
+    const value = readExport(mordredExport);
+    const { inventory, matched } = await importOf(value);
+    expect(inventory.items.length + inventory.customItems.length).toBe(value.items.length);
+    expect(inventory.items).toHaveLength(matched);
+    expect(inventory.customItems.length).toBeGreaterThan(0);
+  });
+
   test('wears the worn armour with its runes, invested', async () => {
     const { items } = await mordredInventory();
     const plate = items.find((item) => item.carry.state === CarryState.Worn);

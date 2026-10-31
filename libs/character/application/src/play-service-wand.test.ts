@@ -49,7 +49,10 @@ function wandItem(fields: object = {}): InventoryItem {
 /** A 5th-level wizard, who casts 3rd-rank spells, holding the wand of Fireball as `fields` say. */
 function wizardWith(fields: object = {}, name = 'Ezren'): Character {
   const wizard = new CharacterBuilder().named(name).atLevel(5).picking('class', playerCoreClassId('wizard')).build();
-  return wizard.withInventory({ items: [wandItem(fields)], coins: CoinsSchema.parse({}) }, clock.now());
+  return wizard.withInventory(
+    { items: [wandItem(fields)], customItems: [], coins: CoinsSchema.parse({}) },
+    clock.now(),
+  );
 }
 
 const cast: PlayCommand = { field: PlayCommandField.CastWand, item: WAND };

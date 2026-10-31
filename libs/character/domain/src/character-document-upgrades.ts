@@ -52,6 +52,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 17 → 18: custom effects, named bundles of adjust lines switched on and off (#1132). A version 17 document has none. */
   (document) => document,
+  /** 18 → 19: the custom items an import kept in the inventory (#310). A version 18 inventory has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

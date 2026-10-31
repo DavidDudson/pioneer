@@ -40,7 +40,7 @@ function wizardWithStaff(): Character {
     carry: { state: 'held', hands: 1 },
   });
   const wizard = new CharacterBuilder().named('Ezren').atLevel(5).picking('class', playerCoreClassId('wizard')).build();
-  return wizard.withInventory({ items: [staff], coins: CoinsSchema.parse({}) }, clock.now());
+  return wizard.withInventory({ items: [staff], customItems: [], coins: CoinsSchema.parse({}) }, clock.now());
 }
 
 function cast(spell: string, field: 'castStaff' | 'uncastStaff' = PlayCommandField.CastStaff): PlayCommand {

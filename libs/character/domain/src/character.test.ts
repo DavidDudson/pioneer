@@ -180,7 +180,11 @@ describe('Character inventory edits', () => {
   test('sets coins and keeps the items', () => {
     const coins = CoinsSchema.parse({ gp: 15, sp: 3 });
     const paid = withBackpack().apply({ field: CharacterPatchField.SetCoins, coins }, later);
-    expect(paid.document.inventory).toStrictEqual({ items: withBackpack().document.inventory.items, coins });
+    expect(paid.document.inventory).toStrictEqual({
+      items: withBackpack().document.inventory.items,
+      customItems: [],
+      coins,
+    });
   });
 
   test('buys an item: adds it and pays its cost from the coins, with change, in one edit', () => {
