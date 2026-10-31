@@ -522,6 +522,9 @@ or investment, and is never dropped by the import. `removeItem` takes it off by 
   (`containerNotFound`), one inside itself or something it holds (`containerInsideItself`), content no loaded pack
   has as an item (`unknownItem`) or as a kit (`unknownKit`), stowing in an item that holds nothing (`notAContainer`)
   and a purchase the coins don't cover (`cannotAfford`, `cannotAffordKit`).
+- **What a container does to Bulk.** `containerLoad` says whether a container adds all of what it holds (a sack, a
+  chest), ignores some of it (a backpack's first 2 Bulk) or adds none (a spacious pouch, a bag of holding), from its
+  `ignored` against its `capacity`. The place picker shows that as the reason beside the Bulk it holds.
 - **Removing a container** moves what it held out to where the container was, so nothing inside is lost.
 - **Carrying.** `carry` is `worn`, `held` with `hands` (1 or 2), `stowed` (the default, and a new item's) or
   `dropped`. It lives on the item, as Foundry pf2e's `system.equipped` does, but stays a play-state field whose
