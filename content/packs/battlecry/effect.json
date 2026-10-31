@@ -1830,7 +1830,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["picked:weapon-damage"],
+        "type": "status",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.elbRo41iHweUkXtJ"
     },
@@ -1958,7 +1974,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["picked:weapon-attack"],
+        "keep": "higher"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.dpoQrtDsUeEILBJ3"
     },
@@ -2859,7 +2890,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:ranged"]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:weapon"],
+        "property": "range-increment",
+        "mode": "multiply",
+        "value": 2
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.WXVOuzbFCs7rGpF9"
     },
@@ -3545,7 +3593,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "nonlethal"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.hyyVAOi1My9PKKqo"
     },
@@ -4875,6 +4940,39 @@
           }
         ],
         "rollOption": "effect-morph-jewel-damage-type"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:weapon"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "bludgeoning",
+        "predicate": ["effect-morph-jewel-damage-type:bludgeoning"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:weapon"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "piercing",
+        "predicate": ["effect-morph-jewel-damage-type:piercing"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:picked:weapon"],
+        "property": "damage-type",
+        "mode": "override",
+        "value": "slashing",
+        "predicate": ["effect-morph-jewel-damage-type:slashing"]
       }
     ],
     "externalIds": {
@@ -6304,6 +6402,72 @@
           }
         ],
         "rollOption": "slayers-stone"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": ["slayers-stone:aberration", "target:trait:aberration"]
+              },
+              {
+                "and": ["slayers-stone:animal", "target:trait:animal"]
+              },
+              {
+                "and": ["slayers-stone:beast", "target:trait:beast"]
+              },
+              {
+                "and": ["slayers-stone:celestial", "target:trait:celestial"]
+              },
+              {
+                "and": ["slayers-stone:construct", "target:trait:construct"]
+              },
+              {
+                "and": ["slayers-stone:dragon", "target:trait:dragon"]
+              },
+              {
+                "and": ["slayers-stone:elemental", "target:trait:elemental"]
+              },
+              {
+                "and": ["slayers-stone:fey", "target:trait:fey"]
+              },
+              {
+                "and": ["slayers-stone:fiend", "target:trait:fiend"]
+              },
+              {
+                "and": ["slayers-stone:giant", "target:trait:giant"]
+              },
+              {
+                "and": ["slayers-stone:monitor", "target:trait:monitor"]
+              },
+              {
+                "and": ["slayers-stone:ooze", "target:trait:ooze"]
+              },
+              {
+                "and": [
+                  "slayers-stone:fungus-and-plant",
+                  {
+                    "or": ["target:trait:fungus", "target:trait:plant"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -7851,6 +8015,21 @@
       {
         "key": "TempHP",
         "value": "@level"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["picked:weapon-attack", "picked:weapon-damage"],
+        "type": "circumstance",
+        "value": 1
       }
     ],
     "externalIds": {

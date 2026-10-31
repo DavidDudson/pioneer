@@ -456,6 +456,22 @@
         "selectors": ["save:will"],
         "type": "status",
         "value": 1
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-oath-of-the-devoted",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:effect-oath-of-the-devoted-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
       }
     ],
     "externalIds": {

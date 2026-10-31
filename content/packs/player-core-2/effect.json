@@ -7825,7 +7825,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:weapon-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.9rUzqHni8LE19Gu5"
     },

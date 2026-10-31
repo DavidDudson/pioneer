@@ -3747,7 +3747,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "serrate-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:serrate-weapon-damage"],
+        "diceNumber": "ceil(@item.level / 2)",
+        "dieSize": "d4",
+        "damageType": "slashing"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.CDNKDV3UsAp95D1m"
     },

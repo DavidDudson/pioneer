@@ -8260,64 +8260,6 @@
     {
       "type": "entry",
       "pack": "npc-core",
-      "slug": "effect:effect-temper-armament",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.ERBJL8rBEURa05N8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["armor", "shield", "weapon"]
-            },
-            "flag": "temperArmament",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Item"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.temperArmament}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:type:armor", "item:type:shield"]
-              }
-            ],
-            "property": "hardness",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              "item:type:weapon",
-              {
-                "or": [
-                  "item:trait:attached-to-shield",
-                  {
-                    "not": "item:group:shield"
-                  }
-                ]
-              }
-            ],
-            "selector": "{item|flags.system.rulesSelections.temperArmament}-damage",
-            "type": "circumstance",
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "npc-core",
       "slug": "effect:effect-timely-advice",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.FISKjI7bal26AnyL",
       "gaps": [
