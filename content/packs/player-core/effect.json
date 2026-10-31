@@ -4621,6 +4621,10 @@
         "key": "GrantItem",
         "item": "deba9049-8f95-5a00-a262-fae6044e1f81",
         "allowDuplicate": false
+      },
+      {
+        "key": "RollOption",
+        "option": "self:effect:ritual-reversion"
       }
     ],
     "data": {
@@ -11567,7 +11571,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Abadar's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Abadar's form."
           }
         ]
       }
@@ -11667,7 +11671,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Achaekek's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Achaekek's form."
           }
         ]
       }
@@ -11730,6 +11734,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -11776,7 +11784,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Asmodeus's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Asmodeus's form."
           }
         ]
       }
@@ -11885,7 +11893,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Calistria's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Calistria's form."
           }
         ]
       }
@@ -11994,7 +12002,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Cayden Cailean's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Cayden Cailean's form."
           }
         ]
       }
@@ -12057,6 +12065,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12103,7 +12115,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Desna's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Desna's form."
           }
         ]
       }
@@ -12212,7 +12224,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Erastil's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Erastil's form."
           }
         ]
       }
@@ -12262,6 +12274,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12308,7 +12324,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Gorum's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Gorum's form."
           }
         ]
       }
@@ -12406,7 +12422,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Gozreh's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Gozreh's form."
           }
         ]
       }
@@ -12469,6 +12485,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12515,7 +12535,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Iomedae's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Iomedae's form."
           }
         ]
       }
@@ -12610,7 +12630,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Irori's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Irori's form."
           }
         ]
       }
@@ -12719,7 +12739,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Lamashtu's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Lamashtu's form."
           }
         ]
       }
@@ -12828,7 +12848,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Nethys's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Nethys's form."
           }
         ]
       }
@@ -12923,7 +12943,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Norgorber's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Norgorber's form."
           }
         ]
       }
@@ -12986,6 +13006,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -13032,7 +13056,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Pharasma's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Pharasma's form."
           }
         ]
       }
@@ -13141,7 +13165,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Rovagug's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Rovagug's form."
           }
         ]
       }
@@ -13253,7 +13277,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Sarenrae's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Sarenrae's form."
           }
         ]
       }
@@ -13362,7 +13386,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Shelyn's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Shelyn's form."
           }
         ]
       }
@@ -13425,6 +13449,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -13471,7 +13499,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Torag's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Torag's form."
           }
         ]
       }
@@ -13570,7 +13598,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Urgathoa's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Urgathoa's form."
           }
         ]
       }
@@ -13679,7 +13707,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Difficult terrain immunities and shield Hardness are not modelled. Zon-Kuthon's form."
+            "text": "You transform into an avatar of your deity, assuming a Huge battle form with hands. AC = 25 + your level, 30 temporary Hit Points, darkvision, Athletics +35, and your deity's attacks at +33, which are the only attacks you can Strike with. Zon-Kuthon's form."
           }
         ]
       }
@@ -13742,6 +13770,10 @@
           ],
           "traits": []
         }
+      },
+      {
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -26345,7 +26377,17 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large",
+        "predicate": [
+          {
+            "not": "self:effect:ritual-reversion"
+          }
+        ]
+      }
+    ],
     "data": {
       "category": "spell",
       "duration": {
@@ -26395,7 +26437,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "large"
+      }
+    ],
     "data": {
       "category": "spell",
       "duration": {
