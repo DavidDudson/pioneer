@@ -36,8 +36,10 @@ weapons, and its rolls answer to `<slug>-attack`, `<slug>-damage`, `strike:<slug
    is a slug, so the id and the slug spell one thing. The statement is rewritten in the `definition` (`strikes` for an
    `AdjustStrike`), and the lint of (4) covers it. No fact namespace for the picked item is needed: a predicate over
    the weapon's own options reaches it.
-7. **Left for later.** `CriticalSpecialization` has no rule element in Pioneer yet, and the importer translates no
-   `MartialProficiency`, so their reads of a pick wait for those. A `definition` that reads more of the pick than its
+7. **Left for later.** `CriticalSpecialization` has no rule element in Pioneer yet
+   ([#1698](https://github.com/DavidDudson/pioneer/issues/1698)). The one `MartialProficiency` that reads a pick by id
+   also reads `@item.level` in its rank, and the rest of its backlog waits on
+   [#1697](https://github.com/DavidDudson/pioneer/issues/1697). A `definition` that reads more of the pick than its
    identity (`@item.level`, `{item|...}` in a `value`) stays in the backlog.
 
 ## Consequences
