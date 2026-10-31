@@ -240,6 +240,14 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
       expect(await past.json()).toStrictEqual({ ids: [], total: 1 });
     });
 
+    test('legacy content is asked for as text, and anything else is refused', async () => {
+      const asked = await request('/content/search?query=zorbolith&legacy=true');
+      const refused = await request('/content/search?query=zorbolith&legacy=perhaps');
+
+      expect(asked.status).toBe(200);
+      expect(refused.status).toBe(422);
+    });
+
     test('a search without words, or with a kind that does not exist, is refused', async () => {
       const empty = await request('/content/search?query=%20');
       const missing = await request('/content/search');

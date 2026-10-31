@@ -29,13 +29,16 @@ export type SearchTotal = z.infer<typeof SearchTotal>;
 /**
  * A content search (content-model.md, "Search"): the words, the locale they are matched in, and what to search.
  * `kinds` narrows to those kinds (none means every kind). `packs` names homebrew packs to search besides the official
- * ones; those the caller may not read are ignored, as a missing pack would be. Results come in relevance order.
+ * ones; those the caller may not read are ignored, as a missing pack would be. Legacy content (Open Game License entries) is
+ * left out unless `legacy` asks for it, as a campaign that enables the Legacy Content variant rule does. Results come in
+ * relevance order.
  */
 export const ContentSearchQuery = z.strictObject({
   query: SearchText,
   locale: LocaleSchema.default(SOURCE_LOCALE),
   kinds: commaList(ContentKindSchema, SEARCH_LIST_MAX),
   packs: commaList(ContentPackId, SEARCH_LIST_MAX),
+  legacy: z.stringbool().default(false),
   limit: SearchLimit.default(SearchLimit.parse(SEARCH_LIMIT_DEFAULT)),
   offset: SearchOffset.default(SearchOffset.parse(0)),
 });

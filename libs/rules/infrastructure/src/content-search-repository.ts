@@ -12,6 +12,9 @@ import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
 import { contentEntries, contentEntrySearch, contentPacks } from './content.table';
 
+/** The licence stored for Open Game License content, which is legacy. */
+const OGL = 'OGL';
+
 type Database = BunSQLDatabase<Record<string, unknown>>;
 
 /** A search to run: the caller's `ContentSearchQuery`, with `packs` cut down to the homebrew packs the caller may read. */
@@ -38,6 +41,7 @@ export class ContentSearchRepository {
     locale,
     kinds,
     packs,
+    legacy,
     limit,
     offset,
   }: ContentSearchCriteria): Promise<ContentSearchResult> {
@@ -47,6 +51,7 @@ export class ContentSearchRepository {
       sql`${contentEntrySearch.vector} @@ ${words}`,
       kindFilter(kinds),
       packFilter(packs),
+      legacyFilter(legacy),
     );
     const [rows, [total]] = await Promise.all([
       this.#db
@@ -83,4 +88,15 @@ function packFilter(packs: readonly ContentPackId[]): SQL | undefined {
   return packs.length === 0
     ? isNull(contentPacks.ownerId)
     : or(isNull(contentPacks.ownerId), inArray(contentPacks.id, [...packs]));
+}
+
+/**
+ * Legacy content is left out unless asked for: a pack published under the Open Game License, or an entry of any pack
+ * that carries that licence itself. An entry without a licence of its own has its pack's. `data` is read as text and parsed
+ * again, since the driver stores it as a JSON string, on which `->>` finds nothing.
+ */
+function legacyFilter(legacy: boolean): SQL | undefined {
+  return legacy
+    ? undefined
+    : sql`${contentPacks.license} <> ${OGL} and coalesce((${contentEntries.data} #>> '{}')::jsonb ->> 'license', ${contentPacks.license}) <> ${OGL}`;
 }

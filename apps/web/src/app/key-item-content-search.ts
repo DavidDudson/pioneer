@@ -45,6 +45,7 @@ async function find(
     locale: SOURCE_LOCALE,
     kinds: [...kinds],
     packs: [],
+    legacy: false,
     limit: MATCHES_MAX,
     offset: FIRST_PAGE,
   };
