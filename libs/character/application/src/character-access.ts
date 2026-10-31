@@ -1,4 +1,4 @@
-import { isOverridePatch } from '@pioneer/character/domain';
+import { isCustomEffectPatch, isOverridePatch } from '@pioneer/character/domain';
 import type { Character, CharacterId, CharacterPatch, OverrideRole } from '@pioneer/character/domain';
 import { ForbiddenError, NotFoundError } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
@@ -48,8 +48,8 @@ export async function readableCharacter(
 
 /**
  * The character `patch` is for, and what the actor is to it. The owner may make any edit. The GM of its campaign
- * may make override edits only; any other edit of theirs is a 404, as for a stranger. A player of the campaign who
- * is not its owner is refused an override edit with a 403, and any other edit with a 404.
+ * may make override and custom effect edits only; any other edit of theirs is a 404, as for a stranger. A player of the campaign who
+ * is not its owner is refused an override or custom effect edit with a 403, and any other edit with a 404.
  */
 export async function editableCharacter(
   { repository, roles }: CharacterAccessPorts,
@@ -61,12 +61,12 @@ export async function editableCharacter(
     throw new NotFoundError('Character', id);
   }
   const standing = await standingWith(actor, character, roles);
-  const isOverride = isOverridePatch(patch);
+  const isOverride = isOverridePatch(patch) || isCustomEffectPatch(patch);
   if (standing === CharacterStanding.Owner || (standing === CharacterStanding.Gm && isOverride)) {
     return { character, actorRole: overrideRoleOf(standing) };
   }
   if (standing === CharacterStanding.Member && isOverride) {
-    throw new ForbiddenError(`Only the GM edits the overrides of character ${id}`);
+    throw new ForbiddenError(`Only the GM edits the overrides and custom effects of character ${id}`);
   }
   throw new NotFoundError('Character', id);
 }

@@ -6,6 +6,7 @@ import { withOverrideEdit } from './character-override';
 import { CharacterPatchField } from './character-patch';
 import type { DocumentPatch } from './character-patch';
 import { withProse } from './character-prose';
+import { withCustomEffectEdit } from './custom-effect';
 import type { EditInputs } from './item-purchase';
 
 /**
@@ -36,6 +37,19 @@ export function withDocumentEdit(
         actorRole: inputs.actorRole,
         now,
         newOverrideId: inputs.newOverrideId,
+      });
+    }
+    case CharacterPatchField.AddCustomEffect:
+    case CharacterPatchField.ToggleCustomEffect:
+    case CharacterPatchField.RemoveCustomEffect: {
+      if (inputs.actor === undefined) {
+        throw new TypeError('A custom effect edit needs the user who makes it');
+      }
+      return withCustomEffectEdit(document, patch, {
+        actor: inputs.actor,
+        actorRole: inputs.actorRole,
+        now,
+        newCustomEffectId: inputs.newCustomEffectId,
       });
     }
     case CharacterPatchField.SetAppearance:

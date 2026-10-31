@@ -42,6 +42,9 @@ export const CharacterCommand = {
   AddOverride: 'addOverride',
   EditOverride: 'editOverride',
   RemoveOverride: 'removeOverride',
+  AddCustomEffect: 'addCustomEffect',
+  ToggleCustomEffect: 'toggleCustomEffect',
+  RemoveCustomEffect: 'removeCustomEffect',
   /** Play state (#343, #344, #345): written to `character_play`, never to the build. */
   CastWand: 'castWand',
   OverchargeWand: 'overchargeWand',
@@ -130,6 +133,9 @@ export const PATCH_COMMANDS = {
   [CharacterPatchField.AddOverride]: CharacterCommand.AddOverride,
   [CharacterPatchField.EditOverride]: CharacterCommand.EditOverride,
   [CharacterPatchField.RemoveOverride]: CharacterCommand.RemoveOverride,
+  [CharacterPatchField.AddCustomEffect]: CharacterCommand.AddCustomEffect,
+  [CharacterPatchField.ToggleCustomEffect]: CharacterCommand.ToggleCustomEffect,
+  [CharacterPatchField.RemoveCustomEffect]: CharacterCommand.RemoveCustomEffect,
   [CharacterPatchField.SetAppearance]: CharacterCommand.SetAppearance,
   [CharacterPatchField.SetPersonality]: CharacterCommand.SetPersonality,
 } as const satisfies Record<CharacterPatchField, CharacterCommand>;

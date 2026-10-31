@@ -4,8 +4,10 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { CharacterLevel, CharacterName } from './character-fields';
+import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
+import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
 
@@ -69,6 +71,12 @@ export const CharacterPatchField = {
   EditOverride: 'editOverride',
   /** An override taken off, with the reason; it stays on record, no longer in force. */
   RemoveOverride: 'removeOverride',
+  /** A named bundle of adjust lines with one reason, switched on from the start. */
+  AddCustomEffect: 'addCustomEffect',
+  /** A custom effect switched on or off; every line goes or comes back together. */
+  ToggleCustomEffect: 'toggleCustomEffect',
+  /** A custom effect taken off, with the reason; it stays on record, no longer in force. */
+  RemoveCustomEffect: 'removeCustomEffect',
   /** What the character looks like; empty rich text clears it. */
   SetAppearance: 'setAppearance',
   /** How the character acts and what they care about; empty rich text clears it. */
@@ -127,6 +135,9 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.AddOverride), override: OverrideInput }),
   z.object({ field: z.literal(CharacterPatchField.EditOverride), id: OverrideId, override: OverrideInput }),
   z.object({ field: z.literal(CharacterPatchField.RemoveOverride), id: OverrideId, reason: OverrideReason }),
+  z.object({ field: z.literal(CharacterPatchField.AddCustomEffect), effect: CustomEffectInput }),
+  z.object({ field: z.literal(CharacterPatchField.ToggleCustomEffect), id: CustomEffectId, enabled: z.boolean() }),
+  z.object({ field: z.literal(CharacterPatchField.RemoveCustomEffect), id: CustomEffectId, reason: OverrideReason }),
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
@@ -156,25 +167,8 @@ export type UnplacedPickPatch = Extract<
   }
 >;
 
-/** The edits that add, change or remove an override. */
-export type OverridePatch = Extract<
-  CharacterPatch,
-  {
-    readonly field:
-      | typeof CharacterPatchField.AddOverride
-      | typeof CharacterPatchField.EditOverride
-      | typeof CharacterPatchField.RemoveOverride;
-  }
->;
-
-/** The edits that change the document apart from its slots and inventory: spell access, unplaced picks, overrides, prose. */
-export type DocumentPatch = SpellAccessPatch | UnplacedPickPatch | OverridePatch | ProsePatch;
-
-const OVERRIDE_FIELDS: ReadonlySet<CharacterPatchField> = new Set<OverridePatch['field']>([
-  CharacterPatchField.AddOverride,
-  CharacterPatchField.EditOverride,
-  CharacterPatchField.RemoveOverride,
-]);
+/** The edits that change the document apart from its slots and inventory: spell access, unplaced picks, overrides, custom effects, prose. */
+export type DocumentPatch = SpellAccessPatch | UnplacedPickPatch | OverridePatch | CustomEffectPatch | ProsePatch;
 
 const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch['field']>([
   CharacterPatchField.GrantSpellAccess,
@@ -185,6 +179,9 @@ const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch[
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,
+  CharacterPatchField.AddCustomEffect,
+  CharacterPatchField.ToggleCustomEffect,
+  CharacterPatchField.RemoveCustomEffect,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
@@ -192,10 +189,6 @@ const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch[
 /** Whether `patch` changes the document apart from its slots and inventory (`DocumentPatch`). */
 export function isDocumentPatch(patch: CharacterPatch): patch is DocumentPatch {
   return DOCUMENT_FIELDS.has(patch.field);
-}
-
-export function isOverridePatch(patch: CharacterPatch): patch is OverridePatch {
-  return OVERRIDE_FIELDS.has(patch.field);
 }
 
 /** The edits that write the appearance or the personality. */
@@ -217,6 +210,7 @@ export type UntargetedPatch = Extract<
       | typeof CharacterPatchField.RevokeSpellAccess
       | UnplacedPickPatch['field']
       | OverridePatch['field']
+      | CustomEffectPatch['field']
       | ProsePatch['field'];
   }
 >;
@@ -234,6 +228,9 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,
+  CharacterPatchField.AddCustomEffect,
+  CharacterPatchField.ToggleCustomEffect,
+  CharacterPatchField.RemoveCustomEffect,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);

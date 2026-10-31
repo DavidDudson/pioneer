@@ -1,0 +1,54 @@
+<fr-async-form [form]="form" [action]="save" [describeError]="describeError">
+  <fr-stack gap="sm">
+    <fr-text-field [label]="Message.Name | transloco" [formField]="form.name" />
+    <fr-text-area-field
+      [label]="Message.Reason | transloco"
+      [hint]="Message.ReasonHint | transloco"
+      [rows]="3"
+      [formField]="form.reason"
+    />
+    <fr-stack gap="xs">
+      <fr-text weight="semibold">{{ Message.Lines | transloco }}</fr-text>
+      @for (shown of shownLines(); track $index) {
+        <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+          <fr-text>{{ shown.words }}</fr-text>
+          <fr-button
+            size="sm"
+            variant="ghost"
+            [ariaLabel]="Message.RemoveLineLabel | transloco: { line: shown.words }"
+            (pressed)="removeLine($index)"
+          >
+            {{ Message.RemoveLine | transloco }}
+          </fr-button>
+        </fr-stack>
+      } @empty {
+        <fr-text tone="muted">{{ Message.LinesRequired | transloco }}</fr-text>
+      }
+    </fr-stack>
+    <pio-option-picker
+      [ariaLabel]="Message.Statistic | transloco"
+      [placeholder]="Message.Statistic | transloco"
+      [options]="statistics()"
+      [value]="target()"
+      (valueChange)="pickTarget($event)"
+    />
+    <fr-number-field [label]="Message.Amount | transloco" [formField]="form.value" />
+    <fr-segmented-field [label]="Message.Type | transloco" [options]="types" [formField]="form.type" />
+    <fr-stack direction="horizontal" justify="start">
+      <fr-button [disabled]="form.target().value() === ''" (pressed)="addLine()">
+        {{ Message.AddLine | transloco }}
+      </fr-button>
+    </fr-stack>
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [disabled]="form().invalid() || lines().length === 0"
+        [pendingLabel]="Message.Pending | transloco"
+        [successLabel]="Message.Done | transloco"
+      >
+        {{ Message.Submit | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

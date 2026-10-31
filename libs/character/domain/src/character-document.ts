@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
+import { CUSTOM_EFFECTS_MAX, CustomEffectSchema } from './custom-effect-schema';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 import { OVERRIDES_MAX, OverrideSchema } from './override-schema';
 import { FRESH_PLAY, PlayStateSchema } from './play-state';
@@ -69,6 +70,8 @@ export const CharacterDocumentSchema = z.strictObject({
   play: PlayStateSchema.default(FRESH_PLAY),
   /** What was set by hand on a statistic, removed ones kept (#1127); only the active ones compile to rule elements. */
   overrides: z.array(OverrideSchema).max(OVERRIDES_MAX).readonly().default([]),
+  /** Named bundles of adjust lines the owner switches on and off, removed ones kept (#1132); only the switched-on ones compile. */
+  customEffects: z.array(CustomEffectSchema).max(CUSTOM_EFFECTS_MAX).readonly().default([]),
   notes: RichText.default([]),
   /** What the character looks like, shown on the Exploration tab (#500). */
   appearance: RichText.default([]),

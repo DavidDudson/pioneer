@@ -6,6 +6,8 @@ import {
   characterLanguages,
   CharacterPatchField,
   characterSlots,
+  customEffectAuthorIds,
+  CustomEffectId,
   deityContent,
   overrideAuthorIds,
   OverrideId,
@@ -37,6 +39,7 @@ import { contentOfCharacter, ruleLimitsOfCharacter, variantRulesOfCharacter } fr
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+import { assertCustomEffectAllowed } from './custom-effect-guard';
 import { editInputs } from './edit-inputs';
 import { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-roles';
 import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
@@ -115,7 +118,10 @@ export class CharacterService {
     const content = await this.#contentOf(character).registry();
     const slots = await this.#slotContent(character, content);
     const deity = characterDeity(character.document, slots, deityContent(content));
-    const names = await this.#authors.displayNames(overrideAuthorIds(character.document.overrides));
+    const names = await this.#authors.displayNames([
+      ...overrideAuthorIds(character.document.overrides),
+      ...customEffectAuthorIds(character.document.customEffects),
+    ]);
     const authors = [...names].map(([userId, displayName]) => ({ userId, displayName }));
     return {
       character,
@@ -204,6 +210,7 @@ export class CharacterService {
       actor,
       actorRole,
       newOverrideId: OverrideId.parse(newId()),
+      newCustomEffectId: CustomEffectId.parse(newId()),
     };
     const now = this.#clock.now();
     const edited = current.apply(patch, now, inputs);
@@ -239,6 +246,7 @@ export class CharacterService {
       assertSpellNeedsAccess(await this.#contentOf(current).registry(), current, patch.spell);
     }
     assertOverrideAllowed(current, patch, actorRole);
+    assertCustomEffectAllowed(current, patch, actorRole);
     await assertInventoryAllows(current, patch, {
       content: this.#contentOf(current),
       tableLimits: await this.#limitsOf(current),
