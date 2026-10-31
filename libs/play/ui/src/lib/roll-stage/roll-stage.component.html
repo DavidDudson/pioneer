@@ -3,14 +3,16 @@
 }
 <fr-toast [open]="view() !== undefined">
   @if (view(); as shown) {
-    @for (line of shown.lines; track $index) {
-      <fr-stack direction="horizontal" align="baseline" gap="xs">
-        <fr-text [variant]="Heading" [weight]="Bold" [damage]="line.tone" [numeric]="true">{{ line.total }}</fr-text>
-        @if (line.typeKey; as typeKey) {
-          <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
-        }
-      </fr-stack>
-    }
-    <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
+    <fr-stack align="center" gap="2xs">
+      @for (line of shown.lines; track $index) {
+        <fr-stack direction="horizontal" align="baseline" gap="xs">
+          <fr-text [variant]="Heading" [weight]="Bold" [damage]="line.tone" [numeric]="true">{{ line.total }}</fr-text>
+          @if (line.typeKey; as typeKey) {
+            <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
+          }
+        </fr-stack>
+      }
+      <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
+    </fr-stack>
   }
 </fr-toast>
