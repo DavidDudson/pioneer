@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
-import { contentPackId, ContentSearchQuery, ContentText } from '@pioneer/rules/sdk';
+import { ContentLicense, contentPackId, ContentSearchQuery, ContentText } from '@pioneer/rules/sdk';
 import type { PackContents } from '@pioneer/rules/sdk';
 import { fixedClock, UserId } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
@@ -163,6 +163,22 @@ describe.skipIf(adminUrl === undefined)('content search (postgres)', () => {
 
     expect(languages.ids).toStrictEqual(idsAt(pack, 0));
     expect(spells).toStrictEqual({ ids: [], total: 0 });
+  });
+
+  test('legacy content is left out of a search unless it asks for it', async () => {
+    const remaster = languagePack('search-legacy-orc', [
+      language('beacon', 'Legacybeacon remaster'),
+      { ...language('lamp', 'Legacybeacon lamp'), license: ContentLicense.Ogl },
+    ]);
+    const oglPack = languagePack('search-legacy-ogl', [language('torch', 'Legacybeacon torch')], ContentLicense.Ogl);
+    await seed(remaster);
+    await seed(oglPack);
+
+    const off = await ask('legacybeacon');
+    const on = await ask('legacybeacon', { legacy: true });
+
+    expect(off).toStrictEqual({ ids: idsAt(remaster, 0), total: 1 });
+    expect(on.total).toBe(3);
   });
 
   test('a page holds up to the limit from the offset, and the total counts every match', async () => {

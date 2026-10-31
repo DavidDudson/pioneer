@@ -50,6 +50,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
           locale: SOURCE_LOCALE,
           kinds: [...wanted.kinds],
           packs: [...homebrew],
+          legacy: false,
           limit: MATCHES_MAX,
           offset: FIRST_PAGE,
         };

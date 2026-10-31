@@ -1,4 +1,4 @@
-import { contentId, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
+import { contentId, ContentLicense, EntrySlug, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 
 export interface Language {
@@ -6,13 +6,15 @@ export interface Language {
   readonly name: string;
   /** Rules text; a language has none unless a test gives it one. */
   readonly text?: string;
+  /** The licence of this entry alone; it has its pack's unless a test gives it one. */
+  readonly license?: ContentLicense;
 }
 
 export const COMMON: Language = { slug: 'common', name: 'Common' };
 export const DRACONIC: Language = { slug: 'draconic', name: 'Draconic' };
 export const ELVEN: Language = { slug: 'elven', name: 'Elven' };
 
-function languageEntry(pack: string, { slug, name, text }: Language): object {
+function languageEntry(pack: string, { slug, name, text, license }: Language): object {
   return {
     id: contentId(PackId.parse(pack), EntrySlug.parse(`language:${slug}`)),
     pack,
@@ -25,12 +27,17 @@ function languageEntry(pack: string, { slug, name, text }: Language): object {
     description: text === undefined ? [] : [{ type: 'paragraph', content: [{ type: 'text', text }] }],
     rules: [],
     data: {},
+    ...(license === undefined ? {} : { license }),
   };
 }
 
 /** A pack of languages, as its JSON files would hold it. */
-export function languagePack(pack: string, languages: readonly Language[]): PackContents {
-  const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license: 'homebrew' };
+export function languagePack(
+  pack: string,
+  languages: readonly Language[],
+  license: ContentLicense = ContentLicense.Homebrew,
+): PackContents {
+  const packFile = { id: pack, title: 'Test Pack', publisher: 'Pioneer', license };
   return packContentsFromFiles(packFile, [languages.map((language) => languageEntry(pack, language))]);
 }
 

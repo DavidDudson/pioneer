@@ -18,6 +18,7 @@ describe('ContentSearchQuery', () => {
       locale: 'en',
       kinds: [],
       packs: [],
+      legacy: false,
       limit: 50,
       offset: 0,
     });
@@ -36,8 +37,18 @@ describe('ContentSearchQuery', () => {
       locale: 'en',
       kinds: ['spell', 'feat'],
       packs: [PACK],
+      legacy: false,
       limit: 10,
       offset: 20,
+    });
+  });
+
+  test('legacy content is off unless the query says so, and says so as text', () => {
+    expect(ContentSearchQuery.parse({ query: 'x' }).legacy).toBe(false);
+    expect(ContentSearchQuery.parse({ query: 'x', legacy: 'true' }).legacy).toBe(true);
+    expect(ContentSearchQuery.safeParse({ query: 'x', legacy: 'perhaps' }).success).toBe(false);
+    expect(z.encode(ContentSearchQuery, ContentSearchQuery.parse({ query: 'x', legacy: 'true' }))).toMatchObject({
+      legacy: 'true',
     });
   });
 

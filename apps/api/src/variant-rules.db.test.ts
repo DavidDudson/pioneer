@@ -16,6 +16,7 @@ import {
   ContentPack,
   ContentRegistry,
   EntrySlug,
+  LEGACY_CONTENT_VARIANT,
   PackId,
   VariantRuleId,
 } from '@pioneer/rules/sdk';
@@ -39,6 +40,12 @@ const official = ContentPack.define({
   ancestries: [],
   creatures: [],
   variantRules: [
+    {
+      slug: 'variant-rule:legacy-content',
+      name: 'Legacy Content',
+      sources: [{ kind: 'book', book: 'gm-core' }],
+      rules: [],
+    },
     {
       slug: 'variant-rule:without-level',
       name: 'Proficiency Without Level',
@@ -192,6 +199,18 @@ describe.skipIf(adminUrl === undefined)('variant rules over postgres', () => {
     const detached = await characterService.variantRules(amiri, kyra);
     expect(detached.decidedBy).toBe(PackAuthority.Character);
     expect(detached.enabled).toStrictEqual([]);
+  });
+
+  test('a campaign has legacy content off until its GM enables it, and no other campaign is changed by it', async () => {
+    const legacy = EnabledVariantRuleId.parse(LEGACY_CONTENT_VARIANT);
+    await attach();
+    expect(await characterService.of(kyraCharacter)).toStrictEqual([]);
+
+    await campaignService.enable(ezren, campaignId, { variantId: legacy });
+
+    expect(await characterService.of(kyraCharacter)).toStrictEqual([LEGACY_CONTENT_VARIANT]);
+    await database.db.execute(sql`delete from campaign_characters where character_id = ${kyra}`);
+    expect(await characterService.of(kyraCharacter)).toStrictEqual([]);
   });
 
   test('every lookup is served by an index', async () => {
