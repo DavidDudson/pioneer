@@ -4,6 +4,7 @@ import {
   CharacterCommand,
   CharacterName,
   CharacterPatchField,
+  CUSTOM_EFFECTS_MAX,
   CustomEffectInput,
   OverrideAuthorName,
   OverrideRole,
@@ -81,6 +82,34 @@ describe('CharacterService custom effects', () => {
       { path: ['patch'], message: { key: 'character.validation.customEffectUnknown' } },
     ]);
     expect(repository.audits).toHaveLength(1);
+  });
+
+  test('refuses a second removal of the same effect as unknown', async () => {
+    const { character: added } = await service.patch(amiri, kyra.id, at(FIRST_VERSION, ADD));
+    const id = added.document.customEffects[0]?.id;
+    const remove = { field: CharacterPatchField.RemoveCustomEffect, id, reason: 'Festival over' };
+    const { character: removed } = await service.patch(amiri, kyra.id, at(added.version, remove));
+    const error = await rejection(service.patch(amiri, kyra.id, at(removed.version, remove)));
+
+    expect((error as ValidationError).issues).toStrictEqual([
+      { path: ['patch'], message: { key: 'character.validation.customEffectUnknown' } },
+    ]);
+  });
+
+  test('refuses an effect past the most a character keeps, before anything is written', async () => {
+    let version = FIRST_VERSION;
+    for (let count = 0; count < CUSTOM_EFFECTS_MAX; count += 1) {
+      // oxlint-disable-next-line no-await-in-loop -- each add needs the version the previous one saved
+      const { character } = await service.patch(amiri, kyra.id, at(version, ADD));
+      ({ version } = character);
+    }
+    const audits = repository.audits.length;
+    const error = await rejection(service.patch(amiri, kyra.id, at(version, ADD)));
+
+    expect((error as ValidationError).issues).toStrictEqual([
+      { path: ['patch'], message: { key: 'character.validation.customEffectFull' } },
+    ]);
+    expect(repository.audits).toHaveLength(audits);
   });
 
   test('refuses an effect with no reason or no lines at the request body', () => {

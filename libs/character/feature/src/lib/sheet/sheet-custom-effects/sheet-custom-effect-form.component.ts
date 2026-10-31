@@ -3,6 +3,7 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import {
   CharacterPatchField,
+  CUSTOM_EFFECT_LINES_MAX,
   CustomEffectInput,
   CustomEffectLine,
   OverrideModifierType,
@@ -137,9 +138,28 @@ export class SheetCustomEffectForm {
     this.model.update((model) => ({ ...model, target: target ?? '' }));
   };
 
-  protected readonly addLine = (): void => {
+  /** The line being written, once its statistic and amount make a valid one. */
+  readonly #pendingLine = computed((): CustomEffectLine | undefined => {
     const { target, value, type } = this.model();
-    const line = CustomEffectLine.parse({ target: Selector.parse(target), value: Modifier.parse(value), type });
+    const parsedTarget = Selector.safeParse(target);
+    const parsedValue = Modifier.safeParse(value);
+    if (!parsedTarget.success || !parsedValue.success) {
+      return undefined;
+    }
+    const line = CustomEffectLine.safeParse({ target: parsedTarget.data, value: parsedValue.data, type });
+    return line.success ? line.data : undefined;
+  });
+
+  /** Whether the line being written can be added: it is valid and the effect has room for another. */
+  protected readonly canAddLine = computed(
+    () => this.#pendingLine() !== undefined && this.lines().length < CUSTOM_EFFECT_LINES_MAX,
+  );
+
+  protected readonly addLine = (): void => {
+    const line = this.#pendingLine();
+    if (line === undefined) {
+      return;
+    }
     this.lines.update((lines) => [...lines, line]);
     this.model.update((model) => ({ ...model, target: '', value: 0, type: ModifierType.Untyped }));
   };

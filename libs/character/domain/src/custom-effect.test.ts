@@ -8,6 +8,7 @@ import type { CharacterPatch } from './character-patch';
 import { activeCustomEffects, CustomEffectProblem, customEffectProblem, customEffectRules } from './custom-effect';
 import {
   CUSTOM_EFFECT_TOGGLES_MAX,
+  CUSTOM_EFFECTS_MAX,
   CustomEffectId,
   CustomEffectInput,
   CustomEffectSchema,
@@ -117,6 +118,26 @@ describe('switching a custom effect', () => {
     const patch = { field: CharacterPatchField.ToggleCustomEffect, id: BLESSING, enabled: false } as const;
 
     expect(customEffectProblem(document, patch)).toBe(CustomEffectProblem.TogglesFull);
+  });
+});
+
+describe('the number of custom effects a character keeps', () => {
+  test('is refused once the record holds the most, removed effects counting', () => {
+    const effect = CustomEffectSchema.parse({
+      id: BLESSING,
+      ...INPUT,
+      by: AUTHOR,
+      byRole: OverrideRole.Player,
+      at: overrideTime(THEN),
+      enabled: true,
+      toggles: [],
+      removed: { by: AUTHOR, at: overrideTime(THEN), reason: 'Gone' },
+    });
+    const crowded = { ...blank.document, customEffects: Array.from({ length: CUSTOM_EFFECTS_MAX }, () => effect) };
+    const patch: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: INPUT };
+
+    expect(customEffectProblem(crowded, patch)).toBe(CustomEffectProblem.Full);
+    expect(customEffectProblem(added(blank).document, patch)).toBeUndefined();
   });
 });
 

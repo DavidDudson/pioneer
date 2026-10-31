@@ -35,7 +35,7 @@
     <fr-number-field [label]="Message.Amount | transloco" [formField]="form.value" />
     <fr-segmented-field [label]="Message.Type | transloco" [options]="types" [formField]="form.type" />
     <fr-stack direction="horizontal" justify="start">
-      <fr-button [disabled]="form.target().value() === ''" (pressed)="addLine()">
+      <fr-button [disabled]="!canAddLine()" (pressed)="addLine()">
         {{ Message.AddLine | transloco }}
       </fr-button>
     </fr-stack>
