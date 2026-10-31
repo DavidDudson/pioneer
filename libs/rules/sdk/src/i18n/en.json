@@ -722,6 +722,45 @@
         "heavyBarding": "Heavy barding"
       }
     },
+    "sourceBadge": {
+      "ariaLabel": "Source: {title}, {type}",
+      "expanded": "{title} {year}",
+      "unregisteredBook": "{book} (not in the registry)",
+      "homebrew": "{pack}",
+      "web": "{title}",
+      "row": {
+        "productLine": "Product line",
+        "authors": "Authors",
+        "publisher": "Publisher",
+        "license": "Licence",
+        "released": "Released",
+        "errata": "Latest errata",
+        "foundryVersion": "Foundry version",
+        "page": "Page"
+      },
+      "link": {
+        "aonEntry": "This entry on Archives of Nethys",
+        "aonBook": "This book on Archives of Nethys",
+        "store": "This book in the Paizo Store",
+        "open": "Open the page"
+      },
+      "type": {
+        "label": "Type: {type}",
+        "rulebookRemaster": "Remaster rulebook",
+        "rulebookLegacy": "Legacy rulebook",
+        "lostOmensRemaster": "Remaster Lost Omens book",
+        "lostOmensLegacy": "Legacy Lost Omens book",
+        "campaignRemaster": "Remaster campaign",
+        "campaignLegacy": "Legacy campaign",
+        "adventureRemaster": "Remaster adventure",
+        "adventureLegacy": "Legacy adventure",
+        "societyRemaster": "Remaster Society scenario",
+        "societyLegacy": "Legacy Society scenario",
+        "homebrew": "Homebrew pack",
+        "web": "Web page",
+        "unknown": "Other source"
+      }
+    },
     "sourceLine": {
       "bookPage": "{title} p. {page}",
       "partSeparator": " · ",

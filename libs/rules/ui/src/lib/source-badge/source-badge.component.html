@@ -1,0 +1,29 @@
+<fr-hover-card>
+  <fr-button
+    [variant]="Variant.Inline"
+    [ariaLabel]="
+      Message.AriaLabel
+        | transloco: { title: (heading().key | transloco: heading().params), type: (typeKey() | transloco) }
+    "
+  >
+    <fr-badge [tone]="tone().tone" [variant]="tone().variant" [icon]="icon">
+      @if (expanded()) {
+        {{ Message.Expanded | transloco: { title: (heading().key | transloco: heading().params), year: year() ?? '' } }}
+      }
+    </fr-badge>
+  </fr-button>
+  <ng-template frHoverCardContent>
+    <fr-stack gap="xs">
+      <fr-text weight="semibold">{{ heading().key | transloco: heading().params }}</fr-text>
+      <fr-text tone="muted">{{ Message.Type | transloco: { type: (typeKey() | transloco) } }}</fr-text>
+      @for (each of rows(); track each.label) {
+        <fr-text variant="caption"
+          >{{ each.label | transloco }}: {{ each.key === undefined ? each.text : (each.key | transloco) }}</fr-text
+        >
+      }
+      @for (each of links(); track each.url) {
+        <fr-link [external]="each.url">{{ each.label | transloco }}</fr-link>
+      }
+    </fr-stack>
+  </ng-template>
+</fr-hover-card>

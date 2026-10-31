@@ -20,6 +20,7 @@ export {
 } from './lib/entry-preview/entry-preview';
 export { RichTextView } from './lib/rich-text/rich-text.component';
 export { provideRichTextLinks, RICH_TEXT_LINKS, type RichTextLinks } from './lib/rich-text/rich-text-links';
+export { SourceBadge, SourceBadgeMode } from './lib/source-badge/source-badge.component';
 export { SourceLineView } from './lib/source-line/source-line.component';
 export { SOURCE_PACKS } from './lib/source-line/source-packs';
 export type { SourcePack } from './lib/source-line/source-packs';
