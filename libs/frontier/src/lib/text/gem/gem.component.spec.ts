@@ -19,11 +19,13 @@ async function render(inputs: Readonly<Record<string, unknown>>): Promise<HTMLEl
 }
 
 describe(Gem, () => {
-  it('puts each glyph in its own box, hidden from screen readers, and reads out the label', async () => {
+  it('hides the glyphs from screen readers, colours them by tone on a dark fill, and reads out the label', async () => {
     const host = await render({ tone: 'purple', glyphs: 'ᚠᚢ', label: 'Greater striking' });
 
-    const boxes = [...host.querySelectorAll('[aria-hidden="true"] > span')].map((box) => box.textContent);
-    expect(boxes).toStrictEqual(['ᚠ', 'ᚢ']);
+    const glyphs = host.querySelector('[aria-hidden="true"]');
+    expect(glyphs?.textContent.trim()).toBe('ᚠᚢ');
+    expect(glyphs?.className).toContain('text-rune-greater');
+    expect(glyphs?.className).toContain('bg-surface-base');
     expect(host.querySelector('.sr-only')?.textContent).toBe('Greater striking');
   });
 
@@ -31,7 +33,9 @@ describe(Gem, () => {
     const filled = await render({ tone: 'gold', glyphs: 'ᚦ', label: 'Mythic striking' });
     const hole = await render({ glyphs: '+', label: 'Empty rune slot' });
 
-    expect(filled.querySelector('.bg-rune-mythic')?.className).toContain('motion-safe:animate-rune-pulse');
+    expect(filled.querySelector('.animate-rune-pulse, [class*="animate-rune-pulse"]')?.className).toContain(
+      'motion-safe:animate-rune-pulse',
+    );
     expect(hole.querySelector('.animate-rune-pulse, [class*="animate-rune-pulse"]')).toBeNull();
   });
 });

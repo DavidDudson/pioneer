@@ -30,26 +30,25 @@ const outlineVariants = cva(
 );
 
 const fillVariants = cva(
-  'inline-flex h-full items-center justify-center clip-gem forced-colors:bg-system-canvas forced-colors:text-system-canvas-text',
+  'inline-flex h-full min-w-gem items-center justify-center bg-surface-base px-2xs leading-none clip-gem forced-colors:bg-system-canvas forced-colors:text-system-canvas-text',
   {
     variants: {
       tone: {
-        blue: 'bg-rune-base text-on-rune',
-        purple: 'bg-rune-greater text-on-rune',
-        red: 'bg-rune-major text-on-rune',
-        gold: 'bg-rune-mythic text-on-rune',
-        empty: 'bg-surface-base text-fg-muted',
+        blue: 'text-rune-base',
+        purple: 'text-rune-greater',
+        red: 'text-rune-major',
+        gold: 'text-rune-mythic',
+        empty: 'text-fg-muted',
       } satisfies Record<GemTone | 'empty', string>,
     },
   },
 );
 
-const glyphClasses = cva('inline-block w-gem text-center leading-none')();
 const labelClasses = cva('sr-only')();
 
 /**
- * A cut stone with a short run of glyphs on it, such as a rune. Each glyph sits in its own fixed-width box, so a
- * run reads as monospace in any face. A filled gem pulses in its tone, and holds still under reduced motion; with
+ * A cut stone with a short run of glyphs on it, such as a rune. The glyphs take the tone's colour on a dark fill, inside a
+ * tone-coloured outline. A filled gem pulses in its tone, and holds still under reduced motion; with
  * no `tone` it is a hole: the same outline, empty. The glyphs are decorative; `label`, already translated, is read
  * out instead, so the tone is never the only signal.
  *
@@ -67,15 +66,11 @@ const labelClasses = cva('sr-only')();
 export class Gem {
   /** Undefined for a hole. */
   public readonly tone = input<GemTone | undefined>(undefined);
-  /** The glyphs on the stone; each code point gets its own box. */
+  /** The glyphs on the stone. */
   public readonly glyphs = input.required<string>();
   public readonly label = input.required<string>();
 
   protected readonly outline = computed(() => outlineVariants({ tone: this.tone() ?? 'empty' }));
   protected readonly fill = computed(() => fillVariants({ tone: this.tone() ?? 'empty' }));
-  protected readonly boxes = computed((): readonly string[] =>
-    Array.from(new Intl.Segmenter().segment(this.glyphs()), ({ segment }) => segment),
-  );
-  protected readonly glyphClasses = glyphClasses;
   protected readonly labelClasses = labelClasses;
 }

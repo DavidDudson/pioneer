@@ -154,7 +154,6 @@
   --color-rune-greater: var(--fr-rune-greater);
   --color-rune-major: var(--fr-rune-major);
   --color-rune-mythic: var(--fr-rune-mythic);
-  --color-on-rune: var(--fr-on-rune);
 
   /*
    * Forced colours (Windows High Contrast). The browser swaps every author colour for the user's palette,

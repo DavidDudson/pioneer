@@ -60,8 +60,8 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
   })),
   // A roll's total and dice, coloured by damage type, on the surfaces and the roll toast.
   { foreground: DAMAGE_TONES.map((tone) => `damage-${tone}`), background: SURFACES, minimum: ContrastMinimum.Text },
-  // A rune gem's glyph on its tier fill, and the fill against the surfaces it sits on.
-  { foreground: ['on-rune'], background: RUNE_TIERS, minimum: ContrastMinimum.Text },
+  // A rune gem's glyph in its tier colour on the gem's dark fill, and the outline against the surfaces it sits on.
+  { foreground: RUNE_TIERS, background: ['surface-base'], minimum: ContrastMinimum.Text },
   { foreground: RUNE_TIERS, background: SURFACES, minimum: ContrastMinimum.NonText },
   { foreground: ['line-focus'], background: SURFACES, minimum: ContrastMinimum.NonText },
 ];

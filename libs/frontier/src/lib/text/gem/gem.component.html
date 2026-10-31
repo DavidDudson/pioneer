@@ -1,8 +1,4 @@
 <span [class]="outline()">
-  <span aria-hidden="true" [class]="fill()">
-    @for (glyph of boxes(); track $index) {
-      <span [class]="glyphClasses">{{ glyph }}</span>
-    }
-  </span>
+  <span aria-hidden="true" [class]="fill()">{{ glyphs() }}</span>
   <span [class]="labelClasses">{{ label() }}</span>
 </span>
