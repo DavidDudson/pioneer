@@ -2,14 +2,17 @@ import {
   ContentId,
   contentId,
   ContentKind,
+  contentPackId,
   effectiveLicense,
   isLegacyLicense,
   RollOption,
   slugName,
+  unsupportedPacksOf,
 } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentPack,
+  ContentPackId,
   ContentRegistry,
   PackAncestry,
   Trait,
@@ -152,8 +155,11 @@ function levelOptions(entry: ContentEntry): RollOption[] {
   return level === undefined ? [] : [RollOption.parse(`level:${level}`)];
 }
 
-/** The facts a list shows of an envelope entry: its level when it has one, rarity, traits, description, and whether it is legacy. */
-function factsOf(entry: ContentEntry, pack: ContentPack): EntryFacts {
+/**
+ * The facts a list shows of an envelope entry: its level when it has one, rarity, traits, description, whether it is
+ * legacy, and whether its pack is unsupported for the character.
+ */
+function factsOf(entry: ContentEntry, pack: ContentPack, unsupported: boolean): EntryFacts {
   const level = 'level' in entry ? entry.level : undefined;
   return {
     ...(level === undefined ? {} : { level }),
@@ -161,6 +167,7 @@ function factsOf(entry: ContentEntry, pack: ContentPack): EntryFacts {
     traits: entry.traits,
     description: entry.description,
     ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
+    ...(unsupported ? { unsupported: true as const } : {}),
   };
 }
 
@@ -183,7 +190,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
 }
 
 /** A background, class, class feature, feat or heritage, read from its envelope with its rule elements. */
-function envelopeEntry(entry: ContentEntry, pack: ContentPack): GrantEntry | undefined {
+function envelopeEntry(entry: ContentEntry, pack: ContentPack, unsupported: boolean): GrantEntry | undefined {
   const [source, ...sources] = entry.sources;
   if (source === undefined || !ENVELOPE_KINDS.has(entry.kind)) {
     return undefined;
@@ -202,7 +209,7 @@ function envelopeEntry(entry: ContentEntry, pack: ContentPack): GrantEntry | und
       ...levelOptions(entry),
       ...domainOptions(entry),
     ],
-    facts: factsOf(entry, pack),
+    facts: factsOf(entry, pack, unsupported),
     ...belongsTo(entry),
     ...archetypeFields(entry),
     ...valued(entry),
@@ -229,11 +236,12 @@ function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantE
   };
 }
 
-function packEntries(pack: ContentPack): GrantEntry[] {
+function packEntries(pack: ContentPack, unsupported: ReadonlySet<ContentPackId>): GrantEntry[] {
+  const isUnsupported = unsupported.has(contentPackId(pack.id));
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
-    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack) ?? []),
+    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, isUnsupported) ?? []),
   ];
 }
 
@@ -243,7 +251,8 @@ function packEntries(pack: ContentPack): GrantEntry[] {
  * registry holds them. Built once per registry; lookups are by id and by kind.
  */
 export function grantLookup(registry: ContentRegistry): ContentLookup {
-  const entries = registry.packs.flatMap((pack) => packEntries(pack));
+  const unsupported = unsupportedPacksOf(registry);
+  const entries = registry.packs.flatMap((pack) => packEntries(pack, unsupported));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);
   return {

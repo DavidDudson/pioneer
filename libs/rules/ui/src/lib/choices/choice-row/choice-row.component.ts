@@ -16,7 +16,8 @@ interface ShownChoice {
   readonly tone: BadgeTone;
   readonly selectionKey: string | undefined;
   readonly selectionName: string | undefined;
-  readonly legacy: boolean;
+  /** Message keys of what the pick is flagged for: a pre-remaster book, a pack no longer in force. */
+  readonly flags: readonly string[];
   readonly reason: MessageDescriptor | undefined;
 }
 
@@ -36,6 +37,17 @@ function badgeOf({ state, level }: ChoiceLine): MessageDescriptor {
   return message(state === ChoiceState.Invalid ? INVALID_AT_MESSAGE : CHOICE_STATE_MESSAGES[state], { level });
 }
 
+/** The flags a pick carries, in the order they show. */
+function flagsOf(selection: ChoiceLine['selection']): readonly string[] {
+  if (selection === undefined || !('name' in selection)) {
+    return [];
+  }
+  return [
+    ...('legacy' in selection ? [ChoicesMessage.Legacy] : []),
+    ...('unsupported' in selection ? [ChoicesMessage.Unsupported] : []),
+  ];
+}
+
 function shownOf(line: ChoiceLine): ShownChoice {
   const { selection } = line;
   return {
@@ -45,7 +57,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
     selectionKey:
       selection !== undefined && 'attribute' in selection ? ATTRIBUTE_MESSAGES[selection.attribute] : undefined,
     selectionName: selection !== undefined && 'name' in selection ? selection.name : undefined,
-    legacy: selection !== undefined && 'legacy' in selection,
+    flags: flagsOf(selection),
     reason: line.reason,
   };
 }

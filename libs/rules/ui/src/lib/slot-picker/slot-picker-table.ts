@@ -46,18 +46,20 @@ function withName<TRow extends NamedRow>(schema: OriginTableSchema<TRow>, say: S
   });
 }
 
-/** The traits as chips, a legacy entry's "Legacy" first, then an entry above common rarity and its traits, toned by rarity. */
+/** The traits as chips, a legacy or unsupported entry's flags first, then an entry above common rarity and its traits, toned by rarity. */
 function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip[] {
   if (facts === undefined) {
     return [];
   }
-  const legacy: Chip[] =
-    facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : [];
+  const flags: Chip[] = [
+    ...(facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : []),
+    ...(facts.unsupported === true ? [{ label: say(SlotPickerMessage.Unsupported), tone: BadgeTone.Warning }] : []),
+  ];
   const traits = facts.traits.map((label): Chip => ({ label }));
   if (facts.rarity === Rarity.Common) {
-    return [...legacy, ...traits];
+    return [...flags, ...traits];
   }
-  return [...legacy, { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
+  return [...flags, { label: say(SLOT_RARITY_MESSAGES[facts.rarity]), tone: RARITY_TONES[facts.rarity] }, ...traits];
 }
 
 /**

@@ -28,6 +28,11 @@ export interface EntryFacts {
   readonly description: RichText;
   /** From a pre-remaster book: its licence, or its pack's, is the Open Game License. Absent for any other entry. */
   readonly legacy?: true;
+  /**
+   * Its pack is no longer in force for the character, a campaign having disabled it, but the character holds content
+   * from it. Absent for any other entry.
+   */
+  readonly unsupported?: true;
 }
 
 /**

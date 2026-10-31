@@ -1039,6 +1039,7 @@
       "keep": "Keep {choice} when re-rolling",
       "keepShort": "Keep",
       "legacy": "Legacy",
+      "unsupported": "Unsupported",
       "state": {
         "open": "Not chosen",
         "filled": "Chosen",
@@ -1451,7 +1452,8 @@
       "knownYes": "Known",
       "knownNo": "Not known",
       "addLore": "Add the Lore \"{name}\"",
-      "legacy": "Legacy"
+      "legacy": "Legacy",
+      "unsupported": "Unsupported"
     }
   }
 }

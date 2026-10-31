@@ -5,9 +5,11 @@ import {
   contentId,
   ContentKind,
   ContentLicense,
+  contentPackId,
   ContentRegistry,
   EntrySlug,
   PackId,
+  putUnsupportedPacks,
   RollOption,
   RuleElement,
 } from '@pioneer/rules/sdk';
@@ -47,6 +49,17 @@ describe('grantLookup', () => {
   test('flags the facts of a feat from an Open Game License pack as legacy, and those of any other pack not', () => {
     expect(featLegacy(ContentLicense.Ogl)).toBe(true);
     expect(featLegacy(ContentLicense.Orc)).toBeUndefined();
+  });
+
+  test('flags the facts of a feat from an unsupported pack, and those of any other pack not', () => {
+    const pack = new ContentPackBuilder().withFeat('sudden-charge').build();
+    const registry = new ContentRegistry();
+    registry.register(pack);
+    const feat = (): boolean | undefined => grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported;
+
+    expect(feat()).toBeUndefined();
+    putUnsupportedPacks(registry, [contentPackId(pack.id)]);
+    expect(feat()).toBe(true);
   });
 
   test('lists ancestries by kind, and nothing of a kind the registry lacks', () => {

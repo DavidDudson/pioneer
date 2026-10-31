@@ -14,8 +14,8 @@ export type ChoiceState = ValueOf<typeof ChoiceState>;
 /** What is picked: an attribute, for a boost, or the content's name. */
 export type ChoiceSelection =
   | { readonly attribute: Attribute }
-  /** A pick by name; `legacy` when its entry is from a pre-remaster book. */
-  | { readonly name: string; readonly legacy?: true };
+  /** A pick by name; `legacy` when its entry is from a pre-remaster book, `unsupported` when its pack is no longer in force. */
+  | { readonly name: string; readonly legacy?: true; readonly unsupported?: true };
 
 /** One choice as the sheet lists it. */
 export interface ChoiceLine {

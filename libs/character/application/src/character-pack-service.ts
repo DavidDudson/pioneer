@@ -4,10 +4,10 @@ import type {
   CharacterId,
   CharacterPack,
   CharacterPacks,
-  EnabledPack,
   EnablePackBody,
   PackCandidate,
   PackTitle,
+  UnsupportedPack,
 } from '@pioneer/character/domain';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import { ConflictError, message, newId, NotFoundError } from '@pioneer/shared/kernel';
@@ -15,11 +15,13 @@ import type { Clock, UserId } from '@pioneer/shared/kernel';
 
 import type { AttachedCampaign, AttachedCampaignPacks } from './attached-campaign-packs';
 import type { CatalogPack, CharacterPackCatalog } from './character-pack-catalog';
+import { byTitle, candidateEntry, enabledEntry, unsupportedEntry } from './character-pack-entries';
 import { CharacterPackMessage } from './character-pack-message';
 import type { CharacterPackRepository } from './character-pack-repository';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { EffectivePacks } from './effective-packs';
+import type { HeldContentPacks } from './held-content-packs';
 
 /** The ports `CharacterPackService` works through. */
 export interface CharacterPackPorts {
@@ -27,36 +29,12 @@ export interface CharacterPackPorts {
   readonly packs: CharacterPackRepository;
   readonly catalog: CharacterPackCatalog;
   readonly campaigns: AttachedCampaignPacks;
+  /** The packs the character holds content from; without it none is reported as unsupported. */
+  readonly held?: HeldContentPacks;
 }
 
 /** For each enabled pack, the titles of the enabled packs that extend it, alphabetically. */
 type RequiredBy = ReadonlyMap<ContentPackId, readonly PackTitle[]>;
-
-function byTitle(left: CatalogPack, right: CatalogPack): number {
-  return left.title.localeCompare(right.title) || left.id.localeCompare(right.id);
-}
-
-/** A pack the character uses. Only its owner disables one, and not while an enabled pack extends it or a campaign decides. */
-function enabledEntry(pack: CatalogPack, requiredBy: readonly PackTitle[], manageable: boolean): EnabledPack {
-  return {
-    packId: pack.id,
-    title: pack.title,
-    publisher: pack.publisher,
-    official: pack.official,
-    requiredBy,
-    removable: manageable && !pack.official && requiredBy.length === 0,
-  };
-}
-
-function candidateEntry(pack: CatalogPack): PackCandidate {
-  return {
-    packId: pack.id,
-    title: pack.title,
-    publisher: pack.publisher,
-    official: pack.official,
-    private: pack.private,
-  };
-}
 
 /**
  * The packs a character uses: the official packs, which are always on, and the homebrew ones in force. A character
@@ -70,14 +48,16 @@ export class CharacterPackService extends EffectivePacks {
   readonly #packs: CharacterPackRepository;
   readonly #catalog: CharacterPackCatalog;
   readonly #campaigns: AttachedCampaignPacks;
+  readonly #held: HeldContentPacks | undefined;
   readonly #clock: Clock;
 
-  public constructor({ characters, packs, catalog, campaigns }: CharacterPackPorts, clock: Clock) {
+  public constructor({ characters, packs, catalog, campaigns, held }: CharacterPackPorts, clock: Clock) {
     super();
     this.#characters = characters;
     this.#packs = packs;
     this.#catalog = catalog;
     this.#campaigns = campaigns;
+    this.#held = held;
     this.#clock = clock;
   }
 
@@ -271,7 +251,22 @@ export class CharacterPackService extends EffectivePacks {
       manageable,
       enabled,
       candidates: manageable ? await this.#candidates(character.ownerId, ids) : [],
+      unsupported: await this.#unsupported(character, ids),
     };
+  }
+
+  /** The packs the character holds content from that are not in `inForce`, by title. */
+  async #unsupported(character: Character, inForce: readonly ContentPackId[]): Promise<readonly UnsupportedPack[]> {
+    const held = (await this.#held?.of(character)) ?? [];
+    const using = new Set(inForce);
+    const ids = held.filter((id) => !using.has(id));
+    if (ids.length === 0) {
+      return [];
+    }
+    const known = await this.#catalog.byIds(ids);
+    return CharacterPackService.#homebrewOf(ids, known)
+      .toSorted(byTitle)
+      .map((pack) => unsupportedEntry(pack));
   }
 
   /** The packs the owner may read that the character does not use yet. */

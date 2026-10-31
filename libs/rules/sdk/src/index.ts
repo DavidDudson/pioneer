@@ -524,3 +524,4 @@ export {
 } from './rich-text';
 export { contentBundles } from './content-bundle-write';
 export type { ContentBundles } from './content-bundle-write';
+export { putUnsupportedPacks, unsupportedPacksOf } from './unsupported-packs';

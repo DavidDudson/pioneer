@@ -13,7 +13,7 @@ const POLL_INTERVAL = 5;
 const NO_VARIANT_RULES = { decidedBy: 'character', manageable: true, enabled: [], available: [] };
 
 /** The packs of a character that has enabled none, which its owner may change. */
-const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [] };
+const NO_CHARACTER_PACKS = { decidedBy: 'character', manageable: true, enabled: [], candidates: [], unsupported: [] };
 
 /** The play state the server holds, at `revision`. */
 export function playOf(damage: number, temp: number, revision = 1): object {
