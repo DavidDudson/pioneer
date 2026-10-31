@@ -278,6 +278,11 @@
       "placeOf": "Where {name} is",
       "namePlaceholder": "The item's own name",
       "place": "Where",
+      "placeEffect": {
+        "addsAll": "Everything inside counts",
+        "ignores": "Ignores some of what it holds",
+        "addsNone": "Adds no Bulk"
+      },
       "loose": "Not in a container",
       "carryOf": "How {name} is carried",
       "carry": {

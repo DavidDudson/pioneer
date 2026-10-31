@@ -6,6 +6,7 @@ import {
   BulkLimit,
   carriedBulk,
   coinBulk,
+  ContainerEffect,
   containerLoad,
   Encumbrance,
   HeldLines,
@@ -213,6 +214,18 @@ describe('containerLoad', () => {
     expect(load?.lines).toBe(HeldLines.parse(2));
     expect(load?.capacity).toBe(BulkCount.parse(4));
     expect(load?.held).toBeGreaterThan(0);
+  });
+
+  test('says a backpack ignores some of what it holds', () => {
+    const load = containerLoad(stock([line(ItemFixture.Backpack, { id: PACK })]), content, PACK_ID);
+
+    expect(load?.effect).toBe(ContainerEffect.Ignores);
+  });
+
+  test('says a bag of holding adds none of what it holds', () => {
+    const load = containerLoad(stock([line(ItemFixture.BagOfHolding, { id: PACK })]), content, PACK_ID);
+
+    expect(load?.effect).toBe(ContainerEffect.AddsNone);
   });
 
   test('is empty for a container holding nothing', () => {

@@ -214,8 +214,28 @@ export function inventoryBulk(inventory: Inventory, content: ItemContent, streng
 export const HeldLines = z.int().nonnegative().brand<'HeldLines'>();
 export type HeldLines = z.infer<typeof HeldLines>;
 
-/** What a container holds against what it can: the Bulk inside it, its limit, and how many lines it holds. */
+/**
+ * What a container does to the Bulk of what it holds: every bit of it counts (a sack, a chest), the first part of it
+ * does not (a backpack), or none of it does (a spacious pouch).
+ */
+export const ContainerEffect = { AddsAll: 'adds-all', Ignores: 'ignores', AddsNone: 'adds-none' } as const;
+export type ContainerEffect = ValueOf<typeof ContainerEffect>;
+
+/** What `container` does to the Bulk it holds: it ignores nothing, some of its capacity, or all of it. */
+function effectOf(container: ItemContainer): ContainerEffect {
+  const ignored = container.ignored ?? 0;
+  if (ignored === 0) {
+    return ContainerEffect.AddsAll;
+  }
+  return container.capacity !== undefined && ignored >= container.capacity
+    ? ContainerEffect.AddsNone
+    : ContainerEffect.Ignores;
+}
+
+/** What a container holds against what it can: the Bulk inside it, its limit, how it counts and how many lines it holds. */
 export interface ContainerLoad {
+  /** What the container does to the Bulk of what it holds, which the sheet gives as the reason for the Bulk. */
+  readonly effect: ContainerEffect;
   /** The Bulk inside, less what the container ignores, in tenths. */
   readonly held: LightBulk;
   /** The whole Bulk it can hold; undefined when it has no limit. */
@@ -240,6 +260,7 @@ export function containerLoad(
   return {
     held: contentsBulk(context, { item, entry }),
     capacity: container.capacity,
+    effect: effectOf(container),
     lines: HeldLines.parse(context.contents.get(id)?.length ?? 0),
   };
 }

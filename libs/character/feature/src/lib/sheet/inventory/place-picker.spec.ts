@@ -1,4 +1,4 @@
-import { InventoryItemId, InventorySchema } from '@pioneer/character/domain';
+import { ContainerEffect, InventoryItemId, InventorySchema } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import { ItemFixture, itemFixtureContent, itemFixtureId } from '@pioneer/character/domain/testing';
 import { shownRows } from '@pioneer/rules/ui';
@@ -37,6 +37,20 @@ describe(placeRows, () => {
     expect(backpack?.lines).toBe(1);
     expect(backpack?.capacity).toBeGreaterThan(0);
     expect(backpack?.held).toBeGreaterThanOrEqual(0);
+  });
+
+  it('says what each container does to the Bulk it holds, and nothing for the loose place', () => {
+    const bag = '44444444-4444-4444-8444-444444444444';
+    const withBag = stock([
+      ...inventory.items,
+      { id: bag, item: itemFixtureId(ItemFixture.BagOfHolding), quantity: 1 },
+    ]);
+
+    const rows = placeRows(withBag, content, { moving: undefined, loose: LOOSE_NAME });
+
+    expect(rows[0]?.effect).toBeUndefined();
+    expect(rows.find((each) => each.value === BACKPACK)?.effect).toBe(ContainerEffect.Ignores);
+    expect(rows.find((each) => each.value === bag)?.effect).toBe(ContainerEffect.AddsNone);
   });
 
   it('leaves out the container being moved, so it cannot go into itself', () => {

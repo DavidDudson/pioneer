@@ -487,6 +487,7 @@ export {
 export {
   BulkLimit,
   carriedBulk,
+  ContainerEffect,
   type ContainerLoad,
   containerLoad,
   HeldLines,
