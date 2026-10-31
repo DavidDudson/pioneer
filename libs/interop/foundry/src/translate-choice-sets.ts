@@ -192,3 +192,5 @@ export function isUnread(element: RuleElement, plain: unknown, reads: (flag: str
   }
   return !RuleElement.safeParse(plain).success && !reads(String(element.flag));
 }
+
+export { withChoiceObjects } from './translate-choice-objects';

@@ -151,3 +151,79 @@ describe('translateRules: BattleForm', () => {
     expect(rules).toEqual([]);
   });
 });
+
+const DRAGON_CHOICES = [
+  {
+    label: 'Brine',
+    value: {
+      damageType: 'bludgeoning',
+      dragonType: 'brine',
+      speeds: { burrow: FOUNDRY_NULL, climb: FOUNDRY_NULL, swim: 60 },
+    },
+  },
+  {
+    label: 'Magma',
+    value: {
+      damageType: 'fire',
+      dragonType: 'magma',
+      speeds: { burrow: 20, climb: FOUNDRY_NULL, swim: FOUNDRY_NULL },
+    },
+  },
+  {
+    label: 'Cinder',
+    value: {
+      damageType: 'fire',
+      dragonType: 'cinder',
+      speeds: { burrow: FOUNDRY_NULL, climb: FOUNDRY_NULL, swim: FOUNDRY_NULL },
+    },
+  },
+];
+
+const DRAGON_RULES = [
+  { key: 'ChoiceSet', flag: 'dragonForm', choices: DRAGON_CHOICES, prompt: 'Pick a dragon.' },
+  { key: 'RollOption', option: 'dragon-form:{item|flags.system.rulesSelections.dragonForm.dragonType}' },
+  {
+    key: 'BattleForm',
+    overrides: {
+      hasHands: true,
+      resistances: [{ type: '{item|flags.system.rulesSelections.dragonForm.damageType}', value: 10 }],
+      speeds: {
+        burrow: '@item.flags.system.rulesSelections.dragonForm.speeds.burrow',
+        climb: '@item.flags.system.rulesSelections.dragonForm.speeds.climb',
+        fly: 100,
+        land: 40,
+        swim: '@item.flags.system.rulesSelections.dragonForm.speeds.swim',
+      },
+      traits: ['dragon'],
+    },
+  },
+];
+
+describe('translateRules: BattleForm that reads a dragon type', () => {
+  test('the pick becomes a slug that sets its roll option, and the form gets a variant for each type', () => {
+    const rules = formRules(DRAGON_RULES);
+
+    expect(rules).toEqual([
+      {
+        key: RuleElementKey.ChoiceSet,
+        flag: 'dragon-form',
+        rollOption: 'dragon-form',
+        prompt: 'Pick a dragon.',
+        choices: [
+          { label: 'Brine', value: 'brine' },
+          { label: 'Magma', value: 'magma' },
+          { label: 'Cinder', value: 'cinder' },
+        ],
+      },
+      {
+        key: RuleElementKey.BattleForm,
+        form: { ...FORBIDS, hasHands: true, speeds: { fly: 100, land: 40 }, traits: ['dragon'] },
+        variants: [
+          { predicate: ['dragon-form:brine'], speeds: { swim: 60 }, resistances: [{ type: 'bludgeoning', value: 10 }] },
+          { predicate: ['dragon-form:magma'], speeds: { burrow: 20 }, resistances: [{ type: 'fire', value: 10 }] },
+          { predicate: ['dragon-form:cinder'], resistances: [{ type: 'fire', value: 10 }] },
+        ],
+      },
+    ]);
+  });
+});

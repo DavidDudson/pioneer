@@ -11,7 +11,7 @@ import type { FoundryLang } from './foundry-release';
 import { withActiveEffect } from './translate-active-effects';
 import { withCreatureRule } from './translate-battle-form';
 import type { FoundrySenses } from './translate-battle-form';
-import { isUnread, withChoiceSet, withTagQuery } from './translate-choice-sets';
+import { isUnread, withChoiceObjects, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
@@ -195,7 +195,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
-  const shaped = kept.map((raw) => shapeRule(raw, context, unresolved));
+  const shaped = withChoiceObjects(kept).map((raw) => shapeRule(raw, context, unresolved));
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
   return {
