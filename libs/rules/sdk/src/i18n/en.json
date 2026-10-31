@@ -1033,7 +1033,8 @@
       "level": "Level {level}",
       "current": "Current level",
       "nothing": "Nothing opens at this level.",
-      "search": "Search to plan a pick"
+      "search": "Search to plan a pick",
+      "breaks": "Plan breaks here"
     },
     "choices": {
       "none": "No choices yet.",

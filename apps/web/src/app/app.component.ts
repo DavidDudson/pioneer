@@ -4,6 +4,7 @@ import type { Type } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Link, Shell, Stack, Text } from '@pioneer/frontier';
+import { RollStage } from '@pioneer/play/ui';
 import { IDLE_SCHEDULER, ShellSearch } from '@pioneer/shared/web';
 
 import { AccountMenu } from './account-menu/account-menu.component';
@@ -11,7 +12,18 @@ import { SectionsMenu } from './sections-menu/sections-menu.component';
 
 @Component({
   selector: 'pio-root',
-  imports: [AccountMenu, Link, NgComponentOutlet, RouterOutlet, SectionsMenu, Shell, Stack, Text, TranslocoPipe],
+  imports: [
+    AccountMenu,
+    Link,
+    NgComponentOutlet,
+    RollStage,
+    RouterOutlet,
+    SectionsMenu,
+    Shell,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

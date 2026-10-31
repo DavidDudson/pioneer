@@ -491,6 +491,9 @@ earliest planned level at which another dedication becomes legal. The Plan tab s
 that level is valid; one below it is flagged at its level like any other invalid plan. Free Archetype adds slots
 but doesn't change the lock.
 
+A planned pick that stops holding (a prerequisite retrained away, errata) reads invalid at the level it opens (#493). The
+timeline marks that level "Plan breaks here", and the slot shows the reason.
+
 ## Inventory
 
 `inventory.items` lists what the character carries (schema version 2, #471). Each item is an `InventoryItemId`, the

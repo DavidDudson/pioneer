@@ -8,6 +8,7 @@ import type { AttributePickerRow, LevelTimelineRow, SkillPickerRow, TimelinePick
 import { filter, merge } from 'rxjs';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
+import { SheetArchetypeProgress } from '../sheet-archetype-progress/sheet-archetype-progress.component';
 import { plannedFeatFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
@@ -32,7 +33,7 @@ function attributeRowsOf(read: SlotPickRows): readonly AttributePickerRow[] {
  */
 @Component({
   selector: 'pio-sheet-level-plan',
-  imports: [LevelTimeline, SheetPickFields, Stack],
+  imports: [LevelTimeline, SheetArchetypeProgress, SheetPickFields, Stack],
   templateUrl: './sheet-level-plan.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

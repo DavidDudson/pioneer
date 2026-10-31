@@ -1,0 +1,19 @@
+@if (lines().length > 0) {
+  <fr-stack gap="xs">
+    @for (line of lines(); track line.key) {
+      <fr-message [tone]="line.cleared ? 'success' : 'info'">
+        @if (line.cleared) {
+          {{ 'character.sheet.archetypes.cleared' | transloco: { archetype: line.name } }}
+        } @else {
+          {{
+            'character.sheet.archetypes.progress'
+              | transloco: { archetype: line.name, taken: line.taken, lock: line.lock }
+          }}
+        }
+        @if (line.clearsAt !== undefined && !line.cleared) {
+          {{ 'character.sheet.archetypes.clearsAt' | transloco: { level: line.clearsAt } }}
+        }
+      </fr-message>
+    }
+  </fr-stack>
+}

@@ -3,7 +3,8 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input }
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva, cx } from 'class-variance-authority';
 
-import { Tone } from '../../tokens';
+import { damageToneVariants, Tone } from '../../tokens';
+import type { DamageTone } from '../../tokens';
 import { TextVariant, textVariants } from '../text.variants';
 import type { FontWeight, MinWidth } from '../text.variants';
 import { PhraseElement, TextPhrase } from './phrase.component';
@@ -74,6 +75,8 @@ export class Text {
   public readonly element = input<TextElement>(TextElement.Span);
   public readonly variant = input<TextVariant>(TextVariant.Body);
   public readonly tone = input<Tone>(Tone.Default);
+  /** Colours the text by a damage type instead of its tone (a roll's total; the type is named alongside). */
+  public readonly damage = input<DamageTone | undefined>(undefined);
   public readonly weight = input<FontWeight | undefined>(undefined);
   public readonly truncate = input(false, { transform: booleanAttribute });
   public readonly numeric = input(false, { transform: booleanAttribute });
@@ -94,11 +97,12 @@ export class Text {
     return isStressElement(element) ? element : undefined;
   });
 
-  protected readonly classes = computed(() =>
-    cx(
+  protected readonly classes = computed(() => {
+    const damage = this.damage();
+    return cx(
       textVariants({
         variant: this.variant(),
-        tone: this.tone(),
+        tone: damage === undefined ? this.tone() : undefined,
         weight: this.weight(),
         truncate: this.truncate(),
         numeric: this.numeric(),
@@ -106,7 +110,8 @@ export class Text {
         minWidth: this.minWidth(),
       }),
       elementVariants({ element: this.element() }),
+      damage === undefined ? '' : damageToneVariants[damage],
       this.minWidth() === undefined ? '' : 'inline-block text-center',
-    ),
-  );
+    );
+  });
 }

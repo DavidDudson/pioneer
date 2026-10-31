@@ -18,6 +18,22 @@ interface ContrastPair {
 const SURFACES = ['surface-canvas', 'surface-base', 'surface-raised', 'surface-sunken', 'surface-overlay'];
 const STATUSES = ['danger', 'success', 'warning', 'info'];
 const ROLES = ['accent', ...STATUSES];
+const DAMAGE_TONES = [
+  'physical',
+  'holy',
+  'fire',
+  'cold',
+  'electricity',
+  'acid',
+  'poison',
+  'sonic',
+  'force',
+  'mental',
+  'void',
+  'vitality',
+  'spirit',
+  'bleed',
+];
 
 export const CONTRAST_PAIRS: readonly ContrastPair[] = [
   { foreground: ['fg-default', 'fg-muted', 'fg-subtle'], background: SURFACES, minimum: ContrastMinimum.Text },
@@ -41,5 +57,7 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
     background: [`${role}-emphasis`],
     minimum: ContrastMinimum.Text,
   })),
+  // A roll's total and dice, coloured by damage type, on the surfaces and the roll toast.
+  { foreground: DAMAGE_TONES.map((tone) => `damage-${tone}`), background: SURFACES, minimum: ContrastMinimum.Text },
   { foreground: ['line-focus'], background: SURFACES, minimum: ContrastMinimum.NonText },
 ];

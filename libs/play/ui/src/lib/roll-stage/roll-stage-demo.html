@@ -1,0 +1,6 @@
+<fr-stack gap="sm">
+  @for (roll of rolls; track roll.id) {
+  <fr-button (click)="present(roll)">{{ roll.label }}</fr-button>
+  }
+</fr-stack>
+<pio-roll-stage />

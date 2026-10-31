@@ -177,6 +177,11 @@
     "actionsHeading": "Actions",
     "choicesHeading": "Choices",
     "timelineHeading": "Level timeline",
+    "archetypes": {
+      "progress": "{archetype}: {taken} of {lock, plural, one {# feat} other {# feats}} before your next dedication.",
+      "cleared": "{archetype}: your next dedication is open.",
+      "clearsAt": "Your plan opens it at level {level}."
+    },
     "spellcastingHeading": "Spellcasting",
     "sections": "Sheet sections",
     "name": "Name",
