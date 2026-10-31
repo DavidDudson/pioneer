@@ -4,6 +4,7 @@ import type { ContentId } from '@pioneer/rules/sdk';
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
 import { withDoctrineGrants } from './translate-doctrine-grants';
+import { withPickRollOptions } from './translate-pick-options';
 
 /**
  * The rules of an item that alter what it granted. Foundry names the granted item by the id the grant stored under its
@@ -135,7 +136,7 @@ function altered(raw: unknown, granted: ReadonlyMap<string, string>): unknown {
 
 /** `raws` with the alterations of the items they grant in Pioneer's spelling; the grants' flags in Pioneer's too. */
 export function withGrantedItems(raws: readonly unknown[], references: EntryReferences): readonly unknown[] {
-  const doctrines = withDoctrineGrants(raws, references);
+  const doctrines = withPickRollOptions(withDoctrineGrants(raws, references));
   const granted = grantedByFlag(doctrines, references);
   return granted.size === 0 ? doctrines : doctrines.map((raw) => altered(raw, granted));
 }

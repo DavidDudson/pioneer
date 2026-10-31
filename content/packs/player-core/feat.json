@@ -2845,7 +2845,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:animal-order"]
     }
   },
   {
@@ -3852,7 +3853,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:enigma"]
     }
   },
   {
@@ -4333,6 +4335,31 @@
     ],
     "rules": [
       {
+        "key": "ChoiceSet",
+        "flag": "dedication-muse",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:bard-muse",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a muse.",
+        "rollOption": "feature"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:performance",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
         "key": "SpellcastingEntry",
         "slug": "bard",
         "tradition": "occult",
@@ -4348,16 +4375,6 @@
       {
         "key": "Proficiency",
         "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
-        "key": "Proficiency",
-        "selector": "skill:performance",
-        "rank": "trained"
-      },
-      {
-        "key": "Proficiency",
-        "selector": "skill:occultism",
         "rank": "trained"
       }
     ],
@@ -4437,7 +4454,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:enigma"]
     }
   },
   {
@@ -11527,6 +11545,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:warrior"],
       "action": {
         "cost": "one"
       }
@@ -11585,6 +11604,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:warrior"],
       "action": {
         "cost": "one"
       }
@@ -13134,6 +13154,12 @@
           ]
         }
       ],
+      "prerequisitePredicate": [
+        "feature:enigma",
+        {
+          "gte": ["skill:occultism:rank", 4]
+        }
+      ],
       "prerequisiteClauses": [
         {
           "text": "enigma muse"
@@ -13202,6 +13228,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:warrior", "feat:rallying-anthem"],
       "prerequisiteClauses": [
         {
           "text": "warrior muse"
@@ -14480,7 +14507,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feat:reactive-strike"]
     }
   },
   {
@@ -16842,6 +16870,31 @@
     ],
     "rules": [
       {
+        "key": "Proficiency",
+        "selector": "skill:nature",
+        "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "druidic-order",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:druid-order",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a druidic order."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "druidic-order"
+        }
+      },
+      {
         "key": "SpellcastingEntry",
         "slug": "druid",
         "tradition": "primal",
@@ -16853,16 +16906,6 @@
         "entry": "druid",
         "rank": "cantrip",
         "value": 2
-      },
-      {
-        "key": "Proficiency",
-        "selector": "spellcasting",
-        "rank": "trained"
-      },
-      {
-        "key": "Proficiency",
-        "selector": "skill:nature",
-        "rank": "trained"
       },
       {
         "key": "ChoiceSet",
@@ -16893,6 +16936,11 @@
         "item": {
           "choice": "order"
         }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
       }
     ],
     "externalIds": {
@@ -18126,6 +18174,12 @@
               "text": "polymath muse; master in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feature:polymath",
+        {
+          "gte": ["skill:occultism:rank", 3]
         }
       ],
       "prerequisiteClauses": [
@@ -19501,7 +19555,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:polymath"]
     }
   },
   {
@@ -19694,7 +19749,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:maestro"]
     }
   },
   {
@@ -22968,6 +23024,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:leaf-order"],
       "action": {
         "cost": "one",
         "frequency": {
@@ -23364,7 +23421,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -23594,7 +23652,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:maestro"]
     }
   },
   {
@@ -23823,6 +23882,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:leaf-order"],
       "action": {
         "cost": "one"
       }
@@ -25057,7 +25117,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -26161,6 +26222,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:maestro"],
       "action": {
         "cost": "one"
       }
@@ -27732,7 +27794,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -28794,6 +28857,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:maestro"],
       "action": {
         "cost": "one"
       }
@@ -31952,7 +32016,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -32076,7 +32141,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -32632,7 +32698,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:maestro"]
     }
   },
   {
@@ -32763,7 +32830,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:enigma"]
     }
   },
   {
@@ -33028,6 +33096,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feat:lunge", "feat:reactive-strike"],
       "prerequisiteClauses": [
         {
           "text": "Lunge",
@@ -33747,7 +33816,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:warrior"]
     }
   },
   {
@@ -40636,6 +40706,11 @@
             }
           ]
         }
+      ],
+      "prerequisitePredicate": [
+        {
+          "or": ["feature:leaf-order", "feat:untamed-form"]
+        }
       ]
     }
   },
@@ -45457,6 +45532,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:warrior"],
       "action": {
         "cost": "reaction",
         "requirementsText": [
@@ -45954,6 +46030,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:maestro"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -46824,6 +46901,12 @@
               "text": "enigma muse; expert in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feature:enigma",
+        {
+          "gte": ["skill:occultism:rank", 2]
         }
       ],
       "prerequisiteClauses": [
@@ -51552,6 +51635,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:storm-order"],
       "action": {
         "cost": "one"
       }
@@ -51879,7 +51963,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:warrior"]
     }
   },
   {
@@ -54078,7 +54163,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:storm-order"]
     }
   },
   {
@@ -54474,6 +54560,12 @@
               "text": "enigma muse; legendary in Occultism"
             }
           ]
+        }
+      ],
+      "prerequisitePredicate": [
+        "feature:enigma",
+        {
+          "gte": ["skill:occultism:rank", 4]
         }
       ],
       "prerequisiteClauses": [
@@ -56769,6 +56861,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:storm-order"],
       "action": {
         "cost": "one"
       }
@@ -57730,6 +57823,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:warrior"],
       "action": {
         "cost": "free",
         "trigger": [
@@ -57799,6 +57893,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:enigma"],
       "action": {
         "cost": "one"
       }
@@ -58823,7 +58918,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:polymath"]
     }
   },
   {
@@ -59795,7 +59891,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:untamed-order"]
     }
   },
   {
@@ -59879,6 +59976,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:polymath"],
       "action": {
         "cost": "one"
       }
@@ -60114,7 +60212,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:maestro"]
     }
   },
   {
@@ -60161,7 +60260,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:storm-order"]
     }
   },
   {
@@ -60277,7 +60377,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:leaf-order"]
     }
   },
   {
@@ -60499,7 +60600,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:polymath"]
     }
   },
   {
@@ -60546,7 +60648,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:polymath"]
     }
   },
   {
@@ -62238,7 +62341,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:storm-order"]
     }
   },
   {
@@ -62313,6 +62417,26 @@
       }
     ],
     "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "patron",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:witch-patron",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a patron."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "patron"
+        }
+      },
       {
         "key": "GrantItem",
         "item": "f736f9e6-d87b-51c6-9c7e-5137e0289370"

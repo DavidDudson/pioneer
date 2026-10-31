@@ -8240,7 +8240,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:enigma"]
     }
   },
   {
