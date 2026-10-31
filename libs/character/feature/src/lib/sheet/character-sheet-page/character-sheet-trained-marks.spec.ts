@@ -6,7 +6,7 @@ import { ClassPicker, SubclassPicker } from '@pioneer/rules/ui';
 import type { ClassPickerRow, SubclassPickerRow } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { openFeatTable } from '../../testing/feat-table-testing';
+import { openFeatTable, stubTableLayout } from '../../testing/feat-table-testing';
 import { backgroundRowsShown, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
@@ -138,9 +138,9 @@ describe('CharacterSheetPage options that train a skill again', () => {
     ]);
   });
 
-  // Skipped: the feat table renders no rows in this harness (#734).
-  // oxlint-disable-next-line vitest/no-disabled-tests -- #734
-  it.skip('marks the feat that trains a skill the background trains, and leaves it pickable', async () => {
+  it('marks the feat that trains a skill the background trains, and leaves it pickable', async () => {
+    // A picker's table reads its height once, when the sheet renders it, so before the sheet opens (#734).
+    stubTableLayout();
     const { root } = await openSheet(fighter({ background: ACOLYTE }), { packs: PACKS });
     const slot = await vi.waitFor(async () => fieldNamed(root, 'Fighter feat, level 1'));
 
