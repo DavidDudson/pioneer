@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { offeredLabels, pickerCount } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import { render, settle, textOf } from '../../testing/sheet-tabs-testing';
@@ -87,17 +88,13 @@ describe('CharacterSheetPage sections', () => {
   });
 
   it('offers the sections and then the panels in a dropdown, with the open section chosen', async () => {
-    const { root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    const { harness, root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    const tabs = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-sheet-section-tabs'));
     await vi.waitFor(() => {
-      expect(root.querySelector('pio-sheet-section-tabs fr-select')).not.toBeNull();
+      expect(pickerCount(harness, tabs())).toBe(1);
     });
-    const select = present(root.querySelector('pio-sheet-section-tabs fr-select'));
 
-    select.querySelector('button, [role="combobox"]')?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    await settle();
-
-    const labels = [...document.querySelectorAll('[role="option"]')].map((option) => textOf(option));
-    expect(labels).toStrictEqual([
+    expect(offeredLabels(harness, tabs())).toStrictEqual([
       'Defences',
       'Senses',
       'Strikes',
