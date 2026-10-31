@@ -27,6 +27,7 @@ import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
 import { Dropdown, DropdownAlign } from '../dropdown/dropdown.component';
 import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
+import { ShellWidth } from '../shell-width/shell-width';
 import { Stack } from '../stack/stack.component';
 import { readMinimised, writeMinimised } from './shell-panel-state';
 
@@ -60,9 +61,10 @@ const HEADER_HEIGHT_PROPERTY = '--fr-size-shell-header';
 const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
 
 /**
- * App chrome: one-row top bar with the brand (and an optional badge), the breadcrumbs of the open page (shown by its
- * `fr-page-header`), a search slot (`frShellSearch`) and an actions slot (`frShellActions`,
- * e.g. menus), routed content below in the page's only `<main>`.
+ * App chrome: one-row top bar with the brand (and an optional badge) at its start, the breadcrumbs of the open page
+ * (shown by its `fr-page-header`), a search slot (`frShellSearch`) and an actions slot (`frShellActions`, e.g. menus)
+ * at its end, routed content below in the page's only `<main>`. The bar and the footer are as wide as the open page
+ * (`ShellWidth`), so the brand and the actions sit at the edges of its content.
  * The search shows as an icon button until `searchOpen`. Open, it takes the row's width in place of the
  * breadcrumbs, and Escape or leaving it closes it.
  * A skip link, hidden until focused, is the first thing Tab reaches and moves
@@ -96,6 +98,8 @@ export class Shell {
   public readonly panelLabel = input('');
 
   protected readonly crumbs = inject(HeaderCrumbs);
+  /** The open page's width, which the header and footer take. */
+  protected readonly width = inject(ShellWidth).current;
   protected readonly searchIcon = LucideSearch;
   protected readonly menuIcon = LucideEllipsisVertical;
   protected readonly menuAlign = DropdownAlign.End;

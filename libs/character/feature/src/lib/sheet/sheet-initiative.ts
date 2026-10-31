@@ -29,7 +29,9 @@ export function initiativeChoices(
 ): readonly InitiativeChoice[] {
   const candidates = [
     { selector: PERCEPTION, name: perception },
-    ...skills.flatMap(({ name, result }) => (result.ok ? [{ selector: result.selector, name }] : [])),
+    ...skills.flatMap(({ name, result }) =>
+      result.ok && result.selector !== PERCEPTION ? [{ selector: result.selector, name }] : [],
+    ),
   ];
   return candidates.flatMap(({ selector, name }): InitiativeChoice[] => {
     const setup = sheetRollSetup(registry, character, { selector, chosen: new Set(), as: initiativeRoll(selector) });

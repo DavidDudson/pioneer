@@ -56,7 +56,8 @@ describe(SkillsView, () => {
     await chooseLores(fixture);
     const rows = rowNames(hostOf(fixture));
     expect(rows).toHaveLength(1);
-    expect(rows[0]).toContain('Sailing Lore');
+    expect(rows[0]).toContain('Sailing');
+    expect(rows[0]).not.toContain('Lore');
   });
 
   it("leaves a Lore the character has no rank in off the Lores tab, which lists the character's own", async () => {

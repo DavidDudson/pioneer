@@ -91,17 +91,15 @@ describe('CharacterSheetPage header', () => {
     const vitalsNow = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-vitals'));
 
     await vi.waitFor(() => {
-      // The tiles' own ranks, not the empty ones the rows inside them hold for a skill's.
-      const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')].filter(
-        (rank) => rank.closest('summary') === null,
-      );
-      // Armor Class, Fortitude (the Warpriest doctrine makes it expert), Reflex, Will, Perception and the class DC.
+      // AC's, the three saves' and the class DC's ranks (Perception is a row of the Skills panel), not the empty ones the rows inside the tiles hold for a skill's, nor a tile's with no rank (Speed).
+      const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')]
+        .filter((rank) => rank.closest('summary') === null)
+        .filter((rank) => textOf(rank) !== '');
       expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual([
         'TTrained',
         'EExpert',
         'TTrained',
         'EExpert',
-        'TTrained',
         'TTrained',
       ]);
     });

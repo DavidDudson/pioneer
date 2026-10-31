@@ -181,9 +181,10 @@ describe('CharacterSheetPage skills', () => {
     (tab as HTMLElement).click();
 
     await vi.waitFor(() => {
-      expect(rankOf(root, 'Sailing Lore')).toStrictEqual({ letter: 'T', name: 'Trained' });
+      expect(rankOf(root, 'Sailing')).toStrictEqual({ letter: 'T', name: 'Trained' });
     });
-    expect(skillRow(root, 'Sailing Lore')).toMatch(/[+-]\d/u);
+    expect(skillRow(root, 'Sailing')).not.toContain('Lore');
+    expect(skillRow(root, 'Sailing')).toMatch(/[+-]\d/u);
   });
 
   it('saves a Lore typed in a skill picker as a pick of its topic, with the name as typed', async () => {

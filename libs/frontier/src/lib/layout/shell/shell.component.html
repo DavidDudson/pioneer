@@ -2,7 +2,7 @@
   <span [class]="skipLinkClasses"
     ><fr-link [skipTo]="mainId">{{ 'frontier.shell.skipToContent' | transloco }}</fr-link></span
   >
-  <fr-box width="page" padding="sm" gutter>
+  <fr-box padding="sm" gutter [width]="width()">
     <fr-stack direction="horizontal" align="center" gap="md">
       <span [class]="brandClasses"
         ><fr-stack direction="horizontal" align="center" gap="xs">
@@ -50,7 +50,7 @@
   </div>
 </div>
 <footer [class]="footerClasses">
-  <fr-box width="page" padding="md" gutter>
+  <fr-box padding="md" gutter [width]="width()">
     <ng-content select="[frShellFooter]" />
   </fr-box>
 </footer>

@@ -16,6 +16,13 @@ async function render(vitals: readonly Vital[] | undefined): Promise<HTMLElement
   return fixture.nativeElement as HTMLElement;
 }
 
+function present<TValue>(value: TValue | null | undefined): TValue {
+  if (value === null || value === undefined) {
+    throw new Error('Expected the vitals to render the element');
+  }
+  return value;
+}
+
 function textOf(element: Element | null | undefined): string | undefined {
   return element?.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
@@ -36,11 +43,20 @@ function tilesOf(host: HTMLElement): (string | undefined)[][] {
 describe(VitalsView, () => {
   it('shows each vital with its total, its rank read out by name, and what sets Armor Class', async () => {
     const host = await render(FIGHTER_VITALS);
-    expect(tilesOf(host)).toStrictEqual([
-      ['Armor Class 20', 'Trained', 'Breastplate'],
-      ['Fortitude +10', 'Expert', undefined],
-      ['Will +6', undefined, undefined],
+    expect(tilesOf(host)[0]).toStrictEqual(['Armor Class 20', 'Trained', 'Breastplate']);
+  });
+
+  it('puts the saves together in one card, a row each laid out as a skill, with no card of their own apiece', async () => {
+    const host = await render(FIGHTER_VITALS);
+    expect(host.querySelectorAll('fr-surface')).toHaveLength(2);
+    const card = present(host.querySelectorAll('fr-surface').item(1));
+    const rows = [...card.querySelectorAll('fr-list-item')];
+    expect(rows.map((row) => textOf(row))).toStrictEqual([
+      expect.stringContaining('Fortitude'),
+      expect.stringContaining('Will'),
     ]);
+    expect(card.querySelector('[frDisclosureSummary]')).toBeNull();
+    expect(textOf(present(rows[0]).querySelector('pio-proficiency-rank .sr-only'))).toBe('Expert');
   });
 
   it('says Armor Class is unarmored when no armour sets it', async () => {

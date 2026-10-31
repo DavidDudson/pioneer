@@ -5,8 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OverrideId, OverrideMode, overrideOf } from '@pioneer/character/domain';
 import type { Override } from '@pioneer/character/domain';
 import { Selector } from '@pioneer/rules/sdk';
-import { STATISTIC_OVERRIDES, StatisticOverrideMode } from '@pioneer/rules/ui';
-import type { NamedStatistic, StatisticLink, StatisticOverrides } from '@pioneer/rules/ui';
+import type { NamedStatistic, StatisticLink } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
 import { SheetState } from '../sheet-state';
@@ -26,12 +25,6 @@ const OVERRIDE_ID_PARAM = 'overrideId';
 
 const OPEN = 'open';
 
-/** Each mode the rules UI links with, as the character domain names it. */
-const MODES: Readonly<Record<StatisticOverrideMode, OverrideMode>> = {
-  [StatisticOverrideMode.Adjust]: OverrideMode.Adjust,
-  [StatisticOverrideMode.Set]: OverrideMode.Set,
-};
-
 /** The page at `url`, without its query: the page a link stays on while the drawer opens beside it. */
 function pathOf(url: string): string {
   return url.split('?')[0] ?? url;
@@ -47,28 +40,18 @@ export interface OverrideTarget {
 }
 
 /**
- * Where a statistic's Adjust and Set open: the page being shown with the override drawer open on it, naming the
- * statistic and the mode in the URL so a reload or a shared link keeps the form. Reads the same URL back as the target
- * the form is for: undefined while the content loads, and for a selector the sheet derives nothing for. Provided per
+ * Where an override is edited: the page being shown with the override drawer open on it. Reads the URL back as the
+ * target the form is for, a statistic and a mode or an existing override, so a reload or a shared link keeps the form: undefined while the content loads, and for a selector the sheet derives nothing for. Provided per
  * sheet.
  */
 @Injectable()
-export class SheetOverrides implements StatisticOverrides {
+export class SheetOverrides {
   readonly #router = inject(Router);
   readonly #sheet = inject(SheetState);
   readonly #query = toSignal(inject(ActivatedRoute).queryParamMap);
 
   /** The query parameter the drawer's open state is kept in. */
   public readonly param = OVERRIDE_DRAWER_PARAM;
-
-  public readonly link = (selector: Selector, mode: StatisticOverrideMode): StatisticLink => ({
-    to: [pathOf(this.#router.url)],
-    queryParams: {
-      [OVERRIDE_DRAWER_PARAM]: OPEN,
-      [OVERRIDE_STATISTIC_PARAM]: selector,
-      [OVERRIDE_MODE_PARAM]: MODES[mode],
-    },
-  });
 
   /** Where editing the override `id` opens: the page being shown, with the drawer open on that override. */
   public readonly edit = (id: OverrideId): StatisticLink => ({
@@ -94,8 +77,5 @@ export class SheetOverrides implements StatisticOverrides {
   });
 }
 
-/** What the sheet provides so its statistics offer Adjust and Set. */
-export const SHEET_OVERRIDES_PROVIDERS = [
-  SheetOverrides,
-  { provide: STATISTIC_OVERRIDES, useExisting: SheetOverrides },
-];
+/** What the sheet provides for its overrides. */
+export const SHEET_OVERRIDES_PROVIDERS = [SheetOverrides];

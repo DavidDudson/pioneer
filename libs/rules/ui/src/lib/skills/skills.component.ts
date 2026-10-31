@@ -20,6 +20,9 @@ type SkillsTab = (typeof SkillsTab)[keyof typeof SkillsTab];
 /** A Lore's selector starts so: `skill:lore:sailing`. */
 const LORE_PREFIX = 'skill:lore:';
 
+/** The word a Lore's name ends with, which the Lores tab makes redundant: "Architecture Lore" reads "Architecture". */
+const LORE_SUFFIX = /\s+Lore$/u;
+
 /**
  * Every skill and Lore of a character in one panel, the skills and the Lores on tabs of their own, so each list is
  * short enough to read whole. Each row is a `pio-statistics` row laid out as a skill's: the name, the rank badge and the
@@ -65,14 +68,15 @@ export class SkillsView {
 
   /**
    * The statistics of the tab shown; undefined while they load. The Lores tab lists only the character's own: those it
-   * has any rank in, not every Lore the content defines.
+   * has any rank in, not every Lore the content defines, each named without its "Lore" since the tab says it.
    */
   protected readonly shown = computed((): readonly NamedStatistic[] | undefined => {
     const lores = this.tab() === SkillsTab.Lores;
-    return this.statistics()?.filter(
+    const own = this.statistics()?.filter(
       ({ result, rank }) =>
         result.selector.startsWith(LORE_PREFIX) === lores &&
         (!lores || (rank !== undefined && rank !== Proficiency.Untrained)),
     );
+    return lores ? own?.map((each) => ({ ...each, name: each.name.replace(LORE_SUFFIX, '') })) : own;
   });
 }

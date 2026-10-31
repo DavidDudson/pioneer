@@ -1,20 +1,25 @@
 <fr-grid minItem="sm" gap="sm">
-  @if (tiles(); as shown) {
-    @for (tile of shown; track tile.key) {
+  @if (blocks(); as shown) {
+    @for (block of shown; track block.key) {
       <fr-surface padding="sm">
-        <fr-stack gap="3xs">
-          <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" [originNames]="originNames()" />
-          <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-            @if (tile.rank; as rank) {
-              <pio-proficiency-rank [rank]="rank" />
-            }
-            @if (tile.armor; as armor) {
-              <fr-text variant="caption" tone="muted">{{ armor }}</fr-text>
-            } @else if (tile.unarmored) {
-              <fr-text variant="caption" tone="muted">{{ Message.Unarmored | transloco }}</fr-text>
-            }
+        @if (block.tile; as tile) {
+          <fr-stack gap="3xs">
+            <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" [originNames]="originNames()" />
+            <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+              <pio-proficiency-rank [rank]="tile.rank" />
+              @if (tile.caption; as caption) {
+                <fr-text variant="caption" tone="muted">{{ caption }}</fr-text>
+              }
+            </fr-stack>
           </fr-stack>
-        </fr-stack>
+        } @else {
+          <pio-statistics
+            skillRows
+            [statistics]="block.saves"
+            [entryNames]="entryNames()"
+            [originNames]="originNames()"
+          />
+        }
       </fr-surface>
     }
   } @else {

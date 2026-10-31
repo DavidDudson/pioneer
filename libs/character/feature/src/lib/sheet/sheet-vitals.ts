@@ -1,3 +1,4 @@
+import { PERCEPTION } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
@@ -30,12 +31,15 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
  */
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
-  return reads.statistics.map((statistic): Vital => {
-    const { selector } = statistic.result;
-    if (statistic.kind === StatisticKind.Value) {
-      return { statistic, rank: undefined };
-    }
-    const rank = ranks.get(selector) ?? Proficiency.Untrained;
-    return selector === AC ? { statistic, rank, basis: armorBasis(registry, character, reads) } : { statistic, rank };
-  });
+  // Perception is a row of the Skills panel, not a vital.
+  return reads.statistics
+    .filter(({ result }) => result.selector !== PERCEPTION)
+    .map((statistic): Vital => {
+      const { selector } = statistic.result;
+      if (statistic.kind === StatisticKind.Value) {
+        return { statistic, rank: undefined };
+      }
+      const rank = ranks.get(selector) ?? Proficiency.Untrained;
+      return selector === AC ? { statistic, rank, basis: armorBasis(registry, character, reads) } : { statistic, rank };
+    });
 }

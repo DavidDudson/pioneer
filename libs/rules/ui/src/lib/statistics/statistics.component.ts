@@ -18,7 +18,6 @@ import { isAdjustedByHand } from './statistic-adjusted';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
 import { StatisticLine } from './statistic-line/statistic-line.component';
-import { StatisticOverrideLinks } from './statistic-override-links/statistic-override-links.component';
 import { STATISTIC_ROLLER } from './statistic-roller';
 import { StatisticsMessage } from './statistics-messages';
 
@@ -99,7 +98,6 @@ const LOADING_ROWS = 5;
     Stack,
     StatisticConditions,
     StatisticLine,
-    StatisticOverrideLinks,
     Text,
     TranslocoPipe,
   ],

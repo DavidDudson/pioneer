@@ -5,6 +5,7 @@ import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-
 import { element, part, renderProjected } from '../../testing/render-projected';
 import { BoxWidth } from '../box/box.component';
 import { PageBody } from '../page-body/page-body.component';
+import { ShellWidth } from '../shell-width/shell-width';
 import { Page } from './page.component';
 
 const header = (): HTMLElement => element('fr-page-header', 'Header');
@@ -40,6 +41,11 @@ describe(Page, () => {
     const box = part(await renderProjected(Page, { width: BoxWidth.Full }, [header(), body()]), 'fr-box');
     expect([...box.classList]).not.toContain('max-w-page');
     expect([...box.classList]).toContain('w-full');
+  });
+
+  it("gives the shell its width, so the header lines up with the page's content", async () => {
+    await renderProjected(Page, { width: BoxWidth.Full }, [header(), body()]);
+    expect(TestBed.inject(ShellWidth).current()).toBe(BoxWidth.Full);
   });
 });
 
