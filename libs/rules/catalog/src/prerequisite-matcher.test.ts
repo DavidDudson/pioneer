@@ -5,6 +5,7 @@ import {
   contentId,
   ContentKey,
   ContentKind,
+  ContentText,
   EntrySlug,
   PackId,
   Predicate,
@@ -160,7 +161,7 @@ describe('prerequisite matcher', () => {
   });
 
   test.each([' ', ';', '.', ' ; . '])('gives no predicate for text with no clause: "%s"', (words) => {
-    expect(readPrerequisites(prose(words), NAMES)).toStrictEqual({ predicate: undefined, unparsed: [] });
+    expect(readPrerequisites(prose(words), NAMES)).toStrictEqual({ predicate: undefined, unparsed: [], clauses: [] });
   });
 
   test.each([
@@ -176,13 +177,18 @@ describe('prerequisite matcher', () => {
     expect(readPrerequisites(prose(words), NAMES)).toStrictEqual({
       predicate: undefined,
       unparsed: [words.toLowerCase()],
+      clauses: [{ text: ContentText.parse(words), predicate: undefined }],
     });
   });
 
   test('gives no predicate when any clause is unparsed, and names the clauses that are', () => {
-    expect(readPrerequisites(prose('Fighter Dedication; an animal companion'), NAMES)).toStrictEqual({
+    expect(readPrerequisites(prose('Fighter Dedication;  an animal companion '), NAMES)).toStrictEqual({
       predicate: undefined,
       unparsed: ['an animal companion'],
+      clauses: [
+        { text: ContentText.parse('Fighter Dedication'), predicate: predicate(['feat:fighter-dedication']) },
+        { text: ContentText.parse('an animal companion'), predicate: undefined },
+      ],
     });
   });
 
@@ -192,7 +198,7 @@ describe('prerequisite matcher', () => {
       { type: 'paragraph', content: [{ type: 'text', text: 'Strength +2' }] },
     ]);
 
-    expect(readPrerequisites(twoParagraphs, NAMES)).toStrictEqual({ predicate: undefined, unparsed: [] });
+    expect(readPrerequisites(twoParagraphs, NAMES)).toStrictEqual({ predicate: undefined, unparsed: [], clauses: [] });
   });
 });
 
@@ -262,6 +268,29 @@ describe('prerequisite matches', () => {
       {
         entry: ContentKey.parse('player-core/feat:shield-warden'),
         prerequisitePredicate: predicate(['feat:shield-block']),
+        prerequisiteClauses: undefined,
+      },
+    ]);
+  });
+
+  test('read the clauses of a feat with several, and keep a predicate it already has', () => {
+    const entries = [
+      entry('Shield Block', 'feat', { category: 'general' }),
+      entry('Corrected', 'feat', {
+        category: 'class',
+        prerequisites: prose('Shield Block; an animal companion'),
+        prerequisitePredicate: ['feat:other'],
+      }),
+    ];
+
+    expect(prerequisiteMatches(entries)).toStrictEqual([
+      {
+        entry: ContentKey.parse('player-core/feat:corrected'),
+        prerequisitePredicate: undefined,
+        prerequisiteClauses: [
+          { text: ContentText.parse('Shield Block'), predicate: predicate(['feat:shield-block']) },
+          { text: ContentText.parse('an animal companion'), predicate: undefined },
+        ],
       },
     ]);
   });

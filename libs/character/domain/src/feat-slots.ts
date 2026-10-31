@@ -1,9 +1,8 @@
 import type { ChoiceSlot, ContentLookup } from '@pioneer/rules/grants';
-import { evaluatePredicate, PredicateFacts, Truth } from '@pioneer/rules/predicate';
+import { PredicateFacts } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { ContentId, ContentKind, Level, NamespaceKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentLevel, ContentText, RichText, SlotKey } from '@pioneer/rules/sdk';
-import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { attributeOptionsAt } from './attribute-options';
 import type { CharacterDocument } from './character-document';
@@ -11,37 +10,15 @@ import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { dedicationWait, dedicationWaits, featsTaken, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
 import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
-import type { FeatContent, FeatRead } from './feat-content';
+import type { FeatContent } from './feat-content';
 import { rankOptions } from './language-levels';
 import { bisected } from './level-bisect';
+import { prerequisiteClauseStatuses, PrerequisiteStatus, prerequisiteStatus } from './prerequisite-status';
+import type { PrerequisiteClauseStatus } from './prerequisite-status';
 import { grantedSkillRanks } from './skill-raises';
 import { skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
 import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
-
-/**
- * Whether a character meets a feat's prerequisites (#466), under Kleene's logic (ADR-0002): met, not met, or unknown
- * when they are printed but don't parse, or read a fact nobody has supplied.
- */
-export const PrerequisiteStatus = { Met: 'met', Unmet: 'unmet', Unknown: 'unknown' } as const;
-export type PrerequisiteStatus = ValueOf<typeof PrerequisiteStatus>;
-
-const STATUSES: Readonly<Record<Truth, PrerequisiteStatus>> = {
-  [Truth.True]: PrerequisiteStatus.Met,
-  [Truth.False]: PrerequisiteStatus.Unmet,
-  [Truth.Unknown]: PrerequisiteStatus.Unknown,
-};
-
-/**
- * How `feat`'s prerequisites read against `facts`: by its predicate; unknown when it has printed prerequisites the
- * importer couldn't parse; met when it has none.
- */
-export function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): PrerequisiteStatus {
-  if (feat?.predicate !== undefined) {
-    return STATUSES[evaluatePredicate(feat.predicate, facts)];
-  }
-  return feat?.prerequisites === undefined ? PrerequisiteStatus.Met : PrerequisiteStatus.Unknown;
-}
 
 /**
  * The namespaces prerequisites read that only these facts set, so a missing one is false: `attribute:str:mod:2`. The
@@ -217,6 +194,8 @@ export interface FeatOption {
   readonly label: ContentText;
   readonly level: ContentLevel;
   readonly status: PrerequisiteStatus;
+  /** Each clause of the prerequisites with its own state, for a feat with several; undefined for any other. */
+  readonly clauses: readonly PrerequisiteClauseStatus[] | undefined;
   /** As printed, for saying what is not met or can't be checked. */
   readonly prerequisites: RichText | undefined;
   /** The dedication it waits on, for a dedication while an earlier one still needs its archetype's feats (#467). */
@@ -243,9 +222,18 @@ function featOptions(slot: ChoiceSlot, level: Level, reads: PrerequisiteReads): 
       return [];
     }
     const status = prerequisiteStatus(feat, facts);
+    const clauses = prerequisiteClauseStatuses(feat, facts);
     const locked = dedicationWait(reads.feats, waits, id.data);
     return [
-      { value: id.data, label: option.label, level: feat.level, status, prerequisites: feat.prerequisites, locked },
+      {
+        value: id.data,
+        label: option.label,
+        level: feat.level,
+        status,
+        clauses,
+        prerequisites: feat.prerequisites,
+        locked,
+      },
     ];
   });
 }

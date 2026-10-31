@@ -598,6 +598,22 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Stealth and Survival",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            },
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "member of the Bellflower Network"
+        }
+      ],
       "archetype": "78264309-7dbc-5f83-9657-d7a8a16d8aa9"
     }
   },
@@ -786,6 +802,20 @@
             {
               "type": "text",
               "text": "Cavalier Dedication; trained in Nature"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "trained in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 1]
             }
           ]
         }
@@ -2050,6 +2080,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellbound Aspirant Dedication",
+          "predicate": ["feat:hellbound-aspirant-dedication"]
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
+            }
+          ]
+        }
       ]
     }
   },
@@ -2327,6 +2371,27 @@
             {
               "type": "text",
               "text": "Basic Pactbreaker Spellcasting; master in Legal Lore or Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Pactbreaker Spellcasting",
+          "predicate": ["feat:basic-pactbreaker-spellcasting"]
+        },
+        {
+          "text": "master in Legal Lore or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:lore:legal:rank", 3]
+                },
+                {
+                  "gte": ["skill:religion:rank", 3]
+                }
+              ]
             }
           ]
         }
@@ -2779,6 +2844,14 @@
               "text": "You have a fiendish patron deity; you are not holy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "You have a fiendish patron deity"
+        },
+        {
+          "text": "you are not holy"
         }
       ]
     }
@@ -3609,6 +3682,27 @@
             {
               "type": "text",
               "text": "Bellflower Tiller Dedication; expert in Stealth or Survival"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bellflower Tiller Dedication",
+          "predicate": ["feat:bellflower-tiller-dedication"]
+        },
+        {
+          "text": "expert in Stealth or Survival",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:stealth:rank", 2]
+                },
+                {
+                  "gte": ["skill:survival:rank", 2]
+                }
+              ]
             }
           ]
         }
@@ -5040,6 +5134,27 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Pactbreaker Spellcasting",
+          "predicate": ["feat:expert-pactbreaker-spellcasting"]
+        },
+        {
+          "text": "legendary in Legal Lore or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:lore:legal:rank", 4]
+                },
+                {
+                  "gte": ["skill:religion:rank", 4]
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   },
@@ -5112,6 +5227,14 @@
               "text": "ability to cast spells from spell slots; worshipper of Zon-Kuthon"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "worshipper of Zon-Kuthon"
         }
       ]
     }
@@ -5747,6 +5870,20 @@
             {
               "type": "text",
               "text": "Cavalier Dedication; trained in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Cavalier Dedication",
+          "predicate": ["feat:cavalier-dedication"]
+        },
+        {
+          "text": "trained in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 1]
             }
           ]
         }
@@ -6500,6 +6637,20 @@
             {
               "type": "text",
               "text": "Bellflower Tiller Dedication; expert in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bellflower Tiller Dedication",
+          "predicate": ["feat:bellflower-tiller-dedication"]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
             }
           ]
         }
@@ -7411,6 +7562,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Midnight Illusionist Dedication",
+          "predicate": ["feat:midnight-illusionist-dedication"]
+        },
+        {
+          "text": "expert in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 2]
+            }
+          ]
+        }
       ]
     }
   },
@@ -7748,6 +7913,20 @@
             {
               "type": "text",
               "text": "Bellflower Tiller Dedication; expert in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Bellflower Tiller Dedication",
+          "predicate": ["feat:bellflower-tiller-dedication"]
+        },
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
             }
           ]
         }

@@ -6,7 +6,8 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { featSlots, PrerequisiteStatus, withoutPick } from './feat-slots';
+import { featSlots, withoutPick } from './feat-slots';
+import { PrerequisiteStatus } from './prerequisite-status';
 import { slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,
@@ -61,9 +62,11 @@ describe('featSlots', () => {
       'acrobatic-flourish',
       'brawn',
       'eagle-eye',
+      'field-medic',
       'keen-eye',
       'power-attack',
       'reactive-shield',
+      'shield-brawler',
       'skill-training',
       'sudden-charge',
     ]);
@@ -76,11 +79,34 @@ describe('featSlots', () => {
       'acrobatic-flourish': PrerequisiteStatus.Unmet,
       brawn: PrerequisiteStatus.Unmet,
       'eagle-eye': PrerequisiteStatus.Unmet,
+      'field-medic': PrerequisiteStatus.Met,
       'keen-eye': PrerequisiteStatus.Met,
       'power-attack': PrerequisiteStatus.Met,
       'reactive-shield': PrerequisiteStatus.Unknown,
+      'shield-brawler': PrerequisiteStatus.Unmet,
       'skill-training': PrerequisiteStatus.Met,
       'sudden-charge': PrerequisiteStatus.Unmet,
+    });
+  });
+
+  test('reads each clause of a feat with several, and the feat by them when it has no predicate of its own', () => {
+    const read = featSlots(fighter().build().document, content).find((each) => each.key === LEVEL_1);
+    const clausesOf = (name: string): unknown =>
+      read?.options.find((option) => option.label.toLowerCase() === name)?.clauses;
+
+    expect(clausesOf('shield-brawler')).toEqual([
+      { text: 'expert in Athletics', status: PrerequisiteStatus.Unmet },
+      { text: 'expert in Perception', status: PrerequisiteStatus.Met },
+      { text: 'an animal companion', status: PrerequisiteStatus.Unknown },
+    ]);
+    expect(clausesOf('field-medic')).toEqual([
+      { text: 'trained in Athletics', status: PrerequisiteStatus.Met },
+      { text: 'expert in Perception', status: PrerequisiteStatus.Met },
+    ]);
+    expect(clausesOf('power-attack')).toBeUndefined();
+    expect(offered(fighter(), LEVEL_1)).toMatchObject({
+      'shield-brawler': PrerequisiteStatus.Unmet,
+      'field-medic': PrerequisiteStatus.Met,
     });
   });
 

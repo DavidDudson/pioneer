@@ -2162,6 +2162,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Ascended Celestial Dedication",
+          "predicate": ["feat:ascended-celestial-dedication"]
+        },
+        {
+          "text": "Celestial Armaments",
+          "predicate": ["feat:celestial-armaments"]
+        }
+      ],
       "action": {
         "cost": "three",
         "requirementsText": [
@@ -6642,6 +6652,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beast Lord Dedication",
+          "predicate": ["feat:beast-lord-dedication"]
+        },
+        {
+          "text": "you have a united companion with a specialization"
+        }
       ]
     }
   },
@@ -9066,6 +9085,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Exemplar Dedication",
+          "predicate": ["feat:exemplar-dedication"]
+        },
+        {
+          "text": "class granting no more Hit Points per level than 8 + your Constitution modifier"
+        }
+      ],
       "archetype": "5b645939-372d-57f0-adf4-36689f8d582a"
     }
   },
@@ -9116,6 +9144,20 @@
             {
               "type": "text",
               "text": "Basic Animist Spellcasting; master in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Animist Spellcasting",
+          "predicate": ["feat:basic-animist-spellcasting"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
             }
           ]
         }
@@ -9639,6 +9681,15 @@
               "text": "Surging Blood Magic; legendary in Arcana or Religion, depending on your chosen tradition"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Surging Blood Magic",
+          "predicate": ["feat:surging-blood-magic"]
+        },
+        {
+          "text": "legendary in Arcana or Religion, depending on your chosen tradition"
         }
       ]
     }
@@ -12876,6 +12927,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eternal Legend Dedication",
+          "predicate": ["feat:eternal-legend-dedication"]
+        },
+        {
+          "text": "master in Fortitude or Reflex saves"
+        }
+      ],
       "action": {
         "cost": "one",
         "selfEffect": "26c71541-98be-5279-96a5-7c695674cd25"
@@ -15297,6 +15357,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Animist Spellcasting",
+          "predicate": ["feat:expert-animist-spellcasting"]
+        },
+        {
+          "text": "legendary in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 4]
+            }
+          ]
+        }
+      ],
       "archetype": "c17093ac-35f9-5171-aa4a-af13961b3c02"
     }
   },
@@ -16283,6 +16357,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "ability to cast spells from slots"
+        },
+        {
+          "text": "at least one summon spell in your spellbook or repertoire"
+        }
       ]
     }
   },
@@ -16558,6 +16640,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Quick Recognition",
+          "predicate": ["feat:quick-recognition"]
+        },
+        {
+          "text": "ability to cast spells from spell slots"
+        },
+        {
+          "text": "Sage's Calling",
+          "predicate": ["feat:sages-calling"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -16830,6 +16925,15 @@
               "text": "Eternal Legend Dedication; greater weapon specialization"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eternal Legend Dedication",
+          "predicate": ["feat:eternal-legend-dedication"]
+        },
+        {
+          "text": "greater weapon specialization"
         }
       ]
     }
@@ -21357,6 +21461,16 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Ascended Celestial Dedication",
+          "predicate": ["feat:ascended-celestial-dedication"]
+        },
+        {
+          "text": "Channel Divine Spark",
+          "predicate": ["feat:channel-divine-spark"]
+        }
       ]
     }
   },
@@ -24159,6 +24273,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Handler's Calling",
+          "predicate": ["feat:handlers-calling"]
+        },
+        {
+          "text": "you have an animal companion or pet"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -24699,6 +24822,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Rising Blood Magic",
+          "predicate": ["feat:rising-blood-magic"]
+        },
+        {
+          "text": "master in Arcana or Religion, depending on your chosen tradition"
+        }
       ]
     }
   },
@@ -24910,6 +25042,20 @@
             {
               "type": "text",
               "text": "Eternal Legend Dedication; master in Intimidation"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eternal Legend Dedication",
+          "predicate": ["feat:eternal-legend-dedication"]
+        },
+        {
+          "text": "master in Intimidation",
+          "predicate": [
+            {
+              "gte": ["skill:intimidation:rank", 3]
             }
           ]
         }
@@ -26304,6 +26450,16 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Eternal Legend Dedication",
+          "predicate": ["feat:eternal-legend-dedication"]
+        },
+        {
+          "text": "Immovable Object",
+          "predicate": ["feat:immovable-object"]
+        }
       ]
     }
   },
@@ -26412,6 +26568,15 @@
               "text": "Vindicator Dedication; warden spells"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Vindicator Dedication",
+          "predicate": ["feat:vindicator-dedication"]
+        },
+        {
+          "text": "warden spells"
         }
       ]
     }

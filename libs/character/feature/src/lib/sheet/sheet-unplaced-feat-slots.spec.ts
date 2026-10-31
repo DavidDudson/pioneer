@@ -32,6 +32,7 @@ function option(value: ContentId, locked = false): SheetFeatOption {
     traits: [],
     sources: [],
     status: PrerequisiteStatus.Met,
+    clauses: undefined,
     prerequisites: undefined,
     locked: locked ? { archetype: 'Dedication', needed: 1 } : undefined,
   };

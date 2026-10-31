@@ -146,8 +146,8 @@
       {
         "kind": "book",
         "book": "hellbreakers",
-        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8535",
-        "page": 216
+        "page": 216,
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=8535"
       }
     ],
     "description": [
@@ -192,6 +192,27 @@
             {
               "type": "text",
               "text": "Hellbreaker Dedication; expert in Devil Lore or Hellknight Lore"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellbreaker Dedication",
+          "predicate": ["feat:hellbreaker-dedication"]
+        },
+        {
+          "text": "expert in Devil Lore or Hellknight Lore",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:lore:devil:rank", 2]
+                },
+                {
+                  "gte": ["skill:lore:hellknight:rank", 2]
+                }
+              ]
             }
           ]
         }
@@ -673,6 +694,20 @@
             {
               "type": "text",
               "text": "Hellbreaker Dedication; trained in Deception"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hellbreaker Dedication",
+          "predicate": ["feat:hellbreaker-dedication"]
+        },
+        {
+          "text": "trained in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 1]
             }
           ]
         }

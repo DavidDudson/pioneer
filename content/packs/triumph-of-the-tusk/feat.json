@@ -467,6 +467,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Constitution +1",
+          "predicate": [
+            {
+              "gte": ["attribute:con:mod", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Belkzen Lore, Orc Lore, Orc Pantheon Lore, or (at the GM's discretion) a related Lore skill"
+        }
+      ],
       "archetype": "cc741243-3002-541a-85d7-954f5aa242f2"
     }
   },

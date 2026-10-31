@@ -8,8 +8,9 @@ import { array, assert, constantFrom, option, property } from 'fast-check';
 import type { CharacterDocument } from './character-document';
 import { SlotInvalidMessage, SlotStatus } from './character-slot';
 import { characterSlots } from './character-slot-status';
-import { featSlots, PrerequisiteStatus } from './feat-slots';
+import { featSlots } from './feat-slots';
 import type { FeatOption } from './feat-slots';
+import { PrerequisiteStatus } from './prerequisite-status';
 import { slotContent, slotRefusal } from './slot-offer';
 import {
   CharacterBuilder,

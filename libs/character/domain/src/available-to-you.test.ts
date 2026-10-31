@@ -19,9 +19,10 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { availableSpellsToYou, availableToYou, slotPrerequisiteStatus } from './available-to-you';
 import type { SpellSlotPlace } from './available-to-you';
-import { featSlots, PrerequisiteStatus } from './feat-slots';
+import { featSlots } from './feat-slots';
 import { preparedSlots } from './prepared-spells';
 import type { PreparedPool } from './prepared-spells';
+import { PrerequisiteStatus } from './prerequisite-status';
 import { preparedReads, slotContent } from './slot-offer';
 import {
   CharacterBuilder,
@@ -89,7 +90,13 @@ describe('availableToYou', () => {
   });
 
   test('keeps feats whose prerequisites are met or unknown, drops unmet', () => {
-    expect(kept(fighter(1), LEVEL_1)).toEqual(['keen-eye', 'power-attack', 'reactive-shield', 'skill-training']);
+    expect(kept(fighter(1), LEVEL_1)).toEqual([
+      'field-medic',
+      'keen-eye',
+      'power-attack',
+      'reactive-shield',
+      'skill-training',
+    ]);
   });
 
   test.each([

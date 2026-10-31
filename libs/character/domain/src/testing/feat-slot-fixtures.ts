@@ -91,6 +91,27 @@ export const FEAT_SLOT_FIXTURES: ContentPack = builder
     },
   })
   .withFeat('reactive-shield', { traits: FIGHTER, data: { prerequisites: prerequisites('an animal companion') } })
+  .withFeat('shield-brawler', {
+    traits: FIGHTER,
+    data: {
+      prerequisites: prerequisites('expert in Athletics; expert in Perception; an animal companion'),
+      prerequisiteClauses: [
+        { text: 'expert in Athletics', predicate: [{ gte: ['skill:athletics:rank', 2] }] },
+        { text: 'expert in Perception', predicate: [{ gte: ['perception:rank', 2] }] },
+        { text: 'an animal companion' },
+      ],
+    },
+  })
+  .withFeat('field-medic', {
+    traits: FIGHTER,
+    data: {
+      prerequisites: prerequisites('trained in Athletics; expert in Perception'),
+      prerequisiteClauses: [
+        { text: 'trained in Athletics', predicate: [{ gte: ['skill:athletics:rank', 1] }] },
+        { text: 'expert in Perception', predicate: [{ gte: ['perception:rank', 2] }] },
+      ],
+    },
+  })
   .withFeat('keen-eye', { traits: FIGHTER, data: { prerequisitePredicate: [{ gte: ['perception:rank', 2] }] } })
   .withFeat('brawn', { traits: FIGHTER, data: { prerequisitePredicate: [{ gte: ['attribute:str:mod', 2] }] } })
   .withFeat('brutish-shove', { level: 2, traits: FIGHTER, data: { prerequisitePredicate: ['feat:power-attack'] } })

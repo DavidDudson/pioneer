@@ -943,6 +943,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Flair Rider Stance",
+          "predicate": ["feat:flair-rider-stance"]
+        },
+        {
+          "text": "Wing Rider",
+          "predicate": ["feat:wing-rider"]
+        }
+      ],
       "action": {
         "cost": "three",
         "requirementsText": [
@@ -2538,6 +2548,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Breath of the Dragon",
+          "predicate": ["feat:breath-of-the-dragon-dragonblood"]
+        },
+        {
+          "text": "jaws unarmed attack"
+        }
+      ],
       "action": {
         "cost": "free",
         "requirementsText": [
@@ -2837,6 +2856,20 @@
             {
               "type": "text",
               "text": "Drake Rider Dedication; trained in Acrobatics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Drake Rider Dedication",
+          "predicate": ["feat:drake-rider-dedication"]
+        },
+        {
+          "text": "trained in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 1]
             }
           ]
         }
@@ -4930,6 +4963,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Draconic Aspect",
+          "predicate": ["feat:draconic-aspect"]
+        },
+        {
+          "text": "jaws unarmed attack"
+        }
       ]
     }
   },
@@ -5137,6 +5179,18 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Drake Rider Dedication",
+          "predicate": ["feat:drake-rider-dedication"]
+        },
+        {
+          "text": "expert in martial weapons"
+        },
+        {
+          "text": "dragon companion with a support benefit that includes damage"
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -5242,6 +5296,15 @@
               "text": "Drake Rider Dedication; dragon companion with the mount special ability"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Drake Rider Dedication",
+          "predicate": ["feat:drake-rider-dedication"]
+        },
+        {
+          "text": "dragon companion with the mount special ability"
         }
       ],
       "archetype": "49c896eb-e753-5044-a615-989e56bfd12f"

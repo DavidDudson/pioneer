@@ -4013,6 +4013,31 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        },
+        {
+          "text": "trained in Deception or Diplomacy",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:deception:rank", 1]
+                },
+                {
+                  "gte": ["skill:diplomacy:rank", 1]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "8f1daf21-1b81-5145-a01e-3a5a30e53959"
     }
   },
@@ -6121,6 +6146,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "inexorable iron hybrid study"
+        },
+        {
+          "text": "Spellstrike"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -6313,6 +6346,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "dimensional assault focus spell"
+        },
+        {
+          "text": "laughing shadow hybrid study"
+        }
       ]
     }
   },
@@ -6357,6 +6398,20 @@
             {
               "type": "text",
               "text": "Veil Dancer Dedication; expert in Thievery"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Veil Dancer Dedication",
+          "predicate": ["feat:veil-dancer-dedication"]
+        },
+        {
+          "text": "expert in Thievery",
+          "predicate": [
+            {
+              "gte": ["skill:thievery:rank", 2]
             }
           ]
         }
@@ -6649,6 +6704,14 @@
               "text": "laughing shadow hybrid study; Spellstrike"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "laughing shadow hybrid study"
+        },
+        {
+          "text": "Spellstrike"
         }
       ],
       "action": {
@@ -8991,6 +9054,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Magus Spellcasting",
+          "predicate": ["feat:basic-magus-spellcasting"]
+        },
+        {
+          "text": "master in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 3]
+            }
+          ]
+        }
       ]
     }
   },
@@ -9035,6 +9112,20 @@
             {
               "type": "text",
               "text": "Basic Necromancer Spellcasting; master in Occultism"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Necromancer Spellcasting",
+          "predicate": ["feat:basic-necromancer-spellcasting"]
+        },
+        {
+          "text": "master in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 3]
             }
           ]
         }
@@ -9091,6 +9182,15 @@
               "text": "Basic Summoner Spellcasting; master in the skill associated with your eidolon's tradition"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Basic Summoner Spellcasting",
+          "predicate": ["feat:basic-summoner-spellcasting"]
+        },
+        {
+          "text": "master in the skill associated with your eidolon's tradition"
         }
       ],
       "archetype": "a673db34-6cee-5470-b66e-f5600d3dd430"
@@ -10150,6 +10250,20 @@
             {
               "type": "text",
               "text": "Prodigal Rune-Singer; legendary in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Prodigal Rune-Singer",
+          "predicate": ["feat:prodigal-rune-singer"]
+        },
+        {
+          "text": "legendary in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 4]
             }
           ]
         }
@@ -12461,6 +12575,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Hedge Mage Dedication",
+          "predicate": ["feat:hedge-mage-dedication"]
+        },
+        {
+          "text": "master in either Arcana, Nature, Occultism, or Religion"
+        }
+      ],
       "archetype": "9a694367-a341-5e4f-822a-96f446d30a83"
     }
   },
@@ -12532,6 +12655,14 @@
               "text": "Spellstrike; volatile spark hybrid study"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellstrike"
+        },
+        {
+          "text": "volatile spark hybrid study"
         }
       ]
     }
@@ -12931,6 +13062,32 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in martial weapons"
+        },
+        {
+          "text": "trained in Arcana, Nature, Occultism, or Religion",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 1]
+                },
+                {
+                  "gte": ["skill:nature:rank", 1]
+                },
+                {
+                  "gte": ["skill:occultism:rank", 1]
+                },
+                {
+                  "gte": ["skill:religion:rank", 1]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "archetype": "07c214b2-2abb-5825-a7b8-ef919ebf88ac"
     }
   },
@@ -13054,6 +13211,14 @@
               "text": "Spellstrike; twisting tree hybrid study"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellstrike"
+        },
+        {
+          "text": "twisting tree hybrid study"
         }
       ],
       "action": {
@@ -13633,6 +13798,20 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Magus Spellcasting",
+          "predicate": ["feat:expert-magus-spellcasting"]
+        },
+        {
+          "text": "legendary in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 4]
+            }
+          ]
+        }
       ]
     }
   },
@@ -13677,6 +13856,20 @@
             {
               "type": "text",
               "text": "Expert Necromancer Spellcasting; legendary in Occultism"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Necromancer Spellcasting",
+          "predicate": ["feat:expert-necromancer-spellcasting"]
+        },
+        {
+          "text": "legendary in Occultism",
+          "predicate": [
+            {
+              "gte": ["skill:occultism:rank", 4]
             }
           ]
         }
@@ -13769,6 +13962,15 @@
               "text": "Expert Summoner Spellcasting; legendary in the skill associated with your eidolon's tradition"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Expert Summoner Spellcasting",
+          "predicate": ["feat:expert-summoner-spellcasting"]
+        },
+        {
+          "text": "legendary in the skill associated with your eidolon's tradition"
         }
       ],
       "archetype": "a673db34-6cee-5470-b66e-f5600d3dd430"
@@ -14114,6 +14316,14 @@
               "text": "Spellstrike; starlit span hybrid study"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellstrike"
+        },
+        {
+          "text": "starlit span hybrid study"
         }
       ],
       "action": {
@@ -16147,6 +16357,20 @@
             {
               "type": "text",
               "text": "Rune-Singer; expert in Performance"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Rune-Singer",
+          "predicate": ["feat:rune-singer"]
+        },
+        {
+          "text": "expert in Performance",
+          "predicate": [
+            {
+              "gte": ["skill:performance:rank", 2]
             }
           ]
         }
@@ -21003,6 +21227,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellstrike"
+        },
+        {
+          "text": "twofold tine hybrid study"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -21834,6 +22066,14 @@
               "text": "Arcane Cascade; twisting tree hybrid study"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Arcane Cascade"
+        },
+        {
+          "text": "twisting tree hybrid study"
         }
       ]
     }

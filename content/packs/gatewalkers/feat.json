@@ -1660,6 +1660,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Oatia Skysage Dedication",
+          "predicate": ["feat:oatia-skysage-dedication"]
+        },
+        {
+          "text": "Night's Glow",
+          "predicate": ["feat:nights-glow"]
+        }
+      ],
       "maxTakable": 2,
       "archetype": "45ebf6a5-8c01-5e37-acb5-cbcf5d293d1a"
     }
@@ -2025,6 +2035,15 @@
               "text": "Familiar Master Dedication; you have befriended a spirit guide and it bonded with you using its Bond with Mortal ability."
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Familiar Master Dedication",
+          "predicate": ["feat:familiar-master-dedication"]
+        },
+        {
+          "text": "you have befriended a spirit guide and it bonded with you using its Bond with Mortal ability."
         }
       ],
       "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
@@ -2490,6 +2509,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Scion of Domora Dedication",
+          "predicate": ["feat:scion-of-domora-dedication"]
+        },
+        {
+          "text": "Spiritual Strike",
+          "predicate": ["feat:spiritual-strike"]
+        }
+      ],
       "archetype": "98a38d02-f650-5c56-be2a-dffa4d4a928d"
     }
   },
@@ -2904,6 +2933,19 @@
               "text": "trained in Society; you are an Ilverani elf"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "you are an Ilverani elf"
         }
       ],
       "archetype": "573cde1d-fb2c-5a42-a849-fd48ee62da96"

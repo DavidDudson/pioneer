@@ -434,6 +434,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "weremoose"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -1130,6 +1139,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "werebear"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -1228,6 +1246,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "beastkin"
+        }
+      ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
     }
   },
@@ -1313,6 +1340,15 @@
               "text": "Beastmaster Dedication; animal companion that's Large or greater"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion that's Large or greater"
         }
       ]
     }
@@ -1426,6 +1462,15 @@
               "text": "Beastmaster Dedication; animal companion with wings"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with wings"
         }
       ]
     }
@@ -2086,6 +2131,19 @@
             {
               "type": "text",
               "text": "zoophonia muse; mature animal companion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "zoophonia muse"
+        },
+        {
+          "text": "mature animal companion",
+          "predicate": [
+            {
+              "or": ["feat:mature-animal-companion-druid", "feat:mature-animal-companion-ranger"]
             }
           ]
         }
@@ -3417,6 +3475,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "werecrocodile"
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -3705,6 +3772,15 @@
               "text": "Werecreature Dedication; your animal shape is not Small"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape is not Small"
         }
       ],
       "action": {
@@ -4058,6 +4134,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "werebat"
+        }
+      ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
     }
   },
@@ -4209,6 +4294,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have seen a creature deal electricity damage with an unarmed Strike or have identified a creature capable of dealing electricity damage with an unarmed Strike in combat"
+        }
+      ],
       "action": {
         "cost": "two",
         "frequency": {
@@ -4352,6 +4446,15 @@
               "text": "Wild Mimic Dedication; you have deactivated a creature's regeneration for at least 1 round or have identified a creature with regeneration in combat"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have deactivated a creature's regeneration for at least 1 round or have identified a creature with regeneration in combat"
         }
       ],
       "action": {
@@ -4926,6 +5029,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "weretiger"
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -5160,6 +5272,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "wereshark"
+        }
+      ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
     }
   },
@@ -5361,6 +5482,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape grants a fangs or jaws unarmed attack"
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -5452,6 +5582,15 @@
               "text": "Werecreature Dedication; you were not afflicted with the curse of the werecreature"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "you were not afflicted with the curse of the werecreature"
         }
       ],
       "action": {
@@ -5574,6 +5713,15 @@
               "text": "Werecreature Dedication; your animal shape grants a claw unarmed attack"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape grants a claw unarmed attack"
         }
       ],
       "action": {
@@ -5724,6 +5872,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape grants an antler, horn, or tusk unarmed attack"
+        }
+      ],
       "action": {
         "cost": "two",
         "requirementsText": [
@@ -5819,6 +5976,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with antlers, head, or horn unarmed attack"
+        }
       ]
     }
   },
@@ -5896,6 +6062,15 @@
               "text": "Wild Mimic Dedication; you have encountered a creature who has kept fighting or dealt damage after being reduced to 0 Hit Points (such as via death throes or Ferocity) or have identified a creature with such an ability in combat"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have encountered a creature who has kept fighting or dealt damage after being reduced to 0 Hit Points (such as via death throes or Ferocity) or have identified a creature with such an ability in combat"
         }
       ],
       "action": {
@@ -7600,6 +7775,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thlipit Contestant Dedication",
+          "predicate": ["feat:thlipit-contestant-dedication"]
+        },
+        {
+          "text": "trained in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -7786,6 +7975,20 @@
             {
               "type": "text",
               "text": "Thlipit Contestant Dedication; master in Athletics"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thlipit Contestant Dedication",
+          "predicate": ["feat:thlipit-contestant-dedication"]
+        },
+        {
+          "text": "master in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 3]
             }
           ]
         }
@@ -8968,6 +9171,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with an agile or finesse unarmed attack"
+        }
       ]
     }
   },
@@ -9481,6 +9693,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "werewolf"
+        }
+      ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
     }
   },
@@ -9926,6 +10147,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have attempted a saving throw against a creature's petrifying gaze or a similar ability or have identified a creature with such an ability in combat"
+        }
+      ],
       "action": {
         "cost": "two"
       },
@@ -10179,6 +10409,15 @@
               "text": "Werecreature Dedication; wererat"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "wererat"
         }
       ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"
@@ -10605,6 +10844,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have seen a creature use an ability that lets them Stride and Strike as a single action (such as Pounce) or have identified a creature with such an ability in combat"
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -10665,6 +10913,15 @@
               "text": "Werecreature Dedication; your animal shape has a land Speed only"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape has a land Speed only"
         }
       ],
       "action": {
@@ -11604,6 +11861,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have seen a creature use Rend or have identified a creature that has Rend in combat"
+        }
+      ],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -12019,6 +12285,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have been targeted by a creature's auditory ability that affects an area or have identified a creature with an auditory ability that affects an area"
+        }
+      ],
       "action": {
         "cost": "two",
         "frequency": {
@@ -12094,6 +12369,15 @@
               "text": "Beastmaster Dedication; animal companion with a foot, hoof, or talon unarmed attack"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with a foot, hoof, or talon unarmed attack"
         }
       ]
     }
@@ -12172,6 +12456,15 @@
               "text": "Werecreature Dedication; wereboar"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "wereboar"
         }
       ],
       "action": {
@@ -12656,6 +12949,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape has a swim Speed"
+        }
+      ],
       "action": {
         "cost": "two"
       },
@@ -12765,6 +13067,20 @@
               "text": "expert in Athletics; Friendly Nudge"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Friendly Nudge",
+          "predicate": ["feat:friendly-nudge"]
         }
       ],
       "action": {
@@ -12909,6 +13225,15 @@
               "text": "Beastmaster Dedication; animal companion with a jaws or fangs unarmed attack"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with a jaws or fangs unarmed attack"
         }
       ],
       "action": {
@@ -13320,6 +13645,15 @@
               "text": "Thlipit Contestant Dedication; unarmed attack with your tongue"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thlipit Contestant Dedication",
+          "predicate": ["feat:thlipit-contestant-dedication"]
+        },
+        {
+          "text": "unarmed attack with your tongue"
         }
       ],
       "action": {
@@ -15325,6 +15659,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with a tail unarmed attack"
+        }
       ]
     }
   },
@@ -15508,6 +15851,15 @@
               "text": "Thlipit Contestant Dedication; unarmed attack with your tail"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Thlipit Contestant Dedication",
+          "predicate": ["feat:thlipit-contestant-dedication"]
+        },
+        {
+          "text": "unarmed attack with your tail"
         }
       ],
       "action": {
@@ -16005,6 +16357,15 @@
               "text": "Werecreature Dedication; you were afflicted with the curse of the werecreature"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "you were afflicted with the curse of the werecreature"
         }
       ],
       "action": {
@@ -17025,6 +17386,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "you have seen a creature use Trample or have identified a creature with Trample in combat"
+        }
+      ],
       "action": {
         "cost": "three"
       },
@@ -17279,6 +17649,27 @@
             {
               "type": "text",
               "text": "Fascinated by Society; expert in Society or Survival"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Fascinated by Society",
+          "predicate": ["feat:fascinated-by-society"]
+        },
+        {
+          "text": "expert in Society or Survival",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:society:rank", 2]
+                },
+                {
+                  "gte": ["skill:survival:rank", 2]
+                }
+              ]
             }
           ]
         }
@@ -17752,6 +18143,15 @@
               "text": "Beastmaster Dedication; animal companion with a claw, fist, pincer, or talon unarmed attack"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Beastmaster Dedication",
+          "predicate": ["feat:beastmaster-dedication"]
+        },
+        {
+          "text": "animal companion with a claw, fist, pincer, or talon unarmed attack"
         }
       ]
     }
@@ -18342,6 +18742,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Clawdancer Dedication",
+          "predicate": ["feat:clawdancer-dedication"]
+        },
+        {
+          "text": "trained in Acrobatics",
+          "predicate": [
+            {
+              "gte": ["skill:acrobatics:rank", 1]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -18550,6 +18964,15 @@
               "text": "Wild Mimic Dedication; Animal Empathy or the ability to speak with a type of animal"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Wild Mimic Dedication",
+          "predicate": ["feat:wild-mimic-dedication"]
+        },
+        {
+          "text": "Animal Empathy or the ability to speak with a type of animal"
         }
       ],
       "archetype": "6a16a250-561c-56e8-9282-1e05d5b38073"
@@ -19027,6 +19450,15 @@
               "text": "Werecreature Dedication; your animal shape has a fly Speed"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Werecreature Dedication",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "text": "your animal shape has a fly Speed"
         }
       ],
       "archetype": "d2e1d65a-1ed7-50d9-8953-a6b44776c1cd"

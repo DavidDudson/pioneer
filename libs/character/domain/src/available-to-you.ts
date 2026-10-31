@@ -24,8 +24,9 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
-import { prerequisiteReads, PrerequisiteStatus, prerequisiteStatus, withoutPick } from './feat-slots';
+import { prerequisiteReads, withoutPick } from './feat-slots';
 import type { PreparedSlot } from './prepared-spells';
+import { PrerequisiteStatus, prerequisiteStatus } from './prerequisite-status';
 import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 

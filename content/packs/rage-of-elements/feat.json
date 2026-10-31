@@ -1606,6 +1606,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "fire is in your elemental philosophy"
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -3145,6 +3154,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "water is in your elemental philosophy"
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -3538,6 +3556,15 @@
               "text": "Nourishing Gate; exactly one kinetic element"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Nourishing Gate",
+          "predicate": ["feat:nourishing-gate"]
+        },
+        {
+          "text": "exactly one kinetic element"
         }
       ]
     }
@@ -4175,6 +4202,16 @@
               "text": "Elementalist Dedication; Familiar"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "Familiar",
+          "predicate": ["feat:familiar"]
         }
       ]
     }
@@ -5826,6 +5863,15 @@
               "text": "Elementalist Dedication; wood is in your elemental philosophy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "wood is in your elemental philosophy"
         }
       ],
       "action": {
@@ -9762,6 +9808,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "metal is in your elemental philosophy"
+        }
+      ],
       "action": {
         "cost": "one"
       }
@@ -10082,6 +10137,15 @@
               "text": "Elementalist Dedication; earth is in your elemental philosophy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "earth is in your elemental philosophy"
         }
       ],
       "action": {
@@ -14212,6 +14276,15 @@
               "text": "Elementalist Dedication; air is in your elemental philosophy"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Elementalist Dedication",
+          "predicate": ["feat:elementalist-dedication"]
+        },
+        {
+          "text": "air is in your elemental philosophy"
         }
       ],
       "action": {

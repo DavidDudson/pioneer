@@ -1,5 +1,13 @@
 import { ContentKind, DEDICATION_LOCK_DEFAULT } from '@pioneer/rules/sdk';
-import type { ContentId, ContentLevel, ContentRegistry, DedicationLock, Predicate, RichText } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  ContentLevel,
+  ContentRegistry,
+  DedicationLock,
+  Predicate,
+  PrerequisiteClause,
+  RichText,
+} from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 /** A feat as its slots read it: its level, its archetype if it has one, and its prerequisites as printed and as a predicate. */
@@ -8,6 +16,8 @@ export interface FeatRead {
   readonly archetype: ContentId | undefined;
   readonly prerequisites: RichText | undefined;
   readonly predicate: Predicate | undefined;
+  /** Each clause of the prerequisites with its own predicate, for a feat with several; undefined for any other. */
+  readonly clauses: readonly PrerequisiteClause[] | undefined;
 }
 
 /** An archetype as the dedication lock reads it (#467): the feat that opens it, and how many others lift the lock. */
@@ -47,6 +57,7 @@ function readFeats(registry: ContentRegistry): FeatContent {
                 archetype: entry.data.archetype,
                 prerequisites: entry.data.prerequisites,
                 predicate: entry.data.prerequisitePredicate,
+                clauses: entry.data.prerequisiteClauses,
               },
             ],
           ]

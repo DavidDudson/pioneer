@@ -75,6 +75,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellmaster Dedication",
+          "predicate": ["feat:spellmaster-dedication"]
+        },
+        {
+          "text": "spell repertoire or ability to prepare spells"
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -283,6 +292,24 @@
             {
               "type": "text",
               "text": "Knight Vigilant Dedication; Shield Block; master in Religion"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "Shield Block",
+          "predicate": ["feat:shield-block"]
+        },
+        {
+          "text": "master in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 3]
             }
           ]
         }
@@ -823,6 +850,30 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Deception, Diplomacy, or Intimidation",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:deception:rank", 2]
+                },
+                {
+                  "gte": ["skill:diplomacy:rank", 2]
+                },
+                {
+                  "gte": ["skill:intimidation:rank", 2]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Firebrand Braggart Dedication",
+          "predicate": ["feat:firebrand-braggart-dedication"]
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -990,6 +1041,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Deception",
+          "predicate": [
+            {
+              "gte": ["skill:deception:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Firebrand Braggart Dedication",
+          "predicate": ["feat:firebrand-braggart-dedication"]
+        }
+      ],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -1150,6 +1215,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Cascade Bearers affiliation"
+        }
+      ],
       "action": {
         "cost": "free",
         "requirementsText": [
@@ -1214,6 +1288,15 @@
               "text": "Magaambyan Attendant Dedication; Cascade Bearers affiliation"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Cascade Bearers affiliation"
         }
       ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
@@ -1792,6 +1875,27 @@
               "text": "trained in Acrobatics or Athletics; Firebrand Braggart Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Acrobatics or Athletics",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:acrobatics:rank", 1]
+                },
+                {
+                  "gte": ["skill:athletics:rank", 1]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Firebrand Braggart Dedication",
+          "predicate": ["feat:firebrand-braggart-dedication"]
         }
       ],
       "action": {
@@ -2862,6 +2966,23 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Emerald Boughs Affiliation"
+        },
+        {
+          "text": "expert in Society",
+          "predicate": [
+            {
+              "gte": ["skill:society:rank", 2]
+            }
+          ]
+        }
+      ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
     }
   },
@@ -2917,6 +3038,15 @@
               "text": "Magaambyan Attendant Dedication; Emerald Boughs affiliation"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Emerald Boughs affiliation"
         }
       ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
@@ -3021,6 +3151,15 @@
               "text": "Knight Vigilant Dedication; expert in medium or heavy armor"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "expert in medium or heavy armor"
         }
       ],
       "action": {
@@ -3239,6 +3378,20 @@
               "text": "master in Diplomacy; Hobnobber"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in Diplomacy",
+          "predicate": [
+            {
+              "gte": ["skill:diplomacy:rank", 3]
+            }
+          ]
+        },
+        {
+          "text": "Hobnobber",
+          "predicate": ["feat:hobnobber"]
         }
       ]
     }
@@ -3720,6 +3873,19 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "second mark member of the Firebrands"
+        },
+        {
+          "text": "Charisma +2",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 2]
+            }
+          ]
+        }
+      ],
       "action": {
         "cost": "one"
       },
@@ -3896,6 +4062,19 @@
               "text": "expert in Athletics; Pathfinder Agent Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in Athletics",
+          "predicate": [
+            {
+              "gte": ["skill:athletics:rank", 2]
+            }
+          ]
+        },
+        {
+          "text": "Pathfinder Agent Dedication"
         }
       ]
     }
@@ -4553,6 +4732,20 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Firebrand Braggart Dedication",
+          "predicate": ["feat:firebrand-braggart-dedication"]
+        },
+        {
+          "text": "Charisma +3",
+          "predicate": [
+            {
+              "gte": ["attribute:cha:mod", 3]
+            }
+          ]
+        }
+      ],
       "archetype": "9fffcb72-e729-52f0-b132-fb104001380e"
     }
   },
@@ -4675,6 +4868,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "member of the Magaambya of conversant rank"
+        }
+      ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
     }
   },
@@ -4727,6 +4929,15 @@
               "text": "Halcyon Spellcasting Initiate; master in either Arcana or Nature and expert in the other"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Halcyon Spellcasting Initiate",
+          "predicate": ["feat:halcyon-spellcasting-initiate"]
+        },
+        {
+          "text": "master in either Arcana or Nature and expert in the other"
         }
       ],
       "archetype": "2f7660f4-16f7-5852-8a59-eaaa4f7adc69"
@@ -4829,6 +5040,15 @@
               "text": "Halcyon Spellcasting Adept; legendary in either Arcana or Nature and master in the other"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Halcyon Spellcasting Adept",
+          "predicate": ["feat:halcyon-spellcasting-adept"]
+        },
+        {
+          "text": "legendary in either Arcana or Nature and master in the other"
         }
       ],
       "archetype": "2f7660f4-16f7-5852-8a59-eaaa4f7adc69"
@@ -5802,6 +6022,15 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Jadwiga ethnicity"
+        },
+        {
+          "text": "wintertouched human heritage",
+          "predicate": ["heritage:wintertouched-human"]
+        }
       ]
     }
   },
@@ -6053,6 +6282,18 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "expert in light armor, medium armor, or unarmored defense"
+        },
+        {
+          "text": "trained in heavy armor"
+        }
+      ],
       "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
     }
   },
@@ -6121,6 +6362,30 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Survival",
+          "predicate": [
+            {
+              "gte": ["skill:survival:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "trained in Stealth",
+          "predicate": [
+            {
+              "gte": ["skill:stealth:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "any non-evil alignment"
+        },
+        {
+          "text": "member of the Knights of Lastwall of knight rank"
+        }
+      ],
       "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
     }
   },
@@ -6180,6 +6445,22 @@
               "text": "trained in Religion; any good alignment; member of the Knights of Lastwall of knight rank"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Religion",
+          "predicate": [
+            {
+              "gte": ["skill:religion:rank", 1]
+            }
+          ]
+        },
+        {
+          "text": "any good alignment"
+        },
+        {
+          "text": "member of the Knights of Lastwall of knight rank"
         }
       ],
       "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
@@ -6584,6 +6865,26 @@
               "text": "trained in Arcana or Nature; member of the Magaambya of attendant rank"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "trained in Arcana or Nature",
+          "predicate": [
+            {
+              "or": [
+                {
+                  "gte": ["skill:arcana:rank", 1]
+                },
+                {
+                  "gte": ["skill:nature:rank", 1]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "member of the Magaambya of attendant rank"
         }
       ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
@@ -7207,6 +7508,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Rain-Scribes affiliation"
+        }
+      ],
       "action": {
         "cost": "two"
       },
@@ -7267,6 +7577,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Rain Scribes affiliation"
+        }
+      ],
       "archetype": "cd4f145c-8a1f-5824-934f-acc915f668c3"
     }
   },
@@ -7313,6 +7632,15 @@
               "text": "Knight Reclaimant Dedication; master proficiency in a weapon"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Reclaimant Dedication",
+          "predicate": ["feat:knight-reclaimant-dedication"]
+        },
+        {
+          "text": "master proficiency in a weapon"
         }
       ],
       "archetype": "24e0c86a-ef76-50c0-92b0-52fe0f9aaf78"
@@ -7392,6 +7720,14 @@
               "text": "master in a Recall Knowledge skill; Pathfinder Agent Dedication"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in a Recall Knowledge skill"
+        },
+        {
+          "text": "Pathfinder Agent Dedication"
         }
       ],
       "action": {
@@ -7505,6 +7841,16 @@
               "text": "unbreakable goblin heritage; Bouncy Goblin"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "unbreakable goblin heritage",
+          "predicate": ["heritage:unbreakable-goblin"]
+        },
+        {
+          "text": "Bouncy Goblin",
+          "predicate": ["feat:bouncy-goblin"]
         }
       ],
       "action": {
@@ -7817,6 +8163,14 @@
               "text": "expert in any Lore skill; member of the Pathfinder Society affiliated with the School of Scrolls"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "expert in any Lore skill"
+        },
+        {
+          "text": "member of the Pathfinder Society affiliated with the School of Scrolls"
         }
       ],
       "archetype": "20f6409b-7442-51c7-8a8c-f535a12dbd2d"
@@ -8158,6 +8512,14 @@
             }
           ]
         }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Garundi, Mauxi, or Tian-Yae ethnicity"
+        },
+        {
+          "text": "Shory Aeromancer or ability to cast fly"
+        }
       ]
     }
   },
@@ -8464,6 +8826,17 @@
               "text": "Intelligence, Wisdom or Charisma +2; ability to cast focus spells; member of the Pathfinder Society affiliated with the School of Spells"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Intelligence, Wisdom or Charisma +2"
+        },
+        {
+          "text": "ability to cast focus spells"
+        },
+        {
+          "text": "member of the Pathfinder Society affiliated with the School of Spells"
         }
       ],
       "archetype": "2a174477-b57c-5d57-bfbd-d2702c86bbc6"
@@ -8844,6 +9217,14 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Strength, Dexterity, or Constitution +2"
+        },
+        {
+          "text": "member of the Pathfinder Society affiliated with the School of Swords"
+        }
+      ],
       "archetype": "6cc87da1-d8a0-5b42-997e-ddfe09b5163f"
     }
   },
@@ -8888,6 +9269,32 @@
             {
               "type": "text",
               "text": "Halcyon Spellcasting Initiate; Fulminating Synergy; legendary in Arcana; legendary in Nature"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Halcyon Spellcasting Initiate",
+          "predicate": ["feat:halcyon-spellcasting-initiate"]
+        },
+        {
+          "text": "Fulminating Synergy",
+          "predicate": ["feat:fulminating-synergy"]
+        },
+        {
+          "text": "legendary in Arcana",
+          "predicate": [
+            {
+              "gte": ["skill:arcana:rank", 4]
+            }
+          ]
+        },
+        {
+          "text": "legendary in Nature",
+          "predicate": [
+            {
+              "gte": ["skill:nature:rank", 4]
             }
           ]
         }
@@ -8958,6 +9365,16 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "tailed goblin heritage",
+          "predicate": ["heritage:tailed-goblin"]
+        },
+        {
+          "text": "Hard Tail",
+          "predicate": ["feat:hard-tail"]
+        }
+      ],
       "action": {
         "cost": "two"
       }
@@ -9006,6 +9423,15 @@
               "text": "Magaambyan Attendant Dedication; Tempest-Sun Mages affiliation"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Tempest-Sun Mages affiliation"
         }
       ],
       "action": {
@@ -9814,6 +10240,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "master in a Decipher Writing skill"
+        },
+        {
+          "text": "Scrollmaster Dedication",
+          "predicate": ["feat:scrollmaster-dedication"]
+        }
+      ],
       "archetype": "20f6409b-7442-51c7-8a8c-f535a12dbd2d"
     }
   },
@@ -9877,6 +10312,15 @@
           ]
         }
       ],
+      "prerequisiteClauses": [
+        {
+          "text": "Knight Vigilant Dedication",
+          "predicate": ["feat:knight-vigilant-dedication"]
+        },
+        {
+          "text": "expert in Will saves"
+        }
+      ],
       "archetype": "ff1830b2-e84d-59ec-94f2-922d83076133"
     }
   },
@@ -9923,6 +10367,15 @@
               "text": "Uzunjati Storytelling; master in a Recall Knowledge skill"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Uzunjati Storytelling",
+          "predicate": ["feat:uzunjati-storytelling"]
+        },
+        {
+          "text": "master in a Recall Knowledge skill"
         }
       ],
       "action": {
@@ -9974,6 +10427,18 @@
               "text": "Magaambyan Attendant Dedication; Uzunjati affiliation; master in a Recall Knowledge skill"
             }
           ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Magaambyan Attendant Dedication",
+          "predicate": ["feat:magaambyan-attendant-dedication"]
+        },
+        {
+          "text": "Uzunjati affiliation"
+        },
+        {
+          "text": "master in a Recall Knowledge skill"
         }
       ],
       "action": {
@@ -10326,6 +10791,20 @@
             {
               "type": "text",
               "text": "Spellmaster Dedication; Steady Spellcasting"
+            }
+          ]
+        }
+      ],
+      "prerequisiteClauses": [
+        {
+          "text": "Spellmaster Dedication",
+          "predicate": ["feat:spellmaster-dedication"]
+        },
+        {
+          "text": "Steady Spellcasting",
+          "predicate": [
+            {
+              "or": ["feat:steady-spellcasting", "feat:steady-spellcasting-magus"]
             }
           ]
         }
