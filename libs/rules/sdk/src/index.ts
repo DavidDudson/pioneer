@@ -293,15 +293,24 @@ export {
 export {
   AonSourceUrl,
   Book,
+  BookAuthors,
   BOOK_TITLES,
   bookTitle,
   BookLabel,
   Books,
+  ErrataLabel,
+  FoundryVersion,
   LICENSE_LABELS,
+  PaizoStoreUrl,
+  PRODUCT_LINE_LABELS,
+  ProductLine,
+  ProductLineSchema,
   Publisher,
   PUBLISHER_LABELS,
   LegacyImport,
 } from './book';
+export { sourceType, SourceEdition, SourceType } from './source-type';
+export type { SourceTypeInput } from './source-type';
 export { ContentLicense, ContentLicenseSchema, effectiveLicense, isLegacyLicense } from './license';
 export { Proficiency, ProficiencyBonusFormula, ProficiencyBonusTable, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';

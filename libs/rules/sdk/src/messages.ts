@@ -13,6 +13,8 @@ export const RulesMessage = {
   EnrichmentUnknownBook: 'rules.enrichment.unknownBook',
   BookUntitled: 'rules.book.untitled',
   BookAonSourceUrl: 'rules.book.aonSourceUrl',
+  BookStoreUrl: 'rules.book.storeUrl',
+  BookFoundryVersion: 'rules.book.foundryVersion',
   UnknownElement: 'rules.element.unknown',
   SuboptionsNeedToggle: 'rules.element.suboptionsNeedToggle',
   AdjustModeOrSuppress: 'rules.element.adjustModeOrSuppress',

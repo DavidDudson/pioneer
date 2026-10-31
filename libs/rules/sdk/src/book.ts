@@ -79,6 +79,34 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('foolish-housekeeping'), BookLabel.parse('rules.book.title.foolishHousekeeping')],
 ]);
 
+/**
+ * AoN's product line for a book (the Sources page's "Product Line"), which says what kind of book it is: rulebook,
+ * setting book, campaign, adventure or Society. Comics, April Fools and blog posts are listed there too.
+ */
+export const ProductLine = {
+  Rulebooks: 'rulebooks',
+  LostOmens: 'lost-omens',
+  AdventurePaths: 'adventure-paths',
+  Adventures: 'adventures',
+  Society: 'society',
+  Comics: 'comics',
+  AprilFools: 'april-fools',
+  BlogPosts: 'blog-posts',
+} as const;
+export type ProductLine = ValueOf<typeof ProductLine>;
+export const ProductLineSchema = z.enum(ProductLine);
+
+export const PRODUCT_LINE_LABELS: Readonly<Record<ProductLine, BookLabel>> = {
+  [ProductLine.Rulebooks]: BookLabel.parse('rules.book.productLine.rulebooks'),
+  [ProductLine.LostOmens]: BookLabel.parse('rules.book.productLine.lostOmens'),
+  [ProductLine.AdventurePaths]: BookLabel.parse('rules.book.productLine.adventurePaths'),
+  [ProductLine.Adventures]: BookLabel.parse('rules.book.productLine.adventures'),
+  [ProductLine.Society]: BookLabel.parse('rules.book.productLine.society'),
+  [ProductLine.Comics]: BookLabel.parse('rules.book.productLine.comics'),
+  [ProductLine.AprilFools]: BookLabel.parse('rules.book.productLine.aprilFools'),
+  [ProductLine.BlogPosts]: BookLabel.parse('rules.book.productLine.blogPosts'),
+};
+
 export const PUBLISHER_LABELS: Readonly<Record<Publisher, BookLabel>> = {
   [Publisher.Paizo]: BookLabel.parse('rules.book.publisher.paizo'),
 };
@@ -93,6 +121,33 @@ export const LICENSE_LABELS: Readonly<Record<ContentLicense, BookLabel>> = {
 /** A book's own page on AoN, under Sources: `https://2e.aonprd.com/Sources.aspx?ID=216`. */
 const AON_SOURCE = /^https:\/\/2e\.aonprd\.com\/Sources\.aspx\?ID=\d+$/u;
 const URL_LENGTH_MAX = 2048;
+const AUTHORS_LENGTH_MAX = 500;
+const ERRATA_LENGTH_MAX = 100;
+
+/** Who wrote a book, as Foundry's `publication.authors` gives it: "Logan Bonner, Mark Seifter". Not translated. */
+export const BookAuthors = z.string().trim().min(1).max(AUTHORS_LENGTH_MAX).brand<'BookAuthors'>();
+export type BookAuthors = z.infer<typeof BookAuthors>;
+
+/** A book's product page in the Paizo Store: `https://store.paizo.com/pathfinder-player-core/`. */
+const PAIZO_STORE = /^https:\/\/store\.paizo\.com\/[\w\-/]+$/u;
+export const PaizoStoreUrl = z
+  .string()
+  .max(URL_LENGTH_MAX)
+  .refine((value) => PAIZO_STORE.test(value), issueParams(message(RulesMessage.BookStoreUrl)))
+  .brand<'PaizoStoreUrl'>();
+export type PaizoStoreUrl = z.infer<typeof PaizoStoreUrl>;
+
+/** The latest errata as AoN words it: "Spring 2026, 1st Printing - 2/6/2026". Not translated. */
+export const ErrataLabel = z.string().trim().min(1).max(ERRATA_LENGTH_MAX).brand<'ErrataLabel'>();
+export type ErrataLabel = z.infer<typeof ErrataLabel>;
+
+/** The foundryvtt/pf2e system release a book was last imported from: `8.6.0`. */
+const FOUNDRY_VERSION = /^\d+\.\d+\.\d+$/u;
+export const FoundryVersion = z
+  .string()
+  .refine((value) => FOUNDRY_VERSION.test(value), issueParams(message(RulesMessage.BookFoundryVersion)))
+  .brand<'FoundryVersion'>();
+export type FoundryVersion = z.infer<typeof FoundryVersion>;
 
 export const AonSourceUrl = z
   .string()
@@ -110,6 +165,11 @@ export const Book = z.strictObject({
   legacy: z.enum(LegacyImport).optional(),
   released: PlainDateCodec.optional(),
   aonSourceUrl: AonSourceUrl.optional(),
+  productLine: ProductLineSchema.optional(),
+  authors: BookAuthors.optional(),
+  storeUrl: PaizoStoreUrl.optional(),
+  errata: ErrataLabel.optional(),
+  foundryVersion: FoundryVersion.optional(),
 });
 export type Book = z.infer<typeof Book>;
 
