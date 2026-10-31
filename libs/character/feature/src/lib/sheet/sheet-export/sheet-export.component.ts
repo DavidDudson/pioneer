@@ -1,7 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { AsyncButton, ButtonVariant } from '@pioneer/frontier';
+import { LucideDownload } from '@lucide/angular';
+import { AsyncButton, ButtonVariant, Icon, Stack } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
 
@@ -14,7 +15,7 @@ import { exportFileName, saveJsonFile } from '../sheet-export-file';
  */
 @Component({
   selector: 'pio-sheet-export',
-  imports: [AsyncButton, TranslocoPipe],
+  imports: [AsyncButton, Icon, Stack, TranslocoPipe],
   templateUrl: './sheet-export.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -23,7 +24,8 @@ export class SheetExport {
   readonly #i18n = inject(TranslocoService);
   readonly #store = inject(CharacterStore);
 
-  protected readonly variant = ButtonVariant.Ghost;
+  protected readonly icon = LucideDownload;
+  protected readonly variant = ButtonVariant.Menu;
 
   protected readonly download = async (): Promise<void> => {
     const name = this.#store.selected()?.name ?? '';

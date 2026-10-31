@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { element, part, renderProjected } from '../../testing/render-projected';
+import { BoxWidth } from '../box/box.component';
 import { PageBody } from '../page-body/page-body.component';
 import { Page } from './page.component';
 
@@ -33,6 +34,12 @@ describe(Page, () => {
     const box = part(await renderProjected(Page, {}, [header(), body()]), 'fr-box');
     expect([...box.classList]).toContain('max-w-page');
     expect(box.querySelector(':scope > .p-lg.px-md')).not.toBeNull();
+  });
+
+  it('drops the page-width cap when its width is full', async () => {
+    const box = part(await renderProjected(Page, { width: BoxWidth.Full }, [header(), body()]), 'fr-box');
+    expect([...box.classList]).not.toContain('max-w-page');
+    expect([...box.classList]).toContain('w-full');
   });
 });
 

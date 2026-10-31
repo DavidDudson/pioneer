@@ -4,15 +4,15 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
-import { render, textOf } from '../../testing/sheet-tabs-testing';
+import { openSheetActions, render, textOf } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 
 const EXPORT_URL = `/api/characters/${id}/export`;
 const FILE = { format: 'pioneer-character', formatVersion: 1, character: { name: 'Merisiel' } };
 
-/** The export button in the header. */
-function exportButton(root: HTMLElement): HTMLButtonElement {
-  const button = present(root.querySelector('pio-sheet-export button'));
+/** The export button in the sheet's open actions menu. */
+function exportButton(panel: HTMLElement): HTMLButtonElement {
+  const button = present(panel.querySelector('pio-sheet-export button'));
   if (!(button instanceof HTMLButtonElement)) {
     throw new TypeError('Expected a button');
   }
@@ -33,7 +33,7 @@ describe('CharacterSheetPage export', () => {
     const revoked = vi.spyOn(URL, 'revokeObjectURL').mockReturnValue();
     const clicked = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockReturnValue();
     const { root } = await openSheet();
-    const button = await vi.waitFor(() => exportButton(root));
+    const button = exportButton(await openSheetActions(root));
     expect(textOf(button)).toBe('Export as JSON');
 
     button.click();
@@ -55,7 +55,8 @@ describe('CharacterSheetPage export', () => {
   it("says why when the server won't write the file, and downloads nothing", async () => {
     const clicked = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockReturnValue();
     const { root } = await openSheet();
-    const button = await vi.waitFor(() => exportButton(root));
+    const panel = await openSheetActions(root);
+    const button = exportButton(panel);
 
     button.click();
     const request = await vi.waitFor(() => TestBed.inject(HttpTestingController).expectOne(EXPORT_URL));
@@ -72,7 +73,7 @@ describe('CharacterSheetPage export', () => {
 
     await vi.waitFor(() => {
       render();
-      const exporter = present(root.querySelector('pio-sheet-export'));
+      const exporter = present(panel.querySelector('pio-sheet-export'));
       expect(textOf(exporter)).toContain('The character could not be exported. Try again.');
     });
     expect(clicked).not.toHaveBeenCalled();

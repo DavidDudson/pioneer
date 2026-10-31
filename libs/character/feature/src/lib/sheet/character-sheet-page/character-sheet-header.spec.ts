@@ -14,7 +14,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { pickAncestry } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, NO_TAB, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
-import { render, textOf } from '../../testing/sheet-tabs-testing';
+import { openSheetActions, render, textOf } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 
 const SHEET_MODE_URL = `/api/characters/${id}/sheet-mode`;
@@ -77,7 +77,8 @@ describe('CharacterSheetPage header', () => {
   it('offers to report a bug with this character attached', async () => {
     const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
 
-    const link = await vi.waitFor(() => present(root.querySelector<HTMLAnchorElement>('pio-sheet-report-bug a')));
+    const panel = await openSheetActions(root);
+    const link = present(panel.querySelector<HTMLAnchorElement>('pio-sheet-report-bug a'));
     const target = new URL(link.href);
     expect(target.pathname).toBe('/account/report-bug');
     expect(target.searchParams.get('character')).toBe(id);
@@ -109,7 +110,7 @@ describe('CharacterSheetPage header', () => {
     expect(vitals.textContent).not.toContain('Unarmored');
   });
 
-  it('opens Plan at its own address when no tab is remembered', async () => {
+  it('opens Exploration at its own address when no tab is remembered', async () => {
     await openSheet(MERISIEL, { tab: NO_TAB });
 
     await vi.waitFor(() => {
@@ -117,7 +118,7 @@ describe('CharacterSheetPage header', () => {
     });
     await vi.waitFor(() => {
       render();
-      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/plan`);
+      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
     });
   });
 

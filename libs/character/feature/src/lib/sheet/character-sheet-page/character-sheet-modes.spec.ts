@@ -89,7 +89,7 @@ describe('CharacterSheetPage modes', () => {
     });
   });
 
-  it('opens Plan at its own address when no tab is remembered, or the tab could not be read', async () => {
+  it('opens Exploration at its own address when no tab is remembered, or the tab could not be read', async () => {
     await openSheet(MERISIEL, { tab: NO_TAB });
 
     await vi.waitFor(() => {
@@ -99,7 +99,7 @@ describe('CharacterSheetPage modes', () => {
     });
     await vi.waitFor(() => {
       render();
-      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/plan`);
+      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
     });
   });
 

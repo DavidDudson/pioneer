@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Link } from '@pioneer/frontier';
+import { LucideBug } from '@lucide/angular';
+import { Icon, Link } from '@pioneer/frontier';
 import { BUG_REPORT_PATH, BugReportParam } from '@pioneer/shared/kernel';
 
 import { CharacterStore } from '../../data/character-store';
@@ -17,13 +18,14 @@ interface ReportQuery {
  */
 @Component({
   selector: 'pio-sheet-report-bug',
-  imports: [Link, TranslocoPipe],
+  imports: [Icon, Link, TranslocoPipe],
   templateUrl: './sheet-report-bug.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetReportBug {
   readonly #store = inject(CharacterStore);
 
+  protected readonly icon = LucideBug;
   protected readonly path = BUG_REPORT_PATH;
   protected readonly query = computed((): ReportQuery | undefined => {
     const character = this.#store.selected();

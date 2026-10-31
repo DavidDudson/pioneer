@@ -1,7 +1,12 @@
-<fr-page>
+<fr-page width="full">
   <fr-page-header [title]="title()" />
   <fr-page-body>
     <fr-stack gap="lg">
+      <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
+        @for (tab of tabs; track tab.mode) {
+          <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+        }
+      </fr-tabs>
       <fr-stack gap="sm">
         <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
           <fr-async-region>
@@ -37,11 +42,6 @@
         </fr-async-region>
       </fr-stack>
 
-      <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
-        @for (tab of tabs; track tab.mode) {
-          <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
-        }
-      </fr-tabs>
       <router-outlet />
 
       @if (character(); as character) {

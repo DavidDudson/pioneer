@@ -1,3 +1,5 @@
-<fr-async-button [action]="download" [variant]="variant" [describeError]="describeError">
-  {{ 'character.sheet.export.action' | transloco }}
+<fr-async-button size="sm" [action]="download" [variant]="variant" [describeError]="describeError">
+  <fr-stack direction="horizontal" align="center" gap="xs"
+    ><fr-icon [icon]="icon" />{{ 'character.sheet.export.action' | transloco }}</fr-stack
+  >
 </fr-async-button>
