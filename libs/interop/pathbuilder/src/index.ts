@@ -31,9 +31,12 @@ export {
   type PathbuilderReported,
   readPathbuilderExport,
 } from './read-pathbuilder-export';
+export { exportUrlOf, ExportUrlProblem, looksLikeUrl, PathbuilderExportUrl, type ExportUrlResult } from './export-url';
 export {
   CharacterImportReport,
   characterImportReport,
+  FetchExportBody,
+  FetchExportResponse,
   PathbuilderImportContract,
   PathbuilderImportResponse,
   RuleBreakingCount,

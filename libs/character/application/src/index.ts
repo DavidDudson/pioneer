@@ -51,3 +51,6 @@ export { CharacterTransferLines, type TransferLine, type TransferPurse } from '.
 export { type CoinHandover, CharacterTransferSettlement, type LineHandover } from './character-transfer-settlement';
 export { CharacterCampaignRoles } from './character-campaign-roles';
 export { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-roles';
+export { ExportFetchProblem, type FetchedExport, PathbuilderExportFetcher } from './pathbuilder-export-fetcher';
+export { PathbuilderExportService } from './pathbuilder-export-service';
+export { InMemoryPathbuilderExportFetcher } from './in-memory-pathbuilder-export-fetcher';

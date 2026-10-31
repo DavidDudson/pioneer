@@ -13,6 +13,7 @@ import {
   CharacterVariantService,
   FeatDisplayService,
   GenerateCharacterService,
+  PathbuilderExportService,
   PathbuilderImportService,
   PioneerFileService,
   PlayService,
@@ -33,6 +34,7 @@ import {
   DrizzleSheetModeRepository,
   featDisplayRoutes,
   generateCharacterRoutes,
+  HttpPathbuilderExportFetcher,
   pathbuilderImportRoutes,
   pioneerFileRoutes,
   playRoutes,
@@ -127,10 +129,13 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   const service = new CharacterService(repository, characterContent, clock)
     .withCampaignRoles(new CampaignCharacterRoles(db))
     .withAuthors(new UserOverrideAuthorDirectory(db));
-  const importer = new PathbuilderImportService(
-    { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
-    clock,
-  );
+  const pathbuilder = {
+    importer: new PathbuilderImportService(
+      { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
+      clock,
+    ),
+    exports: new PathbuilderExportService(new HttpPathbuilderExportFetcher()),
+  };
   const homebrew = new PioneerEmbeddedHomebrew(
     db,
     clock,
@@ -147,7 +152,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
     transferLines: new CharacterTransferLines(repository, characterContent),
     routes: characterRoutes(service, authenticator)
-      .use(pathbuilderImportRoutes(importer, authenticator))
+      .use(pathbuilderImportRoutes(pathbuilder, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))
       .use(sheetModeRoutes(sheetModes, authenticator))
       .use(generateCharacterRoutes(new GenerateCharacterService(repository, characterContent, clock), authenticator))

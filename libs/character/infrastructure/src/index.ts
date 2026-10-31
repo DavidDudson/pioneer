@@ -1,5 +1,6 @@
 export { characterRoutes } from './character-routes';
-export { pathbuilderImportRoutes } from './pathbuilder-import-routes';
+export { pathbuilderImportRoutes, type PathbuilderImportServices } from './pathbuilder-import-routes';
+export { HttpPathbuilderExportFetcher } from './http-pathbuilder-export-fetcher';
 export { characters } from './character.table';
 export { DrizzleCharacterRepository } from './drizzle-character-repository';
 export { characterSheetModes } from './character.table';

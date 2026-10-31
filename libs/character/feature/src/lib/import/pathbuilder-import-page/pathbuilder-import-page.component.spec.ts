@@ -123,6 +123,76 @@ describe('PathbuilderImportPage', () => {
   });
 });
 
+const LINK = 'https://pathbuilder2e.com/json.php?id=477708&fbclid=IwAR0abc';
+
+describe('PathbuilderImportPage link', () => {
+  it('offers to fetch a pasted link instead of calling it a bad export', async () => {
+    const { harness, root } = await openPage();
+
+    await paste(harness, root, LINK);
+
+    expect(root.textContent).toContain('Fetch export');
+    expect(root.querySelector('[role="alert"]')).toBeNull();
+    expect(root.textContent).not.toContain('What Pioneer read');
+  });
+
+  it('has the server fetch the link and reads what it returns like a pasted export', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, LINK);
+
+    button(root, 'Fetch export').click();
+    await harness.fixture.whenStable();
+    const request = http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder/fetch' });
+    expect(request.request.body).toStrictEqual({ url: LINK });
+    request.flush({ export: briarRoseExport });
+
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Briar Rose');
+    });
+    expect(root.textContent).not.toContain('Fetch export');
+  });
+
+  it('refuses a foreign link without asking the server', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, 'https://evil.test/json.php?id=1');
+
+    button(root, 'Fetch export').click();
+    await harness.fixture.whenStable();
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Only links to pathbuilder2e.com can be fetched');
+    });
+    http.expectNone('/api/characters/import/pathbuilder/fetch');
+  });
+
+  it('shows why the server refused the link', async () => {
+    const { harness, root } = await openPage();
+    const http = TestBed.inject(HttpTestingController);
+    await paste(harness, root, LINK);
+
+    button(root, 'Fetch export').click();
+    await harness.fixture.whenStable();
+    http.expectOne({ method: 'POST', url: '/api/characters/import/pathbuilder/fetch' }).flush(
+      {
+        type: 'validation',
+        title: 'Validation failed',
+        status: 422,
+        message: { key: 'problem.validation' },
+        issues: [{ path: ['url'], message: { key: 'character.validation.exportUrl.unavailable' } }],
+      },
+      { status: 422, statusText: 'Unprocessable Content' },
+    );
+
+    await vi.waitFor(() => {
+      harness.detectChanges();
+      expect(root.textContent).toContain('Pathbuilder could not be reached for that link');
+    });
+  });
+});
+
 const id = '0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10';
 const human = contentId(PackId.parse('player-core'), EntrySlug.parse('ancestry:human'));
 
