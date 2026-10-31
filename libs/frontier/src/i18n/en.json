@@ -62,7 +62,8 @@
       "placeholder": "Select…"
     },
     "shell": {
-      "skipToContent": "Skip to content"
+      "skipToContent": "Skip to content",
+      "openSearch": "Search"
     },
     "inlineEdit": {
       "conflict": "Changed elsewhere. Showing the latest version.",

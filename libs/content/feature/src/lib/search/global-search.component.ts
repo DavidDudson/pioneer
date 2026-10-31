@@ -4,6 +4,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Combobox } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
+import { ShellSearch } from '@pioneer/shared/web';
 
 import { GlobalSearchSession } from './global-search-session';
 import { isSearchShortcut } from './global-search-shortcut';
@@ -29,6 +30,7 @@ const SearchMessage = {
 })
 export class GlobalSearch {
   readonly #router = inject(Router);
+  readonly #shell = inject(ShellSearch);
   protected readonly session = inject(GlobalSearchSession);
   protected readonly combobox = viewChild.required<Combobox<ContentId>>(Combobox);
 
@@ -51,6 +53,8 @@ export class GlobalSearch {
   protected shortcut(event: KeyboardEvent): void {
     if (isSearchShortcut(event)) {
       event.preventDefault();
+      // While closed the box is hidden and cannot take focus: the shell focuses it once it has opened.
+      this.#shell.open.set(true);
       this.combobox().focus();
     }
   }

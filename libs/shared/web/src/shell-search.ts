@@ -15,6 +15,9 @@ export class ShellSearch {
 
   readonly #focusRequests = signal(NONE);
 
+  /** Whether the shell's search is open, taking the header's row: the shell shows an icon button while it is not. */
+  public readonly open = signal(false);
+
   /** Counts the times the page's own search was asked for the cursor, so asking again is a change to react to. */
   public readonly focusRequests = this.#focusRequests.asReadonly();
 

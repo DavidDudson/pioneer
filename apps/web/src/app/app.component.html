@@ -1,4 +1,9 @@
-<fr-shell [brand]="'shell.brand' | transloco" [badge]="'shell.badge' | transloco">
+<fr-shell
+  [brand]="'shell.brand' | transloco"
+  [badge]="'shell.badge' | transloco"
+  [searchAvailable]="!shellSearch.hidden() && globalSearch() !== undefined"
+  [(searchOpen)]="shellSearch.open"
+>
   @if (!shellSearch.hidden() && globalSearch(); as search) {
     <ng-container frShellSearch [ngComponentOutlet]="search" />
   }

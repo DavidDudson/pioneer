@@ -12,12 +12,24 @@
           }
         </fr-stack></span
       >
-      <div [class]="crumbsClasses">
-        @if (crumbs.trail().length > 0) {
-          <fr-breadcrumbs [items]="crumbs.trail()" />
+      @if (!searchOpen()) {
+        <div [class]="crumbsClasses">
+          @if (crumbs.trail().length > 0) {
+            <fr-breadcrumbs [items]="crumbs.trail()" />
+          }
+        </div>
+        @if (searchAvailable()) {
+          <span #searchButton [class]="actionsClasses"
+            ><fr-button
+              variant="ghost"
+              iconOnly
+              [ariaLabel]="'frontier.shell.openSearch' | transloco"
+              (pressed)="openSearch()"
+              ><fr-icon [icon]="searchIcon" /></fr-button
+          ></span>
         }
-      </div>
-      <div [class]="searchClasses"><ng-content select="[frShellSearch]" /></div>
+      }
+      <div #searchSlot [class]="searchClasses()"><ng-content select="[frShellSearch]" /></div>
       <div [class]="actionsClasses"><ng-content select="[frShellActions]" /></div>
     </fr-stack>
   </fr-box>

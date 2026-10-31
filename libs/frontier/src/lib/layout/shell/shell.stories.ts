@@ -46,6 +46,10 @@ export default meta;
 
 export const Default: ShellStory = {};
 
+/** The search as an icon button, and open: it takes the row in place of the breadcrumbs. */
+export const SearchClosed: ShellStory = { args: { searchAvailable: true } };
+export const SearchOpen: ShellStory = { args: { searchAvailable: true, searchOpen: true } };
+
 /** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */
 function fitsText(skipLink: HTMLElement): boolean {
   const box = skipLink.closest('span')?.getBoundingClientRect().width ?? 0;
