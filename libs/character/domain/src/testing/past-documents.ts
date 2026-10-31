@@ -154,6 +154,9 @@ const VERSION_16 = {
   schemaVersion: 16,
 };
 
+/** Version 17 knew rituals; it has no custom effects. */
+const VERSION_17 = { ...VERSION_16, schemaVersion: 17 };
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -175,4 +178,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_14.schemaVersion), VERSION_14],
   [CharacterSchemaVersion.parse(VERSION_15.schemaVersion), VERSION_15],
   [CharacterSchemaVersion.parse(VERSION_16.schemaVersion), VERSION_16],
+  [CharacterSchemaVersion.parse(VERSION_17.schemaVersion), VERSION_17],
 ]);

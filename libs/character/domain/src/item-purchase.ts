@@ -3,6 +3,7 @@ import type { UserId } from '@pioneer/shared/kernel';
 
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch, KitPatch } from './character-patch';
+import type { CustomEffectId } from './custom-effect-schema';
 import { addItem } from './inventory';
 import type { Inventory, InventoryItemId, NewItem } from './inventory';
 import type { OverrideId, OverrideRole } from './override-schema';
@@ -25,6 +26,8 @@ export interface EditInputs {
   readonly actorRole?: OverrideRole | undefined;
   /** The id an added override takes. */
   readonly newOverrideId?: OverrideId | undefined;
+  /** The id an added custom effect takes. */
+  readonly newCustomEffectId?: CustomEffectId | undefined;
   /** The limits the table holds the inventory to; absent means the core rules' (ADR-0064). */
   readonly limits?: RuleLimits | undefined;
 }

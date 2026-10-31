@@ -32,13 +32,22 @@ async function render(): Promise<Rendered> {
   return { root: fixture.nativeElement as HTMLElement, signInAt };
 }
 
+/** Opens the dropdown and returns the user buttons in its panel, which sits in the overlay container. */
+async function openMenu(root: HTMLElement): Promise<HTMLButtonElement[]> {
+  root.querySelector('button')?.click();
+  return vi.waitFor(() => {
+    const buttons = [...document.querySelectorAll<HTMLButtonElement>('.cdk-overlay-container [role="group"] button')];
+    expect(buttons).toHaveLength(3);
+    return buttons;
+  });
+}
+
 describe(DevUserSwitch, () => {
   it('lists every dev user and marks the signed-in one', async () => {
     const { root } = await render();
-    await vi.waitFor(() => {
-      expect(root.textContent).toContain('Switch dev user');
-    });
-    const buttons = [...root.querySelectorAll('button')];
+    expect(root.textContent).toContain('Dev Player One');
+    const buttons = await openMenu(root);
+
     expect(buttons.map((button) => button.textContent.trim())).toStrictEqual([
       'Dev GM',
       'Dev Player One',
@@ -49,10 +58,9 @@ describe(DevUserSwitch, () => {
 
   it('switches to the user and returns to the current page', async () => {
     const { root, signInAt } = await render();
-    await vi.waitFor(() => {
-      expect(root.querySelectorAll('button')).toHaveLength(3);
-    });
-    root.querySelectorAll('button')[2]?.click();
+    const buttons = await openMenu(root);
+    buttons[2]?.click();
+
     expect(signInAt).toHaveBeenCalledWith(
       DevSignInPath.of(DevUser.PlayerTwo.id),
       ReturnPath.parse('/characters/abc?tab=feats'),

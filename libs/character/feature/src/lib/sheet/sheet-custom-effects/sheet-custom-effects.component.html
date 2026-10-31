@@ -1,0 +1,12 @@
+<fr-stack gap="lg">
+  @if (rows().length === 0) {
+    <fr-empty-state [title]="Message.Empty | transloco" [description]="Message.EmptyHint | transloco" />
+  } @else {
+    <fr-list gap="md">
+      @for (row of rows(); track row.effect.id) {
+        <fr-list-item><pio-sheet-custom-effect-row [row]="row" /></fr-list-item>
+      }
+    </fr-list>
+  }
+  <pio-sheet-custom-effect-form />
+</fr-stack>

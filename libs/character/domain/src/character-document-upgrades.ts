@@ -50,6 +50,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 16 → 17: the rituals a build knows (#1556). A version 16 build knows none. */
   (document) => document,
+  /** 17 → 18: custom effects, named bundles of adjust lines switched on and off (#1132). A version 17 document has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

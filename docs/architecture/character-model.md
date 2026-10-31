@@ -683,6 +683,35 @@ the breakdown lists who set it, when and why. Overrides are the only way to chan
 sheet never edits one in place, and an override without a reason is rejected. A GM can add overrides to campaign
 characters; the player sees them.
 
+### Custom effects
+
+A custom effect is a named bundle of adjust lines with one reason, switched on and off as a whole (a GM's blessing, a
+homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 18, #1132); an
+override keeps its own shape and a custom effect is not an override with an `effectId`.
+
+```ts
+interface CustomEffect {
+  id: CustomEffectId;
+  name: string; // required; shown in the breakdown
+  reason: string; // required, one for the whole effect
+  lines: { target: Selector; value: number; type?: ModifierType; predicate?: Predicate }[]; // at least one, adjust only
+  by: UserId; // who added it
+  byRole: 'player' | 'gm'; // what `by` was to the character
+  at: Instant;
+  enabled: boolean; // starts on
+  toggles: { by: UserId; byRole: 'player' | 'gm'; at: Instant; enabled: boolean }[]; // the latest 100 switches, oldest dropped first
+  removed?: { by: UserId; at: Instant; reason: string }; // set once taken off; the effect stays on record
+}
+```
+
+While `enabled`, each line compiles (`customEffectRules`) to a typed `FlatModifier` with the effect's name as its
+`display.label` and an `override` origin hop naming who added it and why, so the breakdown lists the lines under the
+effect's name. Switching off compiles nothing and switching on restores every line. A toggle to the state the effect is
+already in records nothing; an effect keeps its latest 100 switches, dropping the oldest, so switching never runs out.
+`addCustomEffect`, `toggleCustomEffect` and `removeCustomEffect` are the patches, each its own audited command. A removal
+keeps the effect with `removed` set (ADR-0062). The GM of a campaign may add and switch effects on its characters; an
+effect a GM added is the GM's to remove, as for an override.
+
 ## Import and export
 
 - **Pathbuilder import:** read Pathbuilder's JSON export, map names to entries via `externalIds.pathbuilder` and

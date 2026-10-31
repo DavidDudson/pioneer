@@ -13,7 +13,7 @@ import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
-import type { OverridePatch } from './character-patch';
+import type { OverridePatch } from './override-patches';
 import { OVERRIDE_REVISIONS_MAX, OverrideMode, OverrideRole, OVERRIDES_MAX, overrideTime } from './override-schema';
 import type { Override, OverrideId, OverrideInput, OverrideRevision } from './override-schema';
 

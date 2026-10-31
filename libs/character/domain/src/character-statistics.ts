@@ -26,6 +26,7 @@ import type { CharacterDocument } from './character-document';
 import { overrideRules } from './character-override';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
+import { customEffectRules } from './custom-effect';
 import { characterStatisticContent } from './custom-lore';
 import { buildRules, equippedInputs, equippedRules } from './equipped';
 import type { EquippedRules } from './equipped';
@@ -114,10 +115,10 @@ export function rulesInPlay(
   const slots = { ...read, situation: as?.options };
   const items = itemContent(registry);
   const equipped = equippedRules(document, items, slots);
-  const overrides = overrideRules(document);
+  const added = [...customEffectRules(document), ...overrideRules(document)];
   return {
     ...equipped,
-    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules, ...overrides],
+    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules, ...added],
   };
 }
 

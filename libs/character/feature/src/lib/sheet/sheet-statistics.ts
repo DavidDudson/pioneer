@@ -9,7 +9,7 @@ import { withoutForms } from './sheet-effects';
 import { sheetSources } from './sheet-sources';
 
 /** The sheet's statistics, in order: Armor Class, the three saves, Perception, the class DC, then the land Speed. */
-const SHEET_STATISTICS: readonly Selector[] = [
+export const SHEET_STATISTICS: readonly Selector[] = [
   'ac',
   'save:fortitude',
   'save:reflex',

@@ -3,22 +3,29 @@ import { describe, expect, test } from 'bun:test';
 import { CopperValue } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { fixedClock } from '@pioneer/shared/kernel';
-import { fakeSeeded } from '@pioneer/shared/kernel/testing';
+import { fakeSeeded, registerFake } from '@pioneer/shared/kernel/testing';
 import { assert, nat, option, pre, property, record, uuid } from 'fast-check';
 import * as z from 'zod';
 
 import { Character } from './character';
 import { overrideProblem } from './character-override';
 import type { OverrideProblem } from './character-override';
-import { CharacterPatchField, CharacterPatchSchema, isOverridePatch } from './character-patch';
-import type { CharacterPatch, OverridePatch, UnplacedPickPatch } from './character-patch';
+import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
+import type { CharacterPatch, UnplacedPickPatch } from './character-patch';
+import { customEffectProblem } from './custom-effect';
+import type { CustomEffectProblem } from './custom-effect';
+import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
 import { InventoryItemId, inventoryRefusal, ItemQuantity } from './inventory';
 import type { InventoryEdit, InventoryItem, NewItem } from './inventory';
 import { inventoryTarget } from './inventory-target';
+import { isCustomEffectPatch, isOverridePatch } from './override-patches';
+import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId } from './override-schema';
 import { CharacterBuilder, inventory } from './testing';
 
 installRulesFakes();
+// Faked arrays drop their length checks, and a custom effect needs a line.
+registerFake(CustomEffectInput.shape.lines, () => [{ target: 'ac', value: 1 }]);
 const later = fixedClock('2030-01-01T00:00:00Z').now();
 /** A purchase the property exercises costs nothing, so any purse covers it. */
 const FREE = CopperValue.parse(0);
@@ -89,6 +96,7 @@ type UnaimedField =
   | typeof CharacterPatchField.RevokeSpellAccess
   | UnplacedPickPatch['field']
   | OverridePatch['field']
+  | CustomEffectPatch['field']
   | typeof CharacterPatchField.SetAppearance
   | typeof CharacterPatchField.SetPersonality;
 type ItemPatch = Exclude<CharacterPatch, { readonly field: UnaimedField }>;
@@ -107,6 +115,9 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,
+  CharacterPatchField.AddCustomEffect,
+  CharacterPatchField.ToggleCustomEffect,
+  CharacterPatchField.RemoveCustomEffect,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
@@ -167,9 +178,17 @@ function kitLines(patch: CharacterPatch, id: InventoryItemId): readonly NewItem[
 /** The id an added override takes. */
 const OVERRIDE = OverrideId.parse('00000000-0000-4000-8000-0000000000c1');
 
+/** The id an added custom effect takes. */
+const CUSTOM_EFFECT = CustomEffectId.parse('00000000-0000-4000-8000-0000000000d1');
+
 /** Why `patch` is not allowed as an override edit of `character`; undefined for any other edit. */
 function overrideRefusal(held: Character, patch: CharacterPatch): OverrideProblem | undefined {
   return isOverridePatch(patch) ? overrideProblem(held.document, patch) : undefined;
+}
+
+/** Why `patch` is not allowed as a custom effect edit of `character`; undefined for any other edit. */
+function customEffectRefusal(held: Character, patch: CharacterPatch): CustomEffectProblem | undefined {
+  return isCustomEffectPatch(patch) ? customEffectProblem(held.document, patch) : undefined;
 }
 
 /** What an inventory edit touches, as `inventoryRefusal` reads it. */
@@ -198,12 +217,14 @@ describe('Character (properties)', () => {
         pre(inventoryRefusal(original.document.inventory, touched(patch)) === undefined);
         // Likewise an override edit names one the character has, which the service checks.
         pre(overrideRefusal(original, patch) === undefined);
+        pre(customEffectRefusal(original, patch) === undefined);
         const next = original.apply(patch, later, {
           newItemId,
           kitItems: kitLines(patch, newItemId),
           cost: FREE,
           actor: original.ownerId,
           newOverrideId: OVERRIDE,
+          newCustomEffectId: CUSTOM_EFFECT,
         });
         expect(next.id).toBe(original.id);
         expect(next.version).toBe(original.version);

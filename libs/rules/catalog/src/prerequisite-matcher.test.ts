@@ -91,14 +91,9 @@ describe('prerequisite matcher', () => {
   test.each([
     ['Strength +2', [{ gte: ['attribute:str:mod', 2] }]],
     ['Charisma +3', [{ gte: ['attribute:cha:mod', 3] }]],
-  ])('reads an attribute minimum as Foundry writes it: "%s"', (words, expected) => {
-    expect(read(words)).toStrictEqual(predicate(expected));
-  });
-
-  test.each([
     ['8th level', [{ gte: ['self:level', 8] }]],
     ['level 2', [{ gte: ['self:level', 2] }]],
-  ])('reads a level: "%s"', (words, expected) => {
+  ])('reads an attribute minimum as Foundry writes it, or a level: "%s"', (words, expected) => {
     expect(read(words)).toStrictEqual(predicate(expected));
   });
 

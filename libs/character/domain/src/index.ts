@@ -838,6 +838,28 @@ export {
   type Override,
   type OverrideRevision,
 } from './override-schema';
-export { isOverridePatch, type OverridePatch } from './character-patch';
+export { isCustomEffectPatch, isOverridePatch, type CustomEffectPatch, type OverridePatch } from './override-patches';
+export {
+  activeCustomEffects,
+  customEffectOf,
+  customEffectProblem,
+  CustomEffectProblem,
+  customEffectRules,
+  withCustomEffectEdit,
+  type CustomEffectEdit,
+} from './custom-effect';
+export {
+  CUSTOM_EFFECT_LINES_MAX,
+  CUSTOM_EFFECT_TOGGLES_MAX,
+  CUSTOM_EFFECTS_MAX,
+  customEffectAuthorIds,
+  CustomEffectId,
+  CustomEffectInput,
+  CustomEffectLine,
+  CustomEffectName,
+  CustomEffectSchema,
+  type CustomEffect,
+  type CustomEffectToggle,
+} from './custom-effect-schema';
 export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';

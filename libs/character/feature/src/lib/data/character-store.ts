@@ -43,10 +43,9 @@ interface SheetModeSwitch {
 }
 
 /**
- * Server state for the character feature, cached by TanStack Query.
- * Queries are regions' data; commands update the cache so only the regions
- * that changed refresh. The UI owns each command's pending/success/error
- * state (`fr-async-*`, `InlineEdit`). Provided per route.
+ * Server state for the character feature, cached by TanStack Query. Queries are regions' data; commands update the
+ * cache so only the regions that changed refresh. The UI owns each command's pending/success/error state
+ * (`fr-async-*`, `InlineEdit`). Provided per route.
  */
 @Injectable()
 export class CharacterStore {
