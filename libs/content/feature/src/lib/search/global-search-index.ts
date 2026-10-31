@@ -5,7 +5,7 @@ import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import type { BrowseKind } from '../browser/browse-kinds';
-import { isLegacyEntry, packLicenses } from '../browser/browse-legacy';
+import { isLegacyEntry, packLicenses, shownEntries } from '../browser/browse-legacy';
 import { entriesOf } from '../browser/browse-list';
 
 /**
@@ -56,11 +56,11 @@ export class GlobalSearchIndex {
   async #load(kind: BrowseKind): Promise<void> {
     try {
       const registry = await this.#loader.registry([kind], this.#scope().homebrew);
-      const loaded = entriesOf(registry, [kind]);
+      const licenses = packLicenses(registry);
+      const loaded = shownEntries(entriesOf(registry, [kind]), licenses, this.#scope().legacy);
       this.#byId.update(
         (held) => new Map([...held, ...loaded.map((entry): [ContentId, ContentEntry] => [entry.id, entry])]),
       );
-      const licenses = packLicenses(registry);
       this.#legacy.update(
         (held) => new Set([...held, ...loaded.filter((entry) => isLegacyEntry(entry, licenses)).map(({ id }) => id)]),
       );

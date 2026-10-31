@@ -23,6 +23,7 @@ import type {
 import { LocaleFormat } from '@pioneer/frontier';
 import type { AsyncQuery, SelectOption } from '@pioneer/frontier';
 import type { TableViewSort } from '@pioneer/frontier/data';
+import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentLicense, CreatureData, FilterState, PackId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAGES } from '@pioneer/rules/ui';
@@ -34,7 +35,7 @@ import { browseSources, storeLinks } from '../entry/entry-sources';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
-import { isLegacyEntry, packLicenses } from './browse-legacy';
+import { isLegacyEntry, packLicenses, shownEntries } from './browse-legacy';
 import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
 import { injectBrowseColumns, injectMessagesChanged } from './browse-messages';
@@ -102,9 +103,12 @@ export class ContentBrowser {
   protected readonly registry = injectBrowseRegistry(() =>
     this.#written() === undefined ? undefined : kindsToLoad(this.#current()),
   );
+  readonly #scope = inject(CONTENT_SCOPE);
   readonly #entries: Signal<readonly ContentEntry[] | undefined> = computed(() => {
     const registry = this.registry.data();
-    return registry === undefined ? undefined : entriesOf(registry, this.#kinds());
+    return registry === undefined
+      ? undefined
+      : shownEntries(entriesOf(registry, this.#kinds()), packLicenses(registry), this.#scope().legacy);
   });
 
   /** The licence of each pack loaded, which says which entries are legacy. */

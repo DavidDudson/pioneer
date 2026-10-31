@@ -1,5 +1,12 @@
 import type { Provider } from '@angular/core';
-import { BundleHash, bundlePath, contentBundles, contentPackId, SearchTotal } from '@pioneer/rules/sdk';
+import {
+  BundleHash,
+  bundlePath,
+  contentBundles,
+  contentPackId,
+  isLegacyLicense,
+  SearchTotal,
+} from '@pioneer/rules/sdk';
 import type {
   BundleBody,
   BundleFile,
@@ -157,11 +164,12 @@ export class TestContentDelivery implements ContentDelivery {
   };
 
   /** The entries of the served packs that have all the words, names first; every page holds them all. */
-  public readonly search = async ({ query, kinds }: ContentSearchQuery): Promise<ContentSearchResult> => {
+  public readonly search = async ({ query, kinds, legacy }: ContentSearchQuery): Promise<ContentSearchResult> => {
     this.requests.push('search');
     this.#checkOnline();
     const contents = await Promise.all(this.#packs.map(async (pack) => pack.load()));
     const found = contents
+      .filter((pack) => legacy || !isLegacyLicense(pack.file.license))
       .flatMap((pack) => pack.entries)
       .filter((entry) => (kinds.length === 0 || kinds.includes(entry.kind)) && matches(entry, query));
     return { ids: found.map(({ id }) => id), total: SearchTotal.parse(found.length) };

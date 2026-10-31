@@ -2,6 +2,7 @@ import { computed, inject } from '@angular/core';
 import type { Provider, Signal } from '@angular/core';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import type { ContentScope } from '@pioneer/rules/data-access';
+import { LEGACY_CONTENT_VARIANT } from '@pioneer/rules/sdk';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import { SOURCE_PACKS } from '@pioneer/rules/ui';
 import type { SourcePack } from '@pioneer/rules/ui';
@@ -30,14 +31,17 @@ function sourcePacksOf(): Signal<ReadonlyMap<ContentPackId, SourcePack>> {
 const SOURCE_PACKS_PROVIDER: Provider = { provide: SOURCE_PACKS, useFactory: sourcePacksOf };
 
 /**
- * The open character's effective packs, which the content browser, entries and search beside the sheet list. Like the
+ * The open character's effective packs and whether legacy content is on, which the content browser, entries and search
+ * beside the sheet list. Like the
  * sheet's registry it waits for the pack list, so nothing is built over the official packs first.
  */
 function contentScopeOf(): Signal<ContentScope> {
   const store = inject(CharacterPackStore);
+  const variants = inject(CharacterVariantStore);
   return computed((): ContentScope => ({
     homebrew: homebrewOf(store.packs.data()),
-    ready: !store.packs.isPending(),
+    legacy: (variants.rules.data()?.enabled ?? []).some((rule) => rule.variantId === LEGACY_CONTENT_VARIANT),
+    ready: !store.packs.isPending() && !variants.rules.isPending(),
   }));
 }
 

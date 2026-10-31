@@ -11,3 +11,12 @@ export function isLegacyEntry(entry: ContentEntry, licenses: ReadonlyMap<PackId,
   const license = licenses.get(entry.pack);
   return license !== undefined && isLegacyLicense(effectiveLicense(entry, { license }));
 }
+
+/** `entries` as a page with legacy content `on` shows them: all of them, or only the remaster ones. */
+export function shownEntries<Entry extends ContentEntry>(
+  entries: readonly Entry[],
+  licenses: ReadonlyMap<PackId, ContentLicense>,
+  on: boolean,
+): readonly Entry[] {
+  return on ? entries : entries.filter((entry) => !isLegacyEntry(entry, licenses));
+}

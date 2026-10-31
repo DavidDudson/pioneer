@@ -541,6 +541,13 @@ characters, so changing an entry's slug, its kind included, is a data
 migration; a catalog test pins every id that exists. The slug names its kind (ADR-0034), so only two entries of one
 kind and name in a pack collide.
 
+**Legacy content is off by default.** The Legacy Content variant rule (`core-rules`, `LEGACY_CONTENT_VARIANT`) turns on
+every legacy entry: those of an OGL pack and any OGL entry of another pack. A campaign enables it like any variant
+rule (ADR-0061), as does a character outside campaigns; a new campaign enables none. While it is off, the content
+browser, global search and the server search leave legacy entries out (`legacy=false` by default on
+`/content/search`), and the sheet holds them back as unsupported: pickers offer none, and what a character already
+holds stays, flagged.
+
 ### Delivery to the browser
 
 The engine runs client-side, so the browser needs content. Packs are served as immutable, content-hashed bundles

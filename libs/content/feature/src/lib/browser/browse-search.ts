@@ -36,9 +36,9 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
   const scope = inject(CONTENT_SCOPE);
   return injectQuery(() => {
     const wanted = search();
-    const { homebrew, ready } = scope();
+    const { homebrew, legacy, ready } = scope();
     return {
-      queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted()],
+      queryKey: ['content', 'search', wanted?.words, wanted?.kinds.toSorted(), homebrew.toSorted(), legacy],
       enabled: wanted !== undefined && ready,
       staleTime: SEARCH_STALE_MS,
       queryFn: async (): Promise<readonly ContentId[]> => {
@@ -50,7 +50,7 @@ export function injectBrowseSearch(search: () => BrowseSearch | undefined): Crea
           locale: SOURCE_LOCALE,
           kinds: [...wanted.kinds],
           packs: [...homebrew],
-          legacy: false,
+          legacy,
           limit: MATCHES_MAX,
           offset: FIRST_PAGE,
         };
