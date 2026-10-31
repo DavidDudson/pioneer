@@ -186,6 +186,7 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
       unplacedLanguages: [],
       repertoireSwaps: [],
       boons: [],
+      lores: {},
     });
     await repository.update(
       loaded.apply({ field: CharacterPatchField.Level, value: CharacterLevel.parse(2) }, later),

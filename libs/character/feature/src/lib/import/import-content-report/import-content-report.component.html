@@ -1,0 +1,10 @@
+@if (summary(); as counts) {
+  <fr-stack gap="md">
+    <fr-text tone="muted">{{ 'character.import.reportSummary' | transloco: counts }}</fr-text>
+    @for (group of report()?.groups ?? []; track group.kind) {
+      <pio-import-report-group [group]="group" />
+    }
+  </fr-stack>
+} @else {
+  <fr-skeleton width="lg" />
+}

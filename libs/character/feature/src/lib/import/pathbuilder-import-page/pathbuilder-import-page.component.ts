@@ -13,7 +13,6 @@ import {
   Page,
   PageBody,
   PageHeader,
-  Skeleton,
   Stack,
   Surface,
   Text,
@@ -21,7 +20,7 @@ import {
 } from '@pioneer/frontier';
 import {
   buildImportReport,
-  MatchStatus,
+  looksLikeUrl,
   PathbuilderProblem,
   readPathbuilderExport,
   registryLookup,
@@ -35,8 +34,9 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ATTRIBUTE_LABEL_KEYS } from '../../data/attribute-label-keys';
 import { CharacterStore } from '../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, contentRegistryQuery } from '../../data/content-registry-query';
+import { PathbuilderExportClient } from '../../data/pathbuilder-export-client';
+import { ImportContentReport } from '../import-content-report/import-content-report.component';
 import { SIGNED } from '../import-labels';
-import { ImportReportGroup } from '../import-report-group/import-report-group.component';
 
 interface ImportModel {
   readonly json: string;
@@ -54,11 +54,6 @@ interface ModifierView {
   readonly value: string;
 }
 
-interface ReportSummary {
-  readonly matched: number;
-  readonly total: number;
-}
-
 /**
  * Paste a Pathbuilder 2e export and see what Pioneer reads from it and which names match loaded content (#306).
  * Creating the character sends the export to the server, which reads it again (#307).
@@ -71,12 +66,11 @@ interface ReportSummary {
     DescriptionList,
     FormField,
     Heading,
-    ImportReportGroup,
+    ImportContentReport,
     Message,
     Page,
     PageBody,
     PageHeader,
-    Skeleton,
     Stack,
     Surface,
     Text,
@@ -92,6 +86,7 @@ export class PathbuilderImportPage {
   /** Pathbuilder names are matched against ancestries today; more kinds join as the report learns them. */
   readonly #registry = injectQuery(() => contentRegistryQuery(this.#content, CHARACTER_CONTENT_KINDS));
   readonly #store = inject(CharacterStore);
+  readonly #exports = inject(PathbuilderExportClient);
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
   readonly #i18n = inject(TranslocoService);
@@ -99,9 +94,12 @@ export class PathbuilderImportPage {
   protected readonly model = signal<ImportModel>({ json: '' });
   protected readonly form = form(this.model);
 
+  /** A pasted link, not JSON: the server fetches the export it points at (#663). */
+  protected readonly isLink = computed((): boolean => looksLikeUrl(this.model().json));
+
   readonly #result = computed((): PathbuilderReadResult | undefined => {
     const text = this.model().json.trim();
-    return text === '' ? undefined : readPathbuilderExport(text);
+    return text === '' || this.isLink() ? undefined : readPathbuilderExport(text);
   });
 
   protected readonly preview = computed((): PathbuilderImport | undefined => {
@@ -137,12 +135,11 @@ export class PathbuilderImportPage {
       : buildImportReport(preview.names, registryLookup(registry));
   });
 
-  protected readonly summary = computed((): ReportSummary | undefined => {
-    const rows = this.report()?.groups.flatMap((group) => group.rows);
-    return rows === undefined
-      ? undefined
-      : { matched: rows.filter((row) => row.status === MatchStatus.Matched).length, total: rows.length };
-  });
+  /** Has the server fetch the export a pasted link points at, and puts it in the field to be read like a pasted one. */
+  protected readonly fetchExport = async (): Promise<void> => {
+    const fetched = await this.#exports.fetch(this.model().json.trim());
+    this.model.set({ json: JSON.stringify(fetched) });
+  };
 
   /**
    * Sends the export itself, not the preview; the server reads and checks it again. Opens the new character on Plan,
@@ -154,10 +151,17 @@ export class PathbuilderImportPage {
   };
 
   /** The server's reason when it gave one (an ancestry that isn't loaded), else a generic retry. */
-  protected readonly describeCreateError = (error: unknown): string => {
+  protected readonly describeCreateError = (error: unknown): string =>
+    this.#describe(error, 'character.import.createFailed');
+
+  /** The server's reason the link was refused (another host, no id, no answer), else a generic retry. */
+  protected readonly describeFetchError = (error: unknown): string =>
+    this.#describe(error, 'character.import.fetchFailed');
+
+  #describe(error: unknown, fallbackKey: string): string {
     const [issue] = error instanceof ApiError ? error.issues : [];
     return issue === undefined
-      ? this.#i18n.translate('character.import.createFailed')
+      ? this.#i18n.translate(fallbackKey)
       : this.#i18n.translate(issue.message.key, issue.message.params);
-  };
+  }
 }

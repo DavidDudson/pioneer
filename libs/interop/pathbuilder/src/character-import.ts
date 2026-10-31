@@ -14,6 +14,9 @@ import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SkillGap } from './skill-placement';
 import { SpellGap } from './spell-listing';
 
+/** The longest link accepted: a Pathbuilder link with tracking parameters is far shorter. */
+const URL_MAX_LENGTH = 2048;
+
 /** Why a name was not carried over. */
 export const UnmatchedReason = {
   Unmatched: MatchStatus.Unmatched,
@@ -131,6 +134,14 @@ export type PathbuilderImportResponse = z.output<typeof PathbuilderImportRespons
  * comes back as its own problem rather than a generic schema 422. Lives here, not in `CharacterContract`, because this lib already depends on the
  * character domain.
  */
+/** What the user pasted: a link to their export on Pathbuilder. The server decides whether it is one. */
+export const FetchExportBody = z.object({ url: z.string().max(URL_MAX_LENGTH) });
+export type FetchExportBody = z.infer<typeof FetchExportBody>;
+
+/** The export as Pathbuilder served it, to read like a pasted one. */
+export const FetchExportResponse = z.object({ export: z.unknown() });
+export type FetchExportResponse = z.infer<typeof FetchExportResponse>;
+
 export const PathbuilderImportContract = {
   import: new Endpoint({
     method: HttpMethod.Post,
@@ -139,5 +150,14 @@ export const PathbuilderImportContract = {
     query: NoQuery,
     body: z.unknown(),
     response: PathbuilderImportResponse,
+  }),
+  /** The export a pasted Pathbuilder JSON URL points at, fetched by the server (never by the client). */
+  fetchExport: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/import/pathbuilder/fetch',
+    params: NoParams,
+    query: NoQuery,
+    body: FetchExportBody,
+    response: FetchExportResponse,
   }),
 } as const;

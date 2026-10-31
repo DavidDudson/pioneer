@@ -4,6 +4,8 @@ import {
   CharacterService,
   InMemoryCharacterRepository,
   InMemoryCharacterVariantRepository,
+  InMemoryPathbuilderExportFetcher,
+  PathbuilderExportService,
   PathbuilderImportService,
 } from '@pioneer/character/application';
 import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
@@ -37,11 +39,12 @@ function app(): AnyElysia {
   const service = new CharacterService(repository, content, clock);
   const variants = new InMemoryCharacterVariantRepository();
   const importer = new PathbuilderImportService({ characters: repository, content, variants }, clock);
+  const exports = new PathbuilderExportService(new InMemoryPathbuilderExportFetcher());
   const auth = new FakeAuthenticator();
   return new Elysia()
     .use(problemHandler)
     .use(characterRoutes(service, auth))
-    .use(pathbuilderImportRoutes(importer, auth));
+    .use(pathbuilderImportRoutes({ importer, exports }, auth));
 }
 
 /** No signed-in user. */
