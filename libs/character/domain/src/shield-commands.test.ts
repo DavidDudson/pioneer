@@ -155,7 +155,14 @@ describe('Shield Block with a shield an effect gives', () => {
             ITEM,
             {
               ...STEEL,
-              granted: { effect: EFFECT, endsOnBlock: false, endsWhenDestroyed: false, raised: false, layered: false },
+              granted: {
+                effect: EFFECT,
+                endsOnBlock: false,
+                endsWhenDestroyed: false,
+                raised: false,
+                layered: false,
+                recreatedOnSustain: false,
+              },
               ...stats,
             },
           ],
@@ -168,6 +175,7 @@ describe('Shield Block with a shield an effect gives', () => {
     endsWhenDestroyed,
     raised: false,
     layered: false,
+    recreatedOnSustain: false,
   });
 
   test('a shield that ends on a block takes its effect with it, and leaves the other effects', () => {

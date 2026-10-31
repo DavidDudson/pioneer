@@ -18,6 +18,8 @@ export interface ShieldGrant {
   readonly endsWhenDestroyed: boolean;
   /** Three layers kept as the effect's badge: blocks break them, and the effect ends with the last. */
   readonly layered: boolean;
+  /** A destroyed shield stays destroyed until the spell that cast it is sustained. */
+  readonly recreatedOnSustain: boolean;
   /** The damage to roll when the block that ends the effect breaks the shield. */
   readonly shards?: ShardDamage;
   /** The cast raised it, so it can block with no Raise a Shield. */
@@ -56,6 +58,7 @@ function grantedShield({
   endsWhenDestroyed,
   raised,
   layered,
+  recreatedOnSustain,
   hardnessAgainst,
   shards,
 }: ShieldInPlay): HeldShield {
@@ -71,6 +74,7 @@ function grantedShield({
       endsWhenDestroyed,
       raised,
       layered,
+      recreatedOnSustain,
       ...(shards === undefined ? {} : { shards }),
     },
   };

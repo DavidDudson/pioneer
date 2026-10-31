@@ -29,6 +29,7 @@ import { Pg, Uuid } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import { ActiveSpellId } from './active-spell-id';
 import { CharacterId } from './character-fields';
 import { formRanks } from './effect-form-ranks';
 
@@ -95,8 +96,8 @@ export const SELF: EffectSource = { kind: EffectSourceKind.Self };
 /**
  * An effect active on a character, as an input: which effect, who it came from, the rounds it has left (none for one
  * with no clock: until the turn ends, the encounter ends or someone removes it), when it ends once they run out,
- * whether it is sustained, and the number its badge shows. What it does to the statistics is the content's rules,
- * worked out on every read.
+ * whether it is sustained, the active spell that cast it (sustaining it recreates a destroyed shield it gave), and
+ * the number its badge shows. What it does to the statistics is the content's rules, worked out on every read.
  */
 export const ActiveEffectSchema = z.strictObject({
   id: EffectInstanceId,
@@ -112,6 +113,7 @@ export const ActiveEffectSchema = z.strictObject({
   rank: SpellRank.optional(),
   /** The tradition of the spellcasting entry the effect was cast with, which the effect's own rules can ask about. */
   tradition: MagicTraditionSchema.optional(),
+  spell: ActiveSpellId.optional(),
   /** The temporary Hit Points the effect gave when applied, so ending it takes back what it gave and no more. */
   tempHp: HitPoints.optional(),
 });

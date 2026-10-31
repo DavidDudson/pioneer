@@ -120,6 +120,7 @@ describe('heldShields with a shield an effect gives', () => {
         endsWhenDestroyed: false,
         raised: true,
         layered: false,
+        recreatedOnSustain: false,
       },
     });
   });

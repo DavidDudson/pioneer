@@ -25,7 +25,14 @@ describe('Shield Block with a shield of layers', () => {
     hitPoints: HitPoints.parse(0),
     brokenThreshold: HitPoints.parse(0),
     undamageable: true,
-    granted: { effect: EFFECT, endsOnBlock: false, endsWhenDestroyed: false, raised: true, layered: true },
+    granted: {
+      effect: EFFECT,
+      endsOnBlock: false,
+      endsWhenDestroyed: false,
+      raised: true,
+      layered: true,
+      recreatedOnSustain: false,
+    },
   };
   const withBadge = (badge: number | undefined): PlayState => ({
     ...FRESH_PLAY,

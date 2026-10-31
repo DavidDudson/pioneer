@@ -32,6 +32,7 @@
       (valueChange)="tradition.set($event)"
     />
   }
+  <pio-sheet-effect-spell [spells]="spells()" [value]="spell()" (valueChange)="spell.set($event)" />
   <pio-option-picker
     [ariaLabel]="'character.sheet.effects.source' | transloco"
     [options]="sources()"

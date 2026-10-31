@@ -3,12 +3,14 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EffectCommandField, EffectSourceKind } from '@pioneer/character/domain';
 import type { ActiveEffect, PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
+import type { SelectOption } from '@pioneer/frontier';
 import type { HitPoints } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, EntryNameCell } from '@pioneer/rules/ui';
 import type { EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
+import { activeRows } from '../sheet-active-list';
 import { effectOptions, effectViews, steppedView } from '../sheet-effects';
 import type { EffectOption, EffectView } from '../sheet-effects';
 import { sheetEntryPreviews } from '../sheet-entry-previews';
@@ -72,6 +74,15 @@ export class SheetEffects {
     const character = this.#sheet.character();
     return registry === undefined || character === undefined ? undefined : sheetFormTempHp(registry, character, effect);
   };
+
+  /** The active spells an effect can be cast from. */
+  protected readonly spells = computed((): readonly SelectOption<string>[] => {
+    const registry = this.registry.data();
+    const spells = this.#play.play.data()?.play.activeSpells ?? [];
+    return registry === undefined
+      ? []
+      : activeRows(registry, { activeSpells: spells, effects: [] }).map(({ id, name }) => ({ value: id, label: name }));
+  });
 
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
   protected readonly busy = signal(false);

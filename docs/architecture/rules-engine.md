@@ -823,7 +823,11 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
   share and the character takes the rest. Without `hitPoints` it takes none (flagged `undamageable`, never broken and
   no damage kept); a Broken Threshold of 0 is a shield that never breaks, only falls at 0 Hit Points. A destroyed shield
   is whole again unless `endsWhenDestroyed` ends its effect, and `endsOnBlock` ends the effect after one block
-  (`afterBlock`, `shield-commands.ts`). The server does not touch the inventory for a block with one.
+  (`afterBlock`, `shield-commands.ts`). With `recreatedOnSustain` (Bone Shield) a destroyed shield instead stays
+  destroyed, its damage left at its Hit Points, while its effect carries the `spell` (the `ActiveSpellId`) it was applied
+  from; sustaining that active spell makes it whole (`shieldsRecreated`, applied by `applyPlayCommand` when a Sustain
+  spend is accepted). An effect applied with no spell has nothing to sustain, so its shield is whole again at once. The
+  server does not touch the inventory for a block with one.
 - **Melded gear and appearance** (sheet only, no engine change): in a form (and not in the base view,
   `SheetState.melded`) the worn and held items are melded into it. Inventory rows carry a `melded` note, and an
   invested item that still works says its constant effects apply but it cannot be activated. The form's traits

@@ -117,10 +117,10 @@ describe('spells that conjure a shield', () => {
     expect(rule).toMatchObject({ hitPoints: 15, brokenThreshold: 0, endsWhenDestroyed: true });
   });
 
-  test('Bone Shield has 1 Hit Point and no Broken Threshold, and is whole again once destroyed', async () => {
+  test('Bone Shield has 1 Hit Point and no Broken Threshold, and is recreated when its spell is sustained', async () => {
     const rule = await shieldOf('impossible-magic', 'effect:spell-effect-bone-shield');
 
-    expect(rule).toMatchObject({ hitPoints: 1, brokenThreshold: 0 });
+    expect(rule).toMatchObject({ hitPoints: 1, brokenThreshold: 0, recreatedOnSustain: true });
     expect(rule).not.toHaveProperty('endsWhenDestroyed');
   });
 });

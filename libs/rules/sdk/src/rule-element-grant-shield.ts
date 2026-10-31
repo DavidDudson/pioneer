@@ -41,7 +41,9 @@ const ShieldBracket = z.strictObject({
  * without it a destroyed shield is whole again for the next block. `raised` is a shield the cast raises: it can Shield
  * Block with no Raise a Shield. `hardnessAgainst` adds Hardness against a block of damage that is all of the types it
  * names. `layered` is a shield of three layers, kept as the badge of its effect: each block breaks the layers its caster
- * chooses, and breaking more raises the Hardness. `shards` is the damage to roll, with a basic save, when the block that ends the effect breaks it.
+ * chooses, and breaking more raises the Hardness. `recreatedOnSustain` keeps a destroyed shield destroyed, with its damage
+ * at its Hit Points, until the spell that cast it is sustained, which makes it whole; it applies only to an effect applied
+ * from an active spell. `shards` is the damage to roll, with a basic save, when the block that ends the effect breaks it.
  */
 export const GrantedShield = z.strictObject({
   hardness: Hardness,
@@ -51,6 +53,7 @@ export const GrantedShield = z.strictObject({
   endsWhenDestroyed: z.literal(true).optional(),
   raised: z.literal(true).optional(),
   layered: z.literal(true).optional(),
+  recreatedOnSustain: z.literal(true).optional(),
   hardnessAgainst: z.array(HardnessBonus).readonly().optional(),
   shards: ShardDamage.optional(),
   brackets: z.array(ShieldBracket).max(BRACKETS_MAX).readonly().optional(),
