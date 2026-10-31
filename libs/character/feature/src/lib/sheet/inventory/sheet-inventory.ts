@@ -103,13 +103,21 @@ function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etch
   return etchable ? [HOLE] : [];
 }
 
+/** The fundamental runes each kind of item takes, in the order its badges show. Only a weapon and armour take property runes. */
+const BADGE_FUNDAMENTALS: Readonly<Record<RunedItem, readonly FundamentalRune[]>> = {
+  [RunedItem.Weapon]: [FundamentalRune.Potency, FundamentalRune.Striking],
+  [RunedItem.Armor]: [FundamentalRune.Potency, FundamentalRune.Resilient],
+  [RunedItem.Shield]: [FundamentalRune.Reinforcing],
+};
+
 /**
- * A weapon's runes as badges: potency, striking, then its property runes (one no loaded pack has is left out), and a
- * hole for each rune it has room for and lacks. A specific item's runes cannot change, so it has no holes. Empty for
- * any item but a weapon.
+ * A weapon's, armour's or shield's runes as badges: its fundamental runes, then its property runes (one no loaded
+ * pack has is left out), and a hole for each rune it has room for and lacks. A specific item's runes cannot change,
+ * so it has no holes. A shield has no property runes. Empty for any other item.
  */
 function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: RuneContent): readonly RuneBadgeData[] {
-  if (runedItemOf(entry) !== RunedItem.Weapon) {
+  const kind = runedItemOf(entry);
+  if (kind === undefined) {
     return [];
   }
   const etched = itemRunes(item, entry);
@@ -118,10 +126,10 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
     const name = runes.get(id)?.name;
     return name === undefined ? [] : [{ kind: RuneBadgeKind.Property, id, name }];
   });
-  const free = etchable ? Math.max(0, propertyRoom(etched) - etched.property.length) : 0;
+  const room = kind === RunedItem.Shield ? 0 : propertyRoom(etched) - etched.property.length;
+  const free = etchable ? Math.max(0, room) : 0;
   return [
-    ...fundamentalBadge(FundamentalRune.Potency, etched.potency, etchable),
-    ...fundamentalBadge(FundamentalRune.Striking, etched.striking, etchable),
+    ...BADGE_FUNDAMENTALS[kind].flatMap((rune) => fundamentalBadge(rune, etched[rune], etchable)),
     ...named,
     ...Array.from({ length: free }, () => HOLE),
   ];
