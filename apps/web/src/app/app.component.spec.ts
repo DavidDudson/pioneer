@@ -175,17 +175,10 @@ describe(App, () => {
     trigger?.click();
     await fixture.whenStable();
     const options = [...document.querySelectorAll<HTMLButtonElement>('[role="group"][aria-label="Theme"] button')];
-    expect(options.map((option) => option.textContent.trim())).toStrictEqual(['Dynamic', 'Frontier', 'Tavern']);
+    expect(options.map((option) => option.textContent.trim())).toStrictEqual(['Dynamic', 'Frontier']);
 
-    options[2]?.click();
+    options[1]?.click();
     await fixture.whenStable();
-    expect(store.theme()).toBe(Theme.Tavern);
-  });
-
-  it('follows the open page theme while dynamic', async () => {
-    await renderShell();
-    const store = TestBed.inject(ThemeStore);
-    store.context.set(Theme.Tavern);
-    expect(store.theme()).toBe(Theme.Tavern);
+    expect(store.choice()).toBe(ThemeChoice.Frontier);
   });
 });

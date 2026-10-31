@@ -15,7 +15,7 @@ import {
   Stack,
   Text,
 } from '@pioneer/frontier';
-import { RANDOM_SOURCE, RollCard } from '@pioneer/play/ui';
+import { presentRoll, RANDOM_SOURCE, RollCard, RollPresenter } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
 import type { Dc } from '@pioneer/rules/sdk';
 
@@ -65,6 +65,7 @@ function viewOf({ dying, wounded, doomed, dead }: PlayState): DeathTrackView {
 export class SheetDeathTrack {
   readonly #i18n = inject(TranslocoService);
   readonly #play = inject(PlayStore);
+  readonly #presenter = inject(RollPresenter);
   readonly #random = inject(RANDOM_SOURCE);
   #rolled = 0;
 
@@ -105,6 +106,8 @@ export class SheetDeathTrack {
     this.#rolled += 1;
     const roll = rollRecoveryCheck(track.dying, this.#random, this.#rolled);
     this.lastRoll.set(roll.view);
+    const label = this.#i18n.translate('character.sheet.death.recovery', { dc: this.dc() });
+    this.#presenter.present(presentRoll(this.#rolled, label, roll.result));
     await this.#send({ field: PlayCommandField.RecoveryCheck, degree: roll.degree });
   };
 

@@ -45,6 +45,23 @@
     "contentLocaleHint": "Rules text, feats, spells and items. Can differ from the language above.",
     "distanceUnit": "Distances",
     "distanceUnitHint": "Metres use 1.5 m per 5 ft square, as translated books do.",
+    "bodyFont": "Text font",
+    "bodyFontColumn": "Font",
+    "bodyFontHint": "The typeface for most text. Lexend and OpenDyslexic are designed to be easier to read.",
+    "bodyFonts": {
+      "thematic": "Crimson Pro (default)",
+      "readable": "Atkinson Hyperlegible",
+      "lexend": "Lexend",
+      "opendyslexic": "OpenDyslexic",
+      "system": "Your device's font"
+    },
+    "monoFont": "Code font",
+    "monoFontHint": "The typeface for code, keys and dice notation.",
+    "monoFonts": {
+      "standard": "Fira Code",
+      "typewriter": "Courier Prime",
+      "system": "Device"
+    },
     "distanceUnits": {
       "feet": "Feet",
       "metres": "Metres"

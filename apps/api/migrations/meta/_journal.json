@@ -288,6 +288,13 @@
       "when": 1793083786948,
       "tag": "0040_campaign_coin_transfers",
       "breakpoints": true
+    },
+    {
+      "idx": 41,
+      "version": "7",
+      "when": 1793435512551,
+      "tag": "0041_user_preference_fonts",
+      "breakpoints": true
     }
   ]
 }

@@ -128,6 +128,10 @@ and `dismissUnplacedLanguage`, takes them off. The import report counts them (`r
 the heritage, the exploration tab the languages, and the sheet header counts them with the rest. A second class with no
 Dual Class variant in the loaded packs is still only named in the report as not offered.
 
+The rituals a character knows are `build.rituals`, content ids listed once (schema version 17). An import fills it
+with the rituals of the export that match loaded content; one that matches none is named in the report as unmatched.
+A ritual breaks no rule, so nothing flags it.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current
@@ -682,7 +686,7 @@ characters; the player sees them.
 ### Custom effects
 
 A custom effect is a named bundle of adjust lines with one reason, switched on and off as a whole (a GM's blessing, a
-homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 17, #1132); an
+homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 18, #1132); an
 override keeps its own shape and a custom effect is not an override with an `effectId`.
 
 ```ts

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { NO_PREFERENCES, UserId } from '@pioneer/identity/domain';
-import { DistanceUnit, fixedClock, Locale, newId } from '@pioneer/shared/kernel';
+import { BodyFont, DistanceUnit, fixedClock, Locale, MonoFont, newId } from '@pioneer/shared/kernel';
 
 import { InMemoryPreferencesRepository } from './in-memory-preferences-repository';
 import { PreferencesService } from './preferences-service';
@@ -23,6 +23,14 @@ describe('PreferencesService', () => {
     const updated = await preferences.update(amiri, { distanceUnit: DistanceUnit.Metres });
     expect(updated).toEqual({ uiLocale: Locale.English, distanceUnit: DistanceUnit.Metres });
     expect(await preferences.get(amiri)).toEqual(updated);
+  });
+
+  test('font choices are kept beside the other preferences', async () => {
+    const preferences = service();
+    const amiri = UserId.parse(newId());
+    await preferences.update(amiri, { bodyFont: BodyFont.OpenDyslexic });
+    const updated = await preferences.update(amiri, { monoFont: MonoFont.Typewriter });
+    expect(updated).toEqual({ bodyFont: BodyFont.OpenDyslexic, monoFont: MonoFont.Typewriter });
   });
 
   test("one user's choices never reach another", async () => {

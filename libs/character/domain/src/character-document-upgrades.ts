@@ -48,7 +48,9 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 15 → 16: the custom Lores a build names (#572). A version 15 build names none. */
   (document) => document,
-  /** 16 → 17: custom effects, named bundles of adjust lines switched on and off (#1132). A version 16 document has none. */
+  /** 16 → 17: the rituals a build knows (#1556). A version 16 build knows none. */
+  (document) => document,
+  /** 17 → 18: custom effects, named bundles of adjust lines switched on and off (#1132). A version 17 document has none. */
   (document) => document,
 ];
 

@@ -4,7 +4,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { AccountPreferences, SessionStore } from '@pioneer/identity/data-access';
-import { DistanceUnit, Locale } from '@pioneer/shared/kernel';
+import { DistanceUnit, Locale, MonoFont } from '@pioneer/shared/kernel';
 import { ApiClient, PREFERENCE_STORAGE, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -80,6 +80,37 @@ describe('SettingsPage', () => {
     await vi.waitFor(() => {
       expect(update).toHaveBeenCalledWith({ distanceUnit: DistanceUnit.Metres });
     });
+  });
+
+  it('saves a new code font to the account', async () => {
+    const { harness, update } = await render(true);
+    const page = root(harness);
+    await vi.waitFor(() => {
+      expect(page.textContent).toContain('Code font');
+    });
+    button(page, 'Courier Prime').click();
+    await vi.waitFor(() => {
+      expect(update).toHaveBeenCalledWith({ monoFont: MonoFont.Typewriter });
+    });
+  });
+
+  it('lists every text font in the picker', async () => {
+    const { harness } = await render(true);
+    const page = root(harness);
+    await vi.waitFor(() => {
+      expect(page.textContent).toContain('Text font');
+    });
+    const picker = harness.fixture.debugElement
+      .queryAll((node) => node.componentInstance instanceof PickerField)
+      .find((node) => (node.nativeElement as HTMLElement).textContent.includes('Text font'));
+    const instance = picker?.componentInstance as PickerField<string, { name: string }> | undefined;
+    expect(instance?.rows().map((row) => row.name)).toStrictEqual([
+      'Crimson Pro (default)',
+      'Atkinson Hyperlegible',
+      'Lexend',
+      'OpenDyslexic',
+      "Your device's font",
+    ]);
   });
 
   it('says so inline when the account cannot save', async () => {

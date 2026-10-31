@@ -9,8 +9,10 @@ import { SlotInvalidMessage } from './character-slot';
 import { HERITAGE_SLOT } from './character-slots';
 import { withoutUnplacedFeat } from './unplaced-feats';
 
-/** The picks an import found no slot for, as the build keeps them. */
-export type UnplacedPicks = Partial<Pick<Build, 'lores' | 'unplacedFeats' | 'unplacedHeritage' | 'unplacedLanguages'>>;
+/** What an import adds to the build beside its slot picks: the rituals, and the picks it found no slot for. */
+export type UnplacedPicks = Partial<
+  Pick<Build, 'lores' | 'rituals' | 'unplacedFeats' | 'unplacedHeritage' | 'unplacedLanguages'>
+>;
 
 /** What kind of imported pick no slot holds, besides a feat. */
 export const UnplacedPickKind = {

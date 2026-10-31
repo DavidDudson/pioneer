@@ -1,0 +1,36 @@
+/*
+ * Typefaces. The player picks the body and monospace faces (`data-font-body`, `data-font-mono` on <html>,
+ * set by LocalePreferences, which also loads the matching stylesheet from Google Fonts); the default is
+ * thematic. The brand face is for the wordmark only and never changes. Every stack ends in a generic
+ * family, so text shows at once and a script the face lacks falls back per glyph.
+ */
+:root {
+  --fr-font-body: 'Crimson Pro', ui-serif, Georgia, serif;
+  --fr-font-display: var(--fr-font-body);
+  --fr-font-mono: 'Fira Code', ui-monospace, monospace;
+  --fr-font-brand: 'Pirata One', 'Crimson Pro', ui-serif, Georgia, serif;
+}
+
+:root[data-font-body='readable'] {
+  --fr-font-body: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[data-font-body='lexend'] {
+  --fr-font-body: Lexend, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[data-font-body='opendyslexic'] {
+  --fr-font-body: OpenDyslexic, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[data-font-body='system'] {
+  --fr-font-body: ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[data-font-mono='typewriter'] {
+  --fr-font-mono: 'Courier Prime', ui-monospace, monospace;
+}
+
+:root[data-font-mono='system'] {
+  --fr-font-mono: ui-monospace, monospace;
+}

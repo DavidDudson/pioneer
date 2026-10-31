@@ -7,10 +7,12 @@ import { PickerField } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
 import { AccountPreferences } from '@pioneer/identity/data-access';
 import type { Preferences } from '@pioneer/identity/domain';
-import { DistanceUnit, Locale, SOURCE_LOCALE } from '@pioneer/shared/kernel';
+import { BodyFont, DistanceUnit, Locale, MonoFont, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 import { LocalePreferences } from '@pioneer/shared/web';
 import { filter, merge } from 'rxjs';
 
+import { bodyFontColumns, bodyFontLabel, bodyFontValue } from './font-picker-table';
+import type { BodyFontRow } from './font-picker-table';
 import {
   localeColumns,
   localeLabel,
@@ -30,6 +32,20 @@ const DISTANCE_UNIT_NAMES = {
   [DistanceUnit.Feet]: 'identity.settings.distanceUnits.feet',
   [DistanceUnit.Metres]: 'identity.settings.distanceUnits.metres',
 } as const satisfies Record<DistanceUnit, string>;
+
+const BODY_FONT_NAMES = {
+  [BodyFont.Thematic]: 'identity.settings.bodyFonts.thematic',
+  [BodyFont.Readable]: 'identity.settings.bodyFonts.readable',
+  [BodyFont.Lexend]: 'identity.settings.bodyFonts.lexend',
+  [BodyFont.OpenDyslexic]: 'identity.settings.bodyFonts.opendyslexic',
+  [BodyFont.System]: 'identity.settings.bodyFonts.system',
+} as const satisfies Record<BodyFont, string>;
+
+const MONO_FONT_NAMES = {
+  [MonoFont.Standard]: 'identity.settings.monoFonts.standard',
+  [MonoFont.Typewriter]: 'identity.settings.monoFonts.typewriter',
+  [MonoFont.System]: 'identity.settings.monoFonts.system',
+} as const satisfies Record<MonoFont, string>;
 
 /** A preference the page saves, for telling the user which one failed. */
 type PreferenceField = keyof Preferences;
@@ -88,6 +104,26 @@ export class SettingsPage {
       label: this.#i18n.translate(DISTANCE_UNIT_NAMES[unit]),
     }));
   });
+  protected readonly bodyFonts = computed((): readonly BodyFontRow[] => {
+    this.#messages();
+    return Object.values(BodyFont).map((font) => ({
+      font,
+      name: this.#i18n.translate(BODY_FONT_NAMES[font]),
+    }));
+  });
+  protected readonly bodyFontColumns = computed(() => {
+    this.#messages();
+    return bodyFontColumns(this.#i18n.translate('identity.settings.bodyFontColumn'));
+  });
+  protected readonly bodyFontValue = bodyFontValue;
+  protected readonly bodyFontLabel = bodyFontLabel;
+  protected readonly monoFonts = computed((): readonly SelectOption<MonoFont>[] => {
+    this.#messages();
+    return Object.values(MonoFont).map((font) => ({
+      value: font,
+      label: this.#i18n.translate(MONO_FONT_NAMES[font]),
+    }));
+  });
 
   /** The field whose last change the account could not save, until the next change. */
   readonly #failed = signal<PreferenceField | undefined>(undefined);
@@ -98,6 +134,8 @@ export class SettingsPage {
   protected readonly uiError = computed((): string | undefined => this.#errorFor('uiLocale'));
   protected readonly contentError = computed((): string | undefined => this.#errorFor('contentLocale'));
   protected readonly distanceUnitError = computed((): string | undefined => this.#errorFor('distanceUnit'));
+  protected readonly bodyFontError = computed((): string | undefined => this.#errorFor('bodyFont'));
+  protected readonly monoFontError = computed((): string | undefined => this.#errorFor('monoFont'));
 
   protected async chooseUi(locale: Locale | undefined): Promise<void> {
     if (locale !== undefined) {
@@ -115,6 +153,18 @@ export class SettingsPage {
   protected async chooseDistanceUnit(unit: DistanceUnit | undefined): Promise<void> {
     if (unit !== undefined) {
       await this.#save({ distanceUnit: unit }, 'distanceUnit');
+    }
+  }
+
+  protected async chooseBodyFont(font: BodyFont | undefined): Promise<void> {
+    if (font !== undefined) {
+      await this.#save({ bodyFont: font }, 'bodyFont');
+    }
+  }
+
+  protected async chooseMonoFont(font: MonoFont | undefined): Promise<void> {
+    if (font !== undefined) {
+      await this.#save({ monoFont: font }, 'monoFont');
     }
   }
 
