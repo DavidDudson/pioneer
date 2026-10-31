@@ -1,5 +1,5 @@
 import { contentPackFromContents, ContentRegistry } from '@pioneer/rules/sdk';
-import type { ContentPackId, ContentSource, PackContents } from '@pioneer/rules/sdk';
+import type { ContentId, ContentPackId, ContentSource, PackContents } from '@pioneer/rules/sdk';
 
 import type { ContentRepository } from './content-repository';
 import { HashKeyedCache } from './hash-keyed-cache';
@@ -43,6 +43,11 @@ export class StoredContentSource implements ContentSource {
     return this.#sets.current(packs, [...official, ...homebrew], async () =>
       registryOf([...(await this.#repository.loadOfficial()), ...(await this.#repository.loadHomebrew(packs))]),
     );
+  }
+
+  /** The homebrew packs in force that define any of the entries with these ids. */
+  public async packsOfEntries(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+    return this.#repository.homebrewPacksOfEntries(entryIds);
   }
 
   /**

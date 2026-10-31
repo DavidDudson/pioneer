@@ -1,5 +1,5 @@
 import { loadOrder, packContentsFromFiles } from '@pioneer/rules/sdk';
-import type { ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
 import { and, asc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -115,6 +115,28 @@ export class ContentRepository {
       },
       { isolationLevel: 'repeatable read', accessMode: 'read only' },
     );
+  }
+
+  /**
+   * The homebrew packs, not archived, that define any of the entries with these ids. An id that is no entry (most
+   * uuids in a character document are not) matches nothing.
+   */
+  public async homebrewPacksOfEntries(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+    if (entryIds.length === 0) {
+      return [];
+    }
+    const rows = await this.#db
+      .selectDistinct({ id: contentPacks.id })
+      .from(contentEntries)
+      .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
+      .where(
+        and(
+          inArray(contentEntries.id, [...entryIds]),
+          isNotNull(contentPacks.ownerId),
+          isNull(contentPacks.archivedAt),
+        ),
+      );
+    return rows.map((row) => row.id);
   }
 
   /** The hashes of the homebrew packs `homebrewOrder` gives for `roots`, by slug: what a registry of them is cached under. */

@@ -54,3 +54,5 @@ export { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-r
 export { ExportFetchProblem, type FetchedExport, PathbuilderExportFetcher } from './pathbuilder-export-fetcher';
 export { PathbuilderExportService } from './pathbuilder-export-service';
 export { InMemoryPathbuilderExportFetcher } from './in-memory-pathbuilder-export-fetcher';
+export { PackLookup } from './pack-lookup';
+export { HeldContentPacks } from './held-content-packs';

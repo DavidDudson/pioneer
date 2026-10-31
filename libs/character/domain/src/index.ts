@@ -554,6 +554,7 @@ export {
   VariantRuleOption,
 } from './character-variant-rules';
 export { UnenabledContent, UnenabledItem, UnenabledPack } from './unenabled-content';
+export { heldContentIds } from './held-content-ids';
 export {
   type ClassOption,
   type ClassPickerContent,

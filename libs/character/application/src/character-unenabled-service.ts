@@ -15,6 +15,7 @@ import type { UserId } from '@pioneer/shared/kernel';
 import type { AttachedCampaignPacks } from './attached-campaign-packs';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
+import type { HeldContentPacks } from './held-content-packs';
 
 /** The packs and variant rules the owner chose for a character, which `CharacterPackService` and `CharacterVariantService` hold. */
 export interface OwnChoices<Id> {
@@ -28,6 +29,8 @@ export interface CharacterUnenabledPorts {
   readonly packs: OwnChoices<ContentPackId>;
   readonly variants: OwnChoices<VariantRuleId>;
   readonly campaigns: AttachedCampaignPacks;
+  /** The packs the character holds content from; without it only its own packs are reported. */
+  readonly held?: HeldContentPacks;
 }
 
 /** The empty answer, for a character no campaign decides for. */
@@ -71,9 +74,9 @@ function itemsFrom(
 }
 
 /**
- * What a character uses that its campaign has not enabled (play-and-campaigns.md). A character in a campaign uses the
- * campaign's packs and variant rules and ignores its own, so the difference between its own and the campaign's is what
- * the player should raise with the GM. Nothing is blocked or removed: this only reports. Framework-free.
+ * What a character uses that its campaign has not enabled (play-and-campaigns.md). A character in a campaign browses
+ * and picks from the campaign's packs and variant rules, so the packs it holds content from (its own, or ones the
+ * campaign has since disabled) that the campaign has not enabled are what the player should raise with the GM. Nothing is blocked or removed: this only reports. Framework-free.
  */
 export class CharacterUnenabledService {
   readonly #characters: CharacterRepository;
@@ -81,13 +84,24 @@ export class CharacterUnenabledService {
   readonly #packs: OwnChoices<ContentPackId>;
   readonly #variants: OwnChoices<VariantRuleId>;
   readonly #campaigns: AttachedCampaignPacks;
+  readonly #held: HeldContentPacks | undefined;
 
-  public constructor({ characters, content, packs, variants, campaigns }: CharacterUnenabledPorts) {
+  public constructor({ characters, content, packs, variants, campaigns, held }: CharacterUnenabledPorts) {
     this.#characters = characters;
     this.#content = content;
     this.#packs = packs;
     this.#variants = variants;
     this.#campaigns = campaigns;
+    this.#held = held;
+  }
+
+  /**
+   * The packs the character uses: its own and the ones it holds content from. That is what its sheet shows once it
+   * leaves the campaign, and what the campaign's registry keeps for it as unsupported.
+   */
+  async #used(character: Character): Promise<readonly ContentPackId[]> {
+    const [own, held] = await Promise.all([this.#packs.own(character), this.#held?.of(character) ?? []]);
+    return [...new Set([...own, ...held])];
   }
 
   /** The character's unenabled content. Not the owner: 404. Empty when the character is in no campaign. */
@@ -100,8 +114,7 @@ export class CharacterUnenabledService {
     if (campaign === undefined) {
       return NOTHING;
     }
-    const [packIds, variantIds] = await Promise.all([this.#packs.own(character), this.#variants.own(character)]);
-    // The registry of the character's own packs: what its sheet shows once it leaves the campaign.
+    const [packIds, variantIds] = await Promise.all([this.#used(character), this.#variants.own(character)]);
     const registry = await this.#content.registry(packIds);
     const enabledPacks = new Set(campaign.packs);
     const enabledVariants = new Set(campaign.variants);

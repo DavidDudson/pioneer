@@ -13,6 +13,7 @@ import {
   CharacterVariantService,
   FeatDisplayService,
   GenerateCharacterService,
+  HeldContentPacks,
   PathbuilderExportService,
   PathbuilderImportService,
   PioneerFileService,
@@ -43,7 +44,6 @@ import {
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { ContentRepository, StoredContentSource } from '@pioneer/rules/infrastructure';
-import type { ContentSource } from '@pioneer/rules/sdk';
 import type { Clock } from '@pioneer/shared/kernel';
 import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/server';
 
@@ -53,6 +53,7 @@ import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-dire
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
+import { StoredPackLookup } from './stored-pack-lookup';
 import { UserOverrideAuthorDirectory } from './user-override-author-directory';
 
 /** What a character is worked out over beyond the build: the homebrew packs it uses and the variant rules enabled. */
@@ -62,11 +63,12 @@ interface PackServices {
   readonly variants: CharacterVariantService;
   readonly ruleLimits: CharacterRuleLimitService;
   readonly unenabled: CharacterUnenabledService;
+  readonly held: HeldContentPacks;
 }
 
 /** What the pack services read a character's content and rows from. */
 interface CharacterParts {
-  readonly content: ContentSource;
+  readonly content: StoredContentSource;
   readonly repository: DrizzleCharacterRepository;
 }
 
@@ -78,6 +80,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
   );
   const campaigns = new CampaignPackDirectory(db);
+  const held = new HeldContentPacks(new StoredPackLookup(content), catalog);
   const packs = new CharacterPackService(
     { characters: repository, packs: new DrizzleCharacterPackRepository(db), catalog, campaigns },
     clock,
@@ -96,8 +99,15 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     clock,
   );
   const allies = new CharacterAllyService({ characters: repository, campaigns });
-  const unenabled = new CharacterUnenabledService({ characters: repository, content, packs, variants, campaigns });
-  return { packs, variants, ruleLimits, allies, unenabled };
+  const unenabled = new CharacterUnenabledService({
+    characters: repository,
+    content,
+    packs,
+    variants,
+    campaigns,
+    held,
+  });
+  return { packs, variants, ruleLimits, allies, unenabled, held };
 }
 
 /** The character context as mounted: its routes, and the Pioneer file export other contexts are wired to. */
@@ -121,10 +131,11 @@ export interface Characters {
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): Characters {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const { packs, variants, ruleLimits, allies, unenabled } = packServices(db, clock, { content, repository });
+  const { packs, variants, ruleLimits, allies, unenabled, held } = packServices(db, clock, { content, repository });
   const characterContent = new CharacterContent(content, packs, {
     variants,
     limits: ruleLimits,
+    held,
   });
   const service = new CharacterService(repository, characterContent, clock)
     .withCampaignRoles(new CampaignCharacterRoles(db))
