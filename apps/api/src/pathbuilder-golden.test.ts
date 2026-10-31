@@ -93,7 +93,7 @@ describe('Pathbuilder exports over the official packs', () => {
     async () => {
       const { report } = await service.importPathbuilder(actor, mordredExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
-      /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 16 Bulk against a limit of 9 (5 + Str 4), which Pathbuilder does not track. */
+      /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 17.8 Bulk (two suits of Full Plate, three swords and axes, two Healer's Toolkits) against a limit of 9 (5 + Str 4); Pathbuilder does not track Bulk, and the No Encumbrance variant rule lifts the condition. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
         'ac: Pathbuilder 34, Pioneer 33',
         'perception: Pathbuilder 20, Pioneer 19',
