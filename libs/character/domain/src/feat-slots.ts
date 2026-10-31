@@ -8,7 +8,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import { attributeOptionsAt } from './attribute-options';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
-import { dedicationWait, dedicationWaits, featsPicked, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
+import { dedicationWait, dedicationWaits, featsTaken, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
 import type { DedicationWait } from './dedication-lock';
 import { FeatPickProblem } from './feat-content';
 import type { FeatContent, FeatRead } from './feat-content';
@@ -148,13 +148,20 @@ function readPrerequisites(document: CharacterDocument, content: SlotContent): P
   const featSlotLevels = featSlotLevelsOf(document, content);
   const factsAt = factsByLevel(document, content);
   const order = slotsInOrder(featSlotLevels);
+  const { grantsAt } = skillReads(document, content);
+  const slotKeys = new Set(featSlotLevels.keys());
   const waits = new Map<SlotKey, readonly DedicationWait[]>();
   const waitsAt = (slot: SlotKey): readonly DedicationWait[] => {
     const level = featSlotLevels.get(slot);
-    const earlier =
-      level === undefined || factsAt(level).has(NO_DEDICATION_LOCK) ? [] : order.slice(0, order.indexOf(slot));
-    const known =
-      waits.get(slot) ?? dedicationWaits(content.feats, featsPicked(document.build.choices, content.feats, earlier));
+    const unlocked = level === undefined || factsAt(level).has(NO_DEDICATION_LOCK);
+    const earlier = order.slice(0, order.indexOf(slot));
+    const taken = unlocked
+      ? []
+      : featsTaken(document.build.choices, content.feats, {
+          earlier,
+          granted: { items: grantsAt(level).items, featSlots: slotKeys },
+        });
+    const known = waits.get(slot) ?? dedicationWaits(content.feats, taken);
     waits.set(slot, known);
     return known;
   };

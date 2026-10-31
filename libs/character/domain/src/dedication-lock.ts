@@ -1,4 +1,5 @@
-import { ContentId, DedicationLock, RollOption } from '@pioneer/rules/sdk';
+import type { GrantedItem } from '@pioneer/rules/grants';
+import { ContentId, DedicationLock, OriginHopKind, RollOption } from '@pioneer/rules/sdk';
 import type { ChoiceValue, Level, SlotKey } from '@pioneer/rules/sdk';
 
 import type { FeatContent } from './feat-content';
@@ -17,7 +18,7 @@ export interface DedicationWait {
   readonly needed: DedicationLock;
 }
 
-/** The loaded feats among the picks in `earlier` slots (#467); a feature's grant is not counted. */
+/** The loaded feats among the picks in `earlier` slots (#467); a feature's grant is counted by `featsGranted`. */
 export function featsPicked(
   choices: Readonly<Record<string, ChoiceValue>>,
   feats: FeatContent,
@@ -27,6 +28,44 @@ export function featsPicked(
     const id = ContentId.safeParse(choices[key]);
     return id.success && feats.feat(id.data) !== undefined ? [id.data] : [];
   });
+}
+
+/** What a character's features grant, and the keys of its feat slots, to tell a grant from a pick. */
+export interface GrantedFeats {
+  readonly items: readonly GrantedItem[];
+  readonly featSlots: ReadonlySet<SlotKey>;
+}
+
+/**
+ * The loaded feats a feature grants (#625): items whose origin does not pass through a pick in one of `featSlots`, so a
+ * feat picked in a slot, or granted by one, is counted by its slot and not here. Each feat once, however many features
+ * grant it, and none already in `taken`: a feat granted and also picked counts once, for the pick.
+ */
+function featsGranted(
+  { items, featSlots }: GrantedFeats,
+  feats: FeatContent,
+  taken: readonly ContentId[],
+): ContentId[] {
+  const seen = new Set<ContentId>(taken);
+  return items.flatMap(({ entry, origin }): ContentId[] => {
+    const viaPick = origin.hops.some((hop) => hop.kind === OriginHopKind.Choice && featSlots.has(hop.slot));
+    const id = ContentId.safeParse(entry.id);
+    if (viaPick || !id.success || seen.has(id.data) || feats.feat(id.data) === undefined) {
+      return [];
+    }
+    seen.add(id.data);
+    return [id.data];
+  });
+}
+
+/** The feats taken by the slot after `earlier`: the picks in `earlier` slots, then the feats features grant (#625). */
+export function featsTaken(
+  choices: Readonly<Record<string, ChoiceValue>>,
+  feats: FeatContent,
+  { earlier, granted }: { readonly earlier: readonly SlotKey[]; readonly granted: GrantedFeats },
+): ContentId[] {
+  const picked = featsPicked(choices, feats, earlier);
+  return [...picked, ...featsGranted(granted, feats, picked)];
 }
 
 /**

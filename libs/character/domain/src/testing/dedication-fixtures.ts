@@ -25,6 +25,11 @@ export function dedicationFixtureId(name: DedicationFixture): ContentId {
 /** The fixture class, whose six archetype feat slots (1st to 6th level) the fixtures fill. */
 export const DEDICATION_CLASS = ContentId.parse(builder.idOf(ContentKind.Class, 'free-archetype'));
 
+/** The fixture class whose features grant Medic's dedication at 1st level and its other feats at 3rd and 5th (#625). */
+export const GRANTING_CLASS = ContentId.parse(builder.idOf(ContentKind.Class, 'granting-archetype'));
+
+const BASIC_GRANTED_AT = 3;
+const ADVANCED_GRANTED_AT = 5;
 const SLOT_COUNT = 6;
 const SLOT_LEVELS: readonly number[] = Array.from({ length: SLOT_COUNT }, (_unused, index) => index + 1);
 
@@ -45,8 +50,13 @@ function archetypeSlot(level: number): object[] {
 }
 
 /** The archetype feat slot that opens at `level`: keyed by the class and the rule index of its `ChoiceSet`. */
-export function dedicationSlot(level: number): SlotKey {
-  return SlotKey.parse(`${DEDICATION_CLASS}:${(level - 1) * 2}`);
+export function dedicationSlot(level: number, klass: ContentId = DEDICATION_CLASS): SlotKey {
+  return SlotKey.parse(`${klass}:${(level - 1) * 2}`);
+}
+
+/** A grant of the fixture feat `name` from `level` on, after the class's slots so their rule indices hold. */
+function grantFrom(name: string, level: number): object {
+  return { key: 'GrantItem', item: builder.idOf(ContentKind.Feat, name), predicate: [{ gte: ['self:level', level] }] };
 }
 
 const ARCHETYPE = ['archetype'];
@@ -60,6 +70,14 @@ const featData = (archetype: string): object => ({ category: 'class', archetype:
  */
 export const DEDICATION_FIXTURES: ContentPack = builder
   .withClass('free-archetype', ['str'], { rules: SLOT_LEVELS.flatMap((level) => archetypeSlot(level)) })
+  .withClass('granting-archetype', ['str'], {
+    rules: [
+      ...SLOT_LEVELS.flatMap((level) => archetypeSlot(level)),
+      grantFrom('medic-dedication', 1),
+      grantFrom('medic-basic', BASIC_GRANTED_AT),
+      grantFrom('medic-advanced', ADVANCED_GRANTED_AT),
+    ],
+  })
   .withFeat('medic-dedication', { traits: [...ARCHETYPE, 'dedication'], data: featData('medic') })
   .withFeat('medic-basic', { traits: ARCHETYPE, data: featData('medic') })
   .withFeat('medic-advanced', { traits: ARCHETYPE, data: featData('medic') })
