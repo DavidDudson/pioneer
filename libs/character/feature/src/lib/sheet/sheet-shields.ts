@@ -63,6 +63,8 @@ export interface ShieldLine {
   readonly condition: ShieldCondition;
   /** A battle form's shield: it has no Hit Points to show. */
   readonly undamageable: boolean;
+  /** The cast of the spell that gives it raised it, so it blocks with no Raise a Shield. */
+  readonly raised: boolean;
 }
 
 /** The shields the character holds, with the damage the play state records on each. */
@@ -70,7 +72,7 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
   const slots = sheetSlotContent(registry);
   const items = itemContent(registry);
   const held = heldShields(character.document.inventory, items, () => equippedRules(character.document, items, slots));
-  return held.map(({ entry, item, hardness, hitPoints, brokenThreshold, undamageable }): ShieldLine => {
+  return held.map(({ entry, item, hardness, hitPoints, brokenThreshold, undamageable, granted }): ShieldLine => {
     const stats = { hardness, hitPoints, brokenThreshold, ...(undamageable === true ? { undamageable } : {}) };
     const damage = play.shields[item] ?? NONE;
     return {
@@ -81,6 +83,7 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
       left: shieldHitPoints(stats, damage),
       condition: shieldCondition(stats, damage),
       undamageable: undamageable === true,
+      raised: granted?.raised === true,
     };
   });
 }

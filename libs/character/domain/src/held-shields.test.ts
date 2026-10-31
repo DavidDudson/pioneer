@@ -59,7 +59,7 @@ describe('heldShields', () => {
 
 const AVATAR = entry('avatar', [{ key: 'BattleForm', form: { shield: { hardness: 15 } } }]);
 const SHIELD_SPELL = entry('shield-spell', [
-  { key: 'GrantShield', hardness: 5, endsOnBlock: true, brackets: [{ start: 3, hardness: 10 }] },
+  { key: 'GrantShield', hardness: 5, endsOnBlock: true, raised: true, brackets: [{ start: 3, hardness: 10 }] },
 ]);
 
 /** The rules of the effect `name` that is on, cast at `rank`, as `heldShields` reads them. */
@@ -114,7 +114,7 @@ describe('heldShields with a shield an effect gives', () => {
     expect(shield).toMatchObject({
       hardness: Hardness.parse(10),
       undamageable: true,
-      granted: { effect: idOf('shield-spell'), endsOnBlock: true, endsWhenDestroyed: false },
+      granted: { effect: idOf('shield-spell'), endsOnBlock: true, endsWhenDestroyed: false, raised: true },
     });
   });
 

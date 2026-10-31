@@ -29885,30 +29885,8 @@
             "start": 9,
             "hardness": 25
           }
-        ]
-      },
-      {
-        "key": "GrantShield",
-        "hardness": 5,
-        "endsOnBlock": true,
-        "brackets": [
-          {
-            "start": 3,
-            "hardness": 10
-          },
-          {
-            "start": 5,
-            "hardness": 15
-          },
-          {
-            "start": 7,
-            "hardness": 20
-          },
-          {
-            "start": 9,
-            "hardness": 25
-          }
-        ]
+        ],
+        "raised": true
       }
     ],
     "externalIds": {

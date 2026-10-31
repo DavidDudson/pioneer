@@ -59,7 +59,7 @@ export function shieldInventoryAfter(inventory: Inventory, before: PlayState, bl
     return undefined;
   }
   const { item, damage } = command;
-  const condition = conditionAfterBlock(stats, before.shields[item] ?? NONE, damage.taken);
+  const condition = conditionAfterBlock(stats, before.shields[item] ?? NONE, damage);
   switch (condition) {
     case ShieldCondition.Whole: {
       return undefined;

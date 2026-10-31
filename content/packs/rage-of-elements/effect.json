@@ -4928,7 +4928,8 @@
             "start": 9,
             "hardness": 12
           }
-        ]
+        ],
+        "raised": true
       }
     ],
     "externalIds": {
@@ -7678,7 +7679,7 @@
         "content": [
           {
             "type": "text",
-            "text": "The target can raise its arm with the Raise a Shield action and Shield Block with it, reducing the damage as if it had a shield with Hardness 4 and 15 Hit Points and no Broken Threshold. The spell ends if the shield's Hit Points are spent. The +2 circumstance bonus to AC is not modelled."
+            "text": "The target can raise its arm with the Raise a Shield action and Shield Block with it, reducing the damage as if it had a shield with Hardness 4 and 15 Hit Points and no Broken Threshold. The spell ends if the shield's Hit Points are spent. While the shield is raised, the +2 circumstance bonus to AC applies."
           }
         ]
       }
@@ -7712,6 +7713,13 @@
             "hitPoints": 75
           }
         ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:effect:effect-raise-a-shield"]
       }
     ],
     "data": {
