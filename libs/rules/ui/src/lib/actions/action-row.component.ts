@@ -8,6 +8,7 @@ import { StatisticKind } from '@pioneer/rules/sdk';
 import { ChipList } from '../picker-cells/chip-list/chip-list.component';
 import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { EntryNameCell } from '../picker-cells/entry-name-cell/entry-name-cell.component';
+import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
 import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
 import type { ActionLine } from './action-line';
 import { ACTION_STATUS_MESSAGES } from './actions-messages';
@@ -20,6 +21,8 @@ export interface ShownAction {
   readonly detail: string;
   /** Why it is not plainly available, worded. */
   readonly reasons: readonly string[];
+  /** "+2 circumstance when your shield is raised (Steel Shield)": the roll's lines that apply only in some situations. */
+  readonly conditions: readonly string[];
 }
 
 const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {
@@ -34,7 +37,7 @@ const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {
  */
 @Component({
   selector: 'pio-action-row',
-  imports: [Badge, ChipList, EntryNameCell, Stack, StatisticRoll, Text, TranslocoPipe, UseButtons],
+  imports: [Badge, ChipList, EntryNameCell, Stack, StatisticConditions, StatisticRoll, Text, TranslocoPipe, UseButtons],
   templateUrl: './action-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

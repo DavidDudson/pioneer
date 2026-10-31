@@ -1,9 +1,9 @@
 import { ActionOriginKind, ActionStatus, EngineMessage } from '@pioneer/rules/engine';
-import { ActionCost, ActionMode, ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ActionCost, ActionMode, ContentId, contentId, EntrySlug, ModifierType, PackId } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { ActionLine } from '../actions/action-line';
-import { statistic, term } from './breakdown-fixtures';
+import { GLOOM_WALKER, IN_DARKNESS, line as modifierLine, statistic, term } from './breakdown-fixtures';
 
 const BASIC = { kind: ActionOriginKind.Basic } as const;
 const SKILL = { kind: ActionOriginKind.Skill } as const;
@@ -47,11 +47,23 @@ const CRAWL = line('crawl', 'Crawl', { traits: ['move'] });
 const ESCAPE = line('escape', 'Escape', { traits: ['attack'], origin: SKILL, roll: ATHLETICS });
 const SHIELD_BLOCK = line('shield-block', 'Shield Block', {
   cost: ActionCost.Reaction,
-  origin: { kind: ActionOriginKind.Granted, source: { hops: [], entry: actionId('shield-block'), sources: [] } },
+  origin: {
+    kind: ActionOriginKind.Granted,
+    source: { hops: [], entry: actionId('shield-block'), sources: [] },
+  },
   source: 'Shield Block',
 });
-const DEMORALIZE = line('demoralize', 'Demoralize', { traits: ['auditory', 'emotion'], origin: SKILL });
+const DEMORALIZE = line('demoralize', 'Demoralize', {
+  traits: ['auditory', 'emotion'],
+  origin: SKILL,
+});
 const GRAPPLE = line('grapple', 'Grapple', { traits: ['attack'], origin: SKILL, roll: ATHLETICS });
+
+/** Athletics with a bonus that holds only in darkness, as Gloom Walker gives. */
+const DARK_ATHLETICS = statistic('skill:athletics', {
+  base: ATHLETICS.base,
+  lines: [modifierLine(GLOOM_WALKER, { type: ModifierType.Circumstance, value: 1, status: IN_DARKNESS })],
+});
 const PICK_A_LOCK = line('pick-a-lock', 'Pick a Lock', {
   cost: ActionCost.Two,
   origin: SKILL,
@@ -64,7 +76,10 @@ const DISABLE = line('disable-a-device', 'Disable a Device', {
   status: ActionStatus.Conditional,
   reasons: [message(EngineMessage.ActionRequirementsText)],
 });
-const EARN_INCOME = line('earn-income', 'Earn Income', { cost: undefined, modes: [ActionMode.Downtime] });
+const EARN_INCOME = line('earn-income', 'Earn Income', {
+  cost: undefined,
+  modes: [ActionMode.Downtime],
+});
 const SENSE_DIRECTION = line('sense-direction', 'Sense Direction', {
   cost: undefined,
   modes: [ActionMode.Exploration],
@@ -95,6 +110,9 @@ export const PRONE_ACTIONS: readonly ActionLine[] = [
 ];
 
 /** The character grabbed: Escape is called for, ahead of the other one-action skill actions. */
+/** Stride, which rolls nothing, and Grapple, whose roll has a line that holds only in darkness. */
+export const CONDITIONAL_ACTIONS: readonly ActionLine[] = [STRIDE, { ...GRAPPLE, roll: DARK_ATHLETICS }];
+
 export const GRABBED_ACTIONS: readonly ActionLine[] = [STRIDE, DEMORALIZE, { ...ESCAPE, priority: 0 }];
 
 /** The character with its shield raised: Shield Block is enabled and called for. */

@@ -1,8 +1,8 @@
 <fr-stack gap="md">
   <fr-segmented [options]="viewOptions()" [ariaLabel]="Message.ViewLabel | transloco" [(value)]="view" />
   @if (view() === Now) {
-    <pio-actions-now [lines]="lines()" [mode]="mode()" />
+    <pio-actions-now [lines]="lines()" [mode]="mode()" [entryNames]="entryNames()" [originNames]="originNames()" />
   } @else {
-    <pio-actions-all [lines]="lines()" />
+    <pio-actions-all [lines]="lines()" [entryNames]="entryNames()" [originNames]="originNames()" />
   }
 </fr-stack>

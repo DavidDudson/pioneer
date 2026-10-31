@@ -12,6 +12,7 @@
     <pio-use-buttons [line]="action().line" />
   </fr-stack>
   <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
+  <pio-statistic-conditions [conditions]="action().conditions" />
   @if (chips().length > 0) {
     <pio-chip-list [chips]="chips()" />
   }

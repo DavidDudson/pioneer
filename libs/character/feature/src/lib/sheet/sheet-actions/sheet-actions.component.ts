@@ -37,6 +37,7 @@ export class SheetActions {
   protected readonly registry = injectContentRegistry(ACTION_CONTENT_KINDS);
   protected readonly playQuery = this.#play.play;
   protected readonly view = signal<ActionsViewKind>(ActionsViewKind.Now);
+  protected readonly entryNames = this.#sheet.picks.entryNames;
 
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */
   protected readonly lines = computed((): readonly ActionLine[] | undefined => {
