@@ -830,8 +830,7 @@
       "computed": "computed {computed}",
       "fromForm": "from {form}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
-      "roll": "Roll {name}",
-      "rollWithOptions": "Roll {name} with options"
+      "roll": "Roll {name}"
     },
     "strikes": {
       "damage": "{roll} {type}",
