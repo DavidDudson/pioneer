@@ -19,6 +19,7 @@
     "againstTarget": "Apply to a target",
     "critical": "Critical hit",
     "area": "Area effect",
+    "spell": "Spell",
     "targetHeading": "Target",
     "targetHint": "The kept roll is dealt to this target as damage. Untagged dice and numbers are untyped.",
     "immunities": "Immunities",
@@ -256,6 +257,7 @@
   },
   "damageContext": {
     "areaDamage": "Area damage",
-    "splashDamage": "Splash damage"
+    "splashDamage": "Splash damage",
+    "spells": "Spells"
   }
 }

@@ -12,10 +12,12 @@ export interface Applied {
   readonly lines: readonly MessageDescriptor[];
 }
 
-/** Where an instance came from: an area effect, and whether it has splash. */
+/** Where an instance came from: an area effect, a spell, and whether it has splash. */
 export interface Source {
   readonly area: boolean;
   readonly splash: boolean;
+  /** The damage is from a spell. */
+  readonly spell: boolean;
 }
 
 /**
@@ -32,6 +34,9 @@ function covers(target: DamageAdjustmentTarget, types: readonly DamageType[], so
   if (target === DamageContext.SplashDamage) {
     return source.splash;
   }
+  if (target === DamageContext.Spells) {
+    return source.spell;
+  }
   if (target === DamageGroup.Physical || target === DamageGroup.Energy) {
     const group = DAMAGE_GROUP_TYPES[target];
     return types.some((type) => group.includes(type));
@@ -40,14 +45,17 @@ function covers(target: DamageAdjustmentTarget, types: readonly DamageType[], so
 }
 
 /** What a damage message calls a target: the target, or a source in camel case. */
-type MessageTarget = Exclude<DamageAdjustmentTarget, DamageContext> | 'areaDamage' | 'splashDamage';
+type MessageTarget = Exclude<DamageAdjustmentTarget, DamageContext> | 'areaDamage' | 'splashDamage' | 'spells';
 
 /** A target as a message names it: ICU select keys can't hold a hyphen, so a source is in camel case. */
 function nameOf(target: DamageAdjustmentTarget): MessageTarget {
   if (target === DamageContext.AreaDamage) {
     return 'areaDamage';
   }
-  return target === DamageContext.SplashDamage ? 'splashDamage' : target;
+  if (target === DamageContext.SplashDamage) {
+    return 'splashDamage';
+  }
+  return target === DamageContext.Spells ? 'spells' : target;
 }
 
 /** The highest of `adjustments` that applies: only one weakness or resistance counts per instance. */

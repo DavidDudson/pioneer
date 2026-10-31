@@ -6161,16 +6161,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["parent:spellcasting:tradition:arcane", "dragon-form-tradition:arcane"],
-            "type": "spells",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",

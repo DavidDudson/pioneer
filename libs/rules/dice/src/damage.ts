@@ -51,9 +51,11 @@ export interface DamageOptions {
   readonly critical: boolean;
   /** The roll is from an area effect, so a weakness or resistance to area damage applies. */
   readonly area?: boolean;
+  /** The roll is from a spell, so a weakness or resistance to spells applies. */
+  readonly spell?: boolean;
 }
 
-const NOT_CRITICAL: DamageOptions = { critical: false, area: false };
+const NOT_CRITICAL: DamageOptions = { critical: false, area: false, spell: false };
 const CRITICAL_MULTIPLIER = 2;
 const ZERO = RollTotal.parse(0);
 const NONE = DamageTotal.parse(0);
@@ -170,20 +172,21 @@ function typesOf(pooled: Pooled, precisionLeft: boolean): readonly DamageType[] 
   return precisionLeft ? [...own, DamageType.Precision] : own;
 }
 
-/** What a roll does to its instances: whether a critical doubles them, and whether it is from an area effect. */
+/** What a roll does to its instances: whether a critical doubles them, and whether it is from an area effect or a spell. */
 interface Dealing {
   readonly doubling: Doubling;
   readonly area: boolean;
+  readonly spell: boolean;
 }
 
 /** Deals one instance, then immunities, the highest weakness and the highest resistance adjust it. */
-function deal(pooled: Pooled, target: DamageTarget, { doubling, area }: Dealing): DamageInstance {
+function deal(pooled: Pooled, target: DamageTarget, { doubling, area, spell }: Dealing): DamageInstance {
   const dealtNow = dealt(pooled, doubling);
   const type = pooled.type === undefined ? {} : { type: pooled.type };
   const immune = immunise(pooled, dealtNow, target);
   const precisionLeft = target.immunities.includes(PRECISION) ? NONE : dealtNow.precision;
   const types = typesOf(pooled, precisionLeft > 0);
-  const source: Source = { area, splash: pooled.splash > 0 };
+  const source: Source = { area, spell, splash: pooled.splash > 0 };
   const weakened = weaken(immune.amount, { types, source }, target);
   // Resistance to precision stops no more than the precision share, unless the instance is all precision.
   const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
@@ -222,10 +225,10 @@ function doublingFor(critical: boolean, target: DamageTarget): Doubling {
 export function applyDamage(
   roll: RollResult,
   target: DamageTarget,
-  { critical, area = false }: DamageOptions = NOT_CRITICAL,
+  { critical, area = false, spell = false }: DamageOptions = NOT_CRITICAL,
 ): DamageApplication {
   const pools = pool(roll);
-  const dealing: Dealing = { doubling: doublingFor(critical, target), area };
+  const dealing: Dealing = { doubling: doublingFor(critical, target), area, spell };
   const immediate = pools.filter((pooled) => !pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   const persistent = pools.filter((pooled) => pooled.persistent).map((pooled) => deal(pooled, target, dealing));
   return { critical, immediate, persistent, taken: sum(immediate), persistentTaken: sum(persistent) };

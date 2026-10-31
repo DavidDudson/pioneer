@@ -247,6 +247,12 @@ describe('applyDamage', () => {
       expect(applyDamage(roll('1d8[fire]', [7]), guarded).taken).toBe(amount(7));
     });
 
+    test('a resistance to spells removes up to its value from a spell roll only', () => {
+      const warded = target({ resistances: [adjustment(DamageContext.Spells, 5)] });
+      expect(applyDamage(roll('1d8[fire]', [7]), warded, { critical: false, spell: true }).taken).toBe(amount(2));
+      expect(applyDamage(roll('1d8[fire]', [7]), warded).taken).toBe(amount(7));
+    });
+
     test('a swarm still resists the types it names beside its weakness to area damage', () => {
       const result = applyDamage(roll('1d8[piercing]', [7]), swarm, { critical: false, area: true });
       expect(result.taken).toBe(amount(7));
