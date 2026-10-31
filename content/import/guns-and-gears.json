@@ -6632,12 +6632,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.aVzkG1UhNjQr22pE",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "archetype",
-          "raw": []
-        },
-        {
           "type": "enricher",
           "enricher": "[[/act]][statistic]"
         },
@@ -6847,20 +6841,6 @@
               "value": "lesser-augmentation"
             }
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "feat:lucky-escape",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Xb8CyW9sYS27ElcC",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "archetype",
-          "raw": []
         }
       ]
     },
@@ -7323,20 +7303,6 @@
             "property": "traits",
             "value": "unstable"
           }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "feat:no-hard-feelings",
-      "foundry": "Compendium.pf2e.feats-srd.Item.LgpATqbuTIfB4o6G",
-      "gaps": [
-        {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "archetype",
-          "raw": []
         }
       ]
     },
@@ -7828,12 +7794,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.KP5VugClDb7I8enS",
       "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "archetype",
-          "raw": []
-        },
-        {
           "type": "enricher",
           "enricher": "[[/act]][statistic]"
         },
@@ -7919,12 +7879,38 @@
             "property": "frequency-per",
             "value": "PT1H"
           }
-        },
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "guns-and-gears",
+      "slug": "feat:unbelievable-luck",
+      "foundry": "Compendium.pf2e.feats-srd.Item.QQCxSQaX8UEZHfUz",
+      "gaps": [
         {
-          "type": "field",
-          "reason": "unresolved-reference",
-          "field": "archetype",
-          "raw": []
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:accidental-shot"],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "guns-and-gears",
+      "slug": "feat:unexpected-sharpshooter-dedication",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lotpVdFhxNsNP0Ru",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
         }
       ]
     },

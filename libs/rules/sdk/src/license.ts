@@ -17,3 +17,16 @@ export const ContentLicense = {
 } as const;
 export type ContentLicense = ValueOf<typeof ContentLicense>;
 export const ContentLicenseSchema = z.enum(ContentLicense);
+
+/** The licence an entry is published under: its own when it carries one, else its pack's. */
+export function effectiveLicense(
+  entry: { readonly license?: ContentLicense | undefined },
+  pack: { readonly license: ContentLicense },
+): ContentLicense {
+  return entry.license ?? pack.license;
+}
+
+/** Open Game License content is pre-remaster, so legacy; every entry under it is, whatever pack carries it. */
+export function isLegacyLicense(license: ContentLicense): boolean {
+  return license === ContentLicense.Ogl;
+}

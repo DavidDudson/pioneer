@@ -62,6 +62,9 @@ const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
 const darkArchiveRemastered = PackId.parse('dark-archive-remastered');
 const characterGuide = PackId.parse('character-guide');
 const impossibleLands = PackId.parse('impossible-lands');
+const coreRulebook = PackId.parse('core-rulebook');
+const advancedPlayersGuide = PackId.parse('advanced-players-guide');
+const theShowMustGoOn = PackId.parse('the-show-must-go-on');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
 const zombieId = CreatureId.parse(contentId(monsterCore, EntrySlug.parse('creature:zombie-shambler')));
@@ -71,12 +74,14 @@ describe('content catalog', () => {
     const registry = new ContentRegistry();
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
+      advancedPlayersGuide,
       bastionOfBlasphemies,
       battlecry,
       characterGuide,
       chelaxInfernalInheritance,
       clawsOfTheTyrant,
       clockworkMystery,
+      coreRulebook,
       coreRules,
       curtainCall,
       darkArchiveRemastered,
@@ -111,6 +116,7 @@ describe('content catalog', () => {
       shiningKingdoms,
       sporeWar,
       theDeadGodsHand,
+      theShowMustGoOn,
       tianXiaCharacterGuide,
       tianXiaWorldGuide,
       treasureVault,
@@ -138,7 +144,7 @@ describe('content catalog', () => {
       name: 'Iruxi',
       rarity: 'common',
       traits: [],
-      sources: [{ kind: 'book', book: 'core-rulebook', page: 1 }],
+      sources: [{ kind: 'book', book: 'bestiary', page: 1 }],
       description: [],
       rules: [],
       data: {},

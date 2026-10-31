@@ -1,11 +1,13 @@
 /** Every official pack the API serves, in manifest order. Add a pack here when one is imported. */
 export const OFFICIAL_PACK_IDS = [
+  'advanced-players-guide',
   'bastion-of-blasphemies',
   'battlecry',
   'character-guide',
   'cheliax-infernal-inheritance',
   'claws-of-the-tyrant',
   'clockwork-mystery',
+  'core-rulebook',
   'core-rules',
   'curtain-call',
   'dark-archive-remastered',
@@ -40,6 +42,7 @@ export const OFFICIAL_PACK_IDS = [
   'shining-kingdoms',
   'spore-war',
   'the-dead-gods-hand',
+  'the-show-must-go-on',
   'tian-xia-character-guide',
   'tian-xia-world-guide',
   'treasure-vault',

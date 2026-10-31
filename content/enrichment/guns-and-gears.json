@@ -2930,5 +2930,45 @@
     "book": "guns-and-gears",
     "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1221",
     "page": 183
+  },
+  "archetype:unexpected-sharpshooter": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Archetypes.aspx?ID=123",
+    "page": 142
+  },
+  "feat:chain-reaction": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3279",
+    "page": 143
+  },
+  "feat:unbelievable-luck": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3276",
+    "page": 143
+  },
+  "feat:unexpected-sharpshooter-dedication": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Feats.aspx?ID=3272",
+    "page": 142
+  },
+  "weapon:repeating-heavy-crossbow": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=450",
+    "page": 64
+  },
+  "weapon:repeating-crossbow": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=176",
+    "page": 64
+  },
+  "consumable:repeating-crossbow-magazine": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=181",
+    "page": 64
+  },
+  "consumable:repeating-heavy-crossbow-magazine": {
+    "book": "guns-and-gears",
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=183",
+    "page": 64
   }
 }

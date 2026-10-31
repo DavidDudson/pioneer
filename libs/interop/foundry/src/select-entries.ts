@@ -5,7 +5,7 @@ import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
 import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
 import { foundrySlug } from './foundry-slug';
-import { isOglEntry } from './ogl-entries';
+import { isOglEntry, LEGACY_ENTRY_BOOKS } from './ogl-entries';
 import type { LicenseField } from './ogl-entries';
 
 /**
@@ -33,6 +33,9 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
   ['Pathfinder Lost Omens Impossible Lands', BookId.parse('impossible-lands')],
   ['Pathfinder Lost Omens Character Guide', BookId.parse('character-guide')],
+  ['Pathfinder Core Rulebook', BookId.parse('core-rulebook')],
+  ["Pathfinder Advanced Player's Guide", BookId.parse('advanced-players-guide')],
+  ['Pathfinder #151: The Show Must Go On', BookId.parse('the-show-must-go-on')],
   ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
   ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],
   ['Pathfinder Impossible Magic', BookId.parse('impossible-magic')],
@@ -160,7 +163,11 @@ interface Skip {
 
 /** `license: OGL` for a listed item in an ORC book; nothing for every other entry. */
 function entryLicense(publication: FoundryPublication | undefined, book: BookId, slug: string): LicenseField {
-  const licensed = publication !== undefined && isOglEntry(publication, book, slug) && !OGL_BOOKS.has(book);
+  const licensed =
+    publication !== undefined &&
+    isOglEntry(publication, book, slug) &&
+    !OGL_BOOKS.has(book) &&
+    !LEGACY_ENTRY_BOOKS.has(book);
   return licensed ? { license: ContentLicense.Ogl } : {};
 }
 

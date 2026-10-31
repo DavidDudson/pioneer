@@ -293,7 +293,7 @@ export {
   Publisher,
   PUBLISHER_LABELS,
 } from './book';
-export { ContentLicense, ContentLicenseSchema } from './license';
+export { ContentLicense, ContentLicenseSchema, effectiveLicense, isLegacyLicense } from './license';
 export { Proficiency, ProficiencyBonusFormula, ProficiencyBonusTable, ProficiencySchema } from './proficiency';
 export { Size, SizeSchema } from './size';
 export {

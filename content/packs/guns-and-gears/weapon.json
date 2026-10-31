@@ -8120,6 +8120,126 @@
     }
   },
   {
+    "id": "22bb17cc-fb55-5abf-b251-eafb3cc9b10b",
+    "pack": "guns-and-gears",
+    "kind": "weapon",
+    "slug": "weapon:repeating-crossbow",
+    "name": "Repeating Crossbow",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["repeating"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=176"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This crossbow has an internal chamber that can be loaded with up to five bolts. An automated catch mechanism at the top of the flight groove, just in front of the latch, locks the bowstring and launches bolts with the pull of a trigger."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8ncDuZSIZAHl7PW8"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "crossbow",
+      "baseItem": "repeating-crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 120,
+      "reload": 0,
+      "ammunition": {
+        "type": "magazine-repeating-crossbow",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "f70004bd-59f8-5cc2-b1c1-a5535bd5789f",
+    "pack": "guns-and-gears",
+    "kind": "weapon",
+    "slug": "weapon:repeating-heavy-crossbow",
+    "name": "Repeating Heavy Crossbow",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["repeating"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears",
+        "page": 64,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=450"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This large crossbow has an internal chamber that can be loaded with up to five bolts. While it uses the same automated catch mechanism as other repeating crossbows, a repeating heavy crossbow's design has significant trade-offs. It has increased range and damage and is easier to learn how to use, but requires a small amount of effort to reload."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bP608Wb1l9ZY1zwb"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "crossbow",
+      "baseItem": "repeating-heavy-crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "range": 180,
+      "reload": 1,
+      "ammunition": {
+        "type": "magazine-repeating-heavy-crossbow",
+        "capacity": 1
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
     "id": "bafc50e4-f7b2-5f9c-a3a1-6605168f0a95",
     "pack": "guns-and-gears",
     "kind": "weapon",

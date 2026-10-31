@@ -366,5 +366,26 @@
     "remaster": true,
     "released": "2025-04-01",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=239"
+  },
+  {
+    "id": "core-rulebook",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=1"
+  },
+  {
+    "id": "advanced-players-guide",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=39"
+  },
+  {
+    "id": "the-show-must-go-on",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=21"
   }
 ]
