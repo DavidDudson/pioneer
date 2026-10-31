@@ -35,9 +35,19 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => textOf(candidate).startsWith(label));
 }
 
-/** The vitals' headings: AC, the three saves, Perception and the Speed, with their totals. */
+/** The statistics whose rows list a total outside the vitals' headings: the three saves, and Perception among the skills. */
+const ROWED = ['Fortitude', 'Reflex', 'Will', 'Perception'] as const;
+
+/** The vitals' headings, AC first and Speed last, with the totals of the saves' and Perception's rows between. */
 function vitalsOf(root: HTMLElement): readonly string[] {
-  return [...present(root.querySelector('pio-vitals')).querySelectorAll('summary')].map((summary) => textOf(summary));
+  const [armor, speed] = [...present(root.querySelector('pio-vitals')).querySelectorAll('summary')].map((summary) =>
+    textOf(summary),
+  );
+  const rows = ROWED.map((name) => {
+    const roll = present(root.querySelector(`button[aria-label^="Roll ${name}"]`));
+    return `${name} ${textOf(roll)}`;
+  });
+  return [present(armor), ...rows, present(speed)];
 }
 
 /** Opens the Plan tab, answering the character's variant rules with `rules`. */

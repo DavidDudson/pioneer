@@ -46,7 +46,6 @@ describe('CharacterSheetPage sections', () => {
     expect(links.map((link) => textOf(link))).toStrictEqual([
       'Appearance and personality',
       'Exploration activity',
-      'Environments',
       'Actions',
       'Deity',
       'Languages',
@@ -55,7 +54,6 @@ describe('CharacterSheetPage sections', () => {
     expect(links).toHaveLength(SHEET_TAB_SECTIONS[SheetMode.Exploration].length);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([
       true,
-      false,
       false,
       false,
       false,
@@ -77,7 +75,7 @@ describe('CharacterSheetPage sections', () => {
 
     expect(router.url).toBe(`/characters/${id}/exploration/languages`);
     expect(shownHeadings(root)).toStrictEqual(['Languages']);
-    expect(root.querySelectorAll('router-outlet ~ * section')).toHaveLength(7);
+    expect(root.querySelectorAll('router-outlet ~ * section')).toHaveLength(6);
   });
 
   it('falls back to the first section for one the tab has no section by', async () => {
