@@ -12,11 +12,12 @@ const SOURCES: readonly RankSource[] = [
   { rank: Proficiency.Expert, source: 'Level 15 skill increase', level: 15, future: true },
 ];
 
-async function render(sources: readonly RankSource[]): Promise<ComponentFixture<ProficiencyBadge>> {
+async function render(sources: readonly RankSource[], note?: string): Promise<ComponentFixture<ProficiencyBadge>> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
   const fixture = TestBed.createComponent(ProficiencyBadge);
   fixture.componentRef.setInput('rank', Proficiency.Trained);
   fixture.componentRef.setInput('sources', sources);
+  fixture.componentRef.setInput('note', note);
   await fixture.whenStable();
   return fixture;
 }
@@ -61,5 +62,13 @@ describe(ProficiencyBadge, () => {
     ]);
     const lines = [...document.querySelectorAll('[role="tooltip"] fr-text')];
     expect(lines[1]?.firstElementChild?.className).not.toBe(lines[0]?.firstElementChild?.className);
+  });
+
+  it('says its note under the sources, and opens for a note alone', async () => {
+    const note = 'Trained by Acolyte and Cleric; the second training is lost';
+
+    const fixture = await render(SOURCES.slice(0, 1), note);
+
+    await expect(opened(fixture)).resolves.toStrictEqual(['Trained: Cleric', note]);
   });
 });

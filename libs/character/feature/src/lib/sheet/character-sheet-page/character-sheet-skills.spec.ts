@@ -219,7 +219,7 @@ describe('CharacterSheetPage skills', () => {
     expect(choices.textContent).toContain('Athletics');
   });
 
-  it('notes beside a skill two sources train, naming both and that the second training is lost', async () => {
+  it('says in the rank popover, not on the row, that a skill two sources train loses the second training', async () => {
     const cleric = {
       ...MERISIEL,
       build: {
@@ -234,10 +234,17 @@ describe('CharacterSheetPage skills', () => {
     const { root } = await openSheet(cleric);
 
     await vi.waitFor(() => {
-      expect(skillRow(root, 'Religion')).toMatch(
+      expect(skillRow(root, 'Religion')).toBeDefined();
+    });
+    expect(skillRow(root, 'Religion')).not.toContain('the second training is lost');
+    const religion = [...skillsSection(root).querySelectorAll('fr-list-item')].find((item) =>
+      item.textContent.trim().startsWith('Religion'),
+    );
+    religion?.querySelector('button')?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      expect(document.querySelector('[role="tooltip"]')?.textContent).toMatch(
         /Trained by (?:Acolyte and Cleric|Cleric and Acolyte); the second training is lost/u,
       );
     });
-    expect(skillRow(root, 'Athletics')).not.toContain('Trained by');
   });
 });

@@ -70,10 +70,7 @@ export function sheetSkills(
     .flatMap((definition): NamedStatistic[] => {
       const { selector } = definition;
       const result = results.get(selector);
-      const notes = [twice.get(selector), FORM_NOTED_SKILLS.has(selector) ? formNote : undefined].filter(
-        (each) => each !== undefined,
-      );
-      const note = notes.length === 0 ? undefined : notes.join(' ');
+      const note = FORM_NOTED_SKILLS.has(selector) ? formNote : undefined;
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
       return result === undefined
         ? []
@@ -83,6 +80,7 @@ export function sheetSkills(
               kind: definition.kind,
               result,
               note,
+              rankNote: twice.get(selector),
               rank,
               rankSources: rankSources.get(selector) ?? [],
             },
