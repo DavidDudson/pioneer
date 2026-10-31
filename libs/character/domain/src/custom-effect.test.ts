@@ -84,6 +84,41 @@ describe('adding a custom effect', () => {
   });
 });
 
+describe('a custom effect line that sets a statistic', () => {
+  const setting = CustomEffectInput.parse({
+    name: 'Eagle eyes',
+    reason: 'GM ruling',
+    lines: [{ target: 'perception', mode: 'set', value: 20 }],
+  });
+
+  test('compiles to a Change that overrides, labelled with the effect name', () => {
+    const patch: CharacterPatch = { field: CharacterPatchField.AddCustomEffect, effect: setting };
+    const character = blank.apply(patch, THEN, { actor: AUTHOR, newCustomEffectId: BLESSING });
+
+    const [rule] = customEffectRules(character.document);
+
+    expect(rule?.element).toMatchObject({
+      key: 'Change',
+      selector: 'perception',
+      mode: 'override',
+      value: 20,
+      display: { label: 'Eagle eyes' },
+    });
+  });
+
+  test('is refused with a type, since only an adjust has one', () => {
+    const line = { target: 'perception', mode: 'set', value: 20, type: 'status' };
+
+    expect(CustomEffectInput.safeParse({ ...setting, lines: [line] }).success).toBe(false);
+  });
+
+  test('a line with no mode still reads as an adjust', () => {
+    const [rule] = customEffectRules(added(blank).document);
+
+    expect(rule?.element).toMatchObject({ key: 'FlatModifier' });
+  });
+});
+
 describe('switching a custom effect', () => {
   test('off compiles nothing and records who and when; on restores every line', () => {
     const off = toggled(added(blank), false);

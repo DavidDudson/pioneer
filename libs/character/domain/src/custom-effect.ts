@@ -1,5 +1,6 @@
 import { RuleInPlay } from '@pioneer/rules/engine';
 import {
+  ChangeMode,
   ContentId,
   contentId,
   ContentText,
@@ -14,9 +15,9 @@ import type { Temporal, UserId, ValueOf } from '@pioneer/shared/kernel';
 import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
 import { CUSTOM_EFFECT_TOGGLES_MAX, CUSTOM_EFFECTS_MAX, CustomEffectSchema } from './custom-effect-schema';
-import type { CustomEffect, CustomEffectId, CustomEffectInput } from './custom-effect-schema';
+import type { CustomEffect, CustomEffectId, CustomEffectInput, CustomEffectLine } from './custom-effect-schema';
 import type { CustomEffectPatch } from './override-patches';
-import { OverrideRole, overrideTime } from './override-schema';
+import { OverrideMode, OverrideRole, overrideTime } from './override-schema';
 
 /** The custom effects in force: the ones nobody has removed. */
 export function activeCustomEffects(document: CharacterDocument): readonly CustomEffect[] {
@@ -31,6 +32,29 @@ const CUSTOM_EFFECTS_ENTRY = ContentId.parse(
 /** The source a custom effect line cites: it has no book. */
 const CUSTOM_EFFECT_SOURCE = { kind: 'book', book: 'player-core', page: 1 } as const;
 
+/** The rule element of one line: an adjust is a typed flat modifier, a set a `Change` that pins the value. */
+function elementOf(name: CustomEffect['name'], line: CustomEffectLine): unknown {
+  const display = { label: ContentText.parse(name) };
+  const predicate = line.predicate === undefined ? {} : { predicate: line.predicate };
+  return line.mode === OverrideMode.Set
+    ? {
+        key: RuleElementKey.Change,
+        selector: line.target,
+        mode: ChangeMode.Override,
+        value: line.value,
+        display,
+        ...predicate,
+      }
+    : {
+        key: RuleElementKey.FlatModifier,
+        selectors: [line.target],
+        type: line.type ?? ModifierType.Untyped,
+        value: line.value,
+        display,
+        ...predicate,
+      };
+}
+
 /**
  * The rule elements the character's switched-on custom effects compile to, one per line, each with an `override` hop
  * naming who added the effect, when and why, and the effect's name as its label, so the breakdown lists them under it. Off or removed compiles to nothing.
@@ -41,14 +65,7 @@ export function customEffectRules(document: CharacterDocument): readonly RuleInP
     .flatMap((effect) => effect.lines.map((line) => ({ effect, line })));
   return lines.map(({ effect, line }, index) =>
     RuleInPlay.parse({
-      element: {
-        key: RuleElementKey.FlatModifier,
-        selectors: [line.target],
-        type: line.type ?? ModifierType.Untyped,
-        value: line.value,
-        display: { label: ContentText.parse(effect.name) },
-        ...(line.predicate === undefined ? {} : { predicate: line.predicate }),
-      },
+      element: elementOf(effect.name, line),
       origin: {
         hops: [{ kind: OriginHopKind.Override, by: effect.by, at: effect.at, note: effect.reason }],
         entry: CUSTOM_EFFECTS_ENTRY,
