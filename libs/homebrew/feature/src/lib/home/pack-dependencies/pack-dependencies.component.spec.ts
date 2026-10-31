@@ -86,8 +86,14 @@ async function sent(url: string): Promise<TestRequest> {
   return vi.waitFor(() => TestBed.inject(HttpTestingController).expectOne(url));
 }
 
+/** The dependency adder's picker; the pack home holds others. */
 function pickerField(harness: RouterTestingHarness): DebugElement {
-  const [field] = harness.fixture.debugElement.queryAll((each) => each.componentInstance instanceof PickerField);
+  const [field] = harness.fixture.debugElement.queryAll(
+    (each) =>
+      each.componentInstance instanceof PickerField &&
+      each.nativeElement instanceof Element &&
+      each.nativeElement.closest('pio-pack-dependency-adder') !== null,
+  );
   return present(field);
 }
 

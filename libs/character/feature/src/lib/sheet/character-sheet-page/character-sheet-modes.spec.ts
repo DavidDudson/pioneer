@@ -71,7 +71,7 @@ describe('CharacterSheetPage modes', () => {
     ]);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([true, false, false, false]);
 
-    await openTab(root, 'Encounter', 'Defences');
+    await openTab(root, 'Encounter', 'Skills');
     expect(TestBed.inject(Router).url).toBe(`/characters/${id}/encounter`);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([false, true, false, false]);
   });
@@ -112,7 +112,7 @@ describe('CharacterSheetPage modes', () => {
     await settle();
     http.expectNone({ method: 'PATCH', url: SHEET_MODE_URL });
 
-    await openTab(root, 'Encounter', 'Defences');
+    await openTab(root, 'Encounter', 'Skills');
 
     const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: SHEET_MODE_URL }));
     expect(request.request.body).toStrictEqual({ mode: SheetMode.Encounter });

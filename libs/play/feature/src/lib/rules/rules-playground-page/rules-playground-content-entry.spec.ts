@@ -83,13 +83,13 @@ describe('RulesPlaygroundPage content entry', () => {
   it('says which source cites a book that is not registered', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');
-    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "core-rulebook"'));
+    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "unregistered-book"'));
 
     const text = pageText(harness);
     expect(text).toContain('1 problem');
     expect(text).toContain('sources[0].book');
     expect(text).toContain(
-      'player-core/ancestry:human cites core-rulebook in sources[0], but core-rulebook is not in the book registry. Cite a registered book, or add core-rulebook to the registry.',
+      'player-core/ancestry:human cites unregistered-book in sources[0], but unregistered-book is not in the book registry. Cite a registered book, or add unregistered-book to the registry.',
     );
   });
 
@@ -114,7 +114,7 @@ describe('RulesPlaygroundPage content entry', () => {
   it('shows no source line while a source is wrong', async () => {
     const harness = await openPlayground();
     await chooseSchema(harness, 'Content entry');
-    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "core-rulebook"'));
+    await typeJson(harness, json(harness).replace('"book": "player-core"', '"book": "unregistered-book"'));
 
     expect(harness.routeNativeElement?.querySelector('pio-source-line')).toBeNull();
     expect(pageText(harness)).not.toContain('Unknown book');

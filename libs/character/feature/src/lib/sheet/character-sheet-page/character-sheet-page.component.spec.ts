@@ -31,11 +31,11 @@ describe('CharacterSheetPage', () => {
       ['Variant rules', true],
       ['Table limits', true],
     ]);
-    await openTab(root, 'Encounter', 'Defences');
+    await openTab(root, 'Encounter', 'Skills');
     expect(regionsOf(root)).toStrictEqual([
+      ['Skills', true],
       ['Defences', true],
       ['Senses', true],
-      ['Skills', true],
       ['Strikes', true],
       ['Actions', true],
       ['Spellcasting', true],
