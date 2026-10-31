@@ -74,7 +74,7 @@ function toHex({ red, green, blue }: Rgb): string {
 }
 
 /** A custom colour set for the dice library: body, numerals and no outline or texture. */
-export interface DiceColorSet {
+interface DiceColorSet {
   readonly name: string;
   readonly foreground: string;
   readonly background: string;
@@ -84,7 +84,7 @@ export interface DiceColorSet {
 }
 
 /** The dice colour set for a tone: the token's colour for the body, black or white numerals for contrast. */
-export function colorSetFor(tone: DamageTone | undefined): DiceColorSet {
+function colorSetFor(tone: DamageTone | undefined): DiceColorSet {
   const property = tone === undefined ? UNTYPED_PROPERTY : TONE_PROPERTIES[tone];
   const value = getComputedStyle(document.documentElement).getPropertyValue(property);
   const rgb = toRgb(value);

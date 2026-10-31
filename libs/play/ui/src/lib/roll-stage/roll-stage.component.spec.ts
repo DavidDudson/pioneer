@@ -15,17 +15,26 @@ const FIREBALL: RollPresentation = {
   id: 1,
   label: 'Fireball',
   total: RollTotal.parse(21),
-  damageTypeKey: 'roll.damageType.fire',
-  tone: DamageTone.Fire,
+  lines: [{ total: 21, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' }],
   groups: [{ notation: '6d6@3,4,3,4,3,4', tone: DamageTone.Fire }],
+};
+
+const LONGSWORD: RollPresentation = {
+  id: 3,
+  label: 'Longsword',
+  total: RollTotal.parse(35),
+  lines: [
+    { total: 25, tone: DamageTone.Physical, typeKey: 'roll.damageType.slashing' },
+    { total: 10, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' },
+  ],
+  groups: [],
 };
 
 const PERCEPTION: RollPresentation = {
   id: 2,
   label: 'Perception',
   total: RollTotal.parse(16),
-  damageTypeKey: undefined,
-  tone: undefined,
+  lines: [{ total: 16, tone: undefined, typeKey: undefined }],
   groups: [],
 };
 
@@ -81,6 +90,18 @@ describe(RollStage, () => {
     expect(status?.textContent).toContain('Fireball');
     expect(status?.textContent).toContain('Fire');
     expect(status?.querySelector('.text-damage-fire')?.textContent.trim()).toBe('21');
+  });
+
+  it('shows one pill row per damage type, each in its own colour', async () => {
+    reduceMotion(true);
+    const { fixture, presenter } = await render();
+    presenter.present(LONGSWORD);
+    await fixture.whenStable();
+    const status = hostOf(fixture).querySelector('[role="status"]');
+    expect(status?.querySelector('.text-damage-physical')?.textContent.trim()).toBe('25');
+    expect(status?.querySelector('.text-damage-fire')?.textContent.trim()).toBe('10');
+    expect(status?.textContent).toContain('Slashing');
+    expect(status?.textContent).toContain('Fire');
   });
 
   it('shows an untyped roll in the default colour with no type name', async () => {

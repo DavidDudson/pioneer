@@ -2,7 +2,7 @@ import { DamageTone } from '@pioneer/frontier';
 import { DamageType } from '@pioneer/rules/sdk';
 
 /** The colour each damage type's dice and total take. The three physical types share one, as precision follows its weapon. */
-export const DAMAGE_TYPE_TONES: Readonly<Record<DamageType, DamageTone>> = {
+const DAMAGE_TYPE_TONES: Readonly<Record<DamageType, DamageTone>> = {
   [DamageType.Bludgeoning]: DamageTone.Physical,
   [DamageType.Piercing]: DamageTone.Physical,
   [DamageType.Slashing]: DamageTone.Physical,

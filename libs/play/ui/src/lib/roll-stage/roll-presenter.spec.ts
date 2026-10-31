@@ -16,8 +16,7 @@ function rollOf(id: number, groups: RollPresentation['groups']): RollPresentatio
     id,
     label: 'Fireball',
     total: RollTotal.parse(21),
-    damageTypeKey: 'roll.damageType.fire',
-    tone: DamageTone.Fire,
+    lines: [{ total: 21, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' }],
     groups,
   };
 }

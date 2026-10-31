@@ -16,14 +16,21 @@ export interface DiceGroup {
   readonly tone: DamageTone | undefined;
 }
 
+/** What one damage type came to, across its dice and flat terms. */
+interface DamageLine {
+  readonly total: number;
+  readonly tone: DamageTone | undefined;
+  /** The message key of the type's name; unset for the terms that carry no type. */
+  readonly typeKey: string | undefined;
+}
+
 /** A finished roll as the stage shows it: the dice to throw, then the pill that names the result. */
 export interface RollPresentation {
   readonly id: number;
   readonly label: string;
   readonly total: RollTotal;
-  /** The first damage type among the terms, as the message key of its name; unset for an untyped roll. */
-  readonly damageTypeKey: string | undefined;
-  readonly tone: DamageTone | undefined;
+  /** One line per damage type, in the order the types are first written; an untyped roll has one plain line. */
+  readonly lines: readonly DamageLine[];
   readonly groups: readonly DiceGroup[];
 }
 
@@ -36,19 +43,27 @@ function groupOf(term: DiceTermResult): DiceGroup {
   return { notation: `${term.dice.length}d${term.term.size}@${faces}`, tone: damageTone(term.term.tags.type) };
 }
 
+/** Sums the terms per damage type, dice and flat alike; the terms without a type share one line. */
+function linesOf(terms: readonly TermResult[]): DamageLine[] {
+  const sums = new Map<DamageType | undefined, number>();
+  for (const { term, value } of terms) {
+    sums.set(term.tags.type, (sums.get(term.tags.type) ?? 0) + value);
+  }
+  return [...sums].map(([type, total]) => ({
+    total,
+    tone: damageTone(type),
+    typeKey: type === undefined ? undefined : DAMAGE_TYPE_KEYS[type],
+  }));
+}
+
 /** What the roll of `result` looks like on the stage; the engine's faces are the ones the dice land on. */
 export function presentRoll(id: number, label: string, result: RollResult): RollPresentation {
   const dice = result.terms.filter((entry): entry is DiceTermResult => isDiceTerm(entry));
-  const typed: readonly DamageType[] = dice.flatMap(({ term }) =>
-    term.tags.type === undefined ? [] : [term.tags.type],
-  );
-  const first = typed.at(0);
   return {
     id,
     label,
     total: result.total,
-    damageTypeKey: first === undefined ? undefined : DAMAGE_TYPE_KEYS[first],
-    tone: damageTone(first),
+    lines: linesOf(result.terms),
     groups: dice.filter(({ term }) => DRAWN_SIZES.has(String(term.size))).map((term) => groupOf(term)),
   };
 }

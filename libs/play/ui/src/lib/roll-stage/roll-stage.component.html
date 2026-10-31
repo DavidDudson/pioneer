@@ -3,10 +3,14 @@
 }
 <fr-toast [open]="view() !== undefined">
   @if (view(); as shown) {
-    <fr-text [variant]="Heading" [weight]="Bold" [damage]="shown.roll.tone" [numeric]="true">{{ shown.total }}</fr-text>
-    <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
-    @if (shown.roll.damageTypeKey; as typeKey) {
-      <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
+    @for (line of shown.lines; track $index) {
+      <fr-stack direction="horizontal" align="baseline" gap="xs">
+        <fr-text [variant]="Heading" [weight]="Bold" [damage]="line.tone" [numeric]="true">{{ line.total }}</fr-text>
+        @if (line.typeKey; as typeKey) {
+          <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
+        }
+      </fr-stack>
     }
+    <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
   }
 </fr-toast>

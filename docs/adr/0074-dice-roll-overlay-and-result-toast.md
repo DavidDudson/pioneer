@@ -7,7 +7,7 @@
 ## Context
 
 ADR-0065 keeps toasts and every overlay banned: feedback is inline, next to what caused it. A roll is the one event
-where the player wants the opposite. The dice should tumble across the whole screen, and the total should stay in
+where the player wants the opposite. The dice should tumble across the whole screen, and the result should stay in
 view without moving the page or taking the player away from the button they pressed. An inline result next to a
 roll button would be hidden when the page scrolls, and one element per roller cannot be consistent across the sheet,
 the play page and inline text rolls.
@@ -17,9 +17,11 @@ the play page and inline text rolls.
 1. **Roll overlay.** While a roll plays, a transparent canvas covers the viewport. It is `aria-hidden`,
    `pointer-events: none` and holds no focus, so the page stays interactive underneath. It is mounted for the roll
    and removed when the dice have settled and faded out.
-2. **Roll toast.** When the dice settle, a small pill-shaped `role="status"` toast at the bottom centre shows the
-   total and the roll's name. It dismisses itself after a short delay, a newer roll replaces it, and it is the
-   accessible way to learn the result. It never holds a control the player must use, with one future exception: a
+2. **Roll toast.** When the dice settle, a small pill-shaped `role="status"` toast at the bottom centre shows one
+   row per damage type, each its total in that type's colour with the type's name, then the roll's name. Dice and flat
+   terms count alike: `1d6[fire]+10[force]` shows a fire row and a force row. Terms with no type share one plain row,
+   so an untyped roll shows its total alone. It dismisses itself after a short delay, a newer roll replaces it, and it
+   is the accessible way to learn the result. It never holds a control the player must use, with one future exception: a
    button that opens the roll log.
 3. **The engine owns the result.** The rules engine rolls the faces with the app's random source. The animation is
    told which faces to land on (predetermined outcomes), so it can never change a total.
@@ -32,15 +34,15 @@ the play page and inline text rolls.
 7. **Pill.** The toast is round-ended, which frontier's sharp-and-flat rule forbids. `--radius-pill` and
    `rounded-pill` are the one radius, used by `fr-toast` alone; `pioneer/class-tokens` and the built-CSS check allow
    that utility and nothing else.
-8. **Colour.** Dice and the total's text are coloured by damage type from frontier tokens (`--fr-damage-<type>`), read
-   from the computed style when the dice are built, so both themes and modes work. The type is also named in the
-   toast: colour is never the only carrier.
+8. **Colour.** Dice and each row's total are coloured by damage type from frontier tokens (`--fr-damage-<type>`), read
+   from the computed style when the dice are built, so both themes and modes work. Each row also names its type: colour
+   is never the only carrier.
 
 ## Consequences
 
 - Rolls feel physical, and the result is visible wherever the player is on the page.
 - The library cannot colour dice of one throw separately, so a roll of several damage types throws all its dice in the
-  first type's colour; the toast names the types and the roll log breaks the total down per type.
+  first type's colour; the toast sums and names each type in its own row, and the roll log breaks each total down further.
 - A WebGL canvas and Three.js are a new dependency and a lazy chunk; the first roll pays the load, which is why the
   toast also works without the animation.
 - `pioneer/no-interruptions` still bans `<dialog>`, `role="dialog"` and internal `href`; the toast uses
