@@ -2,7 +2,7 @@ import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { containerLoad, InventoryItemId } from '@pioneer/character/domain';
+import { ContainerEffect, containerLoad, InventoryItemId } from '@pioneer/character/domain';
 import type { Inventory, ItemContent } from '@pioneer/character/domain';
 import { LocaleFormat } from '@pioneer/frontier';
 import type { TableColumn } from '@pioneer/frontier/data';
@@ -24,9 +24,18 @@ export interface PlaceRow {
   readonly held: number | undefined;
   /** The whole Bulk it can hold; undefined when unlimited. */
   readonly capacity: number | undefined;
+  /** What the container does to the Bulk it holds, which the Bulk column gives as the reason; undefined for the loose place. */
+  readonly effect: ContainerEffect | undefined;
   /** The lines inside it. */
   readonly lines: number;
 }
+
+/** The message that says why a container's Bulk is what it is, by what it does to the Bulk it holds. */
+const EFFECT_REASONS: Readonly<Record<ContainerEffect, string>> = {
+  [ContainerEffect.AddsAll]: 'character.sheet.inventory.placeEffect.addsAll',
+  [ContainerEffect.Ignores]: 'character.sheet.inventory.placeEffect.ignores',
+  [ContainerEffect.AddsNone]: 'character.sheet.inventory.placeEffect.addsNone',
+};
 
 /** What a column header says, in the active language. */
 interface PlaceHeaders {
@@ -80,10 +89,14 @@ export function placeRows(inventory: Inventory, content: ItemContent, where: Pla
       label: option.label,
       held: load?.held,
       capacity: load?.capacity,
+      effect: load?.effect,
       lines: load?.lines ?? 0,
     };
   });
-  return [{ value: LOOSE, label: loose, held: undefined, capacity: undefined, lines: looseLines }, ...containers];
+  return [
+    { value: LOOSE, label: loose, held: undefined, capacity: undefined, effect: undefined, lines: looseLines },
+    ...containers,
+  ];
 }
 
 /** A place picker's rows, columns and the functions it reads them with. */
@@ -113,7 +126,7 @@ export function injectPlacePicker(
     const inventory = store.selected()?.document.inventory;
     const loose = i18n.translate('character.sheet.inventory.loose');
     return inventory === undefined
-      ? [{ value: LOOSE, label: loose, held: undefined, capacity: undefined, lines: 0 }]
+      ? [{ value: LOOSE, label: loose, held: undefined, capacity: undefined, effect: undefined, lines: 0 }]
       : placeRows(inventory, content(), { moving: moving(), loose });
   });
   const columns = computed(() => {
@@ -138,6 +151,7 @@ function bulkChips(row: PlaceRow, i18n: TranslocoService, format: LocaleFormat):
     return [];
   }
   const held = format.number(row.held / TENTHS);
+  const reason = row.effect === undefined ? [] : [{ label: i18n.translate(EFFECT_REASONS[row.effect]) }];
   return [
     {
       label:
@@ -145,5 +159,6 @@ function bulkChips(row: PlaceRow, i18n: TranslocoService, format: LocaleFormat):
           ? i18n.translate('character.sheet.inventory.placeBulkUnlimited', { held })
           : i18n.translate('character.sheet.inventory.placeBulk', { held, capacity: format.number(row.capacity) }),
     },
+    ...reason,
   ];
 }
