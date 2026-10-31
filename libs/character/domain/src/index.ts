@@ -303,6 +303,7 @@ export {
   CharacterDocumentSchema,
   CorruptCharacterDocumentError,
   decodeCharacterDocument,
+  RITUALS_MAX,
   SPELL_ACCESS_MAX,
   UNPLACED_FEATS_MAX,
   UNPLACED_LANGUAGES_MAX,

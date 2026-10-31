@@ -203,6 +203,11 @@ interface Build {
   readonly choices: BoostChoices;
 }
 
+/** The names of the rituals an export lists. */
+function ritualNames({ names }: PathbuilderImport): PathbuilderName[] {
+  return names.filter(({ kind }) => kind === ImportKind.Ritual).map(({ name }) => name);
+}
+
 /** The feats, then the skills and Lores, the languages and the spells in the slots `build` opens, each read after the last. */
 function slotFills(value: PathbuilderImport, content: ImportContent, { create, choices: built }: Build): SlotFills {
   const feats = placeFeats(create(built).document, content, value.feats);
@@ -216,7 +221,13 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const spells = placeSpells(create(withFocus).document, content, value.casters);
   return {
     choices: { ...withFocus, ...spells.choices },
-    unplaced: { ...keptPicks(feats.unplaced, languages.unplaced, content.lookup), lores: skills.lores },
+    unplaced: {
+      ...keptPicks(
+        { feats: feats.unplaced, languages: languages.unplaced, rituals: ritualNames(value) },
+        content.lookup,
+      ),
+      lores: skills.lores,
+    },
     skillGaps: skills.gaps,
     spellGaps: [...spells.gaps, ...focus.gaps],
   };

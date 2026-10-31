@@ -148,6 +148,12 @@ const VERSION_15 = {
   overrides: VERSION_14.overrides.map((override) => ({ ...override, byRole: 'player' })),
 };
 
+/** Version 16, before a build listed the rituals it knows: `build` had no `rituals`. */
+const VERSION_16 = {
+  ...VERSION_15,
+  schemaVersion: 16,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -168,4 +174,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_13.schemaVersion), VERSION_13],
   [CharacterSchemaVersion.parse(VERSION_14.schemaVersion), VERSION_14],
   [CharacterSchemaVersion.parse(VERSION_15.schemaVersion), VERSION_15],
+  [CharacterSchemaVersion.parse(VERSION_16.schemaVersion), VERSION_16],
 ]);

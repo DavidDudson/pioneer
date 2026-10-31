@@ -352,6 +352,10 @@
       "kitsHint": "A kit adds every item in it at once, what its backpack holds packed inside.",
       "kitsLoadError": "The kits could not be loaded. Try again."
     },
+    "rituals": {
+      "heading": "Rituals",
+      "unknown": "Unknown content"
+    },
     "unplacedPicks": {
       "heritageHeading": "Heritage the ancestry does not offer",
       "heritageExplain": "The import named this heritage but the ancestry does not offer it, so it was kept as imported and breaks a rule. Pick a heritage, or dismiss it.",

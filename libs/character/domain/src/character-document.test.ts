@@ -31,6 +31,7 @@ describe('decodeCharacterDocument', () => {
       spellAccess: [],
       unplacedFeats: [],
       unplacedLanguages: [],
+      rituals: [],
       lores: {},
       repertoireSwaps: [],
       boons: [],

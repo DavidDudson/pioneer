@@ -23,6 +23,9 @@ export const UNPLACED_FEATS_MAX = 100;
 /** The most imported languages a build keeps with no slot to hold them. */
 export const UNPLACED_LANGUAGES_MAX = 100;
 
+/** The most rituals a build lists as known. */
+export const RITUALS_MAX = 200;
+
 /** A repertoire slot swapped at `level`. */
 const RepertoireSwapRecord = z.strictObject({ level: Level, slot: SlotKey });
 
@@ -31,7 +34,8 @@ const RepertoireSwapRecord = z.strictObject({ level: Level, slot: SlotKey });
  * `spellAccess` lists the uncommon and rare spells the character may prepare, each once (#478). `unplacedFeats` lists
  * the feats an import found that no slot offers, each once: kept so the character carries them, flagged as breaking
  * a rule until a pick of one in a slot, or the player, takes it off the list. `unplacedHeritage` and `unplacedLanguages`
- * keep, the same way, the heritage the ancestry does not offer and the languages no slot has room for.
+ * keep, the same way, the heritage the ancestry does not offer and the languages no slot has room for. `rituals`
+ * lists the rituals the character knows, each once (#1556 feat(interop): carry Pathbuilder rituals onto the character).
  */
 export const BuildSchema = z.strictObject({
   choices: z.record(SlotKey, ChoiceValue).default({}),
@@ -39,6 +43,7 @@ export const BuildSchema = z.strictObject({
   unplacedFeats: z.array(ContentId).max(UNPLACED_FEATS_MAX).readonly().check(uniqueItems).default([]),
   unplacedHeritage: ContentId.optional(),
   unplacedLanguages: z.array(ContentId).max(UNPLACED_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
+  rituals: z.array(ContentId).max(RITUALS_MAX).readonly().check(uniqueItems).default([]),
   /** The custom Lores the player named, by topic: `lore:sailing` picks read their name here (#572). */
   lores: z.record(Slug, LoreName).default({}),
   /** The repertoire slot swapped at each level, one a level-up (#594). */
@@ -64,6 +69,7 @@ export const CharacterDocumentSchema = z.strictObject({
     spellAccess: [],
     unplacedFeats: [],
     unplacedLanguages: [],
+    rituals: [],
     lores: {},
     repertoireSwaps: [],
     boons: [],
