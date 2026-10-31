@@ -182,5 +182,23 @@ export function importArchetypes(journals: readonly JournalDocument[], context: 
       byFeat.set(feat, [...(byFeat.get(feat) ?? []), { archetype: entry.envelope.id, dedication }]);
     }
   }
-  return { entries: archetypes.map(({ entry }) => entry), byFeat, gaps: archetypes.flatMap(({ gaps }) => gaps) };
+  const entries = archetypes.map(({ entry }) => entry);
+  const unlocked = journals.length === 0 ? [] : unlockedDedications(context.envelopes.values(), entries);
+  return { entries, byFeat, gaps: [...archetypes.flatMap(({ gaps }) => gaps), ...unlocked] };
+}
+
+/**
+ * The dedication feats among `envelopes` that no archetype of `archetypes` names as its dedication: without that entry
+ * the dedication lock never applies to the archetype (#467), so each is reported.
+ */
+function unlockedDedications(
+  envelopes: Iterable<ImportedEnvelope>,
+  archetypes: readonly ArchetypeEntry[],
+): KindDataGap[] {
+  const named = new Set(archetypes.map(({ kindData }) => kindData.data.dedication));
+  return [...envelopes].flatMap((envelope): KindDataGap[] =>
+    envelope.traits.includes(DEDICATION) && !named.has(envelope.id)
+      ? [{ entry: envelope.id, reason: KindDataGapReason.MissingArchetype, field: 'dedication', raw: envelope.name }]
+      : [],
+  );
 }
