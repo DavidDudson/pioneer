@@ -1,6 +1,14 @@
 import type { DamageTone } from '@pioneer/frontier';
 import { TermKind } from '@pioneer/rules/dice';
-import type { DiceTermResult, FortunedRoll, RollResult, RollTotal, TermResult } from '@pioneer/rules/dice';
+import type {
+  DamageApplication,
+  DamageInstance,
+  DiceTermResult,
+  FortunedRoll,
+  RollResult,
+  RollTotal,
+  TermResult,
+} from '@pioneer/rules/dice';
 import type { CheckNode, DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
 
 import { DAMAGE_TYPE_KEYS, DEGREE_KEYS } from '../roll-labels';
@@ -21,6 +29,8 @@ export interface DiceGroup {
 /** What one damage type came to, across its dice and flat terms. */
 interface DamageLine {
   readonly total: number;
+  /** What the dice came to before a basic save scaled it; unset when nothing did. */
+  readonly unadjusted?: number | undefined;
   readonly tone: DamageTone | undefined;
   /** The message key of the type's name; unset for the terms that carry no type. */
   readonly typeKey: string | undefined;
@@ -86,4 +96,18 @@ export function withDegree(
   check?: CheckNode,
 ): RollPresentation {
   return { ...presentation, degreeKey: DEGREE_KEYS[degree], outcome: outcomeView(degree, check) };
+}
+
+function savedLine(instance: DamageInstance): DamageLine {
+  return {
+    total: instance.taken,
+    unadjusted: instance.taken === instance.rolled ? undefined : instance.rolled,
+    tone: damageTone(instance.type),
+    typeKey: instance.type === undefined ? undefined : DAMAGE_TYPE_KEYS[instance.type],
+  };
+}
+
+/** `presentation` for damage a basic save scaled: each type's line shows what was taken, and what the dice came to. */
+export function withSave(presentation: RollPresentation, damage: DamageApplication): RollPresentation {
+  return { ...presentation, lines: [...damage.immediate, ...damage.persistent].map((instance) => savedLine(instance)) };
 }

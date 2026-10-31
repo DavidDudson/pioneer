@@ -22,6 +22,9 @@ const FIREBALL: RollPresentation = {
   groups: [{ notation: '6d6@3,4,3,4,3,4', tone: DamageTone.Fire }],
 };
 
+/** Fireball's damage after a basic save halved it. */
+const SAVED_LINE = { total: 10, unadjusted: 21, tone: DamageTone.Fire, typeKey: 'roll.damageType.fire' };
+
 const LONGSWORD: RollPresentation = {
   id: 3,
   label: 'Longsword',
@@ -105,6 +108,16 @@ describe(RollStage, () => {
     const status = hostOf(fixture).querySelector('[role="status"]');
     expect(status?.textContent).toContain('Success');
     expect(status?.textContent).toContain('Takes half damage');
+  });
+
+  it('shows the dice total beside what a basic save left of it', async () => {
+    reduceMotion(true);
+    const { fixture, presenter } = await render();
+    presenter.present({ ...FIREBALL, lines: [SAVED_LINE] });
+    await fixture.whenStable();
+    const status = hostOf(fixture).querySelector('[role="status"]');
+    expect(status?.textContent).toContain('10');
+    expect(status?.textContent).toContain('of 21');
   });
 
   it('names no degree for a roll that was not against a DC', async () => {

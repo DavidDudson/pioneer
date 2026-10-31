@@ -7,11 +7,20 @@ import { RollOutcome } from '../roll-outcome/roll-outcome.component';
 import type { RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 
+const UNADJUSTED_KEY = 'roll.toast.unadjusted';
+
+/** A muted word beside a damage total: a message key and its values, translated in the template. */
+interface ToastNote {
+  readonly key: string;
+  readonly params: { readonly total?: string };
+}
+
 /** One damage type's row in the toast, its total written for the viewer's locale. */
 interface ToastLine {
   readonly total: string;
   readonly tone: DamageTone | undefined;
-  readonly typeKey: string | undefined;
+  /** What the dice came to before a basic save scaled them, then the type's name; each only when there is one. */
+  readonly notes: readonly ToastNote[];
 }
 
 /** What the toast shows of a roll: each type's total as the viewer's locale writes it, and the roll for its label. */
@@ -49,7 +58,16 @@ export class RollStage {
     if (roll === undefined) {
       return undefined;
     }
-    const lines = roll.lines.map(({ total, tone, typeKey }) => ({ total: this.#format.number(total), tone, typeKey }));
+    const lines = roll.lines.map(({ total, unadjusted, tone, typeKey }) => ({
+      total: this.#format.number(total),
+      tone,
+      notes: [
+        ...(unadjusted === undefined
+          ? []
+          : [{ key: UNADJUSTED_KEY, params: { total: this.#format.number(unadjusted) } }]),
+        ...(typeKey === undefined ? [] : [{ key: typeKey, params: {} }]),
+      ],
+    }));
     return { lines, roll };
   });
 
