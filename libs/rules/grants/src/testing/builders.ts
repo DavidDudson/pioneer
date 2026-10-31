@@ -14,15 +14,17 @@ import {
   SlotKey,
   Slug,
   SourceRef,
+  UNLIMITED,
+  Uses,
 } from '@pioneer/rules/sdk';
 import type { ToggleKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
-import { slotKeyOf } from '../choices';
 import type { ChoicePicks } from '../choices';
 import type { ContentLookup, GrantEntry, GrantRoot } from '../grant-entry';
 import type { GrantInputs } from '../resolve-grants';
 import type { RootSlotDefinition } from '../root-slots';
+import { slotKeyOf } from '../takes';
 import { toggleKeyOf } from '../toggles';
 import type { ToggleStates } from '../toggles';
 
@@ -63,6 +65,15 @@ export function feat(slug: string, options: readonly string[], name = slug): Gra
   };
 }
 
+/** A feat that can be taken `times` times, or any number of times without one. */
+export function repeatable(slug: string, rules: readonly object[], times?: number): GrantEntry {
+  return {
+    ...feat(slug, []),
+    rules: entry(slug, rules).rules,
+    maxTakable: times === undefined ? UNLIMITED : Uses.parse(times),
+  };
+}
+
 /** Looks entries up by id, and lists them by kind, among `entries`. */
 export function lookupOf(entries: readonly GrantEntry[]): ContentLookup {
   const byId = new Map(entries.map((found) => [found.id, found]));
@@ -90,9 +101,9 @@ export function picksOf(pairs: readonly (readonly [SlotKey, string])[] = []): Ch
   return new Map(pairs.map(([slot, value]) => [slot, ChoiceValue.parse(value)]));
 }
 
-/** The slot of rule `rule` on the test pack's entry `slug`. */
-export function slotOf(slug: string, rule: number): SlotKey {
-  return slotKeyOf(idOf(slug), RuleIndex.parse(rule));
+/** The slot of rule `rule` of the test pack's entry `slug`, on the take the slot `via` picked if there is one. */
+export function slotOf(slug: string, rule: number, via?: SlotKey): SlotKey {
+  return slotKeyOf(idOf(slug), RuleIndex.parse(rule), via);
 }
 
 /** What a test resolves: everything but the content and roots has a default. */

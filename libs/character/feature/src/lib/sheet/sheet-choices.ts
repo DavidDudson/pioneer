@@ -1,9 +1,10 @@
 import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
 import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
+import { FIRST_TAKE } from '@pioneer/rules/grants';
 import type { EntryFacts } from '@pioneer/rules/grants';
 import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentRegistry, ContentText, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
 import type { ChoiceLine, ChoiceSelection, SlotPickerFacts, SlotPickerRow } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
@@ -23,6 +24,9 @@ const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
 
 /** Slots labelled by their kind: a voluntary flaw, a prepared or repertoire spell slot, a signature spell. */
 type KindSubject = Extract<SlotSubject, { kind: 'flaw' | 'spell' | 'signature' }>;
+
+/** A `ChoiceSet` slot whose entry is named. */
+type ChoiceSubject = Extract<SlotSubject, { kind: 'choice' }> & { readonly entryName: ContentText };
 
 /** What each of the character's own slots is called. */
 const ROOT_LABEL_KEYS: ReadonlyMap<ContentKind, string> = new Map([
@@ -51,6 +55,19 @@ function kindLabelOf(subject: KindSubject): MessageDescriptor {
     : message('rules.choices.slot.rankSpell', { rank: subject.rank });
 }
 
+/** "Elf: Skill", "Elf choice"; on a later take of a repeatable feat, "Domain Initiate (take 2): Select a domain.". */
+function choiceLabelOf(subject: ChoiceSubject): MessageDescriptor {
+  const { entryName, prompt, take } = subject;
+  if (take === undefined) {
+    return prompt === undefined
+      ? message('rules.choices.slot.choiceOf', { entry: entryName })
+      : message('rules.choices.slot.choice', { entry: entryName, prompt });
+  }
+  return prompt === undefined
+    ? message('rules.choices.slot.choiceOfTake', { entry: entryName, take })
+    : message('rules.choices.slot.choiceTake', { entry: entryName, take, prompt });
+}
+
 /** "Ancestry", "Level 5 boost", "Voluntary flaw", "Level 3 skill increase", "Language from Multilingual", "Elf: Skill" ("Elf choice" without a prompt). */
 function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   switch (subject?.kind) {
@@ -77,9 +94,7 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
       if (subject.entryName === undefined) {
         return message(UNKNOWN_LABEL);
       }
-      return subject.prompt === undefined
-        ? message('rules.choices.slot.choiceOf', { entry: subject.entryName })
-        : message('rules.choices.slot.choice', { entry: subject.entryName, prompt: subject.prompt });
+      return choiceLabelOf({ ...subject, entryName: subject.entryName });
     }
     case undefined: {
       return message(UNKNOWN_LABEL);
@@ -164,7 +179,13 @@ export function sheetChoiceSlots(registry: ContentRegistry, character: Character
   const content = sheetSlotContent(registry);
   return listedChoices(characterGrants(character.document, content), content.lookup).map(({ slot, entryName }) => ({
     key: slot.key,
-    label: labelOf({ kind: SlotSubjectKind.Choice, entry: slot.origin.entry, entryName, prompt: slot.prompt }),
+    label: labelOf({
+      kind: SlotSubjectKind.Choice,
+      entry: slot.origin.entry,
+      entryName,
+      prompt: slot.prompt,
+      ...(slot.take === FIRST_TAKE ? {} : { take: slot.take }),
+    }),
     options: slot.options.map((option) => ({ value: option.value, label: option.label })),
     rows: slot.options.map((option): SlotPickerRow => {
       const id = ContentId.safeParse(option.value);

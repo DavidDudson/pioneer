@@ -1,4 +1,5 @@
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActionData, Skills, Uses } from './action';
@@ -23,6 +24,10 @@ export type FeatCategory = ValueOf<typeof FeatCategory>;
 const FeatCategorySchema = z.enum(FeatCategory);
 
 const TAGS_MAX = 16;
+
+/** Which time a character takes a feat, counting from 1: the second Domain Initiate is take 2. */
+export const Take = Pg.smallint().positive().brand<'Take'>();
+export type Take = z.infer<typeof Take>;
 
 /** `maxTakable` for a feat a character can take any number of times (Foundry pf2e stores `null`). */
 export const UNLIMITED = 'unlimited';

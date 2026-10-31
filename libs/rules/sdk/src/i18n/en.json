@@ -981,6 +981,8 @@
         "deity": "Deity",
         "choice": "{entry}: {prompt}",
         "choiceOf": "{entry} choice",
+        "choiceTake": "{entry} (take {take}): {prompt}",
+        "choiceOfTake": "{entry} choice (take {take})",
         "unknown": "A choice the character no longer has",
         "heritage": "Heritage",
         "flaw": "Voluntary flaw",

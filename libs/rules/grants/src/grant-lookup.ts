@@ -64,6 +64,12 @@ function overrides(entry: ContentEntry): Pick<GrantEntry, 'overrides'> {
     : {};
 }
 
+/** How often a feat can be taken; nothing for any other kind, or for a feat taken once. */
+function maxTakable(entry: ContentEntry): Pick<GrantEntry, 'maxTakable'> {
+  const max = entry.kind === ContentKind.Feat ? entry.data.maxTakable : undefined;
+  return max === undefined ? {} : { maxTakable: max };
+}
+
 /** Where a deity's options go: Foundry's `deity:primary`, as a character has one deity. */
 const DEITY_PREFIX = 'deity:primary';
 
@@ -192,6 +198,7 @@ function envelopeEntry(entry: ContentEntry): GrantEntry | undefined {
     ...archetypeFields(entry),
     ...valued(entry),
     ...overrides(entry),
+    ...maxTakable(entry),
     ...deityFields(entry),
   };
 }

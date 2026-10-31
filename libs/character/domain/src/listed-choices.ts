@@ -24,6 +24,11 @@ export function listedChoices(resolution: GrantResolution, lookup: ContentLookup
         return listed && entry !== undefined ? [{ slot, entryName: entry.name }] : [];
       })
       // By the entry asking, then by its rule, so the list keeps its order as slots are answered.
-      .toSorted((left, right) => left.entryName.localeCompare(right.entryName) || left.slot.rule - right.slot.rule)
+      .toSorted(
+        (left, right) =>
+          left.entryName.localeCompare(right.entryName) ||
+          left.slot.rule - right.slot.rule ||
+          left.slot.take - right.slot.take,
+      )
   );
 }

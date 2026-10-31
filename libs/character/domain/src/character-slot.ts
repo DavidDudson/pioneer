@@ -9,6 +9,7 @@ import {
   SlotRank,
   Slug,
   SpellRank,
+  Take,
 } from '@pioneer/rules/sdk';
 import { MessageDescriptorSchema } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
@@ -70,10 +71,11 @@ export const SlotSubject = z.discriminatedUnion('kind', [
     entry: ContentId.optional(),
     entryName: ContentText.optional(),
   }),
-  /** A `ChoiceSet` on `entry`, asking `prompt`. */
+  /** A `ChoiceSet` on `entry`, asking `prompt`; on a later take of a repeatable feat, `take` says which. */
   z.strictObject({
     kind: z.literal(SlotSubjectKind.Choice),
     entry: ContentId,
+    take: Take.optional(),
     entryName: ContentText.optional(),
     prompt: ContentText.optional(),
   }),

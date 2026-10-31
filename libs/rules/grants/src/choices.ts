@@ -1,6 +1,6 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import { ContentId, OriginHopKind, RuleElementKey, RuleIndex, SlotKey } from '@pioneer/rules/sdk';
+import { ContentId, OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ChoiceSetElement,
   ChoiceValue,
@@ -10,6 +10,8 @@ import type {
   OriginHop,
   RuleElement,
   RuleSlug,
+  SlotKey,
+  Take,
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
@@ -18,6 +20,7 @@ import { GrantsMessage } from './messages';
 import { contextOf, isOffered, Offer, offeredOptions } from './offers';
 import type { OfferedOption } from './offers';
 import { optionOf } from './option-of';
+import { earlierPicks, slotKeyOf } from './takes';
 
 /**
  * A `ChoiceSet` on the character: where it is, what it asks and what it offers. `options` is worked out the first
@@ -26,6 +29,8 @@ import { optionOf } from './option-of';
  */
 export interface ChoiceSlot {
   readonly key: SlotKey;
+  /** Which take of its entry holds it: 1 for an entry taken once, the second Domain Initiate's slots are take 2. */
+  readonly take: Take;
   /** The name the pick is stored under, for `GrantItem { choice }` on the same entry. */
   readonly flag: RuleSlug;
   /** Hops down to the entry holding the `ChoiceSet`. */
@@ -57,6 +62,11 @@ export interface ChoiceContext {
 /** An entry on the character and the hops down to it. */
 export interface EntryAt {
   readonly entry: GrantEntry;
+  readonly take: Take;
+  /** The slot whose pick put this take there, for a repeatable feat: it names the take's slots. */
+  readonly via: SlotKey | undefined;
+  /** The `via` of each earlier take of the entry, in take order. */
+  readonly before: readonly (SlotKey | undefined)[];
   readonly hops: readonly OriginHop[];
 }
 
@@ -90,14 +100,6 @@ interface IndexedChoice {
 
 function isChoiceSet(element: RuleElement): element is ChoiceSetElement {
   return element.key === RuleElementKey.ChoiceSet;
-}
-
-/**
- * The slot of rule `rule` on entry `entry`. The entry is on the character once (a duplicate is skipped), so the
- * pair names one slot, and stays the same however the entry got there.
- */
-export function slotKeyOf(entry: ContentId, rule: RuleIndex): SlotKey {
-  return SlotKey.parse(`${entry}:${rule}`);
 }
 
 /** What answering a slot adds to it. */
@@ -173,7 +175,7 @@ class ChoiceReader {
     const place = this.#place({ element, rule });
     const value = this.#context.picks.get(place.key);
     if (value === undefined) {
-      this.#open.push(slotOf(place, new Offer(() => offeredOptions(element, this.#context))));
+      this.#open.push(slotOf(place, this.#offer(element, place, this.#context)));
     } else {
       this.#readPick({ element, place }, value);
     }
@@ -194,12 +196,22 @@ class ChoiceReader {
     const apart = option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
     // Order Explorer lists an order unless the druid has it, or this very pick joined it: its own option is the way in.
     const context = isOffered(element, value, apart) ? apart : this.#context;
-    const offer = new Offer(() => offeredOptions(element, context));
-    if (isOffered(element, value, context)) {
+    const offer = this.#offer(element, place, context);
+    if (isOffered(element, value, context) && !this.#earlierPicks(place).has(value)) {
       this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
       this.#refuse(slotOf(place, offer), value);
     }
+  }
+
+  #earlierPicks(place: SlotPlace): ReadonlySet<ChoiceValue> {
+    return earlierPicks({ ...place, entry: this.#at.entry.id, before: this.#at.before }, this.#context.picks);
+  }
+
+  /** What the slot offers: the options of `element` less what an earlier take of the entry picked. */
+  #offer(element: ChoiceSetElement, place: SlotPlace, context: ChoiceContext): Offer {
+    const earlier = this.#earlierPicks(place);
+    return new Offer(() => offeredOptions(element, context).filter((option) => !earlier.has(option.value)));
   }
 
   /** A pick that is not on offer: an error naming it and the slot, and the slot open again. */
@@ -214,7 +226,8 @@ class ChoiceReader {
     const { entry, hops } = this.#at;
     const origin: Origin = { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
     return {
-      key: slotKeyOf(entry.id, rule),
+      key: slotKeyOf(entry.id, rule, this.#at.via),
+      take: this.#at.take,
       flag: element.flag,
       origin,
       rule,
