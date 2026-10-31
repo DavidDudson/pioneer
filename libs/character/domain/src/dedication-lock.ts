@@ -41,7 +41,7 @@ export interface GrantedFeats {
  * feat picked in a slot, or granted by one, is counted by its slot and not here. Each feat once, however many features
  * grant it, and none already in `taken`: a feat granted and also picked counts once, for the pick.
  */
-function featsGranted(
+export function featsGranted(
   { items, featSlots }: GrantedFeats,
   feats: FeatContent,
   taken: readonly ContentId[],
