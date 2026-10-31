@@ -1,0 +1,32 @@
+<fr-async-form [form]="form" [action]="save" [describeError]="describeError">
+  <fr-stack gap="sm">
+    @if (current(); as current) {
+      <fr-text tone="muted">{{ current }}</fr-text>
+    }
+    <fr-number-field
+      [label]="(isAdjust() ? Message.AmountAdjust : Message.AmountSet) | transloco"
+      [formField]="form.value"
+    />
+    @if (isAdjust()) {
+      <fr-segmented-field [label]="Message.Type | transloco" [options]="types" [formField]="form.type" />
+    }
+    <fr-text-area-field
+      [label]="Message.Reason | transloco"
+      [hint]="Message.ReasonHint | transloco"
+      [error]="reasonError()"
+      [rows]="3"
+      [formField]="form.reason"
+    />
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        type="submit"
+        variant="primary"
+        [disabled]="form().invalid()"
+        [pendingLabel]="Message.Pending | transloco"
+        [successLabel]="Message.Done | transloco"
+      >
+        {{ Message.Submit | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+</fr-async-form>

@@ -4,6 +4,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Drawer } from '@pioneer/frontier';
 
 import { SheetBreakdown } from '../sheet-breakdown/sheet-breakdown.component';
+import { SheetOverrideDrawer } from '../sheet-override/sheet-override-drawer.component';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 
 /**
@@ -12,7 +13,7 @@ import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state'
  */
 @Component({
   selector: 'pio-sheet-drawers',
-  imports: [Drawer, NgComponentOutlet, SheetBreakdown, TranslocoPipe],
+  imports: [Drawer, NgComponentOutlet, SheetBreakdown, SheetOverrideDrawer, TranslocoPipe],
   templateUrl: './sheet-drawers.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
