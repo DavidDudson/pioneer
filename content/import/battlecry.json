@@ -3905,67 +3905,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-commandants-scabbard",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.elbRo41iHweUkXtJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
-            "type": "status",
-            "value": 4
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-commanding-draw",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.dpoQrtDsUeEILBJ3",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollTwice",
-          "raw": {
-            "keep": "higher",
-            "key": "RollTwice",
-            "selector": "{item|flags.system.rulesSelections.weapon}-attack"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-convert-arrows",
       "foundry": "Compendium.pf2e.equipment-effects.Item.YUj8kxyGTWRbbyBu",
       "gaps": [
@@ -4091,39 +4030,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-featherlight-fletching",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.WXVOuzbFCs7rGpF9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": ["item:ranged"],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.weapon}",
-            "key": "ItemAlteration",
-            "mode": "multiply",
-            "property": "range-increment",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-hand-chords",
       "foundry": "Compendium.pf2e.equipment-effects.Item.UrNdfN1da9V3aFM4",
       "gaps": [
@@ -4136,38 +4042,6 @@
             "selector": ["attack-roll", "perception", "saving-throw", "skill-check"],
             "type": "status",
             "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-hand-of-mercy",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.hyyVAOi1My9PKKqo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.weapon}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "property": "traits",
-            "value": "nonlethal"
           }
         }
       ]
@@ -4414,27 +4288,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-morph-jewel",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.ihZsJpB9v90EFQSG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-phasing-trine",
       "foundry": "Compendium.pf2e.equipment-effects.Item.R5zy2SnV5GSgKeiL",
       "gaps": [
@@ -4593,88 +4446,6 @@
             "slug": "shield-paragon-saves",
             "type": "status",
             "value": "@item.origin.system.attributes.shield.ac"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-slayers-stone",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.xLKLKfm0p8ubp4Fe",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["slayers-stone:aberration", "target:trait:aberration"]
-                  },
-                  {
-                    "and": ["slayers-stone:animal", "target:trait:animal"]
-                  },
-                  {
-                    "and": ["slayers-stone:beast", "target:trait:beast"]
-                  },
-                  {
-                    "and": ["slayers-stone:celestial", "target:trait:celestial"]
-                  },
-                  {
-                    "and": ["slayers-stone:construct", "target:trait:construct"]
-                  },
-                  {
-                    "and": ["slayers-stone:dragon", "target:trait:dragon"]
-                  },
-                  {
-                    "and": ["slayers-stone:elemental", "target:trait:elemental"]
-                  },
-                  {
-                    "and": ["slayers-stone:fey", "target:trait:fey"]
-                  },
-                  {
-                    "and": ["slayers-stone:fiend", "target:trait:fiend"]
-                  },
-                  {
-                    "and": ["slayers-stone:giant", "target:trait:giant"]
-                  },
-                  {
-                    "and": ["slayers-stone:monitor", "target:trait:monitor"]
-                  },
-                  {
-                    "and": ["slayers-stone:ooze", "target:trait:ooze"]
-                  },
-                  {
-                    "and": [
-                      "slayers-stone:fungus-and-plant",
-                      {
-                        "or": ["target:trait:fungus", "target:trait:plant"]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
           }
         }
       ]
@@ -4957,40 +4728,6 @@
             "flag": "weapon",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-valorous-coin",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.8wGzXqCOUvPw8oMy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": [
-              "{item|flags.system.rulesSelections.weapon}-attack",
-              "{item|flags.system.rulesSelections.weapon}-damage"
-            ],
-            "type": "circumstance",
-            "value": 1
           }
         }
       ]

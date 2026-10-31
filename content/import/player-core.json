@@ -3847,20 +3847,6 @@
         },
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "predicate": ["emblazon-antimagic:item:weapon"],
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -3868,77 +3854,6 @@
             "selector": "saving-throw",
             "type": "circumstance",
             "value": "@actor.heldShield.acBonus"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalSuccess"],
-            "predicate": ["emblazon-antimagic:item:weapon"],
-            "selector": "{item|flags.system.rulesSelections.weapon}-attack",
-            "text": "PF2E.SpecificRule.Cleric.EmblazonAntimagic.WeaponNote",
-            "title": "{item|name}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "effect:effect-emblazon-armament",
-      "foundry": "Compendium.pf2e.feat-effects.Item.CXMDSu8pKh0OJkUo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["shield"]
-            },
-            "flag": "shield",
-            "key": "ChoiceSet",
-            "predicate": ["emblazon-armament:item:shield"],
-            "prompt": "PF2E.SpecificRule.Prompt.Shield"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "predicate": ["emblazon-armament:item:weapon"],
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.shield}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["emblazon-armament:item:shield"],
-            "property": "hardness",
-            "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["emblazon-armament:item:weapon"],
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
-            "type": "status",
-            "value": 1
           }
         }
       ]
@@ -3961,20 +3876,6 @@
             "key": "ChoiceSet",
             "predicate": ["emblazon-energy:item:shield"],
             "prompt": "PF2E.SpecificRule.Prompt.Shield"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "predicate": ["emblazon-energy:item:weapon"],
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
         }
       ]

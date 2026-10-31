@@ -2124,52 +2124,6 @@
     {
       "type": "entry",
       "pack": "hellbreakers",
-      "slug": "effect:effect-thorn-of-milani-spirit-damage",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.XjMGlQTXx13OMAkN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "spirit",
-            "diceNumber": 1,
-            "dieSize": "d4",
-            "key": "DamageDice",
-            "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage",
-            "slug": "thorn-of-milani"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageAlteration",
-          "raw": {
-            "key": "DamageAlteration",
-            "mode": "upgrade",
-            "predicate": ["thorn-of-milani:thorn-of-milani-moderate"],
-            "property": "dice-number",
-            "selectors": ["{item|flags.pf2e.rulesSelections.weapon}-damage"],
-            "slug": "thorn-of-milani",
-            "value": 2
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "hellbreakers",
       "slug": "effect:effect-thorn-of-milani-unholy-weakness",
       "foundry": "Compendium.pf2e.equipment-effects.Item.ThhQDjUXKL7DcdbF",
       "gaps": [

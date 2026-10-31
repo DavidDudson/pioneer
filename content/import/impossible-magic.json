@@ -2892,58 +2892,12 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": ["item:equipped"],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "force",
-            "diceNumber": "ceil((@item.level - 2)/2)",
-            "dieSize": "d8",
-            "key": "DamageDice",
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
             "mode": "override",
             "path": "flags.system.blinkCharge",
             "value": "@item.level"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["failure"],
-            "selector": "{item|flags.system.rulesSelections.weapon}-attack",
-            "text": "PF2E.SpecificRule.BlinkCharge.Note.Failure",
-            "title": "{item|name}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Note",
-          "raw": {
-            "key": "Note",
-            "outcome": ["criticalFailure"],
-            "selector": "{item|flags.system.rulesSelections.weapon}-attack",
-            "text": "PF2E.SpecificRule.BlinkCharge.Note.CriticalFailure",
-            "title": "{item|name}"
           }
         }
       ]
