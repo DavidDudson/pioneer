@@ -9,7 +9,7 @@ import {
   parseDiceExpression,
   rollWithFortune,
 } from '@pioneer/rules/dice';
-import type { DiceExpression, RandomSource } from '@pioneer/rules/dice';
+import type { DiceExpression, RandomSource, RollResult } from '@pioneer/rules/dice';
 import { Dc } from '@pioneer/rules/sdk';
 import type { DegreeOfSuccess } from '@pioneer/rules/sdk';
 
@@ -30,6 +30,8 @@ function flatCheck(): DiceExpression {
 export interface RecoveryRoll {
   readonly degree: DegreeOfSuccess;
   readonly view: RollView;
+  /** The roll that counted, for the roll stage. */
+  readonly result: RollResult;
 }
 
 /** The DC of a recovery check: 10 plus the dying value. */
@@ -46,5 +48,9 @@ export function rollRecoveryCheck(dying: Dying, random: RandomSource, id: number
     throw new Error('A roll keeps one of its rolls');
   }
   const degree = degreeOfSuccess(checkOutcome(kept.result), recoveryDc(dying));
-  return { degree: degree.degree, view: rollView(id, { expression, roll, degree, damage: undefined }) };
+  return {
+    degree: degree.degree,
+    view: rollView(id, { expression, roll, degree, damage: undefined }),
+    result: kept.result,
+  };
 }

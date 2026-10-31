@@ -3,7 +3,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { CarryState, CharacterPatchField, INVENTORY_KINDS, InventoryItemId } from '@pioneer/character/domain';
 import type { PlayCommand } from '@pioneer/character/domain';
 import { Stack } from '@pioneer/frontier';
-import { RANDOM_SOURCE } from '@pioneer/play/ui';
+import { presentRoll, RANDOM_SOURCE, RollPresenter } from '@pioneer/play/ui';
 import type { ContentKind } from '@pioneer/rules/sdk';
 import { WandSpellsView } from '@pioneer/rules/ui';
 import type { WandLine } from '@pioneer/rules/ui';
@@ -35,7 +35,9 @@ export class SheetWands {
   readonly #i18n = inject(TranslocoService);
   readonly #characters = inject(CharacterStore);
   readonly #play = inject(PlayStore);
+  readonly #presenter = inject(RollPresenter);
   readonly #random = inject(RANDOM_SOURCE);
+  #rolled = 0;
 
   /** Whether the character holds an item: a wand has to be in hand to be a spell source. */
   readonly #holding = computed((): boolean =>
@@ -65,7 +67,10 @@ export class SheetWands {
   /** Rolls the flat check and shows what it comes to; nothing applies until the player confirms. */
   protected readonly overcharge = (key: string): void => {
     this.error.set(undefined);
-    const roll = rollFlatCheck(this.#random);
+    const { natural: roll, result } = rollFlatCheck(this.#random);
+    this.#rolled += 1;
+    const label = this.#i18n.translate('character.sheet.counted.overcharge');
+    this.#presenter.present(presentRoll(this.#rolled, label, result));
     this.pending.update((checks) => ({ ...checks, [InventoryItemId.parse(key)]: { roll } }));
   };
 
