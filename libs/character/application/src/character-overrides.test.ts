@@ -24,7 +24,7 @@ const clock = fixedClock('2026-10-12T10:00:00Z');
 const SHIELD = OverrideInput.parse({ target: 'ac', mode: 'adjust', value: 2, type: 'item', reason: 'Shield spell' });
 const ADD: CharacterPatch = { field: CharacterPatchField.AddOverride, override: SHIELD };
 
-function at(expectedVersion: Version, patch: CharacterPatch): PatchCharacterBody {
+function at(expectedVersion: Version, patch: object): PatchCharacterBody {
   return PatchCharacterBody.parse({ expectedVersion, patch });
 }
 
