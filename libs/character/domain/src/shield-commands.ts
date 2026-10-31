@@ -4,7 +4,8 @@ import type { Hardness } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import type { HeldShield } from './held-shields';
+import { endEffects } from './effect-ending';
+import type { HeldShield, ShieldGrant } from './held-shields';
 import { afterDamage } from './hit-point-edits';
 import { InventoryItemId } from './inventory';
 import type { PlayLimits, PlayState } from './play-state';
@@ -26,6 +27,8 @@ export interface ShieldStats {
   readonly brokenThreshold: HitPoints;
   /** A battle form's shield: it takes no damage, so it never breaks and none is kept on it. */
   readonly undamageable?: true;
+  /** A shield an effect gives: the effect, and what ends it. */
+  readonly granted?: ShieldGrant;
 }
 
 /** The shields the character holds, by the inventory item, as the server's content gives them. */
@@ -37,10 +40,18 @@ export const NO_SHIELDS: ShieldContent = new Map();
 /** The shields `held` as content, by the inventory item that holds each. */
 export function shieldContent(held: readonly HeldShield[]): ShieldContent {
   return new Map(
-    held.map(({ item, hardness, hitPoints, brokenThreshold, undamageable }): [InventoryItemId, ShieldStats] => [
-      item,
-      { hardness, hitPoints, brokenThreshold, ...(undamageable === true ? { undamageable } : {}) },
-    ]),
+    held.map(
+      ({ item, hardness, hitPoints, brokenThreshold, undamageable, granted }): [InventoryItemId, ShieldStats] => [
+        item,
+        {
+          hardness,
+          hitPoints,
+          brokenThreshold,
+          ...(undamageable === true ? { undamageable } : {}),
+          ...(granted === undefined ? {} : { granted }),
+        },
+      ],
+    ),
   );
 }
 
@@ -148,7 +159,8 @@ export function isShieldCommand<Command extends { readonly field: unknown }>(
 /**
  * `play` after a Shield Block: the shield prevents damage up to its Hardness, and the character and the shield each take
  * the rest. A shield the character does not hold, or one that is broken, blocks nothing. A shield taken to 0 Hit Points is
- * destroyed, so its damage is no longer kept.
+ * destroyed, so its damage is no longer kept. A shield an effect gives ends that effect when it ends on a block, or
+ * when it is destroyed and ends then.
  */
 export function afterBlock(play: PlayState, command: ShieldCommand, limits: PlayLimits): PlayState {
   const { item, damage } = command;
@@ -158,10 +170,22 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
   }
   const { remaining } = blocked(damage.taken, stats.hardness);
   const hurt = afterDamage(play, { ...damage, taken: remaining }, limits.hitPoints);
-  if (stats.undamageable === true) {
-    return hurt;
-  }
-  const shields = shieldDamaged(play.shields, item, { stats, amount: remaining });
-  const destroyed = conditionAfterBlock(stats, play.shields[item] ?? NONE, damage.taken) === ShieldCondition.Destroyed;
-  return { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };
+  const destroyed =
+    stats.undamageable !== true &&
+    conditionAfterBlock(stats, play.shields[item] ?? NONE, damage.taken) === ShieldCondition.Destroyed;
+  const shields =
+    stats.undamageable === true ? hurt.shields : shieldDamaged(hurt.shields, item, { stats, amount: remaining });
+  const kept = { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };
+  return effectEnded(stats.granted, destroyed) ? withoutShield(kept, item, stats.granted) : kept;
+}
+
+/** Whether a block ended the effect that gives the shield: always when it ends on a block, and when destroyed if it ends then. */
+function effectEnded(granted: ShieldGrant | undefined, destroyed: boolean): granted is ShieldGrant {
+  return granted !== undefined && (granted.endsOnBlock || (destroyed && granted.endsWhenDestroyed));
+}
+
+/** `play` without the effect that gave the shield `item`, and without the damage kept for the shield. */
+function withoutShield(play: PlayState, item: InventoryItemId, { effect }: ShieldGrant): PlayState {
+  const ended = play.effects.filter((each) => each.effect === effect).map(({ id }) => id);
+  return endEffects({ ...play, shields: shieldCleared(play.shields, item) }, ended);
 }

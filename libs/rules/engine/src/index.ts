@@ -102,4 +102,5 @@ export {
 } from './effect-line';
 export { type EffectScope, summariseEffects, type SummarisedEntry } from './effect-summary';
 export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
+export { type ShieldInPlay, shieldsInPlay } from './granted-shields';
 export { applyMovementCost, movementCostsInPlay, type MovementCostInPlay } from './movement-cost';

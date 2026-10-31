@@ -1,5 +1,5 @@
-import { battleFormInPlay, NO_MODIFIERS } from '@pioneer/rules/engine';
-import type { FormInPlay, ModifierInputs } from '@pioneer/rules/engine';
+import { NO_MODIFIERS, shieldsInPlay } from '@pioneer/rules/engine';
+import type { ModifierInputs, ShieldInPlay } from '@pioneer/rules/engine';
 import { ContentKind, Hardness, HitPoints, NumericItemProperty } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { ContentNamespace, derivedId } from '@pioneer/shared/kernel';
@@ -11,6 +11,13 @@ import { equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
 
+/** What ends the effect that gives a shield, when it is one: the effect, and the blows that end it. */
+export interface ShieldGrant {
+  readonly effect: ContentId;
+  readonly endsOnBlock: boolean;
+  readonly endsWhenDestroyed: boolean;
+}
+
 /** A shield the character holds: what the sheet shows beside its Strikes. */
 export interface HeldShield {
   /** The inventory item that holds it, which keeps the damage it has taken. */
@@ -20,30 +27,40 @@ export interface HeldShield {
   readonly hitPoints: HitPoints;
   /** Half its Hit Points, rounded down: at or below it the shield is broken. */
   readonly brokenThreshold: HitPoints;
-  /** A shield of a battle form: it cannot be damaged, so it never breaks and its Hit Points are not kept. */
+  /** A shield that cannot be damaged: it never breaks and no damage is kept for it. */
   readonly undamageable?: true;
+  /** A shield an effect gives, which no inventory item holds: what ends that effect. */
+  readonly granted?: ShieldGrant;
 }
 
 const BROKEN_DIVISOR = 2;
 
 const NO_HIT_POINTS = HitPoints.parse(0);
 
-/** The shield a battle form carries, as a held one: its id comes from the form's rule, so it is the same every time. */
-function formShield(form: FormInPlay | undefined): readonly HeldShield[] {
-  const shield = form?.form.shield;
-  if (form === undefined || shield === undefined) {
-    return [];
-  }
-  return [
-    {
-      item: InventoryItemId.parse(derivedId(ContentNamespace, `form-shield/${form.id}`)),
-      entry: form.origin.entry,
-      hardness: shield.hardness,
-      hitPoints: NO_HIT_POINTS,
-      brokenThreshold: NO_HIT_POINTS,
-      undamageable: true,
-    },
-  ];
+/** A shield an effect gives, as a held one: its id comes from the rule that gives it, so it is the same every time. */
+function grantedShield({
+  id,
+  source,
+  hardness,
+  hitPoints,
+  brokenThreshold,
+  endsOnBlock,
+  endsWhenDestroyed,
+}: ShieldInPlay): HeldShield {
+  const held: HeldShield = {
+    item: InventoryItemId.parse(derivedId(ContentNamespace, `granted-shield/${id}`)),
+    entry: source,
+    hardness,
+    hitPoints: hitPoints ?? NO_HIT_POINTS,
+    brokenThreshold,
+    granted: { effect: source, endsOnBlock, endsWhenDestroyed },
+  };
+  return hitPoints === undefined ? { ...held, undamageable: true } : held;
+}
+
+/** The shields the effects in play give, as held ones. */
+function grantedShields(inputs: ModifierInputs): readonly HeldShield[] {
+  return shieldsInPlay(inputs).map((shield) => grantedShield(shield));
 }
 
 /**
@@ -74,5 +91,5 @@ export function heldShields(
       },
     ];
   });
-  return [...held, ...formShield(battleFormInPlay(inPlay))];
+  return [...held, ...grantedShields(inPlay)];
 }

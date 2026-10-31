@@ -1,8 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DamageTotal } from '@pioneer/rules/dice';
-import { Hardness, HitPoints } from '@pioneer/rules/sdk';
+import { ContentId, Hardness, HitPoints } from '@pioneer/rules/sdk';
 
+import { ActiveEffectSchema, EffectInstanceId } from './effects';
+import type { ActiveEffect } from './effects';
+import type { ShieldGrant } from './held-shields';
 import { InventoryItemId } from './inventory';
 import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayState } from './play-state';
@@ -128,5 +131,60 @@ describe('Shield Block with the shield of a battle form', () => {
 
   test('it is never broken or destroyed, however much it blocks', () => {
     expect(shieldCondition(FORM, hp(100))).toBe(ShieldCondition.Whole);
+  });
+});
+const instance = (id: string, effect: ContentId): ActiveEffect =>
+  ActiveEffectSchema.parse({ id: EffectInstanceId.parse(id), effect });
+
+describe('Shield Block with a shield an effect gives', () => {
+  const EFFECT = ContentId.parse('00000000-0000-4000-8000-0000000000e1');
+  const OTHER_EFFECT = ContentId.parse('00000000-0000-4000-8000-0000000000e2');
+  const SPELL = instance('00000000-0000-4000-8000-0000000000a1', EFFECT);
+  const BYSTANDER = instance('00000000-0000-4000-8000-0000000000a2', OTHER_EFFECT);
+  const WITH_SPELL: PlayState = { ...FRESH_PLAY, effects: [SPELL, BYSTANDER] };
+
+  const given = (stats: Partial<ShieldStats>, damage = 0): PlayState =>
+    applyPlayCommand(
+      { ...WITH_SPELL, shields: damage === 0 ? {} : { [ITEM]: hp(damage) } },
+      { field: PlayCommandField.BlockWithShield, item: ITEM, damage: untypedDamage(hp(12)) },
+      {
+        ...within(MAX),
+        shields: new Map([
+          [ITEM, { ...STEEL, granted: { effect: EFFECT, endsOnBlock: false, endsWhenDestroyed: false }, ...stats }],
+        ]),
+      },
+    );
+  const grant = (endsOnBlock: boolean, endsWhenDestroyed: boolean): ShieldGrant => ({
+    effect: EFFECT,
+    endsOnBlock,
+    endsWhenDestroyed,
+  });
+
+  test('a shield that ends on a block takes its effect with it, and leaves the other effects', () => {
+    const after = given({ granted: grant(true, false) });
+
+    expect(after.effects).toStrictEqual([BYSTANDER]);
+  });
+
+  test('a shield that does not end on a block keeps its effect', () => {
+    expect(given({ granted: grant(false, false) }).effects).toStrictEqual([SPELL, BYSTANDER]);
+  });
+
+  test('a shield taken to 0 Hit Points ends its effect when it ends then', () => {
+    const fragile = { hitPoints: hp(1), brokenThreshold: hp(0) };
+
+    expect(given({ ...fragile, granted: grant(false, true) }).effects).toStrictEqual([BYSTANDER]);
+  });
+
+  test('a destroyed shield that does not end its effect is whole again, with no damage kept', () => {
+    const fragile = { hitPoints: hp(1), brokenThreshold: hp(0) };
+    const after = given({ ...fragile, granted: grant(false, false) });
+
+    expect(after.effects).toStrictEqual([SPELL, BYSTANDER]);
+    expect(after.shields).toStrictEqual({});
+  });
+
+  test('damage on a shield whose effect ended is no longer kept', () => {
+    expect(given({ granted: grant(true, false) }, 3).shields).toStrictEqual({});
   });
 });

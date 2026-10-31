@@ -386,7 +386,7 @@ export { KeyItemId } from './key-item-id';
 export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';
 export { buildRules, type EquippedInputs, equippedInputs, equippedRules, type EquippedRules } from './equipped';
-export { type HeldShield, heldShields } from './held-shields';
+export { type HeldShield, heldShields, type ShieldGrant } from './held-shields';
 export {
   characterStatisticInputs,
   characterStatistics,

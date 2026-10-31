@@ -16809,5 +16809,80 @@
         "type": "encounter"
       }
     }
+  },
+  {
+    "id": "42d8e1dc-68eb-5261-8221-3b9e2ac36372",
+    "pack": "impossible-magic",
+    "kind": "effect",
+    "slug": "effect:spell-effect-bone-shield",
+    "name": "Spell Effect: Bone Shield",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "impossible-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "93f4e230-bde5-5b07-844b-07565669011b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Shield Block with the bone shield, which has Hardness 3 and 1 Hit Point and no Broken Threshold. A destroyed shield is whole again for the next block. The +2 circumstance bonus to Hardness against piercing and slashing damage, and the +2 circumstance bonus to AC, are not modelled."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantShield",
+        "hardness": 3,
+        "hitPoints": 1,
+        "brokenThreshold": 0,
+        "brackets": [
+          {
+            "start": 3,
+            "hardness": 6
+          },
+          {
+            "start": 5,
+            "hardness": 9
+          },
+          {
+            "start": 7,
+            "hardness": 12
+          },
+          {
+            "start": 9,
+            "hardness": 15
+          }
+        ]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
   }
 ]
