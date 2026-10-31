@@ -68,6 +68,15 @@ describe('a class dedication’s choice of muse, order or school', () => {
     expect(untranslated).toHaveLength(1);
   });
 
+  test('keeps a RollOption that is conditional, which a ChoiceSet’s own roll option would make unconditional', () => {
+    const [choice, option] = MUSE;
+    const conditional = { ...option, predicate: ['feat:bard-dedication'] };
+    const { rules, untranslated } = translateRules(ENTRY, [choice, conditional], CONTEXT);
+
+    expect(rules[0]).not.toHaveProperty('rollOption');
+    expect(untranslated).toHaveLength(1);
+  });
+
   test('is left for the backlog when a filter holds something other than a tag', () => {
     const odd = { ...MUSE[0], choices: { filter: ['item:level:1'], slugsAsValues: true } };
     const { untranslated } = translateRules(ENTRY, [odd], CONTEXT);
