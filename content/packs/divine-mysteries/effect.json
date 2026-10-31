@@ -3249,12 +3249,12 @@
       {
         "key": "Resistance",
         "type": ["slashing", "piercing"],
-        "value": 5
+        "value": "5 + 5 * floor((@item.level - 4) / 2)"
       },
       {
         "key": "Weakness",
         "type": ["area-damage", "splash-damage"],
-        "value": 5
+        "value": "5 + 5 * floor((@item.level - 4) / 2)"
       }
     ],
     "data": {
