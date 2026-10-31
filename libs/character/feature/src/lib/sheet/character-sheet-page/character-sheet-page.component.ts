@@ -30,9 +30,10 @@ import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
+import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
-import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
@@ -84,6 +85,7 @@ import { SheetState } from '../sheet-state';
     FeatDisplayStore,
     ...CHARACTER_CONTENT_PROVIDERS,
     ...SHEET_ROLLS_PROVIDERS,
+    ...SHEET_OVERRIDES_PROVIDERS,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

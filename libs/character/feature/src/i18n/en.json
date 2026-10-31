@@ -88,6 +88,20 @@
       "pending": "Re-rolling…",
       "problems": "Some kept picks can't be kept. See the marked picks."
     },
+    "override": {
+      "title": "Override",
+      "titleAdjust": "Adjust {name}",
+      "titleSet": "Set {name}",
+      "amountAdjust": "Amount to add",
+      "amountSet": "Value to pin",
+      "current": "Currently {total}",
+      "type": "Modifier type",
+      "reason": "Reason",
+      "reasonHint": "Required. Everyone who can see this character can read it.",
+      "submit": "Add override",
+      "pending": "Adding…",
+      "done": "Added"
+    },
     "sidePanel": {
       "title": "Content",
       "open": "Search content"

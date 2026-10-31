@@ -16,4 +16,12 @@ export const StatisticsMessage = {
   FromForm: 'rules.statistics.fromForm',
   /** The label of the button that rolls a check: "Roll Perception". */
   Roll: 'rules.statistics.roll',
+  /** The link that opens the form to adjust a statistic by hand. */
+  Adjust: 'rules.statistics.adjust',
+  /** "Adjust Perception": the accessible name of that link. */
+  AdjustLabel: 'rules.statistics.adjustLabel',
+  /** The link that opens the form to set a statistic by hand. */
+  Set: 'rules.statistics.set',
+  /** "Set Perception": the accessible name of that link. */
+  SetLabel: 'rules.statistics.setLabel',
 } as const;

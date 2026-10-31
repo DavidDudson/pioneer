@@ -24,6 +24,7 @@ import type { ContentRegistry, Predicate, RollOption, VariantRuleEntry } from '@
 
 import { attributeModifiers } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
+import { overrideRules } from './character-override';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
 import { buildRules, equippedInputs, equippedRules } from './equipped';
@@ -105,7 +106,7 @@ export interface StatisticSources {
   readonly as?: RollAs | undefined;
 }
 
-/** The rules the character's items, conditions and build put in play, with those of its enabled variant rules first. */
+/** The rules its items, conditions and build put in play: variant rules first, overrides last so a set one pins. */
 export function rulesInPlay(
   document: CharacterDocument,
   { registry, slots: read, variants, as }: Pick<StatisticSources, 'registry' | 'slots' | 'variants' | 'as'>,
@@ -113,9 +114,10 @@ export function rulesInPlay(
   const slots = { ...read, situation: as?.options };
   const items = itemContent(registry);
   const equipped = equippedRules(document, items, slots);
+  const overrides = overrideRules(document);
   return {
     ...equipped,
-    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules],
+    rules: [...variantRulesInPlay(variants), ...buildRules(document, items, slots), ...equipped.rules, ...overrides],
   };
 }
 

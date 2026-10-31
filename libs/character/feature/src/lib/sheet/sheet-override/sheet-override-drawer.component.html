@@ -1,0 +1,5 @@
+<fr-drawer [param]="overrides.param" [title]="title()" [(open)]="open">
+  @for (target of targets(); track target.selector) {
+    <pio-sheet-override-form [target]="target" (saved)="open.set(false)" />
+  }
+</fr-drawer>

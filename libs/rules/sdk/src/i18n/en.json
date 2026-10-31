@@ -880,7 +880,11 @@
       "computed": "computed {computed}",
       "fromForm": "from {form}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
-      "roll": "Roll {name}"
+      "roll": "Roll {name}",
+      "adjust": "Adjust",
+      "adjustLabel": "Adjust {name}",
+      "set": "Set",
+      "setLabel": "Set {name}"
     },
     "strikes": {
       "damage": "{roll} {type}",

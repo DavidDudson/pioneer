@@ -1,6 +1,7 @@
 export { AttributesView, type OpenBoostLine } from './lib/attributes/attributes.component';
 export { ATTRIBUTE_MESSAGES } from './lib/attributes/attributes-messages';
 export { BreakdownView } from './lib/breakdown/breakdown.component';
+export { MODIFIER_TYPE_MESSAGES } from './lib/breakdown/breakdown-messages';
 export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
 export { NO_ORIGIN_NAMES, type OriginNames } from './lib/origin-chain/origin-names';
@@ -34,6 +35,11 @@ export { type NamedStrike, StrikesView, type StrikesShield } from './lib/strikes
 export { StrikesMessage } from './lib/strikes/strikes-messages';
 export { StatisticsMessage } from './lib/statistics/statistics-messages';
 export { SkillsView } from './lib/skills/skills.component';
+export {
+  STATISTIC_OVERRIDES,
+  StatisticOverrideMode,
+  type StatisticOverrides,
+} from './lib/statistics/statistic-overrides';
 export { type ChoiceLine, type ChoiceSelection, ChoiceState } from './lib/choices/choice-line';
 export { ChoicesView } from './lib/choices/choices.component';
 export type { ChoiceLockChange } from './lib/choices/choices.component';
