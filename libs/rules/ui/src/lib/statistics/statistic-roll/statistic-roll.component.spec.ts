@@ -24,7 +24,7 @@ async function render(total: number): Promise<ComponentFixture<StatisticRoll>> {
 }
 
 function labelOf(fixture: ComponentFixture<StatisticRoll>): HTMLElement | null {
-  return (fixture.nativeElement as HTMLElement).querySelector('button[aria-label="Roll Acrobatics"] span');
+  return (fixture.nativeElement as HTMLElement).querySelector('button[aria-label^="Roll Acrobatics"] span');
 }
 
 describe(StatisticRoll, () => {

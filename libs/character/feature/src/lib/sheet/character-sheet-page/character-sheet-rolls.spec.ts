@@ -26,7 +26,7 @@ function rolling(...faces: readonly number[]): void {
 }
 
 function rollButton(root: HTMLElement, name: string): HTMLButtonElement {
-  return present(root.querySelector<HTMLButtonElement>(`button[aria-label="Roll ${name}"]`));
+  return present(root.querySelector<HTMLButtonElement>(`button[aria-label^="Roll ${name} "]`));
 }
 
 function lastRoll(root: HTMLElement): HTMLElement {
@@ -51,7 +51,7 @@ describe('CharacterSheetPage rolls', () => {
     const { root } = await openSheet(FIGHTER);
 
     await vi.waitFor(() => {
-      expect(root.querySelector('button[aria-label="Roll Athletics"]')).not.toBeNull();
+      expect(root.querySelector('button[aria-label^="Roll Athletics"]')).not.toBeNull();
     });
     expect(lastRoll(root).querySelector('pio-roll-card')).toBeNull();
   });

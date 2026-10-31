@@ -136,7 +136,7 @@ export const Rollable: StatisticsStory = {
   decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: CLAIMING_ROLLER }] })],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByRole('button', { name: 'Roll Fortitude' })).toHaveTextContent('+10');
+    await expect(canvas.getByRole('button', { name: /^Roll Fortitude/u })).toHaveTextContent('+10');
   },
 };
 

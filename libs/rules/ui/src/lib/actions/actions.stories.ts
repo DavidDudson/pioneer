@@ -38,7 +38,7 @@ export const Now: ActionsStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('heading', { name: '1 action' })).toBeVisible();
-    await expect(canvas.getByRole('button', { name: 'Roll Escape' })).toBeVisible();
+    await expect(canvas.getByRole('button', { name: /^Roll Escape/u })).toBeVisible();
     await expect(canvas.queryByText('Pick a Lock')).toBeNull();
   },
 };

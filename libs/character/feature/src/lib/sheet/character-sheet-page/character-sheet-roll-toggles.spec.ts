@@ -49,7 +49,7 @@ function lastRoll(root: HTMLElement): HTMLElement {
 
 async function pressPerception(root: HTMLElement): Promise<void> {
   const button = await vi.waitFor(() =>
-    present(root.querySelector<HTMLButtonElement>('button[aria-label="Roll Perception"]')),
+    present(root.querySelector<HTMLButtonElement>('button[aria-label^="Roll Perception"]')),
   );
   button.click();
   render();
@@ -68,7 +68,7 @@ async function undeadToggle(root: HTMLElement): Promise<HTMLButtonElement> {
 
 /** Perception's total as the vitals list it, "+4" giving 4; throws until it is listed. */
 function perceptionTotal(root: HTMLElement): number {
-  const row = present(root.querySelector('button[aria-label="Roll Perception"]')?.closest('fr-list-item'));
+  const row = present(root.querySelector('button[aria-label^="Roll Perception"]')?.closest('fr-list-item'));
   const total = present(row.querySelector('pio-statistic-total'));
   const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(total));
   const value = Number(match?.groups?.['value']);
@@ -85,7 +85,7 @@ describe('CharacterSheetPage conditional toggles when rolling', () => {
     const { root } = await openSheet(MERISIEL);
 
     const button = await vi.waitFor(() =>
-      present(root.querySelector<HTMLButtonElement>('button[aria-label="Roll Perception"]')),
+      present(root.querySelector<HTMLButtonElement>('button[aria-label^="Roll Perception"]')),
     );
     button.click();
     render();

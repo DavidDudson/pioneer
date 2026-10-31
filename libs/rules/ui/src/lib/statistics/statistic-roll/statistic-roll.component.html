@@ -3,7 +3,7 @@
     <fr-button
       [variant]="outline"
       [size]="small"
-      [ariaLabel]="Message.Roll | transloco: { name: name() }"
+      [ariaLabel]="Message.Roll | transloco: { name: name(), modifier: label() }"
       (pressed)="roll()"
     >
       <fr-text monospace minWidth="modifier">{{ label() }}</fr-text>
