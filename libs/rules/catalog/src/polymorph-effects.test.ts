@@ -108,3 +108,21 @@ describe('polymorph effect gaps in Player Core', () => {
     expect(rule).toMatchObject({ option: 'self:effect:ritual-reversion' });
   });
 });
+
+/** The traits of a player-core effect, by slug; empty when the pack has no such effect. */
+async function traitsOf(slug: string): Promise<readonly string[]> {
+  const file = await import('@pioneer/content/packs/player-core/effect.json');
+  const effect = ContentEntryFile.parse(file.default).find(
+    (entry) => entry.kind === ContentKind.Effect && entry.slug === slug,
+  );
+  return effect?.traits ?? [];
+}
+
+describe('polymorph spells whose effect only replaces other forms', () => {
+  test.each(['cursed-metamorphosis', 'disperse-into-air'])(
+    'Spell Effect: %s has the polymorph trait',
+    async (spell) => {
+      expect(await traitsOf(`effect:spell-effect-${spell}`)).toContain('polymorph');
+    },
+  );
+});
