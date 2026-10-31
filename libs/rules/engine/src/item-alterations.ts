@@ -11,8 +11,8 @@ import {
 } from '@pioneer/rules/sdk';
 import type {
   DamageType,
-  Level,
   ItemAlterationElement,
+  Level,
   Origin,
   RichText,
   RollOptionTail,
