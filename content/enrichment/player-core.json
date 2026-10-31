@@ -603,11 +603,13 @@
   },
   "armor:heavy-barding-large": {
     "book": "player-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+    "page": 295
   },
   "armor:heavy-barding-small-or-medium": {
     "book": "player-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+    "page": 295
   },
   "armor:hide-armor": {
     "book": "player-core",
@@ -621,7 +623,8 @@
   },
   "armor:light-barding": {
     "book": "player-core",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=2778",
+    "page": 295
   },
   "armor:padded-armor": {
     "book": "player-core",
@@ -8609,7 +8612,8 @@
   },
   "weapon:dwarven-war-axe": {
     "book": "player-core",
-    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=420"
+    "aon": "https://2e.aonprd.com/Weapons.aspx?ID=420",
+    "page": 279
   },
   "weapon:elven-curve-blade": {
     "book": "player-core",

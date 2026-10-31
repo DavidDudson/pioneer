@@ -1146,7 +1146,8 @@
   },
   "weapon:heat-seeking-harpoon": {
     "book": "cheliax-infernal-inheritance",
-    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5238"
+    "aon": "https://2e.aonprd.com/Equipment.aspx?ID=5238",
+    "page": 103
   },
   "weapon:pike-of-the-monster-slayer": {
     "book": "cheliax-infernal-inheritance",
