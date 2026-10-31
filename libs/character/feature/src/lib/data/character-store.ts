@@ -145,8 +145,7 @@ export class CharacterStore {
   public readonly saveState: Signal<SaveState> = this.#edits.state;
 
   /**
-   * Sends the open character's latest failed edit again, against its current version. Does nothing after a conflict,
-   * or with none.
+   * Sends the open character's latest failed edit again, against its current version; nothing after a conflict.
    */
   public async retry(): Promise<void> {
     const failed = this.#edits.failed();
@@ -289,7 +288,8 @@ export class CharacterStore {
 
   /** Picks `selection` in `slot`, a custom Lore with the name the player gave it. The server refuses a slot the character has at no level, or an option it doesn't offer. */
   public async selectSlot(slot: SlotKey, selection: ChoiceValue, loreName?: LoreName): Promise<void> {
-    await this.patch({ field: CharacterPatchField.SelectSlot, slot, selection, loreName });
+    const named = loreName === undefined ? {} : { loreName };
+    await this.patch({ field: CharacterPatchField.SelectSlot, slot, selection, ...named });
   }
 
   /** Empties `slot`, keeping every other pick. */
