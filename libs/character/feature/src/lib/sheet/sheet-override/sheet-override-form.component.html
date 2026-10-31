@@ -25,7 +25,7 @@
         [pendingLabel]="Message.Pending | transloco"
         [successLabel]="Message.Done | transloco"
       >
-        {{ Message.Submit | transloco }}
+        {{ (editing() ? Message.SubmitEdit : Message.Submit) | transloco }}
       </fr-async-button>
     </fr-stack>
   </fr-stack>

@@ -35,6 +35,8 @@ export const SHEET_SECTIONS = {
   variantRules: { anchor: 'sheet-variant-rules', headingKey: 'character.sheet.variantRulesHeading' },
   /** The inventory limits the character is held to, set by its owner or by its campaign (ADR-0064). */
   ruleLimits: { anchor: 'sheet-rule-limits', headingKey: 'character.sheet.ruleLimitsHeading' },
+  /** What the player or GM changed by hand in the character's statistics, and why. */
+  overrides: { anchor: 'sheet-overrides', headingKey: 'character.sheet.overridesHeading' },
   inventory: { anchor: 'sheet-inventory', headingKey: 'character.sheet.inventory.heading' },
   /** Rest, daily preparations, Refocus and start of session (#347). */
   rest: { anchor: 'sheet-rest', headingKey: 'character.sheet.rest.heading' },
@@ -58,6 +60,7 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.packs,
     SHEET_SECTIONS.variantRules,
     SHEET_SECTIONS.ruleLimits,
+    SHEET_SECTIONS.overrides,
   ],
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,

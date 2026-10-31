@@ -99,12 +99,32 @@
       "reason": "Reason",
       "reasonHint": "Required. Everyone who can see this character can read it.",
       "submit": "Add override",
+      "submitEdit": "Save override",
       "pending": "Adding…",
       "done": "Added"
     },
     "sidePanel": {
       "title": "Content",
       "open": "Search content"
+    },
+    "overridesHeading": "Overrides",
+    "overrides": {
+      "effectAdjust": "{value} {type}",
+      "effectSet": "Pinned to {value}",
+      "empty": "No overrides",
+      "emptyHint": "An override is a change made by hand to a statistic: a modifier added to it, or a value pinned over it, always with a reason. Use Adjust or Set beside a statistic to make one.",
+      "setBy": "Set by {user}",
+      "unknownUser": "a user",
+      "history": "Earlier states",
+      "earlier": "{effect}, set by {user}, “{reason}”",
+      "edit": "Edit",
+      "editLabel": "Edit the override on {name}",
+      "remove": "Remove",
+      "removeLabel": "Remove the override on {name}",
+      "removeConfirm": "Press again to remove the override on {name}",
+      "removing": "Removing…",
+      "removeReason": "Why remove the override on {name}",
+      "removeReasonHint": "Required. The override stays on the record, marked removed."
     },
     "identityHeading": "Identity",
     "attributesHeading": "Attributes",
