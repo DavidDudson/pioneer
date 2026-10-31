@@ -19,6 +19,21 @@ export async function characterGuidePack() {
   ]);
 }
 
+export async function ancestryGuidePack() {
+  return pack(import('@pioneer/content/packs/ancestry-guide/pack.json'), [
+    import('@pioneer/content/packs/ancestry-guide/action.json'),
+    import('@pioneer/content/packs/ancestry-guide/ancestry-feature.json'),
+    import('@pioneer/content/packs/ancestry-guide/ancestry.json'),
+    import('@pioneer/content/packs/ancestry-guide/consumable.json'),
+    import('@pioneer/content/packs/ancestry-guide/effect.json'),
+    import('@pioneer/content/packs/ancestry-guide/equipment.json'),
+    import('@pioneer/content/packs/ancestry-guide/feat.json'),
+    import('@pioneer/content/packs/ancestry-guide/heritage.json'),
+    import('@pioneer/content/packs/ancestry-guide/rune.json'),
+    import('@pioneer/content/packs/ancestry-guide/weapon.json'),
+  ]);
+}
+
 export async function impossibleLandsPack() {
   return pack(import('@pioneer/content/packs/impossible-lands/pack.json'), [
     import('@pioneer/content/packs/impossible-lands/action.json'),

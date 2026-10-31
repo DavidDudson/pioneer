@@ -1,0 +1,3527 @@
+{
+  "pin": {
+    "tag": "pf2e-8.6.0",
+    "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
+  },
+  "backlog": [
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "ancestry:android",
+      "foundry": "Compendium.pf2e.ancestries.Item.GfLwE884NoRC7cRi",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "ancestry:fleshwarp",
+      "foundry": "Compendium.pf2e.ancestries.Item.FXlXmNBFiiz9oasi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.ActorSizeSmall",
+                "value": "sm"
+              },
+              {
+                "label": "PF2E.ActorSizeMedium",
+                "value": "med"
+              }
+            ],
+            "flag": "fleshwarpSize",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.CreatureSize"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CreatureSize",
+          "raw": {
+            "key": "CreatureSize",
+            "value": "{item|flags.system.rulesSelections.fleshwarpSize}"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "ancestry:kitsune",
+      "foundry": "Compendium.pf2e.ancestries.Item.4BL5wf1VF9feC2rY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:change-shape"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.ChangeShape.Kitsune"
+              }
+            ]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "predicate": [
+              {
+                "not": "non-tailless-form"
+              }
+            ],
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Tailless",
+                "value": "tailless"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "ancestry:sprite",
+      "foundry": "Compendium.pf2e.ancestries.Item.TRqoeYfGAFjQbviF",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[journals]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-augment-senses",
+      "foundry": "Compendium.pf2e.feat-effects.Item.JwDCoBIwyhOFnDGZ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-conduct-energy",
+      "foundry": "Compendium.pf2e.equipment-effects.Item.lU8IO9FIGK1DXVMy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.TraitAcid",
+                "value": "acid"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitSonic",
+                "value": "sonic"
+              }
+            ],
+            "flag": "damageType",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": {
+              "includeHandwraps": true,
+              "ownedItems": true,
+              "predicate": [
+                "item:equipped",
+                {
+                  "or": ["item:rune:property:conducting", "item:trait:resonant"]
+                }
+              ],
+              "types": ["weapon"]
+            },
+            "flag": "weapon",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.damageType}",
+            "key": "FlatModifier",
+            "predicate": ["item:trait:resonant"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage",
+            "value": "@weapon.system.damage.dice"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.damageType}",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["item:rune:property:conducting"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "category": "persistent",
+            "critical": true,
+            "damageType": "{item|flags.system.rulesSelections.damageType}",
+            "diceNumber": 1,
+            "dieSize": "d8",
+            "key": "DamageDice",
+            "predicate": ["item:rune:property:conducting"],
+            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-elemental-assault",
+      "foundry": "Compendium.pf2e.feat-effects.Item.XaZdQHF9GvaJINqH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "damageType": "{item|flags.system.rulesSelections.element}",
+            "diceNumber": 1,
+            "dieSize": "d6",
+            "key": "DamageDice",
+            "selector": "strike-damage"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-elemental-bulwark",
+      "foundry": "Compendium.pf2e.feat-effects.Item.U6BAwYT5iC8cmBDG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.elementalBulwark.value",
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.elementalBulwark.value",
+            "predicate": ["feat:improved-elemental-bulwark"],
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "flags.system.elementalBulwark.value",
+            "predicate": ["feat:dualborn"],
+            "value": "floor(@actor.level/2)"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.element}",
+            "value": "{actor|flags.system.elementalBulwark.value}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-energize-wings",
+      "foundry": "Compendium.pf2e.feat-effects.Item.8E5SCmFndGAvgkTw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "selector": "fly-speed",
+            "value": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-guided-by-the-stars",
+      "foundry": "Compendium.pf2e.feat-effects.Item.raLQ458uiyd3lI2K",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "higher",
+            "key": "RollTwice",
+            "predicate": ["guided-by-the-stars:skill-check"],
+            "removeAfterRoll": true,
+            "selector": "skill-check"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "RollTwice",
+          "raw": {
+            "keep": "higher",
+            "key": "RollTwice",
+            "predicate": ["guided-by-the-stars:saving-throw"],
+            "removeAfterRoll": true,
+            "selector": "saving-throw"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-mutate-weapon",
+      "foundry": "Compendium.pf2e.feat-effects.Item.ITvyvbB234bxceRK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "DamageDice",
+          "raw": {
+            "key": "DamageDice",
+            "override": {
+              "upgrade": true
+            },
+            "selector": "{item|flags.system.rulesSelections.mutateWeaponTarget}-damage"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "weapon",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:{item|flags.system.rulesSelections.mutateWeaponTarget}", "mutate-weapon-bonus:reach"],
+            "property": "traits",
+            "value": "reach"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["mutate-weapon-bonus:accuracy"],
+            "selector": "{item|flags.system.rulesSelections.mutateWeaponTarget}-attack-roll",
+            "type": "status",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-nanite-surge-bonus",
+      "foundry": "Compendium.pf2e.feat-effects.Item.pFo9DVyaDb4LdURY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "removeAfterRoll": "if-enabled",
+            "selector": "skill-check",
+            "type": "status",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["feat:protective-subroutine"],
+            "removeAfterRoll": "if-enabled",
+            "selector": "saving-throw",
+            "type": "status",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "hideIfDisabled": true,
+            "key": "FlatModifier",
+            "predicate": ["feat:offensive-subroutine"],
+            "removeAfterRoll": "if-enabled",
+            "selector": "attack",
+            "type": "status",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-rampaging-form",
+      "foundry": "Compendium.pf2e.feat-effects.Item.DWrsDJte9sez0Ppi",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "effect:effect-repair-module",
+      "foundry": "Compendium.pf2e.feat-effects.Item.DjxZpQ4xJWWvYQqY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FastHealing",
+          "raw": {
+            "details": "",
+            "key": "FastHealing",
+            "type": "fast-healing",
+            "value": "floor(@actor.level / 2)"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "equipment:orc-warmask",
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZEDDVQDtUZ2qOB5q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "selector": "{item|flags.system.rulesSelections.tradition}",
+            "type": "item",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:aberration-kinship",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ClVSyZxWk5L5KVLd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mindlink", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mindlink", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fleshwarp"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:adhyabhau",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gJDTS7eeIxZws5Lr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Note",
+          "raw": {
+            "key": "Note",
+            "predicate": ["emotion"],
+            "selector": "will",
+            "text": "<em>@Localize[PF2E.SpecificRule.Dhampir.Emotion]</em>",
+            "title": "{item|name}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:advanced-targeting-system",
+      "foundry": "Compendium.pf2e.feats-srd.Item.ThqMksZRxNB18ivs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sure-strike", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sure-strike", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:android"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:agathion-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.n46s9MB8LLRQKwOp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-form", "item:slug:calm"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-form", "item:slug:calm"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:ageless-spirit",
+      "foundry": "Compendium.pf2e.feats-srd.Item.wylnETwIz32Au46y",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "option": "ageless-spirit",
+            "phase": "beforeDerived",
+            "suboptions": {
+              "config": "skills",
+              "predicate": ["skill:{choice|value}:rank:0"]
+            },
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.skills.{item|flags.system.rulesSelections.agelessSpirit}.rank",
+            "phase": "beforeDerived",
+            "priority": 60,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:analyze-information",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RTxPL1reRcJhhYeG",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:ancillary-motes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lT2sOwC6Pi5P4Yq0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:extraplanar-haze"],
+            "property": "frequency-max",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:animal-swiftness",
+      "foundry": "Compendium.pf2e.feats-srd.Item.5Unc9AhGAAw1klFN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "BaseSpeed",
+          "raw": {
+            "key": "BaseSpeed",
+            "predicate": [
+              "change-shape:hybrid",
+              {
+                "not": "animal-swiftness:land"
+              }
+            ],
+            "selector": "{item|flags.system.rulesSelections.animalSwiftness}",
+            "value": "@actor.system.movement.speeds.land.value"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:azarketi-purification",
+      "foundry": "Compendium.pf2e.feats-srd.Item.u94fcPT5Oukqzql5",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:cleanse-cuisine", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:cleanse-cuisine", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:azarketi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:blazing-aura",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hkU92nqUYBQLQSMt",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:bone-caller",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B53sWzd5irAoLn2U",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-messenger", "item:slug:marvelous-mount"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-messenger", "item:slug:marvelous-mount"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:lizardfolk"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:captivating-curiosity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.uOFzs058hy144rzm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enthrall", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:enthrall", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:fleshwarp"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:catrinas-presence",
+      "foundry": "Compendium.pf2e.feats-srd.Item.pt4oMtjAVGFQHtVw",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:calm", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:calm", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:duskwalker"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:cindersoul",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HZJqMESaEHTfefz3",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": [
+              {
+                "or": ["item:damage:type:acid", "item:damage:type:bleed", "item:damage:type:poison"]
+              }
+            ],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:consistent-surge",
+      "foundry": "Compendium.pf2e.feats-srd.Item.O65q744snXtC5Uc4",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:slug:nanite-surge"],
+            "property": "frequency-per",
+            "value": "PT10M"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:nanite-surge"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Android.ConsistentSurge"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:continuous-assault",
+      "foundry": "Compendium.pf2e.feats-srd.Item.I3Md8XYhuMVSJqKI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:elemental-assault"],
+            "property": "frequency-per",
+            "value": "PT1H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:corgi-mount",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9OdLdxvH5M9FyYSm",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:crones-cruelty",
+      "foundry": "Compendium.pf2e.feats-srd.Item.kt5UJEfTzO3LiInN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:warp-mind", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:warp-mind", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:changeling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:devilish-wiles",
+      "foundry": "Compendium.pf2e.feats-srd.Item.z0v9ENqGAwVodXpu",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:charm", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:charm", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:djinni-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.nHoRM1gLL7MtIiCS",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:gust-of-wind", "item:slug:invisibility"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:gust-of-wind", "item:slug:invisibility"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sylph"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:dragon-grip",
+      "foundry": "Compendium.pf2e.feats-srd.Item.WSxHCapuTn8uRdLI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "option": "target:trait:dragon",
+            "toggleable": "totm"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:dragonblood-paragon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4EgueMqUm0ebKV4J",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "allowDuplicate": false,
+            "key": "GrantItem",
+            "predicate": ["dragonblood-paragon:kobold-breath"],
+            "uuid": "Compendium.pf2e.ancestryfeatures.Item.Draconic Exemplar"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:tail-toxin", "dragonblood-paragon:venomtail-kobold"],
+            "property": "frequency-max",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:dualborn",
+      "foundry": "Compendium.pf2e.feats-srd.Item.mmYAiK3x0UMcgiNv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.firstEnergy}",
+            "value": "max(1,floor(@actor.level/2))"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "{item|flags.system.rulesSelections.secondEnergy}",
+            "value": "max(1,floor(@actor.level/2))"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:efreeti-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.AJVx3sHm6f6i8ZQW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:illusory-object"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:illusory-object"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:naari"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:elemental-lore",
+      "foundry": "Compendium.pf2e.feats-srd.Item.RJClD7YYsAFutxNs",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.Skill.Arcana",
+                "value": "system.skills.arcana.rank"
+              },
+              {
+                "label": "PF2E.Skill.Nature",
+                "value": "system.skills.nature.rank"
+              }
+            ],
+            "flag": "elementalLore",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Skill"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "{item|flags.system.rulesSelections.elementalLore}",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:favor-of-heaven",
+      "foundry": "Compendium.pf2e.feats-srd.Item.VbHuOvF1MM9ls6Tg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": ["holy", "unholy"],
+            "value": 5
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-blast", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:spirit-blast", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:tengu"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:fey-cantrips",
+      "foundry": "Compendium.pf2e.feats-srd.Item.gozOYxLVx7PQvOSj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:ghost-sound",
+                  "item:slug:light",
+                  {
+                    "and": ["self:heritage:grig", "item:slug:detect-magic"]
+                  },
+                  {
+                    "and": ["self:heritage:draxie", "item:slug:prestidigitation"]
+                  }
+                ]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": [
+                  "item:slug:ghost-sound",
+                  "item:slug:light",
+                  {
+                    "and": ["self:heritage:grig", "item:slug:detect-magic"]
+                  },
+                  {
+                    "and": ["self:heritage:draxie", "item:slug:prestidigitation"]
+                  }
+                ]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:fey-disguise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GTA6QM7cH40L8H5Q",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:fey-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Qe9IUDVo7gsowMHq",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:faerie-fire", "item:slug:invisibility"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:faerie-fire", "item:slug:invisibility"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:fey-skin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hSHteYr1g1gKHcwM",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Weakness",
+          "raw": {
+            "key": "Weakness",
+            "type": "cold-iron",
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:foxfire",
+      "foundry": "Compendium.pf2e.feats-srd.Item.qCV04rZMty2TJBrX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitElectricity",
+                "predicate": [
+                  {
+                    "not": "self:heritage:frozen-wind-kitsune"
+                  }
+                ],
+                "value": "electricity"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "predicate": [
+                  {
+                    "not": "self:heritage:frozen-wind-kitsune"
+                  }
+                ],
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "predicate": ["self:heritage:frozen-wind-kitsune"],
+                "value": "cold"
+              }
+            ],
+            "flag": "damage",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.UI.RuleElements.ChoiceSet.Prompt"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "{item|flags.system.rulesSelections.damage}",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "range": {
+              "max": 20
+            },
+            "traits": ["unarmed", "magical"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:garuda-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.T6yXzRKNZrYKIcDi",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blur", "item:slug:see-the-unseen"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blur", "item:slug:see-the-unseen"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:garudas-squall",
+      "foundry": "Compendium.pf2e.feats-srd.Item.m2C99WJ3ms0d7ZQr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": ["item:group:bow"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:genie-weapon-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.i3wSkeU7CSyHEi4Y",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-falchion.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-ranseur.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-scimitar.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-trident.rank",
+            "value": "@actor.system.proficiencies.attacks.unarmed.rank"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:genie-weapon-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8DDwqrYHie33cf6d",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-falchion.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-ranseur.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-scimitar.rank",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.proficiencies.attacks.weapon-base-trident.rank",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:genie-weapon-flourish",
+      "foundry": "Compendium.pf2e.feats-srd.Item.2kwLzw618QaIHOap",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "key": "CriticalSpecialization",
+            "predicate": [
+              {
+                "or": [
+                  "item:trait:geniekin",
+                  "item:base:falchion",
+                  "item:base:ranseur",
+                  "item:base:scimitar",
+                  "item:base:trident"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:gift-of-the-moon",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7Lx8rsEbBJkg6C17",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:moon-frenzy", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:moon-frenzy", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:beastkin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:inner-breath",
+      "foundry": "Compendium.pf2e.feats-srd.Item.tyae2vpOiAMxXvQH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.system.remainingAir.rounds",
+            "value": "600"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:inner-fire-naari",
+      "foundry": "Compendium.pf2e.feats-srd.Item.N3xyK9keDm00oUY6",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:produce-flame", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:produce-flame", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:naari"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:internal-respirator",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7eyy63BkMv3enk5r",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "flags.system.remainingAir.rounds",
+            "value": "600"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:invisible-trickster",
+      "foundry": "Compendium.pf2e.feats-srd.Item.XzTklOArNQle7rQP",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:invisibility", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:invisibility", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:invoke-the-elements",
+      "foundry": "Compendium.pf2e.feats-srd.Item.4Jwtl2FvxskruHQv",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "adjustName": false,
+            "choices": [
+              {
+                "label": "PF2E.TraitBludgeoning",
+                "predicate": ["feat:brine-may"],
+                "value": "bludgeoning"
+              },
+              {
+                "label": "PF2E.TraitCold",
+                "predicate": ["feat:snow-may"],
+                "value": "cold"
+              },
+              {
+                "label": "PF2E.TraitFire",
+                "predicate": ["feat:veil-may"],
+                "value": "fire"
+              },
+              {
+                "label": "PF2E.TraitElectricity",
+                "predicate": ["feat:virga-may"],
+                "value": "electricity"
+              }
+            ],
+            "flag": "changelingType",
+            "key": "ChoiceSet"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Damage[type:@item.flags.system.rulesSelections.changelingType]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:janni-hospitality",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6WwxTbX8KvU3Xxak",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:create-food", "item:slug:create-water"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:create-food", "item:slug:create-water"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:suli"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:janni-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xDCtfNtbnaG166cy",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:speak-with-animals"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:enlarge", "item:slug:speak-with-animals"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:suli"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:kitsune-spell-expertise",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JlkkYedPyWLShuka",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:kitsune-spell-familiarity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Zz7isE8Td2xDWqR8",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:lavasoul",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JoeepCWheQChcQ9s",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "damageType": "fire",
+            "key": "FlatModifier",
+            "label": "PF2E.SpecificRule.Ifrit.Lavasoul.MagmaSpike",
+            "selector": "{item|id}-damage",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "CriticalSpecialization",
+          "raw": {
+            "alternate": true,
+            "damageDice": {
+              "category": "persistent",
+              "damageType": "fire",
+              "faces": 6,
+              "number": 1
+            },
+            "key": "CriticalSpecialization",
+            "predicate": ["item:id:{item|id}"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "critical": true,
+            "damageCategory": "persistent",
+            "damageType": "fire",
+            "key": "FlatModifier",
+            "label": "PF2E.ItemBonusLabel",
+            "selector": "{item|id}-damage",
+            "type": "item",
+            "value": "@weapon.flags.system.attackItemBonus"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:marid-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.hgfRHSS5BsoyQ9Fj",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:hydraulic-push", "item:slug:mist"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:hydraulic-push", "item:slug:mist"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:undine"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:marine-ally",
+      "foundry": "Compendium.pf2e.feats-srd.Item.rTjGshtUMHnlBUfH",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:metal-veined-strikes",
+      "foundry": "Compendium.pf2e.feats-srd.Item.OwJRuy4EW8vW09AI",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ChoiceSet",
+          "raw": {
+            "choices": [
+              {
+                "label": "PF2E.PreciousMaterialColdIron",
+                "value": "cold-iron"
+              },
+              {
+                "label": "PF2E.PreciousMaterialSilver",
+                "value": "silver"
+              }
+            ],
+            "flag": "metalVeinedStrikes",
+            "key": "ChoiceSet",
+            "prompt": "PF2E.SpecificRule.Prompt.Material"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "AdjustStrike",
+          "raw": {
+            "definition": ["item:category:unarmed"],
+            "key": "AdjustStrike",
+            "mode": "add",
+            "property": "materials",
+            "selector": "strike-damage",
+            "value": "{item|flags.system.rulesSelections.metalVeinedStrikes}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:moon-may",
+      "foundry": "Compendium.pf2e.feats-srd.Item.xOCmeskMkd8nCmba",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:guidance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:guidance", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:changeling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:morrignas-spider-affinity",
+      "foundry": "Compendium.pf2e.feats-srd.Item.TPX0fm9wxndpIqpk",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-messenger", "item:slug:speak-with-animals", "item:slug:gecko-grip"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:animal-messenger", "item:slug:speak-with-animals", "item:slug:gecko-grip"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:duskwalker"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:myriad-forms",
+      "foundry": "Compendium.pf2e.feats-srd.Item.l2JaSC3NA9S6Qq46",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Fox",
+                "value": "fox"
+              },
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Tailless",
+                "value": "tailless"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:offensive-analysis",
+      "foundry": "Compendium.pf2e.feats-srd.Item.HCxmS8QGHL5O7LUf",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sure-strike", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sure-strike", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:offensive-subroutine",
+      "foundry": "Compendium.pf2e.feats-srd.Item.6eXffyvqxpIzig2O",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:nanite-surge"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Android.OffensiveSubroutine"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:orc-warmask",
+      "foundry": "Compendium.pf2e.feats-srd.Item.1HsH8hE79MDsi8kK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "GrantItem",
+          "raw": {
+            "key": "GrantItem",
+            "uuid": "Compendium.pf2e.equipment-srd.Item.Orc Warmask"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:pack-tactics",
+      "foundry": "Compendium.pf2e.feats-srd.Item.9LTBRvuQgXKZFiZc",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "add",
+            "path": "system.attributes.flanking.canGangUp",
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:protective-subroutine",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DP5VVZHERQlYuYTa",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:nanite-surge"],
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.Android.ProtectiveSubroutine"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:qlippoth-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.JXBEnawN7vHFtdNp",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blur", "item:slug:silence"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:blur", "item:slug:silence"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:rakshasa-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lftLbPzfOzqAxbGW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:humanoid-form", "item:slug:illusory-creature"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:humanoid-form", "item:slug:illusory-creature"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:rampaging-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Zl6vDXJEM7Lbp8JQ",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:read-the-stars",
+      "foundry": "Compendium.pf2e.feats-srd.Item.DhqsKns2SaGcOKO9",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[traits]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:shaitan-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.8buK32r3i3aGyyOR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:revealing-light", "item:slug:resist-energy"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:revealing-light", "item:slug:resist-energy"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:oread"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:shaitan-skin",
+      "foundry": "Compendium.pf2e.feats-srd.Item.3YByhZJi93ie5F45",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mountain-resilience", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:mountain-resilience", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:oread"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:shokis-argument",
+      "foundry": "Compendium.pf2e.feats-srd.Item.B4e8V5nExlScjojY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:vitality-lash", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:vitality-lash", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:duskwalker"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:spew-tentacles",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GfpHBiOX02PQz0Pm",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:spore-cloud",
+      "foundry": "Compendium.pf2e.feats-srd.Item.a32r2n9j36khV0Cp",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:sprites-spark",
+      "foundry": "Compendium.pf2e.feats-srd.Item.0fTHqIqXCwGKiykR",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "mental",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Draxie",
+            "predicate": ["self:heritage:draxie"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "fire",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.LuminousSprite",
+            "predicate": ["self:heritage:luminous-sprite"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "sonic",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Grig",
+            "predicate": ["self:heritage:grig"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "poison",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Melixie",
+            "predicate": ["self:heritage:melixie"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "sonic",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Nyktera",
+            "predicate": ["self:heritage:nyktera"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "mental",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Pixie",
+            "predicate": ["self:heritage:pixie"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "spirit",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Dijiang",
+            "predicate": ["self:heritage:dijiang"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "sonic",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Gandharva",
+            "predicate": ["self:heritage:gandharva"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "mental",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Kanchil",
+            "predicate": ["self:heritage:kanchil"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Strike",
+          "raw": {
+            "category": "unarmed",
+            "damage": {
+              "base": {
+                "damageType": "bludgeoning",
+                "dice": 1,
+                "die": "d4"
+              }
+            },
+            "group": "sling",
+            "key": "Strike",
+            "label": "PF2E.SpecificRule.Sprite.SpritesSpark.Leungli",
+            "predicate": ["self:heritage:leungli"],
+            "range": {
+              "max": 20
+            },
+            "slug": "sprites-spark",
+            "traits": ["unarmed"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:star-orb",
+      "foundry": "Compendium.pf2e.feats-srd.Item.d1FTY5ai9KjpkX59",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ActiveEffectLike",
+          "raw": {
+            "key": "ActiveEffectLike",
+            "mode": "upgrade",
+            "path": "system.attributes.familiarAbilities.value",
+            "priority": 9,
+            "value": 2
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:stone-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GYvaR6ZD8ZKdQWrF",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:elemental-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:elemental-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:oread"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:storm-form",
+      "foundry": "Compendium.pf2e.feats-srd.Item.FBhBnyGX0Uje0tbJ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:elemental-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:elemental-form", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sylph"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:stormy-heart",
+      "foundry": "Compendium.pf2e.feats-srd.Item.IzJ76OXe1gl2hfbd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "feat",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": ["item:slug:invoke-the-elements"],
+            "property": "frequency-per",
+            "value": "PT10M"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:suli-amir",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7bVJEZt2vwAAnILV",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:detect-magic", "item:slug:invisibility", "item:slug:read-omens"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:detect-magic", "item:slug:invisibility", "item:slug:read-omens"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:suli"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:summon-air-elemental",
+      "foundry": "Compendium.pf2e.feats-srd.Item.569SxRBvTCDiHlbW",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sylph"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:summon-earth-elemental",
+      "foundry": "Compendium.pf2e.feats-srd.Item.lrTRELs8uDpVpsk0",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:oread"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:summon-fire-elemental",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cIJfKlbfKezdDbwK",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:naari"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:summon-water-elemental",
+      "foundry": "Compendium.pf2e.feats-srd.Item.Fn8dEIcUZVxuWJgN",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:undine"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:tranquil-sanctuary",
+      "foundry": "Compendium.pf2e.feats-srd.Item.GGlpvu7i24ZXXkmX",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sanctuary", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:sanctuary", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:underwater-volcano",
+      "foundry": "Compendium.pf2e.feats-srd.Item.UOL44Qm1rOVD5TFg",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:volcanic-eruption", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:volcanic-eruption", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:azarketi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:velstrac-magic",
+      "foundry": "Compendium.pf2e.feats-srd.Item.cSJHihvgeDu5K44j",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:telekinetic-maneuver", "item:slug:web"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              {
+                "or": ["item:slug:telekinetic-maneuver", "item:slug:web"]
+              },
+              "spellcasting:innate"
+            ],
+            "property": "other-tags",
+            "value": "ancestral-spell:nephilim"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:virga-may",
+      "foundry": "Compendium.pf2e.feats-srd.Item.f6VPqhOPW9XfBKDr",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:electric-arc", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:electric-arc", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:changeling"
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "feat:yamarajs-grandeur",
+      "foundry": "Compendium.pf2e.feats-srd.Item.7iB1yacjF9fG6Rvn",
+      "gaps": [
+        {
+          "type": "enricher",
+          "enricher": "@Damage[options]"
+        },
+        {
+          "type": "enricher",
+          "enricher": "@Check[options]"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:beastkin",
+      "foundry": "Compendium.pf2e.heritages.Item.GAn2cdhBE9Bqa85s",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Hybrid",
+                "value": "hybrid"
+              }
+            ],
+            "toggleable": true
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:change-shape"],
+            "priority": 160,
+            "property": "description",
+            "value": [
+              {
+                "text": "PF2E.SpecificRule.ChangeShape.Beastkin"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:dark-fields-kitsune",
+      "foundry": "Compendium.pf2e.heritages.Item.NWbdAN5gDse0ad7C",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Fox",
+                "value": "fox"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:earthly-wilds-kitsune",
+      "foundry": "Compendium.pf2e.heritages.Item.Wk4HyaZtC1j221i1",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "alwaysActive": true,
+            "key": "RollOption",
+            "label": "PF2E.NPCAbility.ChangeShape.Label",
+            "mergeable": true,
+            "option": "change-shape",
+            "suboptions": [
+              {
+                "label": "PF2E.NPCAbility.ChangeShape.Form.Animal.Specific.Fox",
+                "value": "fox"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:grig",
+      "foundry": "Compendium.pf2e.heritages.Item.gfXSF1TafBAmZo2u",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ghost-sound", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell"
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "spell",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": ["item:slug:ghost-sound", "spellcasting:innate"],
+            "property": "other-tags",
+            "value": "ancestral-spell:sprite"
+          }
+        },
+        {
+          "type": "enricher",
+          "enricher": "@UUID[spells-srd] Pathfinder Core Rulebook"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:inured-azarketi",
+      "foundry": "Compendium.pf2e.heritages.Item.7ZDCShtRg5QZggrU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.yFoojz6q3ZjvceFw"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:luminous-sprite",
+      "foundry": "Compendium.pf2e.heritages.Item.LU4i3qXtyzeTGWZQ",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "RollOption",
+          "raw": {
+            "key": "RollOption",
+            "label": "PF2E.SpecificRule.Sprite.LuminousSprite.Light",
+            "option": "luminous-sprite-lit",
+            "suboptions": [
+              {
+                "label": "PF2E.Color.Blue",
+                "value": "#0000FF"
+              },
+              {
+                "label": "PF2E.Color.Cyan",
+                "value": "#43D6D6"
+              },
+              {
+                "label": "PF2E.Color.Green",
+                "value": "#00FF00"
+              },
+              {
+                "label": "PF2E.Color.Indigo",
+                "value": "#4B0082"
+              },
+              {
+                "label": "PF2E.Color.Magenta",
+                "value": "#FF00FF"
+              },
+              {
+                "label": "PF2E.Color.Orange",
+                "value": "#FFA400"
+              },
+              {
+                "label": "PF2E.Color.Red",
+                "value": "#FF0000"
+              },
+              {
+                "label": "PF2E.Color.Violet",
+                "value": "#9400D3"
+              },
+              {
+                "label": "PF2E.Color.White",
+                "value": "#AAAAAA"
+              },
+              {
+                "label": "PF2E.Color.Yellow",
+                "value": "#FAFA00"
+              }
+            ],
+            "toggleable": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:murkeyed-azarketi",
+      "foundry": "Compendium.pf2e.heritages.Item.MtH5bq0MhaMQbJEL",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.yFoojz6q3ZjvceFw"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:mutated-fleshwarp",
+      "foundry": "Compendium.pf2e.heritages.Item.CCwTBSNTw0caN1jd",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": ["item:damage:type:bleed"],
+            "property": "pd-recovery-dc",
+            "value": 10
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:spined-azarketi",
+      "foundry": "Compendium.pf2e.heritages.Item.9Iu1gFEuvVz9zaYU",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.yFoojz6q3ZjvceFw"
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:steelskin-hobgoblin",
+      "foundry": "Compendium.pf2e.heritages.Item.BFOsMnWfXL1oaWkY",
+      "gaps": [
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemType": "condition",
+            "key": "ItemAlteration",
+            "mode": "downgrade",
+            "predicate": [
+              {
+                "or": ["item:damage:category:energy", "item:damage:category:physical", "item:damage:type:poison"]
+              }
+            ],
+            "property": "pd-recovery-dc",
+            "value": 13
+          }
+        }
+      ]
+    },
+    {
+      "type": "entry",
+      "pack": "ancestry-guide",
+      "slug": "heritage:tactile-azarketi",
+      "foundry": "Compendium.pf2e.heritages.Item.S1062No0sYH35AhN",
+      "gaps": [
+        {
+          "type": "field",
+          "reason": "unresolved-reference",
+          "field": "ancestry",
+          "raw": "Compendium.pf2e.ancestries.Item.yFoojz6q3ZjvceFw"
+        }
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "kind": "damage-type",
+      "slug": "untyped",
+      "reason": "unmapped-value",
+      "detail": "untyped"
+    }
+  ]
+}

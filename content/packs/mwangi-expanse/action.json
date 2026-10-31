@@ -290,7 +290,16 @@
     "data": {
       "cost": "one",
       "category": "interaction",
-      "effects": [{ "effect": "1e11ae6a-f022-5ac8-a6b4-6e47b858c2bb", "predicate": ["feat:werecreature-dedication"] }]
+      "effects": [
+        {
+          "effect": "1e11ae6a-f022-5ac8-a6b4-6e47b858c2bb",
+          "predicate": ["feat:werecreature-dedication"]
+        },
+        {
+          "effect": "957551d2-bd91-56eb-a759-5ed56187dd90",
+          "predicate": ["ancestry:kitsune"]
+        }
+      ]
     }
   }
 ]

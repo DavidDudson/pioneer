@@ -39,6 +39,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('dark-archive-remastered'),
   imported('character-guide'),
   imported('impossible-lands'),
+  imported('ancestry-guide'),
   imported('core-rulebook'),
   imported('advanced-players-guide'),
   imported('the-show-must-go-on'),

@@ -1,6 +1,7 @@
 /** Every official pack the API serves, in manifest order. Add a pack here when one is imported. */
 export const OFFICIAL_PACK_IDS = [
   'advanced-players-guide',
+  'ancestry-guide',
   'bastion-of-blasphemies',
   'battlecry',
   'character-guide',

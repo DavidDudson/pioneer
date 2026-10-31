@@ -26,6 +26,8 @@ function earlierVocabulary() {
     import('@pioneer/content/packs/core-rules/imported/dark-archive-remastered/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-lands/language.json'),
     import('@pioneer/content/packs/core-rules/imported/impossible-lands/trait.json'),
+    import('@pioneer/content/packs/core-rules/imported/ancestry-guide/language.json'),
+    import('@pioneer/content/packs/core-rules/imported/ancestry-guide/trait.json'),
     import('@pioneer/content/packs/core-rules/imported/mwangi-expanse/language.json'),
   ];
 }

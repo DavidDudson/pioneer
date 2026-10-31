@@ -1,0 +1,20 @@
+[
+  {
+    "id": "23923b6a-6ffe-5c88-9fcb-eb845712bf22",
+    "pack": "core-rules",
+    "kind": "language",
+    "slug": "language:androffan",
+    "name": "Androffan",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {}
+  }
+]

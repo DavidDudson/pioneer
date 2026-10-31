@@ -62,6 +62,7 @@ const tianXiaCharacterGuide = PackId.parse('tian-xia-character-guide');
 const darkArchiveRemastered = PackId.parse('dark-archive-remastered');
 const characterGuide = PackId.parse('character-guide');
 const impossibleLands = PackId.parse('impossible-lands');
+const ancestryGuide = PackId.parse('ancestry-guide');
 const coreRulebook = PackId.parse('core-rulebook');
 const advancedPlayersGuide = PackId.parse('advanced-players-guide');
 const theShowMustGoOn = PackId.parse('the-show-must-go-on');
@@ -75,6 +76,7 @@ describe('content catalog', () => {
     await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
     expect(registry.packs.map((pack) => pack.id).toSorted()).toStrictEqual([
       advancedPlayersGuide,
+      ancestryGuide,
       bastionOfBlasphemies,
       battlecry,
       characterGuide,

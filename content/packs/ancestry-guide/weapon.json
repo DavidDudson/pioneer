@@ -1,0 +1,155 @@
+[
+  {
+    "id": "c2e2ffa6-eef2-5c1b-bb31-20fd22d92f7e",
+    "pack": "ancestry-guide",
+    "kind": "weapon",
+    "slug": "weapon:buugeng",
+    "name": "Buugeng",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "conrasu", "sweep", "twin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A blade of conrasu design, a buugeng has a unique, curved shape that allows it to rotate smoothly in the hand of a trained warrior. This spinning motion makes it easier to attack multiple foes at once with the weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7WRzbBTOCsJx5f7L"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "buugeng",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "93b74a88-5595-5580-b762-d195abb13ed2",
+    "pack": "ancestry-guide",
+    "kind": "weapon",
+    "slug": "weapon:wish-blade",
+    "name": "Wish Blade",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["disarm", "geniekin", "resonant", "two-hand-d10"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialized grooves lined with unique, alchemically treated metals capable of retaining energy score the length of this sword. The first wish blades originated from genie smiths, and the knowledge of these weapons has been passed on to generations of geniekin, earning them the name wish blades."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.puQ90OZgQpVhxLRe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "wish-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "34805980-140d-587f-b26c-52d7de6cef5d",
+    "pack": "ancestry-guide",
+    "kind": "weapon",
+    "slug": "weapon:wish-knife",
+    "name": "Wish Knife",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "disarm", "finesse", "geniekin", "resonant", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Much like a wish blade, the length of this knife is scored with intricate grooves capable of retaining energy. Wish knives are lighter than their counterparts, making them the weapon of choice for agile combatants."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1Uvz5xJpE5UvOFjJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "wish-knife",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

@@ -136,6 +136,14 @@
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146"
   },
   {
+    "id": "ancestry-guide",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "released": "2021-02-24",
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=74"
+  },
+  {
     "id": "impossible-magic",
     "publisher": "paizo",
     "license": "ORC",

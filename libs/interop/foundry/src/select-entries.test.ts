@@ -204,7 +204,7 @@ describe('selectEntries', () => {
 
     test('leaves other legacy OGL books skipped', () => {
       const legacy = item('Old Ancestry', 'feat', {
-        title: 'Pathfinder Lost Omens Ancestry Guide',
+        title: 'Pathfinder Lost Omens Gods & Magic',
         license: 'OGL',
         remaster: false,
       });

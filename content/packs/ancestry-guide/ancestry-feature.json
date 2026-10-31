@@ -1,0 +1,296 @@
+[
+  {
+    "id": "c23a1f29-c710-58ff-8ca9-151a291a5615",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:change-shape",
+    "name": "Change Shape",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a kitsune, you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.knaVRiZ2QNteat1P"
+    },
+    "data": {}
+  },
+  {
+    "id": "b7c6770f-582f-5c2b-b202-f412574ba727",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:constructed",
+    "name": "Constructed",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["android"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your synthetic body resists ailments better than those of purely biological organisms. You gain a +1 circumstance bonus to saving throws against diseases, poisons, and radiation."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison", "item:trait:radiation"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.mnhmhOKWLiOD0lev"
+    },
+    "data": {}
+  },
+  {
+    "id": "c2c9de09-f2b4-533b-91fb-c6c6e2d52b05",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:emotionally-unaware",
+    "name": "Emotionally Unaware",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["android"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You find it difficult to understand and express complex emotions. You take a -1 circumstance penalty to Diplomacy and Performance checks, and on Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy", "skill:performance"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "emotionally-unaware-diplomacy-performance-penalty"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "emotionally-unaware-sense-motive-penalty",
+        "predicate": ["action:sense-motive"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.uSAYmU7PO2QoOWhB"
+    },
+    "data": {}
+  },
+  {
+    "id": "aef285a7-8248-5a60-b51b-14dc36da90af",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:magical-strikes",
+    "name": "Magical Strikes",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["sprite"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your inherent magic pervades your entire being. All your Strikes are magical, whether with unarmed attacks or weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "magical"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.TRw4oBZBFZG96jKO"
+    },
+    "data": {}
+  },
+  {
+    "id": "7190a8ca-b9e0-5b34-9eb5-1561d45471b9",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:unusual-anatomy",
+    "name": "Unusual Anatomy",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["fleshwarp"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unorthodox body resists physical afflictions meant for other creatures. You gain a +1 circumstance bonus to saves against diseases and poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["item:trait:disease", "item:trait:poison"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.mEDTJi7d1bTEiwUD"
+    },
+    "data": {}
+  },
+  {
+    "id": "a9947236-377f-57ec-a172-85b06d776ce7",
+    "pack": "ancestry-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:wings",
+    "name": "Wings",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["strix"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All strix possess powerful wings. While not all strix focus on honing their flying skills, a strong flap of their wings allows strix to travel longer distances when jumping."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When "
+          },
+          {
+            "type": "ref",
+            "id": "1a0bed3d-5eb7-554f-ad07-4c8630afd0c8",
+            "label": "Leaping"
+          },
+          {
+            "type": "text",
+            "text": " horizontally, you move an additional 5 feet. You don't automatically fail your checks to "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " if you don't Stride at least 10 feet first. In addition, when you make a Long Jump, you can jump a distance up to 10 feet further than your Athletics check result, though still with the normal maximum of your Speed. Additionally, you take no damage from falling, no matter what distance you fall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.oCIO7UJqbpTkI62l"
+    },
+    "data": {}
+  }
+]

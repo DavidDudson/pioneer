@@ -33,6 +33,7 @@ export const BOOK_TITLES: ReadonlyMap<BookId, BookLabel> = new Map([
   [BookId.parse('secrets-of-magic'), BookLabel.parse('rules.book.title.secretsOfMagic')],
   [BookId.parse('rage-of-elements'), BookLabel.parse('rules.book.title.rageOfElements')],
   [BookId.parse('impossible-lands'), BookLabel.parse('rules.book.title.impossibleLands')],
+  [BookId.parse('ancestry-guide'), BookLabel.parse('rules.book.title.ancestryGuide')],
   [BookId.parse('character-guide'), BookLabel.parse('rules.book.title.characterGuide')],
   [BookId.parse('core-rulebook'), BookLabel.parse('rules.book.title.coreRulebook')],
   [BookId.parse('advanced-players-guide'), BookLabel.parse('rules.book.title.advancedPlayersGuide')],

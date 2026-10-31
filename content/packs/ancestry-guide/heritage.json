@@ -1,0 +1,1626 @@
+[
+  {
+    "id": "b55179ef-568d-527d-a7bb-795b0ee943cc",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:artisan-android",
+    "name": "Artisan Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body was originally designed to create works of art, complex tools, or maintain advanced machinery. You become trained in Crafting (or another skill if you're already trained in Crafting), and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+          },
+          {
+            "type": "text",
+            "text": " skill feat in a specialty of your choice."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:crafting",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "cf2fb4e9-9adb-5092-9f78-5dd9b3192301"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.VgL18yU7pysdoZZG"
+    },
+    "data": {
+      "ancestry": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94"
+    }
+  },
+  {
+    "id": "eadb69a8-727c-5b83-a0bd-e72f08e5d9ea",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:beastkin",
+    "name": "Beastkin",
+    "rarity": "rare",
+    "traits": ["beastkin"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blood of a beast flows through your veins, granting you the ferocity and might of animals. Only creatures with the humanoid trait can take the beastkin versatile heritage. Choose a type of animal such as bat, eagle, shark, spider, tyrannosaurus, wasp, or wolf. This is the type of animal tied to your heritage and is known as your inherent animal. A beastkin's hybrid form is their natural shape. You gain the beast and beastkin traits, in addition to the traits from your ancestry."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "e114f41a-9129-5b91-b7d2-f88e152b9c0c"
+          },
+          {
+            "type": "text",
+            "text": " ability. You can choose from beastkin feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["beast"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "e114f41a-9129-5b91-b7d2-f88e152b9c0c",
+        "allowDuplicate": false
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "traits",
+        "mode": "add",
+        "value": "primal"
+      },
+      {
+        "key": "Strike",
+        "slug": "beastkin-jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["agile", "finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "piercing"
+        },
+        "predicate": ["change-shape:hybrid"],
+        "display": {
+          "label": "Jaws"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.GAn2cdhBE9Bqa85s"
+    },
+    "data": {}
+  },
+  {
+    "id": "bcac1f26-5ebf-5f86-b62e-597e11b74800",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:caveclimber-kobold",
+    "name": "Caveclimber Kobold",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live in a vertically-oriented home, and you're a consummate climber. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, even if you don't meet the prerequisites. You can use your clawed feet and tail to Climb, leaving your hands free. Additionally, if you succeed at an Athletics check to Climb, you critically succeed instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8d47d4b9-3de6-5aca-9993-35356f13d1f6"
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["skill:athletics"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "predicate": ["action:climb"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["skill:athletics"],
+        "title": "Caveclimber Kobold",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success to Climb, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "predicate": ["action:climb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.5A1wMPdzN1OWE4cY"
+    },
+    "data": {
+      "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
+    }
+  },
+  {
+    "id": "d98ae647-9ca0-509a-a38d-01c1b5e3a303",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:celestial-envoy-kitsune",
+    "name": "Celestial Envoy Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether due to Daikitsu's grace or faithful forebears, you have a strong connection to the divine, affording you certain protections. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1de365ef-427b-597a-bfb1-79043c6b93f5"
+          },
+          {
+            "type": "text",
+            "text": " reaction. Your alternate form is a common Medium humanoid ancestry prevalent where you grew up (typically human), called a tailless form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "1de365ef-427b-597a-bfb1-79043c6b93f5"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.IFg2tqmAFFnU8UNU"
+    },
+    "data": {
+      "ancestry": "9eb3fc7c-9993-5e7e-8187-82c5e231659b"
+    }
+  },
+  {
+    "id": "63b395d1-2a24-55c7-858b-cbc5846d6bb1",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:created-fleshwarp",
+    "name": "Created Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were created through occult or alchemical processes, such as being grown in a vat or stitched together from the body parts of other creatures by a scientist in Ustalav. Your manufactured body is durable; you don't need to eat and can't starve. You gain a +2 circumstance bonus to saving throws against diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:disease"],
+        "display": {
+          "label": "vs. Diseases"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.iY2CCqoMc2bRdoas"
+    },
+    "data": {
+      "ancestry": "e2101776-f83a-5828-b46a-ffd770e095d1"
+    }
+  },
+  {
+    "id": "9b26c34d-7a6f-5715-9a02-118f099f7d77",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:dark-fields-kitsune",
+    "name": "Dark Fields Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can exert your unsettling presence to subtly Demoralize others. When you do, Demoralize loses the auditory trait and gains the visual trait, and you don't take a penalty when you attempt to Demoralize a creature that doesn't understand your language. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "17f42ac9-9067-5f48-bfee-f0212d3ab0df"
+          },
+          {
+            "type": "text",
+            "text": " reaction. Your alternate form is a fox, which has the statistics of 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "17f42ac9-9067-5f48-bfee-f0212d3ab0df",
+        "allowDuplicate": false
+      },
+      {
+        "key": "RollOption",
+        "option": "option:non-tailless-form",
+        "priority": 49
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.NWbdAN5gDse0ad7C"
+    },
+    "data": {
+      "ancestry": "9eb3fc7c-9993-5e7e-8187-82c5e231659b"
+    }
+  },
+  {
+    "id": "66dc9987-0efb-585a-ae3d-12a1cc0d8fce",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:draxie",
+    "name": "Draxie",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are kin to faerie dragons, tracing your heritage back to the death of the mightiest faerie dragon in the First World. You gain touch telepathy, allowing you to communicate silently and purely mentally with any creature you're touching, as long as you share a language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.zcO93E8gAW1tDYKk"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "3af86e3b-7bf4-5730-8568-0006ab538c35",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:earthly-wilds-kitsune",
+    "name": "Earthly Wilds Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a creature of the material world, with an affinity closer to the wilds than urban society. You gain a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group and have the finesse and unarmed traits. Your alternate form is a fox, which has the statistics of 1st-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "jaws",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Jaws"
+        }
+      },
+      {
+        "key": "RollOption",
+        "option": "option:non-tailless-form",
+        "priority": 49
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Wk4HyaZtC1j221i1"
+    },
+    "data": {
+      "ancestry": "9eb3fc7c-9993-5e7e-8187-82c5e231659b"
+    }
+  },
+  {
+    "id": "88d83e77-2902-5cca-8aa2-05ef08bf7cc8",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:empty-sky-kitsune",
+    "name": "Empty Sky Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spirit is open to the secrets of beyond, granting you greater access to kitsune magic. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "13ea00b3-4924-512d-8a81-4d31f2a595d0"
+          },
+          {
+            "type": "text",
+            "text": " ancestry feat. Your alternate form is a common Medium humanoid ancestry prevalent where you grew up (typically human), called a tailless form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "13ea00b3-4924-512d-8a81-4d31f2a595d0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.mBH1L01kYmB8EL56"
+    },
+    "data": {
+      "ancestry": "9eb3fc7c-9993-5e7e-8187-82c5e231659b"
+    }
+  },
+  {
+    "id": "f675cfd0-73cc-5554-a50d-3d0ca7131ebb",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:flexible-catfolk",
+    "name": "Flexible Catfolk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've inherited flexibility beyond that of most humanoids. You don't treat tight spaces that don't require you to Squeeze as difficult terrain. In addition, you get a +1 circumstance bonus to checks when you attempt to Escape."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics", "skill:athletics", "attack"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:escape"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.TDc9MXLXkgEFoKdD"
+    },
+    "data": {
+      "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
+    }
+  },
+  {
+    "id": "2632816f-5aa7-5c43-9524-df43d21f5775",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:frozen-wind-kitsune",
+    "name": "Frozen Wind Kitsune",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors crossed the Crown of the World or resided on snowy peaks. You gain cold resistance equal to half your level (minimum 1). You treat environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on). Your alternate form is a common Medium humanoid ancestry prevalent where you grew up (typically human), called a tailless form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.kHT9dFJt5yTjeYoB"
+    },
+    "data": {
+      "ancestry": "9eb3fc7c-9993-5e7e-8187-82c5e231659b"
+    }
+  },
+  {
+    "id": "57ef2b47-2d23-5660-95dd-fff016a49717",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:grig",
+    "name": "Grig",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the hindquarters of a cricket and adore art and music. Your cricket legs grant you a +2 circumstance bonus on Athletics checks to High Jump or Long Jump, and you gain Ghost Sound as a primal innate cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:high-jump", "action:long-jump"]
+          }
+        ],
+        "display": {
+          "label": "To High Jump or Long Jump"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.gfXSF1TafBAmZo2u"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "de3b9550-26eb-5a92-8ac2-b9c387c58d30",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:impersonator-android",
+    "name": "Impersonator Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body was augmented with processes and an appearance intended to blend in with humans more easily."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You become trained in Deception (or another skill if you're already trained in Deception). You don't require a disguise kit when attempting Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " a human."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain a +4 circumstance bonus to Impersonate checks to pretend that you're a human version of yourself, rather than an android. This bonus doesn't apply to other checks to Impersonate humans."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["action:impersonate", "disguise:human-self"],
+        "display": {
+          "label": "Impersonator Android (to Impersonate a human version of yourself)"
+        }
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:deception",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Mmezbef0c1fbJaVV"
+    },
+    "data": {
+      "ancestry": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94"
+    }
+  },
+  {
+    "id": "29ab16c6-bf10-5bff-b0c8-326e5de7c1e7",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:inured-azarketi",
+    "name": "Inured Azarketi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your ancestors had to survive in polluted water that made every breath noxious. You gain poison resistance equal to half your level (minimum 1). Furthermore, you can survive outside of water for 72 hours before you begin to suffocate."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.7ZDCShtRg5QZggrU"
+    },
+    "data": {}
+  },
+  {
+    "id": "9178248a-9f45-5f77-8fc6-45dbb8fcc532",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:laborer-android",
+    "name": "Laborer Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is adapted to endure physical hardships or perform hard labor for long periods of time. You become trained in Athletics (or another skill if you're already trained in Athletics), and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:athletics",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7e42ccc3-1342-59f0-b827-0279e78a7260"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MQx7miBXUmOHycqJ"
+    },
+    "data": {
+      "ancestry": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94"
+    }
+  },
+  {
+    "id": "a7fa93d9-bffa-5c8a-87d7-f8e57fce6488",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:luminous-sprite",
+    "name": "Luminous Sprite",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You glow with magical luminance. You naturally shed light as a "
+          },
+          {
+            "type": "ref",
+            "id": "e58cead6-6304-5f35-8f34-cfa035d6fd1f"
+          },
+          {
+            "type": "text",
+            "text": "; this light has the evocation, light, and primal traits. You can extinguish, rekindle, or change the color of this light using a single action, which has the concentrate trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.LU4i3qXtyzeTGWZQ"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "a74c4543-71f5-580c-bf53-31c8db468171",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:melixie",
+    "name": "Melixie",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have the features of a bee, butterfly, or other insect that loves sweets. You can ask questions of and receive answers from arthropods (insects, spiders, scorpions, crabs, and similar invertebrate animals), as well as use Diplomacy to Make an Impression on and Request things of them. Most bees, butterflies, moths, and beetles have an "
+          },
+          {
+            "type": "ref",
+            "id": "44d39747-aad3-5b73-a493-af78cda98eef"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "ef3f130c-50e8-51b3-be54-5d0d0ecbc970"
+          },
+          {
+            "type": "text",
+            "text": " starting attitude toward you and give you time to make your case, though other arthropods react to you like any other adventurer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.TYvzNoL5ldmB5F76"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "f28d0d4e-f6b8-578f-b657-183e9477eaf4",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:murkeyed-azarketi",
+    "name": "Murkeyed Azarketi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You live in murky waters and have grown accustomed to life in a low-visibility environment. You need only a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 3
+          },
+          {
+            "type": "text",
+            "text": " when targeting a concealed creature and a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 9
+          },
+          {
+            "type": "text",
+            "text": " when targeting a hidden creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.MtH5bq0MhaMQbJEL"
+    },
+    "data": {}
+  },
+  {
+    "id": "0b5d540c-cb3f-5289-90bc-befc873edf2d",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:mutated-fleshwarp",
+    "name": "Mutated Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Transformed by uncontrolled magic, you originated in a the Mana Wastes or another region similarly devastated by uncontrolled magic. Due to your toughened or redundant organs, the DC for your checks to recover from persistent bleed damage is 10 instead of 15, and it's reduced to "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " instead of 10 if you have particularly effective assistance recovering from the persistent damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.CCwTBSNTw0caN1jd"
+    },
+    "data": {
+      "ancestry": "e2101776-f83a-5828-b46a-ffd770e095d1"
+    }
+  },
+  {
+    "id": "c3157b3b-34a6-51cb-a42f-4a9eda8390a2",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:naari",
+    "name": "Naari",
+    "rarity": "uncommon",
+    "traits": ["naari"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You descend from fire elementals or bear the mark of the Inner Spheres, and your features illustrate the influence that elemental fire has over you. You gain the naari trait, in addition to the traits from your ancestry. You gain resistance to fire equal to half your level (minimum 1), and you treat environmental heat effects as if they were one step less severe (incredible heat becomes extreme, extreme heat becomes severe, and so on). You can choose from naari feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Svk2CHwvurK1QQhD"
+    },
+    "data": {}
+  },
+  {
+    "id": "439c787f-b8e0-5913-ad0d-0296de4bdce8",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:nightglider-strix",
+    "name": "Nightglider Strix",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a dedicated nocturnal avian, keeping watch and predating in the most lightless environments. You gain darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.9mS8EGLlGUOzSAzP"
+    },
+    "data": {
+      "ancestry": "23faac9b-2c34-50c4-9fd4-9a5d28f4d724"
+    }
+  },
+  {
+    "id": "8906e8fc-4a52-5d58-a7d3-1e8694fc0494",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:nyktera",
+    "name": "Nyktera",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have batlike features, an affinity for batkind, and hearing that is second to none. As long as you can hear normally, you can use the Seek action to sense "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " instead of a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ". You also gain a +2 circumstance bonus to locate undetected creatures that you could hear within 30 feet with a Seek action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:seek", "target:audible", "target:condition:undetected", "target:within-30"],
+        "display": {
+          "label": "To seek undetected you can hear within 30 feet (Nyktera)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.h2VKMYAlUIFAAXVG"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "e23ee303-5208-59ac-9df0-e33786cc851c",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:oread",
+    "name": "Oread",
+    "rarity": "uncommon",
+    "traits": ["oread"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An earth elemental ancestor has influenced your bloodline, and your features highlight this elemental planar connection. You might have a crystalline or metallic sheen to your skin or hair, rough and stony flesh, or glittering gemstone eyes. You gain the oread trait, in addition to the traits from your ancestry. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can choose from oread feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.ITgkqfnAOJCbcIys"
+    },
+    "data": {}
+  },
+  {
+    "id": "eddb0f8c-af9c-5a64-87fe-55ddb698a11c",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:pixie",
+    "name": "Pixie",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are larger than other sprites. Instead of Tiny, your size is Small."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.KbG2BZ3Sbr3xU1sW"
+    },
+    "data": {
+      "ancestry": "dd8ed85b-b70c-5816-8ddc-31590346f8d5"
+    }
+  },
+  {
+    "id": "23da332c-baa6-59fd-b6c2-13a4a0b6f9c5",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:polyglot-android",
+    "name": "Polyglot Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were preprogrammed with a multitude of linguistic proficiencies, likely to act as a translator. You learn two new languages, chosen from common languages and any uncommon languages you have access to. These languages take the same form (signed or spoken) as your other languages. If you select the "
+          },
+          {
+            "type": "ref",
+            "id": "2cf519d9-3331-5d83-80da-9041ede7e26f"
+          },
+          {
+            "type": "text",
+            "text": " feat, you learn three new languages instead of two."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.BjuZKA7lzFSjKbif"
+    },
+    "data": {
+      "ancestry": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94"
+    }
+  },
+  {
+    "id": "418a4642-e01b-5d1b-bc15-1034acb04861",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:shapewrought-fleshwarp",
+    "name": "Shapewrought Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A victim of fleshwarping, you likely bear loose flesh, bony spurs, or features of inhuman creatures sprouting from your skin. You have nevertheless turned the psychic toll of your transformation into a strength. You gain resistance to mental damage equal to half your level (minimum 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": "max(1, floor(@level / 2))"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.uxtcKTkD62SmrUoh"
+    },
+    "data": {
+      "ancestry": "e2101776-f83a-5828-b46a-ffd770e095d1"
+    }
+  },
+  {
+    "id": "c9109baf-32ee-5322-afb1-42a77465b933",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:spined-azarketi",
+    "name": "Spined Azarketi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your fins conceal launchable toxic spines. You have a spine ranged unarmed attack with the unarmed trait that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, has a range increment of 10 feet, and is in the dart weapon group."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "spine",
+        "category": "unarmed",
+        "group": "dart",
+        "traits": ["unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d4",
+          "damageType": "poison"
+        },
+        "range": 10,
+        "display": {
+          "label": "Spine"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.9Iu1gFEuvVz9zaYU"
+    },
+    "data": {}
+  },
+  {
+    "id": "9d7920c1-3af8-55ed-915b-29ca401b07c4",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:steelskin-hobgoblin",
+    "name": "Steelskin Hobgoblin",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you are cut or burned, your body responds by forming tough but flexible callouses over the site of the injury. Over time, this makes the most vulnerable sections of your body harder and more resistant to damage. Many steelskin hobgoblins intentionally use blades and flame to scar themselves in intricate patterns, though this isn't universal. Your flat check to recover from persistent physical (including bleed), energy, or poison damage is DC 13 (rather than DC 15), or "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 8
+          },
+          {
+            "type": "text",
+            "text": " when provided particularly effective assistance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.BFOsMnWfXL1oaWkY"
+    },
+    "data": {
+      "ancestry": "ae650280-2c4f-57e9-ab05-a6177f20a21c"
+    }
+  },
+  {
+    "id": "ee8c94ba-a6cd-566e-b925-604f3b0f5158",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:suli",
+    "name": "Suli",
+    "rarity": "uncommon",
+    "traits": ["geniekin", "suli"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are descended from a janni or otherwise embody a dichotomy of opposing elemental planar forces. You gain the suli trait, in addition to the traits from your ancestry. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can choose from suli feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.RKz7Z5pefXKiv9JE"
+    },
+    "data": {}
+  },
+  {
+    "id": "dcdf3e4f-c9bd-521e-a620-14ba7e4275e2",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:sylph",
+    "name": "Sylph",
+    "rarity": "uncommon",
+    "traits": ["sylph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are descended from air elementals or were born under the element's influence. You gain the sylph trait, in addition to the traits from your ancestry. You also gain low-light vision or darkvision if your ancestry already has low-light vision. You can choose from sylph feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.G8jfMayPv4vZvAVr"
+    },
+    "data": {}
+  },
+  {
+    "id": "7a692a56-1428-572e-a927-2115608a2f8c",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:tactile-azarketi",
+    "name": "Tactile Azarketi",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin can detect the slightest changes in ocean currents. You gain imprecise wavesense with a range of 30 feet, allowing you to sense motion in the water around you. You also gain a +1 circumstance bonus to Survival checks to Sense Direction in aquatic environments."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:sense-direction", "terrain:aquatic"]
+      },
+      {
+        "key": "Sense",
+        "sense": "178d6a64-6bb6-5607-bfaf-4d39f0df5857",
+        "acuity": "imprecise",
+        "range": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.S1062No0sYH35AhN"
+    },
+    "data": {}
+  },
+  {
+    "id": "489e3906-fcf3-5602-ad01-25586df0bcd9",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:technological-fleshwarp",
+    "name": "Technological Fleshwarp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your transformation is due to manipulation by advanced technology, like that found in Numeria. Your emotions are dulled and hard to influence. When you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["saving-throw"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.n2DKA0OQQcfvZRly"
+    },
+    "data": {
+      "ancestry": "e2101776-f83a-5828-b46a-ffd770e095d1"
+    }
+  },
+  {
+    "id": "777aae64-31ee-553d-b87a-2414d29d162b",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:undine",
+    "name": "Undine",
+    "rarity": "uncommon",
+    "traits": ["amphibious", "undine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A water elemental ancestor influences your bloodline. You gain the undine trait, in addition to the traits from your ancestry. You gain a swim Speed of 10 feet and the amphibious trait. Like all creatures with the amphibious trait, you can breathe both water and air. You can choose from undine feats and feats from your ancestry whenever you gain an ancestry feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "upgrade",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.Gmk7oNITvMVBy78Z"
+    },
+    "data": {}
+  },
+  {
+    "id": "0870c324-56e4-5dd1-bb78-0dbbf34f2b28",
+    "pack": "ancestry-guide",
+    "kind": "heritage",
+    "slug": "heritage:warrior-android",
+    "name": "Warrior Android",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "ancestry-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body was originally created to function as a security officer or soldier. You're a naturally gifted warrior preprogrammed for combat. You're trained in all simple and martial weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.RuQSx0QsirIKxwKY"
+    },
+    "data": {
+      "ancestry": "55c3cd9b-09bd-5f2a-b395-d8d2c3295f94"
+    }
+  }
+]
