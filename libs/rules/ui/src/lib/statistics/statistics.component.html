@@ -22,7 +22,13 @@
                   />
                 </fr-disclosure>
               </fr-stack>
-              <pio-statistic-roll [name]="row.name" [kind]="row.kind" [statistic]="row.statistic" />
+              <pio-statistic-roll
+                [name]="row.name"
+                [kind]="row.kind"
+                [statistic]="row.statistic"
+                [entryNames]="entryNames()"
+                [originNames]="originNames()"
+              />
             </fr-stack>
             <pio-statistic-conditions
               [conditions]="row.conditions"

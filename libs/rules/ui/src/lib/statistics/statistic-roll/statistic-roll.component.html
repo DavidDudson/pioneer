@@ -1,24 +1,20 @@
 @if (roller && kind() === Check) {
-  <fr-stack direction="horizontal" gap="3xs">
+  <fr-hover-card [tapOpens]="false">
     <fr-button
-      iconOnly
-      [variant]="ghost"
+      [variant]="outline"
       [size]="small"
       [ariaLabel]="Message.Roll | transloco: { name: name() }"
       (pressed)="roll()"
     >
-      <fr-icon [icon]="Dices" />
+      {{ label() }}
     </fr-button>
-    @if (roller.setUp) {
-      <fr-button
-        iconOnly
-        [variant]="ghost"
-        [size]="small"
-        [ariaLabel]="Message.RollWithOptions | transloco: { name: name() }"
-        (pressed)="setUp()"
-      >
-        <fr-icon [icon]="Options" />
-      </fr-button>
-    }
-  </fr-stack>
+    <ng-template frHoverCardContent>
+      <pio-breakdown
+        [statistic]="statistic()"
+        [kind]="kind()"
+        [entryNames]="entryNames()"
+        [originNames]="originNames()"
+      />
+    </ng-template>
+  </fr-hover-card>
 }

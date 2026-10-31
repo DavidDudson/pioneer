@@ -122,6 +122,16 @@ export const Claimable: StatisticsStory = {
   },
 };
 
+/** A roller on each check: a text button with the signed modifier, and the breakdown on hover or focus. */
+export const Rollable: StatisticsStory = {
+  args: { statistics: FIGHTER_STATISTICS },
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: CLAIMING_ROLLER }] })],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: 'Roll Fortitude' })).toHaveTextContent('+10');
+  },
+};
+
 /** Skills with their proficiency rank as a letter beside the name: untrained, trained, expert. */
 export const Ranked: StatisticsStory = {
   args: {
