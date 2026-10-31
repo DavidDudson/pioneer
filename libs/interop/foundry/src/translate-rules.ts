@@ -156,7 +156,7 @@ function shapeRule(raw: unknown, context: RuleContext, unresolved: UnresolvedKey
   return {
     raw,
     plain: withCreatureRule(font, senses),
-    chosen: withCreatureRule(withChoiceSet(font, context.values.item), senses),
+    chosen: withCreatureRule(withChoiceSet(font, context.values.item, references), senses),
   };
 }
 

@@ -2,6 +2,8 @@ import { describe, expect, test } from 'bun:test';
 
 import { ContentId, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
+import { NO_REFERENCES } from './entry-references';
+import type { EntryReferences } from './entry-references';
 import { translateRules } from './translate-rules';
 import type { RuleTranslation } from './translate-rules';
 
@@ -223,5 +225,45 @@ describe('ChoiceSet from Foundry: a pick nothing reads', () => {
 
     expect(untranslated).toEqual([]);
     expect(rules.map(({ key }) => key)).toEqual([RuleElementKey.ChoiceSet, RuleElementKey.GrantItem]);
+  });
+});
+
+describe('ChoiceSet from Foundry: choices that name entries by compendium UUID', () => {
+  const SOULHEART = ContentId.parse('00000000-0000-5000-8000-000000000001');
+  const SOULHEART_GREATER = ContentId.parse('00000000-0000-5000-8000-000000000002');
+  const references: EntryReferences = {
+    ...NO_REFERENCES,
+    byUuid: new Map([
+      ['Compendium.pf2e.equipment-srd.Item.Soulheart', SOULHEART],
+      ['Compendium.pf2e.equipment-srd.Item.Soulheart (Greater)', SOULHEART_GREATER],
+    ]),
+  };
+  const grant = { key: RuleElementKey.GrantItem, uuid: '{item|flags.system.rulesSelections.armor}' };
+
+  function withReferences(choices: readonly object[]): RuleTranslation {
+    const pick = { choices, flag: 'armor', key: RuleElementKey.ChoiceSet };
+    return translateRules(ENTRY, [pick, grant], { lang: {}, values: { item: 'Armor' }, references });
+  }
+
+  test('each choice is the entry it resolves to, labelled with the name in its UUID', () => {
+    const { rules, untranslated } = withReferences([
+      { value: 'Compendium.pf2e.equipment-srd.Item.Soulheart', predicate: ['parent:origin:item:slug:soulheart'] },
+      { value: 'Compendium.pf2e.equipment-srd.Item.Soulheart (Greater)', label: 'Greater' },
+    ]);
+
+    expect(untranslated).toEqual([]);
+    expect((rules[0] as { choices: unknown }).choices).toEqual([
+      { value: SOULHEART, label: 'Soulheart', predicate: ['parent:origin:item:slug:soulheart'] },
+      { value: SOULHEART_GREATER, label: 'Greater' },
+    ]);
+    expect(rules[1] as unknown).toEqual({ key: RuleElementKey.GrantItem, item: { choice: 'armor' } });
+  });
+
+  test('a UUID that does not resolve, or names a document by id, leaves the ChoiceSet in the backlog', () => {
+    const unresolved = withReferences([{ value: 'Compendium.pf2e.equipment-srd.Item.Unknown Armor' }]);
+    const byId = withReferences([{ value: 'Compendium.pf2e.equipment-srd.Item.AbCdEfGhIjKlMnOp' }]);
+
+    expect(unresolved.rules).toEqual([]);
+    expect(byId.rules).toEqual([]);
   });
 });

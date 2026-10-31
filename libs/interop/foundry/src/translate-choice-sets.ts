@@ -1,6 +1,8 @@
 import { ContentKind, RuleElement, RuleElementKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
+import { resolveUuid } from './entry-references';
+import type { EntryReferences } from './entry-references';
 import { kebab } from './foundry-flags';
 import { SKILLS } from './foundry-skills';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
@@ -41,6 +43,28 @@ function asText(value: unknown): unknown {
   return typeof value === 'number' ? String(value) : value;
 }
 
+/** A compendium UUID by name, which a choice names an entry by: `Compendium.pf2e.equipment-srd.Item.Soulheart`. */
+const COMPENDIUM_UUID = /^Compendium\.pf2e\.[a-z-]+\.Item\.(?<name>.+)$/u;
+
+/** A Foundry document id, which says nothing of the entry's name. */
+const DOCUMENT_ID = /^[A-Za-z\d]{16}$/u;
+
+/**
+ * A choice that names an entry by compendium UUID, as the entry it resolves to. Foundry labels it with the entry's
+ * name, the last part of a UUID by name; a UUID by id, or one that does not resolve, is left as it is.
+ */
+function withChosenEntry(choice: object, references: EntryReferences): object {
+  if (!('value' in choice) || typeof choice.value !== 'string') {
+    return choice;
+  }
+  const name = COMPENDIUM_UUID.exec(choice.value)?.groups?.['name'];
+  const id = resolveUuid(references, choice.value);
+  if (name === undefined || id === undefined || DOCUMENT_ID.test(name)) {
+    return choice;
+  }
+  return { ...choice, value: id, label: 'label' in choice ? choice.label : name };
+}
+
 /** Foundry's injection of the level of the item holding the `ChoiceSet`, which Pioneer reads as `item:level`. */
 const ITEM_LEVEL = '{item|level}';
 const ITEM_LEVEL_OPTION = 'item:level';
@@ -70,14 +94,15 @@ function withItemLevel(node: unknown): unknown {
 }
 
 /** A choice with its value as text and its predicate's roll options namespaced, and `{item|level}` read as `item:level`. */
-function choiceOf(choice: unknown): unknown {
+function choiceOf(choice: unknown, references: EntryReferences): unknown {
   if (typeof choice !== 'object' || choice === null || !('value' in choice)) {
     return choice;
   }
   const kept = Object.entries(choice)
     .filter(([field]) => !CHOICE_DISPLAY_ONLY_FIELDS.has(field))
-    .map(([field, value]) => [field, field === 'predicate' ? withItemLevel(value) : value]);
-  return withNamespacedOptions({ ...Object.fromEntries(kept), value: asText(choice.value) });
+    .map(([field, value]): [string, unknown] => [field, field === 'predicate' ? withItemLevel(value) : value]);
+  const fields: Record<string, unknown> = Object.fromEntries(kept);
+  return withNamespacedOptions(withChosenEntry({ ...fields, value: asText(choice.value) }, references));
 }
 
 /** An item's name as a slug, the flag Foundry gives a `ChoiceSet` that names none: `Align the Stars` is `align-the-stars`. */
@@ -116,9 +141,9 @@ function queryOf(choices: object): unknown {
   return { kind: kind === ContentKind.Feat && byTagAlone ? ContentKind.ClassFeature : kind, filter };
 }
 
-function choicesOf(choices: unknown): unknown {
+function choicesOf(choices: unknown, references: EntryReferences): unknown {
   if (Array.isArray(choices)) {
-    return choices.map((choice) => choiceOf(choice));
+    return choices.map((choice) => choiceOf(choice, references));
   }
   if (typeof choices !== 'object' || choices === null) {
     return choices;
@@ -131,7 +156,7 @@ function choicesOf(choices: unknown): unknown {
  * A `ChoiceSet` as Pioneer's element: its flag a slug (without one, the item's name, as Foundry names it by the item),
  * its choices and filter as above, and the display-only fields dropped. Any other element is as it is.
  */
-export function withChoiceSet(raw: unknown, item: string): unknown {
+export function withChoiceSet(raw: unknown, item: string, references: EntryReferences): unknown {
   if (typeof raw !== 'object' || raw === null || !('key' in raw) || raw.key !== RuleElementKey.ChoiceSet) {
     return raw;
   }
@@ -141,7 +166,7 @@ export function withChoiceSet(raw: unknown, item: string): unknown {
       if (field === NO_SELECTION_FIELD) {
         return value === true ? [['optional', true]] : [];
       }
-      return [[field, field === 'choices' ? choicesOf(value) : value]];
+      return [[field, field === 'choices' ? choicesOf(value, references) : value]];
     }),
   );
   const flag = 'flag' in raw && typeof raw.flag === 'string' ? kebab(raw.flag) : slugOf(item);
