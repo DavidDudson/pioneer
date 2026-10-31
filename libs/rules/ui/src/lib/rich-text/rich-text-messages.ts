@@ -5,6 +5,8 @@ export const RichTextMessage = {
   Check: 'rules.richText.check',
   Damage: 'rules.richText.damage',
   Healing: 'rules.richText.healing',
+  Roll: 'rules.richText.roll',
+  NoStatistic: 'rules.richText.noStatistic',
   Template: 'rules.richText.template',
   UnnamedEntry: 'rules.richText.unnamedEntry',
   UnnamedCheck: 'rules.richText.unnamedCheck',

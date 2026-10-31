@@ -2,15 +2,22 @@
 @if (rolls.last(); as last) {
   <fr-stack gap="xs">
     <fr-text weight="semibold">{{ 'character.sheet.roll.heading' | transloco: { name: last.name } }}</fr-text>
-    <pio-roll-card dcEditable [roll]="last.view" [dc]="rolls.dc()" (dcChange)="rolls.dc.set($event)" />
-    <fr-disclosure>
-      <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
-      <pio-breakdown
-        [statistic]="last.statistic"
-        [kind]="kind"
-        [entryNames]="entryNames()"
-        [originNames]="originNames()"
-      />
-    </fr-disclosure>
+    <pio-roll-card
+      [dcEditable]="last.statistic !== undefined"
+      [roll]="last.view"
+      [dc]="rolls.cardDc()"
+      (dcChange)="rolls.typeDc($event)"
+    />
+    @if (last.statistic; as statistic) {
+      <fr-disclosure>
+        <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
+        <pio-breakdown
+          [statistic]="statistic"
+          [kind]="kind"
+          [entryNames]="entryNames()"
+          [originNames]="originNames()"
+        />
+      </fr-disclosure>
+    }
   </fr-stack>
 }

@@ -244,6 +244,8 @@
       "check": "{hasDc, select, yes {DC {dc} } other {}}{basic, select, yes {basic } other {}}{statistic}{save, select, yes { save} other {}}{against, select, yes { against {againstName}} other {}}",
       "damage": "{formula}{hasCategory, select, yes { {category}} other {}}{hasType, select, yes { {damageType}} other {}}",
       "healing": "{amount} healing",
+      "roll": "Roll {text}",
+      "noStatistic": "(no {statistic} on this character)",
       "template": "{distance} {shape}{wide, select, yes {, {width} wide} other {}}",
       "unnamedCheck": "check",
       "unnamedSave": "saving throw",

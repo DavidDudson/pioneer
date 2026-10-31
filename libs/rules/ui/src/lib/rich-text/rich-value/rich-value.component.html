@@ -1,1 +1,10 @@
-<fr-text weight="semibold">{{ text() }}</fr-text>
+@if (roll(); as rolls) {
+  <fr-button [variant]="outline" [size]="small" [ariaLabel]="rolls.name" (pressed)="rolls.run()">
+    <fr-text weight="semibold">{{ text() }}</fr-text>
+  </fr-button>
+} @else {
+  <fr-text weight="semibold">{{ text() }}</fr-text>
+  @if (missing(); as reason) {
+    <fr-text tone="muted"> {{ reason }}</fr-text>
+  }
+}

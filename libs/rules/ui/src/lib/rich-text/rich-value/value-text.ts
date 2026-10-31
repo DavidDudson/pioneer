@@ -36,7 +36,7 @@ function yesNo(value: boolean): string {
 }
 
 /** A statistic's name from the page, or a generic word when the page doesn't know it. */
-function statisticName(selector: Selector, { links, translate }: ValueTextContext): string {
+export function statisticName(selector: Selector, { links, translate }: ValueTextContext): string {
   const isSave = selector.startsWith(SAVE_PREFIX);
   return (
     links.statisticName(selector) ?? translate(isSave ? RichTextMessage.UnnamedSave : RichTextMessage.UnnamedCheck)
