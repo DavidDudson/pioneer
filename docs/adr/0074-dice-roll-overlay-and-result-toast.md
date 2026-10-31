@@ -39,6 +39,8 @@ the play page and inline text rolls.
 ## Consequences
 
 - Rolls feel physical, and the result is visible wherever the player is on the page.
+- The library cannot colour dice of one throw separately, so a roll of several damage types throws all its dice in the
+  first type's colour; the toast names the types and the roll log breaks the total down per type.
 - A WebGL canvas and Three.js are a new dependency and a lazy chunk; the first roll pays the load, which is why the
   toast also works without the animation.
 - `pioneer/no-interruptions` still bans `<dialog>`, `role="dialog"` and internal `href`; the toast uses

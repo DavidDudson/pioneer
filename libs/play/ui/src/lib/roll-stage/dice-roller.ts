@@ -103,28 +103,11 @@ export function colorSetFor(tone: DamageTone | undefined): DiceColorSet {
 
 let surfaceCount = 0;
 
-/** The part of the dice library the stage drives. */
-interface DiceTable {
-  readonly updateConfig: (config: { theme_customColorset: DiceColorSet; theme_material: string }) => Promise<void>;
-  readonly roll: (notation: string) => Promise<unknown>;
-  readonly add: (notation: string) => Promise<unknown>;
-}
-
 /**
- * Throws each group in its own colour, one after another so the colour set in force is its own, without waiting for any
- * to settle: the first clears the table, the rest are thrown beside it. Returns when all are in the air.
+ * The Three.js dice, loaded on the first roll so the library stays out of the initial bundle (ADR-0074). Every group is
+ * thrown as one notation (`1d8@6+1d6@6`) in one colour, the first damage type among them: the library cannot colour
+ * dice in one throw separately, and adding dice to a throw in the air never settles. The toast names every type.
  */
-async function throwGroups(table: DiceTable, groups: readonly DiceGroup[], settled: Promise<unknown>[]): Promise<void> {
-  const [group, ...rest] = groups;
-  if (group === undefined) {
-    return;
-  }
-  await table.updateConfig({ theme_customColorset: colorSetFor(group.tone), theme_material: 'plastic' });
-  settled.push(settled.length === 0 ? table.roll(group.notation) : table.add(group.notation));
-  await throwGroups(table, rest, settled);
-}
-
-/** The Three.js dice, loaded on the first roll so the library stays out of the initial bundle (ADR-0074). */
 export const threeDiceRoller: DiceRollerFactory = async (surface) => {
   const { default: DiceBox } = await import('@3d-dice/dice-box-threejs');
   surfaceCount += 1;
@@ -133,9 +116,9 @@ export const threeDiceRoller: DiceRollerFactory = async (surface) => {
   await box.initialize();
   return {
     roll: async (groups) => {
-      const settled: Promise<unknown>[] = [];
-      await throwGroups(box, groups, settled);
-      await Promise.all(settled);
+      const tone = groups.find((group) => group.tone !== undefined)?.tone;
+      await box.updateConfig({ theme_customColorset: colorSetFor(tone), theme_material: 'plastic' });
+      await box.roll(groups.map(({ notation }) => notation).join('+'));
     },
     dispose: () => {
       box.clearDice();
