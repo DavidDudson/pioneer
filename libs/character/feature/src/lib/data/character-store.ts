@@ -76,9 +76,8 @@ export class CharacterStore {
   });
 
   /**
-   * The open character's sheet as the cache holds it. Follows the query, and is set
-   * directly on writes so the next save sees the new version at once rather
-   * than after TanStack's next notify.
+   * The open character's sheet as the cache holds it: follows the query, and is set directly on writes so the next
+   * save sees the new version at once, not after TanStack's next notify.
    */
   readonly #current = linkedSignal(() => this.#selected.data());
 
