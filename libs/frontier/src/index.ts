@@ -53,6 +53,8 @@ export { Message, MessageTone } from './lib/feedback/message/message.component';
 export { Meter, MeterVariant } from './lib/feedback/meter/meter.component';
 export { Skeleton, SkeletonShape, SkeletonWidth } from './lib/feedback/skeleton/skeleton.component';
 export { Spinner } from './lib/feedback/spinner/spinner.component';
+export { ScreenOverlay } from './lib/feedback/screen-overlay/screen-overlay.component';
+export { Toast } from './lib/feedback/toast/toast.component';
 
 // Focus
 export { RovingFocus } from './lib/focus/roving-focus.directive';

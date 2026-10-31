@@ -49,8 +49,8 @@ export interface ClassTokenProblem {
 
 const ARBITRARY = /[[\]()]/u;
 const PIXEL = /(?:^|-)px$|\dpx\b/u;
-/** Corner radius and every shadow-like utility (box, inset, ring, drop, text). */
-const SHARP = /^(?:rounded|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-shadow)(?:-|$)/u;
+/** Corner radius (but for the one `rounded-pill`, ADR-0074) and every shadow-like utility (box, inset, ring, drop, text). */
+const SHARP = /^(?:rounded(?!-pill$)|shadow|inset-shadow|ring|inset-ring|drop-shadow|text-shadow)(?:-|$)/u;
 /** Token steps like `2xs` / `3xl`: digits that are part of a name, not a value. */
 const TOKEN_STEP = /(?<=-)\d?x[sl](?=$|-)/gu;
 const DIGIT = /\d/u;
@@ -66,7 +66,7 @@ const SYSTEM_COLOUR =
   /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-system-/u;
 /** A colour utility naming a theme colour token (`text-accent-fg`). */
 const THEME_COLOUR =
-  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info)-/u;
+  /^(?:bg|text|border(?:-[xytbse])?|divide|outline|decoration|placeholder|caret|accent|fill|stroke)-(?:surface|fg|line|accent|danger|success|warning|info|damage)-/u;
 const FORCED_COLORS = 'forced-colors';
 
 /** System colours only under `forced-colors:`, and only system colours there. */

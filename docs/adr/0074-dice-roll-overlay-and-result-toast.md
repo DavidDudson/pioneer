@@ -29,7 +29,10 @@ the play page and inline text rolls.
 6. **Library.** `@3d-dice/dice-box-threejs` (Three.js and cannon-es), loaded with a dynamic import on the first roll
    so it stays out of the initial bundle. It was chosen over `@3d-dice/dice-box` because only it can land on faces
    the caller gives it. Its textures are static assets of the web app.
-7. **Colour.** Dice and the total's text are coloured by damage type from frontier tokens (`--fr-damage-<type>`), read
+7. **Pill.** The toast is round-ended, which frontier's sharp-and-flat rule forbids. `--radius-pill` and
+   `rounded-pill` are the one radius, used by `fr-toast` alone; `pioneer/class-tokens` and the built-CSS check allow
+   that utility and nothing else.
+8. **Colour.** Dice and the total's text are coloured by damage type from frontier tokens (`--fr-damage-<type>`), read
    from the computed style when the dice are built, so both themes and modes work. The type is also named in the
    toast: colour is never the only carrier.
 

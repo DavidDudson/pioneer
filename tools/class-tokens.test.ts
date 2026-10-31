@@ -64,3 +64,13 @@ describe('classTokenProblem: forced colours', () => {
     expect(classTokenProblem(classes, false)).toBeUndefined();
   });
 });
+
+describe('classTokenProblem: sharp and flat', () => {
+  test.each(['rounded-md', 'rounded-full', 'rounded', 'shadow-sm', 'ring-2'])('flags %s', (classes) => {
+    expect(classTokenProblem(classes, false)?.messageId).toBe('sharp');
+  });
+
+  test('allows the one pill radius (ADR-0074)', () => {
+    expect(classTokenProblem('rounded-pill', false)).toBeUndefined();
+  });
+});
