@@ -2081,7 +2081,8 @@
     ],
     "rules": [],
     "externalIds": {
-      "foundry": "Compendium.pf2e.equipment-srd.Item.s1vB3HdXjMigYAnY"
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s1vB3HdXjMigYAnY",
+      "pathbuilder": "Healer's Tools"
     },
     "data": {
       "price": {

@@ -5,6 +5,7 @@ import {
   InMemoryCharacterVariantRepository,
   PathbuilderImportService,
 } from '@pioneer/character/application';
+import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { Discrepancy, SpellGap } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { contentCatalog } from '@pioneer/rules/catalog';
@@ -201,6 +202,20 @@ describe('Pathbuilder spells over the official packs', () => {
         'Archetype Sorcerer no-entry: 4',
         'divine cha focus not-granted: 1',
       ]);
+    },
+    LOAD_TIMEOUT_MS,
+  );
+});
+
+describe('Pathbuilder item names over the official packs', () => {
+  test(
+    "Mordred's Healer's Tools, the legacy name of Healer's Toolkit, matches the item",
+    async () => {
+      const { report } = await service.importPathbuilder(actor, mordredExport);
+      const unmatched = report.unmatched
+        .filter((group) => group.kind === ImportKind.Item)
+        .flatMap((group) => group.names.map(({ name }) => name));
+      expect(unmatched).not.toContain("Healer's Tools");
     },
     LOAD_TIMEOUT_MS,
   );
