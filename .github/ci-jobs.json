@@ -1,7 +1,18 @@
 {
   "check": [
-    { "name": "lint", "id": "lint", "script": "ci:lint", "args": "", "always": true },
-    { "name": "typecheck and build", "id": "build", "script": "ci:build", "args": "" },
+    {
+      "name": "lint",
+      "id": "lint",
+      "script": "ci:lint",
+      "args": "",
+      "always": true
+    },
+    {
+      "name": "typecheck and build",
+      "id": "build",
+      "script": "ci:build",
+      "args": ""
+    },
     {
       "name": "storybook rules 1",
       "id": "storybook-rules-1",
@@ -20,7 +31,12 @@
       "script": "ci:storybook",
       "args": "--projects=rules-ui --configuration=shard-3"
     },
-    { "name": "storybook rest", "id": "storybook-rest", "script": "ci:storybook", "args": "--exclude=rules-ui" }
+    {
+      "name": "storybook rest",
+      "id": "storybook-rest",
+      "script": "ci:storybook",
+      "args": "--exclude=rules-ui"
+    }
   ],
   "test": [
     {
@@ -38,18 +54,41 @@
       "id": "character-page-c",
       "args": "--projects=character-feature --configuration=page-c"
     },
-    { "name": "character rest", "id": "character-rest", "args": "--projects=character-feature --configuration=rest" },
+    {
+      "name": "character rest",
+      "id": "character-rest",
+      "args": "--projects=character-feature --configuration=rest"
+    },
     {
       "name": "web ui",
       "id": "web-ui",
       "args": "--projects=rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
     },
     {
+      "name": "web accounts and tables",
+      "id": "web-tables",
+      "args": "--projects=identity-data-access,identity-dev-sign-in,identity-feature,campaign-feature,homebrew-feature --parallel=2"
+    },
+    {
       "name": "web rest",
       "id": "web",
-      "args": "--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access --parallel=2"
+      "args": "--projects=tag:platform:web --exclude=character-feature,rules-ui,content-ui,play-ui,frontier,rules-data-access,identity-data-access,identity-dev-sign-in,identity-feature,campaign-feature,homebrew-feature --parallel=2"
     },
-    { "name": "server api", "id": "server-api", "args": "--projects=api --configuration=rest" },
+    {
+      "name": "server api",
+      "id": "server-api",
+      "args": "--projects=api --configuration=rest"
+    },
+    {
+      "name": "server api generation",
+      "id": "server-api-generation",
+      "args": "--projects=api --configuration=generation"
+    },
+    {
+      "name": "server api binary",
+      "id": "server-api-binary",
+      "args": "--projects=api --configuration=binary"
+    },
     {
       "name": "server api characters 1",
       "id": "server-api-generate-1",
@@ -70,6 +109,15 @@
       "id": "server-api-generate-4",
       "args": "--projects=api --configuration=generate-4"
     },
-    { "name": "server rest", "id": "server", "args": "--exclude=tag:platform:web,api" }
+    {
+      "name": "server rules",
+      "id": "server-rules",
+      "args": "--projects=rules-*,shared-* --exclude=tag:platform:web,api"
+    },
+    {
+      "name": "server contexts",
+      "id": "server",
+      "args": "--exclude=tag:platform:web,api,rules-*,shared-*"
+    }
   ]
 }

@@ -48,7 +48,13 @@
     "test": {
       "configurations": {
         "rest": {
-          "command": "bun test apps/api --path-ignore-patterns '**/generate-character.test.ts'"
+          "command": "bun test apps/api --path-ignore-patterns='**/generate-character.test.ts' --path-ignore-patterns='**/generate-gear.test.ts' --path-ignore-patterns='**/generate-locks.test.ts' --path-ignore-patterns='**/generate-spells.test.ts' --path-ignore-patterns='**/generate-theme.test.ts' --path-ignore-patterns='**/generate-weapon-theme.test.ts' --path-ignore-patterns='**/level-20-builds.test.ts' --path-ignore-patterns='**/pathbuilder-golden.test.ts' --path-ignore-patterns='**/binary.db.test.ts'"
+        },
+        "generation": {
+          "command": "bun test apps/api/src/generate-gear.test.ts apps/api/src/generate-locks.test.ts apps/api/src/generate-spells.test.ts apps/api/src/generate-theme.test.ts apps/api/src/generate-weapon-theme.test.ts apps/api/src/level-20-builds.test.ts apps/api/src/pathbuilder-golden.test.ts"
+        },
+        "binary": {
+          "command": "bun test apps/api/src/binary.db.test.ts"
         },
         "generate-1": {
           "command": "bun test apps/api/src/generate-character.test.ts --test-name-pattern 'the same seed gives|Alchemist|Barbarian|Bard'"
