@@ -389,6 +389,12 @@
       "rules": { "eslint/init-declarations": "off" }
     },
     {
+      // `@3d-dice/dice-box-threejs` ships no types: this ambient module declares the slice the roll stage uses, so the
+      // file is a script on purpose (a module's `declare module` would only augment).
+      "files": ["libs/play/ui/src/lib/roll-stage/dice-box-threejs.d.ts"],
+      "rules": { "import/unambiguous": "off" }
+    },
+    {
       // A library's public API is one export per module it exposes; its length is the size of the API, not
       // complexity, and capping it pushed exports behind KIND_DATA and packed export lines.
       "files": ["**/index.ts"],
