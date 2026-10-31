@@ -32,6 +32,9 @@ const AC = 'ac';
 /** Where the character's traits are written: `self:trait:humanoid`. */
 const TRAIT_PREFIX = 'self:trait:';
 
+/** Where the character's immunities are written: `self:immunity:difficult-terrain`. */
+const IMMUNITY_PREFIX = 'self:immunity:';
+
 /** A speed the form does not list is one the character no longer has. */
 const NO_SPEED = RuleNumber.parse(0);
 
@@ -64,7 +67,7 @@ interface Replacement {
   readonly checkPenalty: boolean;
 }
 
-function movementOf(selector: Selector): FormMovement | undefined {
+export function movementOf(selector: Selector): FormMovement | undefined {
   return Object.values(FormMovement).find((movement) => `${SPEED_PREFIX}${movement}` === selector);
 }
 
@@ -196,12 +199,22 @@ function formResult(result: StatisticValue, { form, replacement, lines, base, va
 
 /**
  * The facts with the battle form's traits added as the character's own (`self:trait:plant`), so a predicate reads
- * the form's traits beside the ones the character has. The form is picked on the facts as they were here, but
- * a form whose predicate reads a trait it grants is tested again on these, so a form should not depend on its own traits.
+ * the form's traits beside the ones the character has, and each immunity the character has as `self:immunity:<type>`:
+ * from the `Immunity` elements whose predicate holds, and from the form's own. The form is picked on the facts as they
+ * were here, but a form whose predicate reads a trait it grants is tested again on these, so a form should not depend
+ * on its own traits.
  */
 export function factsUnderForm(inputs: ModifierInputs): PredicateFacts {
-  const traits = battleFormInPlay(inputs)?.form.traits ?? [];
-  return traits.length === 0
-    ? inputs.facts
-    : inputs.facts.plus(traits.map((trait) => RollOption.parse(`${TRAIT_PREFIX}${trait}`)));
+  const form = battleFormInPlay(inputs)?.form;
+  const traits = (form?.traits ?? []).map((trait) => `${TRAIT_PREFIX}${trait}`);
+  const given = inputs.rules.flatMap(({ element }) =>
+    element.key === RuleElementKey.Immunity && truthOf(element.predicate, inputs.facts) === Truth.True
+      ? element.type
+      : [],
+  );
+  const immunities = [...given, ...(form?.immunities ?? []).map(({ type }) => type)].map(
+    (type) => `${IMMUNITY_PREFIX}${type}`,
+  );
+  const added = [...traits, ...immunities];
+  return added.length === 0 ? inputs.facts : inputs.facts.plus(added.map((option) => RollOption.parse(option)));
 }

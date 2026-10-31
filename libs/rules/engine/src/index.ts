@@ -49,7 +49,12 @@ export {
   type SpellSlots,
   spellcastingInPlay,
 } from './spellcasting-in-play';
-export { type StatisticFailure, type StatisticResult, type StatisticValue } from './statistic-result';
+export {
+  type MovementCostReduction,
+  type StatisticFailure,
+  type StatisticResult,
+  type StatisticValue,
+} from './statistic-result';
 export { type ClassInputs, type StatisticInputs, StatisticInputsJson } from './statistic-inputs';
 export { type WeaponInputs } from './source-inputs';
 export { default as engineMessages } from './i18n/en.json';
@@ -97,3 +102,4 @@ export {
 } from './effect-line';
 export { type EffectScope, summariseEffects, type SummarisedEntry } from './effect-summary';
 export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
+export { applyMovementCost, movementCostsInPlay, type MovementCostInPlay } from './movement-cost';

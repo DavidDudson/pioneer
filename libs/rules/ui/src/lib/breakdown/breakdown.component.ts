@@ -7,7 +7,6 @@ import type {
   BaseTerm,
   BreakdownLine,
   LineStatus,
-  ModifierLabel,
   OverrideLine,
   OverrideStatus,
   RuleId,
@@ -27,6 +26,8 @@ import { BreakdownLines } from './breakdown-lines/breakdown-lines.component';
 import { BreakdownMessage, LINE_STATUS_ORDER } from './breakdown-messages';
 import { labelName, lineValue, summaryFormat } from './line-words';
 import type { LabelNames } from './line-words';
+import { movementCostRule, movementCostWords } from './movement-cost-words';
+import type { RuleLabel } from './movement-cost-words';
 import { numberStyle } from './number-style';
 import { OverrideLines } from './override-lines/override-lines.component';
 import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './shown-breakdown';
@@ -35,12 +36,6 @@ import type { ShownBreakdown, ShownLine, ShownOverride, ShownTerm } from './show
 interface Placed {
   readonly line: BreakdownLine;
   readonly index: number;
-}
-
-/** A rule as the breakdown names it: its id and the label it carries. */
-interface Labelled {
-  readonly id: RuleId;
-  readonly label: ModifierLabel;
 }
 
 function rank(status: LineStatus): number {
@@ -95,10 +90,11 @@ export class BreakdownView {
     this.#format.locale();
     const statistic = this.statistic();
     const style = numberStyle(this.kind());
-    const rules: readonly Labelled[] = [
-      ...statistic.lines.map(({ modifier }): Labelled => modifier),
+    const rules: readonly RuleLabel[] = [
+      ...statistic.lines.map(({ modifier }): RuleLabel => modifier),
       ...statistic.overrides,
       ...(statistic.form === undefined ? [] : [{ id: statistic.form.rule, label: statistic.form.label }]),
+      ...movementCostRule(statistic),
     ];
     const placed = statistic.lines.map((line, index): Placed => ({ line, index }));
     const ordered = placed.toSorted(
@@ -107,6 +103,11 @@ export class BreakdownView {
     return {
       pinned: this.#pinned(statistic, rules, style),
       form: this.#form(statistic),
+      movementCost: movementCostWords(
+        statistic,
+        (rule) => this.#ruleName(rule, rules),
+        (descriptor) => this.#translate(descriptor),
+      ),
       base: this.#i18n.translate(BreakdownMessage.Base, { value: this.#format.number(statistic.baseValue, style) }),
       terms: statistic.base.map((term, index) => this.#term(term, index)),
       lines: ordered.map(({ line }) => this.#line(line, rules)),
@@ -114,7 +115,7 @@ export class BreakdownView {
     };
   });
 
-  #pinned(statistic: StatisticValue, rules: readonly Labelled[], style: Intl.NumberFormatOptions): string | undefined {
+  #pinned(statistic: StatisticValue, rules: readonly RuleLabel[], style: Intl.NumberFormatOptions): string | undefined {
     if (statistic.pinnedBy === undefined) {
       return undefined;
     }
@@ -146,7 +147,7 @@ export class BreakdownView {
     return { code: leading ? term.formula : `${term.sign} ${term.formula}`, value, variant };
   }
 
-  #line(line: BreakdownLine, rules: readonly Labelled[]): ShownLine {
+  #line(line: BreakdownLine, rules: readonly RuleLabel[]): ShownLine {
     const { modifier, status } = line;
     const shown = {
       name: this.#name(modifier),
@@ -161,7 +162,7 @@ export class BreakdownView {
 
   #detail(
     status: Exclude<LineStatus, { readonly kind: typeof LineStatusKind.Applied }>,
-    rules: readonly Labelled[],
+    rules: readonly RuleLabel[],
   ): string | undefined {
     switch (status.kind) {
       case LineStatusKind.Suppressed: {
@@ -197,7 +198,7 @@ export class BreakdownView {
     });
   }
 
-  #override(line: OverrideLine, rules: readonly Labelled[], style: Intl.NumberFormatOptions): ShownOverride {
+  #override(line: OverrideLine, rules: readonly RuleLabel[], style: Intl.NumberFormatOptions): ShownOverride {
     const { status } = line;
     const shown = {
       name: this.#name(line),
@@ -221,7 +222,7 @@ export class BreakdownView {
 
   #overrideDetail(
     status: Exclude<OverrideStatus, { readonly kind: typeof OverrideStatusKind.Applied }>,
-    rules: readonly Labelled[],
+    rules: readonly RuleLabel[],
   ): string | undefined {
     switch (status.kind) {
       case OverrideStatusKind.Replaced: {
@@ -254,7 +255,7 @@ export class BreakdownView {
   }
 
   /** A rule a line names (the one that beat, removed, replaced or pinned it): by its name; else the caller's; else its id. */
-  #ruleName(id: RuleId, rules: readonly Labelled[]): string {
+  #ruleName(id: RuleId, rules: readonly RuleLabel[]): string {
     const rule = rules.find((candidate) => candidate.id === id);
     if (rule !== undefined) {
       return this.#name(rule);
@@ -263,7 +264,7 @@ export class BreakdownView {
     return named === undefined ? id : this.#translate(named);
   }
 
-  #name({ id, label }: Labelled): string {
+  #name({ id, label }: RuleLabel): string {
     if ('text' in label) {
       return label.text;
     }
