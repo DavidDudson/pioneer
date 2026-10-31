@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -10,23 +11,42 @@ import {
   Injector,
   input,
   model,
+  signal,
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideSearch } from '@lucide/angular';
+import { LucideEllipsisVertical, LucideSearch } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
 
 import { Breadcrumbs } from '../../actions/breadcrumbs/breadcrumbs.component';
-import { Button } from '../../actions/button/button.component';
+import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Link } from '../../actions/link/link.component';
 import { Icon } from '../../icon/icon.component';
 import { Badge } from '../../text/badge/badge.component';
 import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
+import { Dropdown, DropdownAlign } from '../dropdown/dropdown.component';
 import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { Stack } from '../stack/stack.component';
+import { readMinimised, writeMinimised } from './shell-panel-state';
 
 const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
+/** The query container for the body row; the row inside it is the flexbox, as an element cannot query its own size. */
+const bodyClasses = cva('@container flex flex-1 flex-col')();
+const bodyRowClasses = cva('flex flex-1 flex-col @lg:flex-row')();
+/**
+ * In the row beside the page from `lg`: stuck under the header and scrolling inside itself, at the end edge (the start
+ * edge in right-to-left layouts). Narrower, a bar stuck to the bottom edge of the screen, above the home indicator.
+ */
+const panelVariants = cva(
+  [
+    'sticky z-sticky overflow-auto border-line-subtle bg-surface-base',
+    'bottom-none h-shell-panel-bar border-t p-sm pb-safe-bottom',
+    '@lg:top-shell-header @lg:h-rail-height @lg:w-shell-panel @lg:shrink-0 @lg:self-start @lg:border-s @lg:pb-none',
+  ].join(' '),
+  { variants: { shown: { true: '', false: 'hidden' } } },
+);
+const contentClasses = cva('min-w-none flex-1 focus:outline-hidden')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
 const searchVariants = cva('', { variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } } });
@@ -48,11 +68,14 @@ const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
  * A skip link, hidden until focused, is the first thing Tab reaches and moves
  * focus past the header to `<main>`.
  * Pads for notches and home indicators (needs `viewport-fit=cover`).
- * Built only from layout primitives; it has no responsive CSS of its own.
+ * A panel slot (`frShellPanel`) is beside `<main>` in a row from `lg`, stuck under the header at the end edge, once the page sets
+ * `panelAvailable`; below `lg` the panel is a bar stuck to the bottom edge.
+ * While available, a three-dot menu in the header minimises and restores it; the choice is kept in this browser.
+ * Built only from layout primitives; apart from the panel, it has no responsive CSS of its own.
  */
 @Component({
   selector: 'fr-shell',
-  imports: [Badge, Box, Breadcrumbs, Button, Icon, Link, Stack, Text, TranslocoPipe],
+  imports: [Badge, Box, Breadcrumbs, Button, Dropdown, Icon, Link, Stack, Text, TranslocoPipe],
   templateUrl: './shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class]': 'hostClasses', '(keydown.escape)': 'escaped($event)', '(focusout)': 'searchBlurred($event)' },
@@ -67,8 +90,16 @@ export class Shell {
   /** Whether the search is open: it replaces the breadcrumbs and takes the row's width. */
   public readonly searchOpen = model(false);
 
+  /** Whether the page has a panel to show: without one the slot is empty and the header has no menu for it. */
+  public readonly panelAvailable = input(false);
+  /** Names the panel in its landmark and in the menu entry, already translated ("Party"). */
+  public readonly panelLabel = input('');
+
   protected readonly crumbs = inject(HeaderCrumbs);
   protected readonly searchIcon = LucideSearch;
+  protected readonly menuIcon = LucideEllipsisVertical;
+  protected readonly menuAlign = DropdownAlign.End;
+  protected readonly menuVariant = ButtonVariant.Menu;
 
   protected readonly hostClasses = shellClasses;
   protected readonly mainId = MAIN_ID;
@@ -80,9 +111,20 @@ export class Shell {
   protected readonly crumbsClasses = cva('min-w-none flex-1')();
   protected readonly searchClasses = computed(() => searchVariants({ open: this.searchOpen() }));
   protected readonly actionsClasses = cva('shrink-0')();
-  // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
-  protected readonly contentClasses = cva('flex-1 focus:outline-hidden')();
   protected readonly footerClasses = footerClasses;
+
+  readonly #document = inject(DOCUMENT);
+  /** The user's choice to hide the panel, kept in this browser. */
+  protected readonly panelMinimised = signal(readMinimised(this.#document));
+  protected readonly panelShown = computed(() => this.panelAvailable() && !this.panelMinimised());
+  protected readonly panelClasses = computed(() => panelVariants({ shown: this.panelShown() }));
+  protected readonly panelToggleKey = computed(() =>
+    this.panelMinimised() ? 'frontier.shell.showPanel' : 'frontier.shell.hidePanel',
+  );
+  protected readonly bodyClasses = bodyClasses;
+  protected readonly bodyRowClasses = bodyRowClasses;
+  // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
+  protected readonly contentClasses = contentClasses;
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly #destroyRef = inject(DestroyRef);
@@ -90,6 +132,12 @@ export class Shell {
   private readonly header = viewChild.required<ElementRef<HTMLElement>>('header');
   private readonly searchSlot = viewChild.required<ElementRef<HTMLElement>>('searchSlot');
   private readonly searchButton = viewChild<ElementRef<HTMLElement>>('searchButton');
+
+  protected togglePanel(): void {
+    const minimised = !this.panelMinimised();
+    this.panelMinimised.set(minimised);
+    writeMinimised(this.#document, minimised);
+  }
 
   protected openSearch(): void {
     this.searchOpen.set(true);

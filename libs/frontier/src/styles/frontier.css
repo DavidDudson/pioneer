@@ -190,6 +190,9 @@
   --spacing-meter: var(--fr-size-meter);
   --spacing-shell-header: var(--fr-size-shell-header);
   --spacing-rail-height: var(--fr-size-rail-height);
+  /* The shell's fixed panel: its width beside the page from `lg`, and its height as a bar along the bottom below it. */
+  --spacing-shell-panel: 16rem;
+  --spacing-shell-panel-bar: 5rem;
   /* Safe-area insets for anything fixed to a screen edge (pt-safe-top, …). */
   --spacing-safe-top: env(safe-area-inset-top);
   --spacing-safe-right: env(safe-area-inset-right);

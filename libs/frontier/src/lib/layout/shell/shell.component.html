@@ -31,10 +31,24 @@
       }
       <div #searchSlot [class]="searchClasses()"><ng-content select="[frShellSearch]" /></div>
       <div [class]="actionsClasses"><ng-content select="[frShellActions]" /></div>
+      @if (panelAvailable()) {
+        <span [class]="actionsClasses"
+          ><fr-dropdown [align]="menuAlign" [label]="'frontier.shell.menu' | transloco" [icon]="menuIcon">
+            <fr-button [variant]="menuVariant" (pressed)="togglePanel()">{{
+              panelToggleKey() | transloco: { panel: panelLabel() }
+            }}</fr-button>
+          </fr-dropdown></span
+        >
+      }
     </fr-stack>
   </fr-box>
 </header>
-<main tabindex="-1" [id]="mainId" [class]="contentClasses"><ng-content /></main>
+<div [class]="bodyClasses">
+  <div [class]="bodyRowClasses">
+    <main tabindex="-1" [id]="mainId" [class]="contentClasses"><ng-content /></main>
+    <aside [attr.aria-label]="panelLabel()" [class]="panelClasses()"><ng-content select="[frShellPanel]" /></aside>
+  </div>
+</div>
 <footer [class]="footerClasses">
   <fr-box width="page" padding="md" gutter>
     <ng-content select="[frShellFooter]" />

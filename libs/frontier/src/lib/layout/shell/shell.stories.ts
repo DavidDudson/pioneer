@@ -31,6 +31,7 @@ const meta: Meta<Shell> = {
         <fr-button frShellActions variant="ghost" ariaLabel="Toggle colour mode">
           <fr-icon [icon]="moon" />
         </fr-button>
+        <fr-text frShellPanel>Party avatars</fr-text>
         <fr-page>
           <fr-page-header title="Characters" />
           <fr-page-body><fr-surface>
@@ -49,6 +50,9 @@ export const Default: ShellStory = {};
 /** The search as an icon button, and open: it takes the row in place of the breadcrumbs. */
 export const SearchClosed: ShellStory = { args: { searchAvailable: true } };
 export const SearchOpen: ShellStory = { args: { searchAvailable: true, searchOpen: true } };
+
+/** The panel stuck beside the page (a bar along the bottom on a phone), with the header menu that minimises it. */
+export const WithPanel: ShellStory = { args: { panelAvailable: true, panelLabel: 'Party' } };
 
 /** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */
 function fitsText(skipLink: HTMLElement): boolean {
