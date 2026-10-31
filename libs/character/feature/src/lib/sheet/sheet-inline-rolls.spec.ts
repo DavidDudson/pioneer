@@ -26,7 +26,12 @@ interface Opened {
 async function open(): Promise<Opened> {
   const { root } = await openSheet();
   const { injector } = present(harnessOf(root).routeDebugElement);
-  return { inline: injector.get(SheetInlineRolls), rolls: injector.get(SheetRolls) };
+  const inline = injector.get(SheetInlineRolls);
+  // The engine builds after the sheet shows; a roll before then rolls nothing.
+  await vi.waitFor(() => {
+    expect(inline.hasStatistic(REFLEX)).toBe(true);
+  });
+  return { inline, rolls: injector.get(SheetRolls) };
 }
 
 describe(SheetInlineRolls, () => {
