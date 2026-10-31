@@ -61,6 +61,12 @@ async function liftsOf(slug: string): Promise<readonly string[]> {
   return rules.flatMap((rule) => (rule.key === RuleElementKey.LiftRestriction ? [rule.restriction] : []));
 }
 
+/** The immunities `slug` gives, flattened. */
+async function immunitiesOf(slug: string): Promise<readonly string[]> {
+  const rules = await rulesOf(slug, RuleElementKey.Immunity);
+  return rules.flatMap((rule) => (rule.key === RuleElementKey.Immunity ? rule.type : []));
+}
+
 /** The ids of the restrictions a player-core environment lists. */
 async function restrictionsOf(slug: string): Promise<readonly string[]> {
   const file = await import('@pioneer/content/packs/player-core/environment.json');
@@ -86,8 +92,20 @@ describe('polymorph effect gaps in Player Core', () => {
     },
   );
 
+  test.each(['achaekek', 'cayden-cailean', 'erastil', 'gozreh', 'norgorber', 'shelyn', 'zon-kuthon'])(
+    'Avatar (%s) is immune to difficult terrain and greater difficult terrain',
+    async (deity) => {
+      const immunities = await immunitiesOf(`effect:spell-effect-avatar-${deity}`);
+
+      expect(immunities).toEqual(['difficult-terrain', 'greater-difficult-terrain']);
+    },
+  );
+
   test.each(['abadar', 'asmodeus', 'iomedae', 'torag'])('Avatar (%s) does not lift it', async (deity) => {
-    expect(await liftsOf(`effect:spell-effect-avatar-${deity}`)).not.toContain('movement-cost');
+    const slug = `effect:spell-effect-avatar-${deity}`;
+
+    expect(await liftsOf(slug)).not.toContain('movement-cost');
+    expect(await immunitiesOf(slug)).not.toContain('difficult-terrain');
   });
 
   test('One with Stone makes you Large', async () => {
