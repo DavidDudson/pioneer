@@ -90,7 +90,12 @@ describe('readPathbuilderExport: golden fixture (Briar Rose)', () => {
   test('skips placeholders: unset deity and Pathbuilder\'s "Unarmored" armour rows', () => {
     expect(namesOf(briar, ImportKind.Deity)).toEqual([]);
     expect(namesOf(briar, ImportKind.Item)).not.toContain('Unarmored');
-    expect(namesOf(briar, ImportKind.Item)).toHaveLength(18);
+    expect(namesOf(briar, ImportKind.Item)).toHaveLength(19);
+  });
+
+  test('keeps the runes of the "Unarmored" clothing row on worn Explorer\'s Clothing', () => {
+    const clothing = briar.items.find((item) => item.name === "Explorer's Clothing");
+    expect(clothing).toMatchObject({ worn: true, runes: { potency: 2, resilient: 1, property: ['Raiment'] } });
   });
 
   test('carries rituals, languages and lores with ranks', () => {
