@@ -4,6 +4,7 @@ import * as z from 'zod';
 import { Slug } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { Predicate } from './predicate';
+import { RichText } from './rich-text';
 import { ruleElementBase, RuleElementKey, RuleValue } from './rule-element-base';
 import { Trait } from './trait';
 
@@ -28,6 +29,7 @@ export const NumericItemProperty = {
   RangeIncrement: 'range-increment',
   SpeedPenalty: 'speed-penalty',
   Strength: 'strength',
+  DamageDice: 'damage-dice',
 } as const;
 export type NumericItemProperty = ValueOf<typeof NumericItemProperty>;
 
@@ -40,6 +42,7 @@ export const ItemProperty = {
   DamageType: 'damage-type',
   Materials: 'materials',
   PropertyRunes: 'property-runes',
+  Description: 'description',
 } as const;
 export type ItemProperty = ValueOf<typeof ItemProperty>;
 
@@ -75,6 +78,13 @@ export const ItemAlterationElement = z.discriminatedUnion('property', [
     property: z.enum([ItemProperty.Materials, ItemProperty.PropertyRunes]),
     mode: z.enum(TraitAlterationMode),
     value: Slug,
+    ...ruleElementBase,
+  }),
+  z.strictObject({
+    ...alterationBase,
+    property: z.literal(ItemProperty.Description),
+    mode: OverrideMode,
+    value: RichText,
     ...ruleElementBase,
   }),
   z.strictObject({

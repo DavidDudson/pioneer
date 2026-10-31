@@ -71,6 +71,7 @@ export {
   strikeRules,
 } from './strike-rules';
 export { type AlterableItem, type AlteredItem, alterItem, type ItemNumbers } from './item-alterations';
+export { type AlteredAction, alterAction } from './altered-action';
 export {
   type ActionCandidate,
   type ActionOrigin,

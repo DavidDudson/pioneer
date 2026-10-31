@@ -182,6 +182,7 @@ const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
   'Resistance',
   'Weakness',
   'Immunity',
+  'ItemAlteration',
 ]);
 
 /** The predicate `raw` has already, which the test of the pick joins. */

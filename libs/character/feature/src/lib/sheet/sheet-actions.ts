@@ -2,6 +2,8 @@ import {
   actionCosts,
   characterActionContext,
   characterActions,
+  equippedRules,
+  itemContent,
   restrictionBlocking,
   SpendCount,
   SpendKind,
@@ -15,7 +17,7 @@ import type {
   SpendCost,
   TurnState,
 } from '@pioneer/character/domain';
-import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
+import { ActionOriginKind, ActionStatus, alterAction } from '@pioneer/rules/engine';
 import type { AvailableAction } from '@pioneer/rules/engine';
 import { ACTION_COUNT, ActionCost, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
@@ -26,6 +28,7 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { offTurnWithoutTrigger, turnReason } from './sheet-action-turn';
 import { traitNames } from './sheet-build';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
+import { sheetSlotContent } from './sheet-slot-content';
 import { sheetSources } from './sheet-sources';
 
 /** What the actions list reads beside the equipment: the actions themselves, and the feats that grant some. */
@@ -59,11 +62,6 @@ function entriesById(registry: ContentRegistry): ReadonlyMap<ContentId, ContentE
   return new Map(registry.packs.flatMap((pack) => pack.otherEntries).map((entry) => [entry.id, entry]));
 }
 
-/** The traits an action entry or a feat's action carries, as the vocabulary names them. */
-function traitsOf(entry: ContentEntry | undefined, names: ReadonlyMap<Trait, string>): readonly string[] {
-  return (entry?.traits ?? []).map((trait) => names.get(Trait.parse(trait)) ?? trait);
-}
-
 /** The trait slugs an entry carries, to match against what an environment forbids. */
 function traitSlugs(entry: ContentEntry | undefined): readonly Trait[] {
   return (entry?.traits ?? []).map((trait) => Trait.parse(trait));
@@ -93,6 +91,11 @@ export function sheetActions(
   const entries = entriesById(registry);
   const traits = traitNames(registry);
   const costs = actionCosts(registry);
+  const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
+  const alteredTraits = (id: ContentId): readonly string[] => {
+    const entry = entries.get(id);
+    return entry === undefined ? [] : alterAction(rules, entry).traits.map((trait) => traits.get(trait) ?? trait);
+  };
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
   return actions.map((action: AvailableAction): ActionLine => {
     const range = costs.get(action.action);
@@ -101,7 +104,7 @@ export function sheetActions(
     return {
       id: action.action,
       name: entries.get(action.action)?.name ?? action.action,
-      traits: traitsOf(entries.get(action.action), traits),
+      traits: alteredTraits(action.action),
       cost: action.cost,
       modes: action.modes,
       origin: action.origin,

@@ -220,3 +220,65 @@ describe('alterItem: traits, damage type, materials and runes', () => {
     expect(result.propertyRunes).toEqual([Slug.parse('shock')]);
   });
 });
+
+describe('alterItem: an action’s damage dice and description', () => {
+  const BREATH: AlterableItem = {
+    rollOptions: ['type:action', 'slug:dragon-breath-dragon-form'].map((option) => RollOptionTail.parse(option)),
+    numbers: itemNumbers([[NumericItemProperty.DamageDice, 10]]),
+    traits: [],
+    damageType: undefined,
+    materials: [],
+    propertyRunes: [],
+  };
+  const reachBreath = ['item:slug:dragon-breath-dragon-form'];
+  const extraDice = {
+    key: 'ItemAlteration',
+    items: reachBreath,
+    property: 'damage-dice',
+    mode: 'add',
+    value: 'ternary(gte(@item.level, 8), 4, 0)',
+  };
+
+  test.each([
+    [6, 10],
+    [8, 14],
+  ])('a formula of @item.level reads the rank the effect was cast at: rank %i gives %i dice', (rank, dice) => {
+    const rules = [inPlay(extraDice, 'dragon-form', { itemLevel: rank })];
+
+    expect(numberOf(alterItem({ rules, facts }, BREATH), 'damage-dice')).toBe(dice);
+  });
+
+  test('a formula of @item.level has no value for an element with no item level, so nothing changes', () => {
+    const rules = [inPlay(extraDice, 'dragon-form')];
+
+    expect(numberOf(alterItem({ rules, facts }, BREATH), 'damage-dice')).toBe(10);
+  });
+
+  test('a description override replaces the text', () => {
+    const text = [{ type: 'paragraph', content: [{ type: 'text', text: 'You exhale fire.' }] }];
+    const element = {
+      key: 'ItemAlteration',
+      items: reachBreath,
+      property: 'description',
+      mode: 'override',
+      value: text,
+    };
+
+    const result = alterItem({ rules: [inPlay(element, 'dragon-form')], facts }, BREATH);
+
+    expect(asUnknown(result.description)).toEqual(text);
+  });
+
+  test('an alteration that reaches another action changes nothing', () => {
+    const element = { ...extraDice, items: ['item:slug:stand'], value: 4 };
+
+    const result = alterItem({ rules: [inPlay(element, 'dragon-form')], facts }, BREATH);
+
+    expect(numberOf(result, 'damage-dice')).toBe(10);
+  });
+});
+
+/** `value` with its type forgotten, so that a test compares it with a plain object. */
+function asUnknown(value: unknown): unknown {
+  return value;
+}

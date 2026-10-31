@@ -15,6 +15,7 @@ import { isUnread, withChoiceObjects, withChoiceSet, withTagQuery } from './tran
 import { withDefenceTypes } from './translate-defences';
 import { withFavoredWeaponRank } from './translate-favored-weapon';
 import { withFontChoice } from './translate-font-choice';
+import { withGrantedItems } from './translate-granted-items';
 import { withAura, withChoiceGrant, withGrantedId, withGrantFields, withGrantValue } from './translate-grants';
 import { withItemScope } from './translate-item-alterations';
 import { withLanguageSlots } from './translate-language-slots';
@@ -28,6 +29,7 @@ import {
 import { withNoteText } from './translate-notes';
 import { withRollOption } from './translate-roll-options';
 import { withoutStrikeExtras, withStrikeDamage, withStrikeScope } from './translate-strike';
+// oxlint-disable-next-line import/max-dependencies -- where every Foundry rule element is shaped, one translator module for each kind
 import { withoutDropped } from './translate-token-rules';
 import type { DroppedRule } from './translate-token-rules';
 
@@ -195,7 +197,9 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
-  const shaped = withChoiceObjects(kept).map((raw) => shapeRule(raw, context, unresolved));
+  const shaped = withChoiceObjects(withGrantedItems(kept, references)).map((raw) =>
+    shapeRule(raw, context, unresolved),
+  );
   const declared = declaredFlags(shaped);
   const parsed = shaped.map(({ chosen }) => RuleElement.safeParse(withChoiceGrant(chosen, references, declared)));
   return {

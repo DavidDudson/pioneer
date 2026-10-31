@@ -1,15 +1,18 @@
 import { inject } from '@angular/core';
+import { equippedRules, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { LinkTarget } from '@pioneer/frontier';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { EffectMode, spellAtRank } from '@pioneer/rules/engine';
+import { alterAction, EffectMode, spellAtRank } from '@pioneer/rules/engine';
+import type { AlteredAction } from '@pioneer/rules/engine';
 import { ContentKind, Trait } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry, SpellRank } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, RichText, SpellRank } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, PreviewEffect, PreviewRanks } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
 import { sheetEntryEffects } from './sheet-entry-effects';
+import { sheetSlotContent } from './sheet-slot-content';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
 const ENTRIES = new WeakMap<ContentRegistry, ReadonlyMap<ContentId, ContentEntry>>();
@@ -62,6 +65,35 @@ function previewOf(entry: ContentEntry): EntryPreview {
 }
 
 /**
+ * `preview` of an action as the elements in play change it for `character` (`alterAction`): the traits and damage a
+ * granted action reads with, such as Dragon Breath's. Derived when the card opens. Any other entry, as it is.
+ */
+function withAlterations(
+  preview: EntryPreview,
+  entry: ContentEntry,
+  { registry, character }: { readonly registry: ContentRegistry; readonly character: Character },
+): EntryPreview {
+  if (entry.kind !== ContentKind.Action) {
+    return preview;
+  }
+  const kept: { altered: AlteredAction | undefined } = { altered: undefined };
+  const altered = (): AlteredAction => {
+    kept.altered ??= alterAction(
+      equippedRules(character.document, itemContent(registry), sheetSlotContent(registry)),
+      entry,
+    );
+    return kept.altered;
+  };
+  // Inherits the preview, effects included, so that nothing is derived until a card reads the traits or summary.
+  // oxlint-disable-next-line typescript/no-unsafe-assignment -- Object.create is typed any; the result is the preview
+  const derived: EntryPreview = Object.create(preview);
+  return Object.defineProperties(derived, {
+    traits: { get: (): readonly string[] => altered().traits, enumerable: true },
+    summary: { get: (): RichText => altered().description, enumerable: true },
+  });
+}
+
+/**
  * `entry`'s preview with what it would do to `character`, derived against `registry` (the one the sheet derives from,
  * which the entry may not be in). Without a character or that registry, the preview has no effects section.
  */
@@ -92,13 +124,14 @@ function previewOnCharacter(
     };
     return { ...preview, ranks: { ...ranks, effects } };
   }
-  return {
+  const withEffects: EntryPreview = {
     ...preview,
     get effects(): readonly PreviewEffect[] {
       kept.effects ??= sheetEntryEffects(registry, character, { entry, mode: EffectMode.WouldApply });
       return kept.effects;
     },
   };
+  return withAlterations(withEffects, entry, { registry, character });
 }
 
 /**
