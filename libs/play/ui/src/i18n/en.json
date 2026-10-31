@@ -25,6 +25,10 @@
       "failure": "Failure",
       "criticalFailure": "Critical failure"
     },
+    "natural": {
+      "high": "Natural 20!",
+      "low": "Natural 1!"
+    },
     "toast": {
       "unadjusted": "of {total}"
     },

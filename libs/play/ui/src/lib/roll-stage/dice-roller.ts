@@ -3,12 +3,12 @@
 import { InjectionToken } from '@angular/core';
 import type { DamageTone } from '@pioneer/frontier';
 
-import type { DiceGroup } from './roll-presentation';
+import type { DiceGroup, Natural } from './roll-presentation';
 
 /** Throws dice across a surface; the faces they land on come with the groups, never from the roller. */
 export interface DiceRoller {
-  /** Resolves when every die has settled. */
-  readonly roll: (groups: readonly DiceGroup[]) => Promise<void>;
+  /** Resolves when every die has settled. A `natural` 20 or 1 turns the numerals gold or red; the dice keep their colour. */
+  readonly roll: (groups: readonly DiceGroup[], natural?: Natural) => Promise<void>;
   /** Removes the canvas and frees the graphics context. */
   readonly dispose: () => void;
 }
@@ -34,6 +34,8 @@ const TONE_PROPERTIES: Readonly<Record<DamageTone, string>> = {
   bleed: '--fr-damage-bleed',
 };
 const UNTYPED_PROPERTY = '--fr-fg-default';
+/** The custom property holding the numeral colour of a natural 20 and of a natural 1. */
+const NATURAL_PROPERTIES: Readonly<Record<Natural, string>> = { high: '--fr-natural-max', low: '--fr-natural-min' };
 const DARK_NUMERALS = '#111111';
 const LIGHT_NUMERALS = '#ffffff';
 const LIGHTNESS_SPLIT = 150;
@@ -43,6 +45,11 @@ const BLUE_WEIGHT = 0.114;
 const PIXEL = 1;
 const HEX_RADIX = 16;
 const HEX_DIGITS = 2;
+
+/** The value of a custom property on the page, as CSS text. */
+function computed(property: string): string {
+  return getComputedStyle(document.documentElement).getPropertyValue(property);
+}
 
 function part(value: number): string {
   return value.toString(HEX_RADIX).padStart(HEX_DIGITS, '0');
@@ -84,15 +91,16 @@ interface DiceColorSet {
 }
 
 /** The dice colour set for a tone: the token's colour for the body, black or white numerals for contrast. */
-function colorSetFor(tone: DamageTone | undefined): DiceColorSet {
+function colorSetFor(tone: DamageTone | undefined, natural: Natural | undefined): DiceColorSet {
   const property = tone === undefined ? UNTYPED_PROPERTY : TONE_PROPERTIES[tone];
-  const value = getComputedStyle(document.documentElement).getPropertyValue(property);
+  const value = computed(property);
   const rgb = toRgb(value);
   const brightness = rgb.red * RED_WEIGHT + rgb.green * GREEN_WEIGHT + rgb.blue * BLUE_WEIGHT;
-  const numerals = brightness > LIGHTNESS_SPLIT ? DARK_NUMERALS : LIGHT_NUMERALS;
+  const contrast = brightness > LIGHTNESS_SPLIT ? DARK_NUMERALS : LIGHT_NUMERALS;
+  const numerals = natural === undefined ? contrast : toHex(toRgb(computed(NATURAL_PROPERTIES[natural])));
   const background = toHex(rgb);
   return {
-    name: `pio-${tone ?? 'untyped'}-${background}`,
+    name: `pio-${tone ?? 'untyped'}-${background}-${natural ?? 'plain'}`,
     foreground: numerals,
     background,
     outline: 'none',
@@ -115,9 +123,9 @@ export const threeDiceRoller: DiceRollerFactory = async (surface) => {
   const box = new DiceBox(`#${surface.id}`, { sounds: false, shadows: false });
   await box.initialize();
   return {
-    roll: async (groups) => {
+    roll: async (groups, natural) => {
       const tone = groups.find((group) => group.tone !== undefined)?.tone;
-      await box.updateConfig({ theme_customColorset: colorSetFor(tone), theme_material: 'plastic' });
+      await box.updateConfig({ theme_customColorset: colorSetFor(tone, natural), theme_material: 'plastic' });
       await box.roll(groups.map(({ notation }) => notation).join('+'));
     },
     dispose: () => {

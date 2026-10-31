@@ -2,10 +2,10 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
-import { Toast } from './toast.component';
+import { Toast, ToastEmphasis } from './toast.component';
 
 /** Renders `fr-toast` with "16" projected and returns its host. */
-async function render(open: boolean): Promise<HTMLElement> {
+async function render(open: boolean, emphasis: ToastEmphasis = ToastEmphasis.None): Promise<HTMLElement> {
   const toast = createComponent(Toast, {
     environmentInjector: TestBed.inject(EnvironmentInjector),
     projectableNodes: [[document.createTextNode('16')]],
@@ -14,6 +14,7 @@ async function render(open: boolean): Promise<HTMLElement> {
     toast.destroy();
   });
   toast.setInput('open', open);
+  toast.setInput('emphasis', emphasis);
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(toast.hostView);
   await appRef.whenStable();
@@ -41,5 +42,14 @@ describe(Toast, () => {
     const status = host.querySelector('[role="status"]');
     expect(status).not.toBeNull();
     expect(status?.textContent.trim()).toBe('');
+  });
+
+  it('has a plain edge unless a natural die earns it a coloured one', async () => {
+    const plain = await render(true);
+    const gold = await render(true, ToastEmphasis.High);
+    const red = await render(true, ToastEmphasis.Low);
+    expect(plain.querySelector('.border-line-strong')).not.toBeNull();
+    expect(gold.querySelector('.border-natural-max.animate-natural-pop')).not.toBeNull();
+    expect(red.querySelector('.border-natural-min.animate-natural-pop')).not.toBeNull();
   });
 });

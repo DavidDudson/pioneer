@@ -1,13 +1,25 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, untracked, viewChild } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { DamageTone } from '@pioneer/frontier';
-import { FontWeight, LocaleFormat, ScreenOverlay, Stack, Text, TextVariant, Toast, Tone } from '@pioneer/frontier';
+import {
+  FontWeight,
+  LocaleFormat,
+  ScreenOverlay,
+  Stack,
+  Text,
+  TextVariant,
+  Toast,
+  ToastEmphasis,
+  Tone,
+} from '@pioneer/frontier';
 
 import { RollOutcome } from '../roll-outcome/roll-outcome.component';
-import type { RollPresentation } from './roll-presentation';
+import type { Natural, RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 
 const UNADJUSTED_KEY = 'roll.toast.unadjusted';
+/** The banner a natural 20 and a natural 1 earn. */
+const NATURAL_BANNERS: Readonly<Record<Natural, string>> = { high: 'roll.natural.high', low: 'roll.natural.low' };
 
 /** A muted word beside a damage total: a message key and its values, translated in the template. */
 interface ToastNote {
@@ -27,6 +39,9 @@ interface ToastLine {
 interface ToastView {
   readonly lines: readonly ToastLine[];
   readonly roll: RollPresentation;
+  /** Message keys in bold under the totals: the natural die the roll earned, then the degree it reached. */
+  readonly headlines: readonly string[];
+  readonly emphasis: ToastEmphasis;
 }
 
 /**
@@ -68,8 +83,13 @@ export class RollStage {
         ...(typeKey === undefined ? [] : [{ key: typeKey, params: {} }]),
       ],
     }));
-    return { lines, roll };
+    const headlines = [roll.natural === undefined ? undefined : NATURAL_BANNERS[roll.natural], roll.degreeKey].filter(
+      (key) => key !== undefined,
+    );
+    return { lines, roll, headlines, emphasis: roll.natural ?? ToastEmphasis.None };
   });
+
+  protected readonly emphasis = computed((): ToastEmphasis => this.view()?.emphasis ?? ToastEmphasis.None);
 
   public constructor() {
     // The dice start once the overlay's surface is in the page.

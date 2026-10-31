@@ -5,12 +5,15 @@ import { Milliseconds } from '@pioneer/shared/kernel';
 
 import { DICE_ROLLER_FACTORY } from './dice-roller';
 import type { DiceRoller } from './dice-roller';
-import type { RollPresentation } from './roll-presentation';
+import type { Natural, RollPresentation } from './roll-presentation';
 
 /** How long the dice stay on screen after they settle, so the player can read them. */
 export const DICE_LINGER: Milliseconds = Milliseconds.parse(1500);
 /** How long the result toast stays once it shows; a newer roll replaces it sooner. */
 export const TOAST_DURATION: Milliseconds = Milliseconds.parse(5000);
+
+/** How long the toast stays for a natural 20 or natural 1, so the moment is not missed. */
+export const NATURAL_TOAST_DURATION: Milliseconds = Milliseconds.parse(8000);
 
 const REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
 
@@ -26,11 +29,14 @@ export class RollPresenter {
   readonly #document = inject(DOCUMENT);
   readonly #throwing = signal<RollPresentation | undefined>(undefined);
   readonly #shown = signal<RollPresentation | undefined>(undefined);
+  readonly #burst = signal<Natural | undefined>(undefined);
   #run = 0;
   #roller: DiceRoller | undefined;
 
   /** The roll whose dice are on screen; the overlay shows while it is set. */
   public readonly throwing: Signal<RollPresentation | undefined> = this.#throwing.asReadonly();
+  /** The natural die whose flash is playing, from the moment the dice settle until they leave; unset otherwise. */
+  public readonly burst: Signal<Natural | undefined> = this.#burst.asReadonly();
   /** The roll the toast names; unset when the toast is closed. */
   public readonly toast: Signal<RollPresentation | undefined> = this.#shown.asReadonly();
 
@@ -55,10 +61,11 @@ export class RollPresenter {
       return;
     }
     this.#roller = roller;
-    await roller?.roll(roll.groups).catch(() => undefined);
+    await roller?.roll(roll.groups, roll.natural).catch(() => undefined);
     if (run !== this.#run) {
       return;
     }
+    this.#burst.set(roll.natural);
     this.#show(roll);
     setTimeout(() => {
       if (run === this.#run) {
@@ -74,17 +81,21 @@ export class RollPresenter {
 
   #show(roll: RollPresentation): void {
     this.#shown.set(roll);
-    setTimeout(() => {
-      if (this.#shown() === roll) {
-        this.#shown.set(undefined);
-      }
-    }, TOAST_DURATION);
+    setTimeout(
+      () => {
+        if (this.#shown() === roll) {
+          this.#shown.set(undefined);
+        }
+      },
+      roll.natural === undefined ? TOAST_DURATION : NATURAL_TOAST_DURATION,
+    );
   }
 
   #endThrow(): void {
     this.#roller?.dispose();
     this.#roller = undefined;
     this.#throwing.set(undefined);
+    this.#burst.set(undefined);
   }
 
   #reset(): void {

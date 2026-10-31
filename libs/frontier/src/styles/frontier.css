@@ -135,6 +135,8 @@
 
   --color-damage-physical: var(--fr-damage-physical);
   --color-damage-holy: var(--fr-damage-holy);
+  --color-natural-max: var(--fr-natural-max);
+  --color-natural-min: var(--fr-natural-min);
   --color-damage-fire: var(--fr-damage-fire);
   --color-damage-cold: var(--fr-damage-cold);
   --color-damage-electricity: var(--fr-damage-electricity);
@@ -257,10 +259,46 @@
 
   --animate-spin: fr-spin 1s linear infinite;
   --animate-shimmer: fr-shimmer 1.4s var(--fr-ease-standard) infinite;
+  --animate-natural-pop: fr-natural-pop 0.4s var(--fr-ease-standard);
+  --animate-natural-flash: fr-natural-flash 1.1s var(--fr-ease-standard) forwards;
+  --animate-natural-flash-shake: fr-natural-flash 1.1s var(--fr-ease-standard) forwards, fr-natural-shake 0.5s linear;
 
   @keyframes fr-spin {
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fr-natural-pop {
+    from {
+      transform: scale(0.6);
+    }
+    60% {
+      transform: scale(1.12);
+    }
+  }
+
+  @keyframes fr-natural-flash {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fr-natural-shake {
+    20% {
+      transform: translateX(-1.5rem);
+    }
+    40% {
+      transform: translateX(1.25rem);
+    }
+    60% {
+      transform: translateX(-0.75rem);
+    }
+    80% {
+      transform: translateX(0.5rem);
     }
   }
 

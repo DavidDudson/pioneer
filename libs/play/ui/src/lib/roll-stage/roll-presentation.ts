@@ -1,5 +1,5 @@
 import type { DamageTone } from '@pioneer/frontier';
-import { TermKind } from '@pioneer/rules/dice';
+import { DieFace, TermKind } from '@pioneer/rules/dice';
 import type {
   DamageApplication,
   DamageInstance,
@@ -10,11 +10,20 @@ import type {
   TermResult,
 } from '@pioneer/rules/dice';
 import type { CheckNode, DamageType, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { DAMAGE_TYPE_KEYS, DEGREE_KEYS } from '../roll-labels';
 import { outcomeView } from '../roll-view';
 import type { OutcomeView } from '../roll-view';
 import { damageTone } from './damage-tone';
+
+/** Which natural die a roll earned: a 20 or a 1 on the d20 that counted. */
+export const Natural = { High: 'high', Low: 'low' } as const;
+export type Natural = ValueOf<typeof Natural>;
+
+const D20 = 20;
+const NATURAL_20 = DieFace.parse(20);
+const NATURAL_1 = DieFace.parse(1);
 
 /** The die sizes the dice library has a model for; a term of any other size is only shown in the toast. */
 const DRAWN_SIZES: ReadonlySet<string> = new Set(['4', '6', '8', '10', '12', '20', '100']);
@@ -46,6 +55,8 @@ export interface RollPresentation {
   readonly groups: readonly DiceGroup[];
   /** The message key of the degree of success, when the roll was a check against a DC. */
   readonly degreeKey?: string | undefined;
+  /** The natural 20 or natural 1 on the d20 that counted; unset for any other roll. */
+  readonly natural?: Natural | undefined;
   /** What that degree does, when the check says. */
   readonly outcome?: OutcomeView | undefined;
 }
@@ -72,6 +83,15 @@ function linesOf(terms: readonly TermResult[]): DamageLine[] {
   }));
 }
 
+/** A natural 20 or natural 1 on the first d20 that counted (a kept die of a fortune or misfortune pair); unset otherwise. */
+function naturalOf(dice: readonly DiceTermResult[]): Natural | undefined {
+  const face = dice.find(({ term }) => term.size === D20)?.dice.find(({ kept }) => kept)?.face;
+  if (face === NATURAL_20) {
+    return Natural.High;
+  }
+  return face === NATURAL_1 ? Natural.Low : undefined;
+}
+
 /** What the roll of `result` looks like on the stage; the engine's faces are the ones the dice land on. */
 export function presentRoll(id: number, label: string, result: RollResult): RollPresentation {
   const dice = result.terms.filter((entry): entry is DiceTermResult => isDiceTerm(entry));
@@ -81,6 +101,7 @@ export function presentRoll(id: number, label: string, result: RollResult): Roll
     total: result.total,
     lines: linesOf(result.terms),
     groups: dice.filter(({ term }) => DRAWN_SIZES.has(String(term.size))).map((term) => groupOf(term)),
+    natural: naturalOf(dice),
   };
 }
 

@@ -9,7 +9,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { providePlayUiI18nTesting } from '../testing/provide-play-ui-testing';
 import { DICE_ROLLER_FACTORY } from './dice-roller';
 import type { DiceRollerFactory } from './dice-roller';
-import { withDegree } from './roll-presentation';
+import { Natural, withDegree } from './roll-presentation';
 import type { RollPresentation } from './roll-presentation';
 import { RollPresenter } from './roll-presenter';
 import { RollStage } from './roll-stage.component';
@@ -118,6 +118,21 @@ describe(RollStage, () => {
     const status = hostOf(fixture).querySelector('[role="status"]');
     expect(status?.textContent).toContain('10');
     expect(status?.textContent).toContain('of 21');
+  });
+
+  it('names a natural 20 and a natural 1 in the toast apart from the degree, and edges the toast', async () => {
+    reduceMotion(true);
+    const { fixture, presenter } = await render();
+    presenter.present({ ...withDegree(PERCEPTION, DegreeOfSuccess.Failure), natural: Natural.High });
+    await fixture.whenStable();
+    const status = hostOf(fixture).querySelector('[role="status"]');
+    expect(status?.textContent).toContain('Natural 20!');
+    expect(status?.textContent).toContain('Failure');
+    expect(status?.querySelector('.border-natural-max')).not.toBeNull();
+    presenter.present({ ...PERCEPTION, natural: Natural.Low });
+    await fixture.whenStable();
+    expect(status?.textContent).toContain('Natural 1!');
+    expect(status?.querySelector('.border-natural-min')).not.toBeNull();
   });
 
   it('names no degree for a roll that was not against a DC', async () => {

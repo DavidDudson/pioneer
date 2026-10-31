@@ -2,7 +2,7 @@ import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 
 import { Text } from '../../text/text/text.component';
-import { Toast } from './toast.component';
+import { Toast, ToastEmphasis } from './toast.component';
 
 type ToastStory = StoryObj<Toast>;
 
@@ -23,3 +23,9 @@ export const Open: ToastStory = {};
 
 /** Only the empty status region is left in the page. */
 export const Closed: ToastStory = { args: { open: false } };
+
+/** A natural 20: a gold edge, popped in. */
+export const NaturalTwenty: ToastStory = { args: { emphasis: ToastEmphasis.High } };
+
+/** A natural 1: a red edge, popped in. */
+export const NaturalOne: ToastStory = { args: { emphasis: ToastEmphasis.Low } };

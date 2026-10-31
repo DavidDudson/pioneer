@@ -1,5 +1,5 @@
 <div role="status" [class]="region">
   @if (open()) {
-    <div [class]="surface"><ng-content /></div>
+    <div [class]="surface()"><ng-content /></div>
   }
 </div>

@@ -1,7 +1,7 @@
 @if (presenter.throwing()) {
-  <fr-screen-overlay />
+  <fr-screen-overlay [burst]="presenter.burst()" />
 }
-<fr-toast [open]="view() !== undefined">
+<fr-toast [open]="view() !== undefined" [emphasis]="emphasis()">
   @if (view(); as shown) {
     <fr-stack align="center" gap="2xs">
       <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
@@ -13,8 +13,8 @@
           }
         </fr-stack>
       }
-      @if (shown.roll.degreeKey; as degreeKey) {
-        <fr-text [weight]="Bold">{{ degreeKey | transloco }}</fr-text>
+      @for (key of shown.headlines; track key) {
+        <fr-text [weight]="Bold">{{ key | transloco }}</fr-text>
       }
       <pio-roll-outcome [outcome]="shown.roll.outcome" />
     </fr-stack>
