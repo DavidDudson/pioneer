@@ -1,4 +1,5 @@
-import { FormulaValue } from '@pioneer/rules/formula';
+import { FormulaValue, ReferencePath } from '@pioneer/rules/formula';
+import type { ResolveReference } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
 import {
   ItemProperty,
@@ -10,8 +11,10 @@ import {
 } from '@pioneer/rules/sdk';
 import type {
   DamageType,
+  Level,
   ItemAlterationElement,
   Origin,
+  RichText,
   RollOptionTail,
   RuleNumber,
   Slug,
@@ -33,6 +36,8 @@ export interface AlterableItem {
   readonly damageType: DamageType | undefined;
   readonly materials: readonly Slug[];
   readonly propertyRunes: readonly Slug[];
+  /** The text the item reads as, when an alteration may replace it; absent for an item whose text is not altered. */
+  readonly description?: RichText | undefined;
 }
 
 /** An item after the `ItemAlteration` elements in play changed it. */
@@ -49,6 +54,9 @@ type NumericAlteration = Extract<ItemAlterationElement, { readonly property: Num
 
 /** Where an alteration's `items` predicate reads an item's own roll options: `item:trait:shield`. */
 const ITEM_NAMESPACE = RollOptionNamespace.parse('item');
+
+/** The formula reference to the level of the item that holds the element. */
+const ITEM_LEVEL_PATH = ReferencePath.parse('item.level');
 
 /** The properties that are numbers. */
 const NUMERIC_PROPERTIES: ReadonlySet<ItemProperty | NumericItemProperty> = new Set(Object.values(NumericItemProperty));
@@ -98,9 +106,15 @@ function withValue<Value>(list: readonly Value[], mode: TraitAlterationMode, val
   return present ? list.filter((each) => each !== value) : list;
 }
 
+/** The only reference a numeric alteration reads: the level of the item that holds it (a spell effect's rank). */
+function itemLevelOf(level: Level | undefined): ResolveReference {
+  return (path): FormulaValue | undefined =>
+    path === ITEM_LEVEL_PATH && level !== undefined ? FormulaValue.parse(level) : undefined;
+}
+
 /** `item` after an alteration of one of its numbers; the same object when it changed nothing. */
-function numberAltered(item: AlteredItem, element: NumericAlteration): AlteredItem {
-  const outcome = valueOf(element.value, (): undefined => undefined);
+function numberAltered(item: AlteredItem, element: NumericAlteration, level: Level | undefined): AlteredItem {
+  const outcome = valueOf(element.value, itemLevelOf(level));
   if (!outcome.ok) {
     return item;
   }
@@ -112,9 +126,9 @@ function numberAltered(item: AlteredItem, element: NumericAlteration): AlteredIt
 }
 
 /** `item` after one element; the same object when the element changed nothing. */
-function alteredBy(item: AlteredItem, { element }: AlterationInPlay): AlteredItem {
+function alteredBy(item: AlteredItem, { element, itemLevel }: AlterationInPlay): AlteredItem {
   if (isNumeric(element)) {
-    return numberAltered(item, element);
+    return numberAltered(item, element, itemLevel);
   }
   switch (element.property) {
     case ItemProperty.Traits: {
@@ -128,6 +142,9 @@ function alteredBy(item: AlteredItem, { element }: AlterationInPlay): AlteredIte
     case ItemProperty.PropertyRunes: {
       const propertyRunes = withValue(item.propertyRunes, element.mode, element.value);
       return propertyRunes === item.propertyRunes ? item : { ...item, propertyRunes };
+    }
+    case ItemProperty.Description: {
+      return { ...item, description: element.value };
     }
     case ItemProperty.DamageType: {
       return item.damageType === element.value ? item : { ...item, damageType: element.value };
@@ -153,7 +170,8 @@ function reaches({ facts }: ModifierInputs, { element }: AlterationInPlay, item:
 /**
  * `item` as the `ItemAlteration` elements in play change it, in the order found. An element applies when its predicate
  * holds and its `items` predicate holds for the item's own roll options; one that depends on the situation gives
- * nothing here. Numbers are never below 0. A value that is a formula reads no references, so one that needs the
+ * nothing here. Numbers are never below 0. A value that is a formula reads only `@item.level`, the level of the item that
+ * holds the element (a spell effect's rank), so one that needs the
  * character's numbers has no value and changes nothing; the item's numbers are read before the character's are known.
  */
 export function alterItem(inputs: ModifierInputs, item: AlterableItem): AlteredItem {
