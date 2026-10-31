@@ -22,6 +22,8 @@ import { SheetState } from '../sheet-state';
 })
 export class SheetLastRoll {
   protected readonly rolls = inject(SheetRolls);
-  protected readonly entryNames = inject(SheetState).picks.entryNames;
+  readonly #sheet = inject(SheetState);
+  protected readonly entryNames = this.#sheet.picks.entryNames;
+  protected readonly originNames = this.#sheet.originNames;
   protected readonly kind = StatisticKind.Check;
 }

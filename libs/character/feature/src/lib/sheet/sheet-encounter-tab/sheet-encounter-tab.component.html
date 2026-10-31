@@ -4,7 +4,10 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-skills [statistics]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.engineQuery()"
-          ><pio-skills [statistics]="picks.skills()" [entryNames]="picks.entryNames()"
+          ><pio-skills
+            [statistics]="picks.skills()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>
@@ -24,7 +27,10 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.registry"
-          ><pio-defences [defences]="picks.defences()" [entryNames]="picks.entryNames()"
+          ><pio-defences
+            [defences]="picks.defences()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
         /></ng-template>
       </fr-async-region>
     </fr-section>
@@ -51,6 +57,7 @@
             [shields]="picks.shields()"
             [suppressed]="picks.suppressedStrikes()"
             [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
         /></ng-template>
       </fr-async-region>
       <pio-sheet-shields />
@@ -65,7 +72,10 @@
       <fr-async-region>
         <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.registry"
-          ><pio-spellcasting [entries]="picks.spellcasting()" [entryNames]="picks.entryNames()"
+          ><pio-spellcasting
+            [entries]="picks.spellcasting()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
         /></ng-template>
       </fr-async-region>
       <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />

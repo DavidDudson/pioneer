@@ -35,7 +35,9 @@ export class SheetRollSetup {
   protected readonly rolls = inject(SheetRolls);
   readonly #i18n = inject(TranslocoService);
   readonly #format = inject(LocaleFormat);
-  protected readonly entryNames = inject(SheetState).picks.entryNames;
+  readonly #sheet = inject(SheetState);
+  protected readonly entryNames = this.#sheet.picks.entryNames;
+  protected readonly originNames = this.#sheet.originNames;
   protected readonly kind = StatisticKind.Check;
   protected readonly secondary = ButtonVariant.Secondary;
 

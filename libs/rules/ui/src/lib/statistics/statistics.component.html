@@ -12,6 +12,7 @@
               [statistic]="row.statistic"
               [total]="row.total"
               [computed]="row.computed"
+              [adjusted]="row.adjusted"
               [fromForm]="row.fromForm"
               [rank]="row.rank"
               [rankSources]="row.rankSources"
@@ -19,7 +20,6 @@
               [entryNames]="entryNames()"
               [originNames]="originNames()"
             />
-            <pio-statistic-override-links [name]="row.name" [selector]="row.key" />
             <pio-statistic-override-links [name]="row.name" [selector]="row.key" />
             <pio-statistic-conditions
               [conditions]="row.conditions"

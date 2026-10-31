@@ -13,7 +13,7 @@ import {
 } from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS, CLAIMABLE_STATISTICS } from '../testing/conditional-fixtures';
 import { FORM_STATISTICS } from '../testing/form-fixtures';
-import { PINNED_STATISTICS } from '../testing/override-fixtures';
+import { ADJUSTED_WILL, PINNED_STATISTICS } from '../testing/override-fixtures';
 import { STATISTIC_OVERRIDES } from './statistic-overrides';
 import type { StatisticOverrides } from './statistic-overrides';
 import { STATISTIC_ROLLER } from './statistic-roller';
@@ -66,6 +66,11 @@ export const Pinned: StatisticsStory = {
     await userEvent.click(canvas.getByText('22'));
     await expect(canvas.getByText('Set by the GM pins it to 22; computed 20.')).toBeVisible();
   },
+};
+
+/** Will with a modifier a user added by hand: marked in its summary, and its breakdown lists it. */
+export const Adjusted: StatisticsStory = {
+  args: { statistics: [{ name: 'Will', kind: StatisticKind.Check, result: ADJUSTED_WILL }] },
 };
 
 /** A statistic the engine could not derive, marked failed with why. */

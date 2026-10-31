@@ -5,6 +5,7 @@
     [statistic]="statistic()"
     [total]="total()"
     [computed]="computed()"
+    [adjusted]="adjusted()"
     [fromForm]="fromForm()"
     [rank]="rank()"
     [rankSources]="rankSources()"
@@ -18,7 +19,11 @@
         <fr-text frDisclosureSummary
           >{{ name() }}
           <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" />
-          <pio-statistic-total [total]="total()" [computed]="computed()" [fromForm]="fromForm()"
+          <pio-statistic-total
+            [total]="total()"
+            [computed]="computed()"
+            [adjusted]="adjusted()"
+            [fromForm]="fromForm()"
         /></fr-text>
         <pio-breakdown
           [statistic]="statistic()"

@@ -3,6 +3,8 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { Grid, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
 import type { ContentId, Proficiency, Selector } from '@pioneer/rules/sdk';
 
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
 import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
 import { StatisticsView } from '../statistics/statistics.component';
 import type { NamedStatistic } from '../statistics/statistics.component';
@@ -57,6 +59,7 @@ export class VitalsView {
   public readonly vitals = input.required<readonly Vital[] | undefined>();
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly Message = VitalsMessage;
   protected readonly loadingTiles = [...Array.from({ length: LOADING_TILES }).keys()];

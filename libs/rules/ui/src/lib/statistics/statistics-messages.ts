@@ -6,6 +6,8 @@ export const StatisticsMessage = {
   /** A fist's Strike, which no content names. */
   Fist: 'rules.statistics.fist',
   Failed: 'rules.statistics.failed',
+  /** The marker on a total a user added a modifier to by hand. */
+  Adjusted: 'rules.statistics.adjusted',
   /** A total a set override pinned. */
   Pinned: 'rules.statistics.pinned',
   /** "computed 18": the total before a set override pinned it. */

@@ -239,14 +239,8 @@ export {
   preparedReads,
   skillReads,
 } from './slot-offer';
-export {
-  CharacterContract,
-  CharacterListQuery,
-  CharacterSheet,
-  CharacterSort,
-  CreateCharacterBody,
-  PatchedCharacterSheet,
-} from './character-contract';
+export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
+export { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
 export { GenerateCharacterBody, GeneratedCharacter, GenerateLock } from './generate-character-contract';
 export {
   FeatDisplayChoice,
@@ -815,6 +809,9 @@ export {
 } from './character-override';
 export {
   OVERRIDE_REVISIONS_MAX,
+  OverrideAuthor,
+  overrideAuthorIds,
+  OverrideAuthorName,
   OverrideId,
   OverrideInput,
   OverrideMode,

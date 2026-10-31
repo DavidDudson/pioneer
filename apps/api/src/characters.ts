@@ -50,6 +50,7 @@ import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-dire
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
+import { UserOverrideAuthorDirectory } from './user-override-author-directory';
 
 /** What a character is worked out over beyond the build: the homebrew packs it uses and the variant rules enabled. */
 interface PackServices {
@@ -122,7 +123,9 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     variants,
     limits: ruleLimits,
   });
-  const service = new CharacterService(repository, characterContent, clock);
+  const service = new CharacterService(repository, characterContent, clock).withAuthors(
+    new UserOverrideAuthorDirectory(db),
+  );
   const importer = new PathbuilderImportService(
     { characters: repository, content, variants: new DrizzleCharacterVariantRepository(db) },
     clock,

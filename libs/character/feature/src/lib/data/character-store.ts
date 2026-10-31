@@ -10,6 +10,7 @@ import type {
   CharacterSlot,
   ClearedPick,
   CreateCharacterBody,
+  OverrideAuthor,
   PatchedCharacterSheet,
   SheetDeity,
   SheetMode,
@@ -91,6 +92,7 @@ export class CharacterStore {
   public readonly languages: Signal<CharacterLanguages | undefined> = computed(() => this.#current()?.languages);
   /** The open character's deity, as the server read it; `undefined` with none, or while loading. */
   public readonly deity: Signal<SheetDeity | undefined> = computed(() => this.#current()?.deity);
+  public readonly authors: Signal<readonly OverrideAuthor[] | undefined> = computed(() => this.#current()?.authors);
 
   readonly #sheetMode = injectQuery(() => {
     const id = this.#selectedId();

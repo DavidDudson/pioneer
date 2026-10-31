@@ -137,3 +137,48 @@ describe('CharacterSheet overrides', () => {
     });
   });
 });
+
+describe('CharacterSheet override authors', () => {
+  const AUTHOR = '00000000-0000-4000-8000-00000000de01';
+  const ADJUSTED = {
+    ...FIGHTER,
+    overrides: [
+      {
+        id: '00000000-0000-4000-8000-00000000ff01',
+        target: 'perception',
+        mode: 'adjust',
+        value: 2,
+        type: 'item',
+        reason: 'Goggles',
+        by: AUTHOR,
+        at: '2026-10-30T10:00:00.000Z',
+        revisions: [],
+      },
+    ],
+  };
+
+  async function breakdownText(authors: readonly object[]): Promise<string> {
+    const { root } = await openSheet(ADJUSTED, { authors });
+    const row = await vi.waitFor(() => {
+      const found = [...root.querySelectorAll('fr-list-item')].find((item) => item.textContent.includes('Perception'));
+      return present(found);
+    });
+    present(row.querySelector<HTMLElement>('summary')).click();
+    await TestBed.inject(ApplicationRef).whenStable();
+    return row.textContent.replaceAll(/\s+/gu, ' ');
+  }
+
+  it('marks the statistic and names the author, the time and the reason in its breakdown', async () => {
+    const text = await breakdownText([{ userId: AUTHOR, displayName: 'Ada' }]);
+
+    expect(text).toContain('Adjusted by hand');
+    expect(text).toContain('set by Ada');
+    expect(text).toContain('Goggles');
+  });
+
+  it('says a user set it when the server could not name them', async () => {
+    const text = await breakdownText([]);
+
+    expect(text).toContain('set by a user');
+  });
+});

@@ -92,3 +92,21 @@ export const OverrideSchema = z.strictObject({
   removed: OverrideRemoval.optional(),
 });
 export type Override = z.infer<typeof OverrideSchema>;
+
+/** The name an override's author goes by, as identity holds it. */
+export const OverrideAuthorName = z.string().min(1).brand<'OverrideAuthorName'>();
+export type OverrideAuthorName = z.infer<typeof OverrideAuthorName>;
+
+/** A user who authored an override and the name to show for them. Looked up on each read, never stored. */
+export const OverrideAuthor = z.strictObject({ userId: UserId, displayName: OverrideAuthorName });
+export type OverrideAuthor = z.infer<typeof OverrideAuthor>;
+
+/** Everyone who set, edited or removed one of `overrides`, once each. */
+export function overrideAuthorIds(overrides: readonly Override[]): readonly UserId[] {
+  const ids = overrides.flatMap(({ by, revisions, removed }) => [
+    by,
+    ...revisions.map((revision) => revision.by),
+    ...(removed === undefined ? [] : [removed.by]),
+  ]);
+  return [...new Set(ids)];
+}

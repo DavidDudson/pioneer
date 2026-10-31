@@ -19,8 +19,12 @@ export class StatisticTotal {
   /** "computed 20" when a set override pinned the total; undefined otherwise. */
   public readonly computed = input<string | undefined>(undefined);
 
+  /** True when a user added a modifier by hand: marked in text, never by colour alone. */
+  public readonly adjusted = input(false);
+
   /** "from Plant Form" when a battle form sets the total; undefined otherwise. */
   public readonly fromForm = input<string | undefined>(undefined);
 
   protected readonly Pinned = StatisticsMessage.Pinned;
+  protected readonly Adjusted = StatisticsMessage.Adjusted;
 }

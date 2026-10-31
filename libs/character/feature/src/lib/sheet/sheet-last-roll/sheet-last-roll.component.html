@@ -5,7 +5,12 @@
     <pio-roll-card dcEditable [roll]="last.view" [dc]="rolls.dc()" (dcChange)="rolls.dc.set($event)" />
     <fr-disclosure>
       <fr-text frDisclosureSummary>{{ 'character.sheet.roll.breakdown' | transloco }}</fr-text>
-      <pio-breakdown [statistic]="last.statistic" [kind]="kind" [entryNames]="entryNames()" />
+      <pio-breakdown
+        [statistic]="last.statistic"
+        [kind]="kind"
+        [entryNames]="entryNames()"
+        [originNames]="originNames()"
+      />
     </fr-disclosure>
   </fr-stack>
 }

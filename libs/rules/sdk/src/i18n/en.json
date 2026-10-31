@@ -877,6 +877,7 @@
       "fist": "Fist",
       "failed": "Failed",
       "pinned": "Pinned",
+      "adjusted": "Adjusted by hand",
       "computed": "computed {computed}",
       "fromForm": "from {form}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",

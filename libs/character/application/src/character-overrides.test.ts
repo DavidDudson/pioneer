@@ -4,6 +4,7 @@ import {
   CharacterCommand,
   CharacterName,
   CharacterPatchField,
+  OverrideAuthorName,
   OverrideInput,
   PatchCharacterBody,
 } from '@pioneer/character/domain';
@@ -16,6 +17,7 @@ import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { CharacterService } from './character-service';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
+import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
 
 const kyra = CharacterName.parse('Kyra');
 const amiri = UserId.parse(newId());
@@ -78,5 +80,21 @@ describe('CharacterService overrides', () => {
 
     expect(result.success).toBe(false);
     expect(JSON.stringify(result.error?.issues)).toContain('character.validation.overrideReasonRequired');
+  });
+});
+describe('CharacterService sheet authors', () => {
+  const ancestries = new ContentPackBuilder().withId('player-core').withAncestry('human').build();
+
+  test('names the users who authored the overrides, and leaves out a character with none', async () => {
+    const directory = new InMemoryOverrideAuthorDirectory().name(amiri, 'Amiri');
+    const service = new CharacterService(new InMemoryCharacterRepository(), fixedContent(ancestries), clock);
+    service.withAuthors(directory);
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const plain = await service.sheet(created);
+    const { character } = await service.patch(amiri, created.id, at(FIRST_VERSION, ADD));
+    const adjusted = await service.sheet(character);
+
+    expect(plain.authors).toBeUndefined();
+    expect(adjusted.authors).toStrictEqual([{ userId: amiri, displayName: OverrideAuthorName.parse('Amiri') }]);
   });
 });
