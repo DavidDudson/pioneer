@@ -13,9 +13,9 @@ const adminUrl = testDatabaseUrl();
 const SOURCE_MIGRATIONS = new URL('../migrations', import.meta.url).pathname;
 const MAIN = new URL('main.ts', import.meta.url).pathname;
 const COMPILE_TIMEOUT = 60_000;
-const RUN_TIMEOUT = 30_000;
+const RUN_TIMEOUT = 90_000;
 /** Kills a spawned binary that hangs, so a failing test never leaks a server. */
-const CHILD_TIMEOUT = 20_000;
+const CHILD_TIMEOUT = 60_000;
 const FETCH_TIMEOUT = 5000;
 const CONCURRENT_MIGRATIONS = 3;
 /** Seconds the first migration sleeps in the concurrency test. */

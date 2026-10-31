@@ -4,7 +4,7 @@ import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 
 /** One state of an override, as the list words it: what it did, who set it, when and why. */
-export interface OverrideState {
+interface OverrideState {
   /** The override's change in words of its kind: "+2 item", or "Pinned to 22". */
   readonly effect: string;
   /** Who set it; undefined when the server could not name them. */

@@ -15,7 +15,7 @@ import { StatisticsMessage } from '../statistics-messages';
 /**
  * A text button that rolls one check: the modifier it rolls ("+10") is the label, in one colour on a muted background,
  * never an icon. Hovering or focusing it opens the breakdown of that modifier. Shown only where the page provides a
- * `STATISTIC_ROLLER`; the button names the check it rolls for screen readers ("Roll Perception").
+ * `STATISTIC_ROLLER`; the button names the check it rolls for screen readers ("Roll Perception +10").
  *
  * ```html
  * <pio-statistic-roll [name]="'Perception'" [statistic]="result" />

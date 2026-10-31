@@ -192,8 +192,8 @@ describe(StrikesView, () => {
     const buttons = hostOf(fixture).querySelectorAll<HTMLButtonElement>('button[aria-label^="Roll "]');
 
     expect([...buttons].map((button) => button.getAttribute('aria-label'))).toStrictEqual([
-      'Roll Longsword',
-      'Roll Dagger',
+      expect.stringMatching(/^Roll Longsword [+-]\d+$/u),
+      expect.stringMatching(/^Roll Dagger [+-]\d+$/u),
     ]);
     buttons[0]?.click();
     expect(rolled.map(({ name }) => name)).toStrictEqual(['Longsword']);

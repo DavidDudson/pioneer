@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import type { Route } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
+import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
@@ -35,7 +35,7 @@ function stubbed(routes: readonly Route[]): Route[] {
   });
 }
 
-async function open(url: string): Promise<HTMLElement> {
+async function open(url: string): Promise<void> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: stubbed(campaignRoutes) }]),
@@ -45,36 +45,27 @@ async function open(url: string): Promise<HTMLElement> {
       provideTanStackQuery(new QueryClient()),
     ],
   });
-  const harness = await RouterTestingHarness.create(url);
-  const root = harness.routeNativeElement;
-  if (root === null) {
-    throw new Error('nothing routed');
-  }
-  return root;
+  await RouterTestingHarness.create(url);
 }
 
-function headerOf(root: HTMLElement): Element {
-  const header = root.querySelector('fr-page-header');
-  if (header === null) {
-    throw new Error('no page header rendered');
-  }
-  return header;
-}
-
-/** The trail of the outermost header. */
-const trailOf = (root: HTMLElement): string[] =>
-  [...headerOf(root).querySelectorAll('nav li')].map((li) => li.textContent.trim());
+/** The trail the shell's header shows. */
+const trailOf = (): (string | undefined)[] =>
+  TestBed.inject(HeaderCrumbs)
+    .trail()
+    .map(({ label }) => label);
 
 /** Where the trail's links go. */
-const hrefsOf = (root: HTMLElement): (string | null)[] =>
-  [...headerOf(root).querySelectorAll('nav a')].map((link) => link.getAttribute('href'));
+const hrefsOf = (): string[] =>
+  TestBed.inject(HeaderCrumbs)
+    .trail()
+    .flatMap(({ to }): string[] => (typeof to === 'string' ? [to] : []));
 
 describe('campaign routes', () => {
   it('trails Campaigns and the campaign', async () => {
-    const root = await open('/campaigns/moonlit-hunt');
+    await open('/campaigns/moonlit-hunt');
     await vi.waitFor(() => {
-      expect(trailOf(root)).toStrictEqual(['Campaigns', 'Moonlit Hunt']);
+      expect(trailOf()).toStrictEqual(['Campaigns', 'Moonlit Hunt']);
     });
-    expect(hrefsOf(root)).toStrictEqual(['/campaigns']);
+    expect(hrefsOf()).toStrictEqual(['/campaigns']);
   });
 });

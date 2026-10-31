@@ -16,7 +16,7 @@ export const StatisticsMessage = {
   Conditional: 'rules.statistics.conditional',
   /** "from Plant Form": what a battle form sets the statistic from. */
   FromForm: 'rules.statistics.fromForm',
-  /** The label of the button that rolls a check: "Roll Perception". */
+  /** The label of the button that rolls a check: "Roll Perception +10", which holds the text the button shows. */
   Roll: 'rules.statistics.roll',
   /** The link that opens the form to adjust a statistic by hand. */
   Adjust: 'rules.statistics.adjust',

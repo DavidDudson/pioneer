@@ -13,7 +13,7 @@ import { SheetState } from '../sheet-state';
 import { namedStatistics } from '../sheet-statistics';
 
 /** The query parameter that opens the override drawer; the drawer's own `open` value is what it carries. */
-export const OVERRIDE_DRAWER_PARAM = 'override';
+const OVERRIDE_DRAWER_PARAM = 'override';
 
 /** The query parameter that names the statistic being overridden, by selector. */
 const OVERRIDE_STATISTIC_PARAM = 'overrideStatistic';

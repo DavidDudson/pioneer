@@ -3,7 +3,7 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { frontierMessages } from '@pioneer/frontier';
+import { frontierMessages, HeaderCrumbs } from '@pioneer/frontier';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
@@ -132,11 +132,15 @@ describe('EntryPage', () => {
 
   it('shows the trail from the content browser through the kind to the entry, from the routes', async () => {
     const { root } = await open('/content/feat/shield-block');
+    await headed(root);
+    const crumbs = TestBed.inject(HeaderCrumbs);
     await vi.waitFor(() => {
-      const trail = [...root.querySelectorAll('nav li')].map((item) => item.textContent.trim());
-      expect(trail).toStrictEqual(['Content Browser', 'Feats', 'Shield-block']);
+      expect(crumbs.trail().map(({ label }) => label)).toStrictEqual(['Content Browser', 'Feats', 'Shield-block']);
     });
-    const hrefs = [...root.querySelectorAll('nav a')].map((link) => link.getAttribute('href'));
+    const hrefs = crumbs
+      .trail()
+      .slice(0, -1)
+      .map(({ to }) => to);
     expect(hrefs).toStrictEqual(['/content', '/content/feat']);
   });
 

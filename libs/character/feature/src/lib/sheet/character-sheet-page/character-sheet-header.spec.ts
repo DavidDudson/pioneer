@@ -95,6 +95,7 @@ describe('CharacterSheetPage header', () => {
       const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')].filter(
         (rank) => rank.closest('summary') === null,
       );
+      // Armor Class, Fortitude (the Warpriest doctrine makes it expert), Reflex, Will, Perception and the class DC.
       expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual([
         'TTrained',
         'EExpert',

@@ -1,23 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
-import {
-  ContentEntry,
-  contentId,
-  ContentKey,
-  ContentKind,
-  ContentText,
-  EntrySlug,
-  PackId,
-  Predicate,
-  RichText,
-  RollOption,
-} from '@pioneer/rules/sdk';
+import { ContentKey, ContentKind, ContentText, Predicate, RichText, RollOption } from '@pioneer/rules/sdk';
 
 import { prerequisiteMatches, readPrerequisites } from './prerequisite-matcher';
-import { prerequisiteNames } from './prerequisite-names';
 import type { NamedEntry, PrerequisiteNames } from './prerequisite-names';
-
-const PACK = 'player-core';
+import { entry } from './testing/prerequisite-entries';
 
 const prose = (words: string): RichText =>
   RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: words }] }]);
@@ -198,59 +185,6 @@ describe('prerequisite matcher', () => {
     ]);
 
     expect(readPrerequisites(twoParagraphs, NAMES)).toStrictEqual({ predicate: undefined, unparsed: [], clauses: [] });
-  });
-});
-
-/** A Player Core entry of `kind` with `data`. */
-function entry(name: string, kind: string, data: object): ContentEntry {
-  const slug = `${kind}:${name
-    .toLowerCase()
-    .replaceAll(/[^a-z]+/gu, '-')
-    .replace(/-$/u, '')}`;
-  return ContentEntry.parse({
-    id: contentId(PackId.parse(PACK), EntrySlug.parse(slug)),
-    pack: PACK,
-    slug,
-    name,
-    rarity: 'common',
-    traits: [],
-    sources: [{ kind: 'book', book: 'player-core', page: 1 }],
-    description: [],
-    rules: [],
-    kind,
-    ...(kind === 'statistic' ? {} : { level: 1 }),
-    data,
-  });
-}
-
-const skill = (name: string, selector: string): ContentEntry =>
-  entry(name, 'statistic', { selector, domains: ['skill-check'], base: '@attr.str', kind: 'check' });
-
-describe('prerequisite names', () => {
-  test('index named kinds, and the class features a dedication offers, but other class features not by name, variants by their name without brackets, and ranked statistics', () => {
-    const names = prerequisiteNames([
-      entry('Shield Block', 'feat', { category: 'general' }),
-      entry('Shield Block', 'class-feature', {}),
-      entry('Leaf Order', 'class-feature', { tags: ['druid-order'] }),
-      entry('Counterspell (Prepared)', 'feat', { category: 'class' }),
-      skill('Athletics', 'skill:athletics'),
-      skill('Perception', 'perception'),
-      skill('Fortitude', 'save:fortitude'),
-    ]);
-
-    expect(names.entries.get('shield block')).toStrictEqual([named(ContentKind.Feat, 'feat:shield-block')]);
-    expect(names.entries.get('leaf order')).toStrictEqual([named(ContentKind.ClassFeature, 'feature:leaf-order')]);
-    expect(names.entries.get('leaf order muse')).toBeUndefined();
-    expect(names.entries.get('shield block')).not.toContainEqual(
-      named(ContentKind.ClassFeature, 'feature:shield-block'),
-    );
-    expect(names.variants.get('counterspell')).toStrictEqual([named(ContentKind.Feat, 'feat:counterspell-prepared')]);
-    expect(names.statistics).toStrictEqual(
-      new Map([
-        ['athletics', 'skill:athletics'],
-        ['perception', 'perception'],
-      ]),
-    );
   });
 });
 

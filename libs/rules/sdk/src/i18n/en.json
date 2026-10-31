@@ -723,7 +723,7 @@
       }
     },
     "sourceBadge": {
-      "ariaLabel": "Source: {title}, {type}",
+      "ariaLabel": "Source: {title}{hasYear, select, yes { {year}} other {}}, {type}",
       "expanded": "{title} {year}",
       "unregisteredBook": "{book} (not in the registry)",
       "homebrew": "{pack}",
@@ -881,7 +881,7 @@
       "computed": "computed {computed}",
       "fromForm": "from {form}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
-      "roll": "Roll {name}",
+      "roll": "Roll {name} {modifier}",
       "adjust": "Adjust",
       "adjustLabel": "Adjust {name}",
       "set": "Set",

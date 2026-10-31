@@ -33,9 +33,11 @@ const stylesheets = await Promise.all(importPaths.map(async (file) => Bun.file(f
 const rules = parseTokenRules([...stylesheets, entryCss]);
 
 // The default theme is plain :root; every other theme without a rule of its own would pass as the default.
+// Widened to `string` so the comparison stays valid while the default is the only theme.
+const DEFAULT_THEME: string = Theme.Frontier;
 const unstyled = Object.values(Theme).filter(
   (theme) =>
-    theme !== Theme.Frontier &&
+    theme !== DEFAULT_THEME &&
     !rules.some(({ conditions }) => conditions.some(({ name, value }) => name === 'data-theme' && value === theme)),
 );
 if (unstyled.length > 0) {

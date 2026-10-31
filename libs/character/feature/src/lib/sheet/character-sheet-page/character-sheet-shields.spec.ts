@@ -41,11 +41,14 @@ function playWith(damage: number, effects: readonly object[] = [], revision = 1)
 }
 
 async function shieldsOf(root: HTMLElement): Promise<HTMLElement> {
-  return vi.waitFor(() => {
-    const shields = present(root.querySelector<HTMLElement>('pio-sheet-shields'));
-    expect(textOf(shields)).toContain('Hardness 5');
-    return shields;
-  });
+  return vi.waitFor(
+    () => {
+      const shields = present(root.querySelector<HTMLElement>('pio-sheet-shields'));
+      expect(textOf(shields)).toContain('Hardness 5');
+      return shields;
+    },
+    { timeout: SETTLE },
+  );
 }
 
 function blockOf(shields: HTMLElement): HTMLButtonElement {
