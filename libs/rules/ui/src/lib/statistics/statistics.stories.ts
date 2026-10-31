@@ -1,7 +1,7 @@
 import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { provideRouter } from '@angular/router';
-import { Proficiency, StatisticKind } from '@pioneer/rules/sdk';
+import { Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import {
@@ -144,9 +144,24 @@ export const Rollable: StatisticsStory = {
 export const Ranked: StatisticsStory = {
   args: {
     statistics: [
-      { name: 'Acrobatics', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Untrained },
-      { name: 'Athletics', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Trained },
-      { name: 'Stealth', kind: StatisticKind.Check, result: FIGHTER_FORTITUDE, rank: Proficiency.Expert },
+      {
+        name: 'Acrobatics',
+        kind: StatisticKind.Check,
+        result: { ...FIGHTER_FORTITUDE, selector: Selector.parse('skill:acrobatics') },
+        rank: Proficiency.Untrained,
+      },
+      {
+        name: 'Athletics',
+        kind: StatisticKind.Check,
+        result: { ...FIGHTER_FORTITUDE, selector: Selector.parse('skill:athletics') },
+        rank: Proficiency.Trained,
+      },
+      {
+        name: 'Stealth',
+        kind: StatisticKind.Check,
+        result: { ...FIGHTER_FORTITUDE, selector: Selector.parse('skill:stealth') },
+        rank: Proficiency.Expert,
+      },
     ],
   },
   play: async ({ canvasElement }) => {
