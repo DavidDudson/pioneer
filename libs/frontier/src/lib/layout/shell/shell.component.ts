@@ -41,8 +41,8 @@ const bodyRowClasses = cva('flex flex-1 flex-col @lg:flex-row')();
 const panelVariants = cva(
   [
     'sticky z-sticky overflow-auto border-line-subtle bg-surface-base',
-    'bottom-none h-shell-panel-bar border-t pb-safe-bottom',
-    '@lg:top-shell-header @lg:h-auto @lg:max-h-rail-height @lg:w-shell-panel @lg:shrink-0 @lg:self-start @lg:border-s @lg:pb-none',
+    'bottom-none h-shell-panel-bar border-t p-sm pb-safe-bottom',
+    '@lg:top-shell-header @lg:h-rail-height @lg:w-shell-panel @lg:shrink-0 @lg:self-start @lg:border-s @lg:pb-none',
   ].join(' '),
   { variants: { shown: { true: '', false: 'hidden' } } },
 );
