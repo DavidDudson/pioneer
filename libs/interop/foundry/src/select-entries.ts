@@ -11,10 +11,7 @@ import type { LegacyBooks } from './legacy-books';
 import { isOglEntry } from './ogl-entries';
 import type { LicenseField } from './ogl-entries';
 
-/**
- * Foundry's `publication.title` for each book in the registry. A title not here is a book Pioneer does not
- * register yet, and its entries are skipped as an unknown book.
- */
+/** Foundry's `publication.title` for each registered book; a title not here is an unknown book and is skipped. */
 export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Player Core', BookId.parse('player-core')],
   ['Pathfinder Player Core 2', BookId.parse('player-core-2')],
