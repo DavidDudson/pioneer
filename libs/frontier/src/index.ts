@@ -100,7 +100,7 @@ export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 export { Section } from './lib/layout/section/section.component';
-export { Dropdown } from './lib/layout/dropdown/dropdown.component';
+export { Dropdown, DropdownAlign } from './lib/layout/dropdown/dropdown.component';
 export { HeaderCrumbs } from './lib/layout/header-crumbs/header-crumbs';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';

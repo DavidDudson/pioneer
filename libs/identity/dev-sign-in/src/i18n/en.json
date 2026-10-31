@@ -5,7 +5,7 @@
       "description": "Local development only. Signs in as a seeded user without a provider."
     },
     "switch": {
-      "heading": "Switch dev user"
+      "heading": "User"
     }
   }
 }

@@ -25,6 +25,7 @@
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="origin"
   [cdkConnectedOverlayOpen]="open()"
+  [cdkConnectedOverlayPositions]="positions()"
   (overlayOutsideClick)="outside($event)"
   (detach)="close()"
   (overlayKeydown)="$event.key === 'Escape' && close()"

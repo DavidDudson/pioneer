@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { LucideMenu } from '@lucide/angular';
@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { Link } from '../../actions/link/link.component';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
 import { Dropdown } from './dropdown.component';
+import type { DropdownAlign } from './dropdown.component';
 
 // A host is the only way to project the panel into the dropdown.
 @Component({
@@ -52,7 +53,32 @@ function panel(): HTMLElement | null {
   return document.querySelector<HTMLElement>('[role="group"][aria-label]');
 }
 
+@Component({
+  selector: 'fr-dropdown-end-host',
+  imports: [Dropdown],
+  // oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+  template: `<div style="display: flex; justify-content: flex-end; width: 600px">
+    <fr-dropdown label="Menu" caption="Menu" [align]="align()">Options and a wide enough panel to overhang</fr-dropdown>
+  </div>`,
+})
+class AlignHost {
+  public readonly align = input<DropdownAlign>('start');
+}
+
 describe(Dropdown, () => {
+  it.each([
+    ['start', 'left'],
+    ['end', 'right'],
+  ] as const)("lines the panel up with the trigger's %s edge", async (align, edge) => {
+    const fixture = TestBed.createComponent(AlignHost);
+    fixture.componentRef.setInput('align', align);
+    await fixture.whenStable();
+    const button = trigger(fixture);
+    button.click();
+    await fixture.whenStable();
+    expect(panel()?.getBoundingClientRect()[edge]).toBeCloseTo(button.getBoundingClientRect()[edge], 0);
+  });
+
   it('is closed until the trigger is pressed, and says so to assistive tech', async () => {
     const fixture = await render();
     expect(panel()).toBeNull();

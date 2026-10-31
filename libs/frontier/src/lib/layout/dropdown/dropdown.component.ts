@@ -1,7 +1,9 @@
 import { OverlayModule } from '@angular/cdk/overlay';
-import { booleanAttribute, ChangeDetectionStrategy, Component, input, model } from '@angular/core';
+import type { ConnectedPosition } from '@angular/cdk/overlay';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { LucideChevronDown } from '@lucide/angular';
 import type { LucideIcon } from '@lucide/angular';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
@@ -12,6 +14,17 @@ const originClasses = cva('inline-flex')();
 const panelClasses = cva(
   'z-overlay mt-2xs max-w-prose min-w-dropdown border border-line-default bg-surface-overlay p-xs',
 )();
+
+export const DropdownAlign = { Start: 'start', End: 'end' } as const;
+export type DropdownAlign = ValueOf<typeof DropdownAlign>;
+
+/** The panel opens under the trigger, lining up with its start or end edge, and flips above it when there is no room. */
+function positionsFor(align: DropdownAlign): ConnectedPosition[] {
+  return [
+    { originX: align, originY: 'bottom', overlayX: align, overlayY: 'top' },
+    { originX: align, originY: 'top', overlayX: align, overlayY: 'bottom' },
+  ];
+}
 
 /**
  * A button that opens a panel of links, options or controls beside it. The panel is not a dialog: it takes no
@@ -42,11 +55,14 @@ export class Dropdown {
   /** The trigger is the projected `[frDropdownTrigger]` content rather than an icon or caption. */
   public readonly custom = input(false, { transform: booleanAttribute });
   public readonly open = model(false);
+  /** Which edge of the trigger the panel lines up with: `end` for a menu at the right of a bar. */
+  public readonly align = input<DropdownAlign>(DropdownAlign.Start);
 
   protected readonly variant = ButtonVariant.Ghost;
   protected readonly caret = LucideChevronDown;
   protected readonly originClasses = originClasses;
   protected readonly panelClasses = panelClasses;
+  protected readonly positions = computed(() => positionsFor(this.align()));
 
   protected close(): void {
     this.open.set(false);

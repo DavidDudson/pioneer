@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, input, model } from '@ang
 import { cva } from 'class-variance-authority';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
+import type { ButtonSize } from '../../actions/button/button.component';
 import { RovingFocusItem } from '../../focus/roving-focus-item.directive';
 import { RovingFocus } from '../../focus/roving-focus.directive';
 import { Icon } from '../../icon/icon.component';
@@ -35,8 +36,8 @@ const trackVariants = cva('grid auto-cols-fr grid-flow-col gap-3xs border border
 export class Segmented<TValue extends string> extends Control {
   public readonly value = model<TValue | undefined>(undefined);
   public readonly options = input.required<readonly SelectOption<TValue>[]>();
-  /** The size of every option's button; `sm` for a control in a menu. */
-  public readonly size = input<Size>(Size.Md);
+  /** The size of every option's button; `sm` or `xs` for a control in a menu. */
+  public readonly size = input<ButtonSize>(Size.Md);
 
   protected readonly variant = ButtonVariant.Segment;
   protected readonly trackClasses = computed(() => trackVariants({ invalid: this.ariaInvalid() }));

@@ -157,6 +157,7 @@
   /* Named sizes (h-touch, min-h-touch, max-h-listbox). Use them for size, not for gaps. */
   --spacing-touch: var(--fr-size-touch);
   --spacing-touch-pair: var(--fr-size-touch-pair);
+  --spacing-control-xs: var(--fr-size-control-xs);
   --spacing-control-sm: var(--fr-size-control-sm);
   --spacing-control-md: var(--fr-size-control-md);
   --spacing-control-md-pair: var(--fr-size-control-md-pair);
