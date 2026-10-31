@@ -13,7 +13,7 @@ import {
 } from '../testing/breakdown-fixtures';
 import { BEATEN_STATISTICS } from '../testing/conditional-fixtures';
 import { FORM_STATISTICS } from '../testing/form-fixtures';
-import { PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
+import { ADJUSTED_WILL, PINNED_STATISTICS, PINNED_WILL } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { STATISTIC_ROLLER } from './statistic-roller';
 import type { RollableStatistic, StatisticRoller } from './statistic-roller';
@@ -124,6 +124,18 @@ describe(StatisticsView, () => {
     const host = hostOf(await render([{ name: 'Will', kind: StatisticKind.Check, result: PINNED_WILL }]));
 
     expect(rows(host)).toStrictEqual(['Will +9 Pinned computed +6']);
+  });
+
+  it('marks a total a user added a modifier to by hand, in text', async () => {
+    const host = hostOf(await render([{ name: 'Will', kind: StatisticKind.Check, result: ADJUSTED_WILL }]));
+
+    expect(rows(host)).toStrictEqual(['Will +8 Adjusted by hand']);
+  });
+
+  it('does not mark a total no user touched', async () => {
+    const host = hostOf(await render(FIGHTER_STATISTICS));
+
+    expect(rows(host).join(' ')).not.toContain('Adjusted by hand');
   });
 
   it('summarises a conditional line under its total, with when it holds and where it comes from', async () => {

@@ -4,6 +4,9 @@
   &ngsp;<fr-badge tone="warning">{{ Pinned | transloco }}</fr-badge
   >&ngsp;<fr-text tone="muted" numeric>{{ unpinned }}</fr-text>
 }
+@if (adjusted()) {
+  &ngsp;<fr-badge tone="info">{{ Adjusted | transloco }}</fr-badge>
+}
 @if (fromForm(); as form) {
   &ngsp;<fr-badge tone="info">{{ form }}</fr-badge>
 }

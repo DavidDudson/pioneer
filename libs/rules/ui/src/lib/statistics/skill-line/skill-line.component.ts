@@ -32,6 +32,8 @@ export class SkillLine {
   /** The total as worded, for where nothing rolls. */
   public readonly total = input.required<string>();
   public readonly computed = input<string | undefined>();
+  /** True when a user added a modifier by hand: the total says so beside it. */
+  public readonly adjusted = input(false);
   public readonly fromForm = input<string | undefined>();
   public readonly rank = input<Proficiency | undefined>();
   public readonly rankSources = input<readonly RankSource[]>([]);

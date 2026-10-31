@@ -1,5 +1,5 @@
 import { InactiveReason, OverridePhase, OverrideStatusKind } from '@pioneer/rules/engine';
-import type { ModifierLabel, OverrideLine, OverrideStatus, StatisticValue } from '@pioneer/rules/engine';
+import type { BreakdownLine, ModifierLabel, OverrideLine, OverrideStatus, StatisticValue } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import {
   ChangeMode,
@@ -7,6 +7,7 @@ import {
   contentId,
   ContentText,
   EntrySlug,
+  ModifierType,
   Origin,
   PackId,
   RuleNumber,
@@ -21,6 +22,7 @@ import {
   FIGHTER_WILL,
   GOLEM_FORM,
   IN_DARKNESS_SUMMARY,
+  line,
   MAGE_ARMOR,
   origin,
   ruleId,
@@ -177,4 +179,22 @@ export const OVERRIDE_STATUSES: StatisticValue = statistic('ac', {
       rule: 1,
     }),
   ],
+});
+
+const BRAVE_FACE = 2;
+
+/** An untyped +2 a user added by hand, with the `override` hop naming them. */
+function adjustedByHand(): BreakdownLine {
+  const adjusted = line(OVERRIDES, {
+    type: ModifierType.Untyped,
+    value: BRAVE_FACE,
+    label: { text: ContentText.parse('Brave face') },
+  });
+  return { ...adjusted, modifier: { ...adjusted.modifier, origin: byHand(OVERRIDES) } };
+}
+
+/** The fighter's Will save, a check, with a +2 a user added by hand: +8 rather than +6, and not pinned. */
+export const ADJUSTED_WILL: StatisticValue = statistic('save:will', {
+  base: FIGHTER_WILL.base,
+  lines: [adjustedByHand()],
 });

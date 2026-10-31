@@ -14,6 +14,7 @@ import type { OriginNames } from '../origin-chain/origin-names';
 import type { RankSource } from '../proficiency-badge/proficiency-badge.component';
 import { conditionalLines, conditionalLineText } from './conditional-lines';
 import type { ConditionWords } from './conditional-lines';
+import { isAdjustedByHand } from './statistic-adjusted';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';
 import { StatisticLine } from './statistic-line/statistic-line.component';
@@ -53,6 +54,8 @@ type ShownStatistic =
       readonly total: string;
       /** "computed 18" when a set override pinned the total; undefined otherwise. */
       readonly computed: string | undefined;
+      /** True when a user added a modifier to it by hand; the row says so in text. */
+      readonly adjusted: boolean;
       /** "from Plant Form" when a battle form sets the total; undefined otherwise. */
       readonly fromForm: string | undefined;
       /** "+2 circumstance when your shield is raised (Steel Shield)": each line that applies only in some situations and could change the total. */
@@ -184,6 +187,7 @@ export class StatisticsView {
           name,
           total,
           computed: unpinned,
+          adjusted: isAdjustedByHand(result),
           fromForm,
           conditions: note === undefined ? conditions : [...conditions, note],
           toggles,
