@@ -9,7 +9,7 @@ import { isLangKey, isUnresolved, localize } from './foundry-lang';
 import type { LangValues, UnresolvedKey, UnresolvedText } from './foundry-lang';
 import type { FoundryLang } from './foundry-release';
 import { withActiveEffect } from './translate-active-effects';
-import { withCreatureRule } from './translate-battle-form';
+import { withCreatureRule, withFormSpeedBrackets } from './translate-battle-form';
 import type { FoundrySenses } from './translate-battle-form';
 import { isUnread, withChoiceObjects, withChoiceSet, withTagQuery } from './translate-choice-sets';
 import { withDefenceTypes } from './translate-defences';
@@ -197,7 +197,7 @@ export function translateRules(entry: ContentId, raws: readonly unknown[], conte
   const unresolved: UnresolvedKey[] = [];
   const references = context.references ?? NO_REFERENCES;
   const { kept, dropped } = withoutDropped(entry, raws);
-  const shaped = withChoiceObjects(withGrantedItems(kept, references)).map((raw) =>
+  const shaped = withChoiceObjects(withFormSpeedBrackets(withGrantedItems(kept, references))).map((raw) =>
     shapeRule(raw, context, unresolved),
   );
   const declared = declaredFlags(shaped);
