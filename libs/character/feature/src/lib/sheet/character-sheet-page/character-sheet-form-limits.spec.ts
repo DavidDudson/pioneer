@@ -39,6 +39,35 @@ function section(root: HTMLElement, anchor: string): HTMLElement {
 /** Both sections render asynchronously, and a loaded runner can take longer than waitFor's one second default. */
 const SLOW_RENDER = 10_000;
 
+/** How often a section's text is read while it settles, and how many reads in a row must agree for it to count as rendered: the form's limits arrive after the section does. */
+const POLL_MS = 50;
+const AGREEING_READS = 6;
+
+/** The control of the actions section that shows every action, found again each time as a render replaces it. */
+function allFilter(root: HTMLElement): HTMLElement {
+  return present(
+    [...section(root, 'sheet-actions').querySelectorAll<HTMLElement>('button, [role="radio"], [role="tab"]')].find(
+      (control) => textOf(control) === 'All',
+    ),
+  );
+}
+
+/** Resolves once the text of `sections` has been the same for `AGREEING_READS` reads, so a check that a text is absent is not met by one not yet there. */
+async function settled(root: HTMLElement, sections: readonly string[]): Promise<void> {
+  const read = (): string => sections.map((anchor) => textOf(section(root, anchor))).join('\n');
+  let last = '';
+  let agreeing = 0;
+  await vi.waitFor(
+    () => {
+      const now = read();
+      agreeing = now === last && now.length > 0 ? agreeing + 1 : 0;
+      last = now;
+      expect(agreeing).toBeGreaterThanOrEqual(AGREEING_READS);
+    },
+    { timeout: SLOW_RENDER, interval: POLL_MS },
+  );
+}
+
 describe('CharacterSheetPage form limits', () => {
   beforeAll(async () => {
     await prebuildServerStateTesting([], PACKS);
@@ -60,19 +89,9 @@ describe('CharacterSheetPage form limits', () => {
   it('gives the Cast a Spell action the form as the reason it is unavailable', async () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
 
-    const all = await vi.waitFor(
-      () =>
-        present(
-          [
-            ...section(root, 'sheet-actions').querySelectorAll<HTMLElement>('button, [role="radio"], [role="tab"]'),
-          ].find((control) => textOf(control) === 'All'),
-        ),
-      { timeout: SLOW_RENDER },
-    );
-    all.click();
-
     await vi.waitFor(
       () => {
+        allFilter(root).click();
         expect(textOf(section(root, 'sheet-actions'))).toContain("Can't cast spells in");
       },
       { timeout: SLOW_RENDER },
@@ -82,13 +101,8 @@ describe('CharacterSheetPage form limits', () => {
   it('says nothing of casting in a form that lets the character cast', async () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: humanoid, packs: PACKS });
 
-    await vi.waitFor(
-      () => {
-        expect(textOf(section(root, 'sheet-spellcasting')).length).toBeGreaterThan(0);
-        expect(textOf(section(root, 'sheet-actions')).length).toBeGreaterThan(0);
-      },
-      { timeout: SLOW_RENDER },
-    );
+    await settled(root, ['sheet-spellcasting', 'sheet-actions']);
+
     expect(textOf(section(root, 'sheet-spellcasting'))).not.toContain("you can't cast spells");
     expect(textOf(section(root, 'sheet-actions'))).not.toContain("Can't cast spells in");
   });
