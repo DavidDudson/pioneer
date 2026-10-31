@@ -48,22 +48,17 @@ const summary = (differences: readonly Discrepancy[]): string[] =>
  */
 describe('Pathbuilder exports over the official packs', () => {
   test(
-    'Briar Rose differs in AC, Hit Points and the skill ranks her build does not reach',
+    'Briar Rose differs in Hit Points, focus points and the skill ranks her build does not reach',
     async () => {
       const { report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(report.discrepancies.compared).toBe(COMPARED_BRIAR);
       /**
-       * AC: Pathbuilder counts the +2 of armor runes on clothing it exports as not worn (acItemBonus 2); Pioneer wears only what the export marks worn, so it has no item bonus.
        * Dream Magic DC: accepted, not a bug. Pioneer has one spellcasting rank for every tradition (ADR-0040, as Foundry's pf2e keeps it), so the DC reads that one rank (30); Pathbuilder computes it differently (28).
        */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
-        'ac: Pathbuilder 30, Pioneer 28',
         'hp:max: Pathbuilder 151, Pioneer 140',
         'focus-points: Pathbuilder 3, Pioneer 1',
         'perception: Pathbuilder 21, Pioneer 20',
-        'save:fortitude: Pathbuilder 20, Pioneer 19',
-        'save:reflex: Pathbuilder 19, Pioneer 18',
-        'save:will: Pathbuilder 23, Pioneer 22',
         'skill:acrobatics: Pathbuilder 16, Pioneer 3',
         'skill:arcana: Pathbuilder 18, Pioneer 16',
         'skill:crafting: Pathbuilder 16, Pioneer 3',

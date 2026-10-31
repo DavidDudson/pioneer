@@ -34,6 +34,12 @@ export interface ImportedCoins {
 /** Pathbuilder's armour row for "no base armour"; its runes are worn on clothing, not an armour entry. */
 const UNARMORED = 'Unarmored';
 
+/** The proficiency of an `Unarmored` row that is clothing; the same name on another proficiency is a suit Pathbuilder lost the name of. */
+const UNARMORED_PROFICIENCY = 'unarmored';
+
+/** The clothing an `Unarmored` row's runes are etched on: the base item for a character in no armour. */
+const CLOTHING = "Explorer's Clothing";
+
 /** "greater" and "major" prefix a rune word; the plain word is grade 1. */
 const RUNE_GRADES: Readonly<Record<string, number>> = { '': 1, greater: 2, major: 3, true: 4 };
 const RUNE_WORD = /^(?<prefix>greater|major|true)?(?<rune>striking|resilient)$/iu;
@@ -83,6 +89,23 @@ function line(name: string, quantity: number, carried: Carried): ImportedItem[] 
   return chosenName === undefined || quantity === 0 ? [] : [{ name: chosenName, quantity, ...carried }];
 }
 
+type ArmorRow = PathbuilderBuild['armor'][number];
+
+/**
+ * One armour row as an item. An `Unarmored` row on the unarmored proficiency with runes is the clothing they are
+ * etched on, worn when no other armour is; any other `Unarmored` row names nothing and is dropped.
+ */
+function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
+  const runes = runesOf(armor);
+  if (armor.name !== UNARMORED) {
+    return line(armor.name, armor.qty, { worn: armor.worn, invested: false, runes, displayName: undefined });
+  }
+  const clothing = armor.prof?.toLowerCase() === UNARMORED_PROFICIENCY && runes !== undefined;
+  return clothing
+    ? line(CLOTHING, armor.qty, { worn: armor.worn || !otherWorn, invested: false, runes, displayName: undefined })
+    : [];
+}
+
 /** Equipment, then weapons, then armour, in export order. */
 export function importedItems(build: PathbuilderBuild): ImportedItem[] {
   return [
@@ -102,16 +125,12 @@ export function importedItems(build: PathbuilderBuild): ImportedItem[] {
         displayName: displayName(weapon.name, weapon.display),
       }),
     ),
-    ...build.armor
-      .filter((armor) => armor.name !== UNARMORED)
-      .flatMap((armor) =>
-        line(armor.name, armor.qty, {
-          worn: armor.worn,
-          invested: false,
-          runes: runesOf(armor),
-          displayName: undefined,
-        }),
+    ...build.armor.flatMap((armor) =>
+      armourLine(
+        armor,
+        build.armor.some(({ name, worn }) => worn && name !== UNARMORED),
       ),
+    ),
   ];
 }
 
