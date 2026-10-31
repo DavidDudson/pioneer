@@ -16844,7 +16844,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You can Shield Block with the bone shield, which has Hardness 3 and 1 Hit Point and no Broken Threshold. A destroyed shield is whole again for the next block. The +2 circumstance bonus to Hardness against piercing and slashing damage, and the +2 circumstance bonus to AC, are not modelled."
+            "text": "You can Shield Block with the bone shield, which has Hardness 3 and 1 Hit Point and no Broken Threshold. A destroyed shield is whole again for the next block. It has +2 Hardness against piercing and slashing damage. While the shield is raised, the +2 circumstance bonus to AC applies."
           }
         ]
       }
@@ -16872,7 +16872,20 @@
             "start": 9,
             "hardness": 15
           }
+        ],
+        "hardnessAgainst": [
+          {
+            "types": ["piercing", "slashing"],
+            "bonus": 2
+          }
         ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:effect:effect-raise-a-shield"]
       }
     ],
     "data": {

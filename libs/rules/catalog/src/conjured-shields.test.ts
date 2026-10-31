@@ -9,6 +9,14 @@ async function shieldsOf(pack: string, slug: string): Promise<readonly Record<st
   return effect?.rules.filter((rule) => rule.key === RuleElementKey.GrantShield) ?? [];
 }
 
+/** The rule elements of the effect `slug` in `pack`. */
+async function rulesOf(pack: string, slug: string): Promise<readonly Record<string, unknown>[]> {
+  const file: unknown = await Bun.file(`${import.meta.dir}/../../../../content/packs/${pack}/effect.json`).json();
+  return (
+    ContentEntryFile.parse(file).find((entry) => entry.kind === ContentKind.Effect && entry.slug === slug)?.rules ?? []
+  );
+}
+
 /** The first `GrantShield` rule of the effect `slug` in `pack`, with how its Hardness rises by spell rank. */
 async function shieldOf(pack: string, slug: string): Promise<Record<string, unknown> | undefined> {
   const [rule] = await shieldsOf(pack, slug);
@@ -55,6 +63,27 @@ describe('spells that conjure a shield', () => {
     const rule = await shieldOf(pack, `effect:spell-effect-${spell}`);
 
     expect(rule?.['raised'] === true).toBe(raised);
+  });
+
+  test.each([
+    ['rage-of-elements', 'shielded-arm'],
+    ['impossible-magic', 'bone-shield'],
+  ])('%s: %s gives +2 circumstance to AC while the shield is raised', async (pack, spell) => {
+    const rules = await rulesOf(pack, `effect:spell-effect-${spell}`);
+
+    expect(rules).toContainEqual({
+      key: 'FlatModifier',
+      selectors: ['ac'],
+      type: 'circumstance',
+      value: 2,
+      predicate: ['self:effect:effect-raise-a-shield'],
+    });
+  });
+
+  test('Bone Shield has +2 Hardness against piercing and slashing damage', async () => {
+    const rule = await shieldOf('impossible-magic', 'effect:spell-effect-bone-shield');
+
+    expect(rule).toMatchObject({ hardnessAgainst: [{ types: ['piercing', 'slashing'], bonus: 2 }] });
   });
 
   test('Shielded Arm has 15 Hit Points and no Broken Threshold, and ends when they are spent', async () => {

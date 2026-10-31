@@ -1,7 +1,7 @@
 import { NO_MODIFIERS, shieldsInPlay } from '@pioneer/rules/engine';
 import type { ModifierInputs, ShieldInPlay } from '@pioneer/rules/engine';
 import { ContentKind, Hardness, HitPoints, NumericItemProperty } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import type { ContentId, HardnessBonus } from '@pioneer/rules/sdk';
 import { ContentNamespace, derivedId } from '@pioneer/shared/kernel';
 
 import { itemsIn } from './active-items';
@@ -33,6 +33,8 @@ export interface HeldShield {
   readonly undamageable?: true;
   /** A shield an effect gives, which no inventory item holds: what ends that effect. */
   readonly granted?: ShieldGrant;
+  /** Extra Hardness against damage of some types. */
+  readonly hardnessAgainst?: readonly HardnessBonus[];
 }
 
 const BROKEN_DIVISOR = 2;
@@ -49,6 +51,7 @@ function grantedShield({
   endsOnBlock,
   endsWhenDestroyed,
   raised,
+  hardnessAgainst,
 }: ShieldInPlay): HeldShield {
   const held: HeldShield = {
     item: InventoryItemId.parse(derivedId(ContentNamespace, `granted-shield/${id}`)),
@@ -58,7 +61,8 @@ function grantedShield({
     brokenThreshold,
     granted: { effect: source, endsOnBlock, endsWhenDestroyed, raised },
   };
-  return hitPoints === undefined ? { ...held, undamageable: true } : held;
+  const typed = hardnessAgainst.length === 0 ? held : { ...held, hardnessAgainst };
+  return hitPoints === undefined ? { ...typed, undamageable: true } : typed;
 }
 
 /** The shields the effects in play give, as held ones. */

@@ -1,6 +1,6 @@
 import { Truth } from '@pioneer/rules/predicate';
 import { HitPoints, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentId, GrantedShield, Hardness, Level } from '@pioneer/rules/sdk';
+import type { ContentId, GrantedShield, Hardness, HardnessBonus, Level } from '@pioneer/rules/sdk';
 
 import { battleFormInPlay } from './battle-form';
 import { ruleIdOf } from './rule-in-play';
@@ -22,6 +22,8 @@ export interface ShieldInPlay {
   readonly endsWhenDestroyed: boolean;
   /** The cast raised it, so it can block with no Raise a Shield. */
   readonly raised: boolean;
+  /** Extra Hardness against damage of some types. */
+  readonly hardnessAgainst: readonly HardnessBonus[];
 }
 
 const BROKEN_DIVISOR = 2;
@@ -65,6 +67,7 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
     endsOnBlock: shield.endsOnBlock === true,
     endsWhenDestroyed: shield.endsWhenDestroyed === true,
     raised: shield.raised === true,
+    hardnessAgainst: shield.hardnessAgainst ?? [],
   };
 }
 
