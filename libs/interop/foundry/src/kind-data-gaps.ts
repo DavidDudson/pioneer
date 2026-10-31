@@ -22,6 +22,8 @@ export const KindDataGapReason = {
   NeedsRichText: 'needs-rich-text',
   /** A UUID or slug naming none of the selected documents (references to other packs do not resolve yet). */
   UnresolvedReference: 'unresolved-reference',
+  /** A dedication feat no archetype entry names as its own, so the dedication lock (#467) never applies to it. */
+  MissingArchetype: 'missing-archetype',
   /** The data as translated fails the kind's schema; the entry has no data. */
   InvalidData: 'invalid-data',
 } as const;
