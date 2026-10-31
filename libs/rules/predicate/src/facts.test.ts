@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
+import { NamespaceKind, Predicate, RollOption, RollOptionNamespace } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { evaluatePredicate } from './evaluate';
 import { PredicateFacts } from './facts';
+import { namespaceTable } from './namespaces';
 import { Truth } from './truth';
 
 const options = (...given: readonly string[]): RollOption[] => given.map((option) => RollOption.parse(option));
@@ -60,5 +61,28 @@ describe('PredicateFacts.minus', () => {
     const candidate = character.withNamespace(ITEM, options('level:1')).minus(RollOption.parse('specialty:alchemy'));
     expect(candidate.has('specialty:alchemy')).toBe(false);
     expect(candidate.has('item:level:1')).toBe(true);
+  });
+});
+
+describe('PredicateFacts.withRanksUnread', () => {
+  const known = namespaceTable({ skill: NamespaceKind.Known });
+  const character = new PredicateFacts(options('self:level:3', 'skill:arcana:rank:1'), known);
+
+  test('reads a missing skill rank as unknown, where it is otherwise false', () => {
+    expect(verdict(['skill:acrobatics:rank:0'], character)).toBe(Truth.False);
+    expect(verdict(['skill:acrobatics:rank:0'], character.withRanksUnread())).toBe(Truth.Unknown);
+  });
+
+  test('keeps a rank that is present, and other known options false', () => {
+    const unread = character.withRanksUnread();
+    expect(verdict(['skill:arcana:rank:1'], unread)).toBe(Truth.True);
+    expect(verdict(['skill:arcana'], unread)).toBe(Truth.False);
+  });
+
+  test('holds through a namespace layer, plus and minus', () => {
+    const layered = character.withRanksUnread().withNamespace(ITEM, []).plus(options('x:y'));
+    expect(verdict(['skill:acrobatics:rank:0'], layered)).toBe(Truth.Unknown);
+    const without = character.withRanksUnread().minus(RollOption.parse('self:level:3'));
+    expect(verdict(['skill:acrobatics:rank:0'], without)).toBe(Truth.Unknown);
   });
 });
