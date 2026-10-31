@@ -39910,6 +39910,161 @@
             "not": "self:effect:plant-form"
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "plant-shape",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "innate",
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 5,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 10]
+              },
+              {
+                "lt": ["self:level", 11]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 6,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 11]
+              },
+              {
+                "lt": ["self:level", 13]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 7,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 13]
+              },
+              {
+                "lt": ["self:level", 15]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 8,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 15]
+              },
+              {
+                "lt": ["self:level", 17]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 9,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "and": [
+              {
+                "gte": ["self:level", 17]
+              },
+              {
+                "lt": ["self:level", 19]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "InnateSpells",
+        "entry": "plant-shape",
+        "spells": [
+          {
+            "rank": 10,
+            "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+          }
+        ],
+        "predicate": [
+          {
+            "not": "feat:untamed-form"
+          },
+          {
+            "gte": ["self:level", 19]
+          }
+        ]
       }
     ],
     "externalIds": {
