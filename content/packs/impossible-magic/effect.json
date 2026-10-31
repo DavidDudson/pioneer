@@ -14493,6 +14493,42 @@
         "key": "Weakness",
         "type": ["physical"],
         "value": 5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "multiply",
+        "value": 0.5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "multiply",
+        "value": 0.5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "multiply",
+        "value": 0.5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "multiply",
+        "value": 0.5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "multiply",
+        "value": 0.5
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 5
       }
     ],
     "data": {
@@ -15386,7 +15422,13 @@
       },
       {
         "key": "TempHP",
-        "value": 20
+        "value": "ternary(gte(@item.level, 9), 30, 20)"
+      },
+      {
+        "key": "Change",
+        "selector": "ac",
+        "mode": "override",
+        "value": "ternary(gte(@item.level, 9), 36, 28)"
       }
     ],
     "data": {
@@ -15747,12 +15789,12 @@
       {
         "key": "Resistance",
         "type": ["piercing", "slashing"],
-        "value": 4
+        "value": "@item.level"
       },
       {
         "key": "Weakness",
         "type": ["area-damage", "splash-damage"],
-        "value": 4
+        "value": "@item.level"
       }
     ],
     "data": {
