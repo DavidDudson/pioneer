@@ -40,9 +40,12 @@ function listedOptions(choices: readonly ChoiceOption[], facts: PredicateFacts):
  */
 const CANDIDATE_NAMESPACE = RollOptionNamespace.parse('item');
 
-/** `context` read for the choices of `owner`: its own roll options under `item:`, so a choice can gate on its level. */
+/** `context` read for the choices of `owner`: its own roll options under `item:`, so a choice can gate on its level. Skill ranks are not yet worked out, so a choice that gates on one is offered. */
 export function contextOf(context: ChoiceContext, owner: GrantEntry): ChoiceContext {
-  return { ...context, facts: context.facts.withNamespace(CANDIDATE_NAMESPACE, owner.rollOptions) };
+  return {
+    ...context,
+    facts: context.facts.withRanksUnread().withNamespace(CANDIDATE_NAMESPACE, owner.rollOptions),
+  };
 }
 
 /** By name, then id, so the list a builder shows keeps its order. */

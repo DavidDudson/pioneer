@@ -40,6 +40,9 @@ interface Layer {
   readonly options: readonly string[];
 }
 
+/** A skill's rank as a roll option: `skill:arcana:rank:0`, `perception:rank:2`. */
+const RANK_OPTION = /:rank:\d+$/u;
+
 /** The numbers after `rest:` among `options`, which are written without the namespace `rest` was taken off. */
 function layerValues(options: readonly string[], rest: string): OptionValue[] {
   const values: OptionValue[] = [];
@@ -65,6 +68,8 @@ export class PredicateFacts {
   readonly #known = new Map<string, boolean>();
   /** Set only by `withNamespace`, on the facts it returns. */
   #layer: Layer | undefined = undefined;
+  /** Set by `withRanksUnread`: a missing `<skill>:rank:<n>` is unknown, not false. */
+  #ranksUnread = false;
 
   public constructor(options: Iterable<RollOption>, namespaces: NamespaceTable) {
     this.#options = new Set<string>(options);
@@ -91,7 +96,7 @@ export class PredicateFacts {
     const layer = this.#layer;
     if (layer === undefined) {
       const own = [...this.#options].map((option) => RollOption.parse(option));
-      return new PredicateFacts([...own, ...options], this.#namespaces);
+      return this.#sameReading(new PredicateFacts([...own, ...options], this.#namespaces));
     }
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { ...layer, base: layer.base.plus(options) };
@@ -103,7 +108,7 @@ export class PredicateFacts {
     const layer = this.#layer;
     if (layer === undefined) {
       const kept = [...this.#options].filter((each) => each !== option).map((each) => RollOption.parse(each));
-      return new PredicateFacts(kept, this.#namespaces);
+      return this.#sameReading(new PredicateFacts(kept, this.#namespaces));
     }
     const layered = new PredicateFacts([], this.#namespaces);
     layered.#layer = { ...layer, base: layer.base.minus(option) };
@@ -142,6 +147,26 @@ export class PredicateFacts {
     return [...this.#options].filter((option) => option.startsWith(start)).map((option) => option.slice(start.length));
   }
 
+  /**
+   * These facts for a reader that holds no skill ranks: a `ChoiceSet` offer is read before the character's skills are
+   * worked out, so a missing `skill:arcana:rank:0` says nothing, and reads unknown rather than false.
+   */
+  public withRanksUnread(): PredicateFacts {
+    const read = new PredicateFacts(
+      [...this.#options].map((each) => RollOption.parse(each)),
+      this.#namespaces,
+    );
+    read.#ranksUnread = true;
+    const layer = this.#layer;
+    read.#layer = layer === undefined ? undefined : { ...layer, base: layer.base.withRanksUnread() };
+    return read;
+  }
+
+  #sameReading(facts: PredicateFacts): PredicateFacts {
+    facts.#ranksUnread = this.#ranksUnread;
+    return facts;
+  }
+
   /** Whether a missing `option` is false (known namespace) rather than unknown (situational). */
   public isKnown(option: RollOption): boolean {
     if (this.#layer !== undefined) {
@@ -151,7 +176,8 @@ export class PredicateFacts {
     if (cached !== undefined) {
       return cached;
     }
-    const known = kindOf(option, this.#namespaces) === NamespaceKind.Known;
+    const known =
+      !(this.#ranksUnread && RANK_OPTION.test(option)) && kindOf(option, this.#namespaces) === NamespaceKind.Known;
     this.#known.set(option, known);
     return known;
   }
