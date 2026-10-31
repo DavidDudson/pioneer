@@ -414,6 +414,13 @@
       "dismiss": "Dismiss",
       "dismissNamed": "Dismiss {name}"
     },
+    "customLanguages": {
+      "heading": "Custom languages",
+      "explain": "The import named these languages but no loaded content defines them, so they are kept by name. They use no language slot.",
+      "imported": "Imported",
+      "remove": "Remove",
+      "removeNamed": "Remove {name}"
+    },
     "unplacedFeats": {
       "heading": "Feats with no slot",
       "explain": "The import found these feats but no slot offers them, so they were kept as imported and break a rule. Pick one in a feat slot or move it to one that offers it now, or dismiss it.",
@@ -921,7 +928,8 @@
       "matched": "Matched",
       "unmatched": "Not found",
       "kindNotLoaded": "Not loaded yet",
-      "notOffered": "Not offered"
+      "notOffered": "Not offered",
+      "custom": "Kept as custom"
     },
     "result": {
       "heading": "Imported from Pathbuilder",

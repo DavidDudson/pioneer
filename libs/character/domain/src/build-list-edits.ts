@@ -1,6 +1,7 @@
 import type { CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
-import type { SpellAccessPatch, UnplacedPickPatch } from './character-patch';
+import type { SpellAccessPatch } from './character-patch';
+import type { UnplacedPickPatch } from './unplaced-pick-patch';
 import { dismissedPick } from './unplaced-picks';
 
 /** The edits that add to or take from a list the build keeps: spell access, or the picks an import found no slot for. */
@@ -27,7 +28,8 @@ export function withBuildListEdit(document: CharacterDocument, patch: BuildListP
     }
     case CharacterPatchField.DismissUnplacedFeat:
     case CharacterPatchField.DismissUnplacedHeritage:
-    case CharacterPatchField.DismissUnplacedLanguage: {
+    case CharacterPatchField.DismissUnplacedLanguage:
+    case CharacterPatchField.RemoveCustomLanguage: {
       return { ...document, build: dismissedPick(build, patch) };
     }
     default: {

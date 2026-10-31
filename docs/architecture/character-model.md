@@ -128,6 +128,10 @@ and `dismissUnplacedLanguage`, takes them off. The import report counts them (`r
 the heritage, the exploration tab the languages, and the sheet header counts them with the rest. A second class with no
 Dual Class variant in the loaded packs is still only named in the report as not offered.
 
+A language no loaded content defines, such as Wildsong, is kept by name in `build.customLanguages` (schema version 20),
+each once whatever its case. It uses no slot and breaks no rule; the report lists it as custom, not lost, and
+`removeCustomLanguage` takes it off.
+
 The rituals a character knows are `build.rituals`, content ids listed once (schema version 17). An import fills it
 with the rituals of the export that match loaded content; one that matches none is named in the report as unmatched.
 A ritual breaks no rule, so nothing flags it.

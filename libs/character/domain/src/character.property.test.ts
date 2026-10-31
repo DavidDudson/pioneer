@@ -11,7 +11,7 @@ import { Character } from './character';
 import { overrideProblem } from './character-override';
 import type { OverrideProblem } from './character-override';
 import { CharacterPatchField, CharacterPatchSchema } from './character-patch';
-import type { CharacterPatch, UnplacedPickPatch } from './character-patch';
+import type { CharacterPatch } from './character-patch';
 import { customEffectProblem } from './custom-effect';
 import type { CustomEffectProblem } from './custom-effect';
 import { CustomEffectId, CustomEffectInput } from './custom-effect-schema';
@@ -22,6 +22,7 @@ import { isCustomEffectPatch, isOverridePatch } from './override-patches';
 import type { CustomEffectPatch, OverridePatch } from './override-patches';
 import { OverrideId } from './override-schema';
 import { CharacterBuilder, inventory } from './testing';
+import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
 installRulesFakes();
 // Faked arrays drop their length checks, and a custom effect needs a line.
@@ -112,6 +113,7 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
   CharacterPatchField.RemoveOverride,

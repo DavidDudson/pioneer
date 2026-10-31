@@ -308,6 +308,7 @@ export {
   UNPLACED_FEATS_MAX,
   UNPLACED_LANGUAGES_MAX,
 } from './character-document';
+export { CUSTOM_LANGUAGES_MAX, customLanguagesOf, LANGUAGE_NAME_MAX_LENGTH, LanguageName } from './custom-language';
 export {
   CharacterSchemaVersion,
   CURRENT_SCHEMA_VERSION,

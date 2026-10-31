@@ -40,12 +40,14 @@ export const REASON_KEYS: Readonly<Record<UnmatchedReason, string>> = {
   [UnmatchedReason.Unmatched]: STATUS_KEYS[MatchStatus.Unmatched],
   [UnmatchedReason.KindNotLoaded]: STATUS_KEYS[MatchStatus.KindNotLoaded],
   [UnmatchedReason.NotOffered]: 'character.import.status.notOffered',
+  [UnmatchedReason.Custom]: 'character.import.status.custom',
 };
 
 export const REASON_TONES: Readonly<Record<UnmatchedReason, BadgeTone>> = {
   [UnmatchedReason.Unmatched]: STATUS_TONES[MatchStatus.Unmatched],
   [UnmatchedReason.KindNotLoaded]: STATUS_TONES[MatchStatus.KindNotLoaded],
   [UnmatchedReason.NotOffered]: BadgeTone.Warning,
+  [UnmatchedReason.Custom]: BadgeTone.Success,
 };
 
 /** Attribute modifiers as the import shows them: +2, -1, 0. */

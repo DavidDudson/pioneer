@@ -13,6 +13,8 @@ export type LanguagePicks = Readonly<Record<SlotKey, ChoiceValue>>;
 export interface LanguagePlacement {
   readonly choices: LanguagePicks;
   readonly unplaced: readonly PathbuilderName[];
+  /** The languages the export lists that no loaded content defines, each name once. */
+  readonly custom: readonly PathbuilderName[];
 }
 
 /** A language the export lists that matched content. */
@@ -28,6 +30,14 @@ function matched(names: readonly ImportedName[], lookup: ContentLookup): Wanted[
       const match = lookup.resolve(ImportKind.Language, name);
       return match === undefined ? [] : [{ name, id: ContentId.parse(match.id) }];
     });
+}
+
+/** The names of the languages in `names` that match no content, each once. */
+function unmatched(names: readonly ImportedName[], lookup: ContentLookup): PathbuilderName[] {
+  const unknown = names
+    .filter(({ kind, name }) => kind === ImportKind.Language && lookup.resolve(ImportKind.Language, name) === undefined)
+    .map(({ name }) => name);
+  return [...new Set(unknown)];
 }
 
 /** What placing needs beside the document: the slots' content and the languages' names. */
@@ -61,7 +71,7 @@ function pick(document: CharacterDocument, slots: SlotContent, wantedIds: Readon
 /**
  * Pathbuilder's languages in `document`'s language slots (#308): each open slot up to the character's level takes the
  * first language it offers that the export lists. Languages the ancestry and features grant need no slot. Whatever
- * the character still doesn't know afterwards is unplaced: no slot offers it, or none is left.
+ * the character still doesn't know afterwards is unplaced: no slot offers it, or none is left. A language no content defines is custom.
  */
 export function placeLanguages(
   document: CharacterDocument,
@@ -72,5 +82,9 @@ export function placeLanguages(
   const picks = pick(document, slots, new Set(wanted.map(({ id }) => id)));
   const placed = withPicks(document, picks);
   const known = new Set(knownLanguages(placed, languageReads(placed, slots)).map(({ language }) => language.id));
-  return { choices: picks, unplaced: wanted.filter(({ id }) => !known.has(id)).map(({ name }) => name) };
+  return {
+    choices: picks,
+    unplaced: wanted.filter(({ id }) => !known.has(id)).map(({ name }) => name),
+    custom: unmatched(names, lookup),
+  };
 }

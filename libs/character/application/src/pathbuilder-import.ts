@@ -223,7 +223,12 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
     choices: { ...withFocus, ...spells.choices },
     unplaced: {
       ...keptPicks(
-        { feats: feats.unplaced, languages: languages.unplaced, rituals: ritualNames(value) },
+        {
+          feats: feats.unplaced,
+          languages: languages.unplaced,
+          customLanguages: languages.custom,
+          rituals: ritualNames(value),
+        },
         content.lookup,
       ),
       lores: skills.lores,

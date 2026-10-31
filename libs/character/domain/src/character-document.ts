@@ -5,6 +5,7 @@ import * as z from 'zod';
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { CUSTOM_EFFECTS_MAX, CustomEffectSchema } from './custom-effect-schema';
+import { CUSTOM_LANGUAGES_MAX, LanguageName } from './custom-language';
 import { LoreName } from './custom-lore';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
 import { OVERRIDES_MAX, OverrideSchema } from './override-schema';
@@ -44,6 +45,8 @@ export const BuildSchema = z.strictObject({
   unplacedFeats: z.array(ContentId).max(UNPLACED_FEATS_MAX).readonly().check(uniqueItems).default([]),
   unplacedHeritage: ContentId.optional(),
   unplacedLanguages: z.array(ContentId).max(UNPLACED_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
+  /** The languages an import named that no loaded content defines, kept by name (#1595). */
+  customLanguages: z.array(LanguageName).max(CUSTOM_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
   rituals: z.array(ContentId).max(RITUALS_MAX).readonly().check(uniqueItems).default([]),
   /** The custom Lores the player named, by topic: `lore:sailing` picks read their name here (#572). */
   lores: z.record(Slug, LoreName).default({}),
@@ -70,6 +73,7 @@ export const CharacterDocumentSchema = z.strictObject({
     spellAccess: [],
     unplacedFeats: [],
     unplacedLanguages: [],
+    customLanguages: [],
     rituals: [],
     lores: {},
     repertoireSwaps: [],

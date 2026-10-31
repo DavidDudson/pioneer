@@ -4,14 +4,14 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import type { Build, CharacterDocument } from './character-document';
 import { CharacterPatchField } from './character-patch';
-import type { UnplacedPickPatch } from './character-patch';
 import { SlotInvalidMessage } from './character-slot';
 import { HERITAGE_SLOT } from './character-slots';
 import { withoutUnplacedFeat } from './unplaced-feats';
+import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
 /** What an import adds to the build beside its slot picks: the rituals, and the picks it found no slot for. */
 export type UnplacedPicks = Partial<
-  Pick<Build, 'lores' | 'rituals' | 'unplacedFeats' | 'unplacedHeritage' | 'unplacedLanguages'>
+  Pick<Build, 'lores' | 'rituals' | 'unplacedFeats' | 'unplacedHeritage' | 'unplacedLanguages' | 'customLanguages'>
 >;
 
 /** What kind of imported pick no slot holds, besides a feat. */
@@ -62,6 +62,9 @@ export function dismissedPick(build: Build, patch: UnplacedPickPatch): Build {
     }
     case CharacterPatchField.DismissUnplacedLanguage: {
       return { ...build, unplacedLanguages: build.unplacedLanguages.filter((each) => each !== patch.language) };
+    }
+    case CharacterPatchField.RemoveCustomLanguage: {
+      return { ...build, customLanguages: build.customLanguages.filter((each) => each !== patch.language) };
     }
     default: {
       const unreachable: never = patch;

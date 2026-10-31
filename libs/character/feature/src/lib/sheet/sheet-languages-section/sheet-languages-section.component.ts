@@ -14,6 +14,7 @@ import type { AddLanguage, LanguagePickerRow, RemoveLanguage } from '@pioneer/ru
 
 import { CharacterStore } from '../../data/character-store';
 import { languageRows } from '../../data/language-rows';
+import { SheetCustomLanguages } from '../sheet-custom-languages/sheet-custom-languages.component';
 import { sheetLanguages } from '../sheet-languages';
 import type { SheetLanguages } from '../sheet-languages';
 import { SheetState } from '../sheet-state';
@@ -26,7 +27,7 @@ import { SheetUnplacedPicks } from '../sheet-unplaced-picks/sheet-unplaced-picks
  */
 @Component({
   selector: 'pio-sheet-languages-section',
-  imports: [LanguageAdd, LanguagesView, SheetUnplacedPicks, Stack],
+  imports: [LanguageAdd, LanguagesView, SheetCustomLanguages, SheetUnplacedPicks, Stack],
   templateUrl: './sheet-languages-section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
