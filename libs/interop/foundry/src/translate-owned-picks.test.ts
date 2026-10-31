@@ -100,6 +100,26 @@ describe('an ItemAlteration aimed at an owned pick', () => {
   });
 });
 
+describe('a rule that reaches the weapons by their definition', () => {
+  const holy = { key: RuleElementKey.AdjustStrike, mode: 'add', property: 'traits', value: 'holy' };
+
+  test.each(['id', 'slug'])('an AdjustStrike aimed at item:%s:{pick} reaches the pick', (name) => {
+    const { rules, untranslated } = translated([CHOOSE_WEAPON, { ...holy, definition: [`item:${name}:${PICK}`] }]);
+
+    expect(untranslated).toEqual([]);
+    expect(rules[1]).toMatchObject({ key: RuleElementKey.AdjustStrike, strikes: ['item:picked:edge-weapon'] });
+  });
+
+  test('keeps the other statements of the definition, and a pick no ChoiceSet over owned items declares', () => {
+    const { rules } = translated([CHOOSE_WEAPON, { ...holy, definition: [`item:id:${PICK}`, 'item:trait:thrown'] }]);
+    const stray = 'item:id:{item|flags.system.rulesSelections.other}';
+    const { untranslated } = translated([CHOOSE_WEAPON, { ...holy, definition: [stray] }]);
+
+    expect(rules[1]).toMatchObject({ strikes: ['item:picked:edge-weapon', 'item:trait:thrown'] });
+    expect(untranslated.map(({ key }) => key)).toContain(RuleElementKey.AdjustStrike);
+  });
+});
+
 describe('the picked: lint', () => {
   test('a rule naming a pick no ChoiceSet declares is dangling', () => {
     expect(danglingPick({ selector: ['picked:edge-weapon-damage'] }, new Set())).toBe(true);

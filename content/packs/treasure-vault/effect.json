@@ -14198,7 +14198,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-wounding-oil",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:effect-wounding-oil"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "wounding"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.2gRnUwzPylifTrUO"
     },

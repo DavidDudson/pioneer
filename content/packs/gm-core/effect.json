@@ -513,6 +513,39 @@
         ],
         "prompt": "Select a material.",
         "rollOption": "effect-alloy-orb-exquisite-high-grade-alloy-orb-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-high-grade-alloy-orb-material:adamantine"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-high-grade-alloy-orb-material:cold-iron"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-high-grade-alloy-orb-material:dawnsilver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "dawnsilver"
       }
     ],
     "externalIds": {
@@ -596,6 +629,43 @@
         ],
         "prompt": "Select a material.",
         "rollOption": "effect-alloy-orb-exquisite-standard-grade-alloy-orb-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            {
+              "lte": ["item:level", 15]
+            }
+          ]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-standard-grade-alloy-orb-material:adamantine"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-standard-grade-alloy-orb-material:cold-iron"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-exquisite-standard-grade-alloy-orb-material:dawnsilver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "dawnsilver"
       }
     ],
     "externalIds": {
@@ -675,6 +745,31 @@
         ],
         "prompt": "Select a material.",
         "rollOption": "effect-alloy-orb-high-grade-alloy-orb-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-high-grade-alloy-orb-material:cold-iron"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-high-grade-alloy-orb-material:silver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
       }
     ],
     "externalIds": {
@@ -754,6 +849,35 @@
         ],
         "prompt": "Select a material.",
         "rollOption": "effect-alloy-orb-low-grade-alloy-orb-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            {
+              "lte": ["item:level", 8]
+            }
+          ]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-low-grade-alloy-orb-material:cold-iron"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-low-grade-alloy-orb-material:silver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
       }
     ],
     "externalIds": {
@@ -833,6 +957,35 @@
         ],
         "prompt": "Select a material.",
         "rollOption": "effect-alloy-orb-standard-grade-alloy-orb-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            {
+              "lte": ["item:level", 15]
+            }
+          ]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-standard-grade-alloy-orb-material:cold-iron"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:alloy-orb-weapon"],
+        "predicate": ["effect-alloy-orb-standard-grade-alloy-orb-material:silver"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
       }
     ],
     "externalIds": {
@@ -3926,7 +4079,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-oil-of-keen-edges",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            "item:melee",
+            {
+              "or": ["item:damage:type:slashing", "item:damage:type:piercing"]
+            }
+          ]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:effect-oil-of-keen-edges"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "keen"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.dVvMomZnSTq1wOJd"
     },
@@ -5902,7 +6077,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-silver-salve",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:effect-silver-salve"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.dfnhwI5pJgLtXh2k"
     },

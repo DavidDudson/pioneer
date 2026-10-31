@@ -2771,6 +2771,31 @@
           }
         ],
         "rollOption": "ethereal-crescent"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["ethereal-crescent:ethereal-crescent"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["ethereal-crescent:ethereal-crescent-greater"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "astral"
       }
     ],
     "externalIds": {

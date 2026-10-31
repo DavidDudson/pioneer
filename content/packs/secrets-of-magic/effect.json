@@ -8637,6 +8637,120 @@
         "property": "property-runes",
         "mode": "add",
         "value": "thundering"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon.",
+        "predicate": ["runic-impression:weapon"]
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:ghost-touch"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:greater-corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:greater-flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:greater-frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:greater-shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:greater-thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "greater-thundering"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:keen"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "keen"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:returning"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "returning"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["runic-impression:weapon", "spell-effect-runic-impression-rune:thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "thundering"
       }
     ],
     "externalIds": {
