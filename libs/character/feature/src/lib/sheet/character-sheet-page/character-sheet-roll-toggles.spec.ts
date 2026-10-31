@@ -66,11 +66,11 @@ async function undeadToggle(root: HTMLElement): Promise<HTMLButtonElement> {
   );
 }
 
-/** Perception's total as the vitals list it, "+4" giving 4; throws until it is listed. */
+/** Perception's total as the Skills panel lists it, "+4" giving 4; throws until it is listed. */
 function perceptionTotal(root: HTMLElement): number {
-  const row = present(root.querySelector('button[aria-label^="Roll Perception"]')?.closest('fr-list-item'));
-  const total = present(row.querySelector('pio-statistic-total'));
-  const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(total));
+  const roll = present(root.querySelector('button[aria-label^="Roll Perception"]'));
+
+  const match = /(?<sign>[+−-])(?<value>\d+)/u.exec(textOf(roll));
   const value = Number(match?.groups?.['value']);
   return match?.groups?.['sign'] === '+' ? value : -value;
 }

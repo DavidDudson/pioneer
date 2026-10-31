@@ -26,33 +26,29 @@ describe('CharacterSheetPage modes', () => {
     });
     expect(textOf(root.querySelector('pio-sheet-save-status'))).toBe('All changes saved');
     await vi.waitFor(() => {
-      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(7);
+      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(4);
     });
 
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
-    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(7);
+    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(4);
   });
 
-  it('shows AC, saves and Perception in the vitals with their ranks, and what sets AC', async () => {
+  it('shows AC and Speed in the vitals with their ranks, and what sets AC', async () => {
     const { root } = await openSheet();
     const vitalsOf = (): HTMLElement => present(root.querySelector('pio-vitals'));
 
     await vi.waitFor(() => {
       expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual([
         'Armor Class 12',
-        'Fortitude +1',
-        'Reflex +2',
-        'Will +1',
-        'Perception +1',
         'Speed 30',
       ]);
     });
-    // The tiles' own ranks, not the empty ones the rows inside them hold for a skill's.
-    const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')].filter(
-      (rank) => rank.closest('summary') === null,
-    );
-    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 6 }, () => 'UUntrained'));
+    // AC's, the three saves' and the class DC's ranks, not the empty ones the rows inside the tiles hold for a skill's, nor Speed's.
+    const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')]
+      .filter((rank) => rank.closest('summary') === null)
+      .filter((rank) => textOf(rank) !== '');
+    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 5 }, () => 'UUntrained'));
     expect(vitalsOf().textContent).toContain('Unarmored');
     const ac = present(vitalsOf().querySelector('pio-breakdown'));
     expect(ac.textContent).toContain('Base 12');
@@ -71,7 +67,7 @@ describe('CharacterSheetPage modes', () => {
     ]);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([true, false, false, false]);
 
-    await openTab(root, 'Encounter', 'Skills');
+    await openTab(root, 'Encounter', 'Defences');
     expect(TestBed.inject(Router).url).toBe(`/characters/${id}/encounter/defences`);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([false, true, false, false]);
   });
@@ -112,7 +108,7 @@ describe('CharacterSheetPage modes', () => {
     await settle();
     http.expectNone({ method: 'PATCH', url: SHEET_MODE_URL });
 
-    await openTab(root, 'Encounter', 'Skills');
+    await openTab(root, 'Encounter', 'Defences');
 
     const request = await vi.waitFor(() => http.expectOne({ method: 'PATCH', url: SHEET_MODE_URL }));
     expect(request.request.body).toStrictEqual({ mode: SheetMode.Encounter });
