@@ -26,6 +26,8 @@ export interface LineRunes {
 /** Message keys for runes, spelled out so the key check sees them. */
 export const RuneMessage = {
   Potency: 'rules.runes.potency',
+  PotencyName: 'rules.runes.potencyName',
+  EmptySlot: 'rules.runes.emptySlot',
   RunedName: 'rules.inventory.runedName',
 } as const;
 

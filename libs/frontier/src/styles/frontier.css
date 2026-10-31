@@ -150,6 +150,12 @@
   --color-damage-spirit: var(--fr-damage-spirit);
   --color-damage-bleed: var(--fr-damage-bleed);
 
+  --color-rune-base: var(--fr-rune-base);
+  --color-rune-greater: var(--fr-rune-greater);
+  --color-rune-major: var(--fr-rune-major);
+  --color-rune-mythic: var(--fr-rune-mythic);
+  --color-on-rune: var(--fr-on-rune);
+
   /*
    * Forced colours (Windows High Contrast). The browser swaps every author colour for the user's palette,
    * except CSS system colours, so a state shown only by a fill (pressed, selected, a skeleton) disappears.
@@ -176,6 +182,8 @@
   /* Named sizes (h-touch, min-h-touch, max-h-listbox). Use them for size, not for gaps. */
   --spacing-touch: var(--fr-size-touch);
   --spacing-touch-pair: var(--fr-size-touch-pair);
+  /* The height of an fr-gem and the width of each glyph box in it, so a monospace-looking run in a face that is not. */
+  --spacing-gem: var(--fr-size-gem);
   --spacing-control-xs: var(--fr-size-control-xs);
   --spacing-control-sm: var(--fr-size-control-sm);
   --spacing-control-md: var(--fr-size-control-md);
@@ -259,6 +267,7 @@
 
   --animate-spin: fr-spin 1s linear infinite;
   --animate-shimmer: fr-shimmer 1.4s var(--fr-ease-standard) infinite;
+  --animate-rune-pulse: fr-rune-pulse 2.4s var(--fr-ease-standard) infinite;
   --animate-natural-pop: fr-natural-pop 0.4s var(--fr-ease-standard);
   --animate-natural-flash: fr-natural-flash 1.1s var(--fr-ease-standard) forwards;
   --animate-natural-flash-shake: fr-natural-flash 1.1s var(--fr-ease-standard) forwards, fr-natural-shake 0.5s linear;
@@ -299,6 +308,12 @@
     }
     80% {
       transform: translateX(0.5rem);
+    }
+  }
+
+  @keyframes fr-rune-pulse {
+    50% {
+      opacity: 0.65;
     }
   }
 
@@ -420,4 +435,9 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+/* A hexagon clip with no border-radius: fr-gem's cut-stone outline. */
+@utility clip-gem {
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 }

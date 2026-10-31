@@ -129,6 +129,7 @@ export { Heading, HeadingLevel } from './lib/text/heading/heading.component';
 export { Quote } from './lib/text/quote/quote.component';
 export { LineBreak } from './lib/text/line-break/line-break.component';
 export { Glyph } from './lib/text/glyph/glyph.component';
+export { Gem, GemTone } from './lib/text/gem/gem.component';
 export { FontWeight, TextVariant } from './lib/text/text.variants';
 export { Text, TextElement } from './lib/text/text/text.component';
 

@@ -8,6 +8,8 @@ import {
   isSpecific,
   itemRunes,
   partitionApproved,
+  propertyRoom,
+  runedItemOf,
 } from '@pioneer/character/domain';
 import type {
   Inventory,
@@ -19,9 +21,16 @@ import type {
   RunedContent,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { ContentKind, FundamentalRune } from '@pioneer/rules/sdk';
-import { InventoryPlacement } from '@pioneer/rules/ui';
-import type { GradedRune, GradedRuneLine, InventoryGroup, InventoryLine, LineRunes } from '@pioneer/rules/ui';
+import { ContentKind, FundamentalRune, RunedItem } from '@pioneer/rules/sdk';
+import { InventoryPlacement, RuneBadgeKind } from '@pioneer/rules/ui';
+import type {
+  GradedRune,
+  GradedRuneLine,
+  InventoryGroup,
+  InventoryLine,
+  LineRunes,
+  RuneBadgeData,
+} from '@pioneer/rules/ui';
 
 import { CORE_TABLE } from '../../data/character-rule-limit-store';
 import type { TableRules } from '../../data/character-rule-limit-store';
@@ -84,6 +93,40 @@ export function lineRunes(
   };
 }
 
+const HOLE: RuneBadgeData = { kind: RuneBadgeKind.Hole };
+
+/** A fundamental rune's badge, or a hole when the item has none and its runes can still be etched. */
+function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etchable: boolean): RuneBadgeData[] {
+  if (grade !== undefined) {
+    return [{ kind: RuneBadgeKind.Fundamental, rune, grade }];
+  }
+  return etchable ? [HOLE] : [];
+}
+
+/**
+ * A weapon's runes as badges: potency, striking, then its property runes (one no loaded pack has is left out), and a
+ * hole for each rune it has room for and lacks. A specific item's runes cannot change, so it has no holes. Empty for
+ * any item but a weapon.
+ */
+function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: RuneContent): readonly RuneBadgeData[] {
+  if (runedItemOf(entry) !== RunedItem.Weapon) {
+    return [];
+  }
+  const etched = itemRunes(item, entry);
+  const etchable = !isSpecific(entry);
+  const named = etched.property.flatMap((id): RuneBadgeData[] => {
+    const name = runes.get(id)?.name;
+    return name === undefined ? [] : [{ kind: RuneBadgeKind.Property, id, name }];
+  });
+  const free = etchable ? Math.max(0, propertyRoom(etched) - etched.property.length) : 0;
+  return [
+    ...fundamentalBadge(FundamentalRune.Potency, etched.potency, etchable),
+    ...fundamentalBadge(FundamentalRune.Striking, etched.striking, etchable),
+    ...named,
+    ...Array.from({ length: free }, () => HOLE),
+  ];
+}
+
 /** The table's rules, and whether a battle form has the worn and held gear melded into it (#532). */
 export type InventoryRules = TableRules & { readonly melded?: boolean };
 
@@ -114,6 +157,7 @@ export function sheetInventory(
       invested: item.invested === true,
       melded: melded && activeState(item, entry) !== undefined,
       runes: lineRunes(item, entry, runes),
+      runeBadges: runeBadges(item, entry, runes),
       breaks: breaks.get(item.id) ?? [],
       approved: approvedBreaks.get(item.id) ?? [],
       keyItem: item.keyItem !== undefined,

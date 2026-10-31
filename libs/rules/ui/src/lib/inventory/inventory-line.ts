@@ -1,6 +1,7 @@
 import type { Bulk, ContentId } from '@pioneer/rules/sdk';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
+import type { RuneBadgeData } from './rune-badge/rune-badge-data';
 import type { LineRunes } from './rune-name';
 
 /** Where an item is on the character, as the inventory groups it (character-model.md, "Inventory"). */
@@ -32,6 +33,8 @@ export interface InventoryLine {
    * name has them.
    */
   readonly runes: LineRunes | undefined;
+  /** The item's runes as badges under its name, and a hole for each rune slot it has room for; empty for anything but a weapon. */
+  readonly runeBadges?: readonly RuneBadgeData[] | undefined;
   /** Why the item breaks the table's rules, one reason per rule it breaks; empty for an item that breaks none. */
   readonly breaks: readonly MessageDescriptor[];
   /** Why the item breaks the rules the campaign's GM approved; empty when none is approved. */

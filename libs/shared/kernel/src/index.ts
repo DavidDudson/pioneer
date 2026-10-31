@@ -41,6 +41,7 @@ export {
 } from './id';
 export { randomSecret, sha256Hex } from './secret';
 export { Temporal } from './temporal';
+export { runicPair, RUNIC_LETTERS } from './runic-pair';
 export { Pg } from './pg';
 export { listQuery, SortDirection } from './list-query';
 export { commaList } from './comma-list';

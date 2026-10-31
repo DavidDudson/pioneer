@@ -18,6 +18,7 @@ interface ContrastPair {
 const SURFACES = ['surface-canvas', 'surface-base', 'surface-raised', 'surface-sunken', 'surface-overlay'];
 const STATUSES = ['danger', 'success', 'warning', 'info'];
 const ROLES = ['accent', ...STATUSES];
+const RUNE_TIERS = ['rune-base', 'rune-greater', 'rune-major', 'rune-mythic'];
 const DAMAGE_TONES = [
   'physical',
   'holy',
@@ -59,5 +60,8 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
   })),
   // A roll's total and dice, coloured by damage type, on the surfaces and the roll toast.
   { foreground: DAMAGE_TONES.map((tone) => `damage-${tone}`), background: SURFACES, minimum: ContrastMinimum.Text },
+  // A rune gem's glyph on its tier fill, and the fill against the surfaces it sits on.
+  { foreground: ['on-rune'], background: RUNE_TIERS, minimum: ContrastMinimum.Text },
+  { foreground: RUNE_TIERS, background: SURFACES, minimum: ContrastMinimum.NonText },
   { foreground: ['line-focus'], background: SURFACES, minimum: ContrastMinimum.NonText },
 ];
