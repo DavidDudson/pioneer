@@ -97,6 +97,8 @@ export {
   RuneMessage,
   type RunedNamer,
 } from './lib/inventory/rune-name';
+export { ProficiencyBadge } from './lib/proficiency-badge/proficiency-badge.component';
+export type { RankSource } from './lib/proficiency-badge/proficiency-badge.component';
 export { ProficiencyRankView } from './lib/proficiency-rank/proficiency-rank.component';
 export { FormBanner, type FormDetail, type FormSummary } from './lib/form-banner/form-banner.component';
 export {
