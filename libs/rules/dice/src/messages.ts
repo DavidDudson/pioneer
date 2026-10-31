@@ -24,6 +24,7 @@ export const DiceMessage = {
   DegreeNatural1: 'dice.degree.natural1',
   DamageCritical: 'dice.damage.critical',
   DamageCriticalImmune: 'dice.damage.criticalImmune',
+  DamageBasicSave: 'dice.damage.basicSave',
   DamageSplash: 'dice.damage.splash',
   DamageImmune: 'dice.damage.immune',
   DamageWeakness: 'dice.damage.weakness',
