@@ -24,7 +24,7 @@ import type { ActiveItem } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
 import { exclusiveEffects } from './effect-exclusivity';
-import { effectRoots } from './effects';
+import { badgeOptions, effectRoots } from './effects';
 import type { ActiveEffect } from './effects';
 import { encumberedRoots } from './encumbered-roots';
 import { fromInventory, rulesOf } from './entry-rules';
@@ -187,6 +187,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
     attributes: attributesAt(document, slots)(level),
     situation: [
       ...(slots.situation ?? []),
+      ...badgeOptions(exclusive.active, lookup),
       ...exclusive.active.flatMap(({ form }) => (form === undefined ? [] : [form])),
     ],
     picks: new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value])),

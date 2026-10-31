@@ -22,6 +22,8 @@ export interface ShieldInPlay {
   readonly endsWhenDestroyed: boolean;
   /** The cast raised it, so it can block with no Raise a Shield. */
   readonly raised: boolean;
+  /** Three layers, kept as the effect's badge, that blocks break. */
+  readonly layered: boolean;
   /** Extra Hardness against damage of some types. */
   readonly hardnessAgainst: readonly HardnessBonus[];
   /** The damage the shards deal when the block that ends the effect breaks it, at the rank it was cast at. */
@@ -72,6 +74,7 @@ function inPlay(shield: GrantedShield, { id, source }: Pick<ShieldInPlay, 'id' |
     endsOnBlock: shield.endsOnBlock === true,
     endsWhenDestroyed: shield.endsWhenDestroyed === true,
     raised: shield.raised === true,
+    layered: shield.layered === true,
     hardnessAgainst: shield.hardnessAgainst ?? [],
     shards: shield.shards,
   };

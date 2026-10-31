@@ -2927,6 +2927,37 @@
             "or": ["self:type:character", "self:type:npc"]
           }
         ]
+      },
+      {
+        "key": "GrantShield",
+        "hardness": 5,
+        "raised": true,
+        "layered": true,
+        "brackets": [
+          {
+            "start": 3,
+            "hardness": 10
+          },
+          {
+            "start": 5,
+            "hardness": 15
+          },
+          {
+            "start": 7,
+            "hardness": 20
+          },
+          {
+            "start": 9,
+            "hardness": 25
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["self:effect:spell-effect-shield-amped:badge:3"]
       }
     ],
     "externalIds": {

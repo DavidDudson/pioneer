@@ -5,6 +5,7 @@ import {
   InventoryItemId,
   PlayCommandField,
   ShieldCondition,
+  ShieldLayers,
   untypedDamage,
 } from '@pioneer/character/domain';
 import {
@@ -61,6 +62,8 @@ export class SheetShields {
   protected readonly amount = signal(0);
   protected readonly complete = signal(true);
   protected readonly busy = signal(false);
+  /** The layers a layered shield breaks with the next block, as typed. */
+  protected readonly layers = signal(1);
   /** What the shards of the shield that was just broken deal, until the next block; empty when none broke. */
   protected readonly shardsDue = signal('');
 
@@ -95,14 +98,15 @@ export class SheetShields {
   /** Shield Block with `key`: the reaction spent, then the damage blocked. A broken or destroyed shield changes the inventory, so read it again. */
   protected readonly block = (key: string) => async (): Promise<void> => {
     const registry = this.registry.data();
-    const shards = this.shields().find(({ line }) => line.key === key)?.line.shards;
+    const line = this.shields().find((shown) => shown.line.key === key)?.line;
+    const shards = line?.shards;
     const ids = registry === undefined ? undefined : shieldIds(registry);
     if (ids === undefined) {
       return;
     }
     this.busy.set(true);
     try {
-      await this.#blockWith(key, ids);
+      await this.#blockWith(key, ids, this.#layersFor(line));
       await this.#characters.reload();
       this.shardsDue.set(this.#shardsNotice(shards));
     } finally {
@@ -111,10 +115,21 @@ export class SheetShields {
   };
 
   /** The reaction spent, then the damage coming in blocked by the shield `key`. */
-  async #blockWith(key: string, ids: ShieldIds): Promise<void> {
+  async #blockWith(key: string, ids: ShieldIds, layers: ShieldLayers | undefined): Promise<void> {
     await this.#play.send(blockSpend(ids));
     const damage = untypedDamage(HitPoints.parse(this.amount()));
-    await this.#play.send({ field: PlayCommandField.BlockWithShield, item: InventoryItemId.parse(key), damage });
+    const item = InventoryItemId.parse(key);
+    await this.#play.send({
+      field: PlayCommandField.BlockWithShield,
+      item,
+      damage,
+      ...(layers === undefined ? {} : { layers }),
+    });
+  }
+
+  /** The layers the block breaks: those typed, never more than the shield has left; none for a shield without layers. */
+  #layersFor(line: ShieldLine | undefined): ShieldLayers | undefined {
+    return line?.layersLeft === undefined ? undefined : ShieldLayers.parse(Math.min(this.layers(), line.layersLeft));
   }
 
   /** What the shards deal, in words; empty for a shield without any. */

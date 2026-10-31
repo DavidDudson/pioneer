@@ -529,6 +529,7 @@
       "amount": "Damage coming in",
       "block": "Shield Block",
       "summary": "{name} ({state}): {left}/{hitPoints} HP, Hardness {hardness}",
+      "layers": "Layers to break",
       "shards": "The shards deal {damage} {type} damage to the creature that broke the shield, if it is within 5 feet (basic Reflex save).",
       "summaryUndamageable": "{name}: Hardness {hardness}, can't be damaged",
       "whole": "whole",

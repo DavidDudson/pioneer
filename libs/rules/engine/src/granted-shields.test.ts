@@ -79,6 +79,16 @@ describe('shieldsInPlay', () => {
     expect([damageAt(2), damageAt(3), damageAt(4)]).toStrictEqual(['1d4', '3d4', '3d4']);
   });
 
+  test('a layered shield says so, and one without layers does not', () => {
+    const [layered] = shieldsInPlay({
+      rules: [inPlay({ key: 'GrantShield', hardness: 5, layered: true }, 'amped')],
+      facts: FACTS,
+    });
+    const [plain] = shieldsInPlay({ rules: [inPlay(SHIELD, 'shield')], facts: FACTS });
+
+    expect([layered?.layered, plain?.layered]).toStrictEqual([true, false]);
+  });
+
   test('a bracket changes the Hit Points too, and a Broken Threshold of 0 stays', () => {
     const [shield] = shieldsInPlay({ rules: [inPlay(ARM, 'arm', { itemLevel: 3 })], facts: FACTS });
 

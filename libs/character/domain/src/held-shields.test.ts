@@ -114,7 +114,13 @@ describe('heldShields with a shield an effect gives', () => {
     expect(shield).toMatchObject({
       hardness: Hardness.parse(10),
       undamageable: true,
-      granted: { effect: idOf('shield-spell'), endsOnBlock: true, endsWhenDestroyed: false, raised: true },
+      granted: {
+        effect: idOf('shield-spell'),
+        endsOnBlock: true,
+        endsWhenDestroyed: false,
+        raised: true,
+        layered: false,
+      },
     });
   });
 
