@@ -6184,45 +6184,6 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
-      "slug": "feat:gildedsoul",
-      "foundry": "Compendium.pf2e.feats-srd.Item.VeTrBvxupaS4uo1B",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Skill.Diplomacy",
-                "value": "system.skills.diplomacy.rank"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "system.skills.society.rank"
-              }
-            ],
-            "flag": "gildedsoul",
-            "key": "ChoiceSet",
-            "priority": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "upgrade",
-            "path": "{item|flags.system.rulesSelections.gildedsoul}",
-            "priority": 2,
-            "value": 1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
       "slug": "feat:growth-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.hRRxmIhRvg59RMqO",
       "gaps": [

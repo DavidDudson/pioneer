@@ -7909,6 +7909,37 @@
         "key": "Proficiency",
         "selector": "skill:society",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "mastermind",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          }
+        ],
+        "prompt": "Select a skill to become trained in."
+      },
+      {
+        "key": "Proficiency",
+        "selector": {
+          "choice": "mastermind",
+          "prefix": "skill"
+        },
+        "rank": "trained"
       }
     ],
     "externalIds": {
