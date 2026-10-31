@@ -43,10 +43,6 @@ down: && db-down
 content-import *args:
     bun tools/content-import/main.ts {{args}}
 
-# Put hand additions back after a re-import (ADR-0031): --pack player-core [--ref HEAD] [--dry-run]
-content-restore *args:
-    bun tools/content-import/restore-additions.ts {{args}}
-
 # Fetch book listings from AoN Sources pages, politely (ADR-0071): --book player-core
 aon-sources *args:
     bun tools/aon-sources/main.ts {{args}}

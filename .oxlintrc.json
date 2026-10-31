@@ -419,7 +419,6 @@
         "tools/book-foundry-version/main.ts",
         "tools/content-import/main.ts",
         "tools/enrich-content.ts",
-        "tools/content-import/restore-additions.ts",
         "tools/enrich-prerequisites.ts",
         "tools/enrich-staves.ts",
         "tools/enrich-triggers.ts",

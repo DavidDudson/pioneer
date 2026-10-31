@@ -6,7 +6,6 @@
  */
 import path from 'node:path';
 
-import type { PackFile } from '@pioneer/interop/foundry';
 import type { PackId } from '@pioneer/rules/sdk';
 
 export const PACKS_DIRECTORY = 'content/packs';
@@ -31,27 +30,6 @@ export function importedDirectory({ pack, vocabularyPack }: PackTargets): string
 
 export function backlogPath(pack: PackId): string {
   return path.posix.join(IMPORT_DIRECTORY, `${pack}.json`);
-}
-
-function directoryOf(file: PackFile, targets: PackTargets): string {
-  if (file.pack === targets.pack) {
-    return path.posix.join(PACKS_DIRECTORY, targets.pack);
-  }
-  if (file.pack === targets.vocabularyPack) {
-    return importedDirectory(targets);
-  }
-  throw new Error(`Pack output has ${file.kind} entries for ${file.pack}, which is neither the target nor vocabulary`);
-}
-
-/** One write per file, each an entry file of a pack this import may write. */
-export function packWrites(files: readonly PackFile[], targets: PackTargets): readonly PackWrite[] {
-  if (targets.pack === targets.vocabularyPack) {
-    throw new Error(`${targets.pack} holds hand-authored vocabulary and is never an import's target`);
-  }
-  return files.map((file) => ({
-    path: path.posix.join(directoryOf(file, targets), `${file.kind}.json`),
-    json: file.entries,
-  }));
 }
 
 /** `content/packs/…` as `json-packs.js` imports it: `@pioneer/content/packs/…`. */
