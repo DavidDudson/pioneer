@@ -1238,6 +1238,8 @@
       "expert": "Expert",
       "master": "Master",
       "legendary": "Legendary",
+      "source": "{rank}: {source}",
+      "future": "{rank} at level {level}: {source}",
       "letter": {
         "untrained": "U",
         "trained": "T",

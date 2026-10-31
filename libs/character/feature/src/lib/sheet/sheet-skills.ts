@@ -3,30 +3,23 @@ import {
   formTraits,
   itemContent,
   skillReads,
-  SkillSlotKind,
   skillSlots,
   skillsTrainedTwice,
   SkillTrainingSourceKind,
 } from '@pioneer/character/domain';
-import type { Character, SkillOption, SkillSlot, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
+import type { Character, SkillOption, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { CHECK_PENALTY, LineStatusKind, statisticContent } from '@pioneer/rules/engine';
 import { Proficiency } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
+import type { ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, SkillPickerRow } from '@pioneer/rules/ui';
-import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { sheetEntryNames } from './sheet-entry-names';
 import type { Translate } from './sheet-skill-repeats';
+import { rankSourcesOf, skillSlotLabel, sourceName, sourceNamesOf } from './sheet-skill-sources';
+import type { SourceNames } from './sheet-skill-sources';
 import { sheetSlotContent } from './sheet-slot-content';
 import { sheetDerivation } from './sheet-statistics';
-
-/** What each skill slot is called, by whether it trains a skill or raises one. */
-export const SKILL_SLOT_LABEL_KEYS: Readonly<Record<SkillSlotKind, string>> = {
-  [SkillSlotKind.Training]: 'rules.choices.slot.skillTraining',
-  [SkillSlotKind.Increase]: 'rules.choices.slot.skillIncrease',
-};
 
 const SKILL_PREFIX = 'skill:';
 
@@ -49,9 +42,6 @@ const FORM_NOTED_SKILLS: ReadonlySet<string> = new Set(
 
 const FORM_TRAITS_KEY = 'character.sheet.skills.formTraits';
 
-/** A thing that trains a skill, named as it is: an entry's name, which needs no translation. */
-const TRAINED_SOURCE_KEY = 'character.sheet.trainedSource';
-
 /**
  * Every skill and Lore the loaded statistics define, by name, each with what the engine derives for it: its rank
  * comes from the class, the background and the skill picks. A skill no pack defines is left out.
@@ -69,6 +59,7 @@ export function sheetSkills(
   const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
   const twice = trainedTwiceNotes(registry, character, translate);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
+  const rankSources = rankSourcesOf(registry, character, translate);
   const traits = formTraits(character.document, itemContent(registry), sheetSlotContent(registry));
   const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
   return skills
@@ -82,7 +73,16 @@ export function sheetSkills(
       const rank = ranks.get(selector) ?? Proficiency.Untrained;
       return result === undefined
         ? []
-        : [{ name: entry.definition.name, kind: entry.definition.kind, result, note, rank }];
+        : [
+            {
+              name: entry.definition.name,
+              kind: entry.definition.kind,
+              result,
+              note,
+              rank,
+              rankSources: rankSources.get(selector) ?? [],
+            },
+          ];
     })
     .toSorted((left, right) => left.name.localeCompare(right.name));
 }
@@ -104,32 +104,6 @@ export interface SheetSkillSlot {
   readonly trained: readonly TrainedNote[];
 }
 
-/**
- * A skill slot's label: "Level 3 skill increase", "Level 1 trained skill", numbered when its level has several trained
- * skills ("Level 1 trained skill 2"), so each picker has a name of its own.
- */
-function skillSlotLabel(slot: SkillSlot, slots: readonly SkillSlot[]): MessageDescriptor {
-  const level = { level: slot.level };
-  const alike = slots.filter((each) => each.kind === slot.kind && each.level === slot.level);
-  if (slot.kind === SkillSlotKind.Increase || alike.length === 1) {
-    return message(SKILL_SLOT_LABEL_KEYS[slot.kind], level);
-  }
-  return message('rules.choices.slot.skillTrainingNumbered', { ...level, number: alike.indexOf(slot) + 1 });
-}
-
-/** What a skill's trainings are named by: an entry by its name, a slot by its label. */
-interface SourceNames {
-  readonly entries: ReadonlyMap<ContentId, string>;
-  readonly slots: ReadonlyMap<SlotKey, MessageDescriptor>;
-}
-
-function sourceName(source: SkillTrainingSource, { entries, slots }: SourceNames): MessageDescriptor {
-  if (source.kind === SkillTrainingSourceKind.Slot) {
-    return slots.get(source.slot) ?? message(TRAINED_SOURCE_KEY, { name: source.slot });
-  }
-  return message(TRAINED_SOURCE_KEY, { name: entries.get(source.entry) ?? source.entry });
-}
-
 /** One note for each thing that trains each skill a slot can't offer. */
 function trainedNotes(trained: readonly TrainedSkill[], names: SourceNames): readonly TrainedNote[] {
   return trained.flatMap(({ skill, sources }) =>
@@ -142,14 +116,6 @@ function trainedNotes(trained: readonly TrainedSkill[], names: SourceNames): rea
       };
     }),
   );
-}
-
-/** What the skill slots and entries are named by, over the slots read. */
-function sourceNamesOf(registry: ContentRegistry, slots: readonly SkillSlot[]): SourceNames {
-  return {
-    entries: sheetEntryNames(registry),
-    slots: new Map(slots.map((slot) => [slot.key, skillSlotLabel(slot, slots)])),
-  };
 }
 
 /**

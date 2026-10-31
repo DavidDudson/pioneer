@@ -1,0 +1,22 @@
+@if (shown().length === 0) {
+  <pio-proficiency-rank [rank]="rank()" />
+} @else {
+  <fr-hover-card>
+    <fr-button [variant]="inline">
+      <pio-proficiency-rank [rank]="rank()" />
+    </fr-button>
+    <ng-template frHoverCardContent>
+      <fr-list gap="3xs">
+        @for (line of shown(); track $index) {
+          <fr-list-item>
+            <fr-text [tone]="line.future ? 'muted' : 'default'">{{
+              line.key
+                | transloco
+                  : { rank: line.params.rank | transloco, source: line.params.source, level: line.params.level }
+            }}</fr-text>
+          </fr-list-item>
+        }
+      </fr-list>
+    </ng-template>
+  </fr-hover-card>
+}

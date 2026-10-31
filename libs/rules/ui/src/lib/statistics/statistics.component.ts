@@ -12,7 +12,8 @@ import { labelName } from '../breakdown/line-words';
 import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
+import { ProficiencyBadge } from '../proficiency-badge/proficiency-badge.component';
+import type { RankSource } from '../proficiency-badge/proficiency-badge.component';
 import { conditionalLines, conditionalLineText } from './conditional-lines';
 import type { ConditionWords } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
@@ -39,6 +40,8 @@ export interface NamedStatistic {
   readonly note?: string | undefined;
   /** The proficiency rank in it, shown as its letter beside the name: a skill's. */
   readonly rank?: Proficiency | undefined;
+  /** What gave that rank and the ranks still to come, for the rank's popover. */
+  readonly rankSources?: readonly RankSource[] | undefined;
   /** The situations a roll of it can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;
 }
@@ -60,6 +63,7 @@ type ShownStatistic =
       readonly toggles: readonly ConditionToggle[];
       readonly kind: StatisticKind;
       readonly rank: Proficiency | undefined;
+      readonly rankSources: readonly RankSource[];
       readonly statistic: StatisticValue;
     }
   | { readonly ok: false; readonly key: Selector; readonly name: string; readonly error: string };
@@ -92,7 +96,7 @@ const LOADING_ROWS = 5;
     EmptyState,
     List,
     ListItem,
-    ProficiencyRankView,
+    ProficiencyBadge,
     Skeleton,
     Stack,
     StatisticConditions,
@@ -150,7 +154,7 @@ export class StatisticsView {
     this.#messages();
     this.#format.locale();
     return this.statistics()?.map(
-      ({ name: contentName, nameKey, kind, result, note, rank, situations }): ShownStatistic => {
+      ({ name: contentName, nameKey, kind, result, note, rank, rankSources, situations }): ShownStatistic => {
         const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
         if (!result.ok) {
           return {
@@ -188,6 +192,7 @@ export class StatisticsView {
           toggles,
           kind,
           rank,
+          rankSources: rankSources ?? [],
           statistic: result,
         };
       },

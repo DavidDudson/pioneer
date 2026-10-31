@@ -11,7 +11,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BOOST_LABEL_KEYS } from './sheet-attributes';
-import { SKILL_SLOT_LABEL_KEYS } from './sheet-skills';
+import { SKILL_SLOT_LABEL_KEYS } from './sheet-skill-sources';
 import { sheetSlotContent } from './sheet-slot-content';
 
 const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {

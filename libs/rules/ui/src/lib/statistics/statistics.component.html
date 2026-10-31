@@ -11,7 +11,7 @@
                 <fr-disclosure>
                   <fr-text frDisclosureSummary
                     >{{ row.name }}
-                    <pio-proficiency-rank [rank]="row.rank" />
+                    <pio-proficiency-badge [rank]="row.rank" [sources]="row.rankSources" />
                     <pio-statistic-total [total]="row.total" [computed]="row.computed" [fromForm]="row.fromForm"
                   /></fr-text>
                   <pio-breakdown
