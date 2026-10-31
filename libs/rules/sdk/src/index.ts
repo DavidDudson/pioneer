@@ -328,6 +328,7 @@ export {
   OriginHop,
   OriginHopKind,
   OverrideNote,
+  parentOptions,
   RuleIndex,
 } from './origin';
 export {

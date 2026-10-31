@@ -23,6 +23,15 @@
       (valueChange)="setRank($event)"
     />
   }
+  @if (traditions().length > 0) {
+    <pio-option-picker
+      [ariaLabel]="'character.sheet.effects.traditionPick' | transloco"
+      [placeholder]="'character.sheet.effects.traditionPick' | transloco"
+      [options]="traditions()"
+      [value]="tradition()"
+      (valueChange)="tradition.set($event)"
+    />
+  }
   <pio-option-picker
     [ariaLabel]="'character.sheet.effects.source' | transloco"
     [options]="sources()"

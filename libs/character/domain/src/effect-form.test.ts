@@ -56,3 +56,18 @@ describe('an effect carrying its rank and chosen form', () => {
     expect(formTempHp(5, 'plant-form:arboreal')).toBe('12');
   });
 });
+
+describe('an effect carrying the tradition it was cast with', () => {
+  test('its root sets the hop that parent predicates read', () => {
+    const effect = ActiveEffectSchema.parse({
+      id: EffectInstanceId.parse('00000000-0000-4000-8000-000000000002'),
+      effect: idOf('plant-form'),
+      rank: SpellRank.parse(6),
+      tradition: 'divine',
+    });
+
+    expect(effectRoots([effect]).map(({ hop }) => hop)).toEqual([
+      { kind: 'effect', effect: idOf('plant-form'), rank: 6, tradition: 'divine' },
+    ]);
+  });
+});

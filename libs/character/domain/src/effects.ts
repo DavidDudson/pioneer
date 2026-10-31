@@ -9,6 +9,7 @@ import {
   EffectDurationType,
   EffectExpiry,
   HitPoints,
+  MagicTraditionSchema,
   OriginHopKind,
   RollOption,
   RuleElementKey,
@@ -108,6 +109,8 @@ export const ActiveEffectSchema = z.strictObject({
   form: RollOption.optional(),
   /** The spell rank a polymorph effect was cast at, which heightens its form. */
   rank: SpellRank.optional(),
+  /** The tradition of the spellcasting entry the effect was cast with, which the effect's own rules can ask about. */
+  tradition: MagicTraditionSchema.optional(),
   /** The temporary Hit Points the effect gave when applied, so ending it takes back what it gave and no more. */
   tempHp: HitPoints.optional(),
 });
@@ -240,9 +243,14 @@ export function effectContent(registry: ContentRegistry): EffectContent {
  * they end. The hop carries no badge yet, so a badge changes what the sheet shows but not what the effect grants.
  */
 export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoot[] {
-  return effects.map(({ effect, rank }) => ({
+  return effects.map(({ effect, rank, tradition }) => ({
     entry: effect,
-    hop: { kind: OriginHopKind.Effect, effect, ...(rank === undefined ? {} : { rank }) },
+    hop: {
+      kind: OriginHopKind.Effect,
+      effect,
+      ...(rank === undefined ? {} : { rank }),
+      ...(tradition === undefined ? {} : { tradition }),
+    },
   }));
 }
 

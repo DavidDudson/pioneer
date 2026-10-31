@@ -1,4 +1,4 @@
-import { ContentId, EffectBadgeType, HitPoints, RollOption, SpellRank } from '@pioneer/rules/sdk';
+import { ContentId, EffectBadgeType, HitPoints, MagicTraditionSchema, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -28,6 +28,8 @@ export const EffectCommandSchema = z.discriminatedUnion('field', [
     form: RollOption.optional(),
     /** The spell rank the effect is cast at. */
     rank: SpellRank.optional(),
+    /** The tradition of the spellcasting entry that casts it. */
+    tradition: MagicTraditionSchema.optional(),
     /** The temporary Hit Points the form gives, worked out by the sheet from the engine; they leave with the effect. */
     tempHp: HitPoints.optional(),
   }),
@@ -127,6 +129,7 @@ function applied(
     ...(badge === undefined ? {} : { badge }),
     ...(command.form === undefined ? {} : { form: command.form }),
     ...(command.rank === undefined ? {} : { rank: command.rank }),
+    ...(command.tradition === undefined ? {} : { tradition: command.tradition }),
     ...(command.tempHp === undefined || command.tempHp === 0 ? {} : { tempHp: command.tempHp }),
   };
 }
