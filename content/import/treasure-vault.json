@@ -3702,38 +3702,6 @@
     {
       "type": "entry",
       "pack": "treasure-vault",
-      "slug": "effect:effect-wounding-oil",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.2gRnUwzPylifTrUO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "effectWoundingOil",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.effectWoundingOil}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "wounding"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
       "slug": "equipment:alchemists-flamethrower",
       "foundry": "Compendium.pf2e.equipment-srd.Item.gdaLHiWRhB1l2Xr3",
       "gaps": [

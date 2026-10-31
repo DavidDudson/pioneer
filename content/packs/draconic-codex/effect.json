@@ -193,7 +193,30 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            "item:equipped",
+            {
+              "or": ["item:damage:type:piercing", "item:damage:type:slashing"]
+            }
+          ]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["blood-and-spirit:holy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.tu36I5HWaqOjaLVu"
     },

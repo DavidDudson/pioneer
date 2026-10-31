@@ -5234,46 +5234,6 @@
     {
       "type": "entry",
       "pack": "season-of-ghosts",
-      "slug": "effect:effect-ghost-slayers-caress",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.vOwZlSNCS35GULgL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": [
-                "item:equipped",
-                {
-                  "not": "item:rune:property:ghost-touch"
-                }
-              ],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "predicate": ["ghost-scarf:ghost-touch"],
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["ghost-scarf:ghost-touch"],
-            "property": "property-runes",
-            "value": "ghost-touch"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "season-of-ghosts",
       "slug": "effect:effect-impersonated-ability",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.kkP0tagXmAYuSH3u",
       "gaps": [

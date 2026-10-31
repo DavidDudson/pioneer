@@ -3985,51 +3985,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-ethereal-crescent",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.Vk9Fwo0Xl1EF9fEF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["ethereal-crescent:ethereal-crescent"],
-            "property": "property-runes",
-            "value": "ghost-touch"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["ethereal-crescent:ethereal-crescent-greater"],
-            "property": "property-runes",
-            "value": "astral"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-hand-chords",
       "foundry": "Compendium.pf2e.equipment-effects.Item.UrNdfN1da9V3aFM4",
       "gaps": [

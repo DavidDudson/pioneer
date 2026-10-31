@@ -3669,20 +3669,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": ["item:equipped"],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "damageType": "spirit",
@@ -3725,30 +3711,6 @@
               }
             ],
             "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["self:trait:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["self:trait:unholy"],
-            "property": "traits",
-            "value": "unholy"
           }
         }
       ]
@@ -4484,19 +4446,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageDice",
           "raw": {
             "damageType": "spirit",
@@ -4516,30 +4465,6 @@
               }
             ],
             "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["parent:origin:trait:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["parent:origin:trait:unholy"],
-            "property": "traits",
-            "value": "unholy"
           }
         }
       ]
@@ -5660,49 +5585,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-ghostly-weapon",
-      "foundry": "Compendium.pf2e.spell-effects.Item.EScdpppYsf9KhG4D",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "types": ["weapon"]
-            },
-            "flag": "spellEffectGhostlyWeapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.spellEffectGhostlyWeapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "ghost-touch"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.spellEffectGhostlyWeapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "traits",
-            "value": "magical"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-gravity-weapon",
       "foundry": "Compendium.pf2e.spell-effects.Item.tNjimcyUwn8afeH6",
       "gaps": [
@@ -6610,20 +6492,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": ["item:equipped"],
-              "types": ["weapon"]
-            },
-            "flag": "spellEffectWeaponSurge",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -6641,17 +6509,6 @@
             "dieSize": "d6",
             "key": "DamageDice",
             "selector": "{item|flags.system.rulesSelections.spellEffectWeaponSurge}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.spellEffectWeaponSurge}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "traits",
-            "value": "sanctified"
           }
         }
       ]

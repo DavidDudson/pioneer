@@ -1679,7 +1679,33 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:equipped"]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["self:trait:holy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["self:trait:unholy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.zZ25N1zpXA8GNhFL"
     },
@@ -5295,7 +5321,33 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["parent:origin:trait:holy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "holy"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["parent:origin:trait:unholy"],
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.ImkjllInxmrdDCOq"
     },
@@ -22584,7 +22636,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-ghostly-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:spell-effect-ghostly-weapon"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:spell-effect-ghostly-weapon"],
+        "property": "traits",
+        "mode": "add",
+        "value": "magical"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.EScdpppYsf9KhG4D"
     },
@@ -33034,7 +33110,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-weapon-surge",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": ["item:equipped"]
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:spell-effect-weapon-surge"],
+        "property": "traits",
+        "mode": "add",
+        "value": "sanctified"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.qlz0sJIvqc0FdUdr"
     },

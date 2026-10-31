@@ -10851,37 +10851,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "ownedItems": true,
-              "predicate": [
-                "item:equipped",
-                {
-                  "or": ["item:damage:type:piercing", "item:damage:type:slashing"]
-                }
-              ],
-              "types": ["weapon"]
-            },
-            "flag": "weapon",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Weapon"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:id:{item|flags.system.rulesSelections.weapon}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "predicate": ["blood-and-spirit:holy"],
-            "property": "traits",
-            "value": "holy"
-          }
-        },
-        {
-          "type": "rule",
           "key": "AdjustStrike",
           "raw": {
             "definition": ["item:id:{item|flags.system.rulesSelections}"],

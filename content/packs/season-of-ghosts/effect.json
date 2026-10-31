@@ -834,6 +834,29 @@
         "type": "item",
         "value": 1,
         "predicate": ["ghost-scarf:fortitude", "origin:trait:incorporeal", "origin:trait:undead"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": [
+            "item:equipped",
+            {
+              "not": "item:rune:property:ghost-touch"
+            }
+          ]
+        },
+        "prompt": "Select a weapon.",
+        "predicate": ["ghost-scarf:ghost-touch"]
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:picked:weapon"],
+        "predicate": ["ghost-scarf:ghost-touch"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
       }
     ],
     "externalIds": {
