@@ -300,6 +300,7 @@ export {
   LICENSE_LABELS,
   Publisher,
   PUBLISHER_LABELS,
+  LegacyImport,
 } from './book';
 export { ContentLicense, ContentLicenseSchema, effectiveLicense, isLegacyLicense } from './license';
 export { Proficiency, ProficiencyBonusFormula, ProficiencyBonusTable, ProficiencySchema } from './proficiency';

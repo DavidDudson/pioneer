@@ -6,6 +6,7 @@ import { creatureReport } from './dry-run-report';
 import { readFoundryRelease } from './foundry-release';
 import { selectCreatures, SkipReason } from './select-entries';
 import type { CreatureSelection } from './select-entries';
+import { LEGACY } from './testing/legacy';
 
 const ROOT = 'pf2e-pf2e-8.6.0';
 const monsterCore = BookId.parse('monster-core');
@@ -85,7 +86,7 @@ function archive(extra: Record<string, string> = {}): ReadonlyMap<string, string
 }
 
 function select(targets: ReadonlySet<BookId> = new Set([monsterCore])): CreatureSelection {
-  return selectCreatures(readFoundryRelease(archive()), targets);
+  return selectCreatures(readFoundryRelease(archive()), targets, LEGACY);
 }
 
 function nameOf(path: string): string {

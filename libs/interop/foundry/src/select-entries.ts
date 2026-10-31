@@ -1,11 +1,14 @@
 import { BookId, ContentLicense, CreatureRole } from '@pioneer/rules/sdk';
+import type { Book } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
 import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
 import { foundrySlug } from './foundry-slug';
-import { isOglEntry, LEGACY_ENTRY_BOOKS } from './ogl-entries';
+import { legacyBooks } from './legacy-books';
+import type { LegacyBooks } from './legacy-books';
+import { isOglEntry } from './ogl-entries';
 import type { LicenseField } from './ogl-entries';
 
 /**
@@ -98,20 +101,6 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
 ]);
 
 /**
- * Pre-remaster books imported under the Open Game License, for content the remaster books still point at (Goloma,
- * which Pathbuilder exports name). Their entries are legacy and OGL, which selection otherwise skips. Adding a book
- * here is a licensing decision: NOTICE.md and the Legal page must carry its notice.
- */
-const OGL_BOOKS: ReadonlySet<BookId> = new Set([
-  BookId.parse('mwangi-expanse'),
-  BookId.parse('secrets-of-magic'),
-  BookId.parse('rage-of-elements'),
-  BookId.parse('character-guide'),
-  BookId.parse('impossible-lands'),
-  BookId.parse('ancestry-guide'),
-]);
-
-/**
  * Foundry slugs of documents Pioneer replaces with an entry of its own: `effect-aquatic-combat` is the underwater
  * environment (Player Core page 437), whose adjustments and restrictions it would double-count.
  */
@@ -158,32 +147,47 @@ export interface Selection {
   readonly skipped: readonly SkippedEntry[];
 }
 
+/** The books a run targets, and which of the pre-remaster ones the registry flags for import. */
+interface Scope {
+  readonly targets: ReadonlySet<BookId>;
+  readonly legacy: LegacyBooks;
+}
+
+interface Printed {
+  readonly book: BookId;
+  readonly slug: string;
+}
+
 interface Skip {
   readonly reason: SkipReason;
   readonly detail: string;
 }
 
 /** `license: OGL` for a listed item in an ORC book; nothing for every other entry. */
-function entryLicense(publication: FoundryPublication | undefined, book: BookId, slug: string): LicenseField {
+function entryLicense(
+  publication: FoundryPublication | undefined,
+  { book, slug }: Printed,
+  legacy: LegacyBooks,
+): LicenseField {
   const licensed =
     publication !== undefined &&
     isOglEntry(publication, book, slug) &&
-    !OGL_BOOKS.has(book) &&
-    !LEGACY_ENTRY_BOOKS.has(book);
+    !legacy.whole.has(book) &&
+    !legacy.listed.has(book);
   return licensed ? { license: ContentLicense.Ogl } : {};
 }
 
 /** The target book an entry's publication names, or why it has none; `slug` is the Foundry slug of an item. */
 function targetBook(
   publication: FoundryPublication | undefined,
-  targets: ReadonlySet<BookId>,
+  { targets, legacy }: Scope,
   slug?: string,
 ): BookId | Skip {
   if (publication === undefined) {
     return { reason: SkipReason.UnknownBook, detail: '' };
   }
   const book = FOUNDRY_BOOK_TITLES.get(publication.title);
-  const ogl = (book !== undefined && OGL_BOOKS.has(book)) || isOglEntry(publication, book, slug);
+  const ogl = (book !== undefined && legacy.whole.has(book)) || isOglEntry(publication, book, slug);
   if (!ogl && !publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
   }
@@ -196,25 +200,30 @@ function targetBook(
   return targets.has(book) ? book : { reason: SkipReason.NotTargeted, detail: book };
 }
 
-function select(entry: PackDocument, targets: ReadonlySet<BookId>): SelectedEntry | SkippedEntry {
+function select(entry: PackDocument, scope: Scope): SelectedEntry | SkippedEntry {
   const { pack, path, document } = entry;
   const { type } = document;
   if (!isFoundryItemType(type)) {
     return { pack, path, reason: SkipReason.UnsupportedType, detail: type };
   }
   const slug = foundrySlug(document);
-  const book = targetBook(document.system.publication, targets, slug);
+  const book = targetBook(document.system.publication, scope, slug);
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
   if (SUPERSEDED_SLUGS.has(slug)) {
     return { pack, path, reason: SkipReason.Superseded, detail: slug };
   }
-  return { ...entry, type, book, ...entryLicense(document.system.publication, book, slug) };
+  return { ...entry, type, book, ...entryLicense(document.system.publication, { book, slug }, scope.legacy) };
 }
 
 /** Keeps remaster entries of supported types from the target books; reports every other document and why. */
-export function selectEntries(release: FoundryRelease, targets: ReadonlySet<BookId>): Selection {
+export function selectEntries(
+  release: FoundryRelease,
+  targets: ReadonlySet<BookId>,
+  books: readonly Book[],
+): Selection {
+  const scope: Scope = { targets, legacy: legacyBooks(books) };
   const selected: SelectedEntry[] = [];
   const skipped: SkippedEntry[] = release.unreadable.map(({ pack, path, error }) => ({
     pack,
@@ -223,7 +232,7 @@ export function selectEntries(release: FoundryRelease, targets: ReadonlySet<Book
     detail: error,
   }));
   for (const entry of release.documents) {
-    const selection = select(entry, targets);
+    const selection = select(entry, scope);
     if ('reason' in selection) {
       skipped.push(selection);
     } else {
@@ -252,7 +261,7 @@ export interface CreatureSelection {
   readonly skipped: readonly SkippedEntry[];
 }
 
-function selectCreature(entry: ActorDocument, targets: ReadonlySet<BookId>): SelectedCreature | SkippedEntry {
+function selectCreature(entry: ActorDocument, scope: Scope): SelectedCreature | SkippedEntry {
   const { pack, path, actor } = entry;
   if (actor.type === FoundryActorType.Hazard) {
     return { pack, path, reason: SkipReason.Hazard, detail: actor.type };
@@ -260,7 +269,7 @@ function selectCreature(entry: ActorDocument, targets: ReadonlySet<BookId>): Sel
   if (actor.type !== FoundryActorType.Npc) {
     return { pack, path, reason: SkipReason.UnsupportedType, detail: actor.type };
   }
-  const book = targetBook(actor.system.details.publication, targets);
+  const book = targetBook(actor.system.details.publication, scope);
   if (typeof book !== 'string') {
     return { pack, path, ...book };
   }
@@ -272,11 +281,16 @@ function selectCreature(entry: ActorDocument, targets: ReadonlySet<BookId>): Sel
  * reports every other actor and why. Hazards are skipped under their own reason; an unreadable actor file, as for
  * items, is reported by `selectEntries`.
  */
-export function selectCreatures(release: FoundryRelease, targets: ReadonlySet<BookId>): CreatureSelection {
+export function selectCreatures(
+  release: FoundryRelease,
+  targets: ReadonlySet<BookId>,
+  books: readonly Book[],
+): CreatureSelection {
+  const scope: Scope = { targets, legacy: legacyBooks(books) };
   const selected: SelectedCreature[] = [];
   const skipped: SkippedEntry[] = [];
   for (const entry of release.actors) {
-    const selection = selectCreature(entry, targets);
+    const selection = selectCreature(entry, scope);
     if ('reason' in selection) {
       skipped.push(selection);
     } else {

@@ -4,8 +4,8 @@ import type { FoundryPublication } from './foundry-document';
 
 /**
  * Open Game Content items that Foundry marks `OGL`, by Foundry slug and the book they are in: reprinted in an ORC
- * book, or printed only in a pre-remaster book (`LEGACY_ENTRY_BOOKS`). They are taken whole and are legacy; an item in
- * an ORC book is marked `license: OGL`, and the book's Section 15 notice is on the Legal page (NOTICE.md). Adding one is a licensing decision like adding to `OGL_BOOKS`.
+ * book, or printed only in a pre-remaster book (a `Book.legacy` of `listed`). They are taken whole and are legacy; an item in
+ * an ORC book is marked `license: OGL`, and the book's Section 15 notice is on the Legal page (NOTICE.md). Adding one is a licensing decision like flagging a book `legacy` in the registry.
  */
 const OGL_ENTRIES: ReadonlyMap<string, BookId> = new Map([
   ...[
@@ -30,16 +30,6 @@ const OGL_ENTRIES: ReadonlyMap<string, BookId> = new Map([
   ['eye-for-numbers', BookId.parse('advanced-players-guide')],
   ['quick-change', BookId.parse('advanced-players-guide')],
   ['verdant-sprout', BookId.parse('the-show-must-go-on')],
-]);
-
-/**
- * Pre-remaster books Pioneer registers only for their `OGL_ENTRIES`: their packs are OGL, so an entry in them needs
- * no `license` of its own, and nothing else in them is selected.
- */
-export const LEGACY_ENTRY_BOOKS: ReadonlySet<BookId> = new Set([
-  BookId.parse('core-rulebook'),
-  BookId.parse('advanced-players-guide'),
-  BookId.parse('the-show-must-go-on'),
 ]);
 
 /** The licence field an entry carries when it is not its pack's. */

@@ -85,7 +85,8 @@
     "license": "OGL",
     "remaster": false,
     "released": "2021-07-07",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=89"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=89",
+    "legacy": "whole"
   },
   {
     "id": "secrets-of-magic",
@@ -93,7 +94,8 @@
     "license": "OGL",
     "remaster": false,
     "released": "2021-09-01",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=96"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=96",
+    "legacy": "whole"
   },
   {
     "id": "rage-of-elements",
@@ -101,7 +103,8 @@
     "license": "OGL",
     "remaster": false,
     "released": "2023-08-02",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=205"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=205",
+    "legacy": "whole"
   },
   {
     "id": "tian-xia-character-guide",
@@ -125,7 +128,8 @@
     "license": "OGL",
     "remaster": false,
     "released": "2019-10-16",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=12"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=12",
+    "legacy": "whole"
   },
   {
     "id": "impossible-lands",
@@ -133,7 +137,8 @@
     "license": "OGL",
     "remaster": false,
     "released": "2022-11-16",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146",
+    "legacy": "whole"
   },
   {
     "id": "ancestry-guide",
@@ -380,20 +385,23 @@
     "publisher": "paizo",
     "license": "OGL",
     "remaster": false,
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=1"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=1",
+    "legacy": "listed"
   },
   {
     "id": "advanced-players-guide",
     "publisher": "paizo",
     "license": "OGL",
     "remaster": false,
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=39"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=39",
+    "legacy": "listed"
   },
   {
     "id": "the-show-must-go-on",
     "publisher": "paizo",
     "license": "OGL",
     "remaster": false,
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=21"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=21",
+    "legacy": "listed"
   }
 ]

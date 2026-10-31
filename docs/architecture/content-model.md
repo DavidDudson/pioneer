@@ -531,9 +531,10 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `the-dead-gods-hand`, `wardens-of-wildwood`, `curtain-call`, `triumph-of-the-tusk`, `spore-war`, `shades-of-blood`,
 `prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
-and OGL, for content the remaster books point at, such as the Goloma ancestry; `OGL_BOOKS` in the importer lists the
-books it takes that way; `core-rulebook`, `advanced-players-guide` and `the-show-must-go-on` hold only the items
-`OGL_ENTRIES` lists, and every entry under the OGL, in an OGL pack or beside an ORC one, is legacy).
+and OGL, for content the remaster books point at, such as the Goloma ancestry; the registry flags the
+books the importer takes that way (`Book.legacy` of `whole`); `core-rulebook`,
+`advanced-players-guide` and `the-show-must-go-on` hold only the items `OGL_ENTRIES` lists, and every entry
+under the OGL, in an OGL pack or beside an ORC one, is legacy).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
 characters, so changing an entry's slug, its kind included, is a data
@@ -752,10 +753,13 @@ flowchart LR
 
 - **One-off.** The importer writes a pack that does not exist yet, or replaces one as a whole before its import
   PR merges. It never merges into a pack that has been edited by hand, and no CI job re-runs it.
-- **Selection.** Only `publication.remaster === true`, ORC-licensed entries from the target books. Legacy content
-  is out of scope. Foundry updated remastered entries in place and marks no replacements (none at `pf2e-8.6.0`), so
-  imported entries carry no `supersedes`; it stays for homebrew overrides and enrichment. Target books are a CLI
-  argument; Foundry's publication title maps to a registered book in `libs/interop/foundry`. Item packs,
+- **Selection.** Only `publication.remaster === true`, ORC-licensed entries from the target books, and the OGL
+  entries of the pre-remaster ("legacy") books the book registry flags: `Book.legacy` is `whole` for a book taken in full
+  and `listed` for one taken only for the items `OGL_ENTRIES` names, and the importer reads both from `books.json`,
+  so adding a legacy book is registry data plus its notice. Any other legacy content is skipped.
+  Foundry updated remastered entries in place and marks no replacements (none at `pf2e-8.6.0`), so imported
+  entries carry no `supersedes`; it stays for homebrew overrides and enrichment. Target books are a CLI argument;
+  Foundry's publication title maps to a registered book in `libs/interop/foundry`. Item packs,
   journals and actor packs are read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none);
   journals only for the archetypes Foundry keeps as pages. `selectCreatures` takes the `npc` actors of the target
   books (Monster Core and the adventure bestiaries use `npc` for every creature) under the item rules: remaster, ORC,

@@ -10,6 +10,14 @@ import { BookId } from './source-ref';
 export const Publisher = { Paizo: 'paizo' } as const;
 export type Publisher = ValueOf<typeof Publisher>;
 
+/**
+ * How much of a pre-remaster book the Foundry import takes, for a book under the Open Game License: `Whole` takes every
+ * entry Foundry marks OGL, `Listed` only the entries the importer names (`OGL_ENTRIES`). A book without one is not
+ * imported as legacy. Adding one is a licensing decision: NOTICE.md and the Legal page carry the book's notice.
+ */
+export const LegacyImport = { Whole: 'whole', Listed: 'listed' } as const;
+export type LegacyImport = ValueOf<typeof LegacyImport>;
+
 /** A message key naming a book, a publisher or a licence. */
 export const BookLabel = z.string().brand<'BookLabel'>();
 export type BookLabel = z.infer<typeof BookLabel>;
@@ -99,6 +107,7 @@ export const Book = z.strictObject({
   publisher: z.enum(Publisher),
   license: ContentLicenseSchema,
   remaster: z.boolean(),
+  legacy: z.enum(LegacyImport).optional(),
   released: PlainDateCodec.optional(),
   aonSourceUrl: AonSourceUrl.optional(),
 });
