@@ -8,7 +8,7 @@ import {
   playerCoreClassId,
   spellFixtures,
 } from '@pioneer/character/domain/testing';
-import { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import { ContentRegistry, SlotKey, SpellFacet } from '@pioneer/rules/sdk';
 import type { QueryParams } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
@@ -17,6 +17,15 @@ import type { PreparedField, SpellPickSources } from './sheet-spell-picks';
 
 const THIRD_RANK = SlotKey.parse('prepared:wizard:3:0');
 const CANTRIP = SlotKey.parse('prepared:wizard:cantrip:0');
+
+function bardAt(level: number): Character {
+  return new CharacterBuilder()
+    .named('bard')
+    .picking('class', playerCoreClassId('bard'))
+    .picking('boost:1:class:0', 'cha')
+    .atLevel(level)
+    .build();
+}
 
 function wizardAt(level: number): Character {
   return new CharacterBuilder()
@@ -34,7 +43,7 @@ interface Picked {
 }
 
 /** A 5th-level wizard whose pickers filter, with the URL's params and what was written to them. */
-function picked(params: QueryParams = {}, filtering = true): Picked {
+function picked(params: QueryParams = {}, filtering = true, character: Character = wizardAt(5)): Picked {
   const registry = new ContentRegistry();
   registry.register(playerCoreClasses());
   registry.register(spellFixtures());
@@ -42,7 +51,7 @@ function picked(params: QueryParams = {}, filtering = true): Picked {
   const writes: Record<string, string | undefined>[] = [];
   const sources: SpellPickSources = {
     registry: signal(registry),
-    character: signal<Character | undefined>(wizardAt(5)),
+    character: signal<Character | undefined>(character),
     slots: signal([]),
     select: async () => undefined,
     clear: async () => undefined,
@@ -115,5 +124,14 @@ describe('spell picker filters', () => {
 
     expect(field?.filter).toBeUndefined();
     expect(field?.rows().length).toBeGreaterThan(0);
+  });
+
+  it('starts a spontaneous caster’s slots on its own tradition, not the wizard’s', () => {
+    const bard = picked({}, true, bardAt(5));
+    const slot = bard.fields.find((field) => field.key.startsWith('repertoire:bard:1:'));
+    const wizard = fieldAt(picked(), THIRD_RANK);
+
+    expect(slot?.filter?.state().get(SpellFacet.Tradition)).toMatchObject({ include: ['occult'] });
+    expect(wizard?.filter?.state().get(SpellFacet.Tradition)).toMatchObject({ include: ['arcane'] });
   });
 });

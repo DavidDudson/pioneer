@@ -3,7 +3,10 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { InlineField, Stack, Text } from '@pioneer/frontier';
 import { SpellDetails, SpellPicker, UseButtons } from '@pioneer/rules/ui';
 
-import { SheetSlotFilterPanel } from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
+import {
+  SheetSlotFilterPanel,
+  SPELL_FILTER_MESSAGES,
+} from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
 import type { PreparedField } from '../sheet-spell-picks';
 
 /**
@@ -19,4 +22,5 @@ import type { PreparedField } from '../sheet-spell-picks';
 })
 export class SheetPreparedSlot {
   public readonly slot = input.required<PreparedField>();
+  protected readonly filterMessages = SPELL_FILTER_MESSAGES;
 }

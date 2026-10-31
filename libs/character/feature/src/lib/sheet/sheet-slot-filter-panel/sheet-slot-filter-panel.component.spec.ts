@@ -9,7 +9,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import en from '../../../i18n/en.json';
 import type { SlotFilter } from '../sheet-slot-filter';
-import { SheetSlotFilterPanel } from './sheet-slot-filter-panel.component';
+import { SheetSlotFilterPanel, SPELL_FILTER_MESSAGES } from './sheet-slot-filter-panel.component';
 
 function slotFilter(preset: boolean, everything = false): SlotFilter {
   return {
@@ -32,8 +32,7 @@ async function render(filter: SlotFilter | undefined): Promise<ComponentFixture<
   });
   const fixture = TestBed.createComponent(SheetSlotFilterPanel);
   fixture.componentRef.setInput('filter', filter);
-  fixture.componentRef.setInput('everythingKey', 'character.sheet.feats.everything');
-  fixture.componentRef.setInput('availableKey', 'character.sheet.feats.available');
+  fixture.componentRef.setInput('messages', SPELL_FILTER_MESSAGES);
   await fixture.whenStable();
   return fixture;
 }
@@ -51,16 +50,16 @@ describe(SheetSlotFilterPanel, () => {
   it('says what Available to you keeps while the preset is in force', async () => {
     const fixture = await render(slotFilter(true));
 
-    expect(textOf(fixture)).toContain(en.sheet.feats.available);
+    expect(textOf(fixture)).toContain(en.sheet.prepared.available);
   });
 
   it('drops that line once the player has their own filters', async () => {
     const fixture = await render(slotFilter(false));
 
-    expect(textOf(fixture)).not.toContain(en.sheet.feats.available);
+    expect(textOf(fixture)).not.toContain(en.sheet.prepared.available);
   });
 
-  it('shows every feat from the toggle', async () => {
+  it('shows every spell from the toggle', async () => {
     const filter = slotFilter(true);
     const fixture = await render(filter);
 
@@ -68,7 +67,7 @@ describe(SheetSlotFilterPanel, () => {
     toggle?.click();
     await fixture.whenStable();
 
-    expect(textOf(fixture)).toContain(en.sheet.feats.everything);
+    expect(textOf(fixture)).toContain(en.sheet.prepared.everything);
     expect(filter.showEverything).toHaveBeenCalledWith(true);
   });
 });

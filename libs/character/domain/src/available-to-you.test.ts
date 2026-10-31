@@ -6,15 +6,22 @@ import {
   ContentRegistry,
   facetsFor,
   filterEntries,
+  Origin,
   PREREQUISITES_MET_FACET,
   prerequisitesMetFacet,
+  RuleSlug,
+  SlotRank,
+  SpellFacet,
+  SpellRank,
 } from '@pioneer/rules/sdk';
-import type { FilterState, SlotKey } from '@pioneer/rules/sdk';
+import type { FilterState, MagicTradition, SlotKey } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { availableSpellsToYou, availableToYou, slotPrerequisiteStatus } from './available-to-you';
+import type { SpellSlotPlace } from './available-to-you';
 import { featSlots, PrerequisiteStatus } from './feat-slots';
 import { preparedSlots } from './prepared-spells';
+import type { PreparedPool } from './prepared-spells';
 import { preparedReads, slotContent } from './slot-offer';
 import {
   CharacterBuilder,
@@ -137,6 +144,14 @@ function readSlot(key: string): SpellSlotRead {
   };
 }
 
+const place = (tradition: MagicTradition, extra: Partial<SpellSlotPlace> = {}): SpellSlotPlace => ({
+  rank: SpellRank.parse(2),
+  tradition,
+  pool: undefined,
+  deitySpell: false,
+  ...extra,
+});
+const traditionOf = (at: SpellSlotPlace): unknown => availableSpellsToYou(at).get(SpellFacet.Tradition);
 describe('availableSpellsToYou', () => {
   test('a cantrip slot keeps every cantrip it offers', () => {
     const { kept: keptSpells, offered } = readSlot('prepared:wizard:cantrip:0');
@@ -158,5 +173,38 @@ describe('availableSpellsToYou', () => {
 
     expect(above.length).toBeGreaterThan(0);
     expect(above.filter((name) => keptFirst.includes(name))).toStrictEqual([]);
+  });
+
+  describe('the tradition', () => {
+    test("is the owning entry's, for a spontaneous caster's slot alike", () => {
+      expect(traditionOf(place('occult'))).toMatchObject({ include: ['occult'] });
+    });
+
+    test('follows each entry of a multi-tradition character', () => {
+      expect(traditionOf(place('arcane'))).toMatchObject({ include: ['arcane'] });
+      expect(traditionOf(place('divine'))).toMatchObject({ include: ['divine'] });
+    });
+
+    test("is not asked of a pool's slot, which takes what its pool names", () => {
+      const origin = Origin.parse({
+        hops: [],
+        entry: playerCoreClassId('cleric'),
+        sources: [{ kind: 'book', book: 'player-core', page: 1 }],
+      });
+      const pool: PreparedPool = { slug: RuleSlug.parse('font'), origin, spells: [] };
+
+      expect(traditionOf(place('divine', { pool }))).toBeUndefined();
+    });
+
+    test("is not asked of a deity's spell", () => {
+      expect(traditionOf(place('divine', { deitySpell: true }))).toBeUndefined();
+    });
+
+    test('is asked of a cantrip slot, which has no rank range', () => {
+      const state = availableSpellsToYou(place('primal', { rank: SlotRank.Cantrip }));
+
+      expect(state.get(SpellFacet.Tradition)).toMatchObject({ include: ['primal'] });
+      expect(state.has(SpellFacet.Rank)).toBe(false);
+    });
   });
 });

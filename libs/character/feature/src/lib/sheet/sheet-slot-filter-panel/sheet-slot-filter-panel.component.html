@@ -2,11 +2,11 @@
   <fr-stack gap="xs">
     <fr-stack direction="horizontal">
       <fr-toggle-button [value]="filter.everything()" (valueChange)="filter.showEverything($event)">{{
-        everythingKey() | transloco
+        messages().everything | transloco
       }}</fr-toggle-button>
     </fr-stack>
     @if (filter.preset()) {
-      <fr-text element="p" variant="caption" tone="muted">{{ availableKey() | transloco }}</fr-text>
+      <fr-text element="p" variant="caption" tone="muted">{{ messages().available | transloco }}</fr-text>
     }
     <pio-facet-filter [counts]="filter.counts()" [state]="filter.state()" (stateChange)="filter.apply($event)" />
   </fr-stack>

@@ -26,7 +26,10 @@ import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.compone
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { injectFilterSources } from '../sheet-filter-sources';
-import { SheetSlotFilterPanel } from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
+import {
+  FEAT_FILTER_MESSAGES,
+  SheetSlotFilterPanel,
+} from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
 import { SheetUnplacedFeats } from '../sheet-unplaced-feats/sheet-unplaced-feats.component';
 
 const LOADING_SLOTS = 3;
@@ -64,6 +67,7 @@ const LOADING_SLOTS = 3;
 })
 export class SheetFeats implements EntryPreviews {
   /** Placeholder pickers while the feats load: a 1st-level character's. */
+  protected readonly filterMessages = FEAT_FILTER_MESSAGES;
   protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
 
   readonly #store = inject(CharacterStore);

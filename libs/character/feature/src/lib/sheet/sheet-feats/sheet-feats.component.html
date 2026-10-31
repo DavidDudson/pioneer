@@ -27,11 +27,7 @@
               [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
             >
               <fr-stack frInlineEditor gap="xs">
-                <pio-sheet-slot-filter-panel
-                  everythingKey="character.sheet.feats.everything"
-                  availableKey="character.sheet.feats.available"
-                  [filter]="slot.filter"
-                />
+                <pio-sheet-slot-filter-panel [messages]="filterMessages" [filter]="slot.filter" />
                 <pio-feat-picker
                   data-autofocus
                   [ariaLabel]="slot.label.key | transloco: slot.label.params"
