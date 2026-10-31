@@ -13,6 +13,18 @@
             [placeholder]="'character.import.exportPlaceholder' | transloco"
             [formField]="form.json"
           />
+          @if (isLink()) {
+            <fr-stack direction="horizontal" justify="end">
+              <fr-async-button
+                [action]="fetchExport"
+                [describeError]="describeFetchError"
+                [pendingLabel]="'character.import.fetching' | transloco"
+                [successLabel]="'character.import.fetched' | transloco"
+              >
+                {{ 'character.import.fetch' | transloco }}
+              </fr-async-button>
+            </fr-stack>
+          }
           @if (problemKey(); as key) {
             <fr-message>{{ key | transloco }}</fr-message>
           }
@@ -54,14 +66,7 @@
         <fr-surface>
           <fr-stack gap="md">
             <fr-heading variant="subheading" [level]="2">{{ 'character.import.reportHeading' | transloco }}</fr-heading>
-            @if (summary(); as counts) {
-              <fr-text tone="muted">{{ 'character.import.reportSummary' | transloco: counts }}</fr-text>
-              @for (group of report()?.groups ?? []; track group.kind) {
-                <pio-import-report-group [group]="group" />
-              }
-            } @else {
-              <fr-skeleton width="lg" />
-            }
+            <pio-import-content-report [report]="report()" />
           </fr-stack>
         </fr-surface>
 

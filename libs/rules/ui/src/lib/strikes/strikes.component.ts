@@ -43,12 +43,13 @@ export interface NamedStrike {
   readonly use?: UsableLine | undefined;
 }
 
-/** A shield held beside the Strikes: its name and the numbers that matter when it blocks. */
+/** A shield held beside the Strikes: its name and the numbers that matter when it blocks; a form's has no Hit Points. */
 export interface StrikesShield {
   readonly name: string;
   readonly hardness: number;
   readonly hitPoints: number;
   readonly brokenThreshold: number;
+  readonly undamageable?: boolean;
 }
 
 /** Rows of placeholders while the Strikes load. */
@@ -177,7 +178,7 @@ export class StrikesView {
     const replaced =
       names.length === 0 ? [] : [this.#i18n.translate(StrikesMessage.Suppressed, { names: names.join(', ') })];
     const shields = this.shields().map((shield) =>
-      this.#i18n.translate(StrikesMessage.Shield, {
+      this.#i18n.translate(shield.undamageable === true ? StrikesMessage.ShieldUndamageable : StrikesMessage.Shield, {
         name: shield.name,
         hardness: this.#format.number(shield.hardness),
         hitPoints: this.#format.number(shield.hitPoints),

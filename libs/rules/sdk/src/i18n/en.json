@@ -896,6 +896,7 @@
       "attacks": "Attack {first} / {second} / {third}",
       "nextAttack": "Next attack: {modifier}",
       "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}",
+      "shieldUndamageable": "{name}: Hardness {hardness}, can't be damaged",
       "persistent": "{formula} persistent {type}",
       "splash": "{amount} {type} splash",
       "rangeIncrement": "Range increment {range} ft",

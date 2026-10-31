@@ -187,7 +187,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('saves a Lore typed in a skill picker as a pick of its topic, with the name as typed', async () => {
-    const { root } = await openSheet(fighter());
+    const { root } = await openPlan(fighter());
     await pickValue(root, { label: FIRST_SLOT, type: SkillPicker }, 'lore:Sailing Lore');
 
     const request = await vi.waitFor(() =>
