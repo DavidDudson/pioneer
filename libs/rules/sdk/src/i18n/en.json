@@ -517,6 +517,7 @@
         "archetype": "Archetype",
         "skill": "Skill",
         "mode": "Mode",
+        "prerequisites": "Prerequisites",
         "itemKind": "Item type",
         "price": "Price (cp)",
         "bulk": "Bulk",
@@ -525,6 +526,11 @@
         "magical": "Magical",
         "weaponGroup": "Weapon group",
         "armorCategory": "Armor category"
+      },
+      "prerequisites": {
+        "met": "Met",
+        "unknown": "Can’t tell",
+        "unmet": "Not met"
       },
       "tradition": {
         "arcane": "Arcane",

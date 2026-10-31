@@ -210,6 +210,12 @@ export {
 export { availableItems } from './available-items';
 export { facetsFor } from './kind-facets';
 export {
+  PREREQUISITES_MET_FACET,
+  prerequisitesMetFacet,
+  PrerequisiteValue,
+  type PrerequisiteStatusOf,
+} from './action-facets';
+export {
   AreaValue,
   CastActions,
   castActions,
