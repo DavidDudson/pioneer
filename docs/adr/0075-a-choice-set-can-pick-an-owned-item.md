@@ -31,8 +31,14 @@ weapons, and its rolls answer to `<slug>-attack`, `<slug>-damage`, `strike:<slug
    the `picked:<flag>-attack` and `-damage` domains of its Strike statistics (so `FlatModifier` reaches it too), and its
    own roll options for `ItemAlteration.items`. A flag shared with another `ChoiceSet` of the entry is ambiguous, so
    neither the owned `ChoiceSet` nor its readers are translated.
-6. **Left for later.** Readers that need the picked item as a fact namespace (`item:id:{pick}` in `AdjustStrike`,
-   `CriticalSpecialization`, `MartialProficiency`) stay in the backlog.
+6. **Readers of the weapons they reach.** An `AdjustStrike` aimed at the pick (`item:id:{pick}` or `item:slug:{pick}` in
+   its `definition`) reads it as `item:picked:F`, the roll option the pick already carries among its own (3). The pick
+   is a slug, so the id and the slug spell one thing. The statement is rewritten in the `definition` (`strikes` for an
+   `AdjustStrike`), and the lint of (4) covers it. No fact namespace for the picked item is needed: a predicate over
+   the weapon's own options reaches it.
+7. **Left for later.** `CriticalSpecialization` has no rule element in Pioneer yet, and the importer translates no
+   `MartialProficiency`, so their reads of a pick wait for those. A `definition` that reads more of the pick than its
+   identity (`@item.level`, `{item|...}` in a `value`) stays in the backlog.
 
 ## Consequences
 

@@ -7,8 +7,9 @@ import { kebab } from './foundry-flags';
  * A `ChoiceSet` over the items the character owns (`ownedItems: true`) and the rules that read its pick, in Pioneer's
  * spelling (ADR-0075). The query becomes `{ ownedKinds, filter }`; a reader's selector `{pick}-damage` becomes
  * `picked:<flag>-damage`, and an `ItemAlteration` aimed at the pick (`itemId`, or `item:id:{pick}` in its predicate)
- * becomes `item:picked:<flag>`. Only the picks of a `ChoiceSet` over owned items are read this way, and a rule that
- * names `picked:<flag>` without such a `ChoiceSet` beside it is kept for the backlog (`danglingPicks`).
+ * becomes `item:picked:<flag>`; so does `item:id:{pick}` or `item:slug:{pick}` in the `definition` of an
+ * `AdjustStrike`, the weapons it reaches. Only the picks of a `ChoiceSet` over owned items are read this way, and a
+ * rule that names `picked:<flag>` without such a `ChoiceSet` beside it is kept for the backlog (`danglingPicks`).
  */
 
 /** The kinds of item Foundry's `types` names. */
@@ -29,7 +30,8 @@ const OWNED_FIELDS: ReadonlySet<string> = new Set(['ownedItems', 'types', 'predi
 const PICK_READ =
   /^(?:\{item\|flags\.(?:system|pf2e)\.rulesSelections\.(?<braced>[A-Za-z0-9]+)\}|@item\.flags\.(?:system|pf2e)\.rulesSelections\.(?<at>[A-Za-z0-9]+))$/u;
 const SELECTOR_READ = /^(?<read>.+)-(?<roll>attack|damage)$/u;
-const ITEM_ID = 'item:id:';
+/** The predicate statements that name an item by what a pick stores: its id, or its slug (both are the slug in Pioneer). */
+const ITEM_NAMES = ['item:id:', 'item:slug:'] as const;
 
 function isFields(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -83,12 +85,13 @@ function pickedSelectors(value: unknown, flags: ReadonlySet<string>): unknown {
     : pickedSelector(value, flags);
 }
 
-/** `item:id:{pick}` as `item:picked:<flag>`, when the pick is one of `flags`. */
+/** `item:id:{pick}` or `item:slug:{pick}` as `item:picked:<flag>`, when the pick is one of `flags`. */
 function pickedItemStatement(statement: unknown, flags: ReadonlySet<string>): unknown {
-  const flag =
-    typeof statement === 'string' && statement.startsWith(ITEM_ID)
-      ? flagRead(statement.slice(ITEM_ID.length))
-      : undefined;
+  if (typeof statement !== 'string') {
+    return statement;
+  }
+  const prefix = ITEM_NAMES.find((name) => statement.startsWith(name));
+  const flag = prefix === undefined ? undefined : flagRead(statement.slice(prefix.length));
   return flag !== undefined && flags.has(flag) ? `item:picked:${kebab(flag)}` : statement;
 }
 
@@ -117,6 +120,12 @@ export function withOwnedPicks(raw: unknown, flags: ReadonlySet<string>): unknow
       field === 'selector' || field === 'selectors' ? pickedSelectors(value, flags) : value,
     ]),
   );
+  if (raw['key'] === RuleElementKey.AdjustStrike && Array.isArray(selected['definition'])) {
+    return {
+      ...selected,
+      definition: selected['definition'].map((statement: unknown) => pickedItemStatement(statement, flags)),
+    };
+  }
   return raw['key'] === RuleElementKey.ItemAlteration ? alterationOf(selected, flags) : selected;
 }
 
