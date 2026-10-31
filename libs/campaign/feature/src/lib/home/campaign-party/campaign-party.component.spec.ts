@@ -73,7 +73,7 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 }
 
 /** Opens the campaign home as Ezren, a player, answering its loads with `party`. */
-async function open(party: PartyJson): Promise<RouterTestingHarness> {
+async function open(party: PartyJson, viewerRole: 'gm' | 'player' = 'player'): Promise<RouterTestingHarness> {
   TestBed.configureTestingModule({
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),
@@ -84,7 +84,7 @@ async function open(party: PartyJson): Promise<RouterTestingHarness> {
   const harness = await RouterTestingHarness.create(`/campaigns/${id}`);
   const http = TestBed.inject(HttpTestingController);
   http.expectOne(`/api/campaigns/${id}`).flush(campaign);
-  http.expectOne(`/api/campaigns/${id}/members`).flush({ viewerRole: 'player', members: named });
+  http.expectOne(`/api/campaigns/${id}/members`).flush({ viewerRole, members: named });
   http.expectOne(`/api/campaigns/${id}/party`).flush(party);
   await harness.fixture.whenStable();
   const root = present(harness.routeNativeElement);
@@ -136,6 +136,14 @@ describe('CampaignPartyPanel', () => {
     const root = present(harness.routeNativeElement);
     expect(root.textContent).toContain('Archived character');
     expect(root.textContent).not.toContain('Valeros');
+  });
+
+  it.each(['player', 'gm'] as const)('shows the GM as a plain GM circle to a %s', async (viewerRole) => {
+    const harness = await open({ characters: [], attachable: [] }, viewerRole);
+    const gm = present(present(harness.routeNativeElement).querySelector('fr-character-avatar'));
+    expect(gm.textContent).toContain('Amiri');
+    expect(present(gm.querySelector('.clip-circle')).textContent.trim()).toBe('GM');
+    expect(gm.querySelector('svg')).toBeNull();
   });
 
   it('says when the party is empty', async () => {

@@ -21,6 +21,7 @@
       </ng-template>
       <ng-template let-party [frAsyncData]="store.party">
         <fr-stack gap="md">
+          <pio-campaign-gm-avatar [name]="gmName()" />
           @if (party.characters.length === 0) {
             <fr-empty-state [icon]="emptyIcon" [title]="'campaign.party.empty' | transloco" />
           } @else {

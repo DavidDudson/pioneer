@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucideUsers } from '@lucide/angular';
+import { CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignId, CharacterId, PartyCharacter } from '@pioneer/campaign/domain';
 import {
   AsyncButton,
@@ -21,6 +22,7 @@ import {
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignAttachPicker } from '../campaign-attach-picker/campaign-attach-picker.component';
+import { CampaignGmAvatar } from '../campaign-gm-avatar/campaign-gm-avatar.component';
 
 /** Skeleton rows shown while the party loads. */
 const PLACEHOLDERS = ['first', 'second'] as const;
@@ -40,6 +42,7 @@ const PLACEHOLDERS = ['first', 'second'] as const;
     Avatar,
     Badge,
     CampaignAttachPicker,
+    CampaignGmAvatar,
     EmptyState,
     Heading,
     List,
@@ -58,6 +61,11 @@ export class CampaignPartyPanel {
   readonly #i18n = inject(TranslocoService);
   /** One detach action per character, so each button keeps the same action across renders. */
   readonly #detaches = new Map<CharacterId, () => Promise<void>>();
+
+  /** The GM's name from the roster, once it has loaded. */
+  protected readonly gmName = computed(
+    () => this.store.roster.data()?.members.find((member) => member.role === CampaignRole.Gm)?.displayName,
+  );
 
   protected readonly placeholders = PLACEHOLDERS;
   protected readonly emptyIcon = LucideUsers;
