@@ -18343,6 +18343,11 @@
         "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]
       },
       {
+        "key": "GrantItem",
+        "item": "9033a667-1eaa-5b1e-b7fb-784fd04d0e4c",
+        "flag": "dragon-breath"
+      },
+      {
         "key": "DamageDice",
         "selectors": ["jaws-damage"],
         "diceNumber": 2,
