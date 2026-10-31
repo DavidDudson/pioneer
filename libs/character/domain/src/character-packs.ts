@@ -46,6 +46,9 @@ const PackListing = z.object({
 });
 type PackListing = z.output<typeof PackListing>;
 
+/** A pack the character holds content from that is not in force. */
+export type UnsupportedPack = PackListing;
+
 /** A pack the character uses: an official one, always on, or a homebrew one that is enabled. */
 export const EnabledPack = PackListing.extend({
   /** The enabled packs that extend it, by title. It stays on while any does. */
@@ -73,6 +76,11 @@ export const CharacterPacks = z.object({
   enabled: z.array(EnabledPack).readonly(),
   /** The packs the owner may read and has not enabled, by title. Empty while a campaign decides. */
   candidates: z.array(PackCandidate).readonly(),
+  /**
+   * Homebrew packs the character holds content from that are not in force, a campaign having disabled them. Its content
+   * from them stays, flagged, and nothing new may be picked from them.
+   */
+  unsupported: z.array(PackListing).readonly().default([]),
 });
 export type CharacterPacks = z.output<typeof CharacterPacks>;
 

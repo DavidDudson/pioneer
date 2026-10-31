@@ -6,10 +6,12 @@ import {
   contentId,
   ContentKind,
   ContentLicense,
+  contentPackId,
   ContentRegistry,
   ContentText,
   EntrySlug,
   PackId,
+  putUnsupportedPacks,
   SlotKey,
   Take,
 } from '@pioneer/rules/sdk';
@@ -59,9 +61,13 @@ describe(lineOf, () => {
 });
 
 /** The line of a filled choice that picked the one feat of a pack published under `license`. */
-function pickedFrom(license: ContentLicense): ChoiceLine {
+function pickedFrom(license: ContentLicense, unsupported = false): ChoiceLine {
   const registry = new ContentRegistry();
-  registry.register(new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build());
+  const pack = new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build();
+  registry.register(pack);
+  if (unsupported) {
+    putUnsupportedPacks(registry, [contentPackId(pack.id)]);
+  }
   const lookup = grantLookup(registry);
   const [feat] = lookup.ofKind(ContentKind.Feat);
   if (feat === undefined) {
@@ -80,6 +86,18 @@ function pickedFrom(license: ContentLicense): ChoiceLine {
 describe('the pick of a filled choice', () => {
   it('is flagged legacy when its entry is from a pre-remaster book', () => {
     expect(pickedFrom(ContentLicense.Ogl).selection).toStrictEqual({ name: 'Sudden-charge', legacy: true });
+  });
+
+  it('is flagged unsupported when its pack is no longer in force', () => {
+    expect(pickedFrom(ContentLicense.Orc, true).selection).toStrictEqual({ name: 'Sudden-charge', unsupported: true });
+  });
+
+  it('is flagged both when a legacy entry is from an unsupported pack', () => {
+    expect(pickedFrom(ContentLicense.Ogl, true).selection).toStrictEqual({
+      name: 'Sudden-charge',
+      legacy: true,
+      unsupported: true,
+    });
   });
 
   it('is not flagged when its entry is remaster', () => {

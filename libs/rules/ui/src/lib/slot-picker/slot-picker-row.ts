@@ -22,6 +22,8 @@ export interface SlotPickerFacts {
   readonly summary: RichText;
   /** From a pre-remaster book, so the table says so beside its traits. */
   readonly legacy?: true;
+  /** From a pack the character no longer has in force, so the table says so beside its traits. */
+  readonly unsupported?: true;
 }
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */

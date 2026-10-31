@@ -106,10 +106,20 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   }
 }
 
-/** Whether the pick is an entry from a pre-remaster book. */
-function isLegacyPick(selection: ChoiceValue, lookup: ContentLookup | undefined): boolean {
+/** What the sheet flags on a pick. */
+interface PickFlags {
+  readonly legacy?: true;
+  readonly unsupported?: true;
+}
+
+/** The flags of the pick's entry: from a pre-remaster book, from a pack no longer in force. */
+function flagsOfPick(selection: ChoiceValue, lookup: ContentLookup | undefined): PickFlags {
   const entry = ContentId.safeParse(selection);
-  return entry.success && lookup?.entry(entry.data)?.facts?.legacy === true;
+  const facts = entry.success ? lookup?.entry(entry.data)?.facts : undefined;
+  return {
+    ...(facts?.legacy === true ? { legacy: true as const } : {}),
+    ...(facts?.unsupported === true ? { unsupported: true as const } : {}),
+  };
 }
 
 /** A boost's or flaw's pick is its attribute; anything else shows by the name the server gave it, or not at all. */
@@ -127,7 +137,7 @@ function selectionOf(slot: CharacterSlot, lookup: ContentLookup | undefined): Ch
   if (name === undefined) {
     return undefined;
   }
-  return isLegacyPick(selection, lookup) ? { name, legacy: true } : { name };
+  return { name, ...flagsOfPick(selection, lookup) };
 }
 
 export function lineOf(slot: CharacterSlot, lookup?: ContentLookup): ChoiceLine {
@@ -165,8 +175,15 @@ export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLo
 }
 
 /** What an option's entry says of itself, as the slot picker's table shows it. */
-function factsOf({ level, rarity, traits, description, legacy }: EntryFacts): SlotPickerFacts {
-  return { level, rarity, traits, summary: description, ...(legacy === true ? { legacy } : {}) };
+function factsOf({ level, rarity, traits, description, legacy, unsupported }: EntryFacts): SlotPickerFacts {
+  return {
+    level,
+    rarity,
+    traits,
+    summary: description,
+    ...(legacy === true ? { legacy } : {}),
+    ...(unsupported === true ? { unsupported } : {}),
+  };
 }
 
 /** A `ChoiceSet` that lists its options, as the Choices section's picker for it reads it (#596). */

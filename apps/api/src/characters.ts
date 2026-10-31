@@ -82,7 +82,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
   const campaigns = new CampaignPackDirectory(db);
   const held = new HeldContentPacks(new StoredPackLookup(content), catalog);
   const packs = new CharacterPackService(
-    { characters: repository, packs: new DrizzleCharacterPackRepository(db), catalog, campaigns },
+    { characters: repository, packs: new DrizzleCharacterPackRepository(db), catalog, campaigns, held },
     clock,
   );
   const variants = new CharacterVariantService(

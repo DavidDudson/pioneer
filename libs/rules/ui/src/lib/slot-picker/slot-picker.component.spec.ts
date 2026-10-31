@@ -59,6 +59,13 @@ describe(SlotPicker, () => {
     expect(rowText(host, 1)).not.toContain('Legacy');
   });
 
+  it('says "Unsupported" for an option whose pack is no longer in force', async () => {
+    const unsupported = slotRow({ id: 'ember', name: 'Ember', facts: { ...SLOT_FACTS, unsupported: true } });
+    const { host } = await render(SlotPicker, { rows: [unsupported, EMBER] });
+    expect(rowText(host, 0)).toContain('Unsupported');
+    expect(rowText(host, 1)).not.toContain('Unsupported');
+  });
+
   it('falls back to the name and source for an option no entry stands behind', async () => {
     const { host } = await render(SlotPicker, { rows: [FIRE, EMBER] });
     expect(rowLabels(host)).toStrictEqual(['Fire', 'Ember']);

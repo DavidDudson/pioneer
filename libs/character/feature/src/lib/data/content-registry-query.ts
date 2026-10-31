@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import type { CharacterPacks, CharacterVariantRules } from '@pioneer/character/domain';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, putUnsupportedPacks } from '@pioneer/rules/sdk';
 import type { ContentPackId, ContentRegistry, VariantRuleId } from '@pioneer/rules/sdk';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import type { CreateQueryResult } from '@tanstack/angular-query-experimental';
@@ -41,6 +41,7 @@ export interface ContentRegistryQuery {
     'registry',
     readonly ContentKind[],
     readonly ContentPackId[],
+    readonly ContentPackId[],
     readonly VariantRuleId[],
   ];
   readonly queryFn: () => Promise<ContentRegistry>;
@@ -51,11 +52,13 @@ export interface ContentRegistryQuery {
 export interface CharacterContentSet {
   /** The homebrew packs the character uses. */
   readonly homebrew: readonly ContentPackId[];
+  /** The homebrew packs it holds content from that are not in force: loaded so what it holds resolves, and flagged. */
+  readonly unsupported: readonly ContentPackId[];
   /** The variant rules enabled for it. */
   readonly variants: readonly VariantRuleId[];
 }
 
-const NO_CONTENT: CharacterContentSet = { homebrew: [], variants: [] };
+const NO_CONTENT: CharacterContentSet = { homebrew: [], unsupported: [], variants: [] };
 
 /**
  * A registry of `kinds` from the content bundles, which `loader` keeps in the browser: only those kinds are fetched,
@@ -65,12 +68,20 @@ const NO_CONTENT: CharacterContentSet = { homebrew: [], variants: [] };
 export function contentRegistryQuery(
   loader: ContentLoader,
   kinds: readonly ContentKind[],
-  { homebrew, variants }: CharacterContentSet = NO_CONTENT,
+  { homebrew, unsupported, variants }: CharacterContentSet = NO_CONTENT,
 ): ContentRegistryQuery {
   return {
-    queryKey: ['content', 'registry', kinds.toSorted(), homebrew.toSorted(), variants.toSorted()],
+    queryKey: [
+      'content',
+      'registry',
+      kinds.toSorted(),
+      homebrew.toSorted(),
+      unsupported.toSorted(),
+      variants.toSorted(),
+    ],
     queryFn: async (): Promise<ContentRegistry> => {
-      const registry = await loader.registry(kinds, homebrew);
+      const registry = await loader.registry(kinds, [...homebrew, ...unsupported]);
+      putUnsupportedPacks(registry, unsupported);
       putVariantsInForce(registry, variants);
       return registry;
     },
@@ -81,6 +92,11 @@ export function contentRegistryQuery(
 /** The homebrew packs a character uses: the ones in its pack list that are not official. */
 export function homebrewOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
   return (packs?.enabled ?? []).filter((pack) => !pack.official).map((pack) => pack.packId);
+}
+
+/** The homebrew packs a character holds content from that are not in force. */
+function unsupportedOf(packs: CharacterPacks | undefined): readonly ContentPackId[] {
+  return (packs?.unsupported ?? []).map((pack) => pack.packId);
 }
 
 /** The variant rules enabled for a character: the ones in its list. */
@@ -107,7 +123,11 @@ export function injectContentRegistry(
     const listing = packs?.packs;
     const enabledVariants = variants?.rules;
     const waiting = listing?.isPending() === true || enabledVariants?.isPending() === true;
-    const content = { homebrew: homebrewOf(listing?.data()), variants: variantsOf(enabledVariants?.data()) };
+    const content = {
+      homebrew: homebrewOf(listing?.data()),
+      unsupported: unsupportedOf(listing?.data()),
+      variants: variantsOf(enabledVariants?.data()),
+    };
     const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
     return { ...contentRegistryQuery(loader, loaded, content), enabled: enabled() && !waiting };
   });

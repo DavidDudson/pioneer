@@ -9,6 +9,8 @@ export const ChoicesMessage = {
   KeepShort: 'rules.choices.keepShort',
   /** Marks a pick from a pre-remaster book. */
   Legacy: 'rules.choices.legacy',
+  /** Marks a pick from a pack the character no longer has in force. */
+  Unsupported: 'rules.choices.unsupported',
 } as const;
 
 /** What each state's badge says. A planned or invalid one at a level above the character's names it. */

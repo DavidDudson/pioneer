@@ -538,6 +538,7 @@ export {
   CharacterPackId,
   CharacterPacks,
   EnabledPack,
+  type UnsupportedPack,
   EnablePackBody,
   PackAuthority,
   PackCandidate,
