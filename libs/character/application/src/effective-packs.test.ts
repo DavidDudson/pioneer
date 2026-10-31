@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { CharacterName } from '@pioneer/character/domain';
-import { humanAncestryId, hitPointsContent } from '@pioneer/character/domain/testing';
+import { hitPointsContent, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentPackId } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentSource, VariantRuleId } from '@pioneer/rules/sdk';
 import { fixedContent } from '@pioneer/rules/sdk/testing';

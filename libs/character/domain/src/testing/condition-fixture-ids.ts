@@ -1,4 +1,4 @@
-import { contentId, ContentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 /** The pack the item fixtures live in. */
 export const ITEM_PACK = 'item-fixtures';

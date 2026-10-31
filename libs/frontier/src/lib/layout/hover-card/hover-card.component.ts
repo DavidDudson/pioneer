@@ -1,8 +1,8 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgTemplateOutlet } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   booleanAttribute,
+  ChangeDetectionStrategy,
   Component,
   contentChild,
   DestroyRef,

@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { ContentEntry, contentPackId, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
-import { fixedClock, FIRST_VERSION, newId, nextVersion } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, nextVersion } from '@pioneer/shared/kernel';
 import type { Clock } from '@pioneer/shared/kernel';
 import { auditLog } from '@pioneer/shared/server';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
@@ -10,7 +10,7 @@ import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { and, asc, eq, sql } from 'drizzle-orm';
 
 import { contentHash } from './content-hash';
-import { SeedOutcome, seedContentPacks } from './content-seed';
+import { seedContentPacks, SeedOutcome } from './content-seed';
 import { contentEntries, contentPacks } from './content.table';
 import { COMMON, DRACONIC, ELVEN, languagePack, loader } from './testing/language-packs';
 

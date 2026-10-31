@@ -6,10 +6,10 @@ import { humanAncestryId } from '@pioneer/character/domain/testing';
 import {
   AncestryId,
   ChoiceValue,
-  ContentKind,
   contentId,
-  NamespaceKind,
+  ContentKind,
   EntrySlug,
+  NamespaceKind,
   PackId,
   SlotKey,
 } from '@pioneer/rules/sdk';

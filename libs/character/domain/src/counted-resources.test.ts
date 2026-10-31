@@ -7,8 +7,8 @@ import {
   FrequencyPeriod,
   HitPoints,
   RuleSlug,
-  Slug,
   SlotCount,
+  Slug,
   SpellRank,
 } from '@pioneer/rules/sdk';
 import type { Activation, Frequency, Uses } from '@pioneer/rules/sdk';
@@ -29,7 +29,7 @@ import {
 import type { CountedMaxima } from './counted-resources';
 import { InventoryItemId, InventoryItemSchema } from './inventory';
 import type { InventoryItem } from './inventory';
-import { FRESH_PLAY, PlayCommandField, applyPlayCommand } from './play-state';
+import { applyPlayCommand, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayCommand, PlayState } from './play-state';
 import { ResourceCount } from './resource-count';
 import { within } from './testing';

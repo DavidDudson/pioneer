@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { AvatarUrl, DisplayName, EmailAddress, OAuthProvider, ProviderSubject } from '@pioneer/identity/domain';
 
-import { DiscordProvider, discordProfile } from './discord-provider';
+import { discordProfile, DiscordProvider } from './discord-provider';
 
 const user = {
   id: '80351110224678912',

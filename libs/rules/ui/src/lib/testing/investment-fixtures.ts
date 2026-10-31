@@ -1,5 +1,5 @@
 import { LineStatusKind, SuppressionReason } from '@pioneer/rules/engine';
-import { contentId, ContentId, EntrySlug, ModifierType, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, ModifierType, PackId } from '@pioneer/rules/sdk';
 
 import type { Investment } from '../inventory/investments/investment';
 import { line, ruleId } from './breakdown-fixtures';

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { assert, array, integer, property, tuple } from 'fast-check';
+import { array, assert, integer, property, tuple } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { contentPackId, PackId } from './content-id';

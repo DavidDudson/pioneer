@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { ContentId, ContentKind, contentId, EntrySlug, PackId, SpellRank, Trait } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, EntrySlug, PackId, SpellRank, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentRegistry, SpellData } from '@pioneer/rules/sdk';
 import type { EntryPreviews, PreviewRanks } from '@pioneer/rules/ui';
 import { beforeAll, describe, expect, it, vi } from 'vitest';

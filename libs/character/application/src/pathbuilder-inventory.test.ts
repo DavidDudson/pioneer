@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { CarryState, CoinAmount, InventoryItemName, ItemOrigin, itemContent } from '@pioneer/character/domain';
+import { CarryState, CoinAmount, InventoryItemName, itemContent, ItemOrigin } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import {
   entryLookup,

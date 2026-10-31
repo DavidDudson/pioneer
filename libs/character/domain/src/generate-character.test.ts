@@ -13,7 +13,7 @@ import { generateCharacter } from './generate-character';
 import type { Generated } from './generate-character';
 import { Seed } from './pick-source';
 import { slotCandidates } from './slot-candidates';
-import { slotRefusal, slotContent } from './slot-offer';
+import { slotContent, slotRefusal } from './slot-offer';
 import { CharacterBuilder, playerCoreClasses } from './testing';
 
 const registry = new ContentRegistry();

@@ -8,7 +8,7 @@ import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
 import type { ItemEntry } from './inventory-content';
 import { isSpecific, itemRunes, printedRunes, propertyRoom, runedItemOf } from './item-runes';
-import type { RunedContent, RuneContent } from './item-runes';
+import type { RuneContent, RunedContent } from './item-runes';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { etchingOf, RuneAction } from './rune-edits';

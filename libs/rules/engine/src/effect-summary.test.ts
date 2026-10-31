@@ -2,8 +2,8 @@ import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
 import {
-  contentId,
   ContentId,
+  contentId,
   ContentKind,
   entrySlug,
   PackId,

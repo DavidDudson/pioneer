@@ -6,16 +6,16 @@ import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import type { CharacterDocument } from './character-document';
 import { ANCESTRY_SLOT, CHARACTER_ROOT_SLOTS } from './character-slots';
-import { SlotRefusalField, slotRefusal } from './slot-offer';
+import { slotRefusal, SlotRefusalField } from './slot-offer';
 import type { SlotContent, SlotRefusal } from './slot-offer';
 import {
   BOOST_FIXTURES,
+  boostFixtureId,
+  CharacterBuilder,
   NO_FEATS,
   NO_LANGUAGES,
   NO_SKILLS,
   NO_SPELLS,
-  boostFixtureId,
-  CharacterBuilder,
 } from './testing';
 
 /** Only up to 5th level. */

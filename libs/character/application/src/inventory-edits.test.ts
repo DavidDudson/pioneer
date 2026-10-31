@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 import {
+  CarryState,
   CharacterCommand,
   CharacterName,
-  CarryState,
   CharacterPatchField,
   CoinsSchema,
   HANDS_MAX,

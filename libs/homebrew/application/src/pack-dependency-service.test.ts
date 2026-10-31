@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { contentPackId, ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
+import { ContentPackId, contentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, ForbiddenError, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

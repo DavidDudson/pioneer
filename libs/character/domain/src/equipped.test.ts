@@ -16,7 +16,7 @@ import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import { activeItems } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { equippedInputs, equippedRules } from './equipped';
-import { addItem, carryItem, EMPTY_INVENTORY, investItem, InventoryItemId, ItemQuantity } from './inventory';
+import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, investItem, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, Hands, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';

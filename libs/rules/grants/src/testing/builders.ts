@@ -1,8 +1,8 @@
 import {
   ChoiceValue,
   ConditionValue,
-  contentId,
   ContentId,
+  contentId,
   ContentKind,
   ContentText,
   entrySlug,

@@ -1,4 +1,4 @@
-import { ContentKind, EntryCount, FacetId, FacetValue, facetsFor, RangeBound, SelectionKind } from '@pioneer/rules/sdk';
+import { ContentKind, EntryCount, FacetId, facetsFor, FacetValue, RangeBound, SelectionKind } from '@pioneer/rules/sdk';
 import type { FacetDefinition, FilterState } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 

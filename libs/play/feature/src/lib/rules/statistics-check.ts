@@ -8,7 +8,7 @@ import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { RULE_NAME_KEYS, ruleNames, RuleSource, rulesInPlay, weaponOrigin } from './breakdown-lines';
+import { RULE_NAME_KEYS, ruleNames, rulesInPlay, RuleSource, weaponOrigin } from './breakdown-lines';
 import type { RuleName } from './breakdown-lines';
 import { pointAt } from './point-at';
 import { parseFacts } from './predicate-verdict';

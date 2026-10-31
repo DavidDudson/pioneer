@@ -4,8 +4,8 @@ import {
   DiceExpressionText,
   DieSize,
   parseDiceExpression,
-  RollTotal,
   rollDice,
+  RollTotal,
 } from '@pioneer/rules/dice';
 import type { DamageApplication, RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
 import {

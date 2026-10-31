@@ -13,12 +13,12 @@ import type { ResourcesSpent } from './resources';
 import { spellContent } from './spell-content';
 import { chargesHeld, StaffChargesSchema } from './staff-charges';
 import {
-  StaffCastProblem,
-  StaffCommandField,
   staffCantripRank,
   staffCastCost,
   staffCastOptions,
+  StaffCastProblem,
   staffCastProblem,
+  StaffCommandField,
   staffResourcesAfter,
 } from './staff-commands';
 import type { StaffCommand, StaffSlots } from './staff-commands';

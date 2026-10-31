@@ -8,7 +8,7 @@ import { Level, RuleElementKey } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { exclusiveEffects } from './effect-exclusivity';
-import { ActiveEffectSchema, effectRoots, EffectInstanceId } from './effects';
+import { ActiveEffectSchema, EffectInstanceId, effectRoots } from './effects';
 import type { ActiveEffect } from './effects';
 import { rulesOf } from './entry-rules';
 import { EMPTY_INVENTORY } from './inventory';

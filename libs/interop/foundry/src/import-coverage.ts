@@ -1,4 +1,4 @@
-import { contentKey, ContentKind, SourceKind, slugKind } from '@pioneer/rules/sdk';
+import { contentKey, ContentKind, slugKind, SourceKind } from '@pioneer/rules/sdk';
 import type { ContentEntry, CreatureRole } from '@pioneer/rules/sdk';
 
 import { BacklogGapType, BacklogItemType } from './import-backlog';

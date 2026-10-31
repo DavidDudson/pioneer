@@ -12,14 +12,14 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
-  CharacterLevel,
-  CharacterName,
   CHARACTER_LEVEL_MAX,
   CHARACTER_LEVEL_MIN,
+  CharacterLevel,
+  CharacterName,
   CharacterPatchField,
   CLASS_SLOT,
-  SECOND_CLASS_SLOT,
   HERITAGE_SLOT,
+  SECOND_CLASS_SLOT,
   SheetMode,
 } from '@pioneer/character/domain';
 import {

@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { CharacterService, InMemoryCharacterRepository } from '@pioneer/character/application';
 import { CharacterSheet, CoinsSchema } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
-import { ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';

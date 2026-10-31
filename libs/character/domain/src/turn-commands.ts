@@ -23,8 +23,8 @@ import {
   OUT_OF_ENCOUNTER,
   refilled,
   TurnCommandField,
-  TurnPhase,
   turnEnded,
+  TurnPhase,
   unconsciousCondition,
 } from './turn-state';
 import type { EconomyConditions, TurnCommand } from './turn-state';

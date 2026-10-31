@@ -1,4 +1,4 @@
-import { InlineKind, BlockKind, RichTextString } from '@pioneer/rules/sdk';
+import { BlockKind, InlineKind, RichTextString } from '@pioneer/rules/sdk';
 import type { RichText } from '@pioneer/rules/sdk';
 
 import { CharacterName } from './character-fields';

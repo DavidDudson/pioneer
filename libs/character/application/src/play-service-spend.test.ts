@@ -13,7 +13,7 @@ import type { Character, PlayCommand, SpendCost, SpendRequest, TurnCommand } fro
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentId, ContentKind, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, nextVersion, UserId, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, nextVersion, UserId, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

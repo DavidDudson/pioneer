@@ -4,7 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { frontierMessages } from '@pioneer/frontier';
 import { PathbuilderName, SpellGapReason } from '@pioneer/interop/pathbuilder';
 import type { SpellGap } from '@pioneer/interop/pathbuilder';
-import { SlotRank, rulesMessages } from '@pioneer/rules/sdk';
+import { rulesMessages, SlotRank } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it } from 'vitest';
 

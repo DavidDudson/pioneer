@@ -17,7 +17,7 @@ import { ActionCost } from '@pioneer/rules/sdk';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { affordability } from '../sheet-actions';
-import { ACTIVE_CONTENT_KINDS, activeRows, ActiveKind } from '../sheet-active-list';
+import { ACTIVE_CONTENT_KINDS, ActiveKind, activeRows } from '../sheet-active-list';
 import type { ActiveRow } from '../sheet-active-list';
 import { describeSaveError } from '../sheet-field';
 import { SheetSpender } from '../sheet-spender';

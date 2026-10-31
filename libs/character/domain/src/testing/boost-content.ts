@@ -1,4 +1,4 @@
-import { contentId, ContentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import type { AncestryBoosts, Boost, BoostContent } from '../attribute-boosts';
 

@@ -1,15 +1,15 @@
 import {
-  actionCostValue,
   ActionCostValue,
-  actionMode,
+  actionCostValue,
   ActionMode,
+  actionMode,
   actionSkills,
   featArchetype,
   featSkills,
   SkillValue,
 } from './action-facet-values';
 import { ContentKind } from './content-kind';
-import { facetLabels, FacetId, FacetLabel, FacetType } from './facet';
+import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
 import type { FacetDefinition } from './facet';
 import { FeatCategory } from './feat';
 

@@ -1,4 +1,4 @@
-import { Attribute, Coin, COPPER_PER_COIN, ContentKind, CopperValue, Rarity } from '@pioneer/rules/sdk';
+import { Attribute, Coin, ContentKind, COPPER_PER_COIN, CopperValue, Rarity } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { Temporal } from '@pioneer/shared/kernel';
 import { derivedId, UuidNamespace } from '@pioneer/shared/kernel';

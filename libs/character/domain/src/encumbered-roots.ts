@@ -1,4 +1,4 @@
-import type { GrantRoot, ContentLookup } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantRoot } from '@pioneer/rules/grants';
 import { Attribute, ContentKind, OriginHopKind, Slug } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 

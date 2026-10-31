@@ -32,8 +32,8 @@ import {
   dualClassVariant,
   freeArchetypeVariant,
   importedCharacter,
-  noDedicationLockVariant,
   matchedAncestry,
+  noDedicationLockVariant,
   readExport,
 } from './pathbuilder-import';
 import type { Create } from './pathbuilder-import';

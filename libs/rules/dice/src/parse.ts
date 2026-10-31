@@ -6,8 +6,8 @@ import { DamageCategorySchema, KeepMode, Sign, TermKind } from './expression';
 import type { DamageTags, DiceExpression, Keep, Term } from './expression';
 import { DiceMessage } from './messages';
 import { DiceSyntaxError } from './syntax-error';
-import { TokenKind, tokenize } from './tokens';
-import type { Numeral, NumberToken, Tag, Token } from './tokens';
+import { tokenize, TokenKind } from './tokens';
+import type { NumberToken, Numeral, Tag, Token } from './tokens';
 import {
   DICE_COUNT_MAX,
   DICE_COUNT_MIN,

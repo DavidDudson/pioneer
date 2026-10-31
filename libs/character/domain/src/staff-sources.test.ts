@@ -7,7 +7,7 @@ import { InventoryItemId, InventoryItemSchema, ItemQuantity } from './inventory'
 import type { InventoryItem } from './inventory';
 import { spellContent } from './spell-content';
 import { StaffChargesSchema } from './staff-charges';
-import { StaffSpellProblem, staffSources } from './staff-sources';
+import { staffSources, StaffSpellProblem } from './staff-sources';
 import { ItemFixture, itemFixtureContent, itemFixtureId, itemFixtureRegistry, staffSpellId } from './testing';
 
 const items = itemFixtureContent();

@@ -2,9 +2,9 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   CharacterService,
+  FeatDisplayService,
   InMemoryCharacterRepository,
   InMemoryFeatDisplayRepository,
-  FeatDisplayService,
 } from '@pioneer/character/application';
 import { CharacterName, FeatDisplaySection } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';

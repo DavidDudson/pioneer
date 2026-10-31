@@ -6,7 +6,7 @@ import { entry, idOf, lookupOf } from '@pioneer/rules/grants/testing';
 import { Level, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
-import { ActiveEffectSchema, effectRoots, EffectInstanceId } from './effects';
+import { ActiveEffectSchema, EffectInstanceId, effectRoots } from './effects';
 import { rulesOf } from './entry-rules';
 import { EMPTY_INVENTORY } from './inventory';
 import { itemFixtureContent } from './testing';

@@ -1,7 +1,7 @@
 import type {
   ContentId,
-  ContentLicense,
   ContentLevel,
+  ContentLicense,
   ContentText,
   EntrySlug,
   ExternalId,

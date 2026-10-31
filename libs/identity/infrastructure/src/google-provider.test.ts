@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { AvatarUrl, DisplayName, EmailAddress, OAuthProvider, ProviderSubject } from '@pioneer/identity/domain';
 
-import { GoogleProvider, googleProfile } from './google-provider';
+import { googleProfile, GoogleProvider } from './google-provider';
 
 const claims = {
   iss: 'https://accounts.google.com' as const,

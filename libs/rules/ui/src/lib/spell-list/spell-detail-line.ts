@@ -7,8 +7,7 @@ export type SingleSpellCostLine =
 
 /** What casting costs: one way, or several the caster picks from ("2 actions or 2 rounds"). */
 export type SpellCostLine =
-  | SingleSpellCostLine
-  | { readonly kind: 'either'; readonly options: readonly SingleSpellCostLine[] };
+  SingleSpellCostLine | { readonly kind: 'either'; readonly options: readonly SingleSpellCostLine[] };
 
 /** One part of a spell's damage or healing, worded: "6d6 fire", "2d8 healing". */
 export interface SpellEffectLine {

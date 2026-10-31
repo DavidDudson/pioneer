@@ -2,8 +2,8 @@ import {
   activeSpellOf,
   effectContent,
   isSpellEffectOffered,
-  SpellSpendKind,
   spellContent,
+  SpellSpendKind,
   SpendProblem,
   sustainedRounds,
 } from '@pioneer/character/domain';

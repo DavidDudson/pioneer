@@ -4,10 +4,10 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { BinaryOperator, NodeKind } from './ast';
 import type { FormulaNode } from './ast';
 import { FormulaError } from './formula-error';
-import { ARITY, ArgumentCount, FormulaFunctionSchema } from './functions';
+import { ArgumentCount, ARITY, FormulaFunctionSchema } from './functions';
 import type { FormulaFunction } from './functions';
 import { FormulaMessage } from './messages';
-import { TokenKind, tokenize } from './tokens';
+import { tokenize, TokenKind } from './tokens';
 import type { NameToken, Token } from './tokens';
 import {
   FORMULA_LENGTH_MAX,

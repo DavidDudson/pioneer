@@ -6,7 +6,7 @@ import { Frequency, Uses } from './action';
 import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { RulesMessage } from './messages';
-import { RichText, ActionCost, ActionCostSchema } from './rich-text';
+import { ActionCost, ActionCostSchema, RichText } from './rich-text';
 import { RuleElements } from './rule-element';
 import { SpellPreparation } from './rule-element-spellcasting';
 import { SenseAcuitySchema } from './sense';

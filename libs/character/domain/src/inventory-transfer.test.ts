@@ -7,7 +7,7 @@ import type { Inventory, InventoryItem } from './inventory';
 import { giveLine, TransferRefusal } from './inventory-transfer';
 import { CarryState, STOWED } from './item-carry';
 import { KeyItemId } from './key-item-id';
-import { itemFixtureId, ItemFixture } from './testing';
+import { ItemFixture, itemFixtureId } from './testing';
 
 const QUANTITY = ItemQuantity.parse(1);
 const pack = InventoryItemId.parse(newId());

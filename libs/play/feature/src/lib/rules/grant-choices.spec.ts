@@ -1,4 +1,4 @@
-import { contentId, ContentId, ContentKind, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, entrySlug, PackId, Slug } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import { parsePicks, withPick } from './grant-choices';

@@ -2,7 +2,7 @@ import * as z from 'zod';
 
 import { DamageAdjustmentTargetSchema, DamageExceptions } from './damage';
 import { FormulaSource } from './formula-source';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { Immunity } from './trait';
 import { DamageAmount } from './units';
 

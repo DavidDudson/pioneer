@@ -7,7 +7,7 @@ import { filter, merge } from 'rxjs';
 
 import { originRowDisabled, originRowLabel, originRowValue } from '../origin-picker/origin-picker-table';
 import type { SlotPickerRow } from './slot-picker-row';
-import { slotPickerColumns, shownSlotRows } from './slot-picker-table';
+import { shownSlotRows, slotPickerColumns } from './slot-picker-table';
 
 /**
  * Pick one option of a slot that lists its options from a table of its name and source.

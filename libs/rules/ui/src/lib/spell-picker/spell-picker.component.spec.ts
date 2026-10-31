@@ -61,7 +61,7 @@ async function render(rows: readonly SpellPickerRow[], value?: string): Promise<
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('Expected a rendered spell picker');
+    throw new TypeError('Expected a rendered spell picker');
   }
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }

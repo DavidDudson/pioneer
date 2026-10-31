@@ -7,7 +7,7 @@ import type { CharacterPatch, ItemContent, KitEntry } from '@pioneer/character/d
 import { AsyncButton, AsyncForm, Heading, Stack } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import type { ContentId } from '@pioneer/rules/sdk';
-import { KitContents, ShopBill, ShopBillFor, coinCounts } from '@pioneer/rules/ui';
+import { coinCounts, KitContents, ShopBill, ShopBillFor } from '@pioneer/rules/ui';
 import type { CoinCount, KitLine } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../../data/character-store';

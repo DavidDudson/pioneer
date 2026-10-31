@@ -4,7 +4,7 @@ import { PrerequisiteStatus } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { CharacterBuilder, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { ContentRegistry, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it } from 'vitest';

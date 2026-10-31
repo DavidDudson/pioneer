@@ -2,7 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import type { ContentEntry } from './content-entry';
-import { facetValues, FacetType, RangeBound, UNKNOWN } from './facet';
+import { FacetType, facetValues, RangeBound, UNKNOWN } from './facet';
 import type { FacetDefinition, FacetId, FacetValue } from './facet';
 
 export const SelectionKind = { Values: 'values', Range: 'range' } as const;

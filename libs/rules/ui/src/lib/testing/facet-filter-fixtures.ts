@@ -1,4 +1,4 @@
-import { CommonFacet, ContentKind, EntryCount, FacetId, FacetValue, facetsFor } from '@pioneer/rules/sdk';
+import { CommonFacet, ContentKind, EntryCount, FacetId, facetsFor, FacetValue } from '@pioneer/rules/sdk';
 import type { FacetCounts, FacetDefinition, ValueCount } from '@pioneer/rules/sdk';
 
 const FACETS = facetsFor([ContentKind.Weapon, ContentKind.Armor]);

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { BugReportId, BugReportStatus, BugReportSubmission, UserId } from '@pioneer/identity/domain';
 import type { BugReport } from '@pioneer/identity/domain';
-import { fixedClock, Temporal, newId, RateLimitedError } from '@pioneer/shared/kernel';
+import { fixedClock, newId, RateLimitedError, Temporal } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 
 import { BUG_REPORT_LIMIT, BugReportService } from './bug-report-service';

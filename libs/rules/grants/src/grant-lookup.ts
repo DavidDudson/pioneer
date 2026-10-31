@@ -1,4 +1,4 @@
-import { contentId, ContentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, RollOption, slugName } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentPack,

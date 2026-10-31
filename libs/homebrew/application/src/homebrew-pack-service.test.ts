@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, spyOn, test } from 'bun:test';
 
 import { NO_ENTRIES } from '@pioneer/homebrew/domain';
-import { contentPackId, ContentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
+import { ContentPackId, contentPackId, ContentText, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import { ConflictError, fixedClock, ForbiddenError, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

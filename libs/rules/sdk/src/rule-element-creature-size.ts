@@ -1,7 +1,7 @@
 import { Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { SizeSchema } from './size';
 import { Feet } from './units';
 

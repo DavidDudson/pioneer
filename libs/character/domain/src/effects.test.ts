@@ -22,11 +22,11 @@ import {
   EffectAllyName,
   EffectBadgeValue,
   EffectInstanceId,
-  EffectRounds,
   effectRoots,
+  EffectRounds,
+  EFFECTS_MAX,
   EffectSourceKind,
   effectTerms,
-  EFFECTS_MAX,
   SELF,
   steppedBadge,
 } from './effects';

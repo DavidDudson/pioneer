@@ -4,6 +4,7 @@ import { newId, UserId } from '@pioneer/shared/kernel';
 
 import {
   amiri,
+  Answer,
   caliburn,
   campaign,
   ezren,
@@ -14,7 +15,6 @@ import {
   offered,
   request,
   table,
-  Answer,
 } from './testing/transfer-route-fixtures';
 
 describe('item transfer routes', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, contentKey, Trait } from '@pioneer/rules/sdk';
+import { contentKey, ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 
 import { contentCatalog } from './index';

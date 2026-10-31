@@ -6,7 +6,7 @@ import { wandOverchargeKey, wandUseKey } from './counted-resources';
 import { FRESH_PLAY } from './play-state';
 import type { PlayState } from './play-state';
 import { afterWandCommand, CAST_WAND, fireballWand, overchargeWand, WAND_ID, wandSourceOf } from './testing';
-import { wandOutcome, WandOutcome, wandProblem } from './wand-commands';
+import { WandOutcome, wandOutcome, wandProblem } from './wand-commands';
 import type { WandCommand } from './wand-commands';
 
 const WAND = fireballWand();

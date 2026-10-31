@@ -7,7 +7,7 @@ import { filter, merge } from 'rxjs';
 
 import { originRowDisabled, originRowLabel, originRowValue } from '../origin-picker/origin-picker-table';
 import type { SubclassPickerRow } from './class-picker-row';
-import { subclassPickerColumns, shownSubclassRows } from './class-picker-table';
+import { shownSubclassRows, subclassPickerColumns } from './class-picker-table';
 
 /**
  * Pick a subclass (a doctrine, muse, order or school) from a table of what each grants. Opens inline and starts at the

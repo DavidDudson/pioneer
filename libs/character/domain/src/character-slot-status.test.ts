@@ -10,12 +10,12 @@ import { ANCESTRY_SLOT, BACKGROUND_SLOT, CHARACTER_ROOT_SLOTS, CLASS_SLOT, HERIT
 import type { SlotContent } from './slot-offer';
 import {
   BOOST_FIXTURES,
+  boostFixtureId,
+  CharacterBuilder,
   NO_FEATS,
   NO_LANGUAGES,
   NO_SKILLS,
   NO_SPELLS,
-  boostFixtureId,
-  CharacterBuilder,
 } from './testing';
 
 const LOW_LEVEL = [{ lte: ['self:level', 5] }];

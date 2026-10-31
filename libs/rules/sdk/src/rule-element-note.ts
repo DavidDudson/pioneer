@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { ContentText } from './content-text';
 import { DegreeOfSuccessSchema } from './degree-of-success';
 import { RichText } from './rich-text';
-import { ModifierTargets, RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ModifierTargets, ruleElementBase, RuleElementKey } from './rule-element-base';
 import { uniqueItems } from './unique-items';
 
 const OUTCOMES_MAX = 4;

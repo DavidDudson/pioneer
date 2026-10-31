@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { formulaIssues, FormulaSource } from './formula-source';
 import { Predicate } from './predicate';
 import { ProficiencyBonusTable, ProficiencySchema } from './proficiency';
-import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { Selector } from './selector';
 
 /**

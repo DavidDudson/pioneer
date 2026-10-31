@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 import { DamageTypeSchema } from './damage';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { ModifierValue } from './rule-element-numbers';
 import { uniqueItems } from './unique-items';
 

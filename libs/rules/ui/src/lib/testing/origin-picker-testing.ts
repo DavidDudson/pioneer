@@ -64,7 +64,7 @@ export async function render<TPicker extends PickerUnderTest>(
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('Expected a rendered picker');
+    throw new TypeError('Expected a rendered picker');
   }
   return { fixture, host, commits, cancels };
 }

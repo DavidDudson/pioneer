@@ -9,7 +9,7 @@ import {
 import { CharacterSheet, ClearedPick, PatchedCharacterSheet } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
-import { ContentKind, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { contentId, ContentKind, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { FIRST_VERSION, fixedClock, newId, UserId, Version } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';

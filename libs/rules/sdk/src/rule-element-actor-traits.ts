@@ -2,7 +2,7 @@ import { issueParams, message } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { RulesMessage } from './messages';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { Trait } from './trait';
 import { uniqueItems } from './unique-items';
 

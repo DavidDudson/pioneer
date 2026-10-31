@@ -5,7 +5,7 @@ import type { FieldIssue } from '@pioneer/shared/kernel';
 
 import { contentId, EntrySlug, PackId } from './content-id';
 import { RulesMessage } from './messages';
-import { Charges, STAFF_CANTRIP, StaffRank, staffCharges, StaffSpells } from './staff';
+import { Charges, STAFF_CANTRIP, staffCharges, StaffRank, StaffSpells } from './staff';
 
 function issuesOf(value: unknown): readonly FieldIssue[] {
   const result = StaffSpells.safeParse(value);

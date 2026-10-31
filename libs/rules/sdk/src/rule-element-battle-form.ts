@@ -6,7 +6,7 @@ import { ContentId, Slug } from './content-id';
 import { ContentText } from './content-text';
 import { DamageAdjustmentTargetSchema, DamageExceptions, DamageTypeSchema } from './damage';
 import { Predicate } from './predicate';
-import { RuleElementKey, ruleElementBase, RuleValue } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleValue } from './rule-element-base';
 import { DefenceValue } from './rule-element-defences';
 import { WeaponCategory } from './rule-element-proficiency';
 import { SkillSelector } from './selector';

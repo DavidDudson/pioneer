@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { newId } from '@pioneer/shared/kernel';
 
-import { amiri, campaign, ezren, json, offered, request, table, Answer } from './testing/transfer-route-fixtures';
+import { amiri, Answer, campaign, ezren, json, offered, request, table } from './testing/transfer-route-fixtures';
 
 describe('withdrawing an offer', () => {
   test("the giver's owner withdraws an offer, and withdrawing again answers the same", async () => {

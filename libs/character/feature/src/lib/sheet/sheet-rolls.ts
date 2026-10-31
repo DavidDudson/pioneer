@@ -18,7 +18,7 @@ import type { DiceExpression, FortunedRoll } from '@pioneer/rules/dice';
 import type { RuleId, StatisticValue } from '@pioneer/rules/engine';
 import type { ToggleSlot } from '@pioneer/rules/grants';
 import type { Dc, Selector } from '@pioneer/rules/sdk';
-import { STATISTIC_ROLLER, conditionalLineText } from '@pioneer/rules/ui';
+import { conditionalLineText, STATISTIC_ROLLER } from '@pioneer/rules/ui';
 import type { ConditionWords, RollableStatistic, StatisticRoller } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 

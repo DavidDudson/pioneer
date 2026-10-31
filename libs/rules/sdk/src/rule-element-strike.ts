@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { Slug } from './content-id';
 import { RulesMessage } from './messages';
 import { Predicate } from './predicate';
-import { RuleElementKey, ruleElementBase, RuleValue } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleValue } from './rule-element-base';
 import { NumericAlterationMode, TraitAlterationMode } from './rule-element-item-alteration';
 import { WeaponCategory } from './rule-element-proficiency';
 import { Trait } from './trait';

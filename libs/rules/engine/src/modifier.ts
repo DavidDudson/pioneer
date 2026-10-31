@@ -26,8 +26,7 @@ export interface ModifierSource {
 
 /** What an `AdjustModifier` does to each modifier it finds. */
 type AdjustmentChange =
-  | { readonly suppress: true }
-  | { readonly suppress: false; readonly mode: AdjustMode; readonly value: RuleValue };
+  { readonly suppress: true } | { readonly suppress: false; readonly mode: AdjustMode; readonly value: RuleValue };
 
 /** An `AdjustModifier` in play. */
 export interface Adjustment {

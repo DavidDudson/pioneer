@@ -34,7 +34,7 @@ export async function renderProjected<Part>(
   await appRef.whenStable();
   const host: unknown = component.location.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('component host is not an element');
+    throw new TypeError('component host is not an element');
   }
   return host;
 }

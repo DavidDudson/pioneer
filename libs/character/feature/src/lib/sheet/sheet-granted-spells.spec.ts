@@ -3,8 +3,8 @@ import type { CharacterDocument, SlotContent } from '@pioneer/character/domain';
 import { CharacterBuilder } from '@pioneer/character/domain/testing';
 import {
   ContentId,
-  ContentKind,
   contentId,
+  ContentKind,
   contentPackFromContents,
   ContentRegistry,
   EntrySlug,

@@ -7,7 +7,7 @@ import { filter, merge } from 'rxjs';
 
 import { originRowDisabled, originRowLabel, originRowValue } from '../origin-picker/origin-picker-table';
 import type { SkillPickerRow } from './slot-picker-row';
-import { skillPickerColumns, shownSkillRows } from './slot-picker-table';
+import { shownSkillRows, skillPickerColumns } from './slot-picker-table';
 
 /**
  * Pick a skill from a table of its governing attribute and the character's rank and modifier in it. Opens inline and

@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { fixtureOwnerId, HomebrewPackBuilder } from '@pioneer/homebrew/domain/testing';
 import { seedContentPacks } from '@pioneer/rules/infrastructure';
-import { ContentText, contentPackId, PackId, packContentsFromFiles, PackVisibility } from '@pioneer/rules/sdk';
+import { contentPackId, ContentText, packContentsFromFiles, PackId, PackVisibility } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';

@@ -4,34 +4,34 @@ import type { ContentPack, ContentPackLoader, PackContents, PackContentsLoader }
 import { bookRegistry } from './book-registry';
 import { coreRulesPack } from './core-rules-packs';
 import {
+  darkArchiveRemasteredPack,
   divineMysteriesPack,
   gmCorePack,
   howlOfTheWildPack,
   monsterCore2Pack,
   monsterCorePack,
-  npcCorePack,
   mwangiExpansePack,
+  npcCorePack,
   playerCore2Pack,
   playerCorePack,
   rageOfElementsPack,
-  darkArchiveRemasteredPack,
-  tianXiaCharacterGuidePack,
   secretsOfMagicPack,
+  tianXiaCharacterGuidePack,
   treasureVaultPack,
   warOfImmortalsPack,
 } from './json-packs';
 import {
-  wardensOfWildwoodPack,
-  curtainCallPack,
-  triumphOfTheTuskPack,
-  sporeWarPack,
-  shadesOfBloodPack,
-  preyForDeathPack,
   clawsOfTheTyrantPack,
   clockworkMysteryPack,
-  tianXiaWorldGuidePack,
+  curtainCallPack,
   foolishHousekeepingPack,
+  preyForDeathPack,
+  shadesOfBloodPack,
+  sporeWarPack,
   theDeadGodsHandPack,
+  tianXiaWorldGuidePack,
+  triumphOfTheTuskPack,
+  wardensOfWildwoodPack,
 } from './more-orc-packs';
 import { characterGuidePack, impossibleLandsPack } from './ogl-packs';
 import {

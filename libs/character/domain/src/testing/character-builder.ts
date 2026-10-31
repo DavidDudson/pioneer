@@ -3,8 +3,8 @@ import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 import {
   derivedId,
   FIRST_VERSION,
-  FixtureNamespace,
   fixedClock,
+  FixtureNamespace,
   InstantCodec,
   UserId,
   Version,

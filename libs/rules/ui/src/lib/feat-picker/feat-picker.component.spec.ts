@@ -61,7 +61,7 @@ async function render(rows: readonly FeatPickerRow[], value?: string): Promise<R
   await settle(fixture);
   const host: unknown = fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
-    throw new Error('Expected a rendered feat picker');
+    throw new TypeError('Expected a rendered feat picker');
   }
   return { fixture, host, commits: (): number => commits, cancels: (): number => cancels };
 }

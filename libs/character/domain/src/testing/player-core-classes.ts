@@ -1,4 +1,4 @@
-import { ContentId, ContentKind, ContentLicense, ContentPack, contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
+import { ContentId, contentId, ContentKind, ContentLicense, ContentPack, EntrySlug, PackId } from '@pioneer/rules/sdk';
 
 import entries from './player-core-classes.json';
 

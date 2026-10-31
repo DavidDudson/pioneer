@@ -1,8 +1,8 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import {
   Attribute,
-  ContentText,
   AttributeSchema,
+  ContentText,
   DamageAmount,
   FAVORED_WEAPON,
   Feet,

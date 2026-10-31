@@ -1,4 +1,4 @@
-import { hiddenOf, columnsText } from './table-view-columns';
+import { columnsText, hiddenOf } from './table-view-columns';
 import { TableViewKey } from './table-view-keys';
 import { sortOf, sortText } from './table-view-sort';
 import { paramText, positiveInt } from './table-view-text';

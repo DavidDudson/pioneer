@@ -28,10 +28,10 @@ import { SenseElement } from './rule-element-sense';
 import {
   DeitySpellsElement,
   FocusSpellsElement,
+  InnateSpellsElement,
   PoolSpellsElement,
   RepertoireCountElement,
   RepertoireDeitySpellsElement,
-  InnateSpellsElement,
   RepertoireSpellsElement,
   SignatureSpellsElement,
   SpellcastingEntryElement,

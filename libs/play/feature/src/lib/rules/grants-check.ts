@@ -3,15 +3,15 @@ import type {
   ChoiceSlot,
   ConditionalGrant,
   ContentLookup,
-  GrantEntry,
   GrantedItem,
+  GrantEntry,
   GrantResolution,
 } from '@pioneer/rules/grants';
 import { kindOf } from '@pioneer/rules/predicate';
 import type { NamespaceTable, PredicateSummary } from '@pioneer/rules/predicate';
 import {
-  contentId,
   ContentId,
+  contentId,
   ContentKind,
   ContentKindSchema,
   ContentText,

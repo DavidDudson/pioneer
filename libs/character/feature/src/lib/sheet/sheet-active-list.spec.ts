@@ -6,7 +6,7 @@ import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { newId } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import { ActiveKind, activeCount, activeRows, sustainedCast } from './sheet-active-list';
+import { activeCount, ActiveKind, activeRows, sustainedCast } from './sheet-active-list';
 
 const NOTE: RichText = [
   { type: 'paragraph', content: [{ type: 'text', text: RichTextString.parse('A reaction when an ally hits.') }] },

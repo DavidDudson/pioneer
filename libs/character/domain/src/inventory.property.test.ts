@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { assert, nat, option, pre, property } from 'fast-check';
 
-import { InventorySchema, inventoryRefusal, moveItem, removeItem } from './inventory';
+import { inventoryRefusal, InventorySchema, moveItem, removeItem } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId } from './inventory';
 import { inventory } from './testing';
 

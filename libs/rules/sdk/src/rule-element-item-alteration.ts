@@ -4,7 +4,7 @@ import * as z from 'zod';
 import { Slug } from './content-id';
 import { DamageTypeSchema } from './damage';
 import { Predicate } from './predicate';
-import { RuleElementKey, ruleElementBase, RuleValue } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleValue } from './rule-element-base';
 import { Trait } from './trait';
 
 /** How an item alteration changes a number. */

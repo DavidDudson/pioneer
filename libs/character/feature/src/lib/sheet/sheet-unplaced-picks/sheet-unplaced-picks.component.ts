@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { CharacterPatchField, UnplacedPickKind, unplacedPickBreaks } from '@pioneer/character/domain';
+import { CharacterPatchField, unplacedPickBreaks, UnplacedPickKind } from '@pioneer/character/domain';
 import type { UnplacedPickBreak } from '@pioneer/character/domain';
 import { AsyncButton, Badge, BadgeTone, Heading, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';

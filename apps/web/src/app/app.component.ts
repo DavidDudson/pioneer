@@ -2,7 +2,7 @@ import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import type { Type } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslocoPipe, translateSignal } from '@jsverse/transloco';
+import { translateSignal, TranslocoPipe } from '@jsverse/transloco';
 import { ColorMode, Link, Segmented, Shell, Stack, Text, Theme, ThemeStore, ToggleButton } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
 import { IDLE_SCHEDULER, ShellSearch } from '@pioneer/shared/web';

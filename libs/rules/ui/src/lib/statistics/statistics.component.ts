@@ -13,7 +13,7 @@ import { numberStyle } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
-import { conditionalLineText, conditionalLines } from './conditional-lines';
+import { conditionalLines, conditionalLineText } from './conditional-lines';
 import type { ConditionWords } from './conditional-lines';
 import { StatisticConditions } from './statistic-conditions/statistic-conditions.component';
 import type { ConditionChange, ConditionToggle } from './statistic-conditions/statistic-conditions.component';

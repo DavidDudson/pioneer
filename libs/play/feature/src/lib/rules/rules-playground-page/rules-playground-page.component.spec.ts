@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import {
   chooseSchema,
-  secondTextArea,
   openPlayground,
   pageText,
   present,
+  secondTextArea,
   typeInto,
   typeJson,
 } from './playground-harness';

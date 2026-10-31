@@ -7,14 +7,14 @@ import {
   characterTraits,
   CLASS_SLOT,
   classContent,
-  DEITY_SLOT,
   classFeatures,
+  DEITY_SLOT,
+  hasSecondClass,
   HERITAGE_SLOT,
   rootSlotOptions,
-  hasSecondClass,
   SECOND_CLASS_SLOT,
-  SlotStatus,
   secondSubclassSlot,
+  SlotStatus,
   subclassSlot,
 } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import {
   AncestryId,
-  contentId,
   ContentEntry,
+  contentId,
   ContentKind,
   ContentSearchQuery,
   ContentText,

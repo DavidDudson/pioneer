@@ -1,5 +1,5 @@
 import { playerCoreClassId, playerCoreId } from '@pioneer/character/domain/testing';
-import { ContentKind, PackId, packContentsFromFiles } from '@pioneer/rules/sdk';
+import { ContentKind, packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { ClassPicker, SubclassPicker } from '@pioneer/rules/ui';

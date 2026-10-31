@@ -11,7 +11,7 @@ import {
   STOWED,
 } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
-import { humanAncestryId, itemFixtureId, ItemFixture } from '@pioneer/character/domain/testing';
+import { humanAncestryId, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 

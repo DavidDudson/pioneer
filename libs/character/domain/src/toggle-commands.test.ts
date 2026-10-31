@@ -4,9 +4,9 @@ import { Slug, ToggleKey } from '@pioneer/rules/sdk';
 
 import {
   applyToggleCommand,
-  TOGGLES_MAX,
   ToggleCommandField,
   ToggleCommandSchema,
+  TOGGLES_MAX,
   toggleStates,
 } from './toggle-commands';
 import type { ToggleCommand, Toggles } from './toggle-commands';

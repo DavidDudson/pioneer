@@ -4,8 +4,8 @@ import type {
   BundleBody,
   BundleFile,
   CanonicalJson,
-  ContentEntry,
   ContentBundles,
+  ContentEntry,
   ContentManifest,
   ContentPackId,
   ContentSearchQuery,
@@ -95,11 +95,7 @@ function matches({ name, description }: ContentEntry, query: SearchText): boolea
 
 /** What a test delivery was asked for, by URL path. */
 export type DeliveryRequest =
-  | 'manifest'
-  | 'homebrew-manifest'
-  | 'search'
-  | `${PackId}/${BundleFile}`
-  | `homebrew:${PackId}/${BundleFile}`;
+  'manifest' | 'homebrew-manifest' | 'search' | `${PackId}/${BundleFile}` | `homebrew:${PackId}/${BundleFile}`;
 
 /**
  * Serves packs' bundles from memory, as the content routes would, and records each request. Set `offline` to make

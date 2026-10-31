@@ -186,14 +186,7 @@ const ActionCostNode = z.strictObject({ type: z.literal(InlineKind.ActionCost), 
 export type ActionCostNode = z.infer<typeof ActionCostNode>;
 
 export type InlineNode =
-  | TextNode
-  | LineBreakNode
-  | RefNode
-  | CheckNode
-  | DamageNode
-  | TemplateNode
-  | DurationNode
-  | ActionCostNode;
+  TextNode | LineBreakNode | RefNode | CheckNode | DamageNode | TemplateNode | DurationNode | ActionCostNode;
 
 const Inline: z.ZodType<InlineNode> = z.discriminatedUnion('type', [
   TextNode,

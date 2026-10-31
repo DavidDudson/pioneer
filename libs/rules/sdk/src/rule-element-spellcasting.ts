@@ -5,7 +5,7 @@ import * as z from 'zod';
 import { AttributeSchema } from './attribute';
 import { ContentId } from './content-id';
 import { RulesMessage } from './messages';
-import { RuleElementKey, ruleElementBase, RuleSlug } from './rule-element-base';
+import { ruleElementBase, RuleElementKey, RuleSlug } from './rule-element-base';
 import { SpellRank } from './spell-rank';
 import { MagicTraditionSchema } from './spellcasting-tradition';
 import { SOURCE_SLUG_MAX } from './statistic';

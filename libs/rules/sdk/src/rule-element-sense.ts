@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 import { ContentId } from './content-id';
-import { RuleElementKey, ruleElementBase } from './rule-element-base';
+import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { SenseAcuitySchema } from './sense';
 import { Feet } from './units';
 

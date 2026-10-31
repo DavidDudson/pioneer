@@ -17,7 +17,7 @@ import type { Character, PatchedPlay, PlayCommand, SpellSpend, TurnCommand } fro
 import { HUMAN_HIT_POINTS, humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentId, ContentKind, SpellRank, StatisticKind } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
-import { fixedClock, FIRST_VERSION, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
+import { FIRST_VERSION, fixedClock, newId, UserId, ValidationError } from '@pioneer/shared/kernel';
 import type { Version } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
 

@@ -15,7 +15,7 @@ import {
 import type { Carry, Inventory, InventoryItem, ItemContent, ItemEntry, ItemRunes } from '@pioneer/character/domain';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentLookup, ImportedItem, ImportedRunes, PathbuilderImport } from '@pioneer/interop/pathbuilder';
-import { ContentKind, Coin, ContentId, RuneGrade, RunedItem } from '@pioneer/rules/sdk';
+import { Coin, ContentId, ContentKind, RunedItem, RuneGrade } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
 /** What an import's gear is matched against: items and property runes by name, and what each item is. */

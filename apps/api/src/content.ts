@@ -3,8 +3,8 @@ import { DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
 import { officialPacks } from '@pioneer/rules/catalog';
 import {
   ContentRepository,
-  ContentSearchRepository,
   contentRoutes,
+  ContentSearchRepository,
   contentSearchRoutes,
   seedContentPacks,
   StoredContentBundles,

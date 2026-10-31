@@ -4,7 +4,7 @@ import { idOf } from '@pioneer/rules/grants/testing';
 import { RollOption, RuleElement, SpellRank } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
-import { EffectCommandField, EffectCommandSchema, effectProblem, EffectProblem } from './effect-commands';
+import { EffectCommandField, EffectCommandSchema, EffectProblem, effectProblem } from './effect-commands';
 import { formRanks } from './effect-form-ranks';
 import { EffectInstanceId, effectTerms } from './effects';
 import type { EffectContent } from './effects';

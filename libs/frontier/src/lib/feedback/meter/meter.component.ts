@@ -71,7 +71,7 @@ const segmentVariants = cva('h-meter flex-1 border', {
 
 const rowClasses = cva('flex min-w-none flex-1 gap-3xs')();
 const hiddenMeterClasses = cva('sr-only')();
-const numberClasses = cva('shrink-0 text-label whitespace-nowrap tabular-nums text-fg-default')();
+const numberClasses = cva('shrink-0 text-label whitespace-nowrap text-fg-default tabular-nums')();
 
 /**
  * A current/max amount as a bar with the number beside it: HP, focus points, dying. Owns `<meter>`, which

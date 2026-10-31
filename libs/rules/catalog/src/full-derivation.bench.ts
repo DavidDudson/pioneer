@@ -9,7 +9,7 @@ import { Attribute, ContentLicense, ContentPack, Selector, StatisticKind } from 
 import { benchmark } from '@pioneer/shared/bench';
 
 import { contentOf, core, coreRules, withoutLevel } from './testing/core-rules';
-import { coreNamespaces, LEVEL_20_SITUATION, level20Fighter, level20FighterRules } from './testing/fighter';
+import { coreNamespaces, level20Fighter, level20FighterRules, LEVEL_20_SITUATION } from './testing/fighter';
 
 /** The budget rules-engine.md sets: a full derivation of a level 20 character in under 10 ms, so the builder can re-derive per keystroke. */
 const BUDGET_MS = 10;

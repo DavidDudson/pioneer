@@ -15,9 +15,9 @@ import {
   CharacterBuilder,
   DEDICATION_CLASS,
   DEDICATION_FIXTURES,
-  dedicationSlot,
   dedicationArchetypeId,
   dedicationFixtureId,
+  dedicationSlot,
   skillFixtures,
 } from './testing';
 import type { DedicationFixture } from './testing';

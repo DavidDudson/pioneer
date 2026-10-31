@@ -8,7 +8,7 @@ import { CharacterPatchField } from './character-patch';
 import { SlotInvalidMessage } from './character-slot';
 import { HERITAGE_SLOT } from './character-slots';
 import { CharacterBuilder, humanAncestryId } from './testing';
-import { UnplacedPickKind, unplacedPickBreaks } from './unplaced-picks';
+import { unplacedPickBreaks, UnplacedPickKind } from './unplaced-picks';
 import type { UnplacedPicks } from './unplaced-picks';
 
 const later = fixedClock('2026-10-07T10:00:00Z').now();
