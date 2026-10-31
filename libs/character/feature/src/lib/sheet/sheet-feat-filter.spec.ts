@@ -1,7 +1,12 @@
 import { facetsFor, SlotKey } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { slotFilterFromQuery, slotFilterToQuery } from './sheet-feat-filter';
+import {
+  slotEverythingFromQuery,
+  slotEverythingToQuery,
+  slotFilterFromQuery,
+  slotFilterToQuery,
+} from './sheet-feat-filter';
 
 const FACETS = facetsFor(['feat']);
 const ONE = SlotKey.parse('class-feat:1');
@@ -31,5 +36,13 @@ describe('slot filters in the URL', () => {
 
     expect(query['f.class-feat:1.level']).toBe('..3');
     expect(slotFilterFromQuery(query, ONE, FACETS)).toStrictEqual(state);
+  });
+
+  it('keeps the ask to show everything per slot', () => {
+    const query = slotEverythingToQuery(ONE, true);
+
+    expect(slotEverythingFromQuery(query, ONE)).toBe(true);
+    expect(slotEverythingFromQuery(query, TWO)).toBe(false);
+    expect(slotEverythingFromQuery(slotEverythingToQuery(ONE, false), ONE)).toBe(false);
   });
 });

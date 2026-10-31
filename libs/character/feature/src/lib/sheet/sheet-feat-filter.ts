@@ -42,3 +42,16 @@ export function slotFilterToQuery(
     ]),
   );
 }
+
+/** A slot's `f.<slot>` param holds this when the player asked for every feat, so a reload or a link keeps it. */
+const EVERYTHING = 'all';
+
+/** Whether the URL asks `slot`'s picker to show everything rather than open on its preset. */
+export function slotEverythingFromQuery(params: QueryParams, slot: SlotKey): boolean {
+  return params[`f.${slot}`] === EVERYTHING;
+}
+
+/** The query param that asks `slot`'s picker to show everything, or clears the ask. */
+export function slotEverythingToQuery(slot: SlotKey, on: boolean): Readonly<Record<string, string | undefined>> {
+  return { [`f.${slot}`]: on ? EVERYTHING : undefined };
+}

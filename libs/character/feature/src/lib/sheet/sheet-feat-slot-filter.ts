@@ -1,4 +1,4 @@
-import { computed, signal } from '@angular/core';
+import { computed } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { availableToYou, slotPrerequisiteStatus } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
@@ -20,7 +20,12 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import { sheetEntry } from './sheet-entry-previews';
-import { slotFilterFromQuery, slotFilterToQuery } from './sheet-feat-filter';
+import {
+  slotEverythingFromQuery,
+  slotEverythingToQuery,
+  slotFilterFromQuery,
+  slotFilterToQuery,
+} from './sheet-feat-filter';
 import type { SheetFeatOption } from './sheet-feats';
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -74,15 +79,15 @@ function facetsOf(read: SlotReads | undefined, key: SlotKey): readonly FacetDefi
 /**
  * The filter of one feat slot's picker: it opens on **Available to you** for the character at that slot, whose every
  * facet the player can change, with a toggle that shows everything. The player's filters are in the URL under the
- * slot's own params, so a filtered picker can be linked.
+ * slot's own params, and so is the ask to show everything, so a filtered picker can be linked.
  */
 export function featSlotFilter({ registry, character, filters, key, options }: FeatSlotFilterInputs): FeatSlotFilter {
-  const everything = signal(false);
   const reads: Signal<SlotReads | undefined> = computed(() => {
     const loaded = registry();
     const open = character();
     return loaded === undefined || open === undefined ? undefined : { registry: loaded, character: open };
   });
+  const everything = computed(() => slotEverythingFromQuery(filters.params(), key));
   const facets = computed(() => facetsOf(reads(), key));
   const preset = computed(() => !everything() && slotFilterFromQuery(filters.params(), key, facets()).size === 0);
   const state: Signal<FilterState> = computed(() => {
@@ -98,8 +103,8 @@ export function featSlotFilter({ registry, character, filters, key, options }: F
       ? []
       : options().flatMap((option) => sheetEntry(read.registry, ContentId.parse(option.value)) ?? []);
   });
-  const write = async (next: FilterState): Promise<void> => {
-    await filters.write(slotFilterToQuery(next, key, facets()));
+  const write = async (next: FilterState, all: boolean): Promise<void> => {
+    await filters.write({ ...slotFilterToQuery(next, key, facets()), ...slotEverythingToQuery(key, all) });
   };
   return {
     state,
@@ -111,12 +116,10 @@ export function featSlotFilter({ registry, character, filters, key, options }: F
       return new Set<string>(entries().flatMap((entry) => (kept.has(entry.id) ? [] : [entry.id])));
     }),
     apply: async (next) => {
-      everything.set(next.size === 0);
-      await write(next);
+      await write(next, next.size === 0);
     },
     showEverything: async (on) => {
-      everything.set(on);
-      await write(new Map());
+      await write(new Map(), on);
     },
   };
 }

@@ -161,6 +161,12 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
       params: url,
       write: async (changes) => {
         writes.push({ ...changes });
+        url.update((now) => {
+          const named = new Set(Object.keys(changes));
+          const kept = Object.entries(now).filter(([name]) => !named.has(name));
+          const set = Object.entries(changes).filter((change) => change[1] !== undefined);
+          return Object.fromEntries([...kept, ...set]);
+        });
         await Promise.resolve();
       },
     },
@@ -194,6 +200,7 @@ describe('feat picker filters', () => {
     expect(namesAt(read, FIGHTER_FEAT_2)).toContain('Veteran-stance');
     expect(fieldAt(read, FIGHTER_FEAT_2)?.filter?.preset()).toBe(false);
     expect(read.writes.at(-1)).toMatchObject({ [`f.${FIGHTER_FEAT_2}.level`]: undefined });
+    expect(read.params()).toMatchObject({ [`f.${FIGHTER_FEAT_2}`]: 'all' });
   });
 
   it('takes the filters in the URL for the preset, for its own slot alone', async () => {
