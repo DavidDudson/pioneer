@@ -23,9 +23,13 @@
           >{{ each.label | transloco }}: {{ each.key === undefined ? each.text : (each.key | transloco) }}</fr-text
         >
       }
-      @for (each of links(); track each.url) {
-        <fr-link [external]="each.url">{{ each.label | transloco }}</fr-link>
-      }
+      <fr-stack direction="horizontal" wrap gap="xs">
+        @for (each of links(); track each.url) {
+          <fr-link [external]="each.url">
+            <fr-badge [tone]="BadgeTone.Accent">{{ each.label | transloco }}</fr-badge>
+          </fr-link>
+        }
+      </fr-stack>
     </fr-stack>
   </ng-template>
 </fr-hover-card>

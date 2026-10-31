@@ -3,6 +3,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { LucideBookOpen } from '@lucide/angular';
 import {
   Badge,
+  BadgeTone,
   Button,
   ButtonVariant,
   HoverCard,
@@ -95,6 +96,7 @@ export class SourceBadge {
   readonly #format = inject(LocaleFormat);
   protected readonly Message = SourceBadgeMessage;
   protected readonly Variant = ButtonVariant;
+  protected readonly BadgeTone = BadgeTone;
   protected readonly icon = LucideBookOpen;
 
   protected readonly type = computed(() =>
@@ -146,10 +148,10 @@ export class SourceBadge {
     const source = this.source();
     const book = this.book();
     const entry = source.kind === SourceKind.Book ? source.aon : undefined;
+    const aon = entry ?? book?.aonSourceUrl;
     const web = pageOf(source);
     return [
-      ...(entry === undefined ? [] : [{ url: entry, label: SourceBadgeMessage.AonEntry }]),
-      ...(book?.aonSourceUrl === undefined ? [] : [{ url: book.aonSourceUrl, label: SourceBadgeMessage.AonBook }]),
+      ...(aon === undefined ? [] : [{ url: aon, label: SourceBadgeMessage.Aon }]),
       ...(book?.storeUrl === undefined ? [] : [{ url: book.storeUrl, label: SourceBadgeMessage.Store }]),
       ...(web === undefined ? [] : [{ url: web, label: SourceBadgeMessage.Open }]),
     ];

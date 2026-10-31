@@ -78,7 +78,7 @@ describe('SourceBadge popover', () => {
   it('gives the details and the links of the book', async () => {
     const fixture = await render({ source: PLAYER_CORE_SOURCE, book: PLAYER_CORE, mode: SourceBadgeMode.Compact });
     const text = await open(fixture);
-    for (const expected of ['Rulebook', 'Spring 2026', '8.6.0', 'Page: 46', 'Archives of Nethys', 'Paizo Store']) {
+    for (const expected of ['Rulebook', 'Spring 2026', '8.6.0', 'Page: 46', 'AoN', 'Buy Book (Paizo)']) {
       expect(text).toContain(expected);
     }
   });

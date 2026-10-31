@@ -739,9 +739,8 @@
         "page": "Page"
       },
       "link": {
-        "aonEntry": "This entry on Archives of Nethys",
-        "aonBook": "This book on Archives of Nethys",
-        "store": "This book in the Paizo Store",
+        "aon": "AoN",
+        "store": "Buy Book (Paizo)",
         "open": "Open the page"
       },
       "type": {

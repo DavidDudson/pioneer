@@ -16,8 +16,7 @@ export const SourceBadgeMessage = {
   Errata: 'rules.sourceBadge.row.errata',
   FoundryVersion: 'rules.sourceBadge.row.foundryVersion',
   Page: 'rules.sourceBadge.row.page',
-  AonEntry: 'rules.sourceBadge.link.aonEntry',
-  AonBook: 'rules.sourceBadge.link.aonBook',
+  Aon: 'rules.sourceBadge.link.aon',
   Store: 'rules.sourceBadge.link.store',
   Open: 'rules.sourceBadge.link.open',
 } as const;
