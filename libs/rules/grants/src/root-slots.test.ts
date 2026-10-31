@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, ContentText, OriginHop, SlotKey } from '@pioneer/rules/sdk';
+import { ContentKind, ContentText, OriginHop, Rarity, SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { GrantEntry } from './grant-entry';
@@ -120,4 +120,26 @@ describe('a root slot within another', () => {
       expect(result.errors).toEqual([]);
     },
   );
+});
+
+describe('root slots over an unsupported pack', () => {
+  const content = [
+    ancestry('human', 'Human'),
+    {
+      ...ancestry('elf', 'Elf'),
+      facts: { rarity: Rarity.Common, traits: [], description: [], unsupported: true as const },
+    },
+  ];
+  const read = (picks: readonly (readonly [SlotKey, string])[]): GrantResolution =>
+    resolveGrants(inputsOf({ entries: content, roots: [], picks: picksOf(picks), rootSlots: ROOT_SLOTS }));
+
+  test('an open slot does not offer an entry of an unsupported pack', () => {
+    expect(read([]).rootSlots[0]?.options.map((option) => String(option.label))).toEqual(['Human']);
+  });
+
+  test('a held pick from that pack answers the slot and stays on offer', () => {
+    const [slot] = read([[ANCESTRY, idOf('elf')]]).rootSlots;
+    expect(slot?.pick).toBe(idOf('elf'));
+    expect(slot?.options.map((option) => String(option.label))).toEqual(['Elf', 'Human']);
+  });
 });

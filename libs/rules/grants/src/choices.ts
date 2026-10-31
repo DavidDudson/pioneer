@@ -175,7 +175,7 @@ class ChoiceReader {
     const place = this.#place({ element, rule });
     const value = this.#context.picks.get(place.key);
     if (value === undefined) {
-      this.#open.push(slotOf(place, this.#offer(element, place, this.#context)));
+      this.#open.push(slotOf(place, this.#offer({ element, place }, this.#context)));
     } else {
       this.#readPick({ element, place }, value);
     }
@@ -196,7 +196,7 @@ class ChoiceReader {
     const apart = option === undefined ? this.#context : { ...this.#context, facts: this.#context.facts.minus(option) };
     // Order Explorer lists an order unless the druid has it, or this very pick joined it: its own option is the way in.
     const context = isOffered(element, value, apart) ? apart : this.#context;
-    const offer = this.#offer(element, place, context);
+    const offer = this.#offer({ element, place }, context, value);
     if (isOffered(element, value, context) && !this.#earlierPicks(place).has(value)) {
       this.#answer(answeredOf(place, offer, { pick: value, option }));
     } else {
@@ -208,10 +208,14 @@ class ChoiceReader {
     return earlierPicks({ ...place, entry: this.#at.entry.id, before: this.#at.before }, this.#context.picks);
   }
 
-  /** What the slot offers: the options of `element` less what an earlier take of the entry picked. */
-  #offer(element: ChoiceSetElement, place: SlotPlace, context: ChoiceContext): Offer {
+  /** What the slot offers: the options of `element` less what an earlier take of the entry picked; `held` is its pick. */
+  #offer(
+    { element, place }: { readonly element: ChoiceSetElement; readonly place: SlotPlace },
+    context: ChoiceContext,
+    held?: ChoiceValue,
+  ): Offer {
     const earlier = this.#earlierPicks(place);
-    return new Offer(() => offeredOptions(element, context).filter((option) => !earlier.has(option.value)));
+    return new Offer(() => offeredOptions(element, context, held).filter((option) => !earlier.has(option.value)));
   }
 
   /** A pick that is not on offer: an error naming it and the slot, and the slot open again. */

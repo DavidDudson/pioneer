@@ -55,12 +55,17 @@ function sharesOwnTrait({ ownTrait }: ChoiceQuery, candidateFacts: PredicateFact
 
 /**
  * Every entry of the query's kind whose filter is not false, read against the character's facts with the entry's
- * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id.
+ * own options under `item:`. One whose filter is unknown carries when it would hold. Sorted by name, then id. An entry
+ * of an unsupported pack is left out unless it is the `held` pick: a character keeps what it has from such a pack but
+ * takes nothing new from it.
  */
-function queriedOptions(query: ChoiceQuery, context: ChoiceContext): OfferedOption[] {
+function queriedOptions(query: ChoiceQuery, context: ChoiceContext, held: ChoiceValue | undefined): OfferedOption[] {
   const { facts, lookup } = context;
   const { kind, filter } = query;
   const offered = lookup.ofKind(kind).flatMap((candidate): OfferedOption[] => {
+    if (candidate.facts?.unsupported === true && candidate.id !== held) {
+      return [];
+    }
     const candidateFacts = facts.withNamespace(CANDIDATE_NAMESPACE, candidateOptions(candidate, context));
     if (!sharesOwnTrait(query, candidateFacts)) {
       return [];
@@ -75,8 +80,12 @@ function queriedOptions(query: ChoiceQuery, context: ChoiceContext): OfferedOpti
   return offered.toSorted(byLabel);
 }
 
-export function offeredOptions({ choices }: ChoiceSetElement, context: ChoiceContext): OfferedOption[] {
-  return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context);
+export function offeredOptions(
+  { choices }: ChoiceSetElement,
+  context: ChoiceContext,
+  held?: ChoiceValue,
+): OfferedOption[] {
+  return Array.isArray(choices) ? listedOptions(choices, context.facts) : queriedOptions(choices, context, held);
 }
 
 /** Whether `value` is a listed option whose predicate is not false. */

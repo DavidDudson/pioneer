@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { SummaryKind } from '@pioneer/rules/predicate';
-import { ContentKind, ContentLevel, ContentText, OriginHop, RollOption } from '@pioneer/rules/sdk';
+import { ContentKind, ContentLevel, ContentText, OriginHop, Rarity, RollOption } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
@@ -244,5 +244,34 @@ describe('resolveGrants choice queries', () => {
     ]);
     expect(result.open.map((slot) => slot.key)).toEqual([CLASS_FEAT_SLOT]);
     expect(result.items.map((item) => item.entry.id)).toEqual([idOf('fighter')]);
+  });
+});
+
+/** `found` as an entry of a pack no longer in force for the character. */
+const unsupported = (found: GrantEntry): GrantEntry => ({
+  ...found,
+  facts: { rarity: Rarity.Common, traits: [], description: [], unsupported: true },
+});
+
+describe('resolveGrants choice queries over an unsupported pack', () => {
+  const content = [
+    fighter(CLASS_FEAT),
+    unsupported(SUDDEN_CHARGE),
+    feat('double-slice', ['trait:fighter', 'level:1'], 'Double Slice'),
+  ];
+
+  test('leaves out an entry of an unsupported pack, however well it fits', () => {
+    const result = resolve(content, { level: 1 });
+    expect(offered(result)).toEqual(['Double Slice']);
+  });
+
+  test('keeps the held pick on offer, and the pick answers the slot', () => {
+    const result = resolve(content, { level: 1, picks: [[CLASS_FEAT_SLOT, idOf('sudden-charge')]] });
+    expect(result.errors).toEqual([]);
+    expect(result.answered.map((slot) => slot.pick)).toEqual([idOf('sudden-charge')]);
+    expect(result.answered[0]?.options.map((option) => option.value)).toEqual([
+      idOf('double-slice'),
+      idOf('sudden-charge'),
+    ]);
   });
 });
