@@ -89,7 +89,13 @@ export {
 export { WandSpellsView } from './lib/wand-spells/wand-spells.component';
 export { type SpellAccessLine } from './lib/spell-access/spell-access-line';
 export { type RemoveSpellAccess, SpellAccessListView } from './lib/spell-access/spell-access-list.component';
-export { type InventoryGroup, type InventoryLine, InventoryPlacement } from './lib/inventory/inventory-line';
+export {
+  type InventoryGroup,
+  type InventoryLine,
+  InventoryPlacement,
+  type LineLoad,
+  LoadEffect,
+} from './lib/inventory/inventory-line';
 export { InventoryView } from './lib/inventory/inventory.component';
 export { type Investment, type InvestmentEffect } from './lib/inventory/investments/investment';
 export { InvestmentsView } from './lib/inventory/investments/investments.component';

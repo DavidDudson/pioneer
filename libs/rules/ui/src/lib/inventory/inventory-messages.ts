@@ -1,5 +1,6 @@
 import { BulkWeight } from '@pioneer/rules/sdk';
 
+import { LoadEffect } from './inventory-line';
 import type { InventoryPlacement } from './inventory-line';
 
 /** Message keys the inventory renders with, spelled out so the key check sees them. */
@@ -17,7 +18,16 @@ export const InventoryMessage = {
   RuleBreaking: 'rules.inventory.ruleBreaking',
   ApprovedByGm: 'rules.inventory.approvedByGm',
   KeyItem: 'rules.inventory.keyItem',
+  Load: 'rules.inventory.load',
+  LoadUnlimited: 'rules.inventory.loadUnlimited',
 } as const;
+
+/** Why a container's Bulk is what it is, by what it does to the Bulk it holds. */
+export const LOAD_EFFECT_MESSAGES: Readonly<Record<LoadEffect, string>> = {
+  [LoadEffect.AddsAll]: 'rules.inventory.loadEffect.addsAll',
+  [LoadEffect.Ignores]: 'rules.inventory.loadEffect.ignores',
+  [LoadEffect.AddsNone]: 'rules.inventory.loadEffect.addsNone',
+};
 
 export const PLACEMENT_MESSAGES: Readonly<Record<InventoryPlacement, string>> = {
   worn: 'rules.inventory.placement.worn',
