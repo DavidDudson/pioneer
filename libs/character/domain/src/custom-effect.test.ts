@@ -5,7 +5,13 @@ import { fixedClock, UserId } from '@pioneer/shared/kernel';
 import type { Character } from './character';
 import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch } from './character-patch';
-import { activeCustomEffects, CustomEffectProblem, customEffectProblem, customEffectRules } from './custom-effect';
+import {
+  activeCustomEffects,
+  CustomEffectProblem,
+  customEffectProblem,
+  customEffectRules,
+  withCustomEffectEdit,
+} from './custom-effect';
 import {
   CUSTOM_EFFECT_TOGGLES_MAX,
   CUSTOM_EFFECTS_MAX,
@@ -97,14 +103,10 @@ describe('switching a custom effect', () => {
     expect(same.document.customEffects[0]?.toggles).toEqual([]);
   });
 
-  test('is refused once the record is full', () => {
+  test('keeps the latest switches once the history is full, dropping the oldest', () => {
     const full = added(blank);
-    const toggles = Array.from({ length: CUSTOM_EFFECT_TOGGLES_MAX }, () => ({
-      by: AUTHOR,
-      byRole: OverrideRole.Player,
-      at: overrideTime(THEN),
-      enabled: true,
-    }));
+    const toggle = { by: AUTHOR, byRole: OverrideRole.Player, at: overrideTime(THEN), enabled: true };
+    const toggles = [{ ...toggle, by: GM }, ...Array.from({ length: CUSTOM_EFFECT_TOGGLES_MAX - 1 }, () => toggle)];
     const crowded = CustomEffectSchema.parse({
       id: BLESSING,
       ...INPUT,
@@ -116,8 +118,12 @@ describe('switching a custom effect', () => {
     });
     const document = { ...full.document, customEffects: [crowded] };
     const patch = { field: CharacterPatchField.ToggleCustomEffect, id: BLESSING, enabled: false } as const;
+    const [effect] = withCustomEffectEdit(document, patch, { actor: AUTHOR, now: LATER }).customEffects;
 
-    expect(customEffectProblem(document, patch)).toBe(CustomEffectProblem.TogglesFull);
+    expect(customEffectProblem(document, patch)).toBeUndefined();
+    expect(effect?.toggles).toHaveLength(CUSTOM_EFFECT_TOGGLES_MAX);
+    expect(effect?.toggles[0]?.by).toBe(AUTHOR);
+    expect(effect?.toggles.at(-1)).toMatchObject({ by: AUTHOR, enabled: false, at: overrideTime(LATER) });
   });
 });
 

@@ -764,7 +764,6 @@
     "customEffectLinesRequired": "Add at least one line. A custom effect with no lines changes nothing.",
     "customEffectUnknown": "That custom effect is no longer on the character. Reload the sheet and try again.",
     "customEffectFull": "This character has as many custom effects as it can hold. Remove one first.",
-    "customEffectTogglesFull": "That custom effect has been switched as many times as it keeps. Remove it and add a new one.",
     "customEffectGmOwned": "Your GM set this effect, so only your GM can remove it. Ask them if it should go.",
     "overrideGmOwned": "Your GM set this override, so only your GM can remove it. Ask them if it should go.",
     "repertoireSwapUsed": "This character has swapped a repertoire spell at level {level} already. Only one spell can be swapped each time they level up; the rest take retraining.",

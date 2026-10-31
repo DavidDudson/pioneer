@@ -74,7 +74,7 @@ export function customEffectOf(document: CharacterDocument, id: CustomEffectId):
 }
 
 /** Why a custom effect edit cannot be made. */
-export const CustomEffectProblem = { Unknown: 'unknown', Full: 'full', TogglesFull: 'togglesFull' } as const;
+export const CustomEffectProblem = { Unknown: 'unknown', Full: 'full' } as const;
 export type CustomEffectProblem = ValueOf<typeof CustomEffectProblem>;
 
 /** What stops `patch` from changing the document, or undefined when it can. */
@@ -85,12 +85,7 @@ export function customEffectProblem(
   if (patch.field === CharacterPatchField.AddCustomEffect) {
     return document.customEffects.length >= CUSTOM_EFFECTS_MAX ? CustomEffectProblem.Full : undefined;
   }
-  const found = customEffectOf(document, patch.id);
-  if (found === undefined) {
-    return CustomEffectProblem.Unknown;
-  }
-  const changes = patch.field === CharacterPatchField.ToggleCustomEffect && patch.enabled !== found.enabled;
-  return changes && found.toggles.length >= CUSTOM_EFFECT_TOGGLES_MAX ? CustomEffectProblem.TogglesFull : undefined;
+  return customEffectOf(document, patch.id) === undefined ? CustomEffectProblem.Unknown : undefined;
 }
 
 /** The effect an add makes: the author's inputs, with who added it and when, on, under the id its caller made. */
@@ -150,7 +145,7 @@ export function withCustomEffectEdit(
                   at: overrideTime(edit.now),
                   enabled: patch.enabled,
                 },
-              ],
+              ].slice(-CUSTOM_EFFECT_TOGGLES_MAX),
             },
       );
     }

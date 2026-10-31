@@ -665,7 +665,7 @@ interface CustomEffect {
   byRole: 'player' | 'gm'; // what `by` was to the character
   at: Instant;
   enabled: boolean; // starts on
-  toggles: { by: UserId; byRole: 'player' | 'gm'; at: Instant; enabled: boolean }[]; // every switch, at most 100
+  toggles: { by: UserId; byRole: 'player' | 'gm'; at: Instant; enabled: boolean }[]; // the latest 100 switches, oldest dropped first
   removed?: { by: UserId; at: Instant; reason: string }; // set once taken off; the effect stays on record
 }
 ```
@@ -673,7 +673,7 @@ interface CustomEffect {
 While `enabled`, each line compiles (`customEffectRules`) to a typed `FlatModifier` with the effect's name as its
 `display.label` and an `override` origin hop naming who added it and why, so the breakdown lists the lines under the
 effect's name. Switching off compiles nothing and switching on restores every line. A toggle to the state the effect is
-already in records nothing; once an effect holds 100 switches it can no longer be switched (`customEffectTogglesFull`).
+already in records nothing; an effect keeps its latest 100 switches, dropping the oldest, so switching never runs out.
 `addCustomEffect`, `toggleCustomEffect` and `removeCustomEffect` are the patches, each its own audited command. A removal
 keeps the effect with `removed` set (ADR-0062). The GM of a campaign may add and switch effects on its characters; an
 effect a GM added is the GM's to remove, as for an override.

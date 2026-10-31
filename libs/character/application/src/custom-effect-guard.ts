@@ -13,7 +13,6 @@ import { ForbiddenError, message, ValidationError } from '@pioneer/shared/kernel
 const CUSTOM_EFFECT_REFUSALS = {
   [CustomEffectProblem.Unknown]: 'character.validation.customEffectUnknown',
   [CustomEffectProblem.Full]: 'character.validation.customEffectFull',
-  [CustomEffectProblem.TogglesFull]: 'character.validation.customEffectTogglesFull',
 } as const satisfies Record<CustomEffectProblem, string>;
 
 /**
