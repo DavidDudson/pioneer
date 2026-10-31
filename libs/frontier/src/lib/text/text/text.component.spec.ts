@@ -2,7 +2,7 @@ import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/c
 import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
-import { Tone } from '../../tokens';
+import { DamageTone, Tone } from '../../tokens';
 import { FontWeight, TextVariant } from '../text.variants';
 import { Text, TextElement } from './text.component';
 
@@ -76,6 +76,13 @@ describe(Text, () => {
       expect([...rendered.classList]).toContain('font-mono');
     },
   );
+
+  it('colours by a damage type in place of its tone', async () => {
+    const rendered = await render({ damage: DamageTone.Fire, tone: Tone.Muted });
+    expect([...rendered.classList]).toContain('text-damage-fire');
+    expect([...rendered.classList]).not.toContain('text-fg-muted');
+    expect([...rendered.classList]).not.toContain('text-fg-default');
+  });
 
   it('keeps the line breaks in a <pre>', async () => {
     const rendered = await render({ element: TextElement.Preformatted }, '[\n  "a"\n]');
