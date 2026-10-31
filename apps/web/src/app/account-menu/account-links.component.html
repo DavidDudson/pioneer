@@ -1,0 +1,13 @@
+<fr-stack gap="2xs">
+  <fr-link [to]="settingsPath">{{ 'shell.account.settings' | transloco }}</fr-link>
+  <fr-link [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
+  @if (session.user()?.isMaintainer) {
+    <fr-link [to]="bugReportsPath">{{ 'shell.account.bugReports' | transloco }}</fr-link>
+  }
+  @for (extra of extras; track extra) {
+    <ng-container [ngComponentOutlet]="extra" />
+  }
+  <fr-async-button variant="ghost" size="sm" [action]="signOut">{{
+    'shell.account.signOut' | transloco
+  }}</fr-async-button>
+</fr-stack>

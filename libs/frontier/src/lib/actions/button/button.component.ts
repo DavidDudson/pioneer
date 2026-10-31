@@ -126,6 +126,8 @@ export class Button {
    * with the accent when on. Unset for a plain button. Features use `fr-toggle-button` or `fr-segmented`.
    */
   public readonly toggled = input<boolean | undefined>(undefined);
+  /** The button opens a popup, and whether it is open now (`aria-expanded`, `aria-haspopup`). Unset for a plain button. */
+  public readonly expanded = input<boolean | undefined>(undefined);
   /** The content is a lone `fr-icon`: a square button. Give it an `ariaLabel`. */
   public readonly iconOnly = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();

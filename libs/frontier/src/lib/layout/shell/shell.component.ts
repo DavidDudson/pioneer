@@ -11,9 +11,12 @@ import {
 import { TranslocoPipe } from '@jsverse/transloco';
 import { cva } from 'class-variance-authority';
 
+import { Breadcrumbs } from '../../actions/breadcrumbs/breadcrumbs.component';
 import { Link } from '../../actions/link/link.component';
+import { Badge } from '../../text/badge/badge.component';
 import { Text } from '../../text/text/text.component';
 import { Box } from '../box/box.component';
+import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { Stack } from '../stack/stack.component';
 
 const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
@@ -28,8 +31,9 @@ const HEADER_HEIGHT_PROPERTY = '--fr-size-shell-header';
 const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
 
 /**
- * App chrome: top bar with brand, nav slot and actions slot (`frShellActions`,
- * e.g. appearance controls), routed content below in the page's only `<main>`.
+ * App chrome: one-row top bar with the brand (and an optional badge), the breadcrumbs of the open page (shown by its
+ * `fr-page-header`), a search slot (`frShellSearch`) and an actions slot (`frShellActions`,
+ * e.g. menus), routed content below in the page's only `<main>`.
  * A skip link, hidden until focused, is the first thing Tab reaches and moves
  * focus past the header to `<main>`.
  * Pads for notches and home indicators (needs `viewport-fit=cover`).
@@ -37,13 +41,17 @@ const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
  */
 @Component({
   selector: 'fr-shell',
-  imports: [Box, Link, Stack, Text, TranslocoPipe],
+  imports: [Badge, Box, Breadcrumbs, Link, Stack, Text, TranslocoPipe],
   templateUrl: './shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { '[class]': 'hostClasses' },
 })
 export class Shell {
   public readonly brand = input.required<string>();
+  /** A short status beside the brand, already translated ("Pre-Alpha"). */
+  public readonly badge = input<string | undefined>(undefined);
+
+  protected readonly crumbs = inject(HeaderCrumbs);
 
   protected readonly hostClasses = shellClasses;
   protected readonly mainId = MAIN_ID;
@@ -52,8 +60,9 @@ export class Shell {
     'sr-only focus-within:not-sr-only focus-within:block focus-within:px-md focus-within:py-sm',
   )();
   protected readonly brandClasses = cva('shrink-0')();
-  protected readonly navClasses = cva('min-w-none overflow-x-auto')();
-  protected readonly actionsClasses = cva('ms-auto shrink-0')();
+  protected readonly crumbsClasses = cva('min-w-none flex-1')();
+  protected readonly searchClasses = cva('max-w-search min-w-none flex-1')();
+  protected readonly actionsClasses = cva('shrink-0')();
   // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
   protected readonly contentClasses = cva('flex-1 focus:outline-hidden')();
   protected readonly footerClasses = footerClasses;

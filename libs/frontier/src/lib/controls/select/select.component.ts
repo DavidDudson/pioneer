@@ -3,6 +3,7 @@ import { Listbox, Option } from '@angular/aria/listbox';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ChangeDetectionStrategy, Component, computed, input, model, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import type { LucideIcon } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
 
 import { comboboxOptionDescriptionClasses } from '../combobox/combobox.variants';
@@ -14,6 +15,8 @@ export interface SelectOption<TValue extends string> {
   readonly value: TValue;
   readonly label: string;
   readonly description?: string;
+  /** Used by `fr-segmented`: the option shows this icon alone, and `label` becomes its accessible name. */
+  readonly icon?: LucideIcon;
 }
 
 const listboxClasses = cva(

@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, input } from '@angular/core';
 
-import { Breadcrumbs } from '../../actions/breadcrumbs/breadcrumbs.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { Heading } from '../../text/heading/heading.component';
 import { Text } from '../../text/text/text.component';
+import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { Stack } from '../stack/stack.component';
 import { injectRouteCrumbs } from './route-crumbs';
 
 /**
  * The title area of an `fr-page`: the page's only `h1`, an optional description, and three slots.
- * Above the title it shows the breadcrumbs of the active route (`injectRouteCrumbs`); pages do not pass items.
+ * It works out the breadcrumbs of the active route (`injectRouteCrumbs`) and shows them in the shell's header; pages do not pass items.
  * Project `[frPageActions]` beside the title and `[frPageTabs]` below it.
  * While `title` is `undefined` the heading shows a skeleton.
  *
@@ -21,7 +21,7 @@ import { injectRouteCrumbs } from './route-crumbs';
  */
 @Component({
   selector: 'fr-page-header',
-  imports: [Breadcrumbs, Heading, Skeleton, Stack, Text],
+  imports: [Heading, Skeleton, Stack, Text],
   templateUrl: './page-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
@@ -31,5 +31,8 @@ export class PageHeader {
   public readonly title = input.required<string | undefined>();
   public readonly description = input<string | undefined>(undefined);
 
-  protected readonly crumbs = injectRouteCrumbs();
+  public constructor() {
+    const release = inject(HeaderCrumbs).show(injectRouteCrumbs());
+    inject(DestroyRef).onDestroy(release);
+  }
 }

@@ -1,17 +1,29 @@
-@if (session.user(); as user) {
-  <fr-stack direction="horizontal" gap="xs" align="center">
-    <fr-link variant="caption" exact [to]="accountPath">{{ user.displayName }}</fr-link>
-    <fr-link variant="caption" [to]="settingsPath">{{ 'shell.account.settings' | transloco }}</fr-link>
-    <fr-link variant="caption" [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
-    @if (user.isMaintainer) {
-      <fr-link variant="caption" [to]="bugReportsPath">{{ 'shell.account.bugReports' | transloco }}</fr-link>
+@if (session.known()) {
+  <fr-dropdown [label]="'shell.account.menu' | transloco" [icon]="signedOutIcon" [custom]="signedIn()">
+    @if (session.user(); as user) {
+      <fr-avatar frDropdownTrigger size="sm" decorative [name]="user.displayName" />
     }
-    <fr-async-button variant="ghost" size="sm" [action]="signOut">{{
-      'shell.account.signOut' | transloco
-    }}</fr-async-button>
-  </fr-stack>
-} @else if (session.known()) {
-  <fr-button variant="ghost" size="sm" (pressed)="session.showSignIn()">{{
-    'shell.account.signIn' | transloco
-  }}</fr-button>
+    <fr-stack gap="sm">
+      @if (session.user(); as user) {
+        <fr-link exact [to]="accountPath">{{ user.displayName }}</fr-link>
+      }
+      <fr-stack gap="2xs">
+        <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.theme' | transloco }}</fr-text>
+        <pio-theme-menu />
+      </fr-stack>
+      <fr-stack gap="2xs">
+        <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.darkMode' | transloco }}</fr-text>
+        <pio-dark-mode-toggle />
+      </fr-stack>
+      <fr-divider />
+      @if (signedIn()) {
+        <pio-account-links />
+      } @else {
+        <fr-link [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
+        <fr-button variant="ghost" size="sm" (pressed)="session.showSignIn()">{{
+          'shell.account.signIn' | transloco
+        }}</fr-button>
+      }
+    </fr-stack>
+  </fr-dropdown>
 }

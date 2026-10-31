@@ -1,0 +1,8 @@
+<fr-stack gap="2xs">
+  <fr-text variant="caption" tone="subtle">{{ 'identityDev.switch.heading' | transloco }}</fr-text>
+  @for (user of users; track user.id) {
+    <fr-button variant="ghost" size="sm" [toggled]="current()?.id === user.id" (pressed)="switchTo(user)">{{
+      user.displayName
+    }}</fr-button>
+  }
+</fr-stack>

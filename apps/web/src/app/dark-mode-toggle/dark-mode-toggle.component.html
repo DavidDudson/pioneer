@@ -1,0 +1,6 @@
+<fr-segmented
+  [ariaLabel]="'shell.appearance.darkMode' | transloco"
+  [options]="options()"
+  [value]="appearance.modeChoice()"
+  (valueChange)="choose($event)"
+/>

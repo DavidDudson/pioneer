@@ -60,6 +60,9 @@
   --container-drawer-wide: 40rem;
   /* Width of a signed modifier such as +10 in the face it is set in (`min-w-modifier`, `fr-text` `minWidth`). */
   --container-modifier: 3ch;
+  /* Least width of an `fr-dropdown` panel (`min-w-dropdown`), and widest of the shell's search slot (`max-w-search`). */
+  --container-dropdown: 14rem;
+  --container-search: 36rem;
 
   --color-surface-canvas: var(--fr-surface-canvas);
   --color-surface-base: var(--fr-surface-base);

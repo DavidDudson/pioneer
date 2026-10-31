@@ -16,8 +16,15 @@
       [variant]="variant"
       [disabled]="disabled()"
       [toggled]="option.value === value()"
+      [iconOnly]="option.icon !== undefined"
+      [ariaLabel]="option.icon === undefined ? undefined : option.label"
       (pressed)="choose(option.value)"
-      >{{ option.label }}</fr-button
     >
+      @if (option.icon; as icon) {
+        <fr-icon [icon]="icon" />
+      } @else {
+        {{ option.label }}
+      }
+    </fr-button>
   }
 </div>
