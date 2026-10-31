@@ -1,6 +1,7 @@
 import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
-import type { GrantRoot } from '@pioneer/rules/grants';
+import { kindOption } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantRoot } from '@pioneer/rules/grants';
 import {
   ContentId,
   ContentKind,
@@ -236,6 +237,18 @@ export function effectContent(registry: ContentRegistry): EffectContent {
         : [],
     ),
   );
+}
+
+/**
+ * `self:effect:<slug>:badge:<value>` for each effect whose badge shows a number, so a rule can ask how far it has
+ * counted (Shield (Amped) keeps its AC bonus while all three layers stand).
+ */
+export function badgeOptions(effects: readonly ActiveEffect[], lookup: ContentLookup): readonly RollOption[] {
+  return effects.flatMap(({ effect, badge }): RollOption[] => {
+    const found = lookup.entry(effect);
+    const base = found === undefined ? undefined : kindOption(found.kind, found.slug);
+    return base === undefined || badge === undefined ? [] : [RollOption.parse(`${base}:badge:${badge}`)];
+  });
 }
 
 /**

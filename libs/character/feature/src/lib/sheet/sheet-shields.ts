@@ -3,6 +3,7 @@ import {
   equippedRules,
   heldShields,
   itemContent,
+  layersLeft,
   PlayCommandField,
   SELF,
   ShieldCondition,
@@ -67,6 +68,8 @@ export interface ShieldLine {
   readonly raised: boolean;
   /** The damage to roll when the Shield Block that ends its effect breaks it; none for a shield that does not. */
   readonly shards: ShardDamage | undefined;
+  /** The layers a layered shield has left, which a block breaks; none for a shield without layers. */
+  readonly layersLeft: number | undefined;
 }
 
 /** The shields the character holds, with the damage the play state records on each. */
@@ -87,6 +90,7 @@ export function shieldLines(registry: ContentRegistry, character: Character, pla
       undamageable: undamageable === true,
       raised: granted?.raised === true,
       shards: granted?.endsOnBlock === true ? granted.shards : undefined,
+      layersLeft: granted?.layered === true ? layersLeft(play, granted) : undefined,
     };
   });
 }

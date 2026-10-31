@@ -17,6 +17,15 @@
         @for (shown of shields(); track shown.line.key) {
           <fr-stack direction="horizontal" align="center" gap="xs" wrap>
             <fr-text>{{ shown.summary }}</fr-text>
+            @if (shown.line.layersLeft !== undefined) {
+              <fr-number-input
+                [ariaLabel]="'character.sheet.shields.layers' | transloco"
+                [min]="1"
+                [max]="shown.line.layersLeft"
+                [value]="layers()"
+                (valueChange)="layers.set($event)"
+              />
+            }
             <fr-async-button
               size="sm"
               [action]="block(shown.line.key)"
