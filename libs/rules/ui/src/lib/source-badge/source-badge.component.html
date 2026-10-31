@@ -15,7 +15,9 @@
   <ng-template frHoverCardContent>
     <fr-stack gap="xs">
       <fr-text weight="semibold">{{ heading().key | transloco: heading().params }}</fr-text>
-      <fr-text tone="muted">{{ Message.Type | transloco: { type: (typeKey() | transloco) } }}</fr-text>
+      <fr-text variant="caption" tone="muted">{{
+        Message.Type | transloco: { type: (typeKey() | transloco) }
+      }}</fr-text>
       @for (each of rows(); track each.label) {
         <fr-text variant="caption"
           >{{ each.label | transloco }}: {{ each.key === undefined ? each.text : (each.key | transloco) }}</fr-text
