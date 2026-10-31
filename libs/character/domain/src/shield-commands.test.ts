@@ -1,7 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DamageTotal } from '@pioneer/rules/dice';
-import { ContentId, Hardness, HitPoints } from '@pioneer/rules/sdk';
+import type { DamageApplication } from '@pioneer/rules/dice';
+import { ContentId, DamageType, Hardness, HitPoints } from '@pioneer/rules/sdk';
 
 import { ActiveEffectSchema, EffectInstanceId } from './effects';
 import type { ActiveEffect } from './effects';
@@ -9,7 +10,7 @@ import type { ShieldGrant } from './held-shields';
 import { InventoryItemId } from './inventory';
 import { applyPlayCommand, currentHitPoints, FRESH_PLAY, PlayCommandField } from './play-state';
 import type { PlayState } from './play-state';
-import { blocked, blockProblem, ShieldCondition, shieldCondition, ShieldProblem } from './shield-commands';
+import { blocked, blockProblem, hardnessFor, ShieldCondition, shieldCondition, ShieldProblem } from './shield-commands';
 import type { ShieldContent, ShieldStats } from './shield-commands';
 import { within } from './testing';
 import { untypedDamage } from './untyped-damage';
@@ -194,5 +195,53 @@ describe('Shield Block with a shield an effect gives', () => {
 
   test('damage on a shield whose effect ended is no longer kept', () => {
     expect(given({ granted: grant(true, false) }, 3).shields).toStrictEqual({});
+  });
+});
+
+/** Damage of one `type` taken in full, as a roll gives it. */
+function damageOf(amount: number, ...types: readonly (DamageType | undefined)[]): DamageApplication {
+  const each = DamageTotal.parse(amount);
+  return {
+    critical: false,
+    immediate: types.map((type) => ({ type, rolled: each, dealt: each, taken: each, lines: [] })),
+    persistent: [],
+    taken: DamageTotal.parse(amount * types.length),
+    persistentTaken: DamageTotal.parse(0),
+  };
+}
+
+describe('a shield with extra Hardness against some damage', () => {
+  const BONE: ShieldStats = {
+    hardness: Hardness.parse(3),
+    hitPoints: HitPoints.parse(1),
+    brokenThreshold: HitPoints.parse(0),
+    hardnessAgainst: [{ types: [DamageType.Piercing, DamageType.Slashing], bonus: Hardness.parse(2) }],
+  };
+
+  test.each([
+    [[DamageType.Piercing], 5],
+    [[DamageType.Slashing], 5],
+    [[DamageType.Piercing, DamageType.Slashing], 5],
+    [[DamageType.Bludgeoning], 3],
+    [[DamageType.Piercing, DamageType.Bludgeoning], 3],
+    [[undefined], 3],
+    [[], 3],
+  ])('against %j its Hardness is %p', (types, hardness) => {
+    expect(hardnessFor(BONE, damageOf(4, ...types))).toBe(Hardness.parse(hardness));
+  });
+
+  test('a block prevents the Hardness for the damage it blocks', () => {
+    const play = (damage: DamageApplication): PlayState =>
+      applyPlayCommand(
+        FRESH_PLAY,
+        { field: PlayCommandField.BlockWithShield, item: ITEM, damage },
+        { ...within(MAX), shields: new Map([[ITEM, BONE]]) },
+      );
+
+    const slashed = play(damageOf(8, DamageType.Slashing));
+    const burned = play(damageOf(8, DamageType.Fire));
+
+    expect(currentHitPoints(slashed.hp, MAX)).toBe(hp(27));
+    expect(currentHitPoints(burned.hp, MAX)).toBe(hp(25));
   });
 });

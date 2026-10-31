@@ -1,6 +1,6 @@
 import { DamageApplication, DamageTotal } from '@pioneer/rules/dice';
-import { HitPoints } from '@pioneer/rules/sdk';
-import type { Hardness } from '@pioneer/rules/sdk';
+import { Hardness, HitPoints } from '@pioneer/rules/sdk';
+import type { HardnessBonus } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -29,6 +29,8 @@ export interface ShieldStats {
   readonly undamageable?: true;
   /** A shield an effect gives: the effect, and what ends it. */
   readonly granted?: ShieldGrant;
+  /** Extra Hardness against damage of some types. */
+  readonly hardnessAgainst?: readonly HardnessBonus[];
 }
 
 /** The shields the character holds, by the inventory item, as the server's content gives them. */
@@ -41,7 +43,15 @@ export const NO_SHIELDS: ShieldContent = new Map();
 export function shieldContent(held: readonly HeldShield[]): ShieldContent {
   return new Map(
     held.map(
-      ({ item, hardness, hitPoints, brokenThreshold, undamageable, granted }): [InventoryItemId, ShieldStats] => [
+      ({
+        item,
+        hardness,
+        hitPoints,
+        brokenThreshold,
+        undamageable,
+        granted,
+        hardnessAgainst,
+      }): [InventoryItemId, ShieldStats] => [
         item,
         {
           hardness,
@@ -49,6 +59,7 @@ export function shieldContent(held: readonly HeldShield[]): ShieldContent {
           brokenThreshold,
           ...(undamageable === true ? { undamageable } : {}),
           ...(granted === undefined ? {} : { granted }),
+          ...(hardnessAgainst === undefined ? {} : { hardnessAgainst }),
         },
       ],
     ),
@@ -122,9 +133,25 @@ export function blockProblem(
   return shieldCondition(stats, played[item] ?? NONE) === ShieldCondition.Whole ? undefined : ShieldProblem.Broken;
 }
 
-/** How a shield that has already taken `damage` stands once it blocks `taken` damage: the Hardness prevents some, and it takes the rest. */
-export function conditionAfterBlock(stats: ShieldStats, damage: HitPoints, taken: DamageTotal): ShieldCondition {
-  const through = HitPoints.parse(Math.min(damage + blocked(taken, stats.hardness).remaining, stats.hitPoints));
+/**
+ * The Hardness the shield has against `blow`: its own, and each bonus whose damage types the blow is all of. A blow of
+ * no damage, or with untyped damage in it, gets no bonus.
+ */
+export function hardnessFor(
+  { hardness, hardnessAgainst: bonuses = [] }: ShieldStats,
+  blow: DamageApplication,
+): Hardness {
+  const types = blow.immediate.map(({ type }) => type);
+  const extra = bonuses
+    .filter((each) => types.length > 0 && types.every((type) => type !== undefined && each.types.includes(type)))
+    .reduce((sum, { bonus }) => sum + bonus, 0);
+  return Hardness.parse(hardness + extra);
+}
+
+/** How a shield that has already taken `damage` stands once it blocks `blow`: the Hardness prevents some, and it takes the rest. */
+export function conditionAfterBlock(stats: ShieldStats, damage: HitPoints, blow: DamageApplication): ShieldCondition {
+  const { remaining } = blocked(blow.taken, hardnessFor(stats, blow));
+  const through = HitPoints.parse(Math.min(damage + remaining, stats.hitPoints));
   return shieldCondition(stats, through);
 }
 
@@ -168,11 +195,11 @@ export function afterBlock(play: PlayState, command: ShieldCommand, limits: Play
   if (stats === undefined || blockProblem(limits.shields, play.shields, item) !== undefined) {
     return play;
   }
-  const { remaining } = blocked(damage.taken, stats.hardness);
+  const { remaining } = blocked(damage.taken, hardnessFor(stats, damage));
   const hurt = afterDamage(play, { ...damage, taken: remaining }, limits.hitPoints);
   const destroyed =
     stats.undamageable !== true &&
-    conditionAfterBlock(stats, play.shields[item] ?? NONE, damage.taken) === ShieldCondition.Destroyed;
+    conditionAfterBlock(stats, play.shields[item] ?? NONE, damage) === ShieldCondition.Destroyed;
   const shields =
     stats.undamageable === true ? hurt.shields : shieldDamaged(hurt.shields, item, { stats, amount: remaining });
   const kept = { ...hurt, shields: destroyed ? shieldCleared(shields, item) : shields };
