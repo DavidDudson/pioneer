@@ -4,7 +4,7 @@
 # staged files, except typecheck, which checks the whole project that owns them
 # (a type error in a spec or a tool is invisible to the formatters and linters).
 # Whole-repo checks (knip, dependants' typecheck, tests) stay in `just check` and CI.
-default_install_hook_types = ["pre-commit", "commit-msg"]
+default_install_hook_types = ["pre-commit", "commit-msg", "pre-push"]
 
 # ---- Format first: fixes files, so the commit fails and you re-stage -------
 
@@ -121,6 +121,20 @@ language = "system"
 entry = "bun tools/staged-typecheck.ts"
 files = "\\.(ts|html)$"
 priority = 20
+
+# ---- Specs: at push, not commit, since an Angular spec builds the app (about a minute) ----
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "pushed-specs"
+name = "specs the push changes"
+language = "system"
+# Through the check queue, which waits for the machine to be quiet and runs one check at a time across workspaces.
+entry = ".claude/scripts/run-check.sh bun tools/pushed-specs.ts"
+files = "\\.(spec|test)\\.ts$"
+stages = ["pre-push"]
 
 # ---- Commit message ---------------------------------------------------------
 

@@ -37,7 +37,7 @@ export function projectRootsOf(files: readonly string[], hasProject: HasProject)
   return [...new Set(roots)].toSorted();
 }
 
-function nameOf(root: string): string {
+export function nameOf(root: string): string {
   const project = JSON.parse(readFileSync(path.join(root, PROJECT_FILE), 'utf8')) as { readonly name: string };
   return project.name;
 }
