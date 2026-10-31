@@ -1,5 +1,10 @@
 @if (card(); as shown) {
-  <pio-entry-preview [full]="full()" [preview]="shown" [headingLevel]="headingLevel()" />
+  <fr-stack gap="md">
+    <pio-entry-preview [full]="full()" [preview]="shown" [headingLevel]="headingLevel()" />
+    @for (store of stores(); track store.url) {
+      <fr-link [external]="store.url">{{ Message.Store | transloco: { title: (store.title | transloco) } }}</fr-link>
+    }
+  </fr-stack>
 } @else {
   <fr-empty-state
     [icon]="missingIcon"

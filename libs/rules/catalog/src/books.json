@@ -5,7 +5,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2023-11-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=216"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=216",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-player-core/",
+    "errata": "Spring 2026, 1st Printing - 2/6/2026",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "gm-core",
@@ -13,7 +17,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2023-11-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=218"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=218",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-gm-core/",
+    "errata": "Spring 2026, 1st Printing - 2/6/2026",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "monster-core",
@@ -21,7 +29,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-03-27",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=221"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=221",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-monster-core/",
+    "errata": "1.1 - 12/16/2024",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "monster-core-2",
@@ -29,7 +41,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-11-05",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=276"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=276",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-monster-core-2/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "npc-core",
@@ -37,7 +52,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-02-26",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=236"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=236",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-npc-core/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "player-core-2",
@@ -45,7 +63,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-08-01",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=227"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=227",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-player-core-2/",
+    "errata": "1.1 - 12/16/2024",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "divine-mysteries",
@@ -53,7 +75,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-01-30",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=234"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=234",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-divine-mysteries/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "treasure-vault",
@@ -61,7 +86,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-06-04",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=191"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=191",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/treasure-vault-remastered/",
+    "errata": "2.0 - 6/4/2025",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "howl-of-the-wild",
@@ -69,7 +98,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-05-29",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=226"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=226",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-howl-of-the-wild/",
+    "errata": "2.1 - 12/16/2024",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "war-of-immortals",
@@ -77,7 +110,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-10-30",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=232"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=232",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-war-of-immortals/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "mwangi-expanse",
@@ -86,7 +122,10 @@
     "remaster": false,
     "released": "2021-07-07",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=89",
-    "legacy": "whole"
+    "legacy": "whole",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-the-mwangi-expanse/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "secrets-of-magic",
@@ -95,7 +134,11 @@
     "remaster": false,
     "released": "2021-09-01",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=96",
-    "legacy": "whole"
+    "legacy": "whole",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-secrets-of-magic/",
+    "errata": "2.0 - 12/16/2024",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "rage-of-elements",
@@ -104,7 +147,11 @@
     "remaster": false,
     "released": "2023-08-02",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=205",
-    "legacy": "whole"
+    "legacy": "whole",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-rage-of-elements/",
+    "errata": "2.0 - 5/17/2024",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "tian-xia-character-guide",
@@ -112,7 +159,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-08-28",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=230"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=230",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-tian-xia-character-guide-p2/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "dark-archive-remastered",
@@ -120,7 +170,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-02-04",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=293"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=293",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-dark-archive-remastered/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "character-guide",
@@ -129,7 +182,10 @@
     "remaster": false,
     "released": "2019-10-16",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=12",
-    "legacy": "whole"
+    "legacy": "whole",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-character-guide/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "impossible-lands",
@@ -138,7 +194,10 @@
     "remaster": false,
     "released": "2022-11-16",
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=146",
-    "legacy": "whole"
+    "legacy": "whole",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-impossible-lands/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "ancestry-guide",
@@ -154,7 +213,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-07-30",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=355"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=355",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-impossible-magic/",
+    "errata": "Summer 2026, 1st Printing - 7/30/2026",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "guns-and-gears",
@@ -162,7 +225,11 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-02-05",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=98"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=98",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-guns-gears-remastered/",
+    "errata": "Spring 2026 - 2/9/2026",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "battlecry",
@@ -170,7 +237,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-07-31",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=268"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=268",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-battlecry/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "cheliax-infernal-inheritance",
@@ -178,7 +248,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-10-07",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=372"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=372",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-cheliax-infernal-inheritance",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "rival-academies",
@@ -186,7 +259,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-02-26",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=235"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=235",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-rival-academies/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "shining-kingdoms",
@@ -194,7 +270,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-06-04",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=265"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=265",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-shining-kingdoms/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "draconic-codex",
@@ -202,7 +281,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-11-05",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=277"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=277",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-draconic-codex/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "hellfire-dispatches",
@@ -210,7 +292,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-04-01",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=319"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=319",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-hellfire-dispatches",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "high-seas",
@@ -218,7 +303,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-07-01",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=351"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=351",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-high-seas/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "season-of-ghosts",
@@ -226,7 +314,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-02-04",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=294"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=294",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-season-of-ghosts-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "hellbreakers",
@@ -234,7 +325,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-03-04",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=307"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=307",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-hellbreakers/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "gatewalkers",
@@ -242,7 +336,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-07-02",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=290"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=290",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-gatewalkers-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "myth-speakers",
@@ -250,7 +347,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-07-17",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=271"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=271",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-216-the-acropolis-pyre-myth-speaker-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "revenge-of-the-runelords",
@@ -258,7 +358,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-10-08",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=283"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=283",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-219-lord-of-the-trinity-star-revenge-of-the-runelords-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "secrets-of-the-unlit-star",
@@ -266,7 +369,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-05-06",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=326"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=326",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-beginner-box-secrets-of-the-unlit-star",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "troubles-in-grayce",
@@ -274,7 +380,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-05-06",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=327"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=327",
+    "productLine": "adventures",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-troubles-in-grayce",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "hells-destiny",
@@ -282,7 +391,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-06-03",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=336"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=336",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-hell-s-destiny/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "bastion-of-blasphemies",
@@ -290,7 +402,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-07-31",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=357"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=357",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-bastion-of-blasphemies-adventure-path/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "the-dead-gods-hand",
@@ -298,7 +413,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-09-02",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=370"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=370",
+    "productLine": "adventures",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-the-dead-god-s-hand/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "wardens-of-wildwood",
@@ -306,7 +424,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-04-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=241"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=241",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-201-pactbreaker-wardens-of-wildwood-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "curtain-call",
@@ -314,7 +435,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-07-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=245"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=245",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-204-stage-fright-curtain-call-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "triumph-of-the-tusk",
@@ -322,7 +446,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-10-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=249"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=249",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-207-the-resurrection-flood-triumph-of-the-tusk-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "spore-war",
@@ -330,7 +457,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-01-15",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=253"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=253",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-210-whispers-in-the-dirt-spore-war-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "shades-of-blood",
@@ -338,7 +468,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-04-02",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=257"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=257",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-213-thirst-for-blood-shades-of-blood-1-of-3-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "prey-for-death",
@@ -346,7 +479,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-07-31",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=231"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=231",
+    "productLine": "adventures",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-prey-for-death-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "claws-of-the-tyrant",
@@ -354,7 +490,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-04-02",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=266"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=266",
+    "productLine": "adventures",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-claws-of-the-tyrant-pdf/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "clockwork-mystery",
@@ -362,7 +501,9 @@
     "license": "ORC",
     "remaster": true,
     "released": "2026-07-22",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=368"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=368",
+    "productLine": "society",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "tian-xia-world-guide",
@@ -370,7 +511,10 @@
     "license": "ORC",
     "remaster": true,
     "released": "2024-04-24",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=223"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=223",
+    "productLine": "lost-omens",
+    "storeUrl": "https://store.paizo.com/pathfinder-lost-omens-tian-xia-world-guide-p2/",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "foolish-housekeeping",
@@ -378,7 +522,9 @@
     "license": "ORC",
     "remaster": true,
     "released": "2025-04-01",
-    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=239"
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=239",
+    "productLine": "april-fools",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "core-rulebook",
@@ -386,7 +532,11 @@
     "license": "OGL",
     "remaster": false,
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=1",
-    "legacy": "listed"
+    "legacy": "listed",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-core-rulebook/",
+    "released": "2019-08-01",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "advanced-players-guide",
@@ -394,7 +544,11 @@
     "license": "OGL",
     "remaster": false,
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=39",
-    "legacy": "listed"
+    "legacy": "listed",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-advanced-players-guide/",
+    "released": "2020-07-30",
+    "foundryVersion": "8.6.0"
   },
   {
     "id": "the-show-must-go-on",
@@ -402,6 +556,10 @@
     "license": "OGL",
     "remaster": false,
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=21",
-    "legacy": "listed"
+    "legacy": "listed",
+    "productLine": "adventure-paths",
+    "storeUrl": "https://store.paizo.com/pathfinder-adventure-path-151-the-show-must-go-on-extinction-curse-1-of-6-pdf/",
+    "released": "2020-01-30",
+    "foundryVersion": "8.6.0"
   }
 ]

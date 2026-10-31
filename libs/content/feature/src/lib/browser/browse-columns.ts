@@ -1,5 +1,5 @@
 import type { BrowseRow } from '@pioneer/content/ui';
-import { LegacyBadge } from '@pioneer/content/ui';
+import { BrowseSources, LegacyBadge } from '@pioneer/content/ui';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { RulesTableSchema } from '@pioneer/rules/ui';
 
@@ -74,11 +74,13 @@ function withClosingColumns(
       value: (row) => row.traits,
       hideable: true,
     })
-    .addSource({
+    .addComponent({
       id: BrowseColumn.Source,
       code: BrowseColumnCode.Source,
       header: say(ColumnMessage.Source),
-      value: (row) => row.sources,
+      sortValue: (row) => row.sources.length,
+      component: BrowseSources,
+      inputs: (row) => ({ sources: row.sources }),
       hideable: true,
     })
     .addComponent({

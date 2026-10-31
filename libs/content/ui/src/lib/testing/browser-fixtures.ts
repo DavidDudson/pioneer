@@ -1,7 +1,16 @@
 import { signal } from '@angular/core';
 import { FilterKind } from '@pioneer/frontier';
 import type { AsyncQuery, FilterField } from '@pioneer/frontier';
-import { ContentKind, ContentText, facetCounts, facetsFor, RichText, slugName, SourceRef } from '@pioneer/rules/sdk';
+import {
+  ContentKind,
+  ContentLicense,
+  ContentText,
+  facetCounts,
+  facetsFor,
+  RichText,
+  slugName,
+  SourceRef,
+} from '@pioneer/rules/sdk';
 import type { FacetCounts, FilterState } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { EntryPreview } from '@pioneer/rules/ui';
@@ -35,7 +44,7 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
     levelValue: 1,
     creature: undefined,
     traits: entry.traits.map((trait) => ({ label: trait, tone: 'neutral' as const })),
-    sources: [BOOK],
+    sources: [{ source: BOOK, book: undefined, license: ContentLicense.Orc }],
     legacy: false,
   };
 });

@@ -17,7 +17,12 @@
         </fr-stack>
       </ng-template>
       <ng-template let-shown [frAsyncData]="entry()">
-        <pio-content-entry-view [card]="shown.card" [full]="full()" [headingLevel]="headingLevel()" />
+        <pio-content-entry-view
+          [card]="shown.card"
+          [stores]="shown.stores"
+          [full]="full()"
+          [headingLevel]="headingLevel()"
+        />
       </ng-template>
     </fr-async-region>
   } @else if (regions().list) {

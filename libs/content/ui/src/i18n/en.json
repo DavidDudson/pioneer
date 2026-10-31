@@ -21,6 +21,7 @@
     },
     "entry": {
       "back": "Back to the list",
+      "store": "Buy {title} from Paizo",
       "loadError": "The entry could not be loaded.",
       "missingTitle": "No such entry",
       "missingDescription": "No entry has this link. It may have been renamed, or its pack is not available."

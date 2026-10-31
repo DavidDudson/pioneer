@@ -1,7 +1,8 @@
 import type { LinkTarget } from '@pioneer/frontier';
-import type { ContentId, SourceRef } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import type { Chip } from '@pioneer/rules/ui';
 
+import type { BrowseSource } from './browse-source';
 import type { ContentEntryRef } from './browser-state';
 
 /** What only a creature's row has: its role and size in the UI locale, and its Hit Points and Armor Class. */
@@ -31,7 +32,7 @@ export interface BrowseRow {
   /** The creature's part of the row; `undefined` for any other kind. */
   readonly creature: BrowseCreature | undefined;
   readonly traits: readonly Chip[];
-  readonly sources: readonly SourceRef[];
+  readonly sources: readonly BrowseSource[];
   /** The entry is legacy content: under the Open Game License, from before the remaster. */
   readonly legacy: boolean;
 }

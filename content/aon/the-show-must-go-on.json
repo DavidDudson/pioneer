@@ -1,0 +1,250 @@
+{
+  "etag": "\"e3770caaf24149fd941132e5e48194af\"",
+  "entries": [
+    {
+      "type": "Archetypes",
+      "name": "Juggler",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=36"
+    },
+    {
+      "type": "Archetypes",
+      "name": "Staff Acrobat",
+      "url": "https://2e.aonprd.com/Archetypes.aspx?ID=37"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dust Pods",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=576"
+    },
+    {
+      "type": "Equipment",
+      "name": "Fang Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=580"
+    },
+    {
+      "type": "Equipment",
+      "name": "Grasping Tree",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=578"
+    },
+    {
+      "type": "Equipment",
+      "name": "Thunder Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=577"
+    },
+    {
+      "type": "Equipment",
+      "name": "Torrent Snare",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=579"
+    },
+    {
+      "type": "Feats",
+      "name": "Bullying Staff",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1194"
+    },
+    {
+      "type": "Feats",
+      "name": "Focused Juggler",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1188"
+    },
+    {
+      "type": "Feats",
+      "name": "Juggle",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1199"
+    },
+    {
+      "type": "Feats",
+      "name": "Juggler Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1187"
+    },
+    {
+      "type": "Feats",
+      "name": "Levering Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1196"
+    },
+    {
+      "type": "Feats",
+      "name": "Lobbed Attack",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1191"
+    },
+    {
+      "type": "Feats",
+      "name": "Opportune Throw",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1192"
+    },
+    {
+      "type": "Feats",
+      "name": "Pivot Strike",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1198"
+    },
+    {
+      "type": "Feats",
+      "name": "Quick Juggler",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1189"
+    },
+    {
+      "type": "Feats",
+      "name": "Reflexive Catch",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1190"
+    },
+    {
+      "type": "Feats",
+      "name": "Staff Acrobat Dedication",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1193"
+    },
+    {
+      "type": "Feats",
+      "name": "Staff Sweep",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1195"
+    },
+    {
+      "type": "Feats",
+      "name": "Whirlwind Stance",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1197"
+    },
+    {
+      "type": "Hazards",
+      "name": "Catacomb Cave",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=218"
+    },
+    {
+      "type": "Hazards",
+      "name": "Dream Pollen",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=216"
+    },
+    {
+      "type": "Hazards",
+      "name": "Envenomed Thorns Trap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=217"
+    },
+    {
+      "type": "Monsters",
+      "name": "Abrikandilu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=499"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bone Croupier",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=498"
+    },
+    {
+      "type": "Monsters",
+      "name": "Flea Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=502"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Flea",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=501"
+    },
+    {
+      "type": "Monsters",
+      "name": "Luminous Ooze",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=504"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mechanical Carny",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=505"
+    },
+    {
+      "type": "Monsters",
+      "name": "Oil Living Graffiti",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=503"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vermlek",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=500"
+    },
+    {
+      "type": "Monsters",
+      "name": "Xulgath Bilebearer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=506"
+    },
+    {
+      "type": "Setting Articles",
+      "name": "Life in the Circus",
+      "url": "https://2e.aonprd.com/Articles.aspx?ID=10"
+    },
+    {
+      "type": "Spells",
+      "name": "Breath of Drought",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=630"
+    },
+    {
+      "type": "Spells",
+      "name": "Personal Rain Cloud",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=631"
+    },
+    {
+      "type": "Spells",
+      "name": "Rime Slick",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=632"
+    },
+    {
+      "type": "Spells",
+      "name": "Scouring Sand",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=633"
+    },
+    {
+      "type": "Spells",
+      "name": "Sea Surge",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=638"
+    },
+    {
+      "type": "Spells",
+      "name": "Sudden Bolt",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=639"
+    },
+    {
+      "type": "Spells",
+      "name": "Unseasonable Squall",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=640"
+    },
+    {
+      "type": "Spells",
+      "name": "Verdant Sprout",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=641"
+    },
+    {
+      "type": "Traits",
+      "name": "Circus (AP-Specific)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=375"
+    },
+    {
+      "type": "Weapons",
+      "name": "Bladed Diabolo",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=115"
+    },
+    {
+      "type": "Weapons",
+      "name": "Bladed Hoop",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=116"
+    },
+    {
+      "type": "Weapons",
+      "name": "Fire Poi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=117"
+    },
+    {
+      "type": "Weapons",
+      "name": "Juggling Club",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=111"
+    },
+    {
+      "type": "Weapons",
+      "name": "Poi",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=112"
+    },
+    {
+      "type": "Weapons",
+      "name": "Scorpion Whip",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=114"
+    },
+    {
+      "type": "Weapons",
+      "name": "Throwing Knife",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=113"
+    }
+  ]
+}

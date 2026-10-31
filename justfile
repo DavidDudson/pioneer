@@ -51,6 +51,10 @@ content-restore *args:
 aon-sources *args:
     bun tools/aon-sources/main.ts {{args}}
 
+# Stamp each book with the pf2e release it was imported from, from the pins (ADR-0031)
+book-foundry-version:
+    bun tools/book-foundry-version/main.ts
+
 # Fetch each entry's page from AoN's search index, politely (ADR-0073): --book player-core
 aon-pages *args:
     bun tools/aon-pages/main.ts {{args}}

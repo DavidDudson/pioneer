@@ -22,6 +22,8 @@
     "book": {
       "untitled": "{book} has no title. Add its title key to BOOK_TITLES.",
       "aonSourceUrl": "Link to the book’s page under Sources on 2e.aonprd.com, like https://2e.aonprd.com/Sources.aspx?ID=216.",
+      "storeUrl": "Link to the book’s page in the Paizo Store, like https://store.paizo.com/pathfinder-player-core/.",
+      "foundryVersion": "A release number of the pf2e system, like 8.6.0.",
       "title": {
         "playerCore": "Player Core",
         "playerCore2": "Player Core 2",
@@ -76,6 +78,16 @@
       },
       "publisher": {
         "paizo": "Paizo"
+      },
+      "productLine": {
+        "rulebooks": "Rulebook",
+        "lostOmens": "Lost Omens",
+        "adventurePaths": "Adventure Path",
+        "adventures": "Adventure",
+        "society": "Pathfinder Society",
+        "comics": "Comic",
+        "aprilFools": "April Fools",
+        "blogPosts": "Blog post"
       },
       "license": {
         "orc": "ORC License",
@@ -708,6 +720,44 @@
         "heavy": "Heavy",
         "lightBarding": "Light barding",
         "heavyBarding": "Heavy barding"
+      }
+    },
+    "sourceBadge": {
+      "ariaLabel": "Source: {title}, {type}",
+      "expanded": "{title} {year}",
+      "unregisteredBook": "{book} (not in the registry)",
+      "homebrew": "{pack}",
+      "web": "{title}",
+      "row": {
+        "productLine": "Product line",
+        "authors": "Authors",
+        "publisher": "Publisher",
+        "license": "Licence",
+        "released": "Released",
+        "errata": "Latest errata",
+        "foundryVersion": "Foundry version",
+        "page": "Page"
+      },
+      "link": {
+        "aon": "AoN",
+        "store": "Buy Book (Paizo)",
+        "open": "Open the page"
+      },
+      "type": {
+        "label": "Type: {type}",
+        "rulebookRemaster": "Remaster rulebook",
+        "rulebookLegacy": "Legacy rulebook",
+        "lostOmensRemaster": "Remaster Lost Omens book",
+        "lostOmensLegacy": "Legacy Lost Omens book",
+        "campaignRemaster": "Remaster campaign",
+        "campaignLegacy": "Legacy campaign",
+        "adventureRemaster": "Remaster adventure",
+        "adventureLegacy": "Legacy adventure",
+        "societyRemaster": "Remaster Society scenario",
+        "societyLegacy": "Legacy Society scenario",
+        "homebrew": "Homebrew pack",
+        "web": "Web page",
+        "unknown": "Other source"
       }
     },
     "sourceLine": {

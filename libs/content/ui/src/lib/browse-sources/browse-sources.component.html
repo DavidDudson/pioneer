@@ -1,0 +1,5 @@
+<fr-stack direction="horizontal" gap="xs">
+  @for (each of sources(); track $index) {
+    <pio-source [source]="each.source" [book]="each.book" [license]="each.license" [mode]="Mode.Expanded" />
+  }
+</fr-stack>

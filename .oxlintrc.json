@@ -410,6 +410,7 @@
         "tools/propose-pages.ts",
         "tools/aon-sources/main.ts",
         "tools/aon-pages/main.ts",
+        "tools/book-foundry-version/main.ts",
         "tools/content-import/main.ts",
         "tools/enrich-content.ts",
         "tools/content-import/restore-additions.ts",
