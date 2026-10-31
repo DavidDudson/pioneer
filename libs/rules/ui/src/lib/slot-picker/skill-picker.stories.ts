@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { Attribute, Proficiency } from '@pioneer/rules/sdk';
-import { expect, waitFor, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 import { skillRow } from '../testing/slot-picker-fixtures';
 import { SkillPicker } from './skill-picker.component';
@@ -72,3 +72,22 @@ export const Loading: SkillPickerStory = { args: { rows: [], loading: true } };
 
 /** The slot offers no skill. */
 export const Empty: SkillPickerStory = { args: { rows: [] } };
+
+/** A slot that takes Lores by name: what is typed in the search box and names no listed skill is added as a Lore. */
+export const TypedLore: SkillPickerStory = {
+  args: { allowLore: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const search = await waitFor(() => {
+      const input = canvasElement.querySelector('input');
+      if (input === null) {
+        throw new Error('The search box has not rendered');
+      }
+      return input;
+    });
+    await userEvent.type(search, 'Sailing');
+    await waitFor(async () => {
+      await expect(canvas.getByText('Add the Lore "Sailing"')).toBeVisible();
+    });
+  },
+};

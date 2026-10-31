@@ -46,7 +46,9 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 14 → 15: an override records whether its author was the player or the GM (#1131). A version 14 override reads as the player's. */
   (document) => document,
-  /** 15 → 16: custom effects, named bundles of adjust lines switched on and off (#1132). A version 15 document has none. */
+  /** 15 → 16: the custom Lores a build names (#572). A version 15 build names none. */
+  (document) => document,
+  /** 16 → 17: custom effects, named bundles of adjust lines switched on and off (#1132). A version 16 document has none. */
   (document) => document,
 ];
 

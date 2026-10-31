@@ -1,6 +1,8 @@
 import type { ContentId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { isDoctrineFlag } from './translate-doctrine-grants';
+
 /**
  * Foundry rule elements the import drops on purpose rather than lists as untranslatable: they only change a Foundry
  * token (its light, the icon of an effect on it, a mark), which Pioneer has no token for. They are reported apart
@@ -11,6 +13,8 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 export const DroppedReason = {
   /** The element changes how a Foundry token looks, which Pioneer has no token to carry. */
   TokenOnly: 'token-only',
+  /** The element sets an actor flag that Pioneer's own elements replace, so nothing reads it (a cleric's doctrine). */
+  Replaced: 'replaced',
 } as const;
 export type DroppedReason = ValueOf<typeof DroppedReason>;
 
@@ -27,6 +31,11 @@ const DROPPED_KEYS: ReadonlyMap<string, DroppedReason> = new Map([
   ['TokenMark', DroppedReason.TokenOnly],
 ]);
 
+/** Why `raw` is dropped, if it is. */
+function reasonOf(raw: unknown): DroppedReason | undefined {
+  return isDoctrineFlag(raw) ? DroppedReason.Replaced : DROPPED_KEYS.get(keyOf(raw));
+}
+
 function keyOf(raw: unknown): string {
   if (typeof raw !== 'object' || raw === null || !('key' in raw)) {
     return '';
@@ -42,7 +51,7 @@ interface Partitioned {
 
 /** The rules of `raws` Pioneer reads, and those dropped on purpose. */
 export function withoutDropped(entry: ContentId, raws: readonly unknown[]): Partitioned {
-  const reasons = raws.map((raw) => DROPPED_KEYS.get(keyOf(raw)));
+  const reasons = raws.map((raw) => reasonOf(raw));
   return {
     kept: raws.filter((_raw, index) => reasons[index] === undefined),
     dropped: raws.flatMap((raw, index) => {

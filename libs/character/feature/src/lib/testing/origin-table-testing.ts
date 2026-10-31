@@ -86,6 +86,21 @@ export async function pickRow<
   return field;
 }
 
+/**
+ * Opens the field labelled `label` and picks `value`, as the picker emits it for a row that is not in its rows: a Lore
+ * typed into the search box (`lore:Sailing`). Returns the field.
+ */
+export async function pickValue<TRow, TPicker extends RowPicker<TRow>>(
+  root: HTMLElement,
+  target: PickerTarget<TPicker>,
+  value: string,
+): Promise<HTMLElement> {
+  const { field, picker } = await openPicker<TRow, TPicker>(root, target);
+  picker.value.set(value);
+  picker.committed.emit();
+  return field;
+}
+
 /** Opens the Background field and lists the rows its picker was given. */
 export async function backgroundRowsShown(root: HTMLElement): Promise<readonly BackgroundPickerRow[]> {
   return rowsShown(root, { label: 'Background', type: BackgroundPicker });

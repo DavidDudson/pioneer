@@ -26,6 +26,8 @@
     "deity": "known",
     "armor": "known",
     "skill": "known",
+    "attribute": "known",
+    "perception": "known",
     "defense": "known",
     "action": "situational",
     "attack": "situational",

@@ -584,6 +584,10 @@ Grant and choice predicates read facts the set itself provides, so resolution ru
 grants as above against the facts of the round before, then derives the facts again from the set it reached:
 
 - the level, as `self:level:<level>` (an input; a negative level sets none);
+- each attribute modifier, as `attribute:<attribute>:mod:<n>` (an input, `GrantInputs.attributes`, since boosts and
+  flaws are the character's picks and not rule elements; a negative modifier sets none). The `attribute` and
+  `perception` namespaces are known in the core table, so a feat prerequisite and a rule element predicate read the
+  same answer. Perception ranks, `perception:rank:<n>`, come from the character's skill ranks with the skills' (ADR-0053);
 - each entry's kind option, as Foundry writes it: `class:fighter`, `feature:<slug>` for a class or ancestry feature,
   `feat:<slug>`, `ancestry:`, `heritage:`, `background:`, `self:condition:<slug>`, `self:effect:<slug>`. Creatures
   and statistics set none;
@@ -807,6 +811,10 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
   states all three for every form (casting and speech forbidden, hands only where Foundry gives them), as the Battle Form
   trait says; the sheet words them beside the spell lists and on the action rows (play-and-campaigns.md, "Sheet
   modes"). An action needing several things the form lacks gives a reason for each.
+- **Granted actions** (`characterActions`, `available-actions.ts`): each `{ action }` in the form's `actions` names an
+  Action entry the character has while the form lasts (Insect Form's Web). It joins the other candidates with the form
+  as its origin, so the restrictions above and the frequency and affordability checks apply to it as to any action. A
+  bracket or variant does not change the list.
 - **Melded gear and appearance** (sheet only, no engine change): in a form (and not in the base view,
   `SheetState.melded`) the worn and held items are melded into it. Inventory rows carry a `melded` note, and an
   invested item that still works says its constant effects apply but it cannot be activated. The form's traits
@@ -851,6 +859,22 @@ cap, check penalty and Strength through the AC and skill breakdowns, a shield's 
 Threshold beside the Strikes, and a weapon's traits, range increment and damage type on its Strike. A weapon's
 materials and the property runes an element adds are listed on its Strike. A property rune etched on the item works
 through its own rules, not through this list. `speed-penalty` is altered but nothing reads armour's speed penalty yet.
+
+### Movement cost
+
+A `MovementCost` element (a Pioneer element: Foundry has none) says what entering each 5-foot square costs beyond the
+square itself while its predicate holds. Difficult terrain carries 5 and greater difficult terrain 10, as rules of the
+two environments. `deriveStatistics` applies it as the last step of a Speed, after a battle form: the Speeds the element
+names (land unless it says otherwise) drop to the distance a Stride covers, `floor(speed / (5 + extra)) * 5`, so a Speed
+of 25 covers 10 over difficult terrain and 5 over greater difficult terrain. It works on the total, so every bonus to
+the Speed counts first. When several elements reach a Speed the costliest counts, and a Speed a set override pinned, one
+that failed, and one the cost would not lower stay as they are. The result carries `movementCost` (the source, the extra
+cost and the Speed before it), which the breakdown words as "Difficult Terrain: a Stride covers 10 feet, not 25".
+
+Immunity to the terrain is a fact. `factsUnderForm` adds `self:immunity:<type>` for each `Immunity` element whose
+predicate holds and each immunity of a battle form, so the environment's cost is predicated on
+`not self:immunity:difficult-terrain` and a character with that immunity keeps the Speed. The immunity also shows in the
+immunity list like any other.
 
 ## Predicates and conditional modifiers
 

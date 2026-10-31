@@ -56,14 +56,35 @@ describe('placeSkills', () => {
     ]);
   });
 
-  test('a Lore the content defines is trained like a skill; one it does not is a gap with no rank', () => {
-    const lores = [
-      { name: PathbuilderName.parse('Scribing'), rank: Proficiency.Trained },
-      { name: PathbuilderName.parse('Enchantment'), rank: Proficiency.Master },
-    ];
-    const { choices, gaps } = placeSkills(fighter(3), content, ranks({}, lores));
+  test('a Lore the content defines is trained like a skill', () => {
+    const lores = [{ name: PathbuilderName.parse('Scribing'), rank: Proficiency.Trained }];
+    const { choices, lores: named, gaps } = placeSkills(fighter(3), content, ranks({}, lores));
     expect(Object.values(choices)).toContain(skillFixtureId('scribing-lore'));
-    expect(gaps).toEqual([{ name: PathbuilderName.parse('Enchantment'), wanted: Proficiency.Master }]);
+    expect(Object.keys(named)).toStrictEqual([]);
+    expect(gaps).toStrictEqual([]);
+  });
+
+  test('a Lore the content does not define is picked as a custom Lore, named as the export names it', () => {
+    const lores = [{ name: PathbuilderName.parse('Sailing'), rank: Proficiency.Trained }];
+    const { choices, lores: named, gaps } = placeSkills(fighter(1), content, ranks({}, lores));
+    expect(Object.values(choices).map(String)).toStrictEqual(['lore:sailing']);
+    expect(Object.entries(named).map(([topic, name]) => `${topic}=${name}`)).toStrictEqual(['sailing=Sailing']);
+    expect(gaps).toStrictEqual([]);
+  });
+
+  test('a custom Lore the slots cannot raise far enough is a gap with the rank it got', () => {
+    const lores = [{ name: PathbuilderName.parse('Enchantment'), rank: Proficiency.Master }];
+    const { gaps } = placeSkills(fighter(3), content, ranks({}, lores));
+    expect(gaps).toEqual([
+      { name: PathbuilderName.parse('Enchantment'), wanted: Proficiency.Master, reached: Proficiency.Expert },
+    ]);
+  });
+
+  test('a Lore whose name makes no topic is a gap with no rank', () => {
+    const lores = [{ name: PathbuilderName.parse('???'), rank: Proficiency.Trained }];
+    const { choices, gaps } = placeSkills(fighter(3), content, ranks({}, lores));
+    expect(choices).toStrictEqual({});
+    expect(gaps).toEqual([{ name: PathbuilderName.parse('???'), wanted: Proficiency.Trained }]);
   });
 
   test('fills no slot for untrained ranks', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { AncestryId, ContentKind, ContentRegistry, Selector, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ContentKind, ContentRegistry, RollOption, Selector, SlotKey } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SlotStatus } from './character-slot';
@@ -224,5 +224,14 @@ describe('class features by level', () => {
 
   test('a feature above the character’s level is not on it yet', () => {
     expect(featuresAt(2)).toEqual(['Armor-training (Guardian 1)']);
+  });
+});
+
+describe('characterGrants attribute facts', () => {
+  test('sets the attribute modifiers the engine reads, as the skill reads do', () => {
+    const strong = level1('fighter').picking('boost:1:free:0', 'str').picking(KEY_ATTRIBUTE, 'str');
+    const { rollOptions } = characterGrants(strong.build().document, content);
+
+    expect(rollOptions).toContain(RollOption.parse('attribute:str:mod:2'));
   });
 });

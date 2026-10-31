@@ -188,7 +188,10 @@ export interface ImportedCharacter {
 /** What the feat, skill and language slots took from an export, on top of the choices already made. */
 interface SlotFills {
   readonly choices: BoostChoices;
-  /** The matched feats and languages no slot offers, each once: the character keeps them, flagged as breaking a rule. */
+  /**
+   * The matched feats and languages no slot offers, each once: the character keeps them, flagged as breaking a rule.
+   * The Lores no content defines that the skill slots took come with it, for the names the export gave them.
+   */
   readonly unplaced: UnplacedPicks;
   readonly skillGaps: readonly SkillGap[];
   readonly spellGaps: readonly SpellGap[];
@@ -213,7 +216,7 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const spells = placeSpells(create(withFocus).document, content, value.casters);
   return {
     choices: { ...withFocus, ...spells.choices },
-    unplaced: keptPicks(feats.unplaced, languages.unplaced, content.lookup),
+    unplaced: { ...keptPicks(feats.unplaced, languages.unplaced, content.lookup), lores: skills.lores },
     skillGaps: skills.gaps,
     spellGaps: [...spells.gaps, ...focus.gaps],
   };

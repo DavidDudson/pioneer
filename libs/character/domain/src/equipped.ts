@@ -38,6 +38,7 @@ import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
 import { itemRunes, workingPropertyRunes } from './item-runes';
 import { NO_RUNES } from './rune-etching';
+import { attributesAt } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { toggleStates } from './toggle-commands';
 import { uniqueSlug } from './unique-slug';
@@ -213,6 +214,7 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
   const { lookup, namespaces, rootSlots } = slots;
   const active = activeItems(document.inventory, content);
   const exclusive = exclusiveEffects(document.play.effects, lookup);
+  const level = Level.parse(document.level);
   const roots: GrantRoot[] = [
     ...active.flatMap((each) => {
       const hop = inventoryHop(each);
@@ -226,7 +228,8 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
   return resolveGrants({
     roots,
     lookup,
-    level: Level.parse(document.level),
+    level,
+    attributes: attributesAt(document, slots)(level),
     situation: [
       ...(slots.situation ?? []),
       ...exclusive.active.flatMap(({ form }) => (form === undefined ? [] : [form])),

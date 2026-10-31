@@ -3,7 +3,6 @@ import {
   LineStatusKind,
   NO_SITUATION,
   rollSituation,
-  statisticContent,
   variantRulesInPlay,
   vitalsInPlay,
 } from '@pioneer/rules/engine';
@@ -28,6 +27,7 @@ import { overrideRules } from './character-override';
 import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
 import { customEffectRules } from './custom-effect';
+import { characterStatisticContent } from './custom-lore';
 import { buildRules, equippedInputs, equippedRules } from './equipped';
 import type { EquippedRules } from './equipped';
 import { favoredWeapons } from './favored-weapons';
@@ -133,7 +133,7 @@ export function characterStatistics(
   sources: StatisticSources,
   situation: ReadonlySet<RuleId> = NO_SITUATION,
 ): ReadonlyMap<Selector, StatisticResult> {
-  const content = statisticContent(sources.registry);
+  const content = characterStatisticContent(sources.registry, document);
   if (content === undefined) {
     return new Map();
   }
@@ -210,7 +210,7 @@ export function rollSetups(
   sources: StatisticSources,
   { derived, claims }: RollSetupsRequest,
 ): ReadonlyMap<Selector, RollSetup> {
-  const content = statisticContent(sources.registry);
+  const content = characterStatisticContent(sources.registry, document);
   if (content === undefined) {
     return new Map();
   }
@@ -269,7 +269,7 @@ export function characterVitals(
   { registry, slots, inputs }: StatisticSources,
   document: CharacterDocument,
 ): VitalsInPlay | undefined {
-  const content = statisticContent(registry);
+  const content = characterStatisticContent(registry, document);
   const picked = AncestryId.safeParse(document.build.choices[ANCESTRY_SLOT]);
   const ancestry = picked.success ? registry.ancestry(picked.data) : undefined;
   if (content === undefined || ancestry === undefined) {
@@ -290,7 +290,7 @@ export function characterStrikeRules(
   { registry, slots, inputs }: StatisticSources,
   document: CharacterDocument,
 ): StrikeRulesInput | undefined {
-  const content = statisticContent(registry);
+  const content = characterStatisticContent(registry, document);
   return content === undefined
     ? undefined
     : {

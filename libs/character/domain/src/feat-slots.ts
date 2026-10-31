@@ -1,10 +1,8 @@
 import type { ChoiceSlot, ContentLookup } from '@pioneer/rules/grants';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import type { NamespaceTable } from '@pioneer/rules/predicate';
-import { ContentId, ContentKind, Level, NamespaceKind, RollOptionNamespace, RuleElementKey } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, Level, RuleElementKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentLevel, ContentText, RichText, SlotKey } from '@pioneer/rules/sdk';
 
-import { attributeOptionsAt } from './attribute-options';
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
 import { dedicationWait, dedicationWaits, featsTaken, NO_DEDICATION_LOCK, slotsInOrder } from './dedication-lock';
@@ -19,17 +17,6 @@ import { grantedSkillRanks } from './skill-raises';
 import { skillSlots, slotSkillRanks, withSkillPicks } from './skill-training';
 import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
-
-/**
- * The namespaces prerequisites read that only these facts set, so a missing one is false: `attribute:str:mod:2`. The
- * engine doesn't set it, so it stays unknown in the core table. Perception ranks are read with the skills' (ADR-0053),
- * from every raise the import models.
- */
-const PREREQUISITE_NAMESPACES: readonly RollOptionNamespace[] = [RollOptionNamespace.parse('attribute')];
-
-function prerequisiteNamespaces(namespaces: NamespaceTable): NamespaceTable {
-  return new Map([...namespaces, ...PREREQUISITE_NAMESPACES.map((each) => [each, NamespaceKind.Known] as const)]);
-}
 
 /**
  * What a character's prerequisites read: the feats, the facts at each level, and the lowest level each of its feat
@@ -74,14 +61,12 @@ function isFeatSlot(slot: ChoiceSlot, lookup: ContentLookup): boolean {
 function factsByLevel(document: CharacterDocument, content: SlotContent): (level: Level) => PredicateFacts {
   const skills = skillReads(document, content);
   const slots = skillSlots(document, skills);
-  const namespaces = prerequisiteNamespaces(content.namespaces);
-  const attributes = attributeOptionsAt(document, content);
   const facts = new Map<Level, PredicateFacts>();
   const read = (level: Level): PredicateFacts => {
     const resolution = skills.grantsAt(level);
     const ranks = withSkillPicks(grantedSkillRanks(resolution), slotSkillRanks(slots, level));
-    const options = [...resolution.rollOptions, ...rankOptions(ranks), ...attributes(level)];
-    return new PredicateFacts(options, namespaces);
+    const options = [...resolution.rollOptions, ...rankOptions(ranks)];
+    return new PredicateFacts(options, content.namespaces);
   };
   return (level) => {
     const known = facts.get(level) ?? read(level);

@@ -5,6 +5,8 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
+import { documentSkills, withPickedLore } from './custom-lore';
+import type { LoreName } from './custom-lore';
 import { FeatPickProblem } from './feat-content';
 import { featPickProblem, prerequisiteReads, withoutPick } from './feat-slots';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
@@ -12,14 +14,15 @@ import type { LanguageSlot } from './languages';
 import type { SkillContent } from './skill-content';
 import { SkillSlotKind, skillSlots } from './skill-training';
 import type { SkillSlot } from './skill-training';
-import { languageReads, picksOf, preparedReads, resolveSlotsAt, skillReads } from './slot-reads';
-import type { SlotContent, SlotContext } from './slot-reads';
+import { languageReads, picksOf, preparedReads, resolveSlotsAt, skillReads, slotContextOf } from './slot-reads';
+import type { SlotContent } from './slot-reads';
 import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRefusalField } from './slot-refusals';
 import type { SlotRefusal } from './slot-refusals';
 import { isSpellPickKey, spellPickRefusal } from './spell-pick-refusal';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 export {
+  attributesAt,
   languageReads,
   preparedReads,
   resolveSlotsAt,
@@ -27,12 +30,14 @@ export {
   type SlotContent,
   slotContent,
   type SlotContext,
+  slotContextOf,
 } from './slot-reads';
 
-/** A selection for a slot, as `selectSlot` asks for it. */
+/** A selection for a slot, as `selectSlot` asks for it; a custom Lore comes with the player's name for it. */
 export interface SlotPick {
   readonly slot: SlotKey;
   readonly selection: ChoiceValue;
+  readonly loreName?: LoreName | undefined;
 }
 
 /**
@@ -148,10 +153,7 @@ function grantRefusal(
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
   const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
-  const context: SlotContext = {
-    ...content,
-    picks: new Map(others.map(([key, value]) => [SlotKey.parse(key), value])),
-  };
+  const context = slotContextOf(document, content, new Map(others.map(([key, value]) => [SlotKey.parse(key), value])));
   let open = false;
   for (const level of levelsDown()) {
     const options = offerAt(resolveSlotsAt(level, context), slot);
@@ -199,9 +201,10 @@ export function slotRefusal(
   if (flaw !== undefined) {
     return flawRefusal(flaw, pick.selection);
   }
-  const skill = skillSlotIn(document, content, pick.slot);
+  const named = withPickedLore(document, pick);
+  const skill = skillSlotIn(named, content, pick.slot);
   if (skill !== undefined) {
-    return skillRefusal(skill, content.skills, pick.selection);
+    return skillRefusal(skill, documentSkills(named, content.skills), pick.selection);
   }
   return keyedRefusal(document, content, pick);
 }
@@ -216,6 +219,6 @@ export function rootSlotOptions(
   slot: SlotKey,
 ): readonly OfferedOption[] {
   const picks = picksOf(document);
-  const { rootSlots } = resolveSlotsAt(Level.parse(document.level), { ...content, picks });
+  const { rootSlots } = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
   return rootSlots.find((each) => each.key === slot)?.options ?? [];
 }

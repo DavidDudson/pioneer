@@ -1,5 +1,6 @@
 import {
   buildRanks,
+  characterStatisticContent,
   formTraits,
   itemContent,
   skillReads,
@@ -9,7 +10,7 @@ import {
 } from '@pioneer/character/domain';
 import type { Character, SkillOption, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
-import { CHECK_PENALTY, LineStatusKind, statisticContent } from '@pioneer/rules/engine';
+import { CHECK_PENALTY, LineStatusKind } from '@pioneer/rules/engine';
 import { Proficiency } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, SkillPickerRow } from '@pioneer/rules/ui';
@@ -51,21 +52,21 @@ export function sheetSkills(
   character: Character,
   translate: Translate,
 ): readonly NamedStatistic[] {
-  const content = statisticContent(registry);
+  const content = characterStatisticContent(registry, character.document);
   if (content === undefined) {
     return [];
   }
   const results = sheetDerivation(registry, character);
-  const skills = registry.statistics().filter((entry) => entry.definition.selector.startsWith(SKILL_PREFIX));
+  const skills = content.definitions.filter((definition) => definition.selector.startsWith(SKILL_PREFIX));
   const twice = trainedTwiceNotes(registry, character, translate);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
   const rankSources = rankSourcesOf(registry, character, translate);
   const traits = formTraits(character.document, itemContent(registry), sheetSlotContent(registry));
   const formNote = traits.length === 0 ? undefined : translate(FORM_TRAITS_KEY, { traits: traits.join(', ') });
   return skills
-    .flatMap((entry): NamedStatistic[] => {
-      const result = results.get(entry.definition.selector);
-      const { selector } = entry.definition;
+    .flatMap((definition): NamedStatistic[] => {
+      const { selector } = definition;
+      const result = results.get(selector);
       const notes = [twice.get(selector), FORM_NOTED_SKILLS.has(selector) ? formNote : undefined].filter(
         (each) => each !== undefined,
       );
@@ -75,8 +76,8 @@ export function sheetSkills(
         ? []
         : [
             {
-              name: entry.definition.name,
-              kind: entry.definition.kind,
+              name: definition.name,
+              kind: definition.kind,
               result,
               note,
               rank,
@@ -158,9 +159,8 @@ type SkillRows = (options: readonly SkillOption[]) => readonly SkillPickerRow[];
 function skillRowsOf(registry: ContentRegistry, character: Character): SkillRows {
   const results = sheetDerivation(registry, character);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
-  const attributes = new Map(
-    registry.statistics().map((entry) => [entry.definition.selector, entry.definition.keyAttribute]),
-  );
+  const definitions = characterStatisticContent(registry, character.document)?.definitions ?? [];
+  const attributes = new Map(definitions.map(({ selector, keyAttribute }) => [selector, keyAttribute]));
   return (options) =>
     options.map(({ id, selector, name }): SkillPickerRow => {
       const result = results.get(selector);

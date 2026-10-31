@@ -1,3 +1,4 @@
+// oxlint-disable max-lines -- the one import script: its report formatters sit beside the run they report on
 /**
  * One-off Foundry import (ADR-0031, content-model.md "Foundry import"): `just content-import --pack <pack>
  * --book <book>... [--dry-run]`. Downloads the pack's pinned foundryvtt/pf2e release into a gitignored cache, checks
@@ -242,7 +243,7 @@ function formatKinds(counts: readonly KindCount[]): string[] {
 }
 
 function formatKindData(translation: ImportTranslation): string {
-  const { kindData, vocabulary, kindDataGaps, vocabularyGaps } = kindDataReport(translation);
+  const { kindData, vocabulary, kindDataGaps, vocabularyGaps, dedicationLocks } = kindDataReport(translation);
   return [
     `Kind data built ${kindData.reduce((sum, { count }) => sum + count, 0)}:`,
     ...formatKinds(kindData),
@@ -252,6 +253,8 @@ function formatKindData(translation: ImportTranslation): string {
     ...formatKinds(vocabulary),
     `Vocabulary gaps ${sumOf(vocabularyGaps)}, by kind and reason:`,
     ...formatCounts(vocabularyGaps),
+    `Archetypes with a dedication lock of their own ${sumOf(dedicationLocks)}, by slug and lock:`,
+    ...formatCounts(dedicationLocks),
   ].join('\n');
 }
 

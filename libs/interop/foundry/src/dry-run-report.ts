@@ -124,6 +124,8 @@ export interface KindDataReport {
   readonly kindDataGaps: readonly KeyCount[];
   /** By kind and reason (`language unmapped-value`). */
   readonly vocabularyGaps: readonly KeyCount[];
+  /** The archetypes that set a dedication lock of their own, by slug and lock; Player Core's two are the default. */
+  readonly dedicationLocks: readonly KeyCount[];
 }
 
 function kindCounts(kinds: readonly ContentKind[]): readonly KindCount[] {
@@ -145,6 +147,11 @@ export function kindDataReport({
     vocabulary: kindCounts(vocabulary.map(({ kindData }) => kindData.kind)),
     kindDataGaps: keyCounts(kindDataGaps.map(({ reason, field }) => `${reason} ${field}`)),
     vocabularyGaps: keyCounts(vocabularyGaps.map(({ kind, reason }) => `${kind} ${reason}`)),
+    dedicationLocks: keyCounts(
+      archetypes.flatMap(({ envelope, kindData }) =>
+        kindData.data.dedicationLock === undefined ? [] : [`${envelope.slug} ${kindData.data.dedicationLock}`],
+      ),
+    ),
   };
 }
 

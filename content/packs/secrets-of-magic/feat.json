@@ -1163,6 +1163,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:flame-order"],
       "action": {
         "cost": "reaction",
         "trigger": [
@@ -1253,7 +1254,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:flame-order"]
     }
   },
   {
@@ -1313,7 +1315,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:flame-order"]
     }
   },
   {
@@ -1701,6 +1704,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:stone-order"],
       "action": {
         "cost": "one",
         "requirementsText": [
@@ -2213,7 +2217,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:wave-order"]
     }
   },
   {
@@ -2302,6 +2307,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:wave-order"],
       "action": {
         "cost": "one"
       }
@@ -3395,6 +3401,7 @@
           ]
         }
       ],
+      "prerequisitePredicate": ["feature:stone-order"],
       "action": {
         "requirementsText": [
           {
@@ -3780,7 +3787,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:wave-order"]
     }
   },
   {
@@ -3921,7 +3929,8 @@
             }
           ]
         }
-      ]
+      ],
+      "prerequisitePredicate": ["feature:stone-order"]
     }
   },
   {

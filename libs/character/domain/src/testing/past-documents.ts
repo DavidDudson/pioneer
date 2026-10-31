@@ -141,12 +141,15 @@ const VERSION_14 = {
   ],
 };
 
-/** Version 15 wrote the role of an override's author; it has no custom effects. */
+/** Version 15, before a build named its custom Lores: `build` had no `lores`. */
 const VERSION_15 = {
   ...VERSION_14,
   schemaVersion: 15,
-  overrides: VERSION_14.overrides.map((override) => ({ ...override, byRole: 'gm' })),
+  overrides: VERSION_14.overrides.map((override) => ({ ...override, byRole: 'player' })),
 };
+
+/** Version 16 named custom Lores on the build; it has no custom effects. */
+const VERSION_16 = { ...VERSION_15, schemaVersion: 16, build: { ...VERSION_15.build, lores: {} } };
 
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
@@ -168,4 +171,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_13.schemaVersion), VERSION_13],
   [CharacterSchemaVersion.parse(VERSION_14.schemaVersion), VERSION_14],
   [CharacterSchemaVersion.parse(VERSION_15.schemaVersion), VERSION_15],
+  [CharacterSchemaVersion.parse(VERSION_16.schemaVersion), VERSION_16],
 ]);

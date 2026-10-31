@@ -1448,7 +1448,8 @@
         "unique": "Unique"
       },
       "knownYes": "Known",
-      "knownNo": "Not known"
+      "knownNo": "Not known",
+      "addLore": "Add the Lore \"{name}\""
     }
   }
 }

@@ -3,7 +3,7 @@ import { registerFake } from '@pioneer/shared/kernel/testing';
 
 import { LanguageList } from '../ancestry';
 import { Attribute, AttributeBoost, Attributes } from '../attribute';
-import { EntrySlug, Slug } from '../content-id';
+import { EntrySlug, LORE_CHOICE_PREFIX, LoreChoice, Slug } from '../content-id';
 import { ContentKind } from '../content-kind';
 import { SlotKey } from '../selector';
 
@@ -24,13 +24,14 @@ function slugWords(): string {
 }
 
 /**
- * Register fakers for rules-SDK schemas the generator can't derive. Slugs and key paths use a lookahead regex,
+ * Register fakers for rules-SDK schemas the generator can't derive. Slugs, custom Lore picks and key paths use a lookahead regex,
  * which the regex-based generator ignores, and attribute and language lists name each item once, a check it can't see.
  * Brands share the instance they were branded from, so `Slug` also covers PackId, and `SlotKey` every key path
  * (selectors, domains, toggle keys). Idempotent; call explicitly (no side-effect imports).
  */
 export function installRulesFakes(): void {
   registerFake(Slug, slugWords);
+  registerFake(LoreChoice, () => `${LORE_CHOICE_PREFIX}${slugWords()}`);
   registerFake(SlotKey, () => `${slugWords()}:${faker.number.int(SLOT_NUMBER)}`);
   registerFake(EntrySlug, () => `${faker.helpers.arrayElement(Object.values(ContentKind))}:${slugWords()}`);
   registerFake(AttributeBoost, () => faker.helpers.arrayElements(ATTRIBUTES, { min: 1, max: ATTRIBUTES.length }));

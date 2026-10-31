@@ -6,6 +6,7 @@ import { applyForm, battleFormInPlay } from './battle-form';
 import { changeRules } from './change';
 import { collectLines } from './collect';
 import { modifierRules } from './modifier';
+import { applyMovementCost, movementCostsInPlay } from './movement-cost';
 import { proficiencyBonuses } from './proficiency-bonuses';
 import { NO_ITEM, NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
 import type { ItemScope, ModifierInputs } from './rule-in-play';
@@ -26,7 +27,7 @@ export interface StatisticContent {
  * Every statistic's breakdown (rules-engine.md, steps 4 to 6). The base phase evaluates each base formula in
  * dependency order and runs its `Change`s (`StatisticBases`); the modifier phase then collects the modifiers that
  * reach each statistic, gates them by predicate and stacks them (`collectLines`); last, set overrides may pin the
- * total. A battle form in play then replaces what it sets (`applyForm`). Each weapon's potency joins the modifiers
+ * total. A battle form in play then replaces what it sets (`applyForm`), and terrain that costs movement lowers the Speeds it reaches (`applyMovementCost`). Each weapon's potency joins the modifiers
  * as an `item` line on its Strike (`weaponPotencies`), and worn
  * armour's bonus as an `item` line on AC (`armorBonus`). A modifier or adjustment in `situation` whose predicate
  * depends on facts nobody supplied counts as holding, as the toggles chosen on a roll say. Modifier
@@ -53,12 +54,14 @@ export function deriveStatistics(
       resolverFor(values, (selector) => bases.baseValue(selector), { item }),
   };
   const form = battleFormInPlay({ rules, facts });
+  const costs = movementCostsInPlay({ rules, facts });
   return new Map(
     bases.bases.map(({ definition, result }) => {
       const lines = collectLines(definition, modifiers, { ...context, situation });
       const sets = changes.set.get(definition.selector) ?? [];
       const finishedResult = finished(result, { lines, sets, context });
-      return [definition.selector, applyForm(finishedResult, form, context.resolve(NO_ITEM))];
+      const formed = applyForm(finishedResult, form, context.resolve(NO_ITEM));
+      return [definition.selector, applyMovementCost(formed, costs)];
     }),
   );
 }

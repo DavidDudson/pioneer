@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { ContentId, ContentKind, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { SkillTrainingSourceKind } from './skill-trained';
@@ -34,7 +35,7 @@ function cleric(): CharacterBuilder {
 
 /** A skill trained twice, by id, with its sources. */
 interface TwiceRead {
-  readonly skill: ContentId;
+  readonly skill: ChoiceValue;
   readonly sources: readonly SkillTrainingSource[];
 }
 

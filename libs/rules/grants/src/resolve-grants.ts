@@ -1,11 +1,11 @@
 import { PredicateFacts, withKnown } from '@pioneer/rules/predicate';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { OriginHopKind } from '@pioneer/rules/sdk';
-import type { ContentId, ContentText, Level, OriginHop, RollOption } from '@pioneer/rules/sdk';
+import type { AttributeModifiers, ContentId, ContentText, Level, OriginHop, RollOption } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { characterFacts, levelOptions } from './character-facts';
+import { attributeOptions, characterFacts, levelOptions } from './character-facts';
 import type { CharacterFacts, FactState } from './character-facts';
 import type { AnsweredSlot, ChoicePicks, ChoiceSlot } from './choices';
 import type { ContentLookup, GrantError, GrantRoot } from './grant-entry';
@@ -24,6 +24,8 @@ export interface GrantInputs {
   readonly lookup: ContentLookup;
   /** The character's level, read as `self:level:<level>`. */
   readonly level: Level;
+  /** The character's attribute modifiers, read as `attribute:str:mod:2`; none when the caller has no boosts to give. */
+  readonly attributes?: AttributeModifiers | undefined;
   /** What the caller knows of the moment (`terrain:forest`), on top of what the character's entries set. */
   readonly situation: readonly RollOption[];
   readonly picks: ChoicePicks;
@@ -149,7 +151,7 @@ class Fixpoint {
   }
 
   public resolve(): Walked {
-    return this.#settle({ options: levelOptions(this.#inputs.level), known: [] }, new RoundLog());
+    return this.#settle({ options: this.#initialOptions(), known: [] }, new RoundLog());
   }
 
   /** Walks against `state`; done once the set derives `state` again, else walks against what it derives. */
@@ -177,8 +179,17 @@ class Fixpoint {
   #round(state: FactState): Round {
     const facts = this.#factsOf(state);
     const walk = walkGrants({ ...this.#inputs, facts });
-    const derived = characterFacts(walk, { level: this.#inputs.level, facts, toggles: this.#inputs.toggles });
+    const derived = characterFacts(walk, {
+      level: this.#inputs.level,
+      attributes: this.#inputs.attributes,
+      facts,
+      toggles: this.#inputs.toggles,
+    });
     return { walk, facts, derived };
+  }
+
+  #initialOptions(): RollOption[] {
+    return [...levelOptions(this.#inputs.level), ...attributeOptions(this.#inputs.attributes)].toSorted(byCodeUnit);
   }
 
   #factsOf({ options, known }: FactState): PredicateFacts {

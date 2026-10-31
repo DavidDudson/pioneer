@@ -696,31 +696,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ZZzLMOUAtBVgV1DF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "override",
-            "path": "flags.system.cleric",
-            "value": {
-              "fifthDoctrine": "Compendium.pf2e.classfeatures.Item.Fifth Doctrine (Cloistered Cleric)",
-              "finalDoctrine": "Compendium.pf2e.classfeatures.Item.Final Doctrine (Cloistered Cleric)",
-              "firstDoctrine": "Compendium.pf2e.classfeatures.Item.First Doctrine (Cloistered Cleric)",
-              "fourthDoctrine": "Compendium.pf2e.classfeatures.Item.Fourth Doctrine (Cloistered Cleric)",
-              "secondDoctrine": "Compendium.pf2e.classfeatures.Item.Second Doctrine (Cloistered Cleric)",
-              "thirdDoctrine": "Compendium.pf2e.classfeatures.Item.Third Doctrine (Cloistered Cleric)"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:debilitating-strike",
       "foundry": "Compendium.pf2e.classfeatures.Item.9SruVg2lZpNaYLOB",
       "gaps": [
@@ -1225,22 +1200,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:fifth-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Zb7DuGbFoLEp0H1K",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.fifthDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:fighter-weapon-mastery",
       "foundry": "Compendium.pf2e.classfeatures.Item.gApJtAdNb9ST4Ms9",
       "gaps": [
@@ -1305,38 +1264,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.FighterWeaponMasteryLegend.Advanced.{item|flags.system.rulesSelections.fighterWeaponMastery}"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:final-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.urBGOPrUwBmkixAo",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.finalDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:first-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Qejo7FUWQtPTpgWH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.firstDoctrine}"
-          }
         }
       ]
     },
@@ -1476,22 +1403,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.FortitudeExpertise.{actor|class.slug}.Description"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:fourth-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.o8nHreMyiLi64rZz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.fourthDoctrine}"
-          }
         }
       ]
     },
@@ -2217,22 +2128,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:second-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.OnfrrwCfDFCFw0tc",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.secondDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:silence-in-snow",
       "foundry": "Compendium.pf2e.classfeatures.Item.9c57R18pfgfqlBCD",
       "gaps": [
@@ -2607,22 +2502,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:third-doctrine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.gxNxfN9OBlQ1icus",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{actor|flags.system.cleric.thirdDoctrine}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:third-doctrine-warpriest",
       "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O",
       "gaps": [
@@ -2687,31 +2566,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.0Aocw3igLwna9cjp",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ActiveEffectLike",
-          "raw": {
-            "key": "ActiveEffectLike",
-            "mode": "override",
-            "path": "flags.system.cleric",
-            "value": {
-              "fifthDoctrine": "Compendium.pf2e.classfeatures.Item.Fifth Doctrine (Warpriest)",
-              "finalDoctrine": "Compendium.pf2e.classfeatures.Item.Final Doctrine (Warpriest)",
-              "firstDoctrine": "Compendium.pf2e.classfeatures.Item.First Doctrine (Warpriest)",
-              "fourthDoctrine": "Compendium.pf2e.classfeatures.Item.Fourth Doctrine (Warpriest)",
-              "secondDoctrine": "Compendium.pf2e.classfeatures.Item.Second Doctrine (Warpriest)",
-              "thirdDoctrine": "Compendium.pf2e.classfeatures.Item.Third Doctrine (Warpriest)"
-            }
           }
         }
       ]
@@ -8691,32 +8545,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.dIH771mt4PcVTyAs",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": {
-              "filter": [
-                "item:tag:bard-muse",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ],
-              "slugsAsValues": true
-            },
-            "flag": "dedicationMuse",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Bard.Muse.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "feature:{item|flags.system.rulesSelections.dedicationMuse}"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -10395,32 +10223,6 @@
       "slug": "feat:druid-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.vhw3n86TEs6laopA",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:tag:druid-order",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ]
-            },
-            "flag": "druidicOrder",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Druid.DruidicOrder.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.druidicOrder}"
-          }
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",
@@ -13064,22 +12866,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:multifarious-muse",
-      "foundry": "Compendium.pf2e.feats-srd.Item.a898miJnjgD93ZsX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "feature:{item|flags.system.rulesSelections.muse}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:multilingual",
       "foundry": "Compendium.pf2e.feats-srd.Item.P9HCz0uR6xPHuw72",
       "gaps": [
@@ -13356,41 +13142,6 @@
                 "or": ["item:trait:orc", "item:base:falchion", "item:base:greataxe"]
               }
             ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:order-explorer",
-      "foundry": "Compendium.pf2e.feats-srd.Item.9onf3uGvZRnNLPR6",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:tag:druid-order",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ]
-            },
-            "flag": "order",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Druid.DruidicOrder.Prompt",
-            "rollOption": "feat:order-explorer"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.order}"
           }
         }
       ]
@@ -16135,32 +15886,6 @@
       "slug": "feat:witch-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.y0vdu6DGhKKElmE6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:tag:witch-patron",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ]
-            },
-            "flag": "patron",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Witch.Patron.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.patron}"
-          }
-        },
         {
           "type": "field",
           "reason": "unmapped-value",

@@ -11736,8 +11736,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12067,8 +12067,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12276,8 +12276,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -12487,8 +12487,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -13008,8 +13008,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -13451,8 +13451,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -13772,8 +13772,8 @@
         }
       },
       {
-        "key": "LiftRestriction",
-        "restriction": "movement-cost"
+        "key": "Immunity",
+        "type": ["difficult-terrain", "greater-difficult-terrain"]
       }
     ],
     "data": {
@@ -23544,7 +23544,7 @@
         "content": [
           {
             "type": "text",
-            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison. Its web is not modelled."
+            "text": "You transform into a Medium animal battle form and gain the animal trait. AC = 18 + your level, 10 temporary Hit Points, Athletics +13, and attacks at +13 with a damage bonus of +2, which are the only attacks you can Strike with. Heightened (4th) Large, reach 10 feet, 15 temporary HP, +16, +6, Athletics +16. Heightened (5th) Huge, reach 15 feet, 20 temporary HP, +18, +2 and double damage dice, Athletics +20. Speed 25 feet, climb Speed 25 feet; darkvision; fangs 1d6 piercing plus 1d4 persistent poison."
           }
         ]
       }
@@ -23582,7 +23582,12 @@
               }
             }
           ],
-          "traits": ["animal"]
+          "traits": ["animal"],
+          "actions": [
+            {
+              "action": "d2d52bf1-a10a-5ecf-bed8-b1effb3dd12d"
+            }
+          ]
         },
         "brackets": [
           {
@@ -26450,6 +26455,104 @@
         "count": 8,
         "unit": "hour",
         "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b337b5ea-628e-5347-bb3b-5b578b6ea0c7",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-cursed-metamorphosis",
+    "name": "Spell Effect: Cursed Metamorphosis",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "9a703ca8-ffd2-5cfd-82c2-b323c835ac03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are transformed into a harmless animal appropriate to the area. On a failed save you keep your mind and are transformed for 1 minute; if you spend all your actions on your turn concentrating on your original form, you can attempt a Will save to end the effect immediately. The animal's statistics are not modelled, so the effect only replaces other forms."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "758012d6-fa5a-5a16-b67d-dd61eff0c5e5",
+    "pack": "player-core",
+    "kind": "effect",
+    "slug": "effect:spell-effect-disperse-into-air",
+    "name": "Spell Effect: Disperse into Air",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "419527f8-46c8-5921-95ab-e53ece3b72fb"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into air until the end of the current turn: you can't be attacked or targeted, you don't take up space, you can't act, and your auras and emanations are suppressed. At the end of the turn you re-form in a space you can occupy within 15 feet. Being untargetable and unable to act are not modelled, so the effect only replaces other forms."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-end"
       }
     }
   },

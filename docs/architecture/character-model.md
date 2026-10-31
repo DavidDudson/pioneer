@@ -26,6 +26,7 @@ interface CharacterDocument {
 interface Build {
   choices: Record<SlotKey, Selection>; // everything the player picked
   spellAccess: readonly ContentId[]; // uncommon, rare and unique spells it may prepare (ADR-0044)
+  lores: Record<Slug, LoreName>; // names of the custom Lores its skill picks hold, by topic (#572)
   boons: readonly ActiveEffect[]; // permanent boons; temporary ones live in play.effects
 }
 
@@ -381,6 +382,32 @@ picked rank for each skill.
 The sheet's Skills section lists every skill and Lore with its total, and a picker for each trained skill and skill
 increase up to the character's level.
 
+#### Custom-named Lores
+
+A Lore no loaded content names ("Sailing Lore") is picked by typing its name in a trained skill or skill increase
+picker ([#572](https://github.com/DavidDudson/pioneer/issues/572)). Like every pick it is an input only
+([ADR-0004](../adr/0004-store-inputs-not-derived-values.md)): the slot stores `lore:<topic>` (`lore:sailing`), and the
+player's name for it goes in `build.lores`, keyed by topic (schema version 14). The topic is the name less a trailing
+"Lore", folded to a kebab-case slug, so "Sailing", "sailing lore" and "Sailing Lore" are one skill. `selectSlot` takes
+the name with the pick (`loreName`) and drops the names of Lores no pick holds any more.
+
+- **The engine derives it like a loaded Lore.** `customLoreStatistics` adds a statistic with selector
+  `skill:lore:<topic>`, base `@attr.int + @prof.skill.lore.<topic>`, key attribute Intelligence and the domains `check`,
+  `skill-check`, `int-based` and `lore`, to the definitions every derivation reads (`characterStatisticContent`). A
+  loaded statistic with the same selector wins: the pick names it, and no second one is added. The statistic is never
+  stored.
+- **Slots offer it like any skill.** `skillReads` adds the character's custom Lores to the skills a slot reads
+  (`documentSkills`), so a second training of the same topic is refused as already trained
+  (`character.validation.skillTrained`), and a later skill increase can raise it. A pick with no kept name reads by its
+  topic.
+- **The picker adds it.** With `allowLore` the skill picker shows an "Add the Lore" row for what is typed in the search
+  box when no listed skill or Lore has that name; picking it sends the typed name, which the sheet turns into the
+  `lore:<topic>` pick and its `loreName`.
+- **Pathbuilder import carries `lores`.** A Lore the loaded content has no statistic for is offered to the skill slots
+  as a custom Lore named as the export names it; `placeSkills` returns the names the picks took, and the importer keeps
+  them in `build.lores`. A Lore whose name makes no topic, or that the slots cannot raise far enough, is still a gap in
+  the report.
+
 A trained skill slot also reads the skills it cannot offer, with what trains each: the entries of the effective set that
 raise it (the class, the background) and the earlier slots whose pick took it (`SkillSlot.trained`). The sheet shows
 them beside the slot's picker ("Already trained in Religion (from Cleric)"), so the player sees where a training comes
@@ -652,7 +679,7 @@ characters; the player sees them.
 ### Custom effects
 
 A custom effect is a named bundle of adjust lines with one reason, switched on and off as a whole (a GM's blessing, a
-homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 16, #1132); an
+homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 17, #1132); an
 override keeps its own shape and a custom effect is not an override with an `effectId`.
 
 ```ts

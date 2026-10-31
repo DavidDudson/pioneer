@@ -114,7 +114,20 @@ export {
   PackVisibility,
 } from './content-pack';
 export { contentId, ContentId, ContentKey, contentKey, ContentPackId, contentPackId } from './content-id';
-export { EntrySlug, entrySlug, PackId, Slug, slugKind, slugName } from './content-id';
+export {
+  EntrySlug,
+  entrySlug,
+  LORE_CHOICE_PREFIX,
+  LORE_NAME_MAX_LENGTH,
+  LORE_TOPIC_MAX,
+  LoreChoice,
+  LoreText,
+  loreTopicSlug,
+  PackId,
+  Slug,
+  slugKind,
+  slugName,
+} from './content-id';
 export { ContentText, EntryTextField } from './content-text';
 export {
   ContentSearchContract,
@@ -421,6 +434,7 @@ export {
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SenseElement } from './rule-element-sense';
 export { LiftRestrictionElement } from './rule-element-lift-restriction';
+export { MovementCostElement } from './rule-element-movement-cost';
 export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-language';
 export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';

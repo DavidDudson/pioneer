@@ -148,10 +148,25 @@ export function withChoiceSet(raw: unknown, item: string): unknown {
   return { ...shaped, flag };
 }
 
-/** A subclass's `ChoiceSet`: Foundry queries class features by tag alone (`item:tag:cleric-doctrine`). */
-const FoundryTagChoices = z.strictObject({
-  filter: z.array(z.string().regex(/^item:tag:[a-z0-9-]+$/u)).min(1),
-});
+const TAG = /^item:tag:[a-z0-9-]+$/u;
+
+/**
+ * A subclass's `ChoiceSet`: Foundry queries class features by tag (`item:tag:cleric-doctrine`), and a dedication's also
+ * leaves out the class archetypes' own (`{ not: 'item:tag:class-archetype' }`). `slugsAsValues` only steers how Foundry
+ * stores the pick, which Pioneer names by its slug when it sets the pick's roll option.
+ */
+const TagStatement = z.union([z.string().regex(TAG), z.strictObject({ not: z.string().regex(TAG) })]);
+
+const FoundryTagChoices = z
+  .strictObject({
+    filter: z.array(TagStatement).min(1),
+    slugsAsValues: z.literal(true).optional(),
+  })
+  .check((choices) => {
+    if (!choices.value.filter.some((statement) => typeof statement === 'string')) {
+      choices.issues.push({ code: 'custom', message: 'a tag query names a tag', input: choices.value });
+    }
+  });
 
 /** The fields a subclass query replaces (`flag`, `choices`) or drops (`adjustName`). */
 const TAG_QUERY_FIELDS_REPLACED: ReadonlySet<string> = new Set(['adjustName', 'choices', 'flag']);
