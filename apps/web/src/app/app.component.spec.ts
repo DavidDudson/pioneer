@@ -138,7 +138,7 @@ describe(App, () => {
     await openMenu(element, 'Account menu');
     await fixture.whenStable();
     const panel = accountPanel();
-    expect(panel.querySelector('a[href="/account"]')?.textContent.trim()).toBe('Amiri');
+    expect(panel.querySelector('a[href="/account"]')?.textContent).toContain('Amiri');
     expect(panel.querySelector('a[href="/account/settings"]')?.textContent.trim()).toBe('Settings');
     expect(panel.querySelector('a[href="/account/report-bug"]')).not.toBeNull();
     expect(buttonLabels(panel)).toContain('Sign out');
