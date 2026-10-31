@@ -1,8 +1,9 @@
 import { describe, expect, test } from 'bun:test';
 
 import { DefenceStatusKind } from '@pioneer/rules/engine';
-import { RuleElementKey, Size } from '@pioneer/rules/sdk';
+import { contentPackFromContents, RuleElementKey, Size } from '@pioneer/rules/sdk';
 
+import { playerCorePack } from './json-packs';
 import { chosen, effectRulesOf, formRulesOf, viewOf } from './testing/battle-forms';
 import type { FormView } from './testing/battle-forms';
 
@@ -141,5 +142,24 @@ describe('Player Core: Dragon Form, the dragon’s tradition', () => {
 
     expect(dragons).toHaveLength(40);
     expect(ordered(listed)).toEqual(ordered(dragons));
+  });
+});
+
+const PLAYER_CORE_ENTRIES = contentPackFromContents(await playerCorePack()).otherEntries;
+
+/** The slugs of the entries the effect grants while it lasts. */
+function grantedSlugs(): readonly string[] {
+  return effectRulesOf('effect:spell-effect-dragon-form', 6).flatMap(({ element }) => {
+    const granted =
+      element.key === RuleElementKey.GrantItem && typeof element.item === 'string'
+        ? PLAYER_CORE_ENTRIES.find(({ id }) => id === element.item)
+        : undefined;
+    return granted === undefined ? [] : [String(granted.slug)];
+  });
+}
+
+describe('Player Core: Dragon Form, the breath', () => {
+  test('the form grants the Dragon Breath action', () => {
+    expect(grantedSlugs()).toEqual(['action:dragon-breath-dragon-form']);
   });
 });

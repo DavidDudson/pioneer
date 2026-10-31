@@ -6171,15 +6171,6 @@
         },
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "dragonBreath",
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.actionspf2e.Item.Dragon Breath (Dragon Form)"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "{item|flags.system.itemGrants.dragonBreath.id}",

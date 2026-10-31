@@ -130,7 +130,7 @@ const GRANT_SHEET_FIELDS: ReadonlySet<string> = new Set(['nestUnderGranter', 're
 const FoundryPreselected = z.record(z.string(), z.unknown());
 
 /**
- * A `GrantItem` with `preselectChoices` as `choices` (flags in Pioneer's spelling), and without `nestUnderGranter`
+ * A `GrantItem` with its `flag` and the flags of its `preselectChoices` as `choices` in Pioneer's spelling (a slug), and without `nestUnderGranter`
  * (where the sheet files the granted item) and `reevaluateOnUpdate` (a Pioneer grant always follows its predicate);
  * any other element as it is.
  */
@@ -138,7 +138,12 @@ export function withGrantFields(raw: unknown): unknown {
   if (keyOf(raw) !== RuleElementKey.GrantItem || typeof raw !== 'object' || raw === null) {
     return raw;
   }
-  const fields = Object.entries(raw).filter(([field]) => !GRANT_SHEET_FIELDS.has(field));
+  const fields = Object.entries(raw)
+    .filter(([field]) => !GRANT_SHEET_FIELDS.has(field))
+    .map(([field, value]): [string, unknown] => [
+      field,
+      field === 'flag' && typeof value === 'string' ? kebab(value) : value,
+    ]);
   const preselected = FoundryPreselected.safeParse('preselectChoices' in raw ? raw.preselectChoices : undefined);
   if (!preselected.success) {
     return Object.fromEntries(fields);
