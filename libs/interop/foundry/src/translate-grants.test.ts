@@ -43,6 +43,17 @@ describe('GrantItem from Foundry', () => {
     ]);
   });
 
+  test('the flag a grant is named by becomes a slug', () => {
+    const { rules, untranslated } = translated({
+      flag: 'dragonBreath',
+      key: 'GrantItem',
+      uuid: 'Compendium.pf2e.feats-srd.Item.Assurance',
+    });
+
+    expect(untranslated).toEqual([]);
+    expect(rules as readonly unknown[]).toEqual([{ key: 'GrantItem', item: ASSURANCE, flag: 'dragon-breath' }]);
+  });
+
   test('where the sheet files the grant, and re-evaluating it on update, are dropped', () => {
     const { rules, untranslated } = translated({
       allowDuplicate: false,
