@@ -85,19 +85,25 @@ function effectEntries(registry: ContentRegistry): ReadonlyMap<ContentId, Effect
   return new Map(entries.flatMap((entry) => (isEffect(entry) ? [[entry.id, entry] as const] : [])));
 }
 
-/** The forms the effect's `ChoiceSet` offers, as the roll options picking them set; none for an effect without one. */
+/**
+ * The forms the effect's first `ChoiceSet` offers, as the roll options picking them set; none for an effect without
+ * one. Later sets choose something else about the form (Humanoid Form's vision), not the form.
+ */
 function formChoicesOf(entry: EffectEntry): readonly FormChoice[] {
-  return entry.rules.flatMap((rule): FormChoice[] => {
+  const lowest = formRanks(entry.rules);
+  const sets = entry.rules.flatMap((rule): FormChoice[][] => {
     if (rule.key !== RuleElementKey.ChoiceSet || rule.rollOption === undefined || !Array.isArray(rule.choices)) {
       return [];
     }
     const { rollOption } = rule;
-    const lowest = formRanks(entry.rules);
-    return rule.choices.map(({ value, label }) => {
-      const option = RollOption.parse(`${rollOption}:${value}`);
-      return { option, label, lowestRank: lowest.get(option) };
-    });
+    return [
+      rule.choices.map(({ value, label }) => {
+        const option = RollOption.parse(`${rollOption}:${value}`);
+        return { option, label, lowestRank: lowest.get(option) };
+      }),
+    ];
   });
+  return sets[0] ?? [];
 }
 
 /** The lowest rank an effect is cast at: its level, never below the first rank. */

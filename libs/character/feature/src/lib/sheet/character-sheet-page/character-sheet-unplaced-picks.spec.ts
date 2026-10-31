@@ -23,6 +23,7 @@ const PICKS: PackContentsLoader = {
     ),
 };
 const openSheet = openerAt(SheetMode.Exploration);
+const openPlan = openerAt(SheetMode.Plan);
 const PACKS = [...TEST_PACKS, PICKS];
 
 const ELVEN = present(picks.otherEntries.find((entry) => entry.name === 'Elven')).id;
@@ -57,8 +58,8 @@ describe('CharacterSheetPage languages with no slot', () => {
     });
   });
 
-  it('counts it in the sheet header with the other rule breaks', async () => {
-    const { root } = await openSheet(carrying([ELVEN]), { packs: PACKS });
+  it('counts it on the Plan tab with the other rule breaks', async () => {
+    const { root } = await openPlan(carrying([ELVEN]), { packs: PACKS });
 
     await vi.waitFor(() => {
       expect(textOf(root)).toContain('1 item breaks a rule');

@@ -4,14 +4,14 @@ import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
 
 /** One line of a custom effect as the list words it: the statistic and what the line does to it. */
-export interface CustomEffectLineRow {
+interface CustomEffectLineRow {
   readonly statistic: string;
   /** "+1 status". */
   readonly effect: string;
 }
 
 /** One switch of an effect: which way, who, and when. */
-export interface CustomEffectToggleRow {
+interface CustomEffectToggleRow {
   readonly enabled: boolean;
   /** Who switched it; undefined when the server could not name them. */
   readonly author: string | undefined;
