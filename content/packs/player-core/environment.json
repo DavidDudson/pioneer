@@ -324,7 +324,12 @@
     "rules": [],
     "data": {
       "group": "terrain-difficulty",
-      "restrictions": [],
+      "restrictions": [
+        {
+          "id": "movement-cost",
+          "reason": "Each square of difficult terrain you move into costs 5 extra feet of movement."
+        }
+      ],
       "consequences": []
     }
   },
@@ -358,7 +363,12 @@
     "rules": [],
     "data": {
       "group": "terrain-difficulty",
-      "restrictions": [],
+      "restrictions": [
+        {
+          "id": "movement-cost",
+          "reason": "Each square of greater difficult terrain you move into costs 10 extra feet of movement."
+        }
+      ],
       "consequences": []
     }
   },
