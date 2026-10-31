@@ -6,7 +6,7 @@ import { withoutPick } from './feat-slots';
 import type { SkillOption } from './skill-content';
 import { trainingEntries } from './skill-raises';
 import { SkillSlotKind, skillSlots } from './skill-training';
-import { picksOf, resolveSlotsAt, skillReads } from './slot-reads';
+import { picksOf, resolveSlotsAt, skillReads, slotContextOf } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 
 /** The selectors of the skills the character's own trained skill slots name, up to its level. */
@@ -43,7 +43,9 @@ function repeatsOf(
   trained: Trained,
 ): readonly SkillOption[] {
   const picks = new Map([...picksOf(trained.without), [slot, value]]);
-  const trainers = trainingEntries(resolveSlotsAt(Level.parse(trained.without.level), { ...content, picks }));
+  const trainers = trainingEntries(
+    resolveSlotsAt(Level.parse(trained.without.level), slotContextOf(trained.without, content, picks)),
+  );
   const named = new Map(content.skills.skills.map((skill) => [skill.selector, skill]));
   return [...trainers].flatMap(([selector, entries]) => {
     const before = trained.entries.get(selector) ?? [];

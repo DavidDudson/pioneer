@@ -12,14 +12,15 @@ import type { LanguageSlot } from './languages';
 import type { SkillContent } from './skill-content';
 import { SkillSlotKind, skillSlots } from './skill-training';
 import type { SkillSlot } from './skill-training';
-import { languageReads, picksOf, preparedReads, resolveSlotsAt, skillReads } from './slot-reads';
-import type { SlotContent, SlotContext } from './slot-reads';
+import { languageReads, picksOf, preparedReads, resolveSlotsAt, skillReads, slotContextOf } from './slot-reads';
+import type { SlotContent } from './slot-reads';
 import { boostRefusal, boostSlotIn, flawRefusal, flawSlotIn, NOT_OFFERED, SlotRefusalField } from './slot-refusals';
 import type { SlotRefusal } from './slot-refusals';
 import { isSpellPickKey, spellPickRefusal } from './spell-pick-refusal';
 
 export { SlotRefusalField, type SlotRefusal } from './slot-refusals';
 export {
+  attributesAt,
   languageReads,
   preparedReads,
   resolveSlotsAt,
@@ -27,6 +28,7 @@ export {
   type SlotContent,
   slotContent,
   type SlotContext,
+  slotContextOf,
 } from './slot-reads';
 
 /** A selection for a slot, as `selectSlot` asks for it. */
@@ -148,10 +150,7 @@ function grantRefusal(
   { slot, selection }: SlotPick,
 ): SlotRefusal | undefined {
   const others = Object.entries(document.build.choices).filter(([key]) => key !== slot);
-  const context: SlotContext = {
-    ...content,
-    picks: new Map(others.map(([key, value]) => [SlotKey.parse(key), value])),
-  };
+  const context = slotContextOf(document, content, new Map(others.map(([key, value]) => [SlotKey.parse(key), value])));
   let open = false;
   for (const level of levelsDown()) {
     const options = offerAt(resolveSlotsAt(level, context), slot);
@@ -216,6 +215,6 @@ export function rootSlotOptions(
   slot: SlotKey,
 ): readonly OfferedOption[] {
   const picks = picksOf(document);
-  const { rootSlots } = resolveSlotsAt(Level.parse(document.level), { ...content, picks });
+  const { rootSlots } = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks));
   return rootSlots.find((each) => each.key === slot)?.options ?? [];
 }

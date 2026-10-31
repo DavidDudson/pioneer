@@ -3,7 +3,7 @@ import { ChoiceValue, ContentText, Level, SlotKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import type { CharacterDocument } from './character-document';
-import { resolveSlotsAt } from './slot-offer';
+import { resolveSlotsAt, slotContextOf } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 
 /**
@@ -20,7 +20,7 @@ export type ClearedPick = z.output<typeof ClearedPick>;
 /** The character's root slots over its picks. They don't depend on the level, so they are read at its own. */
 function rootSlots(document: CharacterDocument, content: SlotContent): readonly RootSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
-  return resolveSlotsAt(Level.parse(document.level), { ...content, picks }).rootSlots;
+  return resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content, picks)).rootSlots;
 }
 
 /** The root slots within another that `document` answers, by key. */

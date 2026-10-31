@@ -17,7 +17,7 @@ import { featPickProblem, prerequisiteReads } from './feat-slots';
 import { languageStatuses } from './language-slot-status';
 import { preparedStatuses, signatureStatuses } from './prepared-slot-status';
 import { SkillPickProblem, skillSlots } from './skill-training';
-import { resolveSlotsAt, skillReads } from './slot-offer';
+import { resolveSlotsAt, skillReads, slotContextOf } from './slot-offer';
 import type { SlotContent, SlotContext } from './slot-offer';
 import { invalidReason, invalidSlot, named, validSlot } from './slot-read';
 import type { SlotRead } from './slot-read';
@@ -270,7 +270,7 @@ function hiddenPicks(context: SlotContext, listed: readonly CharacterSlot[]): Ch
  */
 export function characterSlots(document: CharacterDocument, content: SlotContent): readonly CharacterSlot[] {
   const picks = new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
-  const context: SlotContext = { ...content, picks };
+  const context = slotContextOf(document, content, picks);
   const { roots, choices } = grantStatuses(Level.parse(document.level), context, featCheck(document, content));
   const boosts = boostStatuses(document, content, picks);
   const flaws = flawStatuses(document, content, picks);

@@ -10,7 +10,7 @@ import type {
   VariantRuleEntry,
 } from '@pioneer/rules/sdk';
 
-import { attributeModifiers, boostContent } from './attribute-boosts';
+import { attributeModifiers, boostContent, boostSets } from './attribute-boosts';
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { characterRootSlots, variantGrantRoots } from './character-slots';
@@ -67,20 +67,20 @@ export function slotContent(registry: ContentRegistry, variants: readonly Varian
 /** What slots are read against: the character's picks and the content. */
 export interface SlotContext extends SlotContent {
   readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
-  /** The character's attribute modifiers at the level read, which the engine sets `attribute:str:mod:2` from. */
-  readonly attributes?: AttributeModifiers | undefined;
+  /** The character's attribute modifiers at a level, which the engine sets `attribute:str:mod:2` from. */
+  readonly modifiersAt?: ((level: Level) => AttributeModifiers) | undefined;
 }
 
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
 export function resolveSlotsAt(
   level: Level,
-  { picks, lookup, namespaces, rootSlots, variantRoots, attributes }: SlotContext,
+  { picks, lookup, namespaces, rootSlots, variantRoots, modifiersAt }: SlotContext,
 ): GrantResolution {
   return resolveGrants({
     roots: variantRoots,
     lookup,
     level,
-    attributes,
+    attributes: modifiersAt?.(level),
     situation: [],
     picks,
     toggles: new Map(),
@@ -94,10 +94,33 @@ export function picksOf(document: CharacterDocument): ReadonlyMap<SlotKey, Choic
   return new Map(Object.entries(document.build.choices).map(([key, value]) => [SlotKey.parse(key), value]));
 }
 
+/**
+ * The character's attribute modifiers at each level, each worked out once for the boost sets in play there: the
+ * modifiers change only at the levels a set of boosts comes in.
+ */
+export function attributesAt(document: CharacterDocument, content: SlotContent): (level: Level) => AttributeModifiers {
+  const setLevels = boostSets(document, content.boosts).map((set) => set.level);
+  const bySetCount = new Map<number, AttributeModifiers>();
+  return (level) => {
+    const setCount = setLevels.filter((each) => each <= level).length;
+    const known = bySetCount.get(setCount) ?? attributeModifiers({ ...document, level }, content.boosts);
+    bySetCount.set(setCount, known);
+    return known;
+  };
+}
+
+/** `content` over `picks` (the character's own unless given) with its attribute modifiers, which the engine sets facts from. */
+export function slotContextOf(
+  document: CharacterDocument,
+  content: SlotContent,
+  picks: ReadonlyMap<SlotKey, ChoiceValue> = picksOf(document),
+): SlotContext {
+  return { ...content, picks, modifiersAt: attributesAt(document, content) };
+}
+
 /** The character's grants at `level` over every pick it holds, with its attribute modifiers there. */
 function resolveWithAttributes(document: CharacterDocument, content: SlotContent, level: Level): GrantResolution {
-  const attributes = attributeModifiers({ ...document, level }, content.boosts);
-  return resolveSlotsAt(level, { ...content, picks: picksOf(document), attributes });
+  return resolveSlotsAt(level, slotContextOf(document, content));
 }
 
 /** Grants already resolved, by content, document and level: documents and content are never changed in place. */

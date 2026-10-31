@@ -13,7 +13,7 @@ import { signatureSlots } from './signature-spells';
 import { skillSlots } from './skill-training';
 import { languageReads, preparedReads, resolveSlotsAt, rootSlotOptions, skillReads } from './slot-offer';
 import type { SlotContent } from './slot-offer';
-import { picksOf } from './slot-reads';
+import { slotContextOf } from './slot-reads';
 
 /** A read of the slot `key`'s options as picks, for one kind of slot. */
 type Candidates = (document: CharacterDocument, content: SlotContent, key: SlotKey) => readonly ChoiceValue[];
@@ -34,7 +34,7 @@ function idsOf(options: readonly Identified[] | undefined): readonly ChoiceValue
  * unknown is left out: they may not hold. A repeatable feat is left out too, once taken.
  */
 const choiceCandidates: Candidates = (document, content, key) => {
-  const resolution = resolveSlotsAt(Level.parse(document.level), { ...content, picks: picksOf(document) });
+  const resolution = resolveSlotsAt(Level.parse(document.level), slotContextOf(document, content));
   const feat = featSlots(document, content).find((slot) => slot.key === key);
   if (feat !== undefined) {
     const held = new Set<ChoiceValue>(resolution.items.map(({ entry }) => ChoiceValue.parse(entry.id)));
