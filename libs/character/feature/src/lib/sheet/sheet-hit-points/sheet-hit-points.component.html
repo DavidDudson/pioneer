@@ -30,6 +30,9 @@
                 (valueChange)="amount.set($event)"
                 (completeChange)="complete.set($event)"
               />
+              <fr-toggle-button [value]="critical()" (valueChange)="critical.set($event)">{{
+                'character.sheet.hp.critical' | transloco
+              }}</fr-toggle-button>
               <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
                 {{ 'character.sheet.hp.damage' | transloco }}
               </fr-async-button>

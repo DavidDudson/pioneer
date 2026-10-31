@@ -453,9 +453,10 @@ rounds of air left (5 plus the Constitution modifier when held) and the saves ag
 `setBreath` edit sets it as it is and `clearBreath` ends it, so holding, losing air and breathing again are each undone
 by the edit that restores the breath before. Ending a turn spends a round of air, or two when the character attacked
 or cast a spell that turn: attacks are counted in the turn state, and a spend of a spell is logged with `cast`
-(`spend-log.ts`), which the turn end reads. Speaking and being critically hit are not in the play state (a critical hit
-is an incoming attack, and speech is not an action the sheet spends), so they stay manual: Lose a round and Speak or
-cast, which also override what was detected. Out of air, the character is suffocating: it gets the Unconscious
+(`spend-log.ts`), which the turn end reads. A critical hit is detected from the damage taken: the sheet's
+damage entry has a Critical hit toggle, and damage applied as critical costs a round of air at once (`afterDamage`). Speech
+is not an action the sheet spends and nothing else in the play state shows it, so it stays manual: Lose a round and
+Speak or cast, which also override what was detected. Out of air, the character is suffocating: it gets the Unconscious
 condition at once, whether the air ran out at a turn end or the breath was set to none by hand, with a turn-log event
 for the former. At each turn end it rolls a Fortitude save (the sheet's `save:fortitude` total) against DC 20, 5 more
 each time. A failure takes 1d10 damage, a 1d10 more each time, and a critical failure is death.

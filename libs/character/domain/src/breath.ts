@@ -87,6 +87,11 @@ export function isSuffocating(breath: BreathState | undefined): boolean {
   return breath?.air === NONE;
 }
 
+/** `breath` after a critical hit: the character loses a round of air. */
+export function criticallyHit(breath: BreathState): BreathState {
+  return { ...breath, air: AirRounds.parse(Math.max(breath.air - ONE, NONE)) };
+}
+
 /** `air` after the turn ends: a round less, or two when the character attacked or cast a spell this turn. */
 export function airAfterTurn(air: AirRounds, exerted: boolean): AirRounds {
   return AirRounds.parse(Math.max(air - (exerted ? TWO : ONE), NONE));

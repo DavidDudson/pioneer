@@ -25,6 +25,7 @@ import {
   NO_STAFF,
   outOfAir,
   PLAY_COMMANDS,
+  PlayCommandField,
   restHealing,
   restRecovery,
   slotContent,
@@ -225,7 +226,8 @@ export class PlayService {
     play: PlayState,
     { limits, registry }: { readonly limits: PlayLimits; readonly registry: ContentRegistry },
   ): PlayState {
-    return isBreathCommand(command)
+    const airLost = isBreathCommand(command) || (command.field === PlayCommandField.Damage && command.damage.critical);
+    return airLost
       ? outOfAir({ play, events: [] }, { limits, unconscious: unconsciousCondition(registry) }).play
       : play;
   }

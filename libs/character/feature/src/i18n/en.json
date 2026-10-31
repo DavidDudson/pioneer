@@ -456,6 +456,7 @@
       "temp": "+{temp} temporary",
       "amount": "Amount",
       "damage": "Damage",
+      "critical": "Critical hit",
       "heal": "Heal",
       "set": "Set HP",
       "setTemp": "Set temp HP",

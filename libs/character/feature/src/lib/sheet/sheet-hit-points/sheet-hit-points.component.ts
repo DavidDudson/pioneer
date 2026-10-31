@@ -12,6 +12,7 @@ import {
   Skeleton,
   Stack,
   Text,
+  ToggleButton,
 } from '@pioneer/frontier';
 import { HitPoints } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -22,9 +23,9 @@ import { SheetState } from '../sheet-state';
 import { grantedLines } from './granted-vitals';
 import type { GrantedLine } from './granted-vitals';
 
-/** Damage of `amount`, entered by hand. */
-function damageOf(amount: HitPoints): PlayCommand {
-  return { field: PlayCommandField.Damage, damage: untypedDamage(amount) };
+/** Damage of `amount`, entered by hand, from a critical hit when `critical`. */
+function damageOf(amount: HitPoints, critical: boolean): PlayCommand {
+  return { field: PlayCommandField.Damage, damage: untypedDamage(amount, critical) };
 }
 
 function healOf(amount: HitPoints): PlayCommand {
@@ -63,6 +64,7 @@ interface HitPointsView {
     Skeleton,
     Stack,
     Text,
+    ToggleButton,
     TranslocoPipe,
   ],
   templateUrl: './sheet-hit-points.component.html',
@@ -78,6 +80,8 @@ export class SheetHitPoints {
   protected readonly amount = signal(0);
   /** Whether the amount box holds a whole number, so a half-typed value is never sent. */
   protected readonly complete = signal(true);
+  /** Whether the damage entered is from a critical hit, which costs a character holding its breath a round of air. */
+  protected readonly critical = signal(false);
 
   protected readonly hp = computed((): HitPointsView | undefined => {
     const max = this.#sheet.maxHitPoints();
@@ -103,7 +107,7 @@ export class SheetHitPoints {
 
   protected readonly ready = computed(() => this.hp() !== undefined && this.complete() && !this.busy());
 
-  protected readonly damage = async (): Promise<void> => this.#send(damageOf);
+  protected readonly damage = async (): Promise<void> => this.#send((amount) => damageOf(amount, this.critical()));
   protected readonly heal = async (): Promise<void> => this.#send(healOf);
   protected readonly setHp = async (): Promise<void> => this.#send(setHpOf);
   protected readonly setTempHp = async (): Promise<void> => this.#send(setTempHpOf);
