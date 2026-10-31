@@ -31,17 +31,28 @@ import { SheetState } from './sheet-state';
 interface RolledCheck {
   readonly id: number;
   readonly name: string;
-  readonly statistic: StatisticValue;
+  /** The statistic a check was rolled for; unset for damage, which has none. */
+  readonly statistic: StatisticValue | undefined;
   readonly expression: DiceExpression;
   readonly roll: FortunedRoll;
   readonly reasons: readonly string[];
+  /** The DC a check in text asked for; it stands in for the typed one until a DC is typed. */
+  readonly dc: Dc | undefined;
 }
 
 /** The last check rolled from the sheet, as the roll card shows it. */
 export interface LastRoll {
   readonly name: string;
-  readonly statistic: StatisticValue;
+  readonly statistic: StatisticValue | undefined;
   readonly view: RollView;
+}
+
+/** A check rolled: what it is, the toggles it is rolled with, worded, and the DC its text asked for. */
+interface CheckRoll {
+  readonly name: string;
+  readonly statistic: StatisticValue;
+  readonly reasons: readonly string[];
+  readonly dc: Dc | undefined;
 }
 
 /** A check being set up: what it is, and the situations the roll has claimed so far. */
@@ -92,15 +103,19 @@ export class SheetRolls implements StatisticRoller {
   /** Why the last toggle was not saved; unset while it was. */
   public readonly saveError = signal<MessageDescriptor | undefined>(undefined);
 
+  /** The DC the card compares the last roll with: the one its check in text asked for, else the typed one. */
+  public readonly cardDc = computed((): Dc | undefined => this.#rolled()?.dc ?? this.dc());
+
   /** The last roll with its degree against the DC, when one is set. */
   public readonly last = computed((): LastRoll | undefined => {
     const rolled = this.#rolled();
     if (rolled === undefined) {
       return undefined;
     }
-    const dc = this.dc();
+    const dc = this.cardDc();
     const kept = rolled.roll.rolls.find((entry) => entry.kept);
-    const degree = dc === undefined || kept === undefined ? undefined : degreeOfSuccess(checkOutcome(kept.result), dc);
+    const checked = rolled.statistic !== undefined && dc !== undefined && kept !== undefined;
+    const degree = checked ? degreeOfSuccess(checkOutcome(kept.result), dc) : undefined;
     const { id, name, statistic, expression, roll, reasons } = rolled;
     return { name, statistic, view: rollView(id, { expression, roll, degree, damage: undefined, reasons }) };
   });
@@ -126,17 +141,38 @@ export class SheetRolls implements StatisticRoller {
    * Rolls the check at once with the situations claimed for it on the sheet and the `RollOption` toggles as they
    * stand, then lets the claims go: they last for one roll.
    */
-  public roll({ name, statistic }: RollableStatistic): void {
+  public roll(rollable: RollableStatistic): void {
+    this.rollAgainst(rollable, undefined);
+  }
+
+  /** Rolls the check like `roll`; the card compares it to `dc` (a check in text gives its own) until one is typed. */
+  public rollAgainst({ name, statistic }: RollableStatistic, dc: Dc | undefined): void {
     const { selector } = statistic;
     const chosen = this.#state.claims().get(selector) ?? new Set<RuleId>();
     const offered = this.#offered(selector, chosen);
     this.saveError.set(undefined);
     this.#state.release(selector);
     if (offered === undefined) {
-      this.#finish(name, statistic, []);
+      this.#finish({ name, statistic, reasons: [], dc });
       return;
     }
-    this.#finish(name, offered.statistic, this.#reasons({ ...offered, name, selector, chosen }));
+    const reasons = this.#reasons({ ...offered, name, selector, chosen });
+    this.#finish({ name, statistic: offered.statistic, reasons, dc });
+  }
+
+  /** Rolls damage or healing named in text: no statistic and no DC, so the card shows the dice and the total only. */
+  public rollDamage(name: string, expression: DiceExpression): void {
+    this.saveError.set(undefined);
+    this.#count += 1;
+    const roll = rollWithFortune(expression, NO_FORTUNE, this.#random);
+    this.#rolled.set({ id: this.#count, name, statistic: undefined, expression, roll, reasons: [], dc: undefined });
+    this.#present(name, roll);
+  }
+
+  /** Types the DC the card compares the last roll with; it replaces the one a check in text asked for. */
+  public typeDc(dc: Dc | undefined): void {
+    this.dc.set(dc);
+    this.#rolled.update((rolled) => (rolled === undefined ? rolled : { ...rolled, dc: undefined }));
   }
 
   /** Sets the check up for the player to review: the situations claimed so far are chosen, and more can be. */
@@ -158,7 +194,8 @@ export class SheetRolls implements StatisticRoller {
     this.saveError.set(undefined);
     this.#state.release(selector);
     if (offered !== undefined) {
-      this.#finish(name, offered.statistic, this.#reasons({ ...offered, name, selector, chosen, as }));
+      const reasons = this.#reasons({ ...offered, name, selector, chosen, as });
+      this.#finish({ name, statistic: offered.statistic, reasons, dc: undefined });
     }
   }
 
@@ -202,7 +239,7 @@ export class SheetRolls implements StatisticRoller {
     }
     this.#pending.set(undefined);
     this.#state.release(setup.selector);
-    this.#finish(setup.name, setup.statistic, this.#reasons(setup));
+    this.#finish({ name: setup.name, statistic: setup.statistic, reasons: this.#reasons(setup), dc: undefined });
   }
 
   /** Drops the check being set up without rolling it. */
@@ -233,15 +270,18 @@ export class SheetRolls implements StatisticRoller {
   #words(): ConditionWords {
     return { i18n: this.#i18n, format: this.#format, names: { entries: this.#state.picks.entryNames() } };
   }
-
-  #finish(name: string, statistic: StatisticValue, reasons: readonly string[]): void {
+  #finish({ name, statistic, reasons, dc }: CheckRoll): void {
     const outcome = parseDiceExpression(checkText(statistic.total));
     if (!outcome.ok) {
       return;
     }
     this.#count += 1;
     const roll = rollWithFortune(outcome.expression, NO_FORTUNE, this.#random);
-    this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons });
+    this.#rolled.set({ id: this.#count, name, statistic, expression: outcome.expression, roll, reasons, dc });
+    this.#present(name, roll);
+  }
+
+  #present(name: string, roll: FortunedRoll): void {
     const counted = keptRoll(roll);
     if (counted !== undefined) {
       this.#presenter.present(presentRoll(this.#count, name, counted));
