@@ -575,15 +575,21 @@
         "selector": "speed:fly",
         "mode": "upgrade",
         "value": 10
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "@level - 6"
       }
     ],
     "data": {
       "category": "feat",
       "duration": {
         "type": "time",
-        "count": 1,
-        "unit": "round",
-        "expiry": "turn-end"
+        "count": 5,
+        "unit": "minute",
+        "expiry": "turn-end",
+        "sustained": true
       }
     }
   },
@@ -3744,7 +3750,54 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "witchwood-seed",
+        "choices": [
+          {
+            "value": "success",
+            "label": "Success"
+          },
+          {
+            "value": "failure",
+            "label": "Failure"
+          },
+          {
+            "value": "critical-failure",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "witchwood-seed"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": -10,
+        "predicate": ["witchwood-seed:success"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["witchwood-seed:failure", "witchwood-seed:critical-failure"]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "64278392-4910-5a32-b819-56f6e54952dd",
+        "predicate": [
+          {
+            "or": ["witchwood-seed:failure", "witchwood-seed:critical-failure"]
+          }
+        ]
+      }
+    ],
     "data": {
       "category": "feat",
       "duration": {
