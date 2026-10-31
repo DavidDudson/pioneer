@@ -230,7 +230,7 @@ export {
   TargetValue,
   targetValues,
 } from './spell-facet-values';
-export { SPELL_FACETS, SpellFacetMessage } from './spell-facets';
+export { SPELL_FACETS, SpellFacet, SpellFacetMessage } from './spell-facets';
 export {
   EntryCount,
   type FacetCounts,

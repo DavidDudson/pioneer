@@ -1,4 +1,5 @@
 import {
+  availableSpellsToYou,
   characterGrants,
   characterSpellcasting,
   needsAccess,
@@ -20,13 +21,22 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentId, ContentRegistry, MagicTradition, SlotKey, Slug, SpellRank } from '@pioneer/rules/sdk';
+import type {
+  ContentId,
+  ContentRegistry,
+  FilterState,
+  MagicTradition,
+  SlotKey,
+  Slug,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 import { SpellListMessage } from '@pioneer/rules/ui';
 import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
+import { runs } from './sheet-runs';
 import { sheetSlotContent } from './sheet-slot-content';
 import type { SpellOnSheet } from './sheet-spell-details';
 import { slotKeyOf } from './sheet-spell-use';
@@ -55,6 +65,8 @@ export interface SheetPreparedSlot {
   readonly reason: MessageDescriptor | undefined;
   /** The slots a cast from it expends, counted under this key; undefined for a cantrip, which expends none. */
   readonly slotKey: SlotCountKey | undefined;
+  /** The filters the slot's picker opens on (**Available to you**); undefined for a slot that is not filtered. */
+  readonly preset: FilterState | undefined;
 }
 
 /**
@@ -200,6 +212,7 @@ function signatureField(
     storedName: signature.stored === undefined ? undefined : content.spells.spell(signature.stored)?.name,
     reason: reasonOf(slots, signature.key),
     slotKey: slotCountKey(signature.entry, undefined, signature.rank),
+    preset: undefined,
     spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
   };
 }
@@ -228,6 +241,7 @@ export function sheetPreparedSlots(
     storedName: named.slot.stored === undefined ? undefined : content.spells.spell(named.slot.stored)?.name,
     reason: reasonOf(slots, named.slot.key),
     slotKey: slotKeyOf(named.slot),
+    preset: availableSpellsToYou(named.slot),
     spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
   });
   const reads = preparedReads(character.document, content);
@@ -250,23 +264,6 @@ export function sheetPreparedSlots(
       };
     }),
   }));
-}
-
-/** A run of items sharing a key, with its first item. */
-type Run<Item> = readonly [Item, readonly Item[]];
-
-/** `items` split into runs of the same key, in order: prepared slots come entry by entry, rank by rank. */
-function runs<Item>(items: readonly Item[], keyOf: (item: Item) => string): Run<Item>[] {
-  const grouped: [Item, Item[]][] = [];
-  for (const item of items) {
-    const last = grouped.at(-1);
-    if (last !== undefined && keyOf(last[0]) === keyOf(item)) {
-      last[1].push(item);
-    } else {
-      grouped.push([item, [item]]);
-    }
-  }
-  return grouped;
 }
 
 /** The uncommon and rare spells the build has access to, and those it may add. */

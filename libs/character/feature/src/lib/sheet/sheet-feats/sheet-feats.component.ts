@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { FeatDisplaySection } from '@pioneer/character/domain';
 import {
@@ -14,7 +13,7 @@ import {
   Stack,
   ToggleButton,
 } from '@pioneer/frontier';
-import type { ContentId, QueryParams } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, FeatPicker } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
@@ -23,14 +22,14 @@ import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { sheetEntryPreview } from '../sheet-entry-previews';
-import { SheetFeatFilterPanel } from '../sheet-feat-filter-panel/sheet-feat-filter-panel.component';
 import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
+import { injectFilterSources } from '../sheet-filter-sources';
+import { SheetSlotFilterPanel } from '../sheet-slot-filter-panel/sheet-slot-filter-panel.component';
 import { SheetUnplacedFeats } from '../sheet-unplaced-feats/sheet-unplaced-feats.component';
 
 const LOADING_SLOTS = 3;
-const NO_PARAMS: QueryParams = {};
 
 /**
  * The open character's feats (#466, #487): the feats it has by slot type, each with the level it was taken at, its
@@ -51,7 +50,7 @@ const NO_PARAMS: QueryParams = {};
     FeatPicker,
     Grid,
     InlineField,
-    SheetFeatFilterPanel,
+    SheetSlotFilterPanel,
     SheetFeatGroupList,
     SheetUnplacedFeats,
     Skeleton,
@@ -69,9 +68,7 @@ export class SheetFeats implements EntryPreviews {
 
   readonly #store = inject(CharacterStore);
   readonly #display = inject(FeatDisplayStore);
-  readonly #route = inject(ActivatedRoute);
-  readonly #router = inject(Router);
-  readonly #params = toSignal(this.#route.queryParams, { initialValue: NO_PARAMS });
+  readonly #filters = injectFilterSources();
   readonly #i18n = inject(TranslocoService);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the pickers' descriptions are read again. */
@@ -92,17 +89,7 @@ export class SheetFeats implements EntryPreviews {
     translate: (key, params) => this.#i18n.translate(key, params),
     messages: this.#messages,
     showGrantOnly: this.shownGrantOnly,
-    filters: {
-      params: this.#params,
-      write: async (changes) => {
-        await this.#router.navigate([], {
-          relativeTo: this.#route,
-          queryParams: changes,
-          queryParamsHandling: 'merge',
-          replaceUrl: true,
-        });
-      },
-    },
+    filters: this.#filters,
   });
 
   /** What a feat row previews on hover, read from the loaded registry. */

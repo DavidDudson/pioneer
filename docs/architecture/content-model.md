@@ -714,6 +714,9 @@ Behaviour:
   for a feat slot), the class and ancestry traits the slot asks for, the traditions of the character's
   spellcasting entries, prerequisites not false, unique entries and the `artifact` trait hidden. Unknown
   prerequisites stay in the list with a marker. The preset is a starting point: every facet in it can be changed.
+  A spell slot's preset is its rank or lower (a cantrip slot's, cantrips) and the tradition of the entry that owns it,
+  none for a pool's slot or a deity's spell, which take theirs whatever the tradition. A toggle shows everything the slot
+  offers, and that ask is in the URL beside the slot's filters (`f.<slot>=all`).
 
 ## Localisation
 

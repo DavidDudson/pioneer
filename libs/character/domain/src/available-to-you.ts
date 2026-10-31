@@ -10,6 +10,8 @@ import {
   Rarity,
   RuleElementKey,
   SelectionKind,
+  SlotRank,
+  SpellFacet,
 } from '@pioneer/rules/sdk';
 import type {
   ChoiceQuery,
@@ -22,7 +24,8 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
-import { prerequisiteReads, prerequisiteStatus, PrerequisiteStatus, withoutPick } from './feat-slots';
+import { prerequisiteReads, PrerequisiteStatus, prerequisiteStatus, withoutPick } from './feat-slots';
+import type { PreparedSlot } from './prepared-spells';
 import { skillReads } from './slot-reads';
 import type { SlotContent } from './slot-reads';
 
@@ -96,4 +99,39 @@ export function slotPrerequisiteStatus(
     const feat = reads.feats.feat(entry.id);
     return feat === undefined ? PrerequisiteStatus.Unknown : prerequisiteStatus(feat, facts);
   };
+}
+
+/** The slot facts a spell preset reads. */
+export type SpellSlotPlace = Pick<PreparedSlot, 'rank' | 'tradition' | 'pool' | 'deitySpell'>;
+
+/**
+ * The "available to you" preset (#286) for a spell slot: spells of the rank the slot holds or lower (a cantrip slot's
+ * are cantrips), carrying the tradition of the entry that owns the slot, never unique or artifact. A pool's slot takes
+ * the spells its pool names whatever their tradition, and a deity's spell is cast whatever its tradition, so neither
+ * asks for the entry's. The slot's own offer already fits all this; the preset is what the filters start on, for the
+ * player to loosen.
+ */
+export function availableSpellsToYou({ rank, tradition, pool, deitySpell }: SpellSlotPlace): FilterState {
+  const cantrip = rank === SlotRank.Cantrip;
+  const selections: [FacetId, FacetSelection][] = [
+    [CommonFacet.Rarity, { kind: SelectionKind.Values, include: [], exclude: [FacetValue.parse(Rarity.Unique)] }],
+    [
+      CommonFacet.Traits,
+      {
+        kind: SelectionKind.Values,
+        include: cantrip ? [FacetValue.parse('cantrip')] : [],
+        exclude: [ARTIFACT_TRAIT],
+      },
+    ],
+  ];
+  if (!cantrip) {
+    selections.push([SpellFacet.Rank, { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(rank) }]);
+  }
+  if (pool === undefined && !deitySpell) {
+    selections.push([
+      SpellFacet.Tradition,
+      { kind: SelectionKind.Values, include: [FacetValue.parse(tradition)], exclude: [] },
+    ]);
+  }
+  return new Map(selections);
 }

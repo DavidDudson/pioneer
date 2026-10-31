@@ -366,6 +366,8 @@
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",
+      "everything": "Show every spell",
+      "available": "Available to you: this slot’s rank or lower, its tradition, no unique spells or artifacts.",
       "cantrips": "Cantrips, cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "cantripSlot": "Cantrip {number}",
       "rankSlot": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank slot {number}",

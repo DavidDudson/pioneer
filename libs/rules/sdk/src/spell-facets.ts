@@ -125,16 +125,22 @@ export const DAMAGE_TYPE_FACET: FacetDefinition = {
   },
 };
 
+/** The ids of the spell facets a preset sets: a spell's rank and the traditions that cast it. */
+export const SpellFacet = {
+  Rank: FacetId.parse('rank'),
+  Tradition: FacetId.parse('tradition'),
+} as const;
+
 /** The spell facets (content-model.md, "Filters"), beyond the common ones. */
 export const SPELL_FACETS: readonly FacetDefinition[] = [
   {
-    id: FacetId.parse('rank'),
+    id: SpellFacet.Rank,
     type: FacetType.Range,
     label: SpellFacetMessage.Rank,
     derive: ofSpells(({ data }) => [data.rank]),
   },
   {
-    id: FacetId.parse('tradition'),
+    id: SpellFacet.Tradition,
     type: FacetType.Set,
     label: SpellFacetMessage.Tradition,
     values: TRADITION_LABELS,

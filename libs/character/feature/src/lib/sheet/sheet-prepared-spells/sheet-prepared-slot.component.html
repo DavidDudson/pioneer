@@ -11,16 +11,23 @@
       [edit]="slot().field"
       [notice]="reason === undefined ? undefined : (reason.key | transloco: reason.params)"
     >
-      <pio-spell-picker
-        frInlineEditor
-        [ariaLabel]="slot().label.key | transloco: slot().label.params"
-        [placeholder]="'character.sheet.prepared.placeholder' | transloco"
-        [rows]="slot().rows()"
-        [value]="slot().field.draft()"
-        (valueChange)="slot().field.change($event)"
-        (committed)="slot().field.flushSoon()"
-        (cancelled)="slot().field.cancel()"
-      />
+      <fr-stack frInlineEditor gap="xs">
+        <pio-sheet-slot-filter-panel
+          everythingKey="character.sheet.prepared.everything"
+          availableKey="character.sheet.prepared.available"
+          [filter]="slot().filter"
+        />
+        <pio-spell-picker
+          data-autofocus
+          [ariaLabel]="slot().label.key | transloco: slot().label.params"
+          [placeholder]="'character.sheet.prepared.placeholder' | transloco"
+          [rows]="slot().rows()"
+          [value]="slot().field.draft()"
+          (valueChange)="slot().field.change($event)"
+          (committed)="slot().field.flushSoon()"
+          (cancelled)="slot().field.cancel()"
+        />
+      </fr-stack>
     </fr-inline-field>
   }
   @if (slot().detail(); as detail) {
