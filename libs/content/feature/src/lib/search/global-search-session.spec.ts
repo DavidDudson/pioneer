@@ -2,7 +2,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { packContentsFromFiles } from '@pioneer/rules/sdk';
+import { ContentLicense, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentPack, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { IDLE_SCHEDULER, provideI18n } from '@pioneer/shared/web';
@@ -25,8 +25,21 @@ const LOADER: PackContentsLoader = {
   id: PACK.id,
   load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
 };
+const LEGACY_PACK: ContentPack = new ContentPackBuilder()
+  .withId('search-session-legacy')
+  .withLicense(ContentLicense.Ogl)
+  .withFeat('sudden-charge', { level: 1, traits: [] })
+  .build();
+const LEGACY_LOADER: PackContentsLoader = {
+  id: LEGACY_PACK.id,
+  load: async () => packContentsFromFiles(LEGACY_PACK.manifest, [LEGACY_PACK.otherEntries]),
+};
 
-const SHELL_MESSAGES = { 'shell.search.kind.feat': 'Feat', 'shell.search.level': 'Level {{level}}' };
+const SHELL_MESSAGES = {
+  'shell.search.kind.feat': 'Feat',
+  'shell.search.level': 'Level {{level}}',
+  'contentBrowser.legacy.label': 'Legacy',
+};
 const NAMES_FOR_ATTACK = ['Attack-of-opportunity', 'Power-attack'];
 
 interface Started {
@@ -35,7 +48,7 @@ interface Started {
 }
 
 function start(): Started {
-  const delivery = new TestContentDelivery([LOADER]);
+  const delivery = new TestContentDelivery([LOADER, LEGACY_LOADER]);
   TestBed.configureTestingModule({
     providers: [
       provideI18n({ en: async () => SHELL_MESSAGES }),
@@ -67,7 +80,7 @@ async function listsNames(started: Started, expected: readonly string[]): Promis
 
 describe(GlobalSearchSession, () => {
   beforeAll(async () => {
-    await prebuildContentTesting([LOADER]);
+    await prebuildContentTesting([LOADER, LEGACY_LOADER]);
   }, 60_000);
 
   it('lists nothing before anything is typed', () => {
@@ -90,6 +103,17 @@ describe(GlobalSearchSession, () => {
     expect(tagged).toStrictEqual([
       ['Feat', 'Level 1'],
       ['Feat', 'Level 1', 'fighter', 'flourish'],
+    ]);
+  });
+
+  it('tags an entry of a pre-remaster pack as legacy', async () => {
+    const started = start();
+
+    started.session.type('sudden');
+
+    await listsNames(started, ['Sudden-charge']);
+    expect(started.session.options().map((option) => option.tags?.map((tag) => tag.label))).toStrictEqual([
+      ['Feat', 'Legacy', 'Level 1'],
     ]);
   });
 

@@ -4,6 +4,7 @@ import {
   ContentId,
   contentId,
   ContentKind,
+  ContentLicense,
   ContentRegistry,
   EntrySlug,
   PackId,
@@ -13,6 +14,13 @@ import {
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { grantLookup } from './grant-lookup';
+
+/** The `legacy` fact of the one feat in a pack published under `license`. */
+function featLegacy(license: ContentLicense): boolean | undefined {
+  const registry = new ContentRegistry();
+  registry.register(new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build());
+  return grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.legacy;
+}
 
 function registryOf(...slugs: readonly string[]): ContentRegistry {
   const builder = new ContentPackBuilder();
@@ -34,6 +42,11 @@ describe('grantLookup', () => {
     expect(found?.rules).toEqual([]);
     expect(found?.rollOptions).toEqual([RollOption.parse('trait:humanoid')]);
     expect(found?.sources.length).toBe(1);
+  });
+
+  test('flags the facts of a feat from an Open Game License pack as legacy, and those of any other pack not', () => {
+    expect(featLegacy(ContentLicense.Ogl)).toBe(true);
+    expect(featLegacy(ContentLicense.Orc)).toBeUndefined();
   });
 
   test('lists ancestries by kind, and nothing of a kind the registry lacks', () => {

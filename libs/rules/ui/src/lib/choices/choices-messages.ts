@@ -7,6 +7,8 @@ export const ChoicesMessage = {
   Keep: 'rules.choices.keep',
   /** The toggle's visible text. */
   KeepShort: 'rules.choices.keepShort',
+  /** Marks a pick from a pre-remaster book. */
+  Legacy: 'rules.choices.legacy',
 } as const;
 
 /** What each state's badge says. A planned or invalid one at a level above the character's names it. */

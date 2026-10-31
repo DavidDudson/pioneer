@@ -2,7 +2,7 @@ import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pi
 import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { FIRST_TAKE } from '@pioneer/rules/grants';
-import type { EntryFacts } from '@pioneer/rules/grants';
+import type { ContentLookup, EntryFacts } from '@pioneer/rules/grants';
 import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, ContentText, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
@@ -106,8 +106,14 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
   }
 }
 
+/** Whether the pick is an entry from a pre-remaster book. */
+function isLegacyPick(selection: ChoiceValue, lookup: ContentLookup | undefined): boolean {
+  const entry = ContentId.safeParse(selection);
+  return entry.success && lookup?.entry(entry.data)?.facts?.legacy === true;
+}
+
 /** A boost's or flaw's pick is its attribute; anything else shows by the name the server gave it, or not at all. */
-function selectionOf(slot: CharacterSlot): ChoiceSelection | undefined {
+function selectionOf(slot: CharacterSlot, lookup: ContentLookup | undefined): ChoiceSelection | undefined {
   const selection: ChoiceValue | undefined = 'selection' in slot ? slot.selection : undefined;
   if (selection === undefined) {
     return undefined;
@@ -118,15 +124,18 @@ function selectionOf(slot: CharacterSlot): ChoiceSelection | undefined {
     return { attribute: attribute.data };
   }
   const name = 'selectionName' in slot ? slot.selectionName : undefined;
-  return name === undefined ? undefined : { name };
+  if (name === undefined) {
+    return undefined;
+  }
+  return isLegacyPick(selection, lookup) ? { name, legacy: true } : { name };
 }
 
-export function lineOf(slot: CharacterSlot): ChoiceLine {
+export function lineOf(slot: CharacterSlot, lookup?: ContentLookup): ChoiceLine {
   return {
     key: slot.key,
     label: labelOf('subject' in slot ? slot.subject : undefined),
     state: STATES[slot.status],
-    selection: selectionOf(slot),
+    selection: selectionOf(slot, lookup),
     level: 'level' in slot ? slot.level : undefined,
     reason: slot.status === SlotStatus.Invalid ? slot.reason : undefined,
   };
@@ -151,13 +160,13 @@ function isShown(slot: CharacterSlot): boolean {
  * planned pick and an invalid one stay, with the level and reason (#419); spell slots are left to the Spellcasting
  * section.
  */
-export function sheetChoices(slots: readonly CharacterSlot[]): readonly ChoiceLine[] {
-  return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot));
+export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLookup): readonly ChoiceLine[] {
+  return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot, lookup));
 }
 
 /** What an option's entry says of itself, as the slot picker's table shows it. */
-function factsOf({ level, rarity, traits, description }: EntryFacts): SlotPickerFacts {
-  return { level, rarity, traits, summary: description };
+function factsOf({ level, rarity, traits, description, legacy }: EntryFacts): SlotPickerFacts {
+  return { level, rarity, traits, summary: description, ...(legacy === true ? { legacy } : {}) };
 }
 
 /** A `ChoiceSet` that lists its options, as the Choices section's picker for it reads it (#596). */

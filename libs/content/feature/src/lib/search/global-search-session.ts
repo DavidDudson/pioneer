@@ -13,6 +13,9 @@ import { GlobalSearchIndex } from './global-search-index';
 import { mergeBelow, nameMatches } from './global-search-results';
 
 /** The message key of each kind the search finds, spelled out in full so the key check sees them. */
+/** The Legacy badge's label, shared with the content browser. */
+const LEGACY_MESSAGE = 'contentBrowser.legacy.label';
+
 const KIND_MESSAGES: Readonly<Partial<Record<ContentKind, string>>> = {
   [ContentKind.Action]: 'shell.search.kind.action',
   [ContentKind.Armor]: 'shell.search.kind.armor',
@@ -87,21 +90,23 @@ export class GlobalSearchSession {
   public readonly options = computed<readonly ComboboxOption<ContentId>[]>(() => {
     this.#language();
     const held = this.#index.byId();
+    const legacy = this.#index.legacy();
     return this.#shown().flatMap((id) => {
       const entry = held.get(id);
       if (entry === undefined) {
         return [];
       }
-      return [{ value: entry.id, label: entry.name, tags: this.#tagsOf(entry) }];
+      return [{ value: entry.id, label: entry.name, tags: this.#tagsOf(entry, legacy.has(entry.id)) }];
     });
   });
   /** What the name alone cannot say: the kind, the level when it has one, and the first traits, toned by rarity. */
-  #tagsOf(entry: ContentEntry): readonly ComboboxTag[] {
+  #tagsOf(entry: ContentEntry, legacy: boolean): readonly ComboboxTag[] {
     const kind = KIND_MESSAGES[entry.kind];
     const level = 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined;
     const tone = RARITY_TONES[entry.rarity];
     return [
       ...(kind === undefined ? [] : [{ label: this.#i18n.translate(kind), tone: BadgeTone.Info }]),
+      ...(legacy ? [{ label: this.#i18n.translate(LEGACY_MESSAGE), tone: BadgeTone.Warning }] : []),
       ...(level === undefined
         ? []
         : [{ label: this.#i18n.translate('shell.search.level', { level: this.#format.number(level) }) }]),

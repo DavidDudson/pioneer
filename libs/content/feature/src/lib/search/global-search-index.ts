@@ -5,6 +5,7 @@ import { IDLE_SCHEDULER } from '@pioneer/shared/web';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 import type { BrowseKind } from '../browser/browse-kinds';
+import { isLegacyEntry, packLicenses } from '../browser/browse-legacy';
 import { entriesOf } from '../browser/browse-list';
 
 /**
@@ -17,12 +18,15 @@ export class GlobalSearchIndex {
   readonly #loader = inject(ContentLoader);
   readonly #whenIdle = inject(IDLE_SCHEDULER);
   readonly #byId = signal<ReadonlyMap<ContentId, ContentEntry>>(new Map());
+  readonly #legacy = signal<ReadonlySet<ContentId>>(new Set());
   readonly #done = new Set<BrowseKind>();
   #running = false;
 
   /** The entries loaded so far, and by id. */
   public readonly entries = computed<readonly ContentEntry[]>(() => [...this.#byId().values()]);
   public readonly byId = this.#byId.asReadonly();
+  /** The ids of the loaded entries from a pre-remaster book. */
+  public readonly legacy = this.#legacy.asReadonly();
 
   /** Starts loading the kinds not loaded yet, a kind per idle moment. Does nothing while a pass is running. */
   public warm(): void {
@@ -51,6 +55,10 @@ export class GlobalSearchIndex {
       const loaded = entriesOf(registry, [kind]);
       this.#byId.update(
         (held) => new Map([...held, ...loaded.map((entry): [ContentId, ContentEntry] => [entry.id, entry])]),
+      );
+      const licenses = packLicenses(registry);
+      this.#legacy.update(
+        (held) => new Set([...held, ...loaded.filter((entry) => isLegacyEntry(entry, licenses)).map(({ id }) => id)]),
       );
       this.#done.add(kind);
       this.#next();

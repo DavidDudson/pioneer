@@ -26,6 +26,8 @@ export interface EntryFacts {
   readonly rarity: Rarity;
   readonly traits: readonly Trait[];
   readonly description: RichText;
+  /** From a pre-remaster book: its licence, or its pack's, is the Open Game License. Absent for any other entry. */
+  readonly legacy?: true;
 }
 
 /**

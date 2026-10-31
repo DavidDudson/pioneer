@@ -16,6 +16,7 @@ interface ShownChoice {
   readonly tone: BadgeTone;
   readonly selectionKey: string | undefined;
   readonly selectionName: string | undefined;
+  readonly legacy: boolean;
   readonly reason: MessageDescriptor | undefined;
 }
 
@@ -44,6 +45,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
     selectionKey:
       selection !== undefined && 'attribute' in selection ? ATTRIBUTE_MESSAGES[selection.attribute] : undefined,
     selectionName: selection !== undefined && 'name' in selection ? selection.name : undefined,
+    legacy: selection !== undefined && 'legacy' in selection,
     reason: line.reason,
   };
 }
@@ -70,6 +72,7 @@ export class ChoiceRow {
   public readonly lockChange = output<boolean>();
 
   protected readonly Message = ChoicesMessage;
+  protected readonly Tone = BadgeTone;
   protected readonly canLock = computed((): boolean => this.lockable() && this.line().state === ChoiceState.Filled);
 
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));

@@ -18,6 +18,7 @@ export const SlotPickerMessage = {
   KnownYes: 'rules.slotPicker.knownYes',
   KnownNo: 'rules.slotPicker.knownNo',
   AddLore: 'rules.slotPicker.addLore',
+  Legacy: 'rules.slotPicker.legacy',
 } as const;
 
 /** A rarity's name, spelled out so the key check sees it. */
