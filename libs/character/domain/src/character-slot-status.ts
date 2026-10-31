@@ -1,3 +1,4 @@
+import { FIRST_TAKE } from '@pioneer/rules/grants';
 import type { AnsweredSlot, ChoiceSlot, ContentLookup, GrantResolution, RootSlot } from '@pioneer/rules/grants';
 import { ContentId, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentText, RollOption } from '@pioneer/rules/sdk';
@@ -53,6 +54,7 @@ function choiceSubject(slot: ChoiceSlot, lookup: ContentLookup): SlotSubject {
   return {
     kind: SlotSubjectKind.Choice,
     entry: slot.origin.entry,
+    ...(slot.take === FIRST_TAKE ? {} : { take: slot.take }),
     ...(name === undefined ? {} : { entryName: name }),
     ...(slot.prompt === undefined ? {} : { prompt: slot.prompt }),
   };

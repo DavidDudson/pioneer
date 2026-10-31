@@ -14,6 +14,8 @@ import type {
   Slug,
   SourceRef,
   Trait,
+  UNLIMITED,
+  Uses,
 } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -78,6 +80,11 @@ export interface GrantEntry {
   readonly archetype?: { readonly dedication: ContentId; readonly additionalFeats: readonly AdditionalFeat[] };
   /** The traits an ancestry gives the character it is on (`human`, `humanoid`); absent for any other kind. */
   readonly actorTraits?: readonly Trait[];
+  /**
+   * How many times a character can take a feat, or `unlimited`, as its data says; absent for any other kind, and for
+   * a feat taken once. A feat picked in more than one feat slot is on the character once per take, up to this many.
+   */
+  readonly maxTakable?: Uses | typeof UNLIMITED;
   /** A deity's spells for its clerics, at the rank each is granted at, which a `DeitySpells` element reads. */
   readonly deitySpells?: readonly DeitySpell[];
 }

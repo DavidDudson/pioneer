@@ -1,6 +1,6 @@
 import { evaluatePredicate, summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts, PredicateSummary } from '@pioneer/rules/predicate';
-import { OriginHopKind, RuleElementKey, RuleIndex } from '@pioneer/rules/sdk';
+import { OriginHopKind, RuleIndex } from '@pioneer/rules/sdk';
 import type {
   ConditionValue,
   ContentId,
@@ -8,13 +8,12 @@ import type {
   Origin,
   OriginHop,
   Predicate,
-  RuleElement,
   RuleSlug,
+  SlotKey,
+  Take,
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { arrivalValue } from './arrival-value';
 import { choiceTarget, readChoices } from './choices';
 import type {
   AnsweredSlot,
@@ -27,13 +26,17 @@ import type {
 } from './choices';
 import { withoutOverridden } from './condition-overrides';
 import type { ContentLookup, GrantEntry, GrantError, GrantRoot } from './grant-entry';
+import { blockedAt, byEntry, isGrant, itemOf, originOf } from './grant-visit';
+import type { Visit } from './grant-visit';
 import { GrantsMessage } from './messages';
-import { byCodeUnit } from './order';
+import { FIRST_TAKE, nextTake, viaOf } from './takes';
 
 /** An entry on the character, with the chain of hops that put it there. */
 export interface GrantedItem {
   readonly entry: GrantEntry;
   readonly origin: Origin;
+  /** Which take of the entry this is: 1, unless a repeatable feat was taken again in another slot. */
+  readonly take: Take;
   /** The name the granting element gave it, for later elements to refer to. */
   readonly flag: RuleSlug | undefined;
   /**
@@ -75,48 +78,10 @@ export interface WalkInputs {
   readonly picks: ChoicePicks;
 }
 
-/** Longest chain followed; matches the most hops an `Origin` records. */
-const HOPS_MAX = 64;
-const LIST_SEPARATOR = ', ';
-
-function isGrant(element: RuleElement): element is GrantItemElement {
-  return element.key === RuleElementKey.GrantItem;
-}
-
 /** A `GrantItem` and the hop it adds to what it grants. */
 interface GrantAt {
   readonly element: GrantItemElement;
   readonly hop: OriginHop;
-}
-
-/** How an entry is reached: the hops to it, the entries above it, and what the granting element asked for. */
-interface Visit {
-  readonly hops: readonly OriginHop[];
-  readonly chain: readonly GrantEntry[];
-  readonly flag: RuleSlug | undefined;
-  readonly allowDuplicate: boolean;
-  /** The value the granting element gives a valued condition, if it gives one. */
-  readonly value: ConditionValue | undefined;
-}
-
-function originOf(entry: GrantEntry, hops: readonly OriginHop[]): Origin {
-  return { hops: [...hops], entry: entry.id, sources: [...entry.sources] };
-}
-
-/** Roots in entry id order, then by how they got there, so the order they are given in never matters. */
-function byEntry(left: GrantRoot, right: GrantRoot): number {
-  return byCodeUnit(left.entry, right.entry) || byCodeUnit(JSON.stringify(left.hop), JSON.stringify(right.hop));
-}
-
-/** Why `entry` cannot be followed from here: it is already above itself, or the chain is too long. */
-function blockedAt(entry: GrantEntry, visit: Visit): MessageDescriptor | undefined {
-  const start = visit.chain.findIndex((above) => above.id === entry.id);
-  if (start !== -1) {
-    const loop = visit.chain.slice(start);
-    const entries = loop.map((member) => member.name).join(LIST_SEPARATOR);
-    return message(GrantsMessage.Cycle, { entries, count: loop.length });
-  }
-  return visit.hops.length > HOPS_MAX ? message(GrantsMessage.TooDeep, { maximum: HOPS_MAX }) : undefined;
 }
 
 /** Walks grants depth first, in root order then rule order, recording what it finds. */
@@ -126,8 +91,12 @@ class Walker {
   readonly #context: ChoiceContext;
   /** Where each entry on the character sits in `#items`. */
   readonly #present = new Map<ContentId, number>();
-  /** Entries whose slots are recorded. */
-  readonly #chosen = new Set<ContentId>();
+  /** How many times each entry is on the character. */
+  readonly #takes = new Map<ContentId, Take>();
+  /** The slot whose pick put each take of an entry there (see `viaOf`), in take order. */
+  readonly #vias = new Map<ContentId, (SlotKey | undefined)[]>();
+  /** The takes of entries whose slots are recorded, as `<entry>#<take>`. */
+  readonly #chosen = new Set<string>();
   readonly #items: GrantedItem[] = [];
   readonly #duplicates: GrantedItem[] = [];
   readonly #conditional: ConditionalGrant[] = [];
@@ -153,7 +122,8 @@ class Walker {
   }
 
   public root({ entry, hop }: GrantRoot): void {
-    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false, value: undefined });
+    const picked = hop.kind === OriginHopKind.Choice;
+    this.#visit(entry, { hops: [hop], chain: [], flag: undefined, allowDuplicate: false, picked, value: undefined });
   }
 
   #find(id: ContentId, hops: readonly OriginHop[]): GrantEntry | undefined {
@@ -180,21 +150,28 @@ class Walker {
     if (entry === undefined) {
       return;
     }
-    const item: GrantedItem = {
-      entry,
-      origin: originOf(entry, visit.hops),
-      flag: visit.flag,
-      value: arrivalValue(entry, visit.hops, visit.value),
-    };
     const at = this.#present.get(id);
-    if (at !== undefined && !visit.allowDuplicate) {
-      this.#duplicates.push(item);
-      this.#raise(at, item.value);
+    const taken = this.#takes.get(id) ?? FIRST_TAKE;
+    const take = at === undefined || visit.allowDuplicate ? taken : nextTake(entry, taken, visit.picked);
+    if (at !== undefined && take === undefined) {
+      this.#duplicate(at, itemOf(entry, taken, visit));
       return;
     }
-    this.#present.set(id, this.#items.length);
+    this.#add(at, itemOf(entry, take ?? taken, visit), visit);
+  }
+
+  /** Records a grant of an entry already on the character at `at`, and raises its value if this brings a higher one. */
+  #duplicate(at: number, item: GrantedItem): void {
+    this.#duplicates.push(item);
+    this.#raise(at, item.value);
+  }
+
+  /** Puts `item` on the character (as a further take if `at` is where an earlier take sits), then follows it. */
+  #add(at: number | undefined, item: GrantedItem, visit: Visit): void {
+    this.#present.set(item.entry.id, at ?? this.#items.length);
+    this.#takes.set(item.entry.id, item.take);
     this.#items.push(item);
-    this.#follow(entry, visit);
+    this.#follow(item, visit);
   }
 
   /**
@@ -208,19 +185,43 @@ class Walker {
     }
   }
 
-  /** Records `entry`'s choices, then follows each `GrantItem` on it, in rule order. */
-  #follow(entry: GrantEntry, visit: Visit): void {
-    const at: EntryAt = { entry, hops: visit.hops };
+  /** `entry` as take `take`, with the slots that put its takes there; this take's own is noted the first time it is followed. */
+  #entryAt({ entry, take }: GrantedItem, visit: Visit): EntryAt {
+    const vias = this.#vias.get(entry.id) ?? [];
+    if (take > vias.length) {
+      vias.push(visit.picked ? viaOf(entry, visit.hops) : undefined);
+    }
+    this.#vias.set(entry.id, vias);
+    return { entry, take, via: vias[take - 1], before: vias.slice(0, take - 1), hops: visit.hops };
+  }
+
+  /** Records the choices of `item`'s entry, then follows each `GrantItem` on it, in rule order. */
+  #follow(item: GrantedItem, visit: Visit): void {
+    const { entry } = item;
+    const at = this.#entryAt(item, visit);
     const choices = this.#choose(at);
     const chain = [...visit.chain, entry];
     for (const [index, element] of entry.rules.entries()) {
-      const hop: OriginHop = { kind: OriginHopKind.Grant, by: entry.id, rule: RuleIndex.parse(index) };
-      const target = isGrant(element) ? this.#target(at, { element, hop }, choices) : undefined;
-      if (isGrant(element) && target !== undefined) {
-        const hops = [...visit.hops, ...target.hops, hop];
-        const allowDuplicate = element.allowDuplicate === true;
-        this.#grant(element, target.id, { hops, chain, flag: element.flag, allowDuplicate, value: element.value });
+      if (isGrant(element)) {
+        this.#followGrant({ at, choices }, { element, index }, { ...visit, chain });
       }
+    }
+  }
+
+  /** Follows the `GrantItem` `element`, rule `index` of the entry at `at`, unless its pick is still to make. */
+  #followGrant(
+    { at, choices }: { readonly at: EntryAt; readonly choices: EntryChoices },
+    { element, index }: { readonly element: GrantItemElement; readonly index: number },
+    visit: Visit,
+  ): void {
+    const hop: OriginHop = { kind: OriginHopKind.Grant, by: at.entry.id, rule: RuleIndex.parse(index) };
+    const target = this.#target(at, { element, hop }, choices);
+    if (target !== undefined) {
+      const hops = [...visit.hops, ...target.hops, hop];
+      const allowDuplicate = element.allowDuplicate === true;
+      const picked = typeof element.item !== 'string';
+      const arrival = { hops, chain: visit.chain, flag: element.flag, allowDuplicate, picked, value: element.value };
+      this.#grant(element, target.id, arrival);
     }
   }
 
@@ -230,10 +231,11 @@ class Walker {
    */
   #choose(at: EntryAt): EntryChoices {
     const choices = readChoices(at, this.#context);
-    if (this.#chosen.has(at.entry.id)) {
+    const chosen = `${at.entry.id}#${at.take}`;
+    if (this.#chosen.has(chosen)) {
       return choices;
     }
-    this.#chosen.add(at.entry.id);
+    this.#chosen.add(chosen);
     this.#open.push(...choices.open);
     this.#answered.push(...choices.answered);
     this.#errors.push(...choices.errors);

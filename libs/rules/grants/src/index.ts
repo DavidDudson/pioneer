@@ -1,4 +1,5 @@
-export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot, slotKeyOf } from './choices';
+export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot } from './choices';
+export { FIRST_TAKE, slotKeyOf } from './takes';
 export type { OfferedOption } from './offers';
 export type { ContentLookup, EntryFacts, GrantEntry, GrantError, GrantRoot } from './grant-entry';
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
