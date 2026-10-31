@@ -1,0 +1,12 @@
+<!-- eslint-disable pioneer/no-literal-text, pioneer/no-native-elements -- a spec fixture: literal labels keep the assertions readable. -->
+<fr-stepper [(current)]="current" (finished)="finishes = finishes + 1">
+  <fr-step label="Identity" [summary]="name()" [valid]="name() !== ''">
+    <ng-template frStepBody><p id="identity-body">identity fields</p></ng-template>
+  </fr-step>
+  <fr-step label="Ancestry" summary="Elf">
+    <ng-template frStepBody><p id="ancestry-body">ancestry fields</p></ng-template>
+  </fr-step>
+  <fr-step label="Class" summary="Fighter">
+    <ng-template frStepBody><p id="class-body">class fields</p></ng-template>
+  </fr-step>
+</fr-stepper>

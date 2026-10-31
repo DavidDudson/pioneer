@@ -103,6 +103,13 @@
         "from": "from {value}",
         "upTo": "up to {value}"
       }
+    },
+    "stepper": {
+      "back": "Back",
+      "next": "Next",
+      "finish": "Finish",
+      "edit": "Edit",
+      "editNamed": "Edit {label}"
     }
   }
 }

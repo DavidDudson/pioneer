@@ -1,0 +1,28 @@
+@if (state() !== 'upcoming') {
+  <section [class]="regionClasses" [attr.aria-labelledby]="headingId">
+    <fr-heading variant="subheading" [anchor]="headingId" [level]="3">{{ label() }}</fr-heading>
+    @if (state() === 'current') {
+      @if (body(); as body) {
+        <ng-container [ngTemplateOutlet]="body.template" />
+      }
+      <div [class]="actionClasses">
+        @if (!isFirst()) {
+          <fr-button [variant]="secondary" (pressed)="back()">{{ 'frontier.stepper.back' | transloco }}</fr-button>
+        }
+        <fr-button [disabled]="!valid()" [variant]="primary" (pressed)="next()">{{
+          (isLast() ? 'frontier.stepper.finish' : 'frontier.stepper.next') | transloco
+        }}</fr-button>
+      </div>
+    } @else {
+      <div [class]="summaryClasses">
+        <fr-text tone="muted">{{ summary() }}</fr-text>
+        <fr-button
+          [ariaLabel]="'frontier.stepper.editNamed' | transloco: { label: label() }"
+          [variant]="secondary"
+          (pressed)="edit()"
+          >{{ 'frontier.stepper.edit' | transloco }}</fr-button
+        >
+      </div>
+    }
+  </section>
+}
