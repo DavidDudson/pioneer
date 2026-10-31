@@ -804,5 +804,29 @@ export {
 } from './generation-theme';
 export { type GearInput, generateGear, itemsValue } from './generate-gear';
 export { weaponAffinity } from './weapon-affinity';
+export {
+  activeOverrides,
+  overrideOf,
+  overrideProblem,
+  OverrideProblem,
+  overrideRules,
+  withOverrideEdit,
+  type OverrideEdit,
+} from './character-override';
+export {
+  OVERRIDE_REVISIONS_MAX,
+  OverrideId,
+  OverrideInput,
+  OverrideMode,
+  OverrideModifierType,
+  OverrideReason,
+  OverrideSchema,
+  OverrideTime,
+  overrideTime,
+  OVERRIDES_MAX,
+  type Override,
+  type OverrideRevision,
+} from './override-schema';
+export { isOverridePatch, type OverridePatch } from './character-patch';
 export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';

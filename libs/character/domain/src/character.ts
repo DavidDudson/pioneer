@@ -4,16 +4,15 @@ import { FIRST_VERSION, InstantCodec, Version } from '@pioneer/shared/kernel';
 import type { Temporal, UserId } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { withBuildListEdit } from './build-list-edits';
 import { CharacterDocumentSchema } from './character-document';
 import type { Build, CharacterDocument } from './character-document';
 import { CURRENT_SCHEMA_VERSION } from './character-document-upgrades';
 import { CHARACTER_LEVEL_MIN, CharacterLevel } from './character-fields';
 import type { CharacterId, CharacterName } from './character-fields';
-import { CharacterPatchField, isInventoryPatch } from './character-patch';
+import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
-import { withProse } from './character-prose';
 import { ANCESTRY_SLOT } from './character-slots';
+import { withDocumentEdit } from './document-edits';
 import { equipmentChange } from './equipment-change';
 import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
 import type { Inventory, InventoryEdit } from './inventory';
@@ -139,7 +138,7 @@ export class Character {
    * checks edits first.
    */
   public apply(patch: CharacterPatch, now: Temporal.Instant, inputs: EditInputs = {}): Character {
-    const { document } = { ...this.toProps(), ...this.#changes(patch, inputs) };
+    const { document } = { ...this.toProps(), ...this.#changes(patch, inputs, now) };
     const checked = CharacterDocumentSchema.safeParse(document);
     if (!checked.success) {
       throw new TypeError(`Edit ${patch.field} leaves the document invalid: ${z.prettifyError(checked.error)}`);
@@ -147,9 +146,12 @@ export class Character {
     return new Character({ ...this.toProps(), document, updatedAt: now });
   }
 
-  #changes(patch: CharacterPatch, inputs: EditInputs): Partial<CharacterProps> {
+  #changes(patch: CharacterPatch, inputs: EditInputs, now: Temporal.Instant): Partial<CharacterProps> {
     if (isInventoryPatch(patch)) {
       return this.#stockChanges(patch, inputs);
+    }
+    if (isDocumentPatch(patch)) {
+      return { document: withDocumentEdit(this.document, patch, { inputs, now }) };
     }
     switch (patch.field) {
       case CharacterPatchField.Name: {
@@ -171,17 +173,6 @@ export class Character {
       case CharacterPatchField.EraseRune:
       case CharacterPatchField.TransferRune: {
         return this.#stock(patch, (inventory) => equipmentChange(inventory, patch), inputs.limits);
-      }
-      case CharacterPatchField.GrantSpellAccess:
-      case CharacterPatchField.RevokeSpellAccess:
-      case CharacterPatchField.DismissUnplacedFeat:
-      case CharacterPatchField.DismissUnplacedHeritage:
-      case CharacterPatchField.DismissUnplacedLanguage: {
-        return { document: withBuildListEdit(this.document, patch) };
-      }
-      case CharacterPatchField.SetAppearance:
-      case CharacterPatchField.SetPersonality: {
-        return { document: withProse(this.document, patch) };
       }
       default: {
         const unreachable: never = patch;

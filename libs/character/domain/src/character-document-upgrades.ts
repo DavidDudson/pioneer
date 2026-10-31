@@ -42,6 +42,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 12 → 13: how long the character has been in each environment (#1291). A version 12 `play` has none, which reads as no time spent. */
   (document) => document,
+  /** 13 → 14: overrides carry an author, a reason, earlier states and a removal (#1127). A version 13 document has none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

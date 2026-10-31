@@ -5,10 +5,11 @@ import * as z from 'zod';
 import { CURRENT_SCHEMA_VERSION, StoredCharacterDocument, upgradeDocument } from './character-document-upgrades';
 import { CharacterId, CharacterLevel, CharacterName } from './character-fields';
 import { EMPTY_INVENTORY, InventorySchema } from './inventory';
+import { OVERRIDES_MAX, OverrideSchema } from './override-schema';
 import { FRESH_PLAY, PlayStateSchema } from './play-state';
 
 /**
- * Nothing yet. Boons and conditions (#39) and overrides (#34) widen these, each with a new schema version.
+ * Nothing yet. Boons and conditions (#39) widen these, each with a new schema version.
  */
 const None = z.tuple([]);
 
@@ -66,7 +67,8 @@ export const CharacterDocumentSchema = z.strictObject({
   inventory: InventorySchema.default(EMPTY_INVENTORY),
   /** Stored apart, in `character_play` (ADR-0022); a build save never writes it. */
   play: PlayStateSchema.default(FRESH_PLAY),
-  overrides: None.default([]),
+  /** What was set by hand on a statistic, removed ones kept (#1127); only the active ones compile to rule elements. */
+  overrides: z.array(OverrideSchema).max(OVERRIDES_MAX).readonly().default([]),
   notes: RichText.default([]),
   /** What the character looks like, shown on the Exploration tab (#500). */
   appearance: RichText.default([]),

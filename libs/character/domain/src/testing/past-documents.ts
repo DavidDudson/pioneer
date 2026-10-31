@@ -108,6 +108,12 @@ const VERSION_12 = {
   schemaVersion: 12,
 };
 
+/** Version 13, before overrides were kept: `overrides` was always empty. */
+const VERSION_13 = {
+  ...VERSION_12,
+  schemaVersion: 13,
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -125,4 +131,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_10.schemaVersion), VERSION_10],
   [CharacterSchemaVersion.parse(VERSION_11.schemaVersion), VERSION_11],
   [CharacterSchemaVersion.parse(VERSION_12.schemaVersion), VERSION_12],
+  [CharacterSchemaVersion.parse(VERSION_13.schemaVersion), VERSION_13],
 ]);

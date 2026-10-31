@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { CharacterLevel, CharacterName } from './character-fields';
 import { CoinsSchema, InventoryItemId, InventoryItemName, ItemQuantity } from './inventory';
 import { CarrySchema } from './item-carry';
+import { OverrideId, OverrideInput, OverrideReason } from './override-schema';
 import { RuneEtchingSchema, RuneRefSchema } from './rune-etching';
 
 /** Every edit the sheet makes: a field, a choice slot or the inventory. One PATCH per edit. */
@@ -62,6 +63,12 @@ export const CharacterPatchField = {
   DismissUnplacedHeritage: 'dismissUnplacedHeritage',
   /** An imported language no slot held, taken off the list so it stops being flagged. */
   DismissUnplacedLanguage: 'dismissUnplacedLanguage',
+  /** A modifier or pinned value put on a statistic by hand, with the reason for it (#1127). */
+  AddOverride: 'addOverride',
+  /** An override changed; the state it replaces is kept. */
+  EditOverride: 'editOverride',
+  /** An override taken off, with the reason; it stays on record, no longer in force. */
+  RemoveOverride: 'removeOverride',
   /** What the character looks like; empty rich text clears it. */
   SetAppearance: 'setAppearance',
   /** How the character acts and what they care about; empty rich text clears it. */
@@ -117,6 +124,9 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedHeritage), heritage: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedLanguage), language: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.AddOverride), override: OverrideInput }),
+  z.object({ field: z.literal(CharacterPatchField.EditOverride), id: OverrideId, override: OverrideInput }),
+  z.object({ field: z.literal(CharacterPatchField.RemoveOverride), id: OverrideId, reason: OverrideReason }),
   z.object({ field: z.literal(CharacterPatchField.SetAppearance), value: RichText }),
   z.object({ field: z.literal(CharacterPatchField.SetPersonality), value: RichText }),
 ]);
@@ -146,6 +156,48 @@ export type UnplacedPickPatch = Extract<
   }
 >;
 
+/** The edits that add, change or remove an override. */
+export type OverridePatch = Extract<
+  CharacterPatch,
+  {
+    readonly field:
+      | typeof CharacterPatchField.AddOverride
+      | typeof CharacterPatchField.EditOverride
+      | typeof CharacterPatchField.RemoveOverride;
+  }
+>;
+
+/** The edits that change the document apart from its slots and inventory: spell access, unplaced picks, overrides, prose. */
+export type DocumentPatch = SpellAccessPatch | UnplacedPickPatch | OverridePatch | ProsePatch;
+
+const OVERRIDE_FIELDS: ReadonlySet<CharacterPatchField> = new Set<OverridePatch['field']>([
+  CharacterPatchField.AddOverride,
+  CharacterPatchField.EditOverride,
+  CharacterPatchField.RemoveOverride,
+]);
+
+const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch['field']>([
+  CharacterPatchField.GrantSpellAccess,
+  CharacterPatchField.RevokeSpellAccess,
+  CharacterPatchField.DismissUnplacedFeat,
+  CharacterPatchField.DismissUnplacedHeritage,
+  CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.AddOverride,
+  CharacterPatchField.EditOverride,
+  CharacterPatchField.RemoveOverride,
+  CharacterPatchField.SetAppearance,
+  CharacterPatchField.SetPersonality,
+]);
+
+/** Whether `patch` changes the document apart from its slots and inventory (`DocumentPatch`). */
+export function isDocumentPatch(patch: CharacterPatch): patch is DocumentPatch {
+  return DOCUMENT_FIELDS.has(patch.field);
+}
+
+export function isOverridePatch(patch: CharacterPatch): patch is OverridePatch {
+  return OVERRIDE_FIELDS.has(patch.field);
+}
+
 /** The edits that write the appearance or the personality. */
 export type ProsePatch = Extract<
   CharacterPatch,
@@ -164,6 +216,7 @@ export type UntargetedPatch = Extract<
       | typeof CharacterPatchField.GrantSpellAccess
       | typeof CharacterPatchField.RevokeSpellAccess
       | UnplacedPickPatch['field']
+      | OverridePatch['field']
       | ProsePatch['field'];
   }
 >;
@@ -178,6 +231,9 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.AddOverride,
+  CharacterPatchField.EditOverride,
+  CharacterPatchField.RemoveOverride,
   CharacterPatchField.SetAppearance,
   CharacterPatchField.SetPersonality,
 ]);
