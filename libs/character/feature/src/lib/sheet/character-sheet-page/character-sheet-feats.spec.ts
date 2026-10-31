@@ -1,15 +1,16 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
 import type { PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
-import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { classFeatSlotKey } from '../../testing/class-feat-slots';
-import { openFeatTable } from '../../testing/feat-table-testing';
+import { openFeatTable, stubTableLayout } from '../../testing/feat-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { harnessOf, id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { cutTo, TEST_PACKS } from '../../testing/test-packs';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 
@@ -86,10 +87,28 @@ describe('CharacterSheetPage feats', () => {
     await prebuildServerStateTesting([], FEAT_PACKS);
   }, PREBUILD_TIMEOUT);
 
-  // Skipped: the feat table renders no rows in this harness (#734).
-  // oxlint-disable-next-line vitest/no-disabled-tests -- #734
-  it.skip('offers each feat with whether its prerequisites are met: unmet ones shown but not pickable', async () => {
+  // Nothing is laid out in jsdom, and a picker table reads its height once, as the sheet renders it (#734).
+  // So the sizes are stubbed before the sheet opens, not when the table opens.
+  beforeEach(() => {
+    stubTableLayout();
+  });
+
+  it('offers the feats available to you first: unmet ones are left out, unchecked ones say so', async () => {
     const { root } = await openSheet(fighter(), { packs: FIGHTER_PACKS });
+    const slot = await slotNamed(root, 'Fighter feat, level 1');
+
+    const rows = await openFeatTable(slot, 2);
+
+    expect(rows.map(({ name, disabled }) => [name, disabled])).toStrictEqual([
+      ['Power-attack', false],
+      ['Reactive-shield', false],
+    ]);
+    expect(rows[1]?.cells.join(' ')).toContain("Can't be checked: an animal companion");
+  });
+
+  it('shows the unmet feats too once everything is asked for, not pickable', async () => {
+    const { root } = await openSheet(fighter(), { packs: FIGHTER_PACKS });
+    await harnessOf(root).navigateByUrl(`${TestBed.inject(Router).url}?f.${FIGHTER_FEAT_1}=all`);
     const slot = await slotNamed(root, 'Fighter feat, level 1');
 
     const rows = await openFeatTable(slot, 3);
@@ -97,18 +116,15 @@ describe('CharacterSheetPage feats', () => {
     expect(rows.map(({ name, disabled }) => [name, disabled])).toStrictEqual([
       ['Power-attack', false],
       ['Reactive-shield', false],
-      ['Sudden-charge Prerequisites not met: expert in Athletics', true],
+      ['Sudden-chargePrerequisites not met: expert in Athletics', true],
     ]);
-    expect(rows[1]?.cells.join(' ')).toContain("Can't be checked: an animal companion");
     expect(rows[2]?.cells.join(' ')).toContain('Not met: expert in Athletics');
   });
 
-  // Skipped: the feat table renders no rows in this harness (#734).
-  // oxlint-disable-next-line vitest/no-disabled-tests -- #734
-  it.skip('picks a feat whose prerequisites are met', async () => {
+  it('picks a feat whose prerequisites are met', async () => {
     const { root } = await openSheet(fighter(), { packs: FIGHTER_PACKS });
     const slot = await slotNamed(root, 'Fighter feat, level 1');
-    const rows = await openFeatTable(slot, 3);
+    const rows = await openFeatTable(slot, 2);
 
     present(rows.find((row) => row.name === 'Power-attack')).pick();
 
