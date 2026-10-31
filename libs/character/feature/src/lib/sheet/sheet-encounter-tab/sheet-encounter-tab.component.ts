@@ -7,8 +7,8 @@ import { DefencesView, ENTRY_PREVIEWS, SensesView, SkillsView, SpellcastingView,
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
+import { SheetCastItems } from '../sheet-cast-items/sheet-cast-items.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
-import { SheetRituals } from '../sheet-rituals/sheet-rituals.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
@@ -16,11 +16,9 @@ import { SheetSpells } from '../sheet-spells/sheet-spells.component';
 import { SheetSpendLog } from '../sheet-spend-log/sheet-spend-log.component';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
-import { SheetStaves } from '../sheet-staves/sheet-staves.component';
 import { usableStrikes } from '../sheet-strikes';
 import { rememberTab } from '../sheet-tab';
 import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
-import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
  * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total, in a rail
@@ -40,14 +38,12 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     Section,
     Rail,
     SkillsView,
-    SheetRituals,
+    SheetCastItems,
     SheetSpells,
-    SheetStaves,
     SheetSpendLog,
     SheetTurnPanel,
     SheetConsumables,
     SheetShields,
-    SheetWands,
     SpellcastingView,
     Stack,
     StrikesView,

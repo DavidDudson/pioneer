@@ -97,7 +97,7 @@ describe('CharacterSheetPage header', () => {
       );
       expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual([
         'TTrained',
-        'TTrained',
+        'EExpert',
         'TTrained',
         'EExpert',
         'TTrained',
