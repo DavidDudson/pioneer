@@ -17,9 +17,9 @@ async function render(inputs: Record<string, unknown>): Promise<SVGElement> {
 }
 
 describe(Icon, () => {
-  it.each(Object.values(Size))('draws 1.5px non-scaling lines at size %s', async (size) => {
+  it.each(Object.values(Size))('draws 1px non-scaling lines at size %s', async (size) => {
     const svg = await render({ size });
-    expect(svg.getAttribute('stroke-width')).toBe('1.5');
+    expect(svg.getAttribute('stroke-width')).toBe('1');
     const effects = [...svg.querySelectorAll('path, line, polyline, circle, rect')].map((shape) =>
       shape.getAttribute('vector-effect'),
     );
