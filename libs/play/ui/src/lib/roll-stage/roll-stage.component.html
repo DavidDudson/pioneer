@@ -1,0 +1,12 @@
+@if (presenter.throwing()) {
+  <fr-screen-overlay />
+}
+<fr-toast [open]="view() !== undefined">
+  @if (view(); as shown) {
+    <fr-text [variant]="Heading" [weight]="Bold" [damage]="shown.roll.tone" [numeric]="true">{{ shown.total }}</fr-text>
+    <fr-text [tone]="Muted">{{ shown.roll.label }}</fr-text>
+    @if (shown.roll.damageTypeKey; as typeKey) {
+      <fr-text [tone]="Muted">{{ typeKey | transloco }}</fr-text>
+    }
+  }
+</fr-toast>
