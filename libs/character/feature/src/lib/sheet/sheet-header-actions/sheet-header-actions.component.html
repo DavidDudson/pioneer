@@ -1,9 +1,10 @@
 <fr-stack direction="horizontal" align="center" gap="sm">
   <pio-sheet-active-count />
-  @if (hasSidePanel()) {
-    <fr-button (pressed)="openSidePanel()">{{ 'character.sheet.sidePanel.open' | transloco }}</fr-button>
-  }
-  <pio-sheet-status />
-  <pio-sheet-report-bug />
-  <pio-sheet-export />
+  <pio-sheet-save-status />
+  <fr-dropdown align="end" [label]="'character.sheet.actionsMenu' | transloco" [icon]="menuIcon">
+    <fr-stack gap="2xs">
+      <pio-sheet-report-bug />
+      <pio-sheet-export />
+    </fr-stack>
+  </fr-dropdown>
 </fr-stack>

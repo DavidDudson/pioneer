@@ -13,6 +13,7 @@ import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pion
 import { characterCrumb } from './crumbs';
 import { CharacterGenerator } from './data/character-generator';
 import { CharacterStore } from './data/character-store';
+import { firstSectionPath } from './sheet/sheet-sections';
 
 /**
  * Lazy routes for the character bounded context. The sheet renders engine output, so rules text from `rules/sdk`,
@@ -79,35 +80,64 @@ export const characterRoutes: Routes = [
           {
             path: SheetMode.Plan,
             data: { [CRUMB]: 'character.sheet.tabs.plan' },
-            loadComponent: async () => {
-              const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
-              return SheetPlanTab;
-            },
+            // Each section of the tab is a route of its own; the tab's address opens its first.
+            children: [
+              { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Plan) },
+              {
+                path: ':section',
+                loadComponent: async () => {
+                  const { SheetPlanTab } = await import('./sheet/sheet-plan-tab/sheet-plan-tab.component');
+                  return SheetPlanTab;
+                },
+              },
+            ],
           },
           {
             path: SheetMode.Encounter,
             data: { [CRUMB]: 'character.sheet.tabs.encounter' },
-            loadComponent: async () => {
-              const { SheetEncounterTab } = await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
-              return SheetEncounterTab;
-            },
+            // Each section of the tab is a route of its own; the tab's address opens its first.
+            children: [
+              { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Encounter) },
+              {
+                path: ':section',
+                loadComponent: async () => {
+                  const { SheetEncounterTab } =
+                    await import('./sheet/sheet-encounter-tab/sheet-encounter-tab.component');
+                  return SheetEncounterTab;
+                },
+              },
+            ],
           },
           {
             path: SheetMode.Exploration,
             data: { [CRUMB]: 'character.sheet.tabs.exploration' },
-            loadComponent: async () => {
-              const { SheetExplorationTab } =
-                await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
-              return SheetExplorationTab;
-            },
+            // Each section of the tab is a route of its own; the tab's address opens its first.
+            children: [
+              { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Exploration) },
+              {
+                path: ':section',
+                loadComponent: async () => {
+                  const { SheetExplorationTab } =
+                    await import('./sheet/sheet-exploration-tab/sheet-exploration-tab.component');
+                  return SheetExplorationTab;
+                },
+              },
+            ],
           },
           {
             path: SheetMode.Downtime,
             data: { [CRUMB]: 'character.sheet.tabs.downtime' },
-            loadComponent: async () => {
-              const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
-              return SheetDowntimeTab;
-            },
+            // Each section of the tab is a route of its own; the tab's address opens its first.
+            children: [
+              { path: '', pathMatch: 'full', redirectTo: firstSectionPath(SheetMode.Downtime) },
+              {
+                path: ':section',
+                loadComponent: async () => {
+                  const { SheetDowntimeTab } = await import('./sheet/sheet-downtime-tab/sheet-downtime-tab.component');
+                  return SheetDowntimeTab;
+                },
+              },
+            ],
           },
         ],
       },

@@ -22,7 +22,7 @@ export type SheetModeId = z.infer<typeof SheetModeId>;
 export const SheetModeSchema = z.enum(SheetMode);
 
 /** The tab a character's sheet opens on until its user picks one. */
-export const DEFAULT_SHEET_MODE: SheetMode = SheetMode.Plan;
+export const DEFAULT_SHEET_MODE: SheetMode = SheetMode.Exploration;
 
 /**
  * The tab a user last had open on a character's sheet: a display preference (ADR-0052), absent until they first

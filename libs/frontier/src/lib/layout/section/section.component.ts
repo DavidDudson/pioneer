@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Heading } from '../../text/heading/heading.component';
 import { Stack } from '../stack/stack.component';
@@ -20,11 +20,13 @@ import { Surface } from '../surface/surface.component';
   imports: [Heading, Stack, Surface],
   templateUrl: './section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { '[class.block]': '!concealed()', '[class.hidden]': 'concealed()' },
 })
 export class Section {
   /** The heading's id, unique on the page; the region is labelled by it and skip links target it. */
   public readonly anchor = input.required<string>();
   /** The section's name, already translated. */
   public readonly heading = input.required<string>();
+  /** Keeps the section rendered, with its state, and out of sight and the accessibility tree; for the closed ones of a set shown one at a time. */
+  public readonly concealed = input(false, { transform: booleanAttribute });
 }

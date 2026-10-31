@@ -1,13 +1,25 @@
 <fr-stack gap="lg">
-  <fr-section [anchor]="sections.variantRules.anchor" [heading]="sections.variantRules.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.variantRules.anchor"
+    [anchor]="sections.variantRules.anchor"
+    [heading]="sections.variantRules.headingKey | transloco"
+  >
     <pio-sheet-variant-rules />
   </fr-section>
 
-  <fr-section [anchor]="sections.ruleLimits.anchor" [heading]="sections.ruleLimits.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.ruleLimits.anchor"
+    [anchor]="sections.ruleLimits.anchor"
+    [heading]="sections.ruleLimits.headingKey | transloco"
+  >
     <pio-sheet-rule-limits />
   </fr-section>
 
-  <fr-section [anchor]="sections.overrides.anchor" [heading]="sections.overrides.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.overrides.anchor"
+    [anchor]="sections.overrides.anchor"
+    [heading]="sections.overrides.headingKey | transloco"
+  >
     <pio-sheet-overrides />
   </fr-section>
 

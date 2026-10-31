@@ -104,8 +104,7 @@
       "done": "Added"
     },
     "sidePanel": {
-      "title": "Content",
-      "open": "Search content"
+      "title": "Content"
     },
     "customEffectsHeading": "Custom effects",
     "customEffects": {
@@ -717,7 +716,8 @@
       "go": "Roll",
       "cancel": "Cancel"
     },
-    "reportBug": "Report a bug"
+    "reportBug": "Report a bug",
+    "actionsMenu": "Sheet actions"
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

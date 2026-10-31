@@ -17,13 +17,13 @@
     <pio-sheet-turn-panel />
     <pio-sheet-spend-log />
 
-    <fr-section-index [label]="'character.sheet.sections' | transloco">
-      @for (section of sectionOrder; track section.anchor) {
-        <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
-      }
-    </fr-section-index>
+    <pio-sheet-section-tabs [sections]="sectionOrder" />
 
-    <fr-section [anchor]="sections.defences.anchor" [heading]="sections.defences.headingKey | transloco">
+    <fr-section
+      [concealed]="shown()?.anchor !== sections.defences.anchor"
+      [anchor]="sections.defences.anchor"
+      [heading]="sections.defences.headingKey | transloco"
+    >
       <fr-async-region>
         <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.registry"
@@ -35,7 +35,11 @@
       </fr-async-region>
     </fr-section>
 
-    <fr-section [anchor]="sections.senses.anchor" [heading]="sections.senses.headingKey | transloco">
+    <fr-section
+      [concealed]="shown()?.anchor !== sections.senses.anchor"
+      [anchor]="sections.senses.anchor"
+      [heading]="sections.senses.headingKey | transloco"
+    >
       <fr-async-region>
         <ng-template frAsyncPending><pio-senses [senses]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.engineQuery()"
@@ -47,7 +51,11 @@
       </fr-async-region>
     </fr-section>
 
-    <fr-section [anchor]="sections.strikes.anchor" [heading]="sections.strikes.headingKey | transloco">
+    <fr-section
+      [concealed]="shown()?.anchor !== sections.strikes.anchor"
+      [anchor]="sections.strikes.anchor"
+      [heading]="sections.strikes.headingKey | transloco"
+    >
       <fr-async-region>
         <ng-template frAsyncPending><pio-strikes [strikes]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.engineQuery()"
@@ -64,11 +72,19 @@
       <pio-sheet-consumables />
     </fr-section>
 
-    <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
+    <fr-section
+      [concealed]="shown()?.anchor !== sections.actions.anchor"
+      [anchor]="sections.actions.anchor"
+      [heading]="sections.actions.headingKey | transloco"
+    >
       <pio-sheet-actions [mode]="Mode" />
     </fr-section>
 
-    <fr-section [anchor]="sections.spellcasting.anchor" [heading]="sections.spellcasting.headingKey | transloco">
+    <fr-section
+      [concealed]="shown()?.anchor !== sections.spellcasting.anchor"
+      [anchor]="sections.spellcasting.anchor"
+      [heading]="sections.spellcasting.headingKey | transloco"
+    >
       <fr-async-region>
         <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
         <ng-template [frAsyncData]="sheet.registry"
@@ -79,9 +95,7 @@
         /></ng-template>
       </fr-async-region>
       <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
-      <pio-sheet-rituals />
-      <pio-sheet-staves />
-      <pio-sheet-wands />
+      <pio-sheet-cast-items />
     </fr-section>
   </fr-stack>
 </fr-stack>

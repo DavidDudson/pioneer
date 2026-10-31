@@ -1,4 +1,5 @@
 <fr-stack gap="lg">
+  <pio-sheet-rule-breaks />
   <pio-sheet-unenabled-content />
   @if (store.importReport(); as report) {
     <pio-import-result
@@ -25,13 +26,14 @@
       </fr-stack>
     </fr-surface>
   }
-  <fr-section-index [label]="'character.sheet.sections' | transloco">
-    @for (section of sectionOrder; track section.anchor) {
-      <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
-    }
-  </fr-section-index>
+  <pio-sheet-section-tabs [sections]="sectionOrder" />
 
-  <fr-section #identity [anchor]="sections.identity.anchor" [heading]="sections.identity.headingKey | transloco">
+  <fr-section
+    #identity
+    [concealed]="shown()?.anchor !== sections.identity.anchor"
+    [anchor]="sections.identity.anchor"
+    [heading]="sections.identity.headingKey | transloco"
+  >
     <fr-stack gap="md">
       <fr-grid [columns]="3">
         <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
@@ -103,11 +105,19 @@
     </fr-stack>
   </fr-section>
 
-  <fr-section [anchor]="sections.build.anchor" [heading]="sections.build.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.build.anchor"
+    [anchor]="sections.build.anchor"
+    [heading]="sections.build.headingKey | transloco"
+  >
     <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
   </fr-section>
 
-  <fr-section [anchor]="sections.attributes.anchor" [heading]="sections.attributes.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.attributes.anchor"
+    [anchor]="sections.attributes.anchor"
+    [heading]="sections.attributes.headingKey | transloco"
+  >
     <fr-async-region>
       <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
       <ng-template [frAsyncData]="registry">
@@ -116,27 +126,47 @@
     </fr-async-region>
   </fr-section>
 
-  <fr-section [anchor]="sections.choices.anchor" [heading]="sections.choices.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.choices.anchor"
+    [anchor]="sections.choices.anchor"
+    [heading]="sections.choices.headingKey | transloco"
+  >
     <fr-stack gap="md">
       <pio-sheet-reroll />
     </fr-stack>
   </fr-section>
 
-  <fr-section [anchor]="sections.timeline.anchor" [heading]="sections.timeline.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.timeline.anchor"
+    [anchor]="sections.timeline.anchor"
+    [heading]="sections.timeline.headingKey | transloco"
+  >
     <pio-sheet-level-plan />
   </fr-section>
 
-  <fr-section [anchor]="sections.feats.anchor" [heading]="sections.feats.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.feats.anchor"
+    [anchor]="sections.feats.anchor"
+    [heading]="sections.feats.headingKey | transloco"
+  >
     <pio-sheet-feats />
   </fr-section>
 
-  <fr-section [anchor]="sections.features.anchor" [heading]="sections.features.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.features.anchor"
+    [anchor]="sections.features.anchor"
+    [heading]="sections.features.headingKey | transloco"
+  >
     <pio-class-features [lines]="picks.features()" />
   </fr-section>
 
-  <fr-section [anchor]="sections.packs.anchor" [heading]="sections.packs.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.packs.anchor"
+    [anchor]="sections.packs.anchor"
+    [heading]="sections.packs.headingKey | transloco"
+  >
     <pio-sheet-packs />
   </fr-section>
 
-  <pio-sheet-table-rules />
+  <pio-sheet-table-rules [shown]="shown()" />
 </fr-stack>

@@ -1,20 +1,35 @@
 import {
   afterRenderEffect,
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
+  computed,
   contentChildren,
+  inject,
   input,
   viewChild,
 } from '@angular/core';
-import type { ElementRef } from '@angular/core';
+import type { ElementRef, Signal } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
 import { RovingFocus } from '../../focus/roving-focus.directive';
 import { Tab } from '../tab/tab.component';
+import { TABS_APPEARANCE, TabsAppearance } from './tabs-appearance';
 
-const navClasses = cva('block overflow-x-auto border-b border-line-subtle')();
+const navVariants = cva('block overflow-x-auto', {
+  variants: { appearance: { underline: 'border-b border-line-subtle', segment: '' } },
+});
 // The padding leaves room for the focus ring, which the scrolling region would otherwise clip.
-const rowClasses = cva('flex gap-2xs p-2xs')();
+// A centred row takes auto margins, not `justify-center`, which would push its first tabs out of reach of the scroll.
+const rowVariants = cva('flex', {
+  variants: {
+    appearance: {
+      underline: 'gap-2xs p-2xs',
+      segment: 'w-fit gap-3xs border border-line-default bg-surface-base p-3xs',
+    },
+    centered: { true: 'mx-auto w-fit', false: '' },
+  },
+});
 
 /**
  * Section tabs: a row of `fr-tab` router links, each section its own route, so the URL says which one is shown.
@@ -33,6 +48,7 @@ const rowClasses = cva('flex gap-2xs p-2xs')();
 @Component({
   selector: 'fr-tabs',
   templateUrl: './tabs.component.html',
+  providers: [{ provide: TABS_APPEARANCE, useFactory: (): Signal<TabsAppearance> => inject(Tabs).appearance }],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   hostDirectives: [RovingFocus],
@@ -41,8 +57,15 @@ export class Tabs {
   /** Names the navigation landmark, already translated. */
   public readonly label = input.required<string>();
 
-  protected readonly navClasses = navClasses;
-  protected readonly rowClasses = rowClasses;
+  /** `underline` (the default) or `segment`, the look of `fr-segmented`: for tabs that switch between a few sections of one page. */
+  public readonly appearance = input<TabsAppearance>(TabsAppearance.Underline);
+  /** Puts the row in the middle of the page rather than at its start. */
+  public readonly centered = input(false, { transform: booleanAttribute });
+
+  protected readonly navClasses = computed(() => navVariants({ appearance: this.appearance() }));
+  protected readonly rowClasses = computed(() =>
+    rowVariants({ appearance: this.appearance(), centered: this.centered() }),
+  );
 
   private readonly tabs = contentChildren(Tab, { descendants: true });
   private readonly nav = viewChild.required<ElementRef<HTMLElement>>('nav');

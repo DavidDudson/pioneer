@@ -1,30 +1,43 @@
 <fr-stack gap="lg">
-  <fr-section-index [label]="'character.sheet.sections' | transloco">
-    @for (section of sectionOrder; track section.anchor) {
-      <fr-section-link [anchor]="section.anchor">{{ section.headingKey | transloco }}</fr-section-link>
-    }
-  </fr-section-index>
+  <pio-sheet-section-tabs [sections]="sectionOrder" />
 
-  <fr-section [anchor]="sections.roleplay.anchor" [heading]="sections.roleplay.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.roleplay.anchor"
+    [anchor]="sections.roleplay.anchor"
+    [heading]="sections.roleplay.headingKey | transloco"
+  >
     <pio-sheet-roleplay-section />
   </fr-section>
 
   <fr-section
+    [concealed]="shown()?.anchor !== sections.explorationActivity.anchor"
     [anchor]="sections.explorationActivity.anchor"
     [heading]="sections.explorationActivity.headingKey | transloco"
   >
     <pio-sheet-exploration-activity />
   </fr-section>
 
-  <fr-section [anchor]="sections.environments.anchor" [heading]="sections.environments.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.environments.anchor"
+    [anchor]="sections.environments.anchor"
+    [heading]="sections.environments.headingKey | transloco"
+  >
     <pio-sheet-environments />
   </fr-section>
 
-  <fr-section [anchor]="sections.actions.anchor" [heading]="sections.actions.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.actions.anchor"
+    [anchor]="sections.actions.anchor"
+    [heading]="sections.actions.headingKey | transloco"
+  >
     <pio-sheet-actions [mode]="Mode" />
   </fr-section>
 
-  <fr-section [anchor]="sections.deity.anchor" [heading]="sections.deity.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.deity.anchor"
+    [anchor]="sections.deity.anchor"
+    [heading]="sections.deity.headingKey | transloco"
+  >
     <fr-async-region>
       <ng-template frAsyncPending><pio-deity loading /></ng-template>
       <ng-template let-content [frAsyncData]="sheet.registry">
@@ -33,11 +46,19 @@
     </fr-async-region>
   </fr-section>
 
-  <fr-section [anchor]="sections.languages.anchor" [heading]="sections.languages.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.languages.anchor"
+    [anchor]="sections.languages.anchor"
+    [heading]="sections.languages.headingKey | transloco"
+  >
     <pio-sheet-languages-section />
   </fr-section>
 
-  <fr-section [anchor]="sections.inventory.anchor" [heading]="sections.inventory.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.inventory.anchor"
+    [anchor]="sections.inventory.anchor"
+    [heading]="sections.inventory.headingKey | transloco"
+  >
     <pio-inventory-section
       [investments]="sheet.investments()"
       [engine]="sheet.engineQuery()"

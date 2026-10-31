@@ -181,7 +181,10 @@ async function answerReads(character: object, options: SheetOptions): Promise<vo
   // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
   await answerPacksRead(options.characterPacks);
   await answerVariantRulesRead(options.characterVariantRules);
-  await answerRuleLimitsRead();
+  // Plan (the rule-breaking warning) and Exploration (the inventory) read what the table decides; Encounter and Downtime don't.
+  if (options.tab === undefined || options.tab === SheetMode.Plan || options.tab === SheetMode.Exploration) {
+    await answerRuleLimitsRead();
+  }
 }
 
 /**

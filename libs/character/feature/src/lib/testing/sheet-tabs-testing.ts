@@ -35,3 +35,18 @@ export async function openTab(root: HTMLElement, name: string, firstSection: str
     expect(regionsOf(root)[0]?.[0]).toBe(firstSection);
   });
 }
+
+/**
+ * Opens the sheet's triple-dot menu and returns its panel, which the overlay puts outside the sheet's root. Waits for
+ * the trigger, which renders with the header.
+ */
+export async function openSheetActions(root: HTMLElement): Promise<HTMLElement> {
+  const trigger = await vi.waitFor(() =>
+    present(root.querySelector<HTMLButtonElement>('pio-sheet-header-actions button[aria-label="Sheet actions"]')),
+  );
+  trigger.click();
+  return vi.waitFor(() => {
+    render();
+    return present(document.querySelector<HTMLElement>('[role="group"][aria-label="Sheet actions"]'));
+  });
+}

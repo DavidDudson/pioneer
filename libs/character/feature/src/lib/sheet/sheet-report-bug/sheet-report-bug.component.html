@@ -1,3 +1,5 @@
 @if (query(); as params) {
-  <fr-link variant="caption" [to]="path" [queryParams]="params">{{ 'character.sheet.reportBug' | transloco }}</fr-link>
+  <fr-link appearance="menu" [to]="path" [queryParams]="params"
+    ><fr-icon [icon]="icon" />{{ 'character.sheet.reportBug' | transloco }}</fr-link
+  >
 }

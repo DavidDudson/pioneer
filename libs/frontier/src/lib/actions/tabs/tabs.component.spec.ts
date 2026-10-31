@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import { TabsHost } from '../../testing/tabs-host';
 import type { TabsHostTab } from '../../testing/tabs-host';
+import { TabsAppearance } from './tabs-appearance';
 import { Tabs } from './tabs.component';
 
 interface Rendered {
@@ -128,5 +129,25 @@ describe(Tabs, () => {
     await rendered.fixture.whenStable();
     expect(TestBed.inject(Router).url).toBe('/sheet');
     expect(current(rendered)).toStrictEqual([true, false, false]);
+  });
+
+  it('takes the look of the segmented control, the current tab filled, when its appearance is segment', async () => {
+    const rendered = await render('/sheet/feats');
+    rendered.fixture.componentRef.setInput('appearance', TabsAppearance.Segment);
+    await rendered.fixture.whenStable();
+
+    expect([...rendered.nav.classList]).not.toContain('border-b');
+    expect([...link(rendered, 1).classList]).toContain('bg-accent-solid');
+    expect([...link(rendered, 0).classList]).not.toContain('bg-accent-solid');
+    expect([...link(rendered, 0).classList]).not.toContain('underline');
+  });
+
+  it('puts the row in the middle when centered', async () => {
+    const rendered = await render('/sheet');
+    rendered.fixture.componentRef.setInput('centered', true);
+    await rendered.fixture.whenStable();
+
+    const row = rendered.nav.querySelector('div');
+    expect(row?.className).toContain('mx-auto w-fit');
   });
 });

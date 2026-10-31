@@ -65,3 +65,18 @@ export const WithAside: PageStory = {
     `,
   }),
 };
+
+/** `width="full"` drops the page-width cap, for a page that uses all the room the shell gives it. */
+export const FullWidth: PageStory = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <fr-page width="full">
+        <fr-page-header [title]="title" [description]="description" />
+        <fr-page-body>
+          <fr-surface><fr-text element="p">Page content goes here.</fr-text></fr-surface>
+        </fr-page-body>
+      </fr-page>
+    `,
+  }),
+};

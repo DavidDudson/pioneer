@@ -9,7 +9,6 @@ import characterMessages from '../../../i18n/en.json';
 import { SHEET_SIDE_PANEL } from '../../data/sheet-side-panel';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { openSheet, present } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
 
 /** Stands in for the app's content search, which the character feature may not import. */
 // oxlint-disable-next-line @angular-eslint/component-max-inline-declarations -- an empty stand-in, not worth a file
@@ -58,10 +57,11 @@ function fakeBrowser(): void {
   });
 }
 
-const openButton = (root: HTMLElement): HTMLButtonElement | undefined =>
-  [...root.querySelectorAll('pio-sheet-header-actions button')].find(
-    (button): button is HTMLButtonElement => textOf(button) === characterMessages.sheet.sidePanel.open,
-  );
+/** Opens the drawer the way a link does: by putting it in the address. */
+const openDrawer = async (): Promise<void> => {
+  const router = TestBed.inject(Router);
+  await router.navigateByUrl(`${router.url}?drawer=open`);
+};
 
 describe('CharacterSheetPage side panel', () => {
   beforeAll(async () => {
@@ -71,30 +71,28 @@ describe('CharacterSheetPage side panel', () => {
   it('offers no side panel, and leaves the shell search, when the app provides none', async () => {
     const { root } = await openSheet(undefined, { providers: [IDLE_NOW] });
 
-    expect(openButton(root)).toBeUndefined();
     expect(root.querySelector('pio-stub-side-panel')).toBeNull();
     expect(TestBed.inject(ShellSearch).hidden()).toBe(false);
   });
 
   it('loads the app side panel into the drawer and hides the shell search', async () => {
-    const { root } = await openSheet(undefined, { providers: WITH_PANEL });
+    await openSheet(undefined, { providers: WITH_PANEL });
 
     await vi.waitFor(() => {
       expect(TestBed.inject(ShellSearch).hidden()).toBe(true);
     });
-    expect(present(openButton(root))).toBeDefined();
   });
 
-  it('opens the drawer from the header button, keeps it in the address and closes it with Escape', async () => {
+  it('opens the drawer from the address, keeps it there and closes it with Escape', async () => {
     fakeBrowser();
     const { root } = await openSheet(undefined, { providers: WITH_PANEL });
     const router = TestBed.inject(Router);
     await vi.waitFor(() => {
-      expect(openButton(root)).toBeDefined();
+      expect(TestBed.inject(ShellSearch).hidden()).toBe(true);
     });
     expect(root.querySelector('dialog')).toBeNull();
 
-    present(openButton(root)).click();
+    await openDrawer();
     await vi.waitFor(() => {
       expect(router.url).toContain('drawer=open');
     });
@@ -126,7 +124,7 @@ describe('CharacterSheetPage side panel', () => {
     expect(root.querySelector('pio-stub-side-panel')).toBeNull();
   });
 
-  it('offers no button and opens no empty drawer when the panel fails to load', async () => {
+  it('opens no empty drawer when the panel fails to load', async () => {
     fakeBrowser();
     const loader = vi.fn<() => Promise<Type<unknown>>>().mockRejectedValue(new Error('offline'));
     const { root } = await openSheet(undefined, {
@@ -141,27 +139,7 @@ describe('CharacterSheetPage side panel', () => {
       setTimeout(resolve, 0);
     });
 
-    expect(openButton(root)).toBeUndefined();
     expect(root.querySelector('dialog')).toBeNull();
-  });
-
-  it('asks the panel for the cursor each time the button is pressed, open or not', async () => {
-    fakeBrowser();
-    const { root } = await openSheet(undefined, { providers: WITH_PANEL });
-    const search = TestBed.inject(ShellSearch);
-    await vi.waitFor(() => {
-      expect(openButton(root)).toBeDefined();
-    });
-
-    present(openButton(root)).click();
-    await vi.waitFor(() => {
-      expect(search.focusRequests()).toBe(1);
-    });
-    present(openButton(root)).click();
-
-    await vi.waitFor(() => {
-      expect(search.focusRequests()).toBe(2);
-    });
   });
 
   it('does not hide the shell search for a panel that arrives after the sheet is left', async () => {
@@ -211,9 +189,9 @@ describe('CharacterSheetPage side panel', () => {
   });
 
   it('shows the shell search again once the sheet is left', async () => {
-    const { harness, root } = await openSheet(undefined, { providers: WITH_PANEL });
+    const { harness } = await openSheet(undefined, { providers: WITH_PANEL });
     await vi.waitFor(() => {
-      expect(openButton(root)).toBeDefined();
+      expect(TestBed.inject(ShellSearch).hidden()).toBe(true);
     });
 
     harness.fixture.destroy();

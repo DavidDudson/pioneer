@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Tab } from '../actions/tab/tab.component';
+import { TabsAppearance } from '../actions/tabs/tabs-appearance';
 import { Tabs } from '../actions/tabs/tabs.component';
 
 /** One tab in a `TabsHost`. */
@@ -20,4 +21,6 @@ export interface TabsHostTab {
 export class TabsHost {
   public readonly label = input.required<string>();
   public readonly tabs = input.required<readonly TabsHostTab[]>();
+  public readonly appearance = input<TabsAppearance>(TabsAppearance.Underline);
+  public readonly centered = input(false);
 }

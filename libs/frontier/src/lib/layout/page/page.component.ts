@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { Box } from '../box/box.component';
+import { Box, BoxWidth } from '../box/box.component';
 import { Stack } from '../stack/stack.component';
 
 /**
@@ -24,4 +24,7 @@ import { Stack } from '../stack/stack.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
 })
-export class Page {}
+export class Page {
+  /** `page` caps the content at the page width and centres it; `full` uses all the room the shell gives it. */
+  public readonly width = input<BoxWidth>(BoxWidth.Page);
+}
