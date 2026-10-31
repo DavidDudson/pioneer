@@ -30,6 +30,13 @@ The character and campaign contexts may not import each other, and the packs bel
   must apply the same filter.
 - **`PackCatalog` is not shared.** `CharacterPackCatalog` has the same four methods as the campaign context's port and
   `HomebrewPackCatalog` serves both; the types are structurally equal because ids and titles are the same Zod brands.
+- **Held content stays, flagged unsupported.** The effective set decides what a character may browse and pick from, and
+  the character ignores its own packs while a campaign decides. It does not lose what it already holds: its registry is
+  the effective set plus every homebrew pack its document refers to (`HeldContentPacks`, found by looking each uuid in
+  the document up in `content_entries`), and the packs outside the effective set are unsupported. Pickers and browsing
+  use the effective set only, so nothing new comes from an unsupported pack. The read-time filter above applies: a
+  held pack the owner can no longer read is left out. A variant rule defined by an unsupported pack is dropped as before
+  (ADR-0061).
 - Only the owner reads or changes the list: another user gets a 404 (ADR-0007).
 
 ## Consequences

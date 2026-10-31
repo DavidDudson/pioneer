@@ -6,11 +6,13 @@ import {
   CharacterPatchField,
   itemContent,
   ItemQuantity,
+  PackPublisher,
+  PackTitle,
 } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { humanAncestryId } from '@pioneer/character/domain/testing';
 import { ContentKind, contentPackId, ContentRegistry, PackId } from '@pioneer/rules/sdk';
-import type { ContentPackId, ContentSource, VariantRuleId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentPackId, ContentSource, VariantRuleId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, NotFoundError, UserId } from '@pioneer/shared/kernel';
 import { rejection } from '@pioneer/shared/kernel/testing';
@@ -18,8 +20,11 @@ import { rejection } from '@pioneer/shared/kernel/testing';
 import { CharacterService } from './character-service';
 import { CharacterUnenabledService } from './character-unenabled-service';
 import type { OwnChoices } from './character-unenabled-service';
+import { HeldContentPacks } from './held-content-packs';
 import { InMemoryAttachedCampaignPacks } from './in-memory-attached-campaign-packs';
+import { InMemoryCharacterPackCatalog } from './in-memory-character-pack-catalog';
 import { InMemoryCharacterRepository } from './in-memory-character-repository';
+import { PackLookup } from './pack-lookup';
 
 const amiri = UserId.parse(newId());
 const ezren = UserId.parse(newId());
@@ -53,6 +58,20 @@ function source(): ContentSource {
   };
 }
 
+/** Every id held is defined by the pack given. */
+class HeldIn extends PackLookup {
+  readonly #pack: ContentPackId;
+
+  public constructor(pack: ContentPackId) {
+    super();
+    this.#pack = pack;
+  }
+
+  public override async packsOf(entryIds: readonly ContentId[]): Promise<readonly ContentPackId[]> {
+    return entryIds.length === 0 ? [] : [this.#pack];
+  }
+}
+
 class Own<Id> implements OwnChoices<Id> {
   public ids: readonly Id[] = [];
 
@@ -64,13 +83,14 @@ describe('CharacterUnenabledService', () => {
   let packs: Own<ContentPackId>;
   let variants: Own<VariantRuleId>;
   let campaigns: InMemoryAttachedCampaignPacks;
+  let repository: InMemoryCharacterRepository;
   let kyra: Character;
   let grittyId: VariantRuleId;
   let slowId: VariantRuleId;
 
   beforeEach(async () => {
     const clock = fixedClock('2026-10-16T10:00:00Z');
-    const repository = new InMemoryCharacterRepository();
+    repository = new InMemoryCharacterRepository();
     packs = new Own<ContentPackId>();
     variants = new Own<VariantRuleId>();
     campaigns = new InMemoryAttachedCampaignPacks();
@@ -114,6 +134,28 @@ describe('CharacterUnenabledService', () => {
     const unenabled = await service.unenabled(amiri, kyra.id);
     expect(unenabled.campaign).toBe(campaignName);
     expect(unenabled.variantRules.map(({ name }) => String(name))).toStrictEqual(['gritty']);
+    expect(unenabled.packs.map(({ packId }) => packId)).toStrictEqual([brew]);
+    expect(unenabled.items.map(({ name }) => String(name))).toStrictEqual(['Lantern']);
+  });
+
+  test('lists a pack the character holds content from that the campaign does not enable, though it never used it', async () => {
+    const catalog = new InMemoryCharacterPackCatalog().pack({
+      id: brew,
+      title: PackTitle.parse('Brew'),
+      publisher: PackPublisher.parse('Ezren'),
+      readers: [amiri],
+    });
+    const holding = new CharacterUnenabledService({
+      characters: repository,
+      content: source(),
+      packs,
+      variants,
+      campaigns,
+      held: new HeldContentPacks(new HeldIn(brew), catalog),
+    });
+    packs.ids = [];
+    campaigns.attach(kyra.id, { name: campaignName, packs: [], variants: [] });
+    const unenabled = await holding.unenabled(amiri, kyra.id);
     expect(unenabled.packs.map(({ packId }) => packId)).toStrictEqual([brew]);
     expect(unenabled.items.map(({ name }) => String(name))).toStrictEqual(['Lantern']);
   });
