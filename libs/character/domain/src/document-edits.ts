@@ -31,7 +31,12 @@ export function withDocumentEdit(
       if (inputs.actor === undefined) {
         throw new TypeError('An override edit needs the user who makes it');
       }
-      return withOverrideEdit(document, patch, { actor: inputs.actor, now, newOverrideId: inputs.newOverrideId });
+      return withOverrideEdit(document, patch, {
+        actor: inputs.actor,
+        actorRole: inputs.actorRole,
+        now,
+        newOverrideId: inputs.newOverrideId,
+      });
     }
     case CharacterPatchField.SetAppearance:
     case CharacterPatchField.SetPersonality: {

@@ -44,6 +44,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 13 → 14: overrides carry an author, a reason, earlier states and a removal (#1127). A version 13 document has none. */
   (document) => document,
+  /** 14 → 15: an override records whether its author was the player or the GM (#1131). A version 14 override reads as the player's. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

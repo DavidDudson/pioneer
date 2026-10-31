@@ -114,11 +114,38 @@ const VERSION_13 = {
   schemaVersion: 13,
 };
 
+/** Version 14, before an override recorded whether its author was the player or the GM: it has no `byRole`. */
+const VERSION_14 = {
+  ...VERSION_13,
+  schemaVersion: 14,
+  overrides: [
+    {
+      id: '00000000-0000-4000-8000-00000000ff01',
+      target: 'perception',
+      mode: 'adjust',
+      value: 2,
+      type: 'item',
+      reason: 'Goggles',
+      by: '00000000-0000-4000-8000-00000000de01',
+      at: '2026-10-30T10:00:00.000Z',
+      revisions: [
+        {
+          by: '00000000-0000-4000-8000-00000000de01',
+          at: '2026-10-29T10:00:00.000Z',
+          value: 1,
+          type: 'item',
+          reason: 'First guess',
+        },
+      ],
+    },
+  ],
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
  */
-export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map([
+export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new Map<CharacterSchemaVersion, unknown>([
   [CharacterSchemaVersion.parse(1), VERSION_1],
   [CharacterSchemaVersion.parse(2), VERSION_2],
   [CharacterSchemaVersion.parse(VERSION_3.schemaVersion), VERSION_3],
@@ -132,4 +159,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_11.schemaVersion), VERSION_11],
   [CharacterSchemaVersion.parse(VERSION_12.schemaVersion), VERSION_12],
   [CharacterSchemaVersion.parse(VERSION_13.schemaVersion), VERSION_13],
+  [CharacterSchemaVersion.parse(VERSION_14.schemaVersion), VERSION_14],
 ]);

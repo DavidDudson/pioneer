@@ -5,7 +5,7 @@ import { CharacterPatchField } from './character-patch';
 import type { CharacterPatch, KitPatch } from './character-patch';
 import { addItem } from './inventory';
 import type { Inventory, InventoryItemId, NewItem } from './inventory';
-import type { OverrideId } from './override-schema';
+import type { OverrideId, OverrideRole } from './override-schema';
 import { payCost } from './purse';
 import type { RuleLimits } from './rule-limits';
 
@@ -21,6 +21,8 @@ export interface EditInputs {
   readonly countsAsSwap?: boolean | undefined;
   /** The user making an override edit, which it records as its author (#1127). */
   readonly actor?: UserId | undefined;
+  /** What that user is to the character (#1131); absent reads as its player. */
+  readonly actorRole?: OverrideRole | undefined;
   /** The id an added override takes. */
   readonly newOverrideId?: OverrideId | undefined;
   /** The limits the table holds the inventory to; absent means the core rules' (ADR-0064). */

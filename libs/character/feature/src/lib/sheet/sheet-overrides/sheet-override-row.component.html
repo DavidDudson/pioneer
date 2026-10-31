@@ -2,6 +2,9 @@
   <fr-stack direction="horizontal" gap="xs" align="center" wrap>
     <fr-text weight="semibold">{{ row().name }}</fr-text>
     <fr-text>{{ row().current.effect }}</fr-text>
+    @if (row().current.gm) {
+      <fr-tag [label]="Message.GmTag | transloco" [tone]="Tone.Info" />
+    }
   </fr-stack>
   <fr-text>{{ row().current.reason }}</fr-text>
   <fr-text variant="caption" tone="muted">
@@ -35,22 +38,26 @@
       >{{ Message.Edit | transloco }}</fr-link
     >
   </fr-stack>
-  <fr-text-field
-    [label]="Message.RemoveReason | transloco: { name: row().name }"
-    [hint]="Message.RemoveReasonHint | transloco"
-    [formField]="form.reason"
-  />
-  <fr-stack direction="horizontal" justify="start">
-    <fr-async-button
-      size="sm"
-      [action]="remove"
-      [describeError]="describeError"
-      [disabled]="form().invalid()"
-      [ariaLabel]="Message.RemoveLabel | transloco: { name: row().name }"
-      [confirmLabel]="Message.RemoveConfirm | transloco: { name: row().name }"
-      [pendingLabel]="Message.Removing | transloco"
-    >
-      {{ Message.Remove | transloco }}
-    </fr-async-button>
-  </fr-stack>
+  @if (row().current.gm) {
+    <fr-text variant="caption" tone="muted">{{ Message.GmLocked | transloco }}</fr-text>
+  } @else {
+    <fr-text-field
+      [label]="Message.RemoveReason | transloco: { name: row().name }"
+      [hint]="Message.RemoveReasonHint | transloco"
+      [formField]="form.reason"
+    />
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        size="sm"
+        [action]="remove"
+        [describeError]="describeError"
+        [disabled]="form().invalid()"
+        [ariaLabel]="Message.RemoveLabel | transloco: { name: row().name }"
+        [confirmLabel]="Message.RemoveConfirm | transloco: { name: row().name }"
+        [pendingLabel]="Message.Removing | transloco"
+      >
+        {{ Message.Remove | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  }
 </fr-stack>

@@ -171,4 +171,20 @@ describe('CharacterSheet overrides section', () => {
       patch: { field: 'removeOverride', id: OVERRIDE, reason: 'The goggles broke' },
     });
   });
+
+  it('marks an override the GM set and leaves the player no way to remove it', async () => {
+    const root = await openWith([{ ...GOGGLES, byRole: 'gm' }]);
+
+    const text = textOf(
+      await vi.waitFor(async () => {
+        const found = await section(root);
+        expect(textOf(found)).toContain('Perception');
+        return found;
+      }),
+    );
+    expect(text).toContain('GM');
+    expect(text).toContain('Your GM set this, so only your GM can remove it.');
+    expect(root.querySelector('a[aria-label="Edit the override on Perception"]')).not.toBeNull();
+    expect(root.querySelector('button[aria-label="Remove the override on Perception"]')).toBeNull();
+  });
 });

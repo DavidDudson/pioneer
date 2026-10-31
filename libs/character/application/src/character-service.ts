@@ -12,9 +12,7 @@ import {
   PATCH_COMMANDS,
   RepertoireSwap,
   repertoireSwap,
-  repertoireSwapRefusal,
   slotContent,
-  slotRefusal,
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
@@ -27,21 +25,25 @@ import type {
   PatchedCharacterSheet,
   RuleLimits,
   SlotContent,
-  SlotPick,
 } from '@pioneer/character/domain';
 import type { AncestryId, ContentRegistry, ContentSource } from '@pioneer/rules/sdk';
 import { message, newId, NotFoundError, ValidationError, VersionConflictError } from '@pioneer/shared/kernel';
 import type { Clock, UserId, Version } from '@pioneer/shared/kernel';
 
+import { editableCharacter, readableCharacter } from './character-access';
+import type { EditableCharacter } from './character-access';
+import type { CharacterCampaignRoles } from './character-campaign-roles';
 import { contentOfCharacter, ruleLimitsOfCharacter, variantRulesOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import { mayAccessCharacter } from './character-policy';
 import type { CharacterRepository } from './character-repository';
 import { editInputs } from './edit-inputs';
+import { InMemoryCharacterCampaignRoles } from './in-memory-character-campaign-roles';
 import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-directory';
 import { assertInventoryAllows } from './inventory-guard';
 import type { OverrideAuthorDirectory } from './override-author-directory';
 import { assertOverrideAllowed } from './override-guard';
+import { assertSlotEditAllowed } from './slot-edit-guard';
 import { assertSpellNeedsAccess } from './spell-access-guard';
 
 /** A character as an edit saved it, and the picks the edit cleared (`unfitPicks`). */
@@ -59,6 +61,7 @@ export class CharacterService {
   readonly #content: CharacterContentSource;
   readonly #clock: Clock;
   #authors: OverrideAuthorDirectory = new InMemoryOverrideAuthorDirectory();
+  #roles: CharacterCampaignRoles = new InMemoryCharacterCampaignRoles();
 
   public constructor(repository: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#repository = repository;
@@ -69,6 +72,12 @@ export class CharacterService {
   /** This service naming override authors through `authors`; without it, nobody is named. */
   public withAuthors(authors: OverrideAuthorDirectory): this {
     this.#authors = authors;
+    return this;
+  }
+
+  /** This service letting the GM of a character's campaign read it and edit its overrides, as `roles` says who that is. */
+  public withCampaignRoles(roles: CharacterCampaignRoles): this {
+    this.#roles = roles;
     return this;
   }
 
@@ -92,13 +101,9 @@ export class CharacterService {
     return this.#repository.listForOwner(actor, query);
   }
 
-  /** One of the actor's characters. Someone else's is a 404, the same as a missing one. */
+  /** One of the actor's characters, or one in a campaign they are the GM of. Anyone else's is a 404. */
   public async get(actor: UserId, id: CharacterId): Promise<Character> {
-    const character = await this.#repository.findById(id);
-    if (character === undefined || !mayAccessCharacter(actor, character)) {
-      throw new NotFoundError('Character', id);
-    }
-    return character;
+    return readableCharacter({ repository: this.#repository, roles: this.#roles }, actor, id);
   }
 
   /**
@@ -186,13 +191,18 @@ export class CharacterService {
     id: CharacterId,
     { expectedVersion, patch }: PatchCharacterBody,
   ): Promise<PatchedCharacter> {
-    const current = await this.get(actor, id);
-    await this.#assertAllowed(current, expectedVersion, patch);
+    const editable = await editableCharacter({ repository: this.#repository, roles: this.#roles }, actor, {
+      id,
+      patch,
+    });
+    const { character: current, actorRole } = editable;
+    await this.#assertAllowed(editable, expectedVersion, patch);
     const inputs = {
       ...(await editInputs(this.#contentOf(current), current, patch)),
       countsAsSwap: (await this.#swapOf(current, patch)) === RepertoireSwap.Counts,
       limits: await this.#limitsOf(current),
       actor,
+      actorRole,
       newOverrideId: OverrideId.parse(newId()),
     };
     const now = this.#clock.now();
@@ -213,20 +223,22 @@ export class CharacterService {
    * Refuses `patch` before anything is written. A stale edit is a conflict before it is anything else: the refusals
    * read the latest version, which the client hasn't seen.
    */
-  async #assertAllowed(current: Character, expectedVersion: Version, patch: CharacterPatch): Promise<void> {
+  async #assertAllowed(
+    { character: current, actorRole }: EditableCharacter,
+    expectedVersion: Version,
+    patch: CharacterPatch,
+  ): Promise<void> {
     if (current.version !== expectedVersion) {
       throw new VersionConflictError('Character', current.id);
     }
-    if (patch.field === CharacterPatchField.SelectSlot) {
-      await this.#assertSlotOffers(current, patch);
-    }
     if (patch.field === CharacterPatchField.SelectSlot || patch.field === CharacterPatchField.ClearSlot) {
-      await this.#assertSwapAllowed(current, patch);
+      const slots = await this.#slotContent(current, await this.#contentOf(current).registry());
+      assertSlotEditAllowed(current, slots, patch);
     }
     if (patch.field === CharacterPatchField.GrantSpellAccess) {
       assertSpellNeedsAccess(await this.#contentOf(current).registry(), current, patch.spell);
     }
-    assertOverrideAllowed(current, patch);
+    assertOverrideAllowed(current, patch, actorRole);
     await assertInventoryAllows(current, patch, {
       content: this.#contentOf(current),
       tableLimits: await this.#limitsOf(current),
@@ -256,31 +268,6 @@ export class CharacterService {
     const content = await this.#slotContent(character, await this.#contentOf(character).registry());
     const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
     return repertoireSwap(character.document, content, { slot: patch.slot, selection });
-  }
-
-  /** Refuses a slot edit that would be a second repertoire swap at the character's level. */
-  async #assertSwapAllowed(character: Character, patch: CharacterPatch): Promise<void> {
-    if (patch.field !== CharacterPatchField.SelectSlot && patch.field !== CharacterPatchField.ClearSlot) {
-      return;
-    }
-    const content = await this.#slotContent(character, await this.#contentOf(character).registry());
-    const selection = patch.field === CharacterPatchField.SelectSlot ? patch.selection : undefined;
-    const refusal = repertoireSwapRefusal(character.document, content, { slot: patch.slot, selection });
-    if (refusal !== undefined) {
-      throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
-    }
-  }
-
-  /**
-   * Refuses a selection the slot doesn't offer at any level up to 20, or for a slot the character never has. A
-   * selection already stored is never checked again here: one a lower level hides, or content later invalidates, stays.
-   */
-  async #assertSlotOffers(character: Character, pick: SlotPick): Promise<void> {
-    const content = await this.#contentOf(character).registry();
-    const refusal = slotRefusal(character.document, await this.#slotContent(character, content), pick);
-    if (refusal !== undefined) {
-      throw new ValidationError([{ path: ['patch', refusal.field], message: refusal.message }]);
-    }
   }
 
   async #assertAncestryExists(ref: AncestryId): Promise<void> {

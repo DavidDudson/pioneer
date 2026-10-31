@@ -19,6 +19,10 @@ export type OverrideMode = ValueOf<typeof OverrideMode>;
 
 const { Attribute: _attribute, ...ADJUSTABLE_TYPES } = ModifierType;
 
+/** Who an override's author was to the character: its player, or the GM of the campaign it was in. */
+export const OverrideRole = { Gm: 'gm', Player: 'player' } as const;
+export type OverrideRole = ValueOf<typeof OverrideRole>;
+
 /** The modifier types an adjust override takes: any but attribute, which names the attribute it swaps with. */
 export const OverrideModifierType = z.enum(ADJUSTABLE_TYPES);
 export type OverrideModifierType = z.infer<typeof OverrideModifierType>;
@@ -67,6 +71,8 @@ const OverrideRevision = z.strictObject({
   type: OverrideModifierType.optional(),
   predicate: Predicate.optional(),
   reason: OverrideNote,
+  /** Absent in a document written before GMs could add overrides, which reads as the player's. */
+  byRole: z.enum(OverrideRole).default(OverrideRole.Player),
 });
 export type OverrideRevision = z.infer<typeof OverrideRevision>;
 
@@ -87,6 +93,8 @@ export const OverrideSchema = z.strictObject({
   predicate: Predicate.optional(),
   reason: OverrideNote,
   by: UserId,
+  /** What `by` was to the character when they wrote it. A GM's override is the owner's to read, not to remove. */
+  byRole: z.enum(OverrideRole).default(OverrideRole.Player),
   at: OverrideTime,
   revisions: z.array(OverrideRevision).max(OVERRIDE_REVISIONS_MAX).readonly().default([]),
   removed: OverrideRemoval.optional(),
