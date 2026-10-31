@@ -5,7 +5,6 @@
       <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
       <ng-template [frAsyncData]="playQuery">
         <fr-stack gap="xs">
-          <fr-text weight="semibold">{{ 'character.sheet.conditions.label' | transloco }}</fr-text>
           @for (view of views(); track view.id) {
             <fr-stack gap="2xs">
               <fr-stack direction="horizontal" align="center" gap="sm" wrap>

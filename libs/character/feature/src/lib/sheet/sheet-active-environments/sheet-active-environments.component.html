@@ -1,8 +1,0 @@
-@if (names().length > 0) {
-  <fr-stack direction="horizontal" align="center" gap="sm" wrap>
-    <fr-text weight="semibold">{{ 'character.sheet.environments.active' | transloco }}</fr-text>
-    @for (name of names(); track name) {
-      <fr-badge>{{ name }}</fr-badge>
-    }
-  </fr-stack>
-}

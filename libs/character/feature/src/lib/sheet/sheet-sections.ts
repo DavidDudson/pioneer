@@ -70,7 +70,6 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,
     SHEET_SECTIONS.senses,
-    SHEET_SECTIONS.skills,
     SHEET_SECTIONS.strikes,
     SHEET_SECTIONS.actions,
     SHEET_SECTIONS.spellcasting,
@@ -78,7 +77,6 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
   [SheetMode.Exploration]: [
     SHEET_SECTIONS.roleplay,
     SHEET_SECTIONS.explorationActivity,
-    SHEET_SECTIONS.environments,
     SHEET_SECTIONS.actions,
     SHEET_SECTIONS.deity,
     SHEET_SECTIONS.languages,

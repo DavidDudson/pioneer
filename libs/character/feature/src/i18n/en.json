@@ -183,6 +183,7 @@
     },
     "spellcastingHeading": "Spellcasting",
     "sections": "Sheet sections",
+    "panels": { "label": "Sheet panels" },
     "name": "Name",
     "ancestry": "Ancestry",
     "level": "Level",
@@ -345,7 +346,6 @@
       "none": "No environments in the content yet",
       "lifted": "{reason} Lifted by {source}.",
       "blocked": "{reason}",
-      "active": "In:",
       "passTime": {
         "label": "Time passes:",
         "tenMinutes": "10 minutes",
