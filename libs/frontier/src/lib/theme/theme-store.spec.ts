@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { ColorMode, Theme } from './theme';
+import { ColorMode, ModeChoice, Theme, ThemeChoice } from './theme';
 import { ThemeStore } from './theme-store';
 
 function create(): ThemeStore {
@@ -17,7 +17,7 @@ describe(ThemeStore, () => {
     delete document.documentElement.dataset['mode'];
   });
 
-  it('defaults to the frontier theme in dark mode', () => {
+  it('defaults to the dynamic theme, which is frontier without a context, in dark mode', () => {
     const store = create();
     expect(store.theme()).toBe(Theme.Frontier);
     expect(store.mode()).toBe(ColorMode.Dark);
@@ -27,8 +27,8 @@ describe(ThemeStore, () => {
 
   it('applies and remembers a change', () => {
     const store = create();
-    store.theme.set(Theme.Tavern);
-    store.mode.set(ColorMode.Light);
+    store.choice.set(Theme.Tavern);
+    store.modeChoice.set(ColorMode.Light);
     TestBed.tick();
     expect(document.documentElement.dataset['theme']).toBe('tavern');
     expect(document.documentElement.dataset['mode']).toBe('light');
@@ -50,5 +50,24 @@ describe(ThemeStore, () => {
     const store = create();
     expect(store.theme()).toBe(Theme.Frontier);
     expect(store.mode()).toBe(ColorMode.Dark);
+  });
+
+  it('follows the context theme while dynamic, and ignores it for a fixed pick', () => {
+    const store = create();
+    store.context.set(Theme.Tavern);
+    expect(store.theme()).toBe(Theme.Tavern);
+    store.choice.set(Theme.Frontier);
+    expect(store.theme()).toBe(Theme.Frontier);
+    store.choice.set(ThemeChoice.Dynamic);
+    store.context.set(undefined);
+    expect(store.theme()).toBe(Theme.Frontier);
+  });
+
+  it('follows the device for the system mode', () => {
+    const store = create();
+    store.modeChoice.set(ModeChoice.System);
+    TestBed.tick();
+    expect(localStorage.getItem('fr-mode')).toBe('system');
+    expect([ColorMode.Dark, ColorMode.Light]).toContain(store.mode());
   });
 });

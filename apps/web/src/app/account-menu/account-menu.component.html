@@ -1,17 +1,47 @@
-@if (session.user(); as user) {
-  <fr-stack direction="horizontal" gap="xs" align="center">
-    <fr-link variant="caption" exact [to]="accountPath">{{ user.displayName }}</fr-link>
-    <fr-link variant="caption" [to]="settingsPath">{{ 'shell.account.settings' | transloco }}</fr-link>
-    <fr-link variant="caption" [to]="reportBugPath">{{ 'shell.account.reportBug' | transloco }}</fr-link>
-    @if (user.isMaintainer) {
-      <fr-link variant="caption" [to]="bugReportsPath">{{ 'shell.account.bugReports' | transloco }}</fr-link>
+@if (session.known()) {
+  <fr-dropdown align="end" [label]="'shell.account.menu' | transloco" [icon]="signedOutIcon" [custom]="signedIn()">
+    @if (session.user(); as user) {
+      <fr-avatar frDropdownTrigger size="sm" decorative [name]="user.displayName" />
     }
-    <fr-async-button variant="ghost" size="sm" [action]="signOut">{{
-      'shell.account.signOut' | transloco
-    }}</fr-async-button>
-  </fr-stack>
-} @else if (session.known()) {
-  <fr-button variant="ghost" size="sm" (pressed)="session.showSignIn()">{{
-    'shell.account.signIn' | transloco
-  }}</fr-button>
+    <fr-stack gap="sm">
+      <fr-stack gap="2xs">
+        <!-- Development builds swap the account link for the dev-user switch, which shows the same avatar. -->
+        @for (extra of extras; track extra) {
+          <ng-container [ngComponentOutlet]="extra" />
+        } @empty {
+          @if (session.user(); as user) {
+            <fr-link exact appearance="menu" [to]="accountPath">
+              <fr-avatar size="sm" decorative [name]="user.displayName" />
+              {{ user.displayName }}
+            </fr-link>
+          }
+        }
+        <fr-box padding="sm" inline>
+          <fr-stack direction="horizontal" align="center" justify="between" gap="sm">
+            <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.theme' | transloco }}</fr-text>
+            <pio-theme-menu />
+          </fr-stack>
+        </fr-box>
+        <fr-box padding="sm" inline>
+          <fr-stack direction="horizontal" align="center" justify="between" gap="sm">
+            <fr-text variant="caption" tone="subtle">{{ 'shell.appearance.darkMode' | transloco }}</fr-text>
+            <pio-dark-mode-toggle />
+          </fr-stack>
+        </fr-box>
+      </fr-stack>
+      <fr-divider />
+      @if (signedIn()) {
+        <pio-account-links />
+      } @else {
+        <fr-stack gap="2xs">
+          <fr-link appearance="menu" [to]="reportBugPath"
+            ><fr-icon [icon]="reportBugIcon" />{{ 'shell.account.reportBug' | transloco }}</fr-link
+          >
+          <fr-button variant="menu" size="sm" (pressed)="session.showSignIn()"
+            ><fr-icon [icon]="signInIcon" />{{ 'shell.account.signIn' | transloco }}</fr-button
+          >
+        </fr-stack>
+      }
+    </fr-stack>
+  </fr-dropdown>
 }

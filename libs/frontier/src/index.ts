@@ -100,6 +100,8 @@ export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
 export { Section } from './lib/layout/section/section.component';
+export { Dropdown, DropdownAlign } from './lib/layout/dropdown/dropdown.component';
+export { HeaderCrumbs } from './lib/layout/header-crumbs/header-crumbs';
 export { Shell } from './lib/layout/shell/shell.component';
 export { Stack, StackAlign, StackDirection, StackJustify } from './lib/layout/stack/stack.component';
 export { Surface, SurfaceVariant } from './lib/layout/surface/surface.component';
@@ -125,7 +127,7 @@ export { FontWeight, TextVariant } from './lib/text/text.variants';
 export { Text, TextElement } from './lib/text/text/text.component';
 
 // Theme
-export { ColorMode, Theme } from './lib/theme/theme';
+export { ColorMode, ModeChoice, Theme, ThemeChoice } from './lib/theme/theme';
 export { ThemeStore } from './lib/theme/theme-store';
 
 export { Container, Size, Space, Tone } from './lib/tokens';

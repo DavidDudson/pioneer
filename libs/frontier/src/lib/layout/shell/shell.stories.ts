@@ -21,17 +21,13 @@ const meta: Meta<Shell> = {
   title: 'Layout/Shell',
   component: Shell,
   decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, PageBody, PageHeader, Stack, Surface, Text] })],
-  args: { brand: 'Pioneer' },
+  args: { brand: 'Pioneer', badge: 'Pre-Alpha' },
   parameters: { layout: 'fullscreen' },
   render: (args) => ({
     props: { ...args, moon: LucideMoon },
     template: `
       <fr-shell ${argsToTemplate(args)}>
-        <fr-stack frShellNav direction="horizontal" gap="md">
-          <fr-link to="/characters">Characters</fr-link>
-          <fr-link to="/play">Play</fr-link>
-          <fr-link to="/legal">Legal</fr-link>
-        </fr-stack>
+        <fr-text frShellSearch>Search goes here</fr-text>
         <fr-button frShellActions variant="ghost" ariaLabel="Toggle colour mode">
           <fr-icon [icon]="moon" />
         </fr-button>
@@ -50,6 +46,10 @@ export default meta;
 
 export const Default: ShellStory = {};
 
+/** The search as an icon button, and open: it takes the row in place of the breadcrumbs. */
+export const SearchClosed: ShellStory = { args: { searchAvailable: true } };
+export const SearchOpen: ShellStory = { args: { searchAvailable: true, searchOpen: true } };
+
 /** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */
 function fitsText(skipLink: HTMLElement): boolean {
   const box = skipLink.closest('span')?.getBoundingClientRect().width ?? 0;
@@ -58,7 +58,7 @@ function fitsText(skipLink: HTMLElement): boolean {
 
 /**
  * Keyboard: the first Tab shows the skip link, and Enter on it moves focus to `<main>`, so the next Tab lands in the
- * page instead of the header nav. Runs only in `nx test-storybook frontier`.
+ * page instead of the header. Runs only in `nx test-storybook frontier`.
  */
 export const SkipLink: ShellStory = {
   // Real key presses need the Vitest runner (testing/story-keyboard.ts), so this story is test-only.

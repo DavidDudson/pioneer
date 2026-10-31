@@ -20,7 +20,7 @@
 />
 
 <ng-template ngComboboxPopup [combobox]="combobox">
-  <div #scroller [class]="popupClasses">
+  <div #scroller [class]="popupClasses()">
     <fr-combobox-status [loading]="loading()" [empty]="options().length === 0" />
     <!-- Inline styles: the virtualizer measures options at runtime, so heights and offsets can't be tokens. -->
     <!-- eslint-disable pioneer/no-template-styling, @angular-eslint/template/no-inline-styles -- runtime-measured listbox height and option offsets -->

@@ -6,8 +6,8 @@ import { cva } from 'class-variance-authority';
 import { Size, toneVariants } from '../tokens';
 import type { Tone } from '../tokens';
 
-/** Every icon draws 2px lines at every size. Not configurable. */
-const STROKE_WIDTH = 2;
+/** Every icon draws 1px lines at every size. Not configurable. */
+const STROKE_WIDTH = 1;
 
 const iconVariants = cva('inline-block shrink-0', {
   variants: {
@@ -20,7 +20,7 @@ const iconVariants = cva('inline-block shrink-0', {
 /**
  * A Lucide icon (`import { LucideCheck } from '@lucide/angular'`), and the
  * only owner of `<svg>`. Decorative (`aria-hidden`) unless given a label.
- * Lines are 2px at every size; colour follows the text unless a tone is set.
+ * Lines are 1px at every size; colour follows the text unless a tone is set.
  */
 @Component({
   selector: 'fr-icon',

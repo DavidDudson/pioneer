@@ -1,0 +1,37 @@
+<span #origin="cdkOverlayOrigin" cdkOverlayOrigin [class]="originClasses">
+  <fr-button
+    size="sm"
+    [variant]="variant"
+    [iconOnly]="caption() === undefined"
+    [ariaLabel]="label()"
+    [expanded]="open()"
+    (pressed)="open.set(!open())"
+  >
+    @if (custom()) {
+      <ng-content select="[frDropdownTrigger]" />
+    } @else {
+      @if (icon(); as icon) {
+        <fr-icon [icon]="icon" />
+      }
+      @if (caption(); as caption) {
+        {{ caption }}
+        <fr-icon [icon]="caret" />
+      }
+    }
+  </fr-button>
+</span>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="open()"
+  [cdkConnectedOverlayPositions]="positions()"
+  (overlayOutsideClick)="outside($event)"
+  (detach)="close()"
+  (overlayKeydown)="$event.key === 'Escape' && close()"
+>
+  <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -- the panel only listens for clicks that bubble from its links. -->
+  <div role="group" [attr.aria-label]="label()" [class]="panelClasses" (click)="pressed($event)">
+    <ng-content />
+  </div>
+</ng-template>

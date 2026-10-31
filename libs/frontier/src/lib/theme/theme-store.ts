@@ -1,6 +1,9 @@
-import { DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
+import { computed, DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
+import type { Signal } from '@angular/core';
 
-import { ColorMode, Theme } from './theme';
+import { ColorMode, ModeChoice, Theme, ThemeChoice } from './theme';
+
+const DARK_QUERY = '(prefers-color-scheme: dark)';
 
 /** Storage keys. apps/web/src/index.html reads them before boot to avoid a flash of the default theme. */
 const THEME_KEY = 'fr-theme';
@@ -11,7 +14,7 @@ function isOneOf<TValue extends string>(values: Record<string, TValue>, value: s
 }
 
 /**
- * The viewer's theme and colour mode. Applies them as `data-theme` /
+ * The viewer's theme choice and colour mode. Applies the theme and mode as `data-theme` /
  * `data-mode` on `<html>`, which is all the CSS reads, and remembers them in
  * this browser. Storage may be unavailable (private mode, blocked site data):
  * then the choice lasts for the session only.
@@ -21,8 +24,26 @@ export class ThemeStore {
   readonly #document = inject(DOCUMENT);
   readonly #storage = this.#openStorage();
 
-  public readonly theme = signal<Theme>(this.#read(THEME_KEY, Theme, Theme.Frontier));
-  public readonly mode = signal<ColorMode>(this.#read(MODE_KEY, ColorMode, ColorMode.Dark));
+  /** The viewer's pick. The default, dynamic, follows `context`. */
+  public readonly choice = signal<ThemeChoice>(this.#read(THEME_KEY, ThemeChoice, ThemeChoice.Dynamic));
+  /** The theme of the open campaign or character, set by the page that shows it; `undefined` when there is none. */
+  public readonly context = signal<Theme | undefined>(undefined);
+  /** The theme in use: the pick, or for dynamic the context's, falling back to Frontier. */
+  public readonly theme = computed<Theme>(() => {
+    const choice = this.choice();
+    return choice === ThemeChoice.Dynamic ? (this.context() ?? Theme.Frontier) : choice;
+  });
+  /** The viewer's pick for colour mode; `system` follows the device. */
+  public readonly modeChoice = signal<ModeChoice>(this.#read(MODE_KEY, ModeChoice, ModeChoice.Dark));
+  readonly #systemDark = this.#watchSystemDark();
+  /** The mode in use: the pick, or for system the device's. */
+  public readonly mode = computed<ColorMode>(() => {
+    const choice = this.modeChoice();
+    if (choice === ModeChoice.System) {
+      return this.#systemDark() ? ColorMode.Dark : ColorMode.Light;
+    }
+    return choice;
+  });
 
   public constructor() {
     effect(() => {
@@ -31,9 +52,24 @@ export class ThemeStore {
       const root = this.#document.documentElement;
       root.dataset['theme'] = theme;
       root.dataset['mode'] = mode;
-      this.#write(THEME_KEY, theme);
-      this.#write(MODE_KEY, mode);
+      this.#write(THEME_KEY, this.choice());
+      this.#write(MODE_KEY, this.modeChoice());
     });
+  }
+
+  /** Whether the device prefers dark, kept up to date; dark where the browser cannot say. */
+  #watchSystemDark(): Signal<boolean> {
+    const dark = signal(true);
+    try {
+      const query = this.#document.defaultView?.matchMedia(DARK_QUERY);
+      dark.set(query?.matches ?? true);
+      query?.addEventListener('change', (event) => {
+        dark.set(event.matches);
+      });
+    } catch {
+      // No matchMedia (a locked-down or test browser): stay on the dark default.
+    }
+    return dark.asReadonly();
   }
 
   #openStorage(): Storage | undefined {

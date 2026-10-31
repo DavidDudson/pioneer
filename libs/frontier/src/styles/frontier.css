@@ -60,6 +60,9 @@
   --container-drawer-wide: 40rem;
   /* Width of a signed modifier such as +10 in the face it is set in (`min-w-modifier`, `fr-text` `minWidth`). */
   --container-modifier: 3ch;
+  /* Least width of an `fr-dropdown` panel (`min-w-dropdown`), and widest of the shell's search slot (`max-w-search`). */
+  --container-dropdown: 14rem;
+  --container-search: 36rem;
 
   --color-surface-canvas: var(--fr-surface-canvas);
   --color-surface-base: var(--fr-surface-base);
@@ -154,6 +157,7 @@
   /* Named sizes (h-touch, min-h-touch, max-h-listbox). Use them for size, not for gaps. */
   --spacing-touch: var(--fr-size-touch);
   --spacing-touch-pair: var(--fr-size-touch-pair);
+  --spacing-control-xs: var(--fr-size-control-xs);
   --spacing-control-sm: var(--fr-size-control-sm);
   --spacing-control-md: var(--fr-size-control-md);
   --spacing-control-md-pair: var(--fr-size-control-md-pair);

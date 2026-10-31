@@ -1,0 +1,18 @@
+<fr-stack gap="2xs">
+  <fr-link appearance="menu" [to]="settingsPath"
+    ><fr-icon [icon]="settingsIcon" />{{ 'shell.account.settings' | transloco }}</fr-link
+  >
+  <fr-link appearance="menu" [to]="reportBugPath"
+    ><fr-icon [icon]="reportBugIcon" />{{ 'shell.account.reportBug' | transloco }}</fr-link
+  >
+  @if (session.user()?.isMaintainer) {
+    <fr-link appearance="menu" [to]="bugReportsPath"
+      ><fr-icon [icon]="bugReportsIcon" />{{ 'shell.account.bugReports' | transloco }}</fr-link
+    >
+  }
+  <fr-async-button variant="menu" size="sm" [action]="signOut"
+    ><fr-stack direction="horizontal" align="center" gap="xs"
+      ><fr-icon [icon]="signOutIcon" />{{ 'shell.account.signOut' | transloco }}</fr-stack
+    ></fr-async-button
+  >
+</fr-stack>

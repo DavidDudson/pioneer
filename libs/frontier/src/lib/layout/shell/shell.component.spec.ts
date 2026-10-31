@@ -1,15 +1,17 @@
-import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
+import { ApplicationRef, createComponent, EnvironmentInjector, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
 import { projectBySelector } from '../../testing/project-by-selector';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
+import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { Shell } from './shell.component';
 
 interface Rendered {
   readonly shell: HTMLElement;
   readonly header: HTMLElement;
-  readonly nav: HTMLElement;
+  readonly search: HTMLElement;
   readonly content: HTMLElement;
   readonly footer: HTMLElement;
 }
@@ -24,9 +26,9 @@ function element(tag: string, slot: string | undefined, text: string): Element {
 }
 
 /** Renders `fr-shell` branded "Pioneer" with an element projected into each slot. */
-async function render(): Promise<Rendered> {
+async function render(inputs: Readonly<Record<string, boolean>> = {}): Promise<Rendered> {
   const elements = [
-    element('a', 'frShellNav', 'Characters'),
+    element('input', 'frShellSearch', 'Search'),
     element('button', 'frShellActions', 'Appearance'),
     element('p', undefined, 'Routed page'),
     element('small', 'frShellFooter', 'Licence notice'),
@@ -39,23 +41,27 @@ async function render(): Promise<Rendered> {
     component.destroy();
   });
   component.setInput('brand', 'Pioneer');
+  component.setInput('badge', 'Pre-Alpha');
+  for (const [name, value] of Object.entries(inputs)) {
+    component.setInput(name, value);
+  }
   const appRef = TestBed.inject(ApplicationRef);
   appRef.attachView(component.hostView);
   await appRef.whenStable();
   const shell = component.location.nativeElement as HTMLElement;
   const header = shell.querySelector<HTMLElement>(':scope > header');
-  const nav = shell.querySelector<HTMLElement>(':scope > header nav');
+  const search = shell.querySelector<HTMLElement>(':scope > header [frShellSearch]');
   const content = shell.querySelector<HTMLElement>(':scope > main');
   const footer = shell.querySelector<HTMLElement>(':scope > footer');
-  if (header === null || nav === null || content === null || footer === null) {
-    throw new Error('fr-shell rendered no header, nav, main or footer');
+  if (header === null || search === null || content === null || footer === null) {
+    throw new Error('fr-shell rendered no header, search slot, main or footer');
   }
-  return { shell, header, nav, content, footer };
+  return { shell, header, search, content, footer };
 }
 
 describe(Shell, () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [provideFrontierI18nTesting()] });
+    TestBed.configureTestingModule({ providers: [provideFrontierI18nTesting(), provideRouter([])] });
   });
 
   it('is a full-height column that pads for safe areas', async () => {
@@ -71,16 +77,85 @@ describe(Shell, () => {
     expect(header.querySelector('fr-text')?.textContent.trim()).toBe('Pioneer');
   });
 
-  it('labels the main navigation from the en messages and projects frShellNav into it', async () => {
-    const { nav } = await render();
-    expect(nav.getAttribute('aria-label')).toBe('Main');
-    expect(nav.querySelector('a')?.textContent).toBe('Characters');
+  it('shows the badge beside the brand, and none when there is no badge', async () => {
+    const { header } = await render();
+    expect(header.querySelector('fr-badge')?.textContent.trim()).toBe('Pre-Alpha');
   });
 
-  it('projects frShellActions into the header, outside the navigation', async () => {
-    const { header, nav } = await render();
+  it('keeps the brand, crumbs, search and actions in one row', async () => {
+    const { header } = await render();
+    expect(header.querySelectorAll('fr-stack[direction="horizontal"]').length).toBeGreaterThan(0);
+    expect(header.querySelector('[frShellSearch]')?.textContent).toBe('Search');
     expect(header.querySelector('button')?.textContent).toBe('Appearance');
-    expect(nav.querySelector('button')).toBeNull();
+  });
+
+  it('shows the trail a page header published, and nothing without one', async () => {
+    const empty = await render();
+    expect(empty.header.querySelector('fr-breadcrumbs')).toBeNull();
+
+    const release = TestBed.inject(HeaderCrumbs).show(
+      signal([{ label: 'Characters', to: '/characters' }, { label: 'Valeros' }]),
+    );
+    onTestFinished(release);
+    const shown = await render();
+    expect(shown.header.querySelector('nav[aria-label="Breadcrumb"]')?.textContent).toContain('Valeros');
+  });
+
+  describe('search', () => {
+    it('shows an icon button instead of the box until opened, and keeps the crumbs', async () => {
+      const release = TestBed.inject(HeaderCrumbs).show(signal([{ label: 'Characters' }]));
+      onTestFinished(release);
+      const { header, search } = await render({ searchAvailable: true, searchOpen: false });
+      expect(search.closest('div')?.className).toContain('hidden');
+      expect(header.querySelector('button[aria-label="Search"]')).not.toBeNull();
+      expect(header.querySelector('fr-breadcrumbs')).not.toBeNull();
+    });
+
+    it('has no button when no search is projected', async () => {
+      const { header } = await render();
+      expect(header.querySelector('button[aria-label="Search"]')).toBeNull();
+    });
+
+    it('opens on the button, hiding the crumbs and giving the box the row', async () => {
+      const release = TestBed.inject(HeaderCrumbs).show(signal([{ label: 'Characters' }]));
+      onTestFinished(release);
+      const { shell, header, search } = await render({ searchAvailable: true, searchOpen: false });
+      document.body.append(shell);
+      onTestFinished(() => {
+        shell.remove();
+      });
+      header.querySelector<HTMLElement>('button[aria-label="Search"]')?.click();
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(search.closest('div')?.className).toContain('flex-1');
+      expect(header.querySelector('fr-breadcrumbs')).toBeNull();
+      expect(header.querySelector('button[aria-label="Search"]')).toBeNull();
+      expect(document.activeElement).toBe(search);
+    });
+
+    it('closes on Escape, with focus back on the button', async () => {
+      const { shell, header, search } = await render({ searchAvailable: true, searchOpen: true });
+      document.body.append(shell);
+      onTestFinished(() => {
+        shell.remove();
+      });
+      search.focus();
+      search.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(search.closest('div')?.className).toContain('hidden');
+      expect(document.activeElement).toBe(header.querySelector('button[aria-label="Search"]'));
+    });
+
+    it('closes when focus leaves the box', async () => {
+      const { shell, search } = await render({ searchAvailable: true, searchOpen: true });
+      document.body.append(shell);
+      onTestFinished(() => {
+        shell.remove();
+      });
+      search.focus();
+      search.dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
+      await TestBed.inject(ApplicationRef).whenStable();
+      expect(search.closest('div')?.className).toContain('hidden');
+    });
   });
 
   it('projects routed content into main, between the header and the footer', async () => {
