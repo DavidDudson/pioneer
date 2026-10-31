@@ -43,5 +43,10 @@ export const textVariants = cva('', {
     } satisfies Record<FontWeight, string>,
     truncate: { true: 'truncate', false: '' },
     numeric: { true: 'tabular-nums', false: '' },
+    monospace: { true: 'font-mono', false: '' },
+    minWidth: { modifier: 'min-w-modifier' } satisfies Record<MinWidth, string>,
   },
 });
+
+/** The widths a text can be given a floor of: `modifier` is the width of a signed modifier such as +10. */
+export type MinWidth = 'modifier';

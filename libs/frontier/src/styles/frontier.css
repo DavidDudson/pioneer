@@ -58,6 +58,8 @@
   --container-drawer-narrow: 20rem;
   --container-drawer-default: 28rem;
   --container-drawer-wide: 40rem;
+  /* Width of a signed modifier such as +10 in the face it is set in (`min-w-modifier`, `fr-text` `minWidth`). */
+  --container-modifier: 3ch;
 
   --color-surface-canvas: var(--fr-surface-canvas);
   --color-surface-base: var(--fr-surface-base);

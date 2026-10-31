@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, ButtonVariant, HoverCard, HoverCardContent, LocaleFormat, Size } from '@pioneer/frontier';
+import { Button, ButtonVariant, HoverCard, HoverCardContent, LocaleFormat, Size, Text } from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -23,7 +23,7 @@ import { StatisticsMessage } from '../statistics-messages';
  */
 @Component({
   selector: 'pio-statistic-roll',
-  imports: [BreakdownView, Button, HoverCard, HoverCardContent, TranslocoPipe],
+  imports: [BreakdownView, Button, HoverCard, HoverCardContent, Text, TranslocoPipe],
   templateUrl: './statistic-roll.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

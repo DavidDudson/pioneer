@@ -6,7 +6,7 @@
       [ariaLabel]="Message.Roll | transloco: { name: name() }"
       (pressed)="roll()"
     >
-      {{ label() }}
+      <fr-text monospace minWidth="modifier">{{ label() }}</fr-text>
     </fr-button>
     <ng-template frHoverCardContent>
       <pio-breakdown
