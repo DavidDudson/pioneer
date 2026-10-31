@@ -93,6 +93,29 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is so distracted by the visions that they are " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is slowed 1 and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 minute." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                {
+                  "type": "text",
+                  "text": " for 1 minute. In addition, the creature suffers the effects of the spell nightmare the next time it rests. If the creature fails or critically fails against this effect, the effect repeats each time the creature attempts to sleep until it succeeds on its save or 6 days have passed. You do not need to know the creature's name or remain on the same planet for the creature to experience these nightmares."
+                }
+              ]
             }
           },
           {
@@ -2015,7 +2038,25 @@
             "dc": {
               "against": "class-or-spell-dc"
             },
-            "options": ["inflicts:slowed", "inflicts:stunned"]
+            "options": ["inflicts:slowed", "inflicts:stunned"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected by the fractured timeflow." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": ", then slowed 2 for 1 round after they recover from being stunned." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3097,6 +3138,27 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The spell or ability affects you normally." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature's attempt to target you is slightly hindered. If your AC is being targeted, you gain a +2 circumstance bonus to your AC. If you need to attempt a saving throw, you gain a +2 circumstance bonus to the save."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature's attempt to target you is significantly hindered. If your AC is being targeted, you gain a +2 circumstance bonus to your AC, and a critical hit against you becomes a normal hit. If you need to attempt a saving throw, you gain a +2 circumstance bonus to the save, and if you critically fail, you fail instead."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature's attempt to target you fails, and the actions it used to make the attempt are wasted."
+                }
+              ]
             }
           },
           {
@@ -4113,6 +4175,26 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                {
+                  "type": "text",
+                  "text": " as it fights off your runelord's influence. You gain awareness of its abilities and weaknesses as if you achieved a critical success on a "
+                },
+                { "type": "ref", "id": "3c873e49-a1c4-53b5-9694-66b860d94d43" },
+                { "type": "text", "text": " check to identify the creature." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature relinquishes control of its faculties and abilities. You gain awareness of its abilities and weaknesses as success. You control the creature until the end of its next turn."
+                }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "As failure, but you control the creature for 1 minute." }]
             }
           },
           {

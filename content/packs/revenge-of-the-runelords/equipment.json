@@ -100,7 +100,31 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 45
+            "dc": 45,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature takes " },
+                { "type": "damage", "instances": [{ "formula": "5d10", "damageType": "sonic" }] },
+                { "type": "text", "text": " damage and is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature takes " },
+                { "type": "damage", "instances": [{ "formula": "10d10", "damageType": "sonic" }] },
+                { "type": "text", "text": " damage, is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 2 rounds, and is deafened for 2 rounds." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes " },
+                { "type": "damage", "instances": [{ "formula": "20d10", "damageType": "sonic" }] },
+                { "type": "text", "text": " damage, is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": " for 2 rounds, and is deafened for 4 rounds." }
+              ]
+            }
           },
           {
             "type": "text",

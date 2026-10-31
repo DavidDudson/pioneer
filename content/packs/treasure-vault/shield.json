@@ -2409,7 +2409,17 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 42
+            "dc": 42,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": " until its next turn begins." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is blinded for 1 minute." }],
+              "criticalFailure": [{ "type": "text", "text": "The target is blinded for 2d4 hours." }]
+            }
           },
           {
             "type": "text",

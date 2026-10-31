@@ -114,7 +114,30 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "options": ["inflicts:prone"]
+            "options": ["inflicts:prone"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature lands on its feet." }],
+              "success": [
+                { "type": "text", "text": "The creature lands " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature lands prone and takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "(floor(@level/2))d6" }],
+                  "label": "1d6 damage per every two levels"
+                },
+                { "type": "text", "text": " of the dragon." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, and the dragon can make a jaws Strike against the creature as a free action. It can only attack one creature that critically failed its save."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -309,7 +332,25 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "options": ["inflicts:petrified", "inflicts:slowed"]
+            "options": ["inflicts:petrified", "inflicts:slowed"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f" },
+                { "type": "text", "text": " permanently into adamantine." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -783,7 +824,24 @@
           },
           {
             "type": "check",
-            "statistic": "save:fortitude"
+            "statistic": "save:fortitude",
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature begins coughing and until the start of its next turn it must succeed at a "
+                },
+                { "type": "check", "statistic": "flat", "dc": 5 },
+                {
+                  "type": "text",
+                  "text": " if it attempts any action that requires it to speak, or it loses the action."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, plus it must immediately spend its next action coughing." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -1269,7 +1327,26 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "options": ["inflicts:drained", "inflicts:enfeebled"]
+            "options": ["inflicts:drained", "inflicts:enfeebled"],
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature's enfeebled condition increases by 1 until the end of its next turn, to a maximum of 3. If the creature is already "
+                },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 3" },
+                { "type": "text", "text": ", it becomes " },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
+                { "type": "text", "text": " instead." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, except the creature's enfeebled condition increases by 2 instead of 1."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -2436,7 +2513,24 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "options": ["inflicts:immobilized"]
+            "options": ["inflicts:immobilized"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target takes no damage." }],
+              "success": [{ "type": "text", "text": "The target takes half damage." }],
+              "failure": [
+                { "type": "text", "text": "The target takes full damage and is " },
+                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                { "type": "text", "text": " as the horn fragment pins them to the nearest surface." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target takes double damage and " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2d6", "damageType": "bleed", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage as the fragment pierces their body." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -2714,7 +2808,25 @@
             "type": "check",
             "statistic": "save:will",
             "dc": 0,
-            "options": ["inflicts:frightened"]
+            "options": ["inflicts:frightened"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " and can't is use reactions until the start of the dragon's next turn." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -3238,7 +3350,28 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "options": ["inflicts:dying"]
+            "options": ["inflicts:dying"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target takes void damage equal to half the damage dealt by the dragon's Dooming Breath."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target takes void damage equal to the damage dealt by the dragon's Dooming Breath."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target drops to 0 Hit Points and becomes dying 1, or increases its dying condition by 1 if it's already dying. While the target is dying, the dragon remains at 1 Hit Point and dies instantly if the target loses the dying condition."
+                }
+              ]
+            }
           },
           {
             "type": "text",

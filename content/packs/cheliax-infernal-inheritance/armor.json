@@ -93,7 +93,33 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 31
+            "dc": 31,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target takes " },
+                { "type": "damage", "instances": [{ "formula": "3d8", "damageType": "mental" }] },
+                {
+                  "type": "text",
+                  "text": " damage and takes a –1 status penalty to attack rolls against creatures other than you until the end of its next turn."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but the target takes " },
+                { "type": "damage", "instances": [{ "formula": "6d8", "damageType": "mental" }] },
+                { "type": "text", "text": " damage, and the penalty lasts for 1 minute." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As success, but the target takes " },
+                { "type": "damage", "instances": [{ "formula": "12d8", "damageType": "mental" }] },
+                { "type": "text", "text": " damage, and the penalty lasts for 1 minute. In addition, the target is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                {
+                  "type": "text",
+                  "text": " and can't reduce its frightened value below 1 for the duration of the penalty."
+                }
+              ]
+            }
           },
           {
             "type": "text",

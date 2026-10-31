@@ -25,7 +25,22 @@
           {
             "type": "check",
             "statistic": "skill:performance",
-            "dc": 19
+            "dc": 19,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "As success, but you gain 2 Uprising Points." }],
+              "success": [
+                { "type": "text", "text": "The people are roused by your performance. You gain 1 Uprising Point." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The authorities crack down on rebellious activity, stopping you from performing in this settlement again for 1 month."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the people are intimidated and you lose 1 Uprising Point." }
+              ]
+            }
           },
           {
             "type": "text",

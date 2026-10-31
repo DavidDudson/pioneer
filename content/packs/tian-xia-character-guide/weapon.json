@@ -557,7 +557,32 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 24
+            "dc": 24,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is unaffected and is temporarily immune for 24 hours." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target takes an additional 1 persistent bleed damage, and the DC for recovering from persistent bleed damage is 17, or 12 with particularly effective assistance."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, except the target is also " },
+                { "type": "ref", "id": "6f53a234-670f-5b02-a986-7cce57585fc8" },
+                {
+                  "type": "text",
+                  "text": " for 1 round. It gets a flat check to recover from this confusion when it critically succeeds at a Strike against another creature or reduces another living being to 0 Hit Points, but not when it takes damage."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, except the target is also confused for 3 rounds. It gets a flat check to recover from this confusion when it critically succeeds at a Strike against another creature or reduces another living being to 0 Hit Points, but not when it takes damage."
+                }
+              ]
+            }
           },
           {
             "type": "text",

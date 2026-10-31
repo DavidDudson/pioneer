@@ -80,7 +80,29 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is distracted by you and keeps looking your way. They take a –1 status penalty to Perception checks against everything but you, a –1 status penalty to all saving throws against your visual effects, and gain a +2 status bonus to all saving throws against visual effects created by anyone else; these penalties and bonus last for 1 minute."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but the target is also " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " to everyone other than you as long as you remain visible." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target also becomes " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                {
+                  "type": "text",
+                  "text": " as they spend extra time on their turn admiring, glowering, or otherwise being distracted by you."
+                }
+              ]
+            }
           },
           {
             "type": "text",

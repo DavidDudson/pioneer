@@ -224,7 +224,16 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 35
+            "dc": 35,
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The undead is unaffected." }],
+              "failure": [
+                { "type": "text", "text": "The undead is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The undead is slowed 1 for 1 minute." }]
+            }
           },
           {
             "type": "text",

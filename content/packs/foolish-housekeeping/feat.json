@@ -460,7 +460,34 @@
           {
             "type": "check",
             "statistic": "skill:acrobatics",
-            "dc": 15
+            "dc": 15,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You gain 5 extra feet of movement to your Speeds and can move through solid obstacles such as walls until the end of your Stride action."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You gain 5 extra feet of movement to your Speeds until the end of your Stride action."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You lose 5 feet of movement from your Speeds until the end of your Stride action."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "Your character softlocks and is " },
+                { "type": "ref", "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947" },
+                { "type": "text", "text": " permanently. Only a " },
+                { "type": "ref", "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675" },
+                { "type": "text", "text": " ritual or similar magic can reverse this effect." }
+              ]
+            }
           },
           {
             "type": "text",

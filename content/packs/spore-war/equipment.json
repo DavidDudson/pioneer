@@ -1571,7 +1571,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 43
+            "dc": 43,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The target is permanently blinded." }]
+            }
           },
           {
             "type": "text",
@@ -3390,7 +3404,25 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 43
+            "dc": 43,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The shackles open." }],
+              "success": [
+                { "type": "text", "text": "The shackles open, but you and the shackled creature take " },
+                { "type": "damage", "instances": [{ "formula": "5d6", "damageType": "void" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The shackles do not open, and you and the shackled creature take " },
+                { "type": "damage", "instances": [{ "formula": "10d6", "damageType": "void" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but " },
+                { "type": "damage", "instances": [{ "formula": "20d6", "damageType": "void" }] },
+                { "type": "text", "text": " damage." }
+              ]
+            }
           },
           {
             "type": "text",

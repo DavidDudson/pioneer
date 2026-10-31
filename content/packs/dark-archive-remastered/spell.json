@@ -1872,7 +1872,22 @@
           {
             "type": "check",
             "statistic": "perception",
-            "label": "Perception check"
+            "label": "Perception check",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target ally gains a reaction that lets it make a melee Strike against the target enemy, triggered if the enemy leaves a square within the ally's reach. If the ally already has an ability that lets it make melee Strikes as a reaction, such as Reactive Strike, the ally can forgo gaining the temporary reaction to instead gain a +2 status bonus to melee Strikes it makes as reactions."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the status bonus an ally gets if it forgoes the reaction is +1."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The spell has no effect." }]
+            }
           },
           {
             "type": "text",

@@ -797,6 +797,12 @@ flowchart LR
   once a translator covers more rule elements, `just content-import --pack <pack> --book <book> --apply-rules
 FlatModifier` appends the import's rules of the keys named to the committed entries the backlog lists with a gap of
   one of them, and clears those gaps from the backlog. Rules of other keys, and entries with no such gap, stay.
+- **Applying check outcomes to a committed pack.** `--apply-outcomes` adds the `outcomes` the import builds for a check
+  (`check-outcomes.ts`) to the same check in the committed description, by inserting the key into the file's text so
+  every other byte stays as it was (`apply-outcomes.ts`). A description takes them only when it equals the import's
+  apart from outcomes; one that differs was fixed by hand and is skipped and named. A basic check, a check with outcomes
+  already, and identical checks the import gives different outcomes are left alone and counted. Without outcomes the
+  packs are the same as before the run, and a second run changes nothing.
 - **Modifiers and predicates.** A `FlatModifier`'s `selector` becomes `selectors`: a skill or save by its statistic
   (`diplomacy` is `skill:diplomacy`, `reflex` is `save:reflex`), any other (`saving-throw`, `ac`, `melee-damage`) as it
   is. An omitted `type` is `untyped`, and `hideIfDisabled` is dropped. A roll option Foundry writes bare (`poison`,

@@ -1667,6 +1667,19 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ]
             }
           },
           {
@@ -2040,6 +2053,21 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is unaffected and is temporarily immune for 24 hours." }
+              ],
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The elemental creature is controlled or slowed as long as you Sustain the impulse, up to 1 minute. This effect ends if you or an ally attacks the elemental."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but you can Sustain the impulse up to 1 hour." }
+              ]
             }
           },
           {
@@ -5009,6 +5037,11 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [{ "type": "text", "text": "You make the creature jump up to half the maximum distance." }],
+              "criticalFailure": [{ "type": "text", "text": "You make the creature jump up to the maximum distance." }]
             }
           },
           {
@@ -5666,6 +5699,26 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is frozen solid. It can't act, its AC is 9, it has Hardness 5, and it's immune to other cold effects, critical hits, and precision damage. This lasts until the end of your next turn, but if the target is affected by a hostile action, this effect ends immediately after that action."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but after becoming unfrozen, the creature is slowed 1 until the end of its next turn."
+                }
+              ]
             }
           },
           {
@@ -6666,6 +6719,27 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is off-guard. It is " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                {
+                  "type": "text",
+                  "text": " from the illusory sky but is also disoriented; any time it uses an action to attempt to flee, it must succeed at a "
+                },
+                { "type": "check", "statistic": "flat", "dc": 11 },
+                {
+                  "type": "text",
+                  "text": " or flee to a space that's still within the illusion. The GM determines where the creatures ends up, but the creature can't stay stationary if it's able to move."
+                }
+              ]
             }
           },
           {
@@ -11172,6 +11246,24 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and is dazzled until the start of your next turn."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is blinded until the start of your next turn."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is blinded for 1 minute." }
+              ]
             }
           },
           {
@@ -12671,6 +12763,21 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is pushed out of the line in the most direct path available."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature takes double damage and is knocked " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
@@ -13840,6 +13947,24 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is pushed downward 40 feet without taking falling damage. If it reaches the bottom of the cylinder or the ground, the push ends. If the creature is pushed to the ground, it can't Fly, "
+                },
+                { "type": "ref", "id": "daa245e0-fdd6-582d-888d-f47865223c52" },
+                { "type": "text", "text": ", or otherwise leave the ground for 1 round." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but double damage and the distance the creature is pushed is 80 feet."
+                }
+              ]
             }
           },
           {
@@ -14143,6 +14268,28 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected, disbelieves the illusion, and is temporarily immune for 1 hour."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
+                {
+                  "type": "text",
+                  "text": " with the source of the sound until the end of its next turn. When the fascination ends, the creature is temporarily immune for 1 hour."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is fascinated for 1 minute or until it disbelieves."
+                }
+              ]
             }
           },
           {
@@ -14505,6 +14652,28 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and takes a –10-foot status penalty to all its Speeds until the end of its next turn."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target takes full damage and is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": " and " },
+                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                { "type": "text", "text": " until the end of its next turn." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target takes double damage and is clumsy 2 and immobilized. It attempts a new save at the end of each of its turns, ending the effect if it succeeds."
+                }
+              ]
             }
           },
           {

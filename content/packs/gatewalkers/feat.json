@@ -382,7 +382,22 @@
           },
           {
             "type": "check",
-            "statistic": "skill:diplomacy"
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Your enemy ceases their attack, momentarily taken aback by your disarming smile. The attack fails and the triggering target can't attempt hostile actions against you until the beginning of its next turn or until you (or your allies) take hostile actions against the enemy (or its allies). You can begin talking to the creature on your next turn to attempt another Diplomacy check; on a success, you sustain the effect until the beginning of your next turn, to a maximum of 1 minute. Talking on subsequent rounds requires that you be able to communicate with the target creature and imparts the auditory and linguistic traits to the action."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Your foe pauses momentarily. Their attack fails, but they can attempt further attacks against you."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The target's attack is unaffected." }]
+            }
           },
           {
             "type": "text",

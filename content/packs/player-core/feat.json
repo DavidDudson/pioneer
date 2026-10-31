@@ -10571,7 +10571,24 @@
           },
           {
             "type": "check",
-            "statistic": "skill:occultism"
+            "statistic": "skill:occultism",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The GM chooses and tells you two of the following pieces of information about the enemy: which of the enemy's weaknesses is highest, which of the enemy's saving throws has the lowest modifier, one immunity the enemy has, or which of the enemy's resistances is highest. In the event of a tie, the GM should pick one at random."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The GM chooses one piece of information from the above list to tell you about the enemy."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The GM gives you false information (the GM makes up the information)." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -12728,6 +12745,24 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
@@ -21926,6 +21961,21 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target falls up to 120 feet. If it hits the ground, it takes no damage from the fall."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, and the target can't fly, jump, levitate, or otherwise leave the ground until the end of your next turn."
+                }
+              ]
             }
           },
           {
@@ -37506,7 +37556,11 @@
           },
           {
             "type": "check",
-            "statistic": "skill:diplomacy"
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "Reduce the creature's frightened value by 2." }],
+              "success": [{ "type": "text", "text": "Reduce the creature's frightened value by 1." }]
+            }
           },
           {
             "type": "text",
@@ -46722,7 +46776,21 @@
           {
             "type": "check",
             "statistic": "skill:performance",
-            "label": "Fortitude DC"
+            "label": "Fortitude DC",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You reduce the triggering damage by an amount up to four times your level. The creature takes sonic damage equal to the amount of damage you reduced in this way."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but you reduce the triggering damage by an amount up to twice your level."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -47608,7 +47676,18 @@
           },
           {
             "type": "check",
-            "statistic": "skill:thievery"
+            "statistic": "skill:thievery",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "You deal damage equal to 4 x your Thievery proficiency bonus." }
+              ],
+              "success": [
+                { "type": "text", "text": "You deal damage equal to double your Thievery proficiency bonus." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The item is temporarily immune to your Sabotage for 1 day." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -47964,7 +48043,19 @@
           },
           {
             "type": "check",
-            "statistic": "skill:religion"
+            "statistic": "skill:religion",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
+                { "type": "text", "text": " until it spends at least 1 action moving away from you." }
+              ],
+              "success": [
+                { "type": "text", "text": "As critical success, but " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 1" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -48173,7 +48264,28 @@
           },
           {
             "type": "check",
-            "statistic": "skill:intimidation"
+            "statistic": "skill:intimidation",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target must attempt a " },
+                { "type": "check", "statistic": "save:fortitude", "dc": { "against": "skill:intimidation" } },
+                {
+                  "type": "text",
+                  "text": " save against your Intimidation DC. On a critical failure, it dies. On any other result, it becomes "
+                },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " and is " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " for 1 round. The critical failure effect has the death trait." }
+              ],
+              "success": [{ "type": "text", "text": "The target becomes frightened 2." }],
+              "failure": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The target is unaffected." }]
+            }
           },
           {
             "type": "text",

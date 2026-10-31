@@ -1460,7 +1460,53 @@
             "type": "check",
             "statistic": "save:fortitude",
             "dc": 34,
-            "options": ["inflicts:enfeebled"]
+            "options": ["inflicts:enfeebled"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature breathes in a small amount of the poisonous smoke and takes " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2d6", "damageType": "fire", "category": "persistent" }]
+                },
+                { "type": "text", "text": " or " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2d6", "damageType": "poison", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature gulps down a lungful of the smoke, taking " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "4d6", "damageType": "fire", "category": "persistent" }]
+                },
+                { "type": "text", "text": " or " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "4d6", "damageType": "poison", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage and becoming " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
+                { "type": "text", "text": " until the persistent damage ends." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature inhales a large amount of the smoke, taking " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "6d6", "damageType": "fire", "category": "persistent" }]
+                },
+                { "type": "text", "text": " or " },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "6d6", "damageType": "poison", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage and becoming " },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 3" },
+                { "type": "text", "text": " until the persistent damage ends." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -9771,7 +9817,22 @@
           {
             "type": "check",
             "statistic": "save:reflex",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [{ "type": "text", "text": "The target's invisibility is negated for 2 rounds." }],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
+                { "type": "text", "text": " for 1 minute, and its invisibility is negated for 1 minute." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target is deafened for 10 minutes, and its invisibility is negated for 10 minutes."
+                }
+              ]
+            }
           },
           {
             "type": "text",

@@ -24,4 +24,11 @@ else in the entry changes, so descriptions, hand-fixed rules, `dismiss` flags an
 6. Check: `bunx nx run rules-catalog:test`; DB tests need `just db-up`. Commit `feat(content): ...` stating the keys
    and what they brought in.
 
+## Check outcomes
+
+`just content-import --pack <pack> --book <book> --apply-outcomes` takes the per-degree outcomes the import builds for a
+non-basic check and adds them to the same check in the committed description, in the file's own text. It names the
+descriptions it skips because they were fixed by hand. Run it per pack after a change to `check-outcomes.ts`; a second
+run changes nothing. Review that `git diff` shows added `outcomes` only (reflowed lines of a touched check aside).
+
 A pack or entry the import has not committed yet is a story of its own: the importer cannot create it here.

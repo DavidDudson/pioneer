@@ -134,7 +134,15 @@
           {
             "type": "check",
             "statistic": "skill:thievery",
-            "dc": 18
+            "dc": 18,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "You return 4 pieces to the orrery." }],
+              "success": [{ "type": "text", "text": "You return 2 pieces to the orrery." }],
+              "failure": [{ "type": "text", "text": "You return only 1 piece to the orrery." }],
+              "criticalFailure": [
+                { "type": "text", "text": "You're unable to make any progress and return no pieces to the orrery." }
+              ]
+            }
           },
           {
             "type": "text",

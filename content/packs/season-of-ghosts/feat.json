@@ -211,6 +211,28 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The supernatural cold causes the target to shiver and quake, making them " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " until the end of their next turn." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The supernatural cold paralyzes the target for 1 round, then leaves them slowed 1 for 1 round after."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target becomes frozen in place by the cold and is " },
+                { "type": "ref", "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947" },
+                {
+                  "type": "text",
+                  "text": " for 1 minute. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each attempt. Once the target recovers, it's slowed 1 for 1 round."
+                }
+              ]
             }
           },
           {
@@ -543,6 +565,32 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You perceive vague surface thoughts from the target and find out whether its Intelligence modifier is higher than, equal to, or lower than yours."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but you can probe into the target's mind and attempt to uncover the answer to a question you telepathically pose to them. The target can attempt a "
+                },
+                { "type": "check", "statistic": "skill:deception" },
+                {
+                  "type": "text",
+                  "text": " check against your spirit power's DC; if the target succeeds, you don't learn the answer, and on a critical success, the target gives you a false answer you believe is truthful."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but once you resolve the telepathic question and its answer, the target loses all memory of this event."
+                }
+              ]
             }
           },
           {
@@ -790,6 +838,23 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target hears your whispered words but isn't otherwise affected." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target is unnerved by your whispered words and becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target hears your whispered words and must obey your suggested course of action for 1 minute, until it has completed the task, or until the task becomes self-destructive or has other obvious negative effects. Your suggested course of action must be phrased in such a way as to seem like a logical course of action to the target."
+                }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "As failure, but the duration is 1 hour." }]
             }
           },
           {
@@ -1235,6 +1300,30 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": ", falls " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " from the shock, and is " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                { "type": "text", "text": " as long as it remains frightened." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature faints from fear, becoming " },
+                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
+                {
+                  "type": "text",
+                  "text": ". As soon as it's no longer unconscious it becomes frightened 2 and is fleeing as long as it remains frightened."
+                }
+              ]
             }
           },
           {
@@ -2234,6 +2323,22 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": " for 1 round and dazzled for 1 minute." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is blinded for 2 rounds and dazzled for 1 minute." }
+              ]
             }
           },
           {
@@ -2639,6 +2744,34 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target's skin itches uncontrollably. If the target doesn't spend an action to scratch at the itch, it becomes "
+                },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of its next turn. This effect lasts for 1 minute." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target's skin breaks out in painful lesions and unsightly sores. The target becomes "
+                },
+                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
+                { "type": "text", "text": ", " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": ", and " },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 2" },
+                { "type": "text", "text": " for 24 hours." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the target is also " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for the duration." }
+              ]
             }
           },
           {

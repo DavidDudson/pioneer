@@ -99,7 +99,24 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
+                {
+                  "type": "text",
+                  "text": " with you for as long as you perform (unless it breaks from the fascination, as normal for the condition) and is "
+                },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for 1 round or as long as it's fascinated, whichever is longer." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target is fascinated for 1 round and is dazzled for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is dazzled for 1 round." }],
+              "criticalFailure": [{ "type": "text", "text": "The target is unaffected." }]
+            }
           },
           {
             "type": "text",
@@ -1619,6 +1636,15 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The triggering spell takes a –2 status penalty to its spell attack rolls and DCs."
+                }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "The triggering spell is disrupted." }]
             }
           },
           {
@@ -4922,6 +4948,21 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "On its turn, the target must spend its first action to approach you. It can't Delay or take reactions until it has done so."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target must use all its actions on its next turn to approach you. It can't Delay or take any reactions until it has reached a space that's adjacent to you (or as close to you as possible if it reaches an impassable barrier)."
+                }
+              ]
             }
           },
           {
@@ -7117,6 +7158,22 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "No effect." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is dazzled and can see only 10 feet away for 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                { "type": "text", "text": " for 1 round." }
+              ]
             }
           },
           {

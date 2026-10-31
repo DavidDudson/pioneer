@@ -962,7 +962,29 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 43
+            "dc": 43,
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is hurled 1d4 rounds into the future. They disappear in a flash of white light, only to reappear in the same space on their initiative after the duration. If that space is occupied, the creature is shunted harmlessly aside to the closest unoccupied space."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "As success, but the creature is hurled forward in time 1d4 minutes." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the creature is hurled into an entirely alternate timeline. At your discretion, the creature's gear is left behind in your timeline. Whether or not the creature will ever return to your timeline depends on the GM's whim, but at the very least, it should never return within the span of a year's passing."
+                }
+              ]
+            }
           },
           {
             "type": "text",

@@ -603,7 +603,32 @@
             "type": "check",
             "statistic": "save:will",
             "dc": 19,
-            "options": ["inflicts:off-guard", "inflicts:prone", "inflicts:frightened", "inflicts:fleeing"]
+            "options": ["inflicts:off-guard", "inflicts:prone", "inflicts:frightened", "inflicts:fleeing"],
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The undead creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The undead creature becomes " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of your next turn." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The undead creature becomes " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": " and is off-guard as long as it remains frightened." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                { "type": "text", "text": ", and the undead is also " },
+                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                {
+                  "type": "text",
+                  "text": " as long as it remains frightened. If the undead knows of a nearby empty grave, it must flee toward that grave—if it enters the grave, it drops "
+                },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " into the grave and remains prone until it is no longer frightened." }
+              ]
+            }
           },
           {
             "type": "text",

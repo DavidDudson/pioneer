@@ -63,7 +63,26 @@
           {
             "type": "check",
             "statistic": "save:will",
-            "dc": 33
+            "dc": 33,
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "For 1 minute, the wearer's allies within the glorious plate's 10-foot radius of light are "
+                },
+                { "type": "ref", "id": "f410da96-b56a-5c7c-857b-7096defec0a1" },
+                {
+                  "type": "text",
+                  "text": " to the enemy. Allies are concealed only while they remain within the light; if allies enter the light later, they are concealed as well."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, except the wearer's allies are " },
+                { "type": "ref", "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa" },
+                { "type": "text", "text": " to the enemy instead of concealed." }
+              ]
+            }
           },
           {
             "type": "text",

@@ -313,6 +313,37 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The demon is unaffected and likely to focus its attention on you in combat from this point forward."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "The demon takes " },
+                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "mental" }] },
+                { "type": "text", "text": " damage." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The demon takes " },
+                { "type": "damage", "instances": [{ "formula": "4d6", "damageType": "mental" }] },
+                { "type": "text", "text": " damage and is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " until the start of its next turn." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the off-guard condition lasts until the end of the next round. The demon also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [{ "formula": "2d6", "damageType": "mental", "category": "persistent" }]
+                },
+                { "type": "text", "text": " damage." }
+              ]
             }
           },
           {

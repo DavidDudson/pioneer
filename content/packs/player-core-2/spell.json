@@ -8506,7 +8506,20 @@
           },
           {
             "type": "check",
-            "statistic": "save:will"
+            "statistic": "save:will",
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                { "type": "text", "text": "." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -18379,7 +18392,35 @@
           },
           {
             "type": "check",
-            "statistic": "skill:athletics"
+            "statistic": "skill:athletics",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected, and it doesn't need to attempt further Athletics checks or saving throws against the web this turn. If it used an Athletics check, it clears the web from every square it leaves during its movement."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected during its action. If it used an Athletics check, it clears the web from every square it leaves during its movement."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes a –10-foot circumstance penalty to its Speeds until the start of its next turn."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature is immobilized until the start of its next turn, after which it takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to "
+                },
+                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
+                { "type": "text", "text": " to remove its immobilized condition." }
+              ]
+            }
           },
           {
             "type": "text",

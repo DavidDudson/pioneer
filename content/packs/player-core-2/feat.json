@@ -5805,7 +5805,23 @@
           },
           {
             "type": "check",
-            "statistic": "skill:athletics"
+            "statistic": "skill:athletics",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "You gain the critical success effect of a " },
+                { "type": "ref", "id": "082b982f-3ed4-5d9c-9722-9ab10198523a" },
+                { "type": "text", "text": ", then the critical success effect of a " },
+                { "type": "ref", "id": "6257c7f0-f483-53d3-a791-d73a616cbce4" },
+                { "type": "text", "text": " against the target." }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You gain the success effect of a Shove, then the success effect of a Trip against the target."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "You gain the normal effect of Knockback." }]
+            }
           },
           {
             "type": "text",
@@ -7889,7 +7905,30 @@
           {
             "type": "check",
             "statistic": "skill:society",
-            "dc": 30
+            "dc": 30,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You learn the creature's profession, their specialty within that profession, and a major accomplishment or controversy from their career. You also learn the nation and settlement where they live, as well as the district in a city large enough to have districts. In addition, you learn the nation or settlement where they spent their formative years."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You learn the creature's profession and specialty within that profession. You learn the nation or settlement where they normally live."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You learn the creature's profession and the region of the world they hail from, but no more."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "You learn a piece of erroneous information about the creature." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -8124,7 +8163,21 @@
           {
             "type": "check",
             "statistic": "save:fortitude",
-            "dc": 40
+            "dc": 40,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "You aren't otherwise affected." }],
+              "success": [
+                { "type": "text", "text": "You are " },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 2" },
+                { "type": "text", "text": " and can't reduce or remove this condition until your next preparations." }
+              ],
+              "failure": [
+                { "type": "text", "text": "You are " },
+                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 4" },
+                { "type": "text", "text": " and can't reduce or remove this condition until your next preparations." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "You die." }]
+            }
           },
           {
             "type": "text",
@@ -9732,7 +9785,15 @@
           },
           {
             "type": "check",
-            "statistic": "skill:diplomacy"
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is distracted and takes a –3 status penalty to Perception and Will saves for 1 minute."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -14192,7 +14253,26 @@
           },
           {
             "type": "check",
-            "statistic": "perception"
+            "statistic": "perception",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You spot a way for your ally to take advantage of the other target's flaws and let them know about it. Your ally gains your "
+                },
+                { "type": "ref", "id": "c3e8808d-49ed-5855-90ec-9b753ba89635" },
+                {
+                  "type": "text",
+                  "text": " investigation bonus as a circumstance bonus to all its Strikes or skill checks against the creature until the start of your next turn."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but your ally gains the bonus only for their next Strike or skill check against the creature."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -17431,7 +17511,22 @@
           },
           {
             "type": "check",
-            "statistic": "skill:thievery"
+            "statistic": "skill:thievery",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
+                { "type": "text", "text": " until they use an Interact action to end the impediment" }
+              ],
+              "success": [
+                { "type": "text", "text": "As critical success, but the condition ends automatically after 1 round." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "You fall " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " as your attempt backfires." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -18097,7 +18192,22 @@
           },
           {
             "type": "check",
-            "statistic": "skill:deception"
+            "statistic": "skill:deception",
+            "outcomes": {
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target's attitude doesn't decrease as a result of your ally's social blunder."
+                }
+              ],
+              "failure": [{ "type": "text", "text": "The target's attitude decreases, as normal." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Your attempt makes matters worse, decreasing the target's attitude toward you by one step, in addition to any changes from the behavior that triggered this reaction."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -18384,7 +18494,21 @@
           },
           {
             "type": "check",
-            "statistic": "skill:occultism"
+            "statistic": "skill:occultism",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target becomes " },
+                { "type": "ref", "id": "6f53a234-670f-5b02-a986-7cce57585fc8" },
+                { "type": "text", "text": " for 1 round and " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "success": [{ "type": "text", "text": "The target becomes frightened 1." }],
+              "failure": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalFailure": [
+                { "type": "text", "text": "You get overly caught up in your own words and become frightened 1." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -23555,7 +23679,27 @@
           {
             "type": "check",
             "statistic": "skill:performance",
-            "label": "Perform"
+            "label": "Perform",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target takes a –2 circumstance penalty to attack rolls against creatures other than you until the end of its next turn."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target takes a –1 circumstance penalty to attack rolls against creatures other then you until the end of its next turn."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target gains a +1 circumstance bonus to attack rolls targeting you until the end of its next turn."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -24179,7 +24323,20 @@
           },
           {
             "type": "check",
-            "statistic": "skill:diplomacy"
+            "statistic": "skill:diplomacy",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                { "type": "text", "text": " for 1 round." }
+              ],
+              "failure": [{ "type": "text", "text": "The target is unaffected." }]
+            }
           },
           {
             "type": "text",
@@ -30305,7 +30462,30 @@
           },
           {
             "type": "check",
-            "statistic": "skill:religion"
+            "statistic": "skill:religion",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You comprehend the lore accurately or gain a useful clue from the divine about your situation."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You learn two pieces of information about the topic, one true and one erroneous, but you don't know which is which."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "You recall incorrect information or gain an erroneous or misleading clue." }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You recall two pieces of incorrect information or gain two erroneous or misleading clues."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -34960,7 +35140,13 @@
           },
           {
             "type": "check",
-            "statistic": "skill:crafting"
+            "statistic": "skill:crafting",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "You regain 3 versatile vials." }],
+              "success": [{ "type": "text", "text": "You regain 2 versatile vials." }],
+              "failure": [{ "type": "text", "text": "You regain 1 versatile vial." }],
+              "criticalFailure": [{ "type": "text", "text": "You don't regain any versatile vials." }]
+            }
           },
           {
             "type": "text",
@@ -39247,7 +39433,27 @@
           },
           {
             "type": "check",
-            "statistic": "skill:performance"
+            "statistic": "skill:performance",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Your foe is swept up in your dance. You both move up to 10 feet in the same direction, remaining adjacent to one another. Your movement doesn't trigger reactions from the target (and the target's movement doesn't trigger reactions because it's forced movement)."
+                }
+              ],
+              "success": [{ "type": "text", "text": "As critical success, but you both move only 5 feet." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The foe doesn't follow your steps. You can move 5 feet if you choose, but this movement triggers reactions normally."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "You stumble, falling " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " in your space." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -39749,6 +39955,12 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "You deal 6 precision damage." }],
+              "success": [{ "type": "text", "text": "You deal 6d6 precision damage." }],
+              "failure": [{ "type": "text", "text": "You deal 12d6 precision damage." }],
+              "criticalFailure": [{ "type": "text", "text": "You deal 18d6 precision damage." }]
             }
           },
           {
@@ -41149,6 +41361,24 @@
             "statistic": "save:will",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The creature is " },
+                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 4" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
@@ -45881,6 +46111,17 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [{ "type": "text", "text": "The target is pushed back 5 feet." }],
+              "failure": [{ "type": "text", "text": "The target is pushed back 10 feet." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target is pushed back 10 feet for each action you spent on One-Inch Punch."
+                }
+              ]
             }
           },
           {
@@ -57824,7 +58065,13 @@
           {
             "type": "check",
             "statistic": "flat",
-            "dc": 9
+            "dc": 9,
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "Choose an item quirk from the table and its specifics." }],
+              "success": [
+                { "type": "text", "text": "The item gains a random item quirk with any specifics selected by the GM." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -58189,7 +58436,25 @@
             "dc": {
               "against": "class-dc"
             },
-            "options": ["inflicts:stunned"]
+            "options": ["inflicts:stunned"],
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                { "type": "text", "text": "The target is dazed and can barely vocalize. It's " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": " and its speech is raspy and hard to understand. It must succeed at a " },
+                { "type": "check", "statistic": "flat", "dc": 11 },
+                {
+                  "type": "text",
+                  "text": " to use linguistic actions or Cast a Spell, unless the spell has the subtle trait."
+                }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "As failure, but the creature is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": " instead of stunned 1." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -62424,6 +62689,20 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [{ "type": "text", "text": "The target can't use reactions until its next turn." }],
+              "failure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
+                { "type": "text", "text": "." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "The target is " },
+                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
+                { "type": "text", "text": "." }
+              ]
             }
           },
           {
@@ -63299,7 +63578,32 @@
           },
           {
             "type": "check",
-            "statistic": "skill:medicine"
+            "statistic": "skill:medicine",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target is either " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 3" },
+                { "type": "text", "text": " or " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 3" },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn. The target is then immune to Surgical Shock for 1 hour."
+                }
+              ],
+              "success": [
+                { "type": "text", "text": "As critical success, but the target is either " },
+                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
+                { "type": "text", "text": " or " },
+                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
+                { "type": "text", "text": "." }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is minorly inconvenienced. You gain a +1 circumstance bonus to the next attack action you attempt against it before the end of your turn."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -67932,7 +68236,12 @@
           },
           {
             "type": "check",
-            "statistic": "skill:medicine"
+            "statistic": "skill:medicine",
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "Reduce the condition value by 2." }],
+              "success": [{ "type": "text", "text": "Reduce the condition value by 1." }],
+              "criticalFailure": [{ "type": "text", "text": "Increase the condition value by 1." }]
+            }
           },
           {
             "type": "text",
@@ -70654,7 +70963,21 @@
           },
           {
             "type": "check",
-            "statistic": "skill:acrobatics"
+            "statistic": "skill:acrobatics",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "This movement doesn't trigger reactions from the enemy, and the enemy is " },
+                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                { "type": "text", "text": " to you until the end of your turn" }
+              ],
+              "success": [{ "type": "text", "text": "This movement doesn't trigger reactions from the enemy." }],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Your movement immediately stops when you enter the creature's reach; if you began in the creature's reach, you don't move."
+                }
+              ]
+            }
           },
           {
             "type": "text",
@@ -73468,7 +73791,29 @@
           },
           {
             "type": "check",
-            "statistic": "skill:athletics"
+            "statistic": "skill:athletics",
+            "outcomes": {
+              "criticalSuccess": [
+                { "type": "text", "text": "The target takes bludgeoning damage equal to double your level (" },
+                { "type": "damage", "instances": [{ "formula": "2*@level", "damageType": "bludgeoning" }] },
+                { "type": "text", "text": ") and is pushed up to 10 feet away from you." }
+              ],
+              "success": [
+                { "type": "text", "text": "The target takes bludgeoning damage equal to your level (" },
+                { "type": "damage", "instances": [{ "formula": "@level", "damageType": "bludgeoning" }] },
+                { "type": "text", "text": ") and is pushed up to 5 feet away from you." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target takes bludgeoning damage equal to half your level (" },
+                { "type": "damage", "instances": [{ "formula": "floor(@level/2)", "damageType": "bludgeoning" }] },
+                { "type": "text", "text": ")." }
+              ],
+              "criticalFailure": [
+                { "type": "text", "text": "You fall " },
+                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
+                { "type": "text", "text": " at the end of this activity." }
+              ]
+            }
           },
           {
             "type": "text",

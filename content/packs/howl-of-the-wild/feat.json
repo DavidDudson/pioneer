@@ -5661,7 +5661,13 @@
           },
           {
             "type": "check",
-            "statistic": "skill:athletics"
+            "statistic": "skill:athletics",
+            "outcomes": {
+              "success": [{ "type": "text", "text": "You maintain your position." }],
+              "failure": [
+                { "type": "text", "text": "You slide down 60 feet or to the ground without taking falling damage." }
+              ]
+            }
           },
           {
             "type": "text",
@@ -10345,6 +10351,11 @@
             "statistic": "save:fortitude",
             "dc": {
               "against": "class-or-spell-dc"
+            },
+            "outcomes": {
+              "success": [{ "type": "text", "text": "The creature regains Hit Points normally." }],
+              "failure": [{ "type": "text", "text": "The creature regains half the normal Hit Points." }],
+              "criticalFailure": [{ "type": "text", "text": "The creature regains no Hit Points." }]
             }
           },
           {
@@ -10475,6 +10486,16 @@
             "statistic": "save:reflex",
             "dc": {
               "against": "class-dc"
+            },
+            "outcomes": {
+              "criticalSuccess": [{ "type": "text", "text": "No effect." }],
+              "success": [
+                { "type": "text", "text": "The target falls 15 feet but doesn't take damage if it reaches the ground." }
+              ],
+              "failure": [
+                { "type": "text", "text": "The target falls 30 feet but doesn't take damage if it reaches the ground." }
+              ],
+              "criticalFailure": [{ "type": "text", "text": "As failure, but the target takes falling damage." }]
             }
           },
           {

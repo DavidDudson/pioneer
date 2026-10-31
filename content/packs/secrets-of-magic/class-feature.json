@@ -1331,7 +1331,29 @@
           {
             "type": "check",
             "statistic": "flat",
-            "dc": 6
+            "dc": 6,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "You temporarily recover an expended spell slot of any rank of your choice. The temporary spell slot lasts for 1 minute, and if you don't use it by then, you experience an immediate Wellspring Surges."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, except you randomly determine the rank of spell slot from among your top three spell ranks (or all your ranks of spell slots if you have fewer than three). The slot lasts 3 rounds instead of 1 minute."
+                }
+              ],
+              "failure": [
+                { "type": "text", "text": "You generate a " },
+                { "type": "text", "text": "wellspring surge", "marks": ["emphasis"] },
+                {
+                  "type": "text",
+                  "text": ", with a spell rank chosen randomly among your top three ranks of spell slots (or all your ranks if you have fewer than three)."
+                }
+              ]
+            }
           },
           {
             "type": "text",
