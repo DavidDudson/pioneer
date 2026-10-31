@@ -6,30 +6,19 @@
       @for (row of statistics; track row.key) {
         <fr-list-item>
           @if (row.ok) {
-            <fr-stack direction="horizontal" gap="xs" align="start">
-              <fr-stack grow>
-                <fr-disclosure>
-                  <fr-text frDisclosureSummary
-                    >{{ row.name }}
-                    <pio-proficiency-badge [rank]="row.rank" [sources]="row.rankSources" />
-                    <pio-statistic-total [total]="row.total" [computed]="row.computed" [fromForm]="row.fromForm"
-                  /></fr-text>
-                  <pio-breakdown
-                    [statistic]="row.statistic"
-                    [kind]="row.kind"
-                    [entryNames]="entryNames()"
-                    [originNames]="originNames()"
-                  />
-                </fr-disclosure>
-              </fr-stack>
-              <pio-statistic-roll
-                [name]="row.name"
-                [kind]="row.kind"
-                [statistic]="row.statistic"
-                [entryNames]="entryNames()"
-                [originNames]="originNames()"
-              />
-            </fr-stack>
+            <pio-statistic-line
+              [name]="row.name"
+              [kind]="row.kind"
+              [statistic]="row.statistic"
+              [total]="row.total"
+              [computed]="row.computed"
+              [fromForm]="row.fromForm"
+              [rank]="row.rank"
+              [rankSources]="row.rankSources"
+              [skill]="skillRows()"
+              [entryNames]="entryNames()"
+              [originNames]="originNames()"
+            />
             <pio-statistic-conditions
               [conditions]="row.conditions"
               [toggles]="row.toggles"

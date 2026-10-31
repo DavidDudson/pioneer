@@ -1,0 +1,17 @@
+<fr-stack direction="horizontal" justify="between" align="center" gap="xs">
+  <fr-text>{{ name() }}</fr-text>
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" />
+    @if (roller) {
+      <pio-statistic-roll
+        [name]="name()"
+        [kind]="kind()"
+        [statistic]="statistic()"
+        [entryNames]="entryNames()"
+        [originNames]="originNames()"
+      />
+    } @else {
+      <pio-statistic-total [total]="total()" [computed]="computed()" [fromForm]="fromForm()" />
+    }
+  </fr-stack>
+</fr-stack>
