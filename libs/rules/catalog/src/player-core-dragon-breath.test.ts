@@ -25,6 +25,8 @@ const breath = breathEntry();
 
 const FORMULA = /"formula":"(?<formula>[^"]+)"/u;
 const DAMAGE_TYPE = /"damageType":"(?<type>[^"]+)"/u;
+const SHAPE = /"shape":"(?<shape>[^"]+)"/u;
+const SAVE = /"statistic":"(?<save>[^"]+)"/u;
 
 /** What the sheet reads once the druid picks `dragon-form:<type>`: the namespace a choice writes to is known. */
 function pickedFacts(type?: string): PredicateFacts {
@@ -34,6 +36,8 @@ function pickedFacts(type?: string): PredicateFacts {
 
 interface BreathReading {
   readonly traits: readonly string[];
+  /** The shape of the area the description names, and the save it calls for. */
+  readonly area: readonly (string | undefined)[];
   /** The dice and the damage type of the first damage the description deals. */
   readonly damage: readonly (string | undefined)[];
 }
@@ -44,7 +48,8 @@ function breathOf(type: string, rank: number): BreathReading {
   const altered = alterAction({ rules, facts: pickedFacts(type) }, breath);
   const text = JSON.stringify(altered.description);
   const damage = [FORMULA.exec(text)?.groups?.['formula'], DAMAGE_TYPE.exec(text)?.groups?.['type']];
-  return { traits: altered.traits.map(String), damage };
+  const area = [SHAPE.exec(text)?.groups?.['shape'], SAVE.exec(text)?.groups?.['save']];
+  return { traits: altered.traits.map(String), area, damage };
 }
 
 describe('Player Core: Dragon Form, Dragon Breath', () => {
@@ -64,6 +69,15 @@ describe('Player Core: Dragon Form, Dragon Breath', () => {
 
     expect(brine.traits).not.toContain('bludgeoning');
     expect(brine.damage).toEqual(['10d6', 'bludgeoning']);
+  });
+
+  test('the breath follows the shape, save and tradition of the dragon', () => {
+    expect(breathOf('magma', 6).area).toEqual(['cone', 'save:reflex']);
+    expect(breathOf('brine', 6).area).toEqual(['line', 'save:reflex']);
+    expect(breathOf('oath', 6).area).toEqual(['cone', 'save:will']);
+    expect(breathOf('horned', 6).area).toEqual(['cone', 'save:fortitude']);
+    expect(breathOf('magma', 6).traits).toContain('primal');
+    expect(breathOf('oath', 6).traits).toContain('divine');
   });
 
   test('without a pick the breath reads as written', () => {
