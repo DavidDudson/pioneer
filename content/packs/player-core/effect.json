@@ -7121,7 +7121,10 @@
                   "modifier": 8
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 40
+            }
           },
           {
             "start": 6,
@@ -7155,7 +7158,10 @@
                   "modifier": 4
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 45
+            }
           }
         ],
         "predicate": ["aerial-form:bat"]
@@ -7262,7 +7268,10 @@
                   "modifier": 8
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 60
+            }
           },
           {
             "start": 6,
@@ -7296,7 +7305,10 @@
                   "modifier": 4
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 65
+            }
           }
         ],
         "predicate": ["aerial-form:bird"]
@@ -7377,7 +7389,10 @@
                   "modifier": 8
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 50
+            }
           },
           {
             "start": 6,
@@ -7402,7 +7417,10 @@
                   "modifier": 4
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 55
+            }
           }
         ],
         "predicate": ["aerial-form:wasp"]
@@ -7488,7 +7506,10 @@
                   "modifier": 8
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 50
+            }
           },
           {
             "start": 6,
@@ -7513,7 +7534,10 @@
                   "modifier": 4
                 }
               }
-            ]
+            ],
+            "speeds": {
+              "fly": 55
+            }
           }
         ],
         "predicate": ["aerial-form:pterosaur"]

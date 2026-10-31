@@ -5730,24 +5730,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "effect:spell-effect-aerial-form",
-      "foundry": "Compendium.pf2e.spell-effects.Item.mvMWmP3m9Xawbwpx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "fly-speed",
-            "type": "status",
-            "value": "match(when(btwn(@item.level, 5, 5), 10), when(gte(@item.level, 6), 15))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "effect:spell-effect-agile-feet",
       "foundry": "Compendium.pf2e.spell-effects.Item.y9PJdDYFemhk6Z5o",
       "gaps": [

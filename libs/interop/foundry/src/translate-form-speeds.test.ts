@@ -60,3 +60,35 @@ describe('translateRules: a speed FlatModifier from an item level', () => {
     expect(form?.brackets).toEqual([{ start: 6, size: 'large' }]);
   });
 });
+
+describe('translateRules: a speed FlatModifier by tiers', () => {
+  const AERIAL_BONUS = {
+    key: 'FlatModifier',
+    selector: 'fly-speed',
+    type: 'status',
+    value: 'match(when(btwn(@item.level, 5, 5), 10), when(gte(@item.level, 6), 15))',
+  };
+  const BAT = { key: 'BattleForm', overrides: { speeds: { fly: 30, land: 20 } } };
+  const BIRD = { key: 'BattleForm', overrides: { speeds: { fly: 50, land: 10 } } };
+
+  test('gives each form a bracket for every rank at which the bonus changes', () => {
+    const [bat, bird, ...others] = formRules([BAT, BIRD, AERIAL_BONUS]);
+
+    expect(others).toEqual([]);
+    expect(bat?.brackets).toEqual([
+      { start: 5, speeds: { fly: 40 } },
+      { start: 6, speeds: { fly: 45 } },
+    ]);
+    expect(bird?.brackets).toEqual([
+      { start: 5, speeds: { fly: 60 } },
+      { start: 6, speeds: { fly: 65 } },
+    ]);
+  });
+
+  test('stays when it is any other formula', () => {
+    const other = { ...AERIAL_BONUS, value: 'match(when(gte(@actor.level, 6), 15))' };
+    const [bat] = formRules([BAT, other]);
+
+    expect(bat?.brackets).toBeUndefined();
+  });
+});
