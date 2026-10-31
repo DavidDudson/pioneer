@@ -124,40 +124,6 @@
     {
       "type": "entry",
       "pack": "wardens-of-wildwood",
-      "slug": "background:verduran-city-folk",
-      "foundry": "Compendium.pf2e.backgrounds.Item.gacjZkMkeVsrCt4A",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Multilingual"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Streetwise"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
       "slug": "class-feature:blight-soul-deviant-classification",
       "foundry": "Compendium.pf2e.classfeatures.Item.pLr6Kxa7XdkVMAub",
       "gaps": [
@@ -3049,101 +3015,6 @@
     {
       "type": "entry",
       "pack": "wardens-of-wildwood",
-      "slug": "effect:effect-aggravating-aura",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.WQsMv2KlURI9OKQQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.failure",
-                "value": 3
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalFailure",
-                "value": 5
-              }
-            ],
-            "flag": "weakness",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "all-damage",
-            "value": "@item.flags.system.rulesSelections.weakness"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
-      "slug": "effect:effect-clay-sphere-armor",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.fLcp28dxFCOcBibw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:clay-sphere",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:clay-sphere-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:clay-sphere-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Clay Sphere (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "clay-sphere"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
       "slug": "effect:effect-clay-sphere-weapon",
       "foundry": "Compendium.pf2e.equipment-effects.Item.La2ziyuLYKG0thOj",
       "gaps": [
@@ -3227,78 +3098,6 @@
     {
       "type": "entry",
       "pack": "wardens-of-wildwood",
-      "slug": "effect:effect-inflammation-flask",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.li52UFA2ErqRLeer",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:inflammation-flask-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:inflammation-flask-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:inflammation-flask-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:inflammation-flask-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Inflammation Flask (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "inflammation-flask"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
       "slug": "feat:caustic-nectar",
       "foundry": "Compendium.pf2e.feats-srd.Item.3wYqZuyaIredjSZ6",
       "gaps": [
@@ -3329,70 +3128,9 @@
     {
       "type": "entry",
       "pack": "wardens-of-wildwood",
-      "slug": "feat:defensive-growth",
-      "foundry": "Compendium.pf2e.feats-srd.Item.pGjSh6qk9kQLznKn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "verdantCoreDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:verdant-core-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
-      "slug": "feat:disperse-into-petals",
-      "foundry": "Compendium.pf2e.feats-srd.Item.vUHDuKLKKZHzAqvZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "verdantCoreDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:verdant-core-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
       "slug": "feat:irradiate",
       "foundry": "Compendium.pf2e.feats-srd.Item.79GUhBznFfYqdwgO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "blightSoulDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:blight-soul-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
@@ -3410,21 +3148,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.YePPw9Oc4JlDAmYD",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "blightSoulDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:blight-soul-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Damage[options]"
         }
@@ -3437,46 +3160,8 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.ZJSkCrud1FZ7PMFk",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "blightSoulDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:blight-soul-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Check[type:deviant]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "wardens-of-wildwood",
-      "slug": "feat:sprout-fruit",
-      "foundry": "Compendium.pf2e.feats-srd.Item.WxnCYjr02usmMN1q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "verdantCoreDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:verdant-core-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
-          }
         }
       ]
     },
@@ -3535,21 +3220,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.PycaQsgfgOQc86UX",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "blightSoulDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:blight-soul-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Blight Soul Deviant Classification"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Damage[options]"
         },
@@ -3577,21 +3247,6 @@
       "slug": "feat:vine-lash",
       "foundry": "Compendium.pf2e.feats-srd.Item.fYD0SrZhMyJVQgvl",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "verdantCoreDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:verdant-core-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Verdant Core Deviant Classification"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Check[type:deviant]"

@@ -5834,6 +5834,27 @@
         "key": "Proficiency",
         "selector": "skill:nature",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "6bcc37b0-6da4-5c79-90d8-ab7d17f63b9d",
+            "label": "Pet"
+          },
+          {
+            "value": "a0a031eb-c6f9-55da-bb39-9f168d623cf8",
+            "label": "Train Animal"
+          }
+        ],
+        "prompt": "Select a feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {
@@ -36808,7 +36829,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "feat-celestial-resistance",
+        "choices": [
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          }
+        ],
+        "prompt": "Select a type of energy associated with your bloodline.",
+        "rollOption": "nephilim-resistance-feat-celestial-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["nephilim-resistance-feat-celestial-resistance:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["nephilim-resistance-feat-celestial-resistance:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 5,
+        "predicate": ["nephilim-resistance-feat-celestial-resistance:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["nephilim-resistance-feat-celestial-resistance:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["nephilim-resistance-feat-celestial-resistance:electricity"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.8CSewrCVEmL8sjnk"
     },
@@ -56324,6 +56404,50 @@
           }
         ],
         "prompt": "Select a terrain."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "terrain",
+        "choices": [
+          {
+            "value": "aquatic",
+            "label": "Aquatic"
+          },
+          {
+            "value": "arctic",
+            "label": "Arctic"
+          },
+          {
+            "value": "desert",
+            "label": "Desert"
+          },
+          {
+            "value": "forest",
+            "label": "Forest"
+          },
+          {
+            "value": "mountain",
+            "label": "Mountain"
+          },
+          {
+            "value": "plain",
+            "label": "Plains"
+          },
+          {
+            "value": "sky",
+            "label": "Sky"
+          },
+          {
+            "value": "swamp",
+            "label": "Swamp"
+          },
+          {
+            "value": "underground",
+            "label": "Underground"
+          }
+        ],
+        "prompt": "Select a terrain.",
+        "rollOption": "terrain-expertise-terrain"
       }
     ],
     "externalIds": {
@@ -61172,7 +61296,52 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "performance-type",
+        "choices": [
+          {
+            "value": "acting",
+            "label": "Acting"
+          },
+          {
+            "value": "comedy",
+            "label": "Comedy"
+          },
+          {
+            "value": "dance",
+            "label": "Dance"
+          },
+          {
+            "value": "keyboards",
+            "label": "Keyboards"
+          },
+          {
+            "value": "oratory",
+            "label": "Oratory"
+          },
+          {
+            "value": "percussion",
+            "label": "Percussion"
+          },
+          {
+            "value": "singing",
+            "label": "Singing"
+          },
+          {
+            "value": "strings",
+            "label": "Strings"
+          },
+          {
+            "value": "winds",
+            "label": "Winds"
+          }
+        ],
+        "prompt": "Select a type of performance.",
+        "rollOption": "virtuosic-performer-performance-type"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.lFwfUvH2708rl6i3"
     },

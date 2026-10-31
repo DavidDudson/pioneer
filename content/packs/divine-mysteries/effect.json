@@ -38,7 +38,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": "@item.origin.level * 2"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.iOBkeWz0gTzplbXJ"
     },
@@ -871,6 +876,164 @@
             "label": "Vitalizing"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "rune",
+        "choices": [
+          {
+            "value": "brilliant",
+            "label": "Brilliant",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "corrosive",
+            "label": "Corrosive",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "fearsome",
+            "label": "Fearsome"
+          },
+          {
+            "value": "flaming",
+            "label": "Flaming",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "frost",
+            "label": "Frost",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "ghost-touch",
+            "label": "Ghost Touch"
+          },
+          {
+            "value": "holy",
+            "label": "Holy",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "returning",
+            "label": "Returning"
+          },
+          {
+            "value": "shifting",
+            "label": "Shifting"
+          },
+          {
+            "value": "shock",
+            "label": "Shock",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "thundering",
+            "label": "Thundering",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "unholy",
+            "label": "Unholy",
+            "predicate": ["feat:greater-armament"]
+          },
+          {
+            "value": "disrupting",
+            "label": "Vitalizing"
+          }
+        ],
+        "rollOption": "effect-harbinger-s-armament-rune"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:brilliant"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "brilliant"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:corrosive"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "corrosive"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:fearsome"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "fearsome"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:flaming"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "flaming"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:frost"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "frost"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:ghost-touch"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:holy"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "holy"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:returning"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "returning"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:shifting"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shifting"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:shock"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "shock"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:thundering"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "thundering"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:unholy"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "unholy"
+      },
+      {
+        "key": "AdjustStrike",
+        "predicate": ["effect-harbinger-s-armament-rune:disrupting"],
+        "property": "property-runes",
+        "mode": "add",
+        "value": "disrupting"
       }
     ],
     "externalIds": {
@@ -1054,6 +1217,43 @@
             "label": "Slashing"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "rollOption": "effect-invoke-defense-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-invoke-defense-resistance:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-invoke-defense-resistance:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-invoke-defense-resistance:slashing"]
       }
     ],
     "externalIds": {
@@ -1469,6 +1669,43 @@
             "label": "Void"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "rollOption": "effect-pale-horse-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["effect-pale-horse-resistance:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 10,
+        "predicate": ["effect-pale-horse-resistance:poison"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 10,
+        "predicate": ["effect-pale-horse-resistance:void"]
       }
     ],
     "externalIds": {
@@ -1526,6 +1763,11 @@
         "selectors": ["ac"],
         "type": "item",
         "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": "ternary(gte(@item.origin.level, 20), 15, 10)"
       }
     ],
     "externalIds": {
@@ -1690,7 +1932,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "adaptive-ablation",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "spell-effect-adaptive-ablation-adaptive-ablation"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "5 + 5 * floor((@item.level - 4) / 2)",
+        "predicate": ["spell-effect-adaptive-ablation-adaptive-ablation:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "5 + 5 * floor((@item.level - 4) / 2)",
+        "predicate": ["spell-effect-adaptive-ablation-adaptive-ablation:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "5 + 5 * floor((@item.level - 4) / 2)",
+        "predicate": ["spell-effect-adaptive-ablation-adaptive-ablation:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "5 + 5 * floor((@item.level - 4) / 2)",
+        "predicate": ["spell-effect-adaptive-ablation-adaptive-ablation:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "5 + 5 * floor((@item.level - 4) / 2)",
+        "predicate": ["spell-effect-adaptive-ablation-adaptive-ablation:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.6GAztnHuQSwAp1k1"
     },
@@ -2386,6 +2687,325 @@
             "value": "survival",
             "label": "Survival"
           }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "lore-skill-check",
+            "label": "Lore"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          }
+        ],
+        "rollOption": "spell-effect-entreat-spirit-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:arcana"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:arcana"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:crafting"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:crafting"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:deception"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:deception"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:diplomacy"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:diplomacy"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:intimidation"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:intimidation"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "lore-skill-check"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:lore-skill-check"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:medicine"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:medicine"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:nature"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:nature"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:occultism"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:occultism"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:performance"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:performance"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:religion"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:religion"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:society"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:society"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw", "skill:survival"],
+        "type": "status",
+        "value": "ternary(gte(@item.level, 8), 3, ternary(gte(@item.level, 4), 2, 1))",
+        "predicate": [
+          {
+            "or": [
+              "item:trait:curse",
+              "item:trait:death",
+              "item:trait:emotion",
+              "item:trait:fear",
+              {
+                "not": "check:type:saving-throw"
+              }
+            ]
+          },
+          "spell-effect-entreat-spirit-skill:survival"
         ]
       }
     ],

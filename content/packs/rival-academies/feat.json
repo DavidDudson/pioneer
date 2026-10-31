@@ -4477,7 +4477,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23",
+        "flag": "intimidating-glare",
+        "predicate": [
+          {
+            "gte": ["skill:athletics:rank", 1]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "65736882-58ec-5395-ab54-17dbe40b52d0",
+        "flag": "intimidating-glare",
+        "predicate": [
+          {
+            "gte": ["skill:athletics:rank", 3]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.WHplmUTHN8L6q1b2"
     },

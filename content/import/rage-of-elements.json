@@ -713,21 +713,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "elementalistDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Elementalist Dedication"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "spell",
@@ -1159,71 +1144,6 @@
             "flag": "element",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Kineticist.KineticGate.Prompt.ExpandElement"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Kineticist.KineticGate.Junction.Aura",
-                "predicate": [
-                  {
-                    "not": "junction:{item|flags.system.rulesSelections.element}:aura"
-                  }
-                ],
-                "value": "aura"
-              },
-              {
-                "label": "PF2E.SpecificRule.Kineticist.KineticGate.Junction.CriticalBlast",
-                "predicate": [
-                  {
-                    "not": "junction:{item|flags.system.rulesSelections.element}:critical"
-                  }
-                ],
-                "value": "critical"
-              },
-              {
-                "label": "PF2E.SpecificRule.Kineticist.KineticGate.Junction.ElementalResistance",
-                "predicate": [
-                  {
-                    "not": "junction:{item|flags.system.rulesSelections.element}:resistance"
-                  }
-                ],
-                "value": "resistance"
-              },
-              {
-                "label": "PF2E.SpecificRule.Kineticist.KineticGate.Junction.Impulse",
-                "predicate": [
-                  {
-                    "not": "junction:{item|flags.system.rulesSelections.element}:impulse"
-                  }
-                ],
-                "value": "impulse"
-              },
-              {
-                "label": "PF2E.SpecificRule.Kineticist.KineticGate.Junction.Skill",
-                "predicate": [
-                  {
-                    "not": "junction:{item|flags.system.rulesSelections.element}:skill"
-                  }
-                ],
-                "value": "skill"
-              }
-            ],
-            "flag": "junction",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Kineticist.KineticGate.Prompt.Junction"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "junction:{item|flags.system.rulesSelections.element}:{item|flags.system.rulesSelections.junction}",
-            "priority": 39
           }
         }
       ]
@@ -4190,23 +4110,6 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
-      "slug": "effect:effect-elementalist-dedication",
-      "foundry": "Compendium.pf2e.feat-effects.Item.O8qithYQCv3e7DUQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.element}",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
       "slug": "effect:effect-eternal-torch",
       "foundry": "Compendium.pf2e.feat-effects.Item.61qS86bjxg8HCJBY",
       "gaps": [
@@ -4453,93 +4356,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:acid"
-                  }
-                ],
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:electricity"
-                  }
-                ],
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:fire"
-                  }
-                ],
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitForce",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:force"
-                  }
-                ],
-                "value": "force"
-              },
-              {
-                "label": "PF2E.TraitMental",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:mental"
-                  }
-                ],
-                "value": "mental"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:poison"
-                  }
-                ],
-                "value": "poison"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "predicate": [
-                  {
-                    "not": "janns-light-one:sonic"
-                  }
-                ],
-                "value": "sonic"
-              }
-            ],
-            "flag": "jannsLightTwo",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Resistance"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
             "type": "{item|flags.system.rulesSelections.jannsLightOne}",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.jannsLightTwo}",
             "value": 5
           }
         }
@@ -4634,57 +4454,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "spiny-lodestone"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
@@ -4721,57 +4490,6 @@
       "slug": "effect:effect-spiny-lodestone-weapon",
       "foundry": "Compendium.pf2e.equipment-effects.Item.m6z7OrJgF4XQFNpa",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:spiny-lodestone-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Spiny Lodestone (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "spiny-lodestone"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -4890,171 +4608,9 @@
     {
       "type": "entry",
       "pack": "rage-of-elements",
-      "slug": "effect:effect-thorn-triad-armor",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.JaPNzmgD7p7hHH8o",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "priority": 50,
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "thorn-triad"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitCantrip",
-                "predicate": ["thorn-triad:thorn-triad"],
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.Label.NonCantrip",
-                "predicate": ["thorn-triad:thorn-triad"],
-                "value": 4
-              },
-              {
-                "label": "PF2E.TraitCantrip",
-                "predicate": ["thorn-triad:thorn-triad-greater"],
-                "value": 4
-              },
-              {
-                "label": "PF2E.SpecificRule.Label.NonCantrip",
-                "predicate": ["thorn-triad:thorn-triad-greater"],
-                "value": 8
-              },
-              {
-                "label": "PF2E.TraitCantrip",
-                "predicate": ["thorn-triad:thorn-triad-major"],
-                "value": 6
-              },
-              {
-                "label": "PF2E.SpecificRule.Label.NonCantrip",
-                "predicate": ["thorn-triad:thorn-triad-major"],
-                "value": 12
-              }
-            ],
-            "flag": "spellCategory",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.CantripOrNonCantrip"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": ["bludgeoning", "piercing"],
-            "value": "{item|flags.system.rulesSelections.spellCategory}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "rage-of-elements",
       "slug": "effect:effect-thorn-triad-weapon",
       "foundry": "Compendium.pf2e.equipment-effects.Item.FTj94xTqZbaCs4jT",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:thorn-triad-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Thorn Triad (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "priority": 50,
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "thorn-triad"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",

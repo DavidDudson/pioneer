@@ -365,65 +365,6 @@
     {
       "type": "entry",
       "pack": "shining-kingdoms",
-      "slug": "effect:effect-crimson-godsblood-serum",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.m942gdWRO19p0QS8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:crimson-godsblood-serum-lesser",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Lesser)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:crimson-godsblood-serum-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:crimson-godsblood-serum-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Crimson Godsblood Serum (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "crimson-godsblood-serum"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "shining-kingdoms",
       "slug": "effect:effect-inspiring-recitation",
       "foundry": "Compendium.pf2e.feat-effects.Item.5FRnceccGyLcnVlv",
       "gaps": [
@@ -474,43 +415,6 @@
     {
       "type": "entry",
       "pack": "shining-kingdoms",
-      "slug": "effect:effect-lost-in-the-crowd",
-      "foundry": "Compendium.pf2e.feat-effects.Item.Jt7NnE7WeR7e9V6Q",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.LostInTheCrowd.CrowdSize.Ten",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.LostInTheCrowd.CrowdSize.Hundred",
-                "value": 4
-              }
-            ],
-            "flag": "crowdSizeBonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.LostInTheCrowd.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "stealth",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.crowdSizeBonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "shining-kingdoms",
       "slug": "effect:effect-soul-well",
       "foundry": "Compendium.pf2e.feat-effects.Item.9YO84RSGcq3XcA0E",
       "gaps": [
@@ -528,52 +432,6 @@
             "predicate": ["self:signature:{item|origin.signature}"],
             "radius": 30,
             "traits": ["occult"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "shining-kingdoms",
-      "slug": "effect:effect-trudds-strength",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.cB5nrsadZxDaxFjz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:trudds-strength",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Trudd's Strength"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:trudds-strength-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Trudd's Strength (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "trudds-strength"
           }
         }
       ]

@@ -52,6 +52,16 @@
             "affects": "enemies"
           }
         ]
+      },
+      {
+        "key": "Weakness",
+        "type": ["area-damage"],
+        "value": 5
+      },
+      {
+        "key": "Weakness",
+        "type": ["splash-damage"],
+        "value": 5
       }
     ],
     "externalIds": {
@@ -1453,6 +1463,89 @@
         ],
         "prompt": "Granted Effect",
         "rollOption": "inspire-envoy"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus-value",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Adult Sovereign Dragon"
+          },
+          {
+            "value": "2",
+            "label": "Ancient Sovereign Dragon"
+          },
+          {
+            "value": "3",
+            "label": "Sovereign Archdragon"
+          }
+        ],
+        "prompt": "Dragon Granting the Effect",
+        "rollOption": "effect-inspire-envoy-bonus-value"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["inspire-envoy:atk", "effect-inspire-envoy-bonus-value:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["inspire-envoy:atk", "effect-inspire-envoy-bonus-value:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["inspire-envoy:atk", "effect-inspire-envoy-bonus-value:3"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["inspire-envoy:ac", "effect-inspire-envoy-bonus-value:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["inspire-envoy:ac", "effect-inspire-envoy-bonus-value:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["inspire-envoy:ac", "effect-inspire-envoy-bonus-value:3"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based", "perception", "save:will"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["inspire-envoy:perc-will-cha", "effect-inspire-envoy-bonus-value:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based", "perception", "save:will"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["inspire-envoy:perc-will-cha", "effect-inspire-envoy-bonus-value:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based", "perception", "save:will"],
+        "type": "status",
+        "value": 3,
+        "predicate": ["inspire-envoy:perc-will-cha", "effect-inspire-envoy-bonus-value:3"]
       }
     ],
     "externalIds": {
@@ -1713,6 +1806,123 @@
           }
         ],
         "prompt": "Select an unarmed attack."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          },
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "gte": ["self:level", 17]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-mineral-deposits-material"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "attack",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "jaws",
+            "label": "Jaws"
+          },
+          {
+            "value": "tail",
+            "label": "Tail"
+          }
+        ],
+        "prompt": "Select an unarmed attack.",
+        "rollOption": "effect-mineral-deposits-attack"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:claw"],
+        "predicate": ["effect-mineral-deposits-material:cold-iron", "effect-mineral-deposits-attack:claw"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:jaws"],
+        "predicate": ["effect-mineral-deposits-material:cold-iron", "effect-mineral-deposits-attack:jaws"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:tail"],
+        "predicate": ["effect-mineral-deposits-material:cold-iron", "effect-mineral-deposits-attack:tail"],
+        "property": "materials",
+        "mode": "add",
+        "value": "cold-iron"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:claw"],
+        "predicate": ["effect-mineral-deposits-material:silver", "effect-mineral-deposits-attack:claw"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:jaws"],
+        "predicate": ["effect-mineral-deposits-material:silver", "effect-mineral-deposits-attack:jaws"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:tail"],
+        "predicate": ["effect-mineral-deposits-material:silver", "effect-mineral-deposits-attack:tail"],
+        "property": "materials",
+        "mode": "add",
+        "value": "silver"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:claw"],
+        "predicate": ["effect-mineral-deposits-material:adamantine", "effect-mineral-deposits-attack:claw"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:jaws"],
+        "predicate": ["effect-mineral-deposits-material:adamantine", "effect-mineral-deposits-attack:jaws"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
+      },
+      {
+        "key": "AdjustStrike",
+        "strikes": ["item:base:tail"],
+        "predicate": ["effect-mineral-deposits-material:adamantine", "effect-mineral-deposits-attack:tail"],
+        "property": "materials",
+        "mode": "add",
+        "value": "adamantine"
       }
     ],
     "externalIds": {

@@ -2564,7 +2564,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "steadfast-tanuki",
+        "choices": [
+          {
+            "value": "de5b72dd-71e6-5843-9466-6c67c79ce5bd",
+            "label": "Everyday Form"
+          },
+          {
+            "value": "d0141c9e-f704-582c-8496-63331e5f383d",
+            "label": "Teakettle Form"
+          }
+        ],
+        "prompt": "Select a feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "steadfast-tanuki"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.5gqcEsJ4gkE6W5jj"
     },

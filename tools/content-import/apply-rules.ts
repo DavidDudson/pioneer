@@ -60,8 +60,15 @@ export function mergeRules(
 export function withMergedRules(entries: readonly unknown[], merge: RulesMerge): readonly unknown[] {
   return entries.map((entry) => {
     const id = typeof entry === 'object' && entry !== null && 'id' in entry ? entry.id : undefined;
-    const rules = typeof id === 'string' ? merge.get(id as ContentId) : undefined;
-    return rules === undefined ? entry : { ...(entry as object), rules };
+    const merged = typeof id === 'string' ? merge.get(id as ContentId) : undefined;
+    if (merged === undefined) {
+      return entry;
+    }
+    // The entry keeps its own rules as written, so their key order does not churn; only the rules it gains are added.
+    const own: readonly unknown[] = Array.isArray((entry as { rules?: unknown }).rules)
+      ? (entry as { rules: unknown[] }).rules
+      : [];
+    return { ...(entry as object), rules: [...own, ...merged.slice(own.length)] };
   });
 }
 

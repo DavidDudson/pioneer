@@ -8870,7 +8870,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "feat-spellmasters-resilience",
+        "choices": [
+          {
+            "value": "arcane",
+            "label": "Arcane"
+          },
+          {
+            "value": "divine",
+            "label": "Divine"
+          },
+          {
+            "value": "primal",
+            "label": "Primal"
+          },
+          {
+            "value": "occult",
+            "label": "Occult"
+          }
+        ],
+        "prompt": "Select a magical tradition to gain resistance in.",
+        "rollOption": "spellmaster-s-resilience-feat-spellmasters-resilience"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.dWkf6LhYBfBkeyOA"
     },

@@ -1084,6 +1084,38 @@
           }
         ],
         "prompt": "Select a terrain."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "terrain",
+        "choices": [
+          {
+            "value": "arctic",
+            "label": "Arctic"
+          },
+          {
+            "value": "desert",
+            "label": "Desert"
+          },
+          {
+            "value": "forest",
+            "label": "Forest"
+          },
+          {
+            "value": "mountain",
+            "label": "Mountain"
+          },
+          {
+            "value": "plain",
+            "label": "Plains"
+          },
+          {
+            "value": "swamp",
+            "label": "Swamp"
+          }
+        ],
+        "prompt": "Select a terrain.",
+        "rollOption": "mottle-coat-centaur-terrain"
       }
     ],
     "externalIds": {

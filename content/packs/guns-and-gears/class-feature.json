@@ -1442,7 +1442,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "trait",
+        "choices": [
+          {
+            "value": "deadly-d8",
+            "label": "Deadly d8",
+            "predicate": [
+              {
+                "or": [
+                  "weapon-innovation:trait:deadly-d4",
+                  {
+                    "not": "weapon-innovation:trait:deadly"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "deadly-d10",
+            "label": "Deadly d10",
+            "predicate": ["weapon-innovation:trait:deadly-d6"]
+          },
+          {
+            "value": "deadly-d12",
+            "label": "Deadly d12",
+            "predicate": [
+              {
+                "or": ["weapon-innovation:trait:deadly-d8", "weapon-innovation:trait:deadly-d10"]
+              }
+            ]
+          }
+        ],
+        "rollOption": "deadly-strike-trait"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.KcK3d8zw0bCEoaEG"
     },
@@ -1585,7 +1621,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "enhanced-resistance",
+        "choices": [
+          {
+            "value": "9c214b59-3cef-5358-bf5d-44d4eb558800",
+            "label": "Harmonic Oscillator",
+            "predicate": ["feature:harmonic-oscillator"]
+          },
+          {
+            "value": "08401aad-c6b6-5cf8-a88d-ab19081a6f8b",
+            "label": "Metallic Reactance",
+            "predicate": ["feature:metallic-reactance"]
+          },
+          {
+            "value": "9f4ad732-ebd3-565b-87c9-455649b093a1",
+            "label": "Otherworldly Protection",
+            "predicate": ["feature:otherworldly-protection"]
+          },
+          {
+            "value": "b94af4a0-8aab-5449-bc35-ccc611feaa8f",
+            "label": "Phlogistonic Regulator",
+            "predicate": ["feature:phlogistonic-regulator"]
+          }
+        ],
+        "prompt": "Select an initial modification to enhance.",
+        "rollOption": "enhanced-resistance"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.T3742fu7oIM3W6Gz"
     },
@@ -5483,6 +5548,16 @@
         "key": "Proficiency",
         "selector": "skill:arcana",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9847a0c7-d6dc-57bc-a139-8efb23e0f878",
+        "flag": "spellshot-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

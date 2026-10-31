@@ -38,7 +38,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "art-collector",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Yes"
+          },
+          {
+            "value": "2",
+            "label": "No"
+          }
+        ],
+        "prompt": "Have you chosen this artwork before?",
+        "rollOption": "effect-art-collector-art-collector"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:mental", "effect-art-collector-art-collector:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["item:trait:mental", "effect-art-collector-art-collector:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.DXXhDkXQ6AdBty1G"
     },
@@ -278,7 +309,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bolster-life",
+        "choices": [
+          {
+            "value": "1bb21bfe-740c-5fa0-895c-6bf108eaad4b",
+            "label": "Soulheart",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soulheart",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4e5d3224-83eb-55df-9ab8-1781f58ccddb",
+            "label": "Soulheart (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soulheart-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6beb933d-8651-577d-9224-37b7118a1500",
+            "label": "Soulheart (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:soulheart-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "soulheart"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.iiQSTRA8EVCvlfDQ"
     },
@@ -542,6 +624,42 @@
         "value": 2,
         "predicate": ["item:trait:fear"],
         "priority": 50
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-commander-s-signet",
+        "choices": [
+          {
+            "value": "1e02b8f5-93d1-5d33-8081-07910b077fcc",
+            "label": "Commander's Signet",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:commanders-signet",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a469efea-ba85-57d2-b001-b070d6c5e49d",
+            "label": "General's Signet",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:generals-signet",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "commanders-signet"
       }
     ],
     "externalIds": {
@@ -749,7 +867,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "pallid-curse",
+        "choices": [
+          {
+            "value": "5",
+            "label": "Failure"
+          },
+          {
+            "value": "10",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-pallid-curse-failure-pallid-curse"
+      },
+      {
+        "key": "Weakness",
+        "type": ["void"],
+        "value": 5,
+        "predicate": ["effect-pallid-curse-failure-pallid-curse:5"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["void"],
+        "value": 10,
+        "predicate": ["effect-pallid-curse-failure-pallid-curse:10"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.iZgvkZJ14Su7jWNE"
     },
@@ -906,6 +1053,56 @@
         "type": ["mental"],
         "value": 15,
         "predicate": ["poets-fritter:poets-fritter-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-poet-s-fritter",
+        "choices": [
+          {
+            "value": "8772c44d-7c6d-59f0-97ac-6db998902a12",
+            "label": "Poet's Fritter (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poets-fritter-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8060be7b-c59f-5b51-bdc5-44c3ce3e6336",
+            "label": "Poet's Fritter (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poets-fritter-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f727c03b-23b5-5ce2-9459-c1bb89219284",
+            "label": "Poet's Fritter (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:poets-fritter-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "poets-fritter"
       }
     ],
     "externalIds": {

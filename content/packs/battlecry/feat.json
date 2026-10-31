@@ -2753,6 +2753,27 @@
           "prefix": "skill"
         },
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "da16011c-dfcb-5204-bc52-0c1f48812de2",
+            "label": "Group Coercion"
+          },
+          {
+            "value": "8e689441-f2b0-591d-93f7-18070fbb7d67",
+            "label": "Group Impression"
+          }
+        ],
+        "prompt": "Select a skill."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {
@@ -11461,6 +11482,11 @@
       {
         "key": "GrantItem",
         "item": "8e5bd4bc-1312-5c5c-813d-2c8dc4d3fbf7"
+      },
+      {
+        "key": "GrantItem",
+        "item": "bc06bc53-091c-5496-92f8-3fa750a6a410",
+        "flag": "mobile-assault"
       }
     ],
     "externalIds": {

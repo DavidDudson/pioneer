@@ -322,6 +322,58 @@
           }
         ],
         "prompt": "Select a tradition."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "tradition",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcane"
+          },
+          {
+            "value": "religion",
+            "label": "Divine"
+          },
+          {
+            "value": "occultism",
+            "label": "Occult"
+          },
+          {
+            "value": "nature",
+            "label": "Primal"
+          }
+        ],
+        "prompt": "Select a tradition.",
+        "rollOption": "effect-aeon-stone-resonance-amplifying-tradition"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["effect-aeon-stone-resonance-amplifying-tradition:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["effect-aeon-stone-resonance-amplifying-tradition:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["effect-aeon-stone-resonance-amplifying-tradition:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["effect-aeon-stone-resonance-amplifying-tradition:nature"]
       }
     ],
     "externalIds": {
@@ -441,7 +493,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine"
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "dawnsilver",
+            "label": "Dawnsilver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-alloy-orb-exquisite-high-grade-alloy-orb-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.o6GSF420m6cdTkZo"
     },
@@ -503,7 +576,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine"
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "dawnsilver",
+            "label": "Dawnsilver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-alloy-orb-exquisite-standard-grade-alloy-orb-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.BjF0eOao5UuOOKMP"
     },
@@ -565,7 +659,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-alloy-orb-high-grade-alloy-orb-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.15qCI8sWaEwPkWiQ"
     },
@@ -627,7 +738,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-alloy-orb-low-grade-alloy-orb-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.9MU9d8tmJg3thkSc"
     },
@@ -689,7 +817,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "alloy-orb-material",
+        "choices": [
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "prompt": "Select a material.",
+        "rollOption": "effect-alloy-orb-standard-grade-alloy-orb-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.GXEkmsf4Wre6zqG1"
     },
@@ -794,6 +939,70 @@
             "or": ["antidote:antidote-greater", "antidote:antidote-major"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-antidote",
+        "choices": [
+          {
+            "value": "8bd60703-f28d-52b4-a75e-62f1691b20cb",
+            "label": "Antidote (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antidote-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "ffe5f130-7c5f-587d-bd5b-62e257bc07d9",
+            "label": "Antidote (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antidote-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b210ca89-dc7c-536f-8b4b-e3426838d7e3",
+            "label": "Antidote (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antidote-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "acce23a6-ddab-51c7-92dd-f653ba108f5b",
+            "label": "Antidote (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antidote-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "antidote"
       }
     ],
     "externalIds": {
@@ -900,6 +1109,70 @@
             "or": ["antiplague:antiplague-greater", "antiplague:antiplague-major"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-antiplague",
+        "choices": [
+          {
+            "value": "ed1b06aa-6a9d-5601-b235-819d72639db9",
+            "label": "Antiplague (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antiplague-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "288451c5-df5e-50c3-80c2-549ecd4a3989",
+            "label": "Antiplague (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antiplague-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "370ddd08-3ead-5bf0-8bac-de5f5ef10463",
+            "label": "Antiplague (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antiplague-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d464e71f-16ac-55df-b312-ff75f0b20719",
+            "label": "Antiplague (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:antiplague-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "antiplague"
       }
     ],
     "externalIds": {
@@ -1038,6 +1311,32 @@
         "dieSize": "d4",
         "category": "precision",
         "predicate": ["bloodseeker-beak:bloodseeker-beak-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bloodseeker-beak",
+        "choices": [
+          {
+            "value": "fb887e99-12d0-56ec-bca6-caaa961fe663",
+            "label": "Bloodseeker Beak (Greater)",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:bloodseeker-beak"
+              }
+            ]
+          },
+          {
+            "value": "4ce43c9e-02c5-586a-af4f-93992b1df225",
+            "label": "Bloodseeker Beak",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:bloodseeker-beak-greater"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "bloodseeker-beak"
       }
     ],
     "externalIds": {
@@ -1097,7 +1396,34 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bomber-s-eye-elixir",
+        "choices": [
+          {
+            "value": "0d7d52b9-6a38-51f2-8990-37c0a7ef0727",
+            "label": "Bomber's Eye Elixir (Lesser)",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:bombers-eye-elixir-greater"
+              }
+            ]
+          },
+          {
+            "value": "5518e3c5-30f6-5b69-9231-03f952317eee",
+            "label": "Bomber's Eye Elixir (Greater)",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:bombers-eye-elixir-lesser"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "bombers-eye-elixir"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.HmpYVsyiCq8XDlop"
     },
@@ -1285,6 +1611,56 @@
           "success": "one-degree-better"
         },
         "predicate": ["item:trait:fear", "bravos-brew:bravos-brew-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-bravo-s-brew",
+        "choices": [
+          {
+            "value": "a2fbf6cf-bdae-5879-a4fb-fc5deda19ac8",
+            "label": "Bravo's Brew (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:bravos-brew-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "bd6babde-f428-5a5c-9749-913c2bc4c66b",
+            "label": "Bravo's Brew (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:bravos-brew-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cc4be28f-a064-5897-aa22-e7b52b89a8f7",
+            "label": "Bravo's Brew (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:bravos-brew-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "bravos-brew"
       }
     ],
     "externalIds": {
@@ -2035,6 +2411,42 @@
         "mode": "upgrade",
         "value": "@stat.speed.land",
         "predicate": ["dragon-turtle-scale:dragon-turtle-scale-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-dragon-turtle-scale",
+        "choices": [
+          {
+            "value": "2ac3b126-a9d9-54bb-b993-35cada692d42",
+            "label": "Dragon Turtle Scale",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:dragon-turtle-scale",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b782d615-6a6f-5a56-a907-38f19272d7fe",
+            "label": "Dragon Turtle Scale (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:dragon-turtle-scale-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "dragon-turtle-scale"
       }
     ],
     "externalIds": {
@@ -2184,6 +2596,70 @@
           }
         ],
         "priority": 120
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-eagle-eye-elixir",
+        "choices": [
+          {
+            "value": "ebe1ac87-0d47-54a8-920c-dae057a6639c",
+            "label": "Eagle Eye Elixir (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:eagle-eye-elixir-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "28fc3217-1750-56d5-9359-8fd60d5a77c8",
+            "label": "Eagle Eye Elixir (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:eagle-eye-elixir-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0e029de6-43af-51b6-89f3-32f67add0749",
+            "label": "Eagle Eye Elixir (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:eagle-eye-elixir-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8ffed3c7-1084-596c-9cb2-0127d699ab6b",
+            "label": "Eagle Eye Elixir (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:eagle-eye-elixir-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "eagle-eye-elixir"
       }
     ],
     "externalIds": {
@@ -2318,6 +2794,98 @@
         "mode": "upgrade",
         "value": 4,
         "predicate": ["elixir-of-life:elixir-of-life-true"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-elixir-of-life",
+        "choices": [
+          {
+            "value": "931bc474-090d-57e4-b070-4fbe92058f6a",
+            "label": "Elixir of Life (Minor)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-minor",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "50a741e0-2b1b-5a07-89be-6b6e9e70049a",
+            "label": "Elixir of Life (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5b558f5d-f86b-50fc-aa74-6ee0843c386e",
+            "label": "Elixir of Life (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f436d452-f762-5ca1-a860-9ab8e217f0d7",
+            "label": "Elixir of Life (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "f8612e2b-1d9c-5ddd-a48d-46393290b8bd",
+            "label": "Elixir of Life (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "4e729e28-620a-51ff-8635-f76cc2277645",
+            "label": "Elixir of Life (True)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:elixir-of-life-true",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "elixir-of-life"
       }
     ],
     "externalIds": {
@@ -2731,6 +3299,70 @@
         "mode": "downgrade",
         "value": -20,
         "predicate": ["glue-bomb:glue-bomb-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-glue-bomb",
+        "choices": [
+          {
+            "value": "7fb3c0d9-e471-5331-9133-4ed75a92feeb",
+            "label": "Glue Bomb (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:glue-bomb-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "dea2364c-d75f-547d-ae2e-45d8d7eef06e",
+            "label": "Glue Bomb (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:glue-bomb-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "eebeccdc-9f17-5237-bdc8-2ef08e5d905f",
+            "label": "Glue Bomb (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:glue-bomb-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "63f83aa1-4de7-5754-97df-3c8adf158535",
+            "label": "Glue Bomb (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:glue-bomb-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "glue-bomb"
       }
     ],
     "externalIds": {
@@ -3436,7 +4068,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-oil-of-potency",
+        "choices": [
+          {
+            "value": "fc01fa33-84b6-52ed-9e4e-65c630d0e85d",
+            "label": "Oil of Potency",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:oil-of-potency",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b6e07355-fd7c-544e-8312-26d88a43e873",
+            "label": "Oil of Potency (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:oil-of-potency-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "e7bffbcd-1f40-5a91-b23a-fd986f5a50ae",
+            "label": "Oil of Potency (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:oil-of-potency-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "oil-of-potency"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.1OLlwExJz7ii2Lu2"
     },
@@ -3532,7 +4215,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-potency-crystal",
+        "choices": [
+          {
+            "value": "39f8188d-f6b3-5f90-bf50-99597de81619",
+            "label": "Potency Crystal",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potency-crystal",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a175b564-73b7-53fd-b9fc-cc147db2352a",
+            "label": "Potency Crystal (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potency-crystal-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "664729cc-61f9-5894-90cf-52e549e0ed3d",
+            "label": "Potency Crystal (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potency-crystal-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "potency-crystal"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.R5ugeFK3MPwkbv0s"
     },
@@ -3617,6 +4351,56 @@
         "type": ["acid"],
         "value": 15,
         "predicate": ["potion-of-acid-resistance:potion-of-acid-resistance-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-potion-of-acid-resistance",
+        "choices": [
+          {
+            "value": "29312055-ee16-58fb-be57-baea80e0a473",
+            "label": "Potion of Acid Resistance (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-acid-resistance-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "81b4e2e9-86c8-582c-b764-53d703cbd531",
+            "label": "Potion of Acid Resistance (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-acid-resistance-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "276161de-3451-52ed-8e3a-c4bd3a6d30cd",
+            "label": "Potion of Acid Resistance (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-acid-resistance-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "potion-of-acid-resistance"
       }
     ],
     "externalIds": {
@@ -3705,6 +4489,56 @@
         "type": ["electricity"],
         "value": 15,
         "predicate": ["potion-of-electricity-resistance:potion-of-electricity-resistance-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-potion-of-electricity-resistance",
+        "choices": [
+          {
+            "value": "7e82d2a4-3cf1-585e-901f-37175657b07b",
+            "label": "Potion of Electricity Resistance (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-electricity-resistance-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "67b36020-86f9-5fe7-8c07-8317e474286a",
+            "label": "Potion of Electricity Resistance (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-electricity-resistance-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c2225caa-af41-5411-8b7d-18c5b03d4dea",
+            "label": "Potion of Electricity Resistance (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-electricity-resistance-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "potion-of-electricity-resistance"
       }
     ],
     "externalIds": {
@@ -4057,6 +4891,56 @@
         "type": ["sonic"],
         "value": 15,
         "predicate": ["potion-of-sonic-resistance:potion-of-sonic-resistance-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-potion-of-sonic-resistance",
+        "choices": [
+          {
+            "value": "cca03602-3bfe-5ed5-83bb-50c9bdb82a04",
+            "label": "Potion of Sonic Resistance (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-sonic-resistance-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "419f655c-3fb3-5bcf-9653-6cf9e96f265e",
+            "label": "Potion of Sonic Resistance (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-sonic-resistance-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "622ef7b2-d70f-58d6-9bcd-6b49164ef1fe",
+            "label": "Potion of Sonic Resistance (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:potion-of-sonic-resistance-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "potion-of-sonic-resistance"
       }
     ],
     "externalIds": {
@@ -5297,6 +6181,56 @@
           "criticalFailure": "one-degree-better"
         },
         "predicate": ["action:decipher-writing"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thurible-of-revelation",
+        "choices": [
+          {
+            "value": "a8085235-71a0-5feb-bbf5-20d243ca85b9",
+            "label": "Thurible of Revelation (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thurible-of-revelation-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "0d8983dc-2901-5e8a-a1e7-e087db13804e",
+            "label": "Thurible of Revelation (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thurible-of-revelation-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "a646c510-27f5-5eac-be1d-c250fcb6a6ec",
+            "label": "Thurible of Revelation (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thurible-of-revelation-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thurible-of-revelation"
       }
     ],
     "externalIds": {

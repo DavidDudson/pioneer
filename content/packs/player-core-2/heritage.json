@@ -776,6 +776,74 @@
           }
         ],
         "prompt": "Select an element."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Air"
+          },
+          {
+            "value": "electricity",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Metal"
+          },
+          {
+            "value": "acid",
+            "label": "Water"
+          },
+          {
+            "value": "poison",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "elementheart-kobold-element"
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["elementheart-kobold-element:poison"]
       }
     ],
     "externalIds": {

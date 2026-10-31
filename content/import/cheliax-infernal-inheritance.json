@@ -1987,42 +1987,6 @@
     {
       "type": "entry",
       "pack": "cheliax-infernal-inheritance",
-      "slug": "heritage:deep-fetchling",
-      "foundry": "Compendium.pf2e.heritages.Item.k4AU5tjtngDOIqrB",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitVoid",
-                "value": "void"
-              }
-            ],
-            "flag": "heritageDeepFetchling",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Fetchling.DeepFetchling.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.heritageDeepFetchling}",
-            "value": "max(1,floor(@actor.level/2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "cheliax-infernal-inheritance",
       "slug": "heritage:kardan-bugbear",
       "foundry": "Compendium.pf2e.heritages.Item.F0CqYaBipvUUy4DR",
       "gaps": [

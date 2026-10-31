@@ -625,6 +625,23 @@
             "gte": ["self:level", 17]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can transform into a mundane raccoon dog, using the statistics of Pest Form. This is a specific raccoon dog form that's the same age and body type as your true form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You lose any unarmed Strikes you gained from a tanuki heritage or ancestry feat in this form. You can remain in your raccoon dog form indefinitely, and you can shift back to your tanuki form by using this action again."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1264,6 +1281,23 @@
         "predicate": [
           {
             "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:change-shape"],
+        "property": "description",
+        "mode": "override",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You transform to or from your true yaoguai form into a humanoid alternate form, which is a common Medium humanoid ancestry prevalent where you were born (typically human). This form is the same apparent age and body type as your yaoguai form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You can remain in your humanoid form indefinitely, but you revert to your yaoguai form after 1 hour of unconsciousness or 1 minute after death."
+              }
+            ]
           }
         ]
       }

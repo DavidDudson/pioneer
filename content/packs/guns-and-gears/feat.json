@@ -10304,6 +10304,26 @@
         "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "way",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:gunslinger-way",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a way."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "way"
+        }
       }
     ],
     "externalIds": {
@@ -11460,6 +11480,26 @@
         "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "innovation",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:inventor-innovation",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select an innovation."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "innovation"
+        }
       }
     ],
     "externalIds": {
@@ -15390,6 +15430,18 @@
         "item": "a1bc064b-3ed6-5ff9-9865-f96c187cf442",
         "allowDuplicate": false,
         "predicate": ["enhancement:reinforced-chassis"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:slug:reinforced-chassis"],
+        "property": "ac-bonus",
+        "mode": "add",
+        "value": "ternary(gte(@level, 10), 2, 1)",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
       }
     ],
     "externalIds": {

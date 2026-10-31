@@ -550,7 +550,36 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "weakness",
+        "choices": [
+          {
+            "value": "10",
+            "label": "Failure"
+          },
+          {
+            "value": "15",
+            "label": "Critical Failure"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-venomous-aura-weakness"
+      },
+      {
+        "key": "Weakness",
+        "type": ["poison"],
+        "value": 10,
+        "predicate": ["effect-venomous-aura-weakness:10"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["poison"],
+        "value": 15,
+        "predicate": ["effect-venomous-aura-weakness:15"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.6fPk2jOEp7LOsV7J"
     },

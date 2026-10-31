@@ -29,7 +29,7 @@ Repo skills in `.claude/skills`:
 | `create-pr`          | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
 | `resolve-coderabbit` | Verify and fix or decline CodeRabbit and Copilot threads, reply in each           |
 | `pickup`             | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
-| `reimport`           | Re-run the Foundry content import and restore hand additions from HEAD            |
+| `reimport`           | Re-run the Foundry content import                                                 |
 
 Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON),
 `.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background) and

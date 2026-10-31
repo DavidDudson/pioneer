@@ -621,6 +621,47 @@
         "mode": "add",
         "value": 1,
         "predicate": ["item:trait:poison"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "warfare-lore",
+            "label": "Warfare Lore"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "slithermaw-s-bane-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["slithermaw-s-bane-heroic-skill:intimidation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["slithermaw-s-bane-heroic-skill:society"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["warfare-lore"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["slithermaw-s-bane-heroic-skill:warfare-lore"]
       }
     ],
     "externalIds": {

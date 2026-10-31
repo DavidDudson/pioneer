@@ -121,22 +121,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:change-shape"],
-            "property": "description",
-            "value": [
-              {
-                "text": "PF2E.SpecificRule.ChangeShape.Tanuki"
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -201,58 +185,8 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "predicate": ["item:slug:change-shape"],
-            "property": "description",
-            "value": [
-              {
-                "text": "PF2E.SpecificRule.ChangeShape.Yaoguai"
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "background:professional-letter-writer",
-      "foundry": "Compendium.pf2e.backgrounds.Item.rAvoo4cwdkWiGNe0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Specialty Crafting"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Multilingual"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.SkillFeat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
         }
       ]
     },
@@ -402,25 +336,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "effect:effect-blade-of-the-heart",
-      "foundry": "Compendium.pf2e.feat-effects.Item.5yfA4sAo0CjXIYDr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:tag:starlit-sentinel-weapon"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "property-runes",
-            "value": "{item|flags.system.rulesSelections.rune}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "effect:effect-fluttering-distraction",
       "foundry": "Compendium.pf2e.feat-effects.Item.1aMjsd08O2v5TNG2",
       "gaps": [
@@ -510,26 +425,6 @@
           "type": "rule",
           "key": "ChoiceSet",
           "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": "d6"
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": "d8"
-              }
-            ],
-            "flag": "dieSize",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.FamiliarSage.LightningRingsOvercharge.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
             "choices": {
               "includeHandwraps": true,
               "ownedItems": true,
@@ -538,17 +433,6 @@
             "flag": "weapon",
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.WeaponOrUnarmed"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "electricity",
-            "diceNumber": 1,
-            "dieSize": "{item|flags.system.rulesSelections.dieSize}",
-            "key": "DamageDice",
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
           }
         }
       ]
@@ -636,59 +520,6 @@
         },
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitEarth",
-                "value": {
-                  "element": "earth",
-                  "resistance": "void",
-                  "weakness": "vitality"
-                }
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": {
-                  "damageType": "fire",
-                  "element": "fire",
-                  "resistance": "vitality",
-                  "weakness": "void"
-                }
-              },
-              {
-                "label": "PF2E.TraitMetal",
-                "value": {
-                  "element": "metal",
-                  "resistance": "vitality",
-                  "weakness": "void"
-                }
-              },
-              {
-                "label": "PF2E.TraitWater",
-                "value": {
-                  "element": "water",
-                  "resistance": "void",
-                  "weakness": "vitality"
-                }
-              },
-              {
-                "label": "PF2E.TraitWood",
-                "value": {
-                  "element": "wood",
-                  "resistance": "void",
-                  "weakness": "vitality"
-                }
-              }
-            ],
-            "flag": "prepareElementalMedicine",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Element"
-          }
-        },
-        {
-          "type": "rule",
           "key": "FlatModifier",
           "raw": {
             "key": "FlatModifier",
@@ -701,35 +532,6 @@
             "selector": "saving-throw",
             "type": "circumstance",
             "value": "@item.flags.system.rulesSelections.value"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["prepare-elemental-medicine:skill:occultism"],
-            "type": "{item|flags.system.rulesSelections.prepareElementalMedicine.resistance}",
-            "value": "ternary(gte(@item.origin.skills.occultism.rank,4),8,ternary(gte(@item.origin.skills.occultism.rank,3),4,2))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["prepare-elemental-medicine:skill:occultism"],
-            "type": "{item|flags.system.rulesSelections.prepareElementalMedicine.weakness}",
-            "value": "ternary(gte(@item.origin.skills.occultism.rank,4),8,ternary(gte(@item.origin.skills.occultism.rank,3),4,2))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "RollOption",
-          "raw": {
-            "key": "RollOption",
-            "option": "prepare-elemental-medicine:{item|flags.system.rulesSelections.prepareElementalMedicine.element}",
-            "predicate": ["feat:intensified-element-stance"]
           }
         },
         {
@@ -748,95 +550,9 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "effect:effect-protective-pose",
-      "foundry": "Compendium.pf2e.feat-effects.Item.qIPl31SfvT993Lyz",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.damageType}",
-            "value": "floor(@item.origin.level/2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "effect:effect-rainbow-vinegar",
       "foundry": "Compendium.pf2e.equipment-effects.Item.bHCpqwKH9JM8FZa6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:rainbow-vinegar-moderate",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Rainbow Vinegar (Moderate)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:rainbow-vinegar-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Rainbow Vinegar (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "rainbow-vinegar"
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",
@@ -878,82 +594,6 @@
             },
             "key": "ChoiceSet",
             "rollOption": "regional-specialty"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 3
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": 4
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.WanderingChef.RegionalSpecialty.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": [
-                      "regional-specialty:wood",
-                      {
-                        "or": ["item:trait:disease", "item:trait:poison", "regional-specialty-bonus"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "regional-specialty:fire",
-                      {
-                        "or": ["inflicts:doomed", "inflicts:frightened", "regional-specialty-bonus"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "regional-specialty:earth",
-                      {
-                        "or": ["inflicts:enfeebled", "regional-specialty-bonus"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "regional-specialty:metal",
-                      {
-                        "or": ["inflicts:stupefied", "regional-specialty-bonus"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "regional-specialty:water",
-                      {
-                        "or": ["inflicts:deafened", "inflicts:drained", "regional-specialty-bonus"]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": "saving-throw",
-            "type": "item",
-            "value": "@item.flags.system.rulesSelections.bonus"
           }
         }
       ]
@@ -1153,40 +793,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "value": "slashing"
-              }
-            ],
-            "flag": "objectResistanceType",
-            "key": "ChoiceSet",
-            "predicate": ["change-shape:yaoguai", "self:heritage:born-of-item"],
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["change-shape:yaoguai", "self:heritage:born-of-item"],
-            "type": "{item|flags.system.rulesSelections.objectResistanceType}",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
           "key": "CreatureSize",
           "raw": {
             "key": "CreatureSize",
@@ -1214,96 +820,6 @@
             },
             "resizeEquipment": true,
             "value": "huge"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "effect:stance-intensified-element-stance",
-      "foundry": "Compendium.pf2e.feat-effects.Item.EWiuxy4H1mCVcmud",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitEarth",
-                "predicate": ["prepare-elemental-medicine:earth"],
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "predicate": ["prepare-elemental-medicine:fire"],
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitMetal",
-                "predicate": ["prepare-elemental-medicine:metal"],
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitWater",
-                "predicate": ["prepare-elemental-medicine:water"],
-                "value": "sonic"
-              },
-              {
-                "label": "PF2E.TraitWood",
-                "predicate": ["prepare-elemental-medicine:wood"],
-                "value": "cold"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "{item|flags.system.rulesSelections.damageType}",
-            "diceNumber": "ternary(gte(@actor.flags.system.prepareElementalMedicine.skillRank,4),2,1)",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["prepare-elemental-medicine:earth", "target:trait:water"]
-                  },
-                  {
-                    "and": [
-                      "prepare-elemental-medicine:fire",
-                      {
-                        "or": ["target:trait:metal", "intensified-element-stance-construct-damage"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "prepare-elemental-medicine:metal",
-                      {
-                        "or": ["target:trait:plant", "target:trait:wood", "intensified-element-stance-construct-damage"]
-                      }
-                    ]
-                  },
-                  {
-                    "and": ["prepare-elemental-medicine:water", "target:trait:fire"]
-                  },
-                  {
-                    "and": [
-                      "prepare-elemental-medicine:water",
-                      {
-                        "or": ["target:trait:earth", "intensified-element-stance-construct-damage"]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "selector": ["spell-damage", "strike-damage"]
           }
         }
       ]
@@ -5280,40 +4796,6 @@
           "reason": "unresolved-reference",
           "field": "ancestry",
           "raw": "Compendium.pf2e.ancestries.Item.4BL5wf1VF9feC2rY"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "heritage:steadfast-tanuki",
-      "foundry": "Compendium.pf2e.heritages.Item.5gqcEsJ4gkE6W5jj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Everyday Form"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Teakettle Form"
-              }
-            ],
-            "flag": "steadfastTanuki",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Feat"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.steadfastTanuki}"
-          }
         }
       ]
     },

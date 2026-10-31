@@ -1098,6 +1098,74 @@
           }
         ],
         "prompt": "Select an element."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "expanded-elemental-magic:air"]
+              }
+            ]
+          },
+          {
+            "value": "earth",
+            "label": "Earth",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "metal",
+            "label": "Metal",
+            "predicate": [
+              {
+                "or": ["elementalist:elemental-cycle", "expanded-elemental-magic:metal"]
+              }
+            ]
+          },
+          {
+            "value": "water",
+            "label": "Water",
+            "predicate": [
+              {
+                "or": ["elementalist:inner-sea-elementalism", "elementalist:elemental-cycle"]
+              }
+            ]
+          },
+          {
+            "value": "wood",
+            "label": "Wood",
+            "predicate": [
+              {
+                "or": ["elementalist:elemental-cycle", "expanded-elemental-magic:wood"]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "effect-elementalist-dedication-element"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": ["effect-elementalist-dedication-element:fire"]
       }
     ],
     "externalIds": {
@@ -1894,6 +1962,119 @@
         ],
         "prompt": "Select a resistance.",
         "rollOption": "janns-light-one"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "janns-light-two",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid",
+            "predicate": [
+              {
+                "not": "janns-light-one:acid"
+              }
+            ]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": [
+              {
+                "not": "janns-light-one:electricity"
+              }
+            ]
+          },
+          {
+            "value": "fire",
+            "label": "Fire",
+            "predicate": [
+              {
+                "not": "janns-light-one:fire"
+              }
+            ]
+          },
+          {
+            "value": "force",
+            "label": "Force",
+            "predicate": [
+              {
+                "not": "janns-light-one:force"
+              }
+            ]
+          },
+          {
+            "value": "mental",
+            "label": "Mental",
+            "predicate": [
+              {
+                "not": "janns-light-one:mental"
+              }
+            ]
+          },
+          {
+            "value": "poison",
+            "label": "Poison",
+            "predicate": [
+              {
+                "not": "janns-light-one:poison"
+              }
+            ]
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": [
+              {
+                "not": "janns-light-one:sonic"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "effect-jann-s-prism-jann-s-light-janns-light-two"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:mental"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:poison"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["effect-jann-s-prism-jann-s-light-janns-light-two:sonic"]
       }
     ],
     "externalIds": {
@@ -2885,6 +3066,56 @@
         "mode": "upgrade",
         "value": 2,
         "predicate": ["spiny-lodestone:spiny-lodestone-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-spiny-lodestone-armor",
+        "choices": [
+          {
+            "value": "d696b2da-c04c-5f5f-9eb1-d54bc952f805",
+            "label": "Spiny Lodestone",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8ee69afd-270a-5f7c-aee5-6000a619f314",
+            "label": "Spiny Lodestone (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c90f84c1-6dca-558c-b7a3-ad64eff2f555",
+            "label": "Spiny Lodestone (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "spiny-lodestone"
       }
     ],
     "externalIds": {
@@ -2952,7 +3183,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-spiny-lodestone-weapon",
+        "choices": [
+          {
+            "value": "d696b2da-c04c-5f5f-9eb1-d54bc952f805",
+            "label": "Spiny Lodestone",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "8ee69afd-270a-5f7c-aee5-6000a619f314",
+            "label": "Spiny Lodestone (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c90f84c1-6dca-558c-b7a3-ad64eff2f555",
+            "label": "Spiny Lodestone (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:spiny-lodestone-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "spiny-lodestone"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.m6z7OrJgF4XQFNpa"
     },
@@ -3435,6 +3717,129 @@
         "key": "Weakness",
         "type": ["fire"],
         "value": 3
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thorn-triad-armor",
+        "choices": [
+          {
+            "value": "ba66e1c3-91d3-55f0-be72-a4261a7474b7",
+            "label": "Thorn Triad",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3671c81a-7f65-5475-b1c8-7a888a4f0809",
+            "label": "Thorn Triad (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "513280c7-bdf2-55ac-bb21-8b27962f4f96",
+            "label": "Thorn Triad (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thorn-triad",
+        "priority": 50
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-category",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Cantrip",
+            "predicate": ["thorn-triad:thorn-triad"]
+          },
+          {
+            "value": "4",
+            "label": "Non-Cantrip",
+            "predicate": ["thorn-triad:thorn-triad"]
+          },
+          {
+            "value": "4",
+            "label": "Cantrip",
+            "predicate": ["thorn-triad:thorn-triad-greater"]
+          },
+          {
+            "value": "8",
+            "label": "Non-Cantrip",
+            "predicate": ["thorn-triad:thorn-triad-greater"]
+          },
+          {
+            "value": "6",
+            "label": "Cantrip",
+            "predicate": ["thorn-triad:thorn-triad-major"]
+          },
+          {
+            "value": "12",
+            "label": "Non-Cantrip",
+            "predicate": ["thorn-triad:thorn-triad-major"]
+          }
+        ],
+        "prompt": "Select cantrip or non-cantrip spell.",
+        "rollOption": "effect-thorn-triad-armor-spell-category"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 2,
+        "predicate": ["effect-thorn-triad-armor-spell-category:2"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 4,
+        "predicate": [
+          {
+            "or": ["effect-thorn-triad-armor-spell-category:4", "effect-thorn-triad-armor-spell-category:4"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 8,
+        "predicate": ["effect-thorn-triad-armor-spell-category:8"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 6,
+        "predicate": ["effect-thorn-triad-armor-spell-category:6"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing"],
+        "value": 12,
+        "predicate": ["effect-thorn-triad-armor-spell-category:12"]
       }
     ],
     "externalIds": {
@@ -3505,7 +3910,59 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-thorn-triad-weapon",
+        "choices": [
+          {
+            "value": "ba66e1c3-91d3-55f0-be72-a4261a7474b7",
+            "label": "Thorn Triad",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3671c81a-7f65-5475-b1c8-7a888a4f0809",
+            "label": "Thorn Triad (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "513280c7-bdf2-55ac-bb21-8b27962f4f96",
+            "label": "Thorn Triad (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:thorn-triad-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "thorn-triad",
+        "priority": 50
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.FTj94xTqZbaCs4jT"
     },

@@ -632,7 +632,29 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13",
+            "label": "Streetwise"
+          },
+          {
+            "value": "6da557f7-550b-5b33-890f-47f75d6e5650",
+            "label": "Courtly Graces"
+          }
+        ],
+        "prompt": "Select a skill feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.PbXqlzRdQbKLQx1R"
     },

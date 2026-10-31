@@ -692,6 +692,47 @@
         "key": "Resistance",
         "type": ["mental"],
         "value": 15
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "anima-robe-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["anima-robe-heroic-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["anima-robe-heroic-skill:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["anima-robe-heroic-skill:performance"]
       }
     ],
     "externalIds": {
@@ -1747,7 +1788,49 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "architecture-lore",
+            "label": "Architecture Lore"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "guiding-star-orb-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["guiding-star-orb-heroic-skill:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["architecture-lore"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["guiding-star-orb-heroic-skill:architecture-lore"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["guiding-star-orb-heroic-skill:society"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.F5dQEQTyOpSBeXDJ"
     },

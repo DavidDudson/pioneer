@@ -194,6 +194,56 @@
         "mode": "upgrade",
         "value": 4,
         "predicate": ["crimson-godsblood-serum:crimson-godsblood-serum-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-crimson-godsblood-serum",
+        "choices": [
+          {
+            "value": "acf0bb0f-f9b1-5ab4-ab9d-7c8552a5422d",
+            "label": "Crimson Godsblood Serum (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:crimson-godsblood-serum-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "b1b05263-0263-518e-9350-9f02d4e40cff",
+            "label": "Crimson Godsblood Serum (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:crimson-godsblood-serum-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "61b5d8e7-a797-584b-8d72-e79089869674",
+            "label": "Crimson Godsblood Serum (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:crimson-godsblood-serum-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "crimson-godsblood-serum"
       }
     ],
     "externalIds": {
@@ -849,7 +899,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "crowd-size-bonus",
+        "choices": [
+          {
+            "value": "2",
+            "label": "At least 10 creatures"
+          },
+          {
+            "value": "4",
+            "label": "At least 100 creatures"
+          }
+        ],
+        "prompt": "Select a crowd size.",
+        "rollOption": "effect-lost-in-the-crowd-crowd-size-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["effect-lost-in-the-crowd-crowd-size-bonus:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "circumstance",
+        "value": 4,
+        "predicate": ["effect-lost-in-the-crowd-crowd-size-bonus:4"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Jt7NnE7WeR7e9V6Q"
     },
@@ -1328,6 +1409,42 @@
         "mode": "upgrade",
         "value": 2,
         "predicate": ["trudds-strength:trudds-strength-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-trudd-s-strength",
+        "choices": [
+          {
+            "value": "b3ba5fae-109e-57c0-a6cd-cb7079116dc2",
+            "label": "Trudd's Strength",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trudds-strength",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "6ef75177-3d62-51a9-b73e-d5fed7045afb",
+            "label": "Trudd's Strength (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:trudds-strength-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "trudds-strength"
       }
     ],
     "externalIds": {

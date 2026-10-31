@@ -291,6 +291,70 @@
             "or": ["goo-grenade:goo-grenade-greater", "goo-grenade:goo-grenade-major"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-goo-grenade",
+        "choices": [
+          {
+            "value": "17a3f03b-4f45-5199-ac53-a29027af08d4",
+            "label": "Goo Grenade (Lesser)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:goo-grenade-lesser",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "eb4a2ea3-a1b7-5573-868c-ab345c5203d3",
+            "label": "Goo Grenade (Moderate)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:goo-grenade-moderate",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "bc86d2d0-ca8c-54c0-8fbe-2f9b1b2568b0",
+            "label": "Goo Grenade (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:goo-grenade-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "07262892-076c-5277-b3dd-e31854edeb0b",
+            "label": "Goo Grenade (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:goo-grenade-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "goo-grenade"
       }
     ],
     "externalIds": {
@@ -1175,7 +1239,50 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "masquerade-of-seasons",
+        "choices": [
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          }
+        ],
+        "prompt": "Select a trait.",
+        "rollOption": "stance-masquerade-of-seasons-stance-masquerade-of-seasons"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(5, floor(@level / 2))",
+        "predicate": ["stance-masquerade-of-seasons-stance-masquerade-of-seasons:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": "max(5, floor(@level / 2))",
+        "predicate": ["stance-masquerade-of-seasons-stance-masquerade-of-seasons:void"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(5, floor(@level / 2))",
+        "predicate": ["stance-masquerade-of-seasons-stance-masquerade-of-seasons:cold"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.6IsZQpwRJQWIzdGx"
     },

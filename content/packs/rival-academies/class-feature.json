@@ -3153,6 +3153,16 @@
       {
         "key": "Language",
         "grant": ["d35a4825-83e9-5cdc-bbcc-180d4ae2e2af"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "801a5233-8eec-598f-a033-4f07708fa116",
+        "flag": "runelord-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3512,6 +3522,38 @@
           "7c9cae9d-6b33-5c97-91e7-787d78e8ec45",
           "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "branch",
+        "choices": [
+          {
+            "value": "357d7d54-f0dd-544b-83e9-f6431e493025",
+            "label": "Cascade Bearers"
+          },
+          {
+            "value": "982c1594-f7d1-5ab2-8ed3-52ef4b4e0a39",
+            "label": "Emerald Boughs"
+          },
+          {
+            "value": "f859e4a1-e935-5109-8743-000d1e1374bc",
+            "label": "Rain-Scribes"
+          },
+          {
+            "value": "667347c4-96ac-5cda-96c8-4eb48efd6ca5",
+            "label": "Tempest-Sun Mages"
+          },
+          {
+            "value": "af8158f4-2f24-58b7-8f95-02378a59ac35",
+            "label": "Uzunjati"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "branch"
+        }
       }
     ],
     "externalIds": {
@@ -4001,6 +4043,47 @@
           "c4dfdf84-0d97-5c26-95fc-35a4f59cc7a7",
           "fb2cc36e-8e1c-5149-a202-43938814f46a"
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "sin",
+        "choices": [
+          {
+            "value": "3d546a02-888d-52f2-a9b3-7837f06cdb86",
+            "label": "Envy"
+          },
+          {
+            "value": "f5bd6bae-fa4c-5f09-ac50-733d69aee850",
+            "label": "Gluttony"
+          },
+          {
+            "value": "97555159-5994-5e12-a40c-ce733e0a18e2",
+            "label": "Greed"
+          },
+          {
+            "value": "5ca34190-e2b3-50f9-91d7-7155eac4aaa5",
+            "label": "Lust"
+          },
+          {
+            "value": "db9acf99-7800-5734-8314-27c2e2db4e46",
+            "label": "Pride"
+          },
+          {
+            "value": "664b4b25-8bc2-545d-ba98-6c8fac27825b",
+            "label": "Sloth"
+          },
+          {
+            "value": "db7485af-8391-5d00-a2af-c4a30426decf",
+            "label": "Wrath"
+          }
+        ],
+        "prompt": "Select a sin to specialize in."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "sin"
+        }
       }
     ],
     "externalIds": {

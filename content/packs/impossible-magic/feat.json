@@ -10853,7 +10853,46 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "hardened-chassis-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": "3",
+        "predicate": ["hardened-chassis-damage-type:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": "3",
+        "predicate": ["hardened-chassis-damage-type:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": "3",
+        "predicate": ["hardened-chassis-damage-type:slashing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.MKVwxBdeUicZ7daZ"
     },
@@ -17677,6 +17716,78 @@
         "type": "status",
         "value": 5,
         "slug": "reinforced-skeleton"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance-one",
+        "choices": [
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "reinforced-skeleton-resistance-one"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance-two",
+        "choices": [
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "reinforced-skeleton-resistance-two"
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold", "piercing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:cold", "reinforced-skeleton-resistance-two:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold", "slashing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:cold", "reinforced-skeleton-resistance-two:slashing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity", "piercing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:electricity", "reinforced-skeleton-resistance-two:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity", "slashing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:electricity", "reinforced-skeleton-resistance-two:slashing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire", "piercing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:fire", "reinforced-skeleton-resistance-two:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire", "slashing"],
+        "value": "floor(@level / 2)",
+        "predicate": ["reinforced-skeleton-resistance-one:fire", "reinforced-skeleton-resistance-two:slashing"]
       }
     ],
     "externalIds": {

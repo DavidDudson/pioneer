@@ -98,7 +98,58 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "temp-hp",
+        "choices": [
+          {
+            "value": "10",
+            "label": "Critical Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:3",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "5",
+            "label": "Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:2",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-aldori-swordlord-temporary-hit-points-temp-hp"
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["effect-aldori-swordlord-temporary-hit-points-temp-hp:10"]
+      },
+      {
+        "key": "TempHP",
+        "value": 5,
+        "predicate": ["effect-aldori-swordlord-temporary-hit-points-temp-hp:5"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.eJyyBqrXLOE4R9JI"
     },
@@ -245,6 +296,129 @@
             "label": "Sonic"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-arcane-standard",
+        "choices": [
+          {
+            "value": "b31054b5-a8b8-595d-8790-8c830784e071",
+            "label": "Arcane Standard",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:arcane-standard",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "231ecf05-0f61-53db-acef-27013a433f0e",
+            "label": "Arcane Standard (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:arcane-standard-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "arcane-standard"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "effect-arcane-standard-damage"
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["arcane-standard:arcane-standard", "effect-arcane-standard-damage:acid"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 5,
+        "predicate": ["arcane-standard:arcane-standard", "effect-arcane-standard-damage:cold"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["arcane-standard:arcane-standard", "effect-arcane-standard-damage:electricity"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["arcane-standard:arcane-standard", "effect-arcane-standard-damage:fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["arcane-standard:arcane-standard", "effect-arcane-standard-damage:sonic"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": 10,
+        "predicate": ["arcane-standard:arcane-standard-greater", "effect-arcane-standard-damage:acid"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 10,
+        "predicate": ["arcane-standard:arcane-standard-greater", "effect-arcane-standard-damage:cold"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": ["arcane-standard:arcane-standard-greater", "effect-arcane-standard-damage:electricity"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["arcane-standard:arcane-standard-greater", "effect-arcane-standard-damage:fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": 10,
+        "predicate": ["arcane-standard:arcane-standard-greater", "effect-arcane-standard-damage:sonic"]
       }
     ],
     "externalIds": {
@@ -1845,7 +2019,41 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:endless-quiver"
+              }
+            ]
+          },
+          {
+            "value": "dawnsilver",
+            "label": "Dawnsilver",
+            "predicate": [
+              {
+                "not": "parent:origin:item:slug:endless-quiver"
+              }
+            ]
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          }
+        ],
+        "rollOption": "effect-convert-arrows-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.YUj8kxyGTWRbbyBu"
     },
@@ -2377,6 +2585,41 @@
         "mode": "downgrade",
         "value": -8,
         "predicate": ["medics-armband:medics-armband-greater"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-do-no-harm",
+        "choices": [
+          {
+            "value": "9617fffc-05af-52a9-9e08-bb43a5266cf4",
+            "label": "Medic's Armband",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:medics-armband"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "7a250aee-5bcd-590f-88d6-66d6ece21659",
+            "label": "Medic's Armband (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:medics-armband-greater"
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "medics-armband"
       }
     ],
     "externalIds": {
@@ -2462,7 +2705,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-ethereal-crescent",
+        "choices": [
+          {
+            "value": "108d33a5-c321-544c-a28c-6a4c606c90b3",
+            "label": "Ethereal Crescent",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:ethereal-crescent"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "d9caafd5-0b59-52ee-b0df-9f6e2203ba28",
+            "label": "Ethereal Crescent (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:ethereal-crescent-greater"
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "ethereal-crescent"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.Vk9Fwo0Xl1EF9fEF"
     },
@@ -3100,7 +3379,23 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Success"
+          },
+          {
+            "value": "2",
+            "label": "Critical Success"
+          }
+        ],
+        "rollOption": "effect-guiding-shot-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.21pCT4n3Aixyvp4h"
     },
@@ -3444,7 +3739,19 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 5
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 10,
+        "predicate": ["parent:tag:major-hexwise-banner"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.OokULq8Ubpw9PzKr"
     },
@@ -3489,7 +3796,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.oqdxD6NhawryOAOr"
     },
@@ -3740,7 +4053,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "invented-vulnerability-damage",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-invented-vulnerability-invented-vulnerability-damage"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.nOYXxWUT9i3z75GI"
     },
@@ -3849,6 +4183,120 @@
         ],
         "prompt": "Select a damage type.",
         "rollOption": "damage-selection"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "invincible-army-damage-second",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid",
+            "predicate": [
+              {
+                "not": "damage-selection:acid"
+              }
+            ]
+          },
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning",
+            "predicate": [
+              {
+                "not": "damage-selection:bludgeoning"
+              }
+            ]
+          },
+          {
+            "value": "cold",
+            "label": "Cold",
+            "predicate": [
+              {
+                "not": "damage-selection:cold"
+              }
+            ]
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity",
+            "predicate": [
+              {
+                "not": "damage-selection:electricity"
+              }
+            ]
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing",
+            "predicate": [
+              {
+                "not": "damage-selection:piercing"
+              }
+            ]
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing",
+            "predicate": [
+              {
+                "not": "damage-selection:slashing"
+              }
+            ]
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic",
+            "predicate": [
+              {
+                "not": "damage-selection:sonic"
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-invincible-army-invincible-army-damage-second",
+        "predicate": ["invincible-army:very-hard"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:piercing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:slashing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["invincible-army:very-hard", "effect-invincible-army-invincible-army-damage-second:sonic"]
       }
     ],
     "externalIds": {
@@ -4408,7 +4856,27 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "rollOption": "effect-morph-jewel-damage-type"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.ihZsJpB9v90EFQSG"
     },
@@ -5688,7 +6156,43 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "siphoning-grip",
+        "choices": [
+          {
+            "value": "10",
+            "label": "One"
+          },
+          {
+            "value": "20",
+            "label": "Two"
+          },
+          {
+            "value": "30",
+            "label": "Three"
+          }
+        ],
+        "prompt": "Number of Actions",
+        "rollOption": "effect-siphoning-grip-siphoning-grip"
+      },
+      {
+        "key": "TempHP",
+        "value": 10,
+        "predicate": ["effect-siphoning-grip-siphoning-grip:10"]
+      },
+      {
+        "key": "TempHP",
+        "value": 20,
+        "predicate": ["effect-siphoning-grip-siphoning-grip:20"]
+      },
+      {
+        "key": "TempHP",
+        "value": 30,
+        "predicate": ["effect-siphoning-grip-siphoning-grip:30"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.jCwXeDnqBTw9pyhg"
     },
@@ -5976,6 +6480,56 @@
         "mode": "upgrade",
         "value": 3,
         "predicate": ["stalwarts-banner:stalwarts-banner-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-stalwart-s-banner",
+        "choices": [
+          {
+            "value": "266028c6-7245-5139-a5b6-412e178143dd",
+            "label": "Stalwart's Banner",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalwarts-banner",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "96bc1c97-0392-5bcf-ac97-12ecdecddcce",
+            "label": "Stalwart's Banner (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalwarts-banner-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "608f0d01-3ab7-530c-bf41-5637e742b5c2",
+            "label": "Stalwart's Banner (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:stalwarts-banner-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "stalwarts-banner"
       }
     ],
     "externalIds": {
@@ -6137,6 +6691,56 @@
         "mode": "upgrade",
         "value": 15,
         "predicate": ["swift-standard:swift-standard-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-swift-standard",
+        "choices": [
+          {
+            "value": "bf7ba36d-335d-5e71-a607-f0c6329b30ac",
+            "label": "Swift Standard",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:swift-standard",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "07eaae53-12a8-516a-8663-ac998f0bd60b",
+            "label": "Swift Standard (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:swift-standard-greater",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "3c582e76-bc47-59f9-87aa-570828d3d9c1",
+            "label": "Swift Standard (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:swift-standard-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "swift-standard"
       }
     ],
     "externalIds": {
@@ -6330,7 +6934,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1"
+          },
+          {
+            "value": "2",
+            "label": "+2"
+          },
+          {
+            "value": "3",
+            "label": "+3"
+          },
+          {
+            "value": "4",
+            "label": "+4"
+          }
+        ],
+        "rollOption": "effect-the-bigger-they-are-commander-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.9Kjnwzu3DWs5U7NH"
     },
@@ -6569,6 +7197,42 @@
         "key": "TempHP",
         "value": 10,
         "predicate": ["timepiece-standard:timepiece-standard-major"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-timepiece-standard",
+        "choices": [
+          {
+            "value": "19bf60ba-6c46-5f3b-a620-36fe1d81aae5",
+            "label": "Timepiece Standard",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:timepiece-standard",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "c2af2d90-4203-534e-83f6-cd969308970e",
+            "label": "Timepiece Standard (Major)",
+            "predicate": [
+              {
+                "or": [
+                  "parent:origin:item:slug:timepiece-standard-major",
+                  {
+                    "not": "parent:origin:item"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select an item variety.",
+        "rollOption": "timepiece-standard"
       }
     ],
     "externalIds": {
@@ -6781,6 +7445,41 @@
         "display": {
           "label": "Toothy Knife — Adjust for assisted recovery"
         }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "effect-toothy-knife",
+        "choices": [
+          {
+            "value": "df24a788-3253-5c03-9656-ac4614303afc",
+            "label": "Toothy Knife",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:toothy-knife"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cdc7c4bc-564c-5951-bf4d-d2239b9f8975",
+            "label": "Toothy Knife (Greater)",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:toothy-knife-greater"
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "toothy-knife"
       }
     ],
     "externalIds": {
@@ -6901,7 +7600,57 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "material",
+        "choices": [
+          {
+            "value": "adamantine",
+            "label": "Adamantine",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:transmuting-ingot-adamantine"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "cold-iron",
+            "label": "Cold Iron",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:transmuting-ingot-cold-iron"
+                ]
+              }
+            ]
+          },
+          {
+            "value": "silver",
+            "label": "Silver",
+            "predicate": [
+              {
+                "or": [
+                  {
+                    "not": "parent:origin:item"
+                  },
+                  "parent:origin:item:slug:transmuting-ingot-silver"
+                ]
+              }
+            ]
+          }
+        ],
+        "rollOption": "effect-transmuting-ingot-material"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.VECHAM3D71GWHw3A"
     },
@@ -7383,7 +8132,49 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-dancing-shield",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1"
+          },
+          {
+            "value": "2",
+            "label": "+2"
+          },
+          {
+            "value": "3",
+            "label": "+3"
+          }
+        ],
+        "prompt": "Select the shield's AC bonus.",
+        "rollOption": "spell-effect-dancing-shield"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["spell-effect-dancing-shield:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["spell-effect-dancing-shield:2"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 3,
+        "predicate": ["spell-effect-dancing-shield:3"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.2KQSsrzUqAxSXOdd"
     },

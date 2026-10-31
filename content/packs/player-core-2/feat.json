@@ -6073,6 +6073,26 @@
         "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "instinct",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:barbarian-instinct",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select an instinct."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "instinct"
+        }
       }
     ],
     "externalIds": {
@@ -9347,6 +9367,74 @@
         "key": "ActorTraits",
         "add": ["amphibious"],
         "predicate": ["bloodline-mutation-benefit:amphibious"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "rollOption": "bloodline-mutation-damage-type",
+        "predicate": ["bloodline-mutation-benefit:resistance"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:sonic"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["void"],
+        "value": 20,
+        "predicate": ["bloodline-mutation-benefit:resistance", "bloodline-mutation-damage-type:void"]
       }
     ],
     "externalIds": {
@@ -18633,6 +18721,12 @@
         "type": ["electricity"],
         "value": 2,
         "predicate": ["self:condition:cursebound", "diverse-mystery:tempest-touch", "option:used-diverse-mystery"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["spells"],
+        "value": 2,
+        "predicate": ["diverse-mystery:weapon-trance", "option:used-diverse-mystery", "self:condition:cursebound"]
       }
     ],
     "externalIds": {
@@ -20046,6 +20140,94 @@
           {
             "or": ["draconic-resistance:bludgeoning", "draconic-resistance:slashing", "draconic-resistance:piercing"]
           }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "draconic-resistance-resistance",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:slashing", "draconic-resistance:piercing"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:piercing", "draconic-resistance:slashing"]
+          },
+          "draconic-resistance-resistance:acid"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:piercing", "draconic-resistance:slashing"]
+          },
+          "draconic-resistance-resistance:cold"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:piercing", "draconic-resistance:slashing"]
+          },
+          "draconic-resistance-resistance:electricity"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:piercing", "draconic-resistance:slashing"]
+          },
+          "draconic-resistance-resistance:fire"
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "max(1, floor(@level / 2))",
+        "predicate": [
+          {
+            "or": ["draconic-resistance:bludgeoning", "draconic-resistance:piercing", "draconic-resistance:slashing"]
+          },
+          "draconic-resistance-resistance:sonic"
         ]
       }
     ],
@@ -46235,6 +46417,26 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "mystery",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:oracle-mystery",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a mystery."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "mystery"
+        }
       }
     ],
     "externalIds": {
@@ -48313,6 +48515,27 @@
         "sameAs": "simple",
         "display": {
           "label": "Pirate Weapons"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "8d47d4b9-3de6-5aca-9993-35356f13d1f6",
+            "label": "Combat Climber"
+          },
+          {
+            "value": "92df56f7-e2ed-5915-9d6a-f4aa8862eb23",
+            "label": "Underwater Marauder"
+          }
+        ],
+        "prompt": "Select a feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
         }
       }
     ],
@@ -51183,6 +51406,22 @@
         "mode": "add",
         "value": "rage",
         "predicate": ["self:effect:rage"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "83871ce2-c4f9-5a77-af0a-7d7f0708b5f0",
+        "flag": "intimidating-glare",
+        "predicate": [
+          {
+            "gte": ["skill:intimidation:rank", 1]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "25aba835-11ee-568e-8c6d-407af08bfa11",
+        "flag": "scare-to-death",
+        "predicate": ["skill:intimidation:rank:4"]
       }
     ],
     "externalIds": {
@@ -59410,6 +59649,26 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bloodline",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:sorcerer-bloodline",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a bloodline."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "bloodline"
+        }
       }
     ],
     "externalIds": {
@@ -63748,6 +64007,26 @@
         "key": "Proficiency",
         "selector": "class-dc",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "swashbucklers-style",
+        "choices": {
+          "kind": "class-feature",
+          "filter": [
+            "item:tag:swashbuckler-style",
+            {
+              "not": "item:tag:class-archetype"
+            }
+          ]
+        },
+        "prompt": "Select a style."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "swashbucklers-style"
+        }
       }
     ],
     "externalIds": {
@@ -71522,7 +71801,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "war-conditioning",
+        "choices": [
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          }
+        ],
+        "prompt": "Select a movement type.",
+        "rollOption": "war-conditioning"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.S1Z5dFAkMKkFSofk"
     },

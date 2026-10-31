@@ -6143,6 +6143,29 @@
             "or": ["molten-wit:deception", "molten-wit:diplomacy"]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "d1ff4227-7dc1-57d9-a3d8-1f16ad627b61",
+            "label": "Charming Liar",
+            "predicate": ["molten-wit:deception"]
+          },
+          {
+            "value": "8e689441-f2b0-591d-93f7-18070fbb7d67",
+            "label": "Group Impression",
+            "predicate": ["molten-wit:diplomacy"]
+          }
+        ],
+        "prompt": "Select a skill feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {

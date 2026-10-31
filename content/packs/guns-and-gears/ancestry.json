@@ -184,6 +184,32 @@
             "gte": ["self:level", 17]
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "size",
+        "choices": [
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          }
+        ],
+        "prompt": "Select a creature size.",
+        "rollOption": "automaton-size"
+      },
+      {
+        "key": "CreatureSize",
+        "value": "medium",
+        "predicate": ["automaton-size:medium"]
+      },
+      {
+        "key": "CreatureSize",
+        "value": "small",
+        "predicate": ["automaton-size:small"]
       }
     ],
     "externalIds": {

@@ -1001,6 +1001,30 @@
           }
         ],
         "prompt": "Select a defense."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "defense",
+        "choices": [
+          {
+            "value": "ac",
+            "label": "Armor Class"
+          },
+          {
+            "value": "fortitude",
+            "label": "Fortitude"
+          },
+          {
+            "value": "reflex",
+            "label": "Reflex"
+          },
+          {
+            "value": "will",
+            "label": "Will"
+          }
+        ],
+        "prompt": "Select a defense.",
+        "rollOption": "spell-effect-cutting-eye-defense"
       }
     ],
     "externalIds": {

@@ -2000,6 +2000,36 @@
       {
         "key": "GrantItem",
         "item": "9f43cfd0-de39-5c7e-8203-6e9ac6454e94"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "floor(@level / 2)",
+        "predicate": ["archfiend-dedication-realm-damage:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "floor(@level / 2)",
+        "predicate": ["archfiend-dedication-realm-damage:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "floor(@level / 2)",
+        "predicate": ["archfiend-dedication-realm-damage:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@level / 2)",
+        "predicate": ["archfiend-dedication-realm-damage:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": "floor(@level / 2)",
+        "predicate": ["archfiend-dedication-realm-damage:poison"]
       }
     ],
     "externalIds": {
@@ -24577,7 +24607,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "sublime-mobility",
+        "choices": [
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          }
+        ],
+        "prompt": "Select a movement type.",
+        "rollOption": "sublime-mobility"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.95DHxSO4TOP8W7qM"
     },

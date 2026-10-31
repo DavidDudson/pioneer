@@ -862,7 +862,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bd6f8b4e-a42c-5642-9818-e7e140447c57"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Yv0mQAeVuQ2Id9vk"
     },

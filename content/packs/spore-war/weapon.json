@@ -1409,6 +1409,47 @@
         "type": "circumstance",
         "value": 3,
         "predicate": ["action:recall-knowledge", "target:trait:fiend"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "demon-lore",
+            "label": "Demon Lore"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "fiendbreaker-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["demon-lore"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["fiendbreaker-heroic-skill:demon-lore"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["fiendbreaker-heroic-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["fiendbreaker-heroic-skill:religion"]
       }
     ],
     "externalIds": {
@@ -2688,6 +2729,47 @@
         "mode": "add",
         "value": 2,
         "predicate": ["item:trait:possession"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "soulcutter-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["soulcutter-heroic-skill:nature"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["soulcutter-heroic-skill:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["soulcutter-heroic-skill:survival"]
       }
     ],
     "externalIds": {
@@ -3649,7 +3731,49 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "wintershot-heroic-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["wintershot-heroic-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["wintershot-heroic-skill:intimidation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 4,
+        "predicate": ["wintershot-heroic-skill:survival"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.xEVWp9oaeF0yPseK"
     },

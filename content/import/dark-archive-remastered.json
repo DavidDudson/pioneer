@@ -6519,21 +6519,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.9Jbl71C5C6MnOqxV",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "dragonDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:dragon-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Dragon Deviant Classification"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Check[type:deviant]"
         },
@@ -8380,21 +8365,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.q8c0LINVNcJrdK91",
       "gaps": [
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "allowDuplicate": false,
-            "flag": "dragonDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:dragon-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Dragon Deviant Classification"
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@Damage[options]"
         },
@@ -9018,20 +8988,6 @@
       "slug": "feat:storming-breath",
       "foundry": "Compendium.pf2e.feats-srd.Item.EBmZyzDWhFSLydlM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "dragonDeviantClassification",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "not": "feature:dragon-deviant-classification"
-              }
-            ],
-            "uuid": "Compendium.pf2e.classfeatures.Item.Dragon Deviant Classification"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Damage[options]"

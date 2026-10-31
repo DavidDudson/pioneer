@@ -856,21 +856,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "avengerDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Avenger Dedication"
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-field",
           "field": "subfeatures.suppressedFeatures",
@@ -1247,21 +1232,6 @@
             "predicate": ["self:effect:rage", "feature:raging-resistance"],
             "type": "custom",
             "value": "@actor.flags.system.ragingResistance"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "bloodragerDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Bloodrager Dedication"
           }
         }
       ]
@@ -3491,21 +3461,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "seneschalWitchDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Seneschal Witch Dedication"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "feat",
@@ -5310,21 +5265,6 @@
         },
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "vinidicatorDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Vindicator Dedication"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "feat",
@@ -5425,21 +5365,6 @@
             "key": "Weakness",
             "type": "{actor|flags.system.warriorOfLegendCursedWeakness}",
             "value": "max(1,floor(@actor.level/2))"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "warriorOfLegendDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Warrior of Legend Dedication"
           }
         },
         {
@@ -6352,49 +6277,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:effect-channeled-protection",
-      "foundry": "Compendium.pf2e.feat-effects.Item.UookwOq46zEokGOM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "predicate": [
-                  {
-                    "gte": ["item:origin:level", 13]
-                  }
-                ],
-                "value": 2
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 1
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Animist.ChanneledProtection.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac", "reflex"],
-            "type": "status",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:effect-channelers-stance",
       "foundry": "Compendium.pf2e.feat-effects.Item.BZPPcHtYugsNKz4Z",
       "gaps": [
@@ -6906,54 +6788,6 @@
     {
       "type": "entry",
       "pack": "war-of-immortals",
-      "slug": "effect:effect-stymie-the-gods",
-      "foundry": "Compendium.pf2e.feat-effects.Item.1bnJJb4hsnMOw9cQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 2
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": 4
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Mythic.PointSpentPrompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": ["item:type:spell", "spellcasting:tradition:divine"]
-                  },
-                  "stymie-the-gods:extraplanar-creature"
-                ]
-              }
-            ],
-            "selector": ["ac", "saving-throw"],
-            "type": "status",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
       "slug": "effect:effect-survive-the-wilds",
       "foundry": "Compendium.pf2e.feat-effects.Item.KR391Ltqp0d3EWg1",
       "gaps": [
@@ -7075,51 +6909,6 @@
             "label": "PF2E.SpecificRule.BrokenChain.UltimatumOfLiberation.BonusIncreaseToggle",
             "option": "ultimatum-of-liberation-increase",
             "toggleable": true
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "effect:effect-unbreaking-castle",
-      "foundry": "Compendium.pf2e.feat-effects.Item.FMfcQ2EvQT8QV3V0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
-                "value": 3
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusFour",
-                "value": 4
-              }
-            ],
-            "flag": "unbreakingCastle",
-            "key": "ChoiceSet",
-            "label": "PF2E.SpecificRule.Prompt.Bonus"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.unbreakingCastle"
           }
         }
       ]
@@ -7263,16 +7052,6 @@
       "slug": "effect:spell-effect-manifest-will",
       "foundry": "Compendium.pf2e.spell-effects.Item.Vd72sGiTl7Pq8iQv",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["manifest-will:arcane"],
-            "type": "spells",
-            "value": "@item.level"
-          }
-        },
         {
           "type": "rule",
           "key": "GrantItem",
@@ -7593,47 +7372,6 @@
       "slug": "feat:archfiend-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.HPav9ntIOl5WMmFY",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "actorFlag": true,
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitPoison",
-                "value": "poison"
-              }
-            ],
-            "flag": "realmDamage",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.realmDamage}",
-            "value": "floor(@actor.level / 2)"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
@@ -10191,42 +9929,6 @@
         {
           "type": "enricher",
           "enricher": "@Embed"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "war-of-immortals",
-      "slug": "feat:sublime-mobility",
-      "foundry": "Compendium.pf2e.feats-srd.Item.95DHxSO4TOP8W7qM",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Actor.Speed.Type.Climb",
-                "value": "climb"
-              },
-              {
-                "label": "PF2E.Actor.Speed.Type.Swim",
-                "value": "swim"
-              }
-            ],
-            "flag": "sublimeMobility",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.MovementType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "BaseSpeed",
-          "raw": {
-            "key": "BaseSpeed",
-            "selector": "{item|flags.system.rulesSelections.sublimeMobility}",
-            "value": 10
-          }
         }
       ]
     },

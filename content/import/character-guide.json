@@ -829,86 +829,6 @@
     {
       "type": "entry",
       "pack": "character-guide",
-      "slug": "effect:effect-boasters-challenge",
-      "foundry": "Compendium.pf2e.feat-effects.Item.0BNGjyW5WigX1FIs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:mark:boasters-challenge"],
-            "selector": "strike-damage",
-            "type": "status",
-            "value": "ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,4),6,ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,3),4,2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
-      "slug": "effect:effect-boasters-challenge-critical-success",
-      "foundry": "Compendium.pf2e.feat-effects.Item.xdlAursiOE9A9rK7",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:mark:boasters-challenge"],
-            "selector": "strike-damage",
-            "type": "status",
-            "value": "ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,4),6,ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,3),4,2))"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
-      "slug": "effect:effect-brightness-seeker",
-      "foundry": "Compendium.pf2e.feat-effects.Item.xPg5wzzKNxJy18rU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.Weal",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.Woe",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.Elf.BrightnessSeeker.WealAndWoe",
-                "value": 1
-              }
-            ],
-            "flag": "brightnessSeeker",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Elf.BrightnessSeeker.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["call-upon-the-brightness"],
-            "selector": ["attack", "saving-throw", "skill-check"],
-            "type": "status",
-            "value": "{item|flags.system.rulesSelections.brightnessSeeker}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
       "slug": "effect:effect-inventive-offensive",
       "foundry": "Compendium.pf2e.feat-effects.Item.SITsBOnOG1EJsEpl",
       "gaps": [
@@ -933,93 +853,6 @@
         },
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitDeadlyD6",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:deadly-d6"
-                  }
-                ],
-                "value": "deadly-d6"
-              },
-              {
-                "label": "PF2E.TraitDisarm",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:disarm"
-                  }
-                ],
-                "value": "disarm"
-              },
-              {
-                "label": "PF2E.TraitNonlethal",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:nonlethal"
-                  }
-                ],
-                "value": "nonlethal"
-              },
-              {
-                "label": "PF2E.TraitShove",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:shove"
-                  }
-                ],
-                "value": "shove"
-              },
-              {
-                "label": "PF2E.TraitTrip",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:trip"
-                  }
-                ],
-                "value": "trip"
-              },
-              {
-                "label": "PF2E.TraitVersatileB",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:versatile-b"
-                  }
-                ],
-                "value": "versatile-b"
-              },
-              {
-                "label": "PF2E.TraitVersatileP",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:versatile-p"
-                  }
-                ],
-                "value": "versatile-p"
-              },
-              {
-                "label": "PF2E.TraitVersatileS",
-                "predicate": [
-                  {
-                    "not": "inventive-offensive:versatile-s"
-                  }
-                ],
-                "value": "versatile-s"
-              }
-            ],
-            "flag": "inventiveOffensiveSecondTrait",
-            "key": "ChoiceSet",
-            "predicate": [
-              {
-                "gte": ["skill:crafting:rank", 4]
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemId": "{item|flags.system.rulesSelections.inventiveOffensiveWeapon}",
@@ -1032,22 +865,6 @@
             ],
             "property": "traits",
             "value": "{item|flags.system.rulesSelections.inventiveOffensiveFirstTrait}"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.inventiveOffensiveWeapon}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "gt": ["item:hands-held", 0]
-              }
-            ],
-            "property": "traits",
-            "value": "{item|flags.system.rulesSelections.inventiveOffensiveSecondTrait}"
           }
         }
       ]
@@ -2261,61 +2078,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "character-guide",
-      "slug": "feat:spellmasters-resilience",
-      "foundry": "Compendium.pf2e.feats-srd.Item.dWkf6LhYBfBkeyOA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "arcane"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "divine"
-              },
-              {
-                "label": "PF2E.TraitPrimal",
-                "value": "primal"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "occult"
-              }
-            ],
-            "flag": "featSpellmastersResilience",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.SpellmastersResilience.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.featSpellmastersResilience}",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["{item|flags.system.rulesSelections.featSpellmastersResilience}"],
-            "selector": "saving-throw",
-            "type": "circumstance",
-            "value": 1
-          }
         }
       ]
     },

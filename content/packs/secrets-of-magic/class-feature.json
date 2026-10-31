@@ -144,6 +144,54 @@
         "value": 1,
         "slug": "catharsis-emotion-joy-emotion",
         "predicate": ["self:effect:emotional-fervor", "item:trait:emotion", "emotional-catharsis:joy"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "cathartic-mage-dedication",
+        "choices": [
+          {
+            "value": "anger",
+            "label": "Anger"
+          },
+          {
+            "value": "awe",
+            "label": "Awe"
+          },
+          {
+            "value": "dedication",
+            "label": "Dedication"
+          },
+          {
+            "value": "fear",
+            "label": "Fear"
+          },
+          {
+            "value": "hatred",
+            "label": "Hatred"
+          },
+          {
+            "value": "joy",
+            "label": "Joy"
+          },
+          {
+            "value": "love",
+            "label": "Love"
+          },
+          {
+            "value": "misery",
+            "label": "Misery"
+          },
+          {
+            "value": "pride",
+            "label": "Pride"
+          },
+          {
+            "value": "remorse",
+            "label": "Remorse"
+          }
+        ],
+        "prompt": "Select a catharsis emotion.",
+        "rollOption": "emotional-catharsis"
       }
     ],
     "externalIds": {
@@ -675,7 +723,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9afc6433-5bf8-5462-8c06-82f5449ef03c",
+        "flag": "flexible-spellcaster-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Upf1LXtWNJ6eB5sm"
     },
@@ -1490,6 +1549,16 @@
         ],
         "outcome": ["failure", "criticalFailure"],
         "predicate": ["option:wellspring-magic"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9a00d534-3021-58ec-a72d-96890cb55a91",
+        "flag": "wellspring-mage-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -1042,21 +1042,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "spellshotDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.War Mage Dedication"
-          }
-        },
-        {
-          "type": "rule",
           "key": "MartialProficiency",
           "raw": {
             "definition": ["item:category:martial"],
@@ -3746,132 +3731,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-aldori-swordlord-temporary-hit-points",
-      "foundry": "Compendium.pf2e.feat-effects.Item.eJyyBqrXLOE4R9JI",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.criticalSuccess",
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:context:check:outcome:3",
-                      {
-                        "not": {
-                          "gte": ["parent:context:check:outcome", 0]
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "value": 10
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Attack.success",
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:context:check:outcome:2",
-                      {
-                        "not": {
-                          "gte": ["parent:context:check:outcome", 0]
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "value": 5
-              }
-            ],
-            "flag": "tempHP",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "@item.flags.system.rulesSelections.tempHP"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-arcane-standard",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.bQZLdVsSrDhYkfrO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:arcane-standard",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Arcane Standard"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:arcane-standard-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Arcane Standard (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "arcane-standard"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["arcane-standard:arcane-standard"],
-            "type": "{item|flags.system.rulesSelections.damage}",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "predicate": ["arcane-standard:arcane-standard-greater"],
-            "type": "{item|flags.system.rulesSelections.damage}",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-bad-deal",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.U37oY6akeNfTtgLk",
       "gaps": [
@@ -4123,54 +3982,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.PreciousMaterialAdamantine",
-                "predicate": [
-                  {
-                    "not": "parent:origin:item:slug:endless-quiver"
-                  }
-                ],
-                "value": "adamantine"
-              },
-              {
-                "label": "PF2E.PreciousMaterialDawnsilver",
-                "predicate": [
-                  {
-                    "not": "parent:origin:item:slug:endless-quiver"
-                  }
-                ],
-                "value": "dawnsilver"
-              },
-              {
-                "label": "PF2E.PreciousMaterialColdIron",
-                "value": "cold-iron"
-              },
-              {
-                "label": "PF2E.PreciousMaterialSilver",
-                "value": "silver"
-              }
-            ],
-            "flag": "material",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.weapon}",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "property": "material-type",
-            "value": "{item|flags.system.rulesSelections.material}"
-          }
         }
       ]
     },
@@ -4235,91 +4046,9 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-do-no-harm",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.BEou3aEkDXsQaTp3",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:medics-armband"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Medic's Armband"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:medics-armband-greater"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Medic's Armband (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "rollOption": "medics-armband"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-ethereal-crescent",
       "foundry": "Compendium.pf2e.equipment-effects.Item.Vk9Fwo0Xl1EF9fEF",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:ethereal-crescent"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Ethereal Crescent"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:ethereal-crescent-greater"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Ethereal Crescent (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "rollOption": "ethereal-crescent"
-          }
-        },
         {
           "type": "rule",
           "key": "ChoiceSet",
@@ -4395,44 +4124,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-guiding-shot",
-      "foundry": "Compendium.pf2e.feat-effects.Item.21pCT4n3Aixyvp4h",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.success",
-                "value": 1
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
-                "value": 2
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:mark:guiding-shot"],
-            "removeAfterRoll": "if-enabled",
-            "selector": ["strike-attack-roll"],
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-hand-chords",
       "foundry": "Compendium.pf2e.equipment-effects.Item.UrNdfN1da9V3aFM4",
       "gaps": [
@@ -4484,50 +4175,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-hexwise-banner",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.OokULq8Ubpw9PzKr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "spells",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["parent:tag:major-hexwise-banner"],
-            "type": "spells",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-hexwise-banner-major",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.oqdxD6NhawryOAOr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "spells",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-inspirational-salute",
       "foundry": "Compendium.pf2e.equipment-effects.Item.jFCNPTgcIouJ6EsC",
       "gaps": [
@@ -4570,39 +4217,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "value": "slashing"
-              }
-            ],
-            "flag": "inventedVulnerabilityDamage",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "{item|flags.system.rulesSelections.inventedVulnerabilityDamage}",
-            "value": "{item|flags.system.rulesSelections.inventedVulnerabilityValue}"
-          }
         }
       ]
     },
@@ -4614,95 +4228,10 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "predicate": [
-                  {
-                    "not": "damage-selection:acid"
-                  }
-                ],
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "predicate": [
-                  {
-                    "not": "damage-selection:bludgeoning"
-                  }
-                ],
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "predicate": [
-                  {
-                    "not": "damage-selection:cold"
-                  }
-                ],
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "predicate": [
-                  {
-                    "not": "damage-selection:electricity"
-                  }
-                ],
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "predicate": [
-                  {
-                    "not": "damage-selection:piercing"
-                  }
-                ],
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "predicate": [
-                  {
-                    "not": "damage-selection:slashing"
-                  }
-                ],
-                "value": "slashing"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "predicate": [
-                  {
-                    "not": "damage-selection:sonic"
-                  }
-                ],
-                "value": "sonic"
-              }
-            ],
-            "flag": "invincibleArmyDamageSecond",
-            "key": "ChoiceSet",
-            "predicate": ["invincible-army:very-hard"],
-            "prompt": "PF2E.SpecificRule.Prompt.DamageType"
-          }
-        },
-        {
-          "type": "rule",
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
             "type": "{item|flags.system.rulesSelections.invincibleArmyDamageFirst}",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": ["invincible-army:very-hard"],
-            "type": "{item|flags.system.rulesSelections.invincibleArmyDamageSecond}",
             "value": 5
           }
         }
@@ -4900,39 +4429,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitBludgeoning",
-                "value": "bludgeoning"
-              },
-              {
-                "label": "PF2E.TraitPiercing",
-                "value": "piercing"
-              },
-              {
-                "label": "PF2E.TraitSlashing",
-                "value": "slashing"
-              }
-            ],
-            "flag": "damageType",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.weapon}",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "property": "damage-type",
-            "value": "{item|flags.system.rulesSelections.damageType}"
-          }
         }
       ]
     },
@@ -5104,46 +4600,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-siphoning-grip",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.jCwXeDnqBTw9pyhg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.ActionNumber1",
-                "value": 10
-              },
-              {
-                "label": "PF2E.ActionNumber2",
-                "value": 20
-              },
-              {
-                "label": "PF2E.ActionNumber3",
-                "value": 30
-              }
-            ],
-            "flag": "siphoningGrip",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.FeatActionsLabel"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "TempHP",
-          "raw": {
-            "key": "TempHP",
-            "value": "{item|flags.system.rulesSelections.siphoningGrip}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-slayers-stone",
       "foundry": "Compendium.pf2e.equipment-effects.Item.xLKLKfm0p8ubp4Fe",
       "gaps": [
@@ -5219,122 +4675,6 @@
               }
             ],
             "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-stalwarts-banner",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.f2r7r0t8n7LKuj6C",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:stalwarts-banner",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Stalwart's Banner"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:stalwarts-banner-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Stalwart's Banner (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:stalwarts-banner-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Stalwart's Banner (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "stalwarts-banner"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:effect-swift-standard",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.EgAmT4WENb6UNSdJ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:swift-standard",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Swift Standard"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:swift-standard-greater",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Swift Standard (Greater)"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:swift-standard-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Swift Standard (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "swift-standard"
           }
         }
       ]
@@ -5512,55 +4852,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-the-bigger-they-are-commander",
-      "foundry": "Compendium.pf2e.feat-effects.Item.9Kjnwzu3DWs5U7NH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
-                "value": 3
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusFour",
-                "value": 4
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": [
-              {
-                "or": ["action:reposition", "action:shove", "action:trip"]
-              }
-            ],
-            "removeAfterRoll": "if-enabled",
-            "selector": "skill-check",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-the-truth-as-i-see-it",
       "foundry": "Compendium.pf2e.feat-effects.Item.ahBcuJWrRXEGvwxb",
       "gaps": [
@@ -5580,91 +4871,9 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "effect:effect-timepiece-standard",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.CV9YMSNtTV9gQJ3g",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:timepiece-standard",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Timepiece Standard"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:timepiece-standard-major",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Timepiece Standard (Major)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "timepiece-standard"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "effect:effect-toothy-knife",
       "foundry": "Compendium.pf2e.equipment-effects.Item.1AOfjwg2uZQUcgQC",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:toothy-knife"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Toothy Knife"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:toothy-knife-greater"
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Toothy Knife (Greater)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "rollOption": "toothy-knife"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5749,70 +4958,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.PreciousMaterialAdamantine",
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:transmuting-ingot-adamantine"
-                    ]
-                  }
-                ],
-                "value": "adamantine"
-              },
-              {
-                "label": "PF2E.PreciousMaterialColdIron",
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:transmuting-ingot-cold-iron"
-                    ]
-                  }
-                ],
-                "value": "cold-iron"
-              },
-              {
-                "label": "PF2E.PreciousMaterialSilver",
-                "predicate": [
-                  {
-                    "or": [
-                      {
-                        "not": "parent:origin:item"
-                      },
-                      "parent:origin:item:slug:transmuting-ingot-silver"
-                    ]
-                  }
-                ],
-                "value": "silver"
-              }
-            ],
-            "flag": "material",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.rulesSelections.weapon}",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "property": "material-type",
-            "value": "{item|flags.system.rulesSelections.material}"
-          }
         }
       ]
     },
@@ -5884,47 +5029,6 @@
             "selector": "ranged-attack-roll",
             "type": "status",
             "value": -1
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
-      "slug": "effect:spell-effect-dancing-shield",
-      "foundry": "Compendium.pf2e.spell-effects.Item.2KQSsrzUqAxSXOdd",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
-                "value": 3
-              }
-            ],
-            "flag": "spellEffectDancingShield",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.DancingShield.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.spellEffectDancingShield"
           }
         }
       ]
@@ -9280,32 +8384,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Skill"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Group Coercion"
-              },
-              {
-                "value": "Compendium.pf2e.feats-srd.Item.Group Impression"
-              }
-            ],
-            "flag": "feat",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.feat}"
-          }
         }
       ]
     },
@@ -10349,15 +9427,6 @@
       "slug": "feat:necrologist-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.NdMZvW213LYo4PhI",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "mobileAssault",
-            "key": "GrantItem",
-            "uuid": "Compendium.pf2e.actionspf2e.Item.Mobbing Assault"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"

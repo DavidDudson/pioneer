@@ -351,7 +351,50 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "iron-command-damage",
+        "choices": [
+          {
+            "value": "spirit",
+            "label": "Spirit"
+          },
+          {
+            "value": "void",
+            "label": "Void"
+          }
+        ],
+        "rollOption": "effect-iron-command-extra-damage-iron-command-damage",
+        "display": {
+          "label": "Select a damage type."
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 3,
+        "slug": "champions-extra-damage",
+        "damageType": "spirit",
+        "predicate": [
+          "target:mark:iron-command-extra-damage",
+          "effect-iron-command-extra-damage-iron-command-damage:spirit"
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 3,
+        "slug": "champions-extra-damage",
+        "damageType": "void",
+        "predicate": [
+          "target:mark:iron-command-extra-damage",
+          "effect-iron-command-extra-damage-iron-command-damage:void"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.upPUhhjz3stTWRsy"
     },

@@ -2509,6 +2509,22 @@
           }
         ],
         "prompt": "Select a resistance."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "effect-shielding-wave-resistance"
       }
     ],
     "externalIds": {
@@ -2911,6 +2927,64 @@
           }
         ],
         "prompt": "Select a damage type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-turn-aside-ambient-magic-damage"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-turn-aside-ambient-magic-damage:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-turn-aside-ambient-magic-damage:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-turn-aside-ambient-magic-damage:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-turn-aside-ambient-magic-damage:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "floor(@level / 2)",
+        "predicate": ["effect-turn-aside-ambient-magic-damage:sonic"]
       }
     ],
     "externalIds": {

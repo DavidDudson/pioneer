@@ -227,34 +227,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.ActorSizeMedium",
-                "value": "medium"
-              },
-              {
-                "label": "PF2E.ActorSizeSmall",
-                "value": "small"
-              }
-            ],
-            "flag": "size",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.CreatureSize"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CreatureSize",
-          "raw": {
-            "key": "CreatureSize",
-            "value": "{item|flags.system.rulesSelections.size}"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ActiveEffectLike",
           "raw": {
             "key": "ActiveEffectLike",
@@ -1057,64 +1029,6 @@
     {
       "type": "entry",
       "pack": "guns-and-gears",
-      "slug": "class-feature:deadly-strike",
-      "foundry": "Compendium.pf2e.classfeatures.Item.KcK3d8zw0bCEoaEG",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitDeadlyD8",
-                "predicate": [
-                  {
-                    "or": [
-                      "weapon-innovation:trait:deadly-d4",
-                      {
-                        "not": "weapon-innovation:trait:deadly"
-                      }
-                    ]
-                  }
-                ],
-                "value": "deadly-d8"
-              },
-              {
-                "label": "PF2E.TraitDeadlyD10",
-                "predicate": ["weapon-innovation:trait:deadly-d6"],
-                "value": "deadly-d10"
-              },
-              {
-                "label": "PF2E.TraitDeadlyD12",
-                "predicate": [
-                  {
-                    "or": ["weapon-innovation:trait:deadly-d8", "weapon-innovation:trait:deadly-d10"]
-                  }
-                ],
-                "value": "deadly-d12"
-              }
-            ],
-            "flag": "trait",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{actor|flags.system.trackedItems.weaponInnovation}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "property": "traits",
-            "value": "{item|flags.system.rulesSelections.trait}"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
       "slug": "class-feature:dense-plating",
       "foundry": "Compendium.pf2e.classfeatures.Item.svGLZdD4PF7miAKA",
       "gaps": [
@@ -1238,34 +1152,6 @@
       "slug": "class-feature:enhanced-resistance",
       "foundry": "Compendium.pf2e.classfeatures.Item.T3742fu7oIM3W6Gz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": ["feature:harmonic-oscillator"],
-                "value": "Compendium.pf2e.classfeatures.Item.Harmonic Oscillator"
-              },
-              {
-                "predicate": ["feature:metallic-reactance"],
-                "value": "Compendium.pf2e.classfeatures.Item.Metallic Reactance"
-              },
-              {
-                "predicate": ["feature:otherworldly-protection"],
-                "value": "Compendium.pf2e.classfeatures.Item.Otherworldly Protection"
-              },
-              {
-                "predicate": ["feature:phlogistonic-regulator"],
-                "value": "Compendium.pf2e.classfeatures.Item.Phlogistonic Regulator"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Inventor.Modification.Breakthrough.EnhancedResistancePrompt",
-            "rollOption": "enhanced-resistance"
-          }
-        },
         {
           "type": "rule",
           "key": "Resistance",
@@ -3251,21 +3137,6 @@
             "selector": "gunslinger",
             "type": "ability"
           }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "flag": "spellshotDedication",
-            "key": "GrantItem",
-            "predicate": [
-              {
-                "gte": ["self:level", 2]
-              }
-            ],
-            "reevaluateOnUpdate": true,
-            "uuid": "Compendium.pf2e.feats-srd.Item.Spellshot Dedication"
-          }
         }
       ]
     },
@@ -4342,28 +4213,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "allowNoSelection": true,
-            "choices": [
-              {
-                "value": "Compendium.pf2e.equipment-srd.Item.Weapon Potency (+1)"
-              },
-              {
-                "value": "Compendium.pf2e.equipment-srd.Item.Weapon Potency (+2)"
-              },
-              {
-                "value": "Compendium.pf2e.equipment-srd.Item.Weapon Potency (+3)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Rune",
-            "rollOption": "core-cannon:potency-rune"
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
@@ -4500,58 +4349,6 @@
             "key": "ChoiceSet",
             "prompt": "PF2E.SpecificRule.Prompt.Weapon"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              }
-            ],
-            "flag": "energy",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "key": "DamageDice",
-            "override": {
-              "damageType": "{item|flags.system.rulesSelections.energy}"
-            },
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "persistent",
-            "critical": true,
-            "damageType": "{item|flags.system.rulesSelections.energy}",
-            "diceNumber": 1,
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "selector": "{item|flags.system.rulesSelections.weapon}-damage"
-          }
         }
       ]
     },
@@ -4569,57 +4366,6 @@
             "key": "FlatModifier",
             "selector": ["crossbow-weapon-group-damage", "firearm-weapon-group-damage"],
             "value": "@weapon.system.damage.dice"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-fulminating-shot",
-      "foundry": "Compendium.pf2e.feat-effects.Item.UE0yky6aW0WCF0Qg",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              }
-            ],
-            "flag": "fulminatingShot",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EnergyType"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "damageType": "{item|flags.system.rulesSelections.fulminatingShot}",
-            "diceNumber": "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,12),2,1))",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": [
-              {
-                "or": ["item:group:firearm", "item:group:crossbow"]
-              }
-            ],
-            "selector": "strike-damage"
           }
         }
       ]
@@ -4693,87 +4439,6 @@
             "dieSize": "d6",
             "key": "DamageDice",
             "selector": "{item|flags.system.rulesSelections.helpfulTinkeringWeapon}-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-living-fortification",
-      "foundry": "Compendium.pf2e.feat-effects.Item.fRlvmul3LbLo2xvR",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.YesLabel",
-                "value": 2
-              },
-              {
-                "label": "PF2E.UI.RuleElements.ChoiceSet.NoLabel",
-                "value": 1
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Parry.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": ["ac"],
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.bonus"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-lock-on",
-      "foundry": "Compendium.pf2e.feat-effects.Item.xtqOIXCe0Nsd0QCt",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.Actions.OneAction",
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.Actions.TwoActions",
-                "value": 3
-              },
-              {
-                "label": "PF2E.SpecificRule.Inventor.LockOn.TwoActionsLegendary",
-                "value": 4
-              }
-            ],
-            "flag": "number",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Actions.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["target:mark:lock-on"],
-            "selector": "attack-roll",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.number"
           }
         }
       ]
@@ -4877,52 +4542,6 @@
             "selector": "strike-damage",
             "type": "status",
             "value": "max({item|flags.system.rulesSelections.pistolerosChallengeSkill},2)"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "guns-and-gears",
-      "slug": "effect:effect-prepared-camouflage-suit",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.jgaDboqENQJaS1sW",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:camouflage-suit",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Camouflage Suit"
-              },
-              {
-                "predicate": [
-                  {
-                    "or": [
-                      "parent:origin:item:slug:camouflage-suit-superb",
-                      {
-                        "not": "parent:origin:item"
-                      }
-                    ]
-                  }
-                ],
-                "value": "Compendium.pf2e.equipment-srd.Item.Camouflage Suit (Superb)"
-              }
-            ],
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.EquipmentVariety",
-            "rollOption": "camouflage-suit"
           }
         }
       ]
@@ -6560,32 +6179,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.USt0jwK8XI5loG4E",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:tag:gunslinger-way",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ]
-            },
-            "flag": "way",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Gunslinger.Way.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.way}"
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-field",
           "field": "subfeatures.proficiencies.gunslinger.attribute",
@@ -6691,32 +6284,6 @@
       "slug": "feat:inventor-dedication",
       "foundry": "Compendium.pf2e.feats-srd.Item.JIpjpZ8VneQomkZw",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": {
-              "filter": [
-                "item:tag:inventor-innovation",
-                {
-                  "not": "item:tag:class-archetype"
-                }
-              ]
-            },
-            "flag": "innovation",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Inventor.Innovation.Prompt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "GrantItem",
-          "raw": {
-            "key": "GrantItem",
-            "uuid": "{item|flags.system.rulesSelections.innovation}"
-          }
-        },
         {
           "type": "rule",
           "key": "ActiveEffectLike",
@@ -7535,22 +7102,6 @@
             "flag": "reinforcedChassis",
             "key": "GrantItem",
             "uuid": "Compendium.pf2e.equipment-srd.Item.Reinforced Chassis"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemId": "{item|flags.system.itemGrants.reinforcedChassis.id}",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              }
-            ],
-            "property": "ac-bonus",
-            "value": "ternary(gte(@actor.level,10),2,1)"
           }
         },
         {

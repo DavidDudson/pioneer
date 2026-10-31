@@ -497,7 +497,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "5",
+            "label": "Critical Success"
+          },
+          {
+            "value": "3",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-yobnobby-overdrive-damage"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 5,
+        "slug": "overdrive",
+        "predicate": ["effect-yobnobby-overdrive-damage:5"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 3,
+        "slug": "overdrive",
+        "predicate": ["effect-yobnobby-overdrive-damage:3"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-effects.Item.EIERHL5oo4OlBkAZ"
     },

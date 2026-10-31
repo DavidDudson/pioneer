@@ -10799,32 +10799,6 @@
     {
       "type": "entry",
       "pack": "draconic-codex",
-      "slug": "effect:aura-form-a-flock",
-      "foundry": "Compendium.pf2e.feat-effects.Item.wdOBAcEkC7L0NdJ8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "area-damage",
-            "value": 5
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Weakness",
-          "raw": {
-            "key": "Weakness",
-            "type": "splash-damage",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "draconic-codex",
       "slug": "effect:effect-assured-fate",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.ggqCmAH0a7cmAdA3",
       "gaps": [
@@ -11221,70 +11195,6 @@
     {
       "type": "entry",
       "pack": "draconic-codex",
-      "slug": "effect:effect-inspire-envoy",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.YDJnC3Bdc2GI6hX5",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonAdult",
-                "value": 1
-              },
-              {
-                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonAncient",
-                "value": 2
-              },
-              {
-                "label": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyArchdragon",
-                "value": 3
-              }
-            ],
-            "flag": "bonusValue",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.NPCAbility.SovereignDragon.InspireEnvoyDragonChoice"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["inspire-envoy:atk"],
-            "selector": "attack",
-            "type": "status",
-            "value": "@item.flags.system.rulesSelections.bonusValue"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["inspire-envoy:ac"],
-            "selector": "ac",
-            "type": "status",
-            "value": "@item.flags.system.rulesSelections.bonusValue"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["inspire-envoy:perc-will-cha"],
-            "selector": ["cha-based", "perception", "will"],
-            "type": "status",
-            "value": "@item.flags.system.rulesSelections.bonusValue"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "draconic-codex",
       "slug": "effect:effect-invigorating-spores",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.6vJacr4iXeYf44Vd",
       "gaps": [
@@ -11314,25 +11224,6 @@
             "key": "Resistance",
             "type": "fire",
             "value": "@item.origin.flags.system.liquefyResistance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "draconic-codex",
-      "slug": "effect:effect-mineral-deposits",
-      "foundry": "Compendium.pf2e.feat-effects.Item.0q1sI5pgZs0eHydw",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "AdjustStrike",
-          "raw": {
-            "definition": ["item:base:{item|flags.system.rulesSelections.attack}"],
-            "key": "AdjustStrike",
-            "mode": "add",
-            "property": "materials",
-            "value": "{item|flags.system.rulesSelections.material}"
           }
         }
       ]
@@ -11630,64 +11521,6 @@
               }
             ],
             "type": "{actor|flags.system.draconicBenefactor.breathDamage}",
-            "value": "floor(@actor.level / 2)"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitAcid",
-                "value": "acid"
-              },
-              {
-                "label": "PF2E.TraitCold",
-                "value": "cold"
-              },
-              {
-                "label": "PF2E.TraitFire",
-                "value": "fire"
-              },
-              {
-                "label": "PF2E.TraitElectricity",
-                "value": "electricity"
-              },
-              {
-                "label": "PF2E.TraitSonic",
-                "value": "sonic"
-              }
-            ],
-            "flag": "nonPhysicalResistance",
-            "key": "ChoiceSet",
-            "predicate": [
-              {
-                "or": [
-                  "draconic-benefactor:breath-damage:bludgeoning",
-                  "draconic-benefactor:breath-damage:piercing",
-                  "draconic-benefactor:breath-damage:slashing"
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "predicate": [
-              {
-                "or": [
-                  "draconic-benefactor:breath-damage:bludgeoning",
-                  "draconic-benefactor:breath-damage:piercing",
-                  "draconic-benefactor:breath-damage:slashing"
-                ]
-              }
-            ],
-            "type": "{item|flags.system.rulesSelections.nonPhysicalResistance}",
             "value": "floor(@actor.level / 2)"
           }
         }

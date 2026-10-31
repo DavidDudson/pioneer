@@ -3017,6 +3017,44 @@
           }
         ],
         "prompt": "Select a damage type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "undying-flesh-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": 10,
+        "predicate": ["undying-flesh-resistance:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["slashing"],
+        "value": 10,
+        "predicate": ["undying-flesh-resistance:slashing"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["piercing"],
+        "value": 10,
+        "predicate": ["undying-flesh-resistance:piercing"]
       }
     ],
     "externalIds": {

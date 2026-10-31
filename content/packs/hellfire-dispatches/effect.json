@@ -1808,6 +1808,12 @@
         ],
         "outcome": ["criticalSuccess"],
         "predicate": ["item:damage:type:piercing"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "f41e15cc-d4ec-52c5-8b42-6a52b685517c",
+        "flag": "puncture-flesh",
+        "predicate": ["feat:cruel-piercing"]
       }
     ],
     "externalIds": {

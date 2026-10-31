@@ -121,6 +121,47 @@
           }
         ],
         "prompt": "Select a skill."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "effect-boaster-s-challenge-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.deception, 4), 6, ternary(gte(@rank.skill.deception, 3), 4, 2))",
+        "predicate": ["target:mark:boasters-challenge", "effect-boaster-s-challenge-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.diplomacy, 4), 6, ternary(gte(@rank.skill.diplomacy, 3), 4, 2))",
+        "predicate": ["target:mark:boasters-challenge", "effect-boaster-s-challenge-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.intimidation, 4), 6, ternary(gte(@rank.skill.intimidation, 3), 4, 2))",
+        "predicate": ["target:mark:boasters-challenge", "effect-boaster-s-challenge-skill:intimidation"]
       }
     ],
     "externalIds": {
@@ -194,6 +235,50 @@
           }
         ],
         "prompt": "Select a skill."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "effect-boaster-s-challenge-critical-success-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.deception, 4), 6, ternary(gte(@rank.skill.deception, 3), 4, 2))",
+        "predicate": ["target:mark:boasters-challenge", "effect-boaster-s-challenge-critical-success-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.diplomacy, 4), 6, ternary(gte(@rank.skill.diplomacy, 3), 4, 2))",
+        "predicate": ["target:mark:boasters-challenge", "effect-boaster-s-challenge-critical-success-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "status",
+        "value": "ternary(gte(@rank.skill.intimidation, 4), 6, ternary(gte(@rank.skill.intimidation, 3), 4, 2))",
+        "predicate": [
+          "target:mark:boasters-challenge",
+          "effect-boaster-s-challenge-critical-success-skill:intimidation"
+        ]
       }
     ],
     "externalIds": {
@@ -248,7 +333,47 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "brightness-seeker",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Weal"
+          },
+          {
+            "value": "2",
+            "label": "Woe"
+          },
+          {
+            "value": "1",
+            "label": "Weal and Woe"
+          }
+        ],
+        "prompt": "Select the outcome of your Augury.",
+        "rollOption": "effect-brightness-seeker-brightness-seeker"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          "option:call-upon-the-brightness",
+          {
+            "or": ["effect-brightness-seeker-brightness-seeker:1", "effect-brightness-seeker-brightness-seeker:1"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:call-upon-the-brightness", "effect-brightness-seeker-brightness-seeker:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.xPg5wzzKNxJy18rU"
     },
@@ -535,6 +660,90 @@
           }
         ],
         "rollOption": "inventive-offensive"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "inventive-offensive-second-trait",
+        "choices": [
+          {
+            "value": "deadly-d6",
+            "label": "Deadly d6",
+            "predicate": [
+              {
+                "not": "inventive-offensive:deadly-d6"
+              }
+            ]
+          },
+          {
+            "value": "disarm",
+            "label": "Disarm",
+            "predicate": [
+              {
+                "not": "inventive-offensive:disarm"
+              }
+            ]
+          },
+          {
+            "value": "nonlethal",
+            "label": "Nonlethal",
+            "predicate": [
+              {
+                "not": "inventive-offensive:nonlethal"
+              }
+            ]
+          },
+          {
+            "value": "shove",
+            "label": "Shove",
+            "predicate": [
+              {
+                "not": "inventive-offensive:shove"
+              }
+            ]
+          },
+          {
+            "value": "trip",
+            "label": "Trip",
+            "predicate": [
+              {
+                "not": "inventive-offensive:trip"
+              }
+            ]
+          },
+          {
+            "value": "versatile-b",
+            "label": "Versatile B",
+            "predicate": [
+              {
+                "not": "inventive-offensive:versatile-b"
+              }
+            ]
+          },
+          {
+            "value": "versatile-p",
+            "label": "Versatile P",
+            "predicate": [
+              {
+                "not": "inventive-offensive:versatile-p"
+              }
+            ]
+          },
+          {
+            "value": "versatile-s",
+            "label": "Versatile S",
+            "predicate": [
+              {
+                "not": "inventive-offensive:versatile-s"
+              }
+            ]
+          }
+        ],
+        "rollOption": "effect-inventive-offensive-inventive-offensive-second-trait",
+        "predicate": [
+          {
+            "gte": ["skill:crafting:rank", 4]
+          }
+        ]
       }
     ],
     "externalIds": {

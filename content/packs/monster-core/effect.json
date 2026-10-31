@@ -2553,6 +2553,25 @@
             "label": "Sonic"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "rollOption": "effect-protean-anatomy-element"
       }
     ],
     "externalIds": {

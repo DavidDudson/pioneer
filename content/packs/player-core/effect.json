@@ -346,7 +346,62 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:2",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": "2",
+            "label": "Critical Hit",
+            "predicate": [
+              {
+                "or": [
+                  "parent:context:check:outcome:3",
+                  {
+                    "not": {
+                      "gte": ["parent:context:check:outcome", 0]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-assisting-shot-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["effect-assisting-shot-bonus:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["effect-assisting-shot-bonus:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.zcJii1XyOne9EvMr"
     },
@@ -988,6 +1043,22 @@
         "type": "circumstance",
         "value": 1,
         "slug": "effect-current-spell"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "element",
+        "choices": [
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "air",
+            "label": "Air"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "effect-current-spell-element"
       }
     ],
     "externalIds": {
@@ -1540,7 +1611,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "outcome",
+        "choices": [
+          {
+            "value": "2",
+            "label": "Hit"
+          },
+          {
+            "value": "3",
+            "label": "Critical Hit"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "effect-divine-rebuttal-outcome"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.jMQi2kDirzGgddti"
     },
@@ -2177,6 +2265,51 @@
         ],
         "prompt": "Select shield or weapon.",
         "rollOption": "emblazon-energy:item"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "damage",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-emblazon-energy-damage"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "die-size",
+        "choices": [
+          {
+            "value": "d6",
+            "label": "Yes"
+          },
+          {
+            "value": "d4",
+            "label": "No"
+          }
+        ],
+        "prompt": "Matching domain?",
+        "rollOption": "effect-emblazon-energy-die-size",
+        "predicate": ["emblazon-energy:item:weapon"]
       }
     ],
     "externalIds": {
@@ -2486,7 +2619,220 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "follow-the-expert-skill",
+        "choices": [
+          {
+            "value": "acrobatics",
+            "label": "Acrobatics"
+          },
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "stealth",
+            "label": "Stealth"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          },
+          {
+            "value": "lore",
+            "label": "Lore"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "effect-follow-the-expert-follow-the-expert-skill"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:acrobatics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:athletics"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:crafting"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:deception"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:diplomacy"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:intimidation"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:medicine"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:nature"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:performance"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:society"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:stealth"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:survival"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:thievery"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["lore"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "follow-the-expert-proficiency",
+        "predicate": ["effect-follow-the-expert-follow-the-expert-skill:lore"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.other-effects.Item.VCSpuc3Tf3XWMkd3"
     },
@@ -2536,7 +2882,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-forcible-energy-damage-type"
+      },
+      {
+        "key": "Weakness",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["effect-forcible-energy-damage-type:acid"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 5,
+        "predicate": ["effect-forcible-energy-damage-type:cold"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["effect-forcible-energy-damage-type:electricity"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["effect-forcible-energy-damage-type:fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["effect-forcible-energy-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.0Ai0u9kNJrEudPnN"
     },
@@ -4040,7 +4445,28 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "raise-menhir-tradition",
+        "choices": [
+          {
+            "value": "arcane",
+            "label": "Arcane"
+          },
+          {
+            "value": "divine",
+            "label": "Divine"
+          },
+          {
+            "value": "occult",
+            "label": "Occult"
+          }
+        ],
+        "prompt": "Select a tradition.",
+        "rollOption": "effect-raise-menhir-raise-menhir-tradition"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.AggnVD5loQHLb7zj"
     },
@@ -6286,7 +6712,46 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "vicious-debilitations",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "piercing",
+            "label": "Piercing"
+          },
+          {
+            "value": "slashing",
+            "label": "Slashing"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "effect-vicious-debilitations-vicious-debilitations"
+      },
+      {
+        "key": "Weakness",
+        "type": ["bludgeoning"],
+        "value": 5,
+        "predicate": ["effect-vicious-debilitations-vicious-debilitations:bludgeoning"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["piercing"],
+        "value": 5,
+        "predicate": ["effect-vicious-debilitations-vicious-debilitations:piercing"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["slashing"],
+        "value": 5,
+        "predicate": ["effect-vicious-debilitations-vicious-debilitations:slashing"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.Rgt9hH3W1oh9dvku"
     },
@@ -14197,6 +14662,69 @@
             "label": "Undead"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "blood",
+        "choices": [
+          {
+            "value": "aberration",
+            "label": "Aberration"
+          },
+          {
+            "value": "animal",
+            "label": "Animal"
+          },
+          {
+            "value": "beast",
+            "label": "Beast"
+          },
+          {
+            "value": "celestial",
+            "label": "Celestial"
+          },
+          {
+            "value": "construct",
+            "label": "Construct"
+          },
+          {
+            "value": "dragon",
+            "label": "Dragon"
+          },
+          {
+            "value": "elemental",
+            "label": "Elemental"
+          },
+          {
+            "value": "fey",
+            "label": "Fey"
+          },
+          {
+            "value": "fiend",
+            "label": "Fiend"
+          },
+          {
+            "value": "fungus",
+            "label": "Fungus"
+          },
+          {
+            "value": "monitor",
+            "label": "Monitor"
+          },
+          {
+            "value": "ooze",
+            "label": "Ooze"
+          },
+          {
+            "value": "plant",
+            "label": "Plant"
+          },
+          {
+            "value": "undead",
+            "label": "Undead"
+          }
+        ],
+        "rollOption": "spell-effect-blood-ward-blood"
       }
     ],
     "externalIds": {
@@ -19521,7 +20049,46 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-betrayal",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "spell-effect-elemental-betrayal-elemental-betrayal"
+      },
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": "ceil(@item.level / 2) + 1",
+        "predicate": ["spell-effect-elemental-betrayal-elemental-betrayal:fire"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.y4y0nusC97R7ZDL5"
     },
@@ -20374,7 +20941,56 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "5 * (@item.level - 1)",
+        "predicate": ["spell-effect-energy-absorption-energy-absorption:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "5 * (@item.level - 1)",
+        "predicate": ["spell-effect-energy-absorption-energy-absorption:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "5 * (@item.level - 1)",
+        "predicate": ["spell-effect-energy-absorption-energy-absorption:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "5 * (@item.level - 1)",
+        "predicate": ["spell-effect-energy-absorption-energy-absorption:fire"]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "energy-absorption",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "spell-effect-energy-absorption-energy-absorption"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.lEU3DH1tGjAigpEt"
     },
@@ -21577,7 +22193,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "fortissimo-bonus",
+        "choices": [
+          {
+            "value": "3",
+            "label": "Critical Success"
+          },
+          {
+            "value": "2",
+            "label": "Success"
+          }
+        ],
+        "prompt": "Select the degree of success.",
+        "rollOption": "spell-effect-fortissimo-composition-fortissimo-bonus"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.rAW5o8MjjuIhYhLg"
     },
@@ -22395,6 +23028,39 @@
         ],
         "prompt": "Select a form.",
         "rollOption": "humanoid-form"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "spell-effect-humanoid-form",
+        "choices": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "low-light-vision",
+            "label": "Low-Light Vision"
+          },
+          {
+            "value": "darkvision",
+            "label": "Darkvision"
+          }
+        ],
+        "prompt": "Select a sense.",
+        "rollOption": "vision-type",
+        "predicate": [
+          {
+            "gte": ["parent:origin:item:level", 3]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "proficiency",
+        "value": "@level",
+        "slug": "humanoid-form-proficiency-bonus",
+        "predicate": ["option:pass-as-humanoid", "proficiency:untrained"]
       }
     ],
     "externalIds": {
@@ -24228,7 +24894,161 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "magics-vessel-rank",
+        "choices": [
+          {
+            "value": "1",
+            "label": "1st-Rank"
+          },
+          {
+            "value": "2",
+            "label": "2nd-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 3]
+              }
+            ]
+          },
+          {
+            "value": "3",
+            "label": "3rd-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 5]
+              }
+            ]
+          },
+          {
+            "value": "4",
+            "label": "4th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 7]
+              }
+            ]
+          },
+          {
+            "value": "5",
+            "label": "5th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 9]
+              }
+            ]
+          },
+          {
+            "value": "6",
+            "label": "6th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 11]
+              }
+            ]
+          },
+          {
+            "value": "7",
+            "label": "7th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 13]
+              }
+            ]
+          },
+          {
+            "value": "8",
+            "label": "8th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 15]
+              }
+            ]
+          },
+          {
+            "value": "9",
+            "label": "9th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 17]
+              }
+            ]
+          },
+          {
+            "value": "10",
+            "label": "10th-Rank",
+            "predicate": [
+              {
+                "gte": ["parent:origin:level", 19]
+              }
+            ]
+          }
+        ],
+        "prompt": "Select a spell rank.",
+        "rollOption": "spell-effect-magic-s-vessel-resistance-magics-vessel-rank"
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 1,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:1"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 2,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:2"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 3,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:3"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 4,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:4"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 5,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:5"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 6,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:6"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 7,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:7"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 8,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:8"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 9,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:9"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spells"],
+        "value": 10,
+        "predicate": ["spell-effect-magic-s-vessel-resistance-magics-vessel-rank:10"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.FxB7DS6CFPhd2hBr"
     },
@@ -28378,7 +29198,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resist-energy-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select an energy type.",
+        "rollOption": "spell-effect-resist-energy-resist-energy-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 4), 10, 5))",
+        "predicate": ["spell-effect-resist-energy-resist-energy-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 4), 10, 5))",
+        "predicate": ["spell-effect-resist-energy-resist-energy-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 4), 10, 5))",
+        "predicate": ["spell-effect-resist-energy-resist-energy-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 4), 10, 5))",
+        "predicate": ["spell-effect-resist-energy-resist-energy-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": "ternary(gte(@item.level, 7), 15, ternary(gte(@item.level, 4), 10, 5))",
+        "predicate": ["spell-effect-resist-energy-resist-energy-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.con2Hzt47JjpuUej"
     },
@@ -30708,7 +31587,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "traveler",
+        "choices": [
+          {
+            "value": "climb",
+            "label": "Climb"
+          },
+          {
+            "value": "swim",
+            "label": "Swim"
+          },
+          {
+            "value": "fly",
+            "label": "Fly",
+            "predicate": [
+              {
+                "gte": ["item:level", 5]
+              }
+            ]
+          }
+        ],
+        "rollOption": "spell-effect-traveler-s-transit-traveler"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.spell-effects.Item.Ig9p2rDXGYHpEuTx"
     },
@@ -31104,6 +32008,40 @@
             "not": "self:effect:pest-form"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "dragon-shape-resistance",
+        "choices": [
+          {
+            "value": "bludgeoning",
+            "label": "Bludgeoning"
+          },
+          {
+            "value": "poison",
+            "label": "Poison"
+          }
+        ],
+        "prompt": "Select a resistance.",
+        "rollOption": "spell-effect-untamed-form-dragon-shape-resistance",
+        "predicate": [
+          "feat:dragon-shape",
+          {
+            "not": "self:effect:dragon-form"
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning"],
+        "value": 5,
+        "predicate": ["feat:dragon-shape", "spell-effect-untamed-form-dragon-shape-resistance:bludgeoning"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["poison"],
+        "value": 5,
+        "predicate": ["feat:dragon-shape", "spell-effect-untamed-form-dragon-shape-resistance:poison"]
       }
     ],
     "externalIds": {
@@ -32669,7 +33607,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ac-bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "No"
+          },
+          {
+            "value": "2",
+            "label": "Yes"
+          }
+        ],
+        "prompt": "Are you wielding a parry weapon?",
+        "rollOption": "stance-twinned-defense-ac-bonus"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["stance-twinned-defense-ac-bonus:1"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["stance-twinned-defense-ac-bonus:2"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feat-effects.Item.3eHMqVx30JGiJqtM"
     },

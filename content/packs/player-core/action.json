@@ -5962,6 +5962,34 @@
           }
         ],
         "prompt": "Select a movement type."
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "speed",
+        "choices": [
+          {
+            "value": "climb",
+            "label": "Climb",
+            "predicate": ["speed:climb"]
+          },
+          {
+            "value": "fly",
+            "label": "Fly",
+            "predicate": ["speed:fly"]
+          },
+          {
+            "value": "land",
+            "label": "Land",
+            "predicate": ["speed:land"]
+          },
+          {
+            "value": "swim",
+            "label": "Swim",
+            "predicate": ["speed:swim"]
+          }
+        ],
+        "prompt": "Select a movement type.",
+        "rollOption": "fast-movement-speed"
       }
     ],
     "externalIds": {
@@ -13160,6 +13188,69 @@
             "label": "Thievery"
           }
         ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "skill",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "athletics",
+            "label": "Athletics"
+          },
+          {
+            "value": "crafting",
+            "label": "Crafting"
+          },
+          {
+            "value": "deception",
+            "label": "Deception"
+          },
+          {
+            "value": "diplomacy",
+            "label": "Diplomacy"
+          },
+          {
+            "value": "intimidation",
+            "label": "Intimidation"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          },
+          {
+            "value": "survival",
+            "label": "Survival"
+          },
+          {
+            "value": "thievery",
+            "label": "Thievery"
+          }
+        ],
+        "rollOption": "skilled-skill"
       }
     ],
     "externalIds": {

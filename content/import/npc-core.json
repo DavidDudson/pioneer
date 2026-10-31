@@ -8082,45 +8082,6 @@
     {
       "type": "entry",
       "pack": "npc-core",
-      "slug": "effect:effect-medical-malpractice",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.m8RWVvhQ3LCMGQzs",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Check.Result.Degree.Check.criticalSuccess",
-                "value": 2
-              },
-              {
-                "label": "PF2E.Check.Result.Degree.Check.success",
-                "value": 1
-              }
-            ],
-            "flag": "medicalMalpractice",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.DegreeOfSuccess"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "DamageDice",
-          "raw": {
-            "category": "precision",
-            "diceNumber": "@item.flags.system.rulesSelections.medicalMalpractice",
-            "dieSize": "d6",
-            "key": "DamageDice",
-            "predicate": ["target:mark:medical-malpractice"],
-            "selector": "melee-strike-damage"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "npc-core",
       "slug": "effect:effect-never-off-the-hook",
       "foundry": "Compendium.pf2e.bestiary-effects.Item.hJJzppHOKE6g6iEJ",
       "gaps": [
@@ -8175,43 +8136,6 @@
             "selector": "land-speed",
             "type": "status",
             "value": "@item.flags.system.rulesSelections.modifier"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "npc-core",
-      "slug": "effect:effect-one-for-all",
-      "foundry": "Compendium.pf2e.bestiary-effects.Item.CR2D12ZAhwmnbz15",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "value": 2
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Bonus"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "ac",
-            "type": "circumstance",
-            "value": "@item.flags.system.rulesSelections.bonus"
           }
         }
       ]

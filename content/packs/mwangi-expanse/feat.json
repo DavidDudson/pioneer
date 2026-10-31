@@ -251,6 +251,10 @@
         "key": "Proficiency",
         "selector": "skill:society",
         "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2fa66be9-a3d7-5278-8983-c082d3d340ca"
       }
     ],
     "externalIds": {

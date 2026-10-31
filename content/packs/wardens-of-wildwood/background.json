@@ -466,6 +466,27 @@
         "key": "Proficiency",
         "selector": "skill:lore:games",
         "rank": "trained"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "feat",
+        "choices": [
+          {
+            "value": "2cf519d9-3331-5d83-80da-9041ede7e26f",
+            "label": "Multilingual"
+          },
+          {
+            "value": "7f7011f1-61c2-5cbd-8d5a-29a2b81efc13",
+            "label": "Streetwise"
+          }
+        ],
+        "prompt": "Select a feat."
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "feat"
+        }
       }
     ],
     "externalIds": {

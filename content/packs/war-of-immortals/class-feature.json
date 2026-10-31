@@ -464,6 +464,16 @@
         "key": "Strike",
         "fist": true,
         "predicate": ["deity:primary:favored-weapon:fist"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "73e149c2-b6ea-56b1-8370-f98924f78010",
+        "flag": "avenger-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -952,6 +962,16 @@
         ],
         "outcome": ["failure"],
         "predicate": ["self:effect:rage"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "fa9f2df7-27d4-532c-9dfe-90528a380738",
+        "flag": "bloodrager-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -7101,7 +7121,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "844d2ee9-cfd4-571a-84f5-795a54c3a275",
+        "flag": "seneschal-witch-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.DFDonF73QRMkEPu7"
     },
@@ -10377,6 +10408,16 @@
         "display": {
           "label": "Vindication Edge"
         }
+      },
+      {
+        "key": "GrantItem",
+        "item": "f65e7a30-85b0-5b69-8d94-507c9f942223",
+        "flag": "vinidicator-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -10497,6 +10538,16 @@
       {
         "key": "GrantItem",
         "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      },
+      {
+        "key": "GrantItem",
+        "item": "a79b1190-d74d-5cb2-8c30-f1a82b39d0b5",
+        "flag": "warrior-of-legend-dedication",
+        "predicate": [
+          {
+            "gte": ["self:level", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

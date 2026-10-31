@@ -4365,7 +4365,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "charm-of-resistance-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 5,
+        "predicate": ["charm-of-resistance-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 5,
+        "predicate": ["charm-of-resistance-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 5,
+        "predicate": ["charm-of-resistance-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["charm-of-resistance-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 5,
+        "predicate": ["charm-of-resistance-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.EkZVXMdtqTTgahiJ"
     },
@@ -4427,7 +4486,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "charm-of-resistance-greater-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 10,
+        "predicate": ["charm-of-resistance-greater-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 10,
+        "predicate": ["charm-of-resistance-greater-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 10,
+        "predicate": ["charm-of-resistance-greater-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["charm-of-resistance-greater-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 10,
+        "predicate": ["charm-of-resistance-greater-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.X3Nfa7bByYFrg1lU"
     },
@@ -4489,7 +4607,66 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "damage-type",
+        "choices": [
+          {
+            "value": "acid",
+            "label": "Acid"
+          },
+          {
+            "value": "cold",
+            "label": "Cold"
+          },
+          {
+            "value": "electricity",
+            "label": "Electricity"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "sonic",
+            "label": "Sonic"
+          }
+        ],
+        "prompt": "Select a damage type.",
+        "rollOption": "charm-of-resistance-major-damage-type"
+      },
+      {
+        "key": "Resistance",
+        "type": ["acid"],
+        "value": 15,
+        "predicate": ["charm-of-resistance-major-damage-type:acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 15,
+        "predicate": ["charm-of-resistance-major-damage-type:cold"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity"],
+        "value": 15,
+        "predicate": ["charm-of-resistance-major-damage-type:electricity"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15,
+        "predicate": ["charm-of-resistance-major-damage-type:fire"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["sonic"],
+        "value": 15,
+        "predicate": ["charm-of-resistance-major-damage-type:sonic"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.zyAzx6fLsPurRFQO"
     },
