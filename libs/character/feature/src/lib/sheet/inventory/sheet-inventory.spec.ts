@@ -169,7 +169,30 @@ describe(sheetInventory, () => {
     expect(present(sheetInventory(both, runed)[0]).lines[0]?.runeBadges).toContainEqual(badge);
   });
 
-  it('badges nothing for an item that is not a weapon, and gives a specific weapon no holes', () => {
+  it('badges armour’s potency and resilient runes, with a hole for each free slot', () => {
+    let etched = stock([[sword, ItemFixture.LeatherArmor, undefined]]);
+    const bare = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(bare).toStrictEqual([{ kind: 'hole' }, { kind: 'hole' }]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Potency, 1));
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Resilient, 2));
+    const badges = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(badges).toStrictEqual([
+      { kind: 'fundamental', rune: FundamentalRune.Potency, grade: 1 },
+      { kind: 'fundamental', rune: FundamentalRune.Resilient, grade: 2 },
+      { kind: 'hole' },
+    ]);
+  });
+
+  it('badges a shield’s reinforcing rune, and gives it no property slots', () => {
+    let etched = stock([[sword, ItemFixture.SteelShield, undefined]]);
+    const bare = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(bare).toStrictEqual([{ kind: 'hole' }]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Reinforcing, 3));
+    const badges = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(badges).toStrictEqual([{ kind: 'fundamental', rune: FundamentalRune.Reinforcing, grade: 3 }]);
+  });
+
+  it('badges nothing for an item that takes no runes, and gives a specific weapon no holes', () => {
     const plain = stock([[rope, ItemFixture.Rope, undefined]]);
     expect(present(sheetInventory(plain, runed)[0]).lines[0]?.runeBadges).toStrictEqual([]);
     const tongue = stock([[sword, ItemFixture.FlameTongue, undefined]]);

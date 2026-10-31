@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
-import { FIGHTER_INVENTORY } from '../testing/inventory-fixtures';
+import { FIGHTER_INVENTORY, RUNED_INVENTORY } from '../testing/inventory-fixtures';
 import { InventoryView } from './inventory.component';
 
 type InventoryStory = StoryObj<InventoryView>;
@@ -30,5 +30,15 @@ export const Fighter: InventoryStory = {
     await expect(canvas.getByRole('heading', { name: 'Worn' })).toBeVisible();
     await expect(canvas.getByText('Climbing rope')).toBeVisible();
     await expect(canvas.getByText('An item no loaded content has')).toBeVisible();
+  },
+};
+
+/** A weapon, armour and a shield with their runes as badges, and a hole for each free slot. */
+export const Runed: InventoryStory = {
+  args: { groups: RUNED_INVENTORY },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Breastplate')).toBeVisible();
+    await expect(canvas.getByText('Steel Shield')).toBeVisible();
   },
 };

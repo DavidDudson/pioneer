@@ -2,6 +2,7 @@ import { BulkCount, BulkWeight, ContentId, contentId, EntrySlug, FundamentalRune
 
 import { InventoryPlacement } from '../inventory/inventory-line';
 import type { InventoryGroup, InventoryLine } from '../inventory/inventory-line';
+import { RuneBadgeKind } from '../inventory/rune-badge/rune-badge-data';
 
 const CHALK_PIECES = 10;
 const ARROWS = 50;
@@ -74,4 +75,50 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
     ],
   },
   { placement: InventoryPlacement.Dropped, lines: [line('shield', 'Steel Shield', { bulk: ONE_BULK })] },
+];
+
+const FLAMING_RUNE = ContentId.parse('00000000-0000-4000-8000-000000000001');
+
+/** Runed gear: +2 resilient armour with a free slot, a +1 greater striking flaming sword with a free slot, and a reinforced shield with a free slot. */
+export const RUNED_INVENTORY: readonly InventoryGroup[] = [
+  {
+    placement: InventoryPlacement.Worn,
+    lines: [
+      line('armor', 'Breastplate', {
+        bulk: ONE_BULK,
+        invested: true,
+        runes: { potency: 2, fundamental: [{ rune: FundamentalRune.Resilient, grade: 1 }], property: [] },
+        runeBadges: [
+          { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Potency, grade: 2 },
+          { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Resilient, grade: 1 },
+          { kind: RuneBadgeKind.Hole },
+        ],
+      }),
+    ],
+  },
+  {
+    placement: InventoryPlacement.Held,
+    lines: [
+      line('longsword', 'Longsword', {
+        bulk: ONE_BULK,
+        hands: 1,
+        runes: { potency: 1, fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }], property: ['Flaming'] },
+        runeBadges: [
+          { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Potency, grade: 1 },
+          { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Striking, grade: 2 },
+          { kind: RuneBadgeKind.Property, id: FLAMING_RUNE, name: 'Flaming' },
+          { kind: RuneBadgeKind.Hole },
+        ],
+      }),
+      line('shield', 'Steel Shield', {
+        bulk: ONE_BULK,
+        hands: 1,
+        runes: { potency: undefined, fundamental: [{ rune: FundamentalRune.Reinforcing, grade: 2 }], property: [] },
+        runeBadges: [
+          { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Reinforcing, grade: 2 },
+          { kind: RuneBadgeKind.Hole },
+        ],
+      }),
+    ],
+  },
 ];
