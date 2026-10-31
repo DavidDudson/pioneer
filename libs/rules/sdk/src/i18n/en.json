@@ -723,7 +723,7 @@
       }
     },
     "sourceBadge": {
-      "ariaLabel": "Source: {title}, {type}",
+      "ariaLabel": "Source: {title}{hasYear, select, yes { {year}} other {}}, {type}",
       "expanded": "{title} {year}",
       "unregisteredBook": "{book} (not in the registry)",
       "homebrew": "{pack}",

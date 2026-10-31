@@ -3,7 +3,13 @@
     [variant]="Variant.Inline"
     [ariaLabel]="
       Message.AriaLabel
-        | transloco: { title: (heading().key | transloco: heading().params), type: (typeKey() | transloco) }
+        | transloco
+          : {
+              title: (heading().key | transloco: heading().params),
+              type: (typeKey() | transloco),
+              year: yearLabel().year,
+              hasYear: yearLabel().hasYear,
+            }
     "
   >
     <fr-badge [tone]="tone().tone" [variant]="tone().variant" [icon]="icon">

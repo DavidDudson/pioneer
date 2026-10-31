@@ -106,6 +106,11 @@ export class SourceBadge {
   protected readonly typeKey = computed(() => SOURCE_TYPE_MESSAGES[this.type()]);
   protected readonly expanded = computed(() => this.mode() === SourceBadgeMode.Expanded);
   protected readonly year = computed(() => this.book()?.released?.year.toString());
+  /** The year in the accessible name, which holds the text the badge shows: only the expanded one shows it. */
+  protected readonly yearLabel = computed(() => {
+    const year = this.expanded() ? this.year() : undefined;
+    return { year: year ?? '', hasYear: year === undefined ? 'no' : 'yes' };
+  });
 
   /** The book's title, or what stands in for it: the id of a book the registry lacks, a pack, a page. */
   protected readonly heading = computed((): Phrase => {
