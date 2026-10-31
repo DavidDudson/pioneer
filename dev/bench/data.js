@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793432436973,
+  "lastUpdate": 1793433716669,
   "repoUrl": "https://github.com/DavidDudson/pioneer",
   "entries": {
     "Pioneer benchmarks": [
@@ -54948,6 +54948,246 @@ window.BENCHMARK_DATA = {
             "value": 0.731,
             "unit": "ms",
             "extra": "median 1.399 ms, 51 runs after 20 warm-up, budget 7.5 ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "DavidDudson@users.noreply.github.com",
+            "name": "David Dudson",
+            "username": "DavidDudson"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4515760cda2eb218a8d8a940efc5aea8daf32a4e",
+          "message": "feat(content): source badge with book details and store links (#1515)\n\n* feat(rules): book details and source type for the source badge\n\nBook gains optional productLine, authors, storeUrl, errata and\nfoundryVersion. sourceType() derives the badge's colour type from the\nproduct line crossed with the edition (remaster book, or OGL entry in\none), plus homebrew, web and an unknown fallback for comics, April Fools,\nblog posts and unregistered books.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(content): fill book details from AoN and the Foundry pins\n\njust aon-sources now also reads each book's product line, Paizo Store\nlink and latest errata from its Sources page into books.json (and the\nrelease date of a book that has none). just book-foundry-version stamps\neach book with the pf2e release its pack was imported from.\n\nAuthors are not filled: Foundry's publication.authors is set on only a\nhandful of Society items, so the registry has no source for them yet.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(rules): pio-source badge with compact and expanded modes\n\nA book icon alone, or with the book's name and year. The hue says the kind\nof book and the fill the edition (solid remaster, tinted legacy); the\npopover states the type in words and lists the book's details with links\nto Archives of Nethys and the Paizo Store.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(content): source badges and Paizo Store links in the explorer\n\nThe browser's Source column shows each source as a pio-source badge (the\nbook's name and year, details in a popover), and an entry shows a \"Buy\nfrom Paizo\" link per book the Paizo Store lists. The web app reads the\nbook registry through a light @pioneer/rules/books entry that does not\npull in the packs.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* style(rules): caption size for the source badge type line\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n* feat(rules): source badge links as AoN and Buy Book badges\n\nThe popover shows two badge links: Archives of Nethys (the entry, or the\nbook when the source names no entry) and the Paizo Store.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-10-31T17:58:22+10:00",
+          "tree_id": "f33177f96172beee890adf0b76b4fe34103b972a",
+          "url": "https://github.com/DavidDudson/pioneer/commit/4515760cda2eb218a8d8a940efc5aea8daf32a4e"
+        },
+        "date": 1793433713787,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "character: feat picker trained-again marks over the feats available to a level 20 Rogue",
+            "value": 150.84,
+            "unit": "ms",
+            "extra": "median 160.735 ms, 51 runs after 20 warm-up, budget 1000 ms"
+          },
+          {
+            "name": "character: level 20 Bard with every slot and its gear filled",
+            "value": 23.363,
+            "unit": "ms",
+            "extra": "median 25.693 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Cleric with every slot and its gear filled",
+            "value": 29.817,
+            "unit": "ms",
+            "extra": "median 31.095 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Druid with every slot and its gear filled",
+            "value": 20.861,
+            "unit": "ms",
+            "extra": "median 22.167 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Fighter with every slot and its gear filled",
+            "value": 23.619,
+            "unit": "ms",
+            "extra": "median 24.776 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Ranger with every slot and its gear filled",
+            "value": 27.302,
+            "unit": "ms",
+            "extra": "median 28.423 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue with every slot and its gear filled",
+            "value": 28.852,
+            "unit": "ms",
+            "extra": "median 31.967 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Witch with every slot and its gear filled",
+            "value": 24.05,
+            "unit": "ms",
+            "extra": "median 25.452 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Wizard with every slot and its gear filled",
+            "value": 23.096,
+            "unit": "ms",
+            "extra": "median 24.433 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Alchemist with every slot and its gear filled",
+            "value": 23.869,
+            "unit": "ms",
+            "extra": "median 24.787 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Barbarian with every slot and its gear filled",
+            "value": 25.805,
+            "unit": "ms",
+            "extra": "median 26.926 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Champion with every slot and its gear filled",
+            "value": 24.847,
+            "unit": "ms",
+            "extra": "median 25.904 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Investigator with every slot and its gear filled",
+            "value": 28.457,
+            "unit": "ms",
+            "extra": "median 29.57 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Monk with every slot and its gear filled",
+            "value": 20.218,
+            "unit": "ms",
+            "extra": "median 21.495 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Oracle with every slot and its gear filled",
+            "value": 25.738,
+            "unit": "ms",
+            "extra": "median 26.61 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Sorcerer with every slot and its gear filled",
+            "value": 24.18,
+            "unit": "ms",
+            "extra": "median 26.658 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Swashbuckler with every slot and its gear filled",
+            "value": 29.801,
+            "unit": "ms",
+            "extra": "median 30.726 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Animist with every slot and its gear filled",
+            "value": 22.383,
+            "unit": "ms",
+            "extra": "median 23.77 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Exemplar with every slot and its gear filled",
+            "value": 28.756,
+            "unit": "ms",
+            "extra": "median 29.452 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Kineticist with every slot and its gear filled",
+            "value": 29.227,
+            "unit": "ms",
+            "extra": "median 31.345 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Thaumaturge with every slot and its gear filled",
+            "value": 25.03,
+            "unit": "ms",
+            "extra": "median 25.856 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Magus with every slot and its gear filled",
+            "value": 23.381,
+            "unit": "ms",
+            "extra": "median 24.535 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Necromancer with every slot and its gear filled",
+            "value": 23.363,
+            "unit": "ms",
+            "extra": "median 24.338 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Runesmith with every slot and its gear filled",
+            "value": 23.325,
+            "unit": "ms",
+            "extra": "median 24.412 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Summoner with every slot and its gear filled",
+            "value": 24.119,
+            "unit": "ms",
+            "extra": "median 26.643 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Gunslinger with every slot and its gear filled",
+            "value": 25.497,
+            "unit": "ms",
+            "extra": "median 28.043 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Inventor with every slot and its gear filled",
+            "value": 25.414,
+            "unit": "ms",
+            "extra": "median 27.293 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Commander with every slot and its gear filled",
+            "value": 25.599,
+            "unit": "ms",
+            "extra": "median 27.89 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Guardian with every slot and its gear filled",
+            "value": 23.894,
+            "unit": "ms",
+            "extra": "median 25.043 ms, 51 runs after 20 warm-up"
+          },
+          {
+            "name": "character: level 20 Rogue skill ranks",
+            "value": 10.39,
+            "unit": "ms",
+            "extra": "median 11.321 ms, 51 runs after 20 warm-up, budget 25 ms"
+          },
+          {
+            "name": "character: level 20 Rogue slots",
+            "value": 29.172,
+            "unit": "ms",
+            "extra": "median 31.171 ms, 51 runs after 20 warm-up, budget 65 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter derives grants and every statistic",
+            "value": 5.502,
+            "unit": "ms",
+            "extra": "median 7.432 ms, 51 runs after 20 warm-up, budget 25 ms"
+          },
+          {
+            "name": "catalog: level 20 Fighter with Proficiency Without Level and a homebrew pack restating Perception",
+            "value": 6.33,
+            "unit": "ms",
+            "extra": "median 7.637 ms, 51 runs after 20 warm-up, budget 25 ms"
+          },
+          {
+            "name": "grants: a query over 1000 entries",
+            "value": 0.923,
+            "unit": "ms",
+            "extra": "median 1.123 ms, 51 runs after 20 warm-up, budget 5 ms"
+          },
+          {
+            "name": "grants: level 20 character with every slot picked over 1000 more feats",
+            "value": 0.946,
+            "unit": "ms",
+            "extra": "median 1.227 ms, 51 runs after 20 warm-up, budget 7.5 ms"
+          },
+          {
+            "name": "grants: level 20 Fighter resolves to a fixpoint",
+            "value": 0.423,
+            "unit": "ms",
+            "extra": "median 0.737 ms, 51 runs after 20 warm-up, budget 7.5 ms"
           }
         ]
       }
