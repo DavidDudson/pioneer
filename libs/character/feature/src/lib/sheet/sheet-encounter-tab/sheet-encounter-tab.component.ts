@@ -17,6 +17,7 @@ import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
+import { SheetRituals } from '../sheet-rituals/sheet-rituals.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
@@ -48,6 +49,7 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SectionLink,
     Rail,
     SkillsView,
+    SheetRituals,
     SheetSpells,
     SheetStaves,
     SheetSpendLog,
