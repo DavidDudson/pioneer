@@ -55,32 +55,40 @@ async function rulesOf(slug: string, key: RuleElementKey): Promise<readonly Rule
   return rules.filter((rule) => rule.key === key);
 }
 
-/** The immunities `slug` gives, flattened. */
-async function immunitiesOf(slug: string): Promise<readonly string[]> {
-  const rules = await rulesOf(slug, RuleElementKey.Immunity);
-  return rules.flatMap((rule) => (rule.key === RuleElementKey.Immunity ? rule.type : []));
+/** The environment restrictions `slug` lifts, flattened. */
+async function liftsOf(slug: string): Promise<readonly string[]> {
+  const rules = await rulesOf(slug, RuleElementKey.LiftRestriction);
+  return rules.flatMap((rule) => (rule.key === RuleElementKey.LiftRestriction ? [rule.restriction] : []));
 }
 
-const TERRAIN_IMMUNITIES = ['difficult-terrain', 'greater-difficult-terrain'];
+/** The ids of the restrictions a player-core environment lists. */
+async function restrictionsOf(slug: string): Promise<readonly string[]> {
+  const file = await import('@pioneer/content/packs/player-core/environment.json');
+  const environment = ContentEntryFile.parse(file.default).find(
+    (entry) => entry.kind === ContentKind.Environment && entry.slug === slug,
+  );
+  const restrictions = environment?.kind === ContentKind.Environment ? environment.data.restrictions : [];
+  return restrictions.map(({ id }) => id);
+}
 
 describe('polymorph effect gaps in Player Core', () => {
+  test.each(['environment:difficult-terrain', 'environment:greater-difficult-terrain'])(
+    '%s costs movement',
+    async (slug) => {
+      expect(await restrictionsOf(slug)).toContain('movement-cost');
+    },
+  );
+
   test.each(['achaekek', 'cayden-cailean', 'erastil', 'gozreh', 'norgorber', 'shelyn', 'zon-kuthon'])(
-    'Avatar (%s) ignores difficult terrain and greater difficult terrain',
+    'Avatar (%s) lifts the movement cost of difficult terrain',
     async (deity) => {
-      const immunities = await immunitiesOf(`effect:spell-effect-avatar-${deity}`);
-
-      expect(immunities.filter((each) => TERRAIN_IMMUNITIES.includes(each))).toEqual(TERRAIN_IMMUNITIES);
+      expect(await liftsOf(`effect:spell-effect-avatar-${deity}`)).toContain('movement-cost');
     },
   );
 
-  test.each(['abadar', 'asmodeus', 'iomedae', 'torag'])(
-    'Avatar (%s) does not ignore difficult terrain',
-    async (deity) => {
-      const immunities = await immunitiesOf(`effect:spell-effect-avatar-${deity}`);
-
-      expect(immunities).not.toContain('difficult-terrain');
-    },
-  );
+  test.each(['abadar', 'asmodeus', 'iomedae', 'torag'])('Avatar (%s) does not lift it', async (deity) => {
+    expect(await liftsOf(`effect:spell-effect-avatar-${deity}`)).not.toContain('movement-cost');
+  });
 
   test('One with Stone makes you Large', async () => {
     const [rule] = await rulesOf('effect:spell-effect-one-with-stone', RuleElementKey.CreatureSize);
