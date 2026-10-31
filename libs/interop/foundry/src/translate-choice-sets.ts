@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { resolveUuid } from './entry-references';
 import type { EntryReferences } from './entry-references';
-import { kebab } from './foundry-flags';
+import { kebab, slugOf } from './foundry-flags';
 import { SKILLS } from './foundry-skills';
 import { namespacedStatement, withNamespacedOptions } from './translate-modifiers';
 
@@ -103,14 +103,6 @@ function choiceOf(choice: unknown, references: EntryReferences): unknown {
     .map(([field, value]): [string, unknown] => [field, field === 'predicate' ? withItemLevel(value) : value]);
   const fields: Record<string, unknown> = Object.fromEntries(kept);
   return withNamespacedOptions(withChosenEntry({ ...fields, value: asText(choice.value) }, references));
-}
-
-/** An item's name as a slug, the flag Foundry gives a `ChoiceSet` that names none: `Align the Stars` is `align-the-stars`. */
-function slugOf(name: string): string {
-  return name
-    .toLowerCase()
-    .replaceAll(/[^a-z\d]+/gu, '-')
-    .replaceAll(/^-|-$/gu, '');
 }
 
 function titleCase(slug: string): string {
@@ -234,3 +226,4 @@ export function isUnread(element: RuleElement, plain: unknown, reads: (flag: str
 }
 
 export { withChoiceObjects } from './translate-choice-objects';
+export { withChoiceValues } from './translate-choice-values';

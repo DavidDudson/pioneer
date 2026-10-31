@@ -345,7 +345,8 @@
             ],
             "flag": "dragon",
             "key": "ChoiceSet",
-            "requiresEquipped": false
+            "requiresEquipped": false,
+            "rollOption": "dragon-breath-scale-dragon"
           }
         },
         {
@@ -357,7 +358,99 @@
             "mode": "add",
             "property": "other-tags",
             "requiresEquipped": false,
-            "value": "{item|flags.system.rulesSelections.dragon}"
+            "value": "adamantine",
+            "predicate": ["dragon-breath-scale-dragon:adamantine"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "conspirator",
+            "predicate": ["dragon-breath-scale-dragon:conspirator"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "diabolic",
+            "predicate": ["dragon-breath-scale-dragon:diabolic"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "empyreal",
+            "predicate": ["dragon-breath-scale-dragon:empyreal"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "fortune",
+            "predicate": ["dragon-breath-scale-dragon:fortune"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "horned",
+            "predicate": ["dragon-breath-scale-dragon:horned"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "mirage",
+            "predicate": ["dragon-breath-scale-dragon:mirage"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{item|id}",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "other-tags",
+            "requiresEquipped": false,
+            "value": "omen",
+            "predicate": ["dragon-breath-scale-dragon:omen"]
           }
         },
         {
@@ -1970,41 +2063,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusOne",
-                "predicate": ["blade-byrnie:blade-byrnie"],
-                "value": 1
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusTwo",
-                "predicate": [
-                  {
-                    "or": ["blade-byrnie:blade-byrnie", "blade-byrnie:blade-byrnie-greater"]
-                  }
-                ],
-                "value": 2
-              },
-              {
-                "label": "PF2E.SpecificRule.BonusLabel.PlusThree",
-                "value": 3
-              }
-            ],
-            "flag": "bonus",
-            "key": "ChoiceSet",
-            "predicate": [
-              {
-                "not": "parent:origin:item"
-              }
-            ],
-            "prompt": "PF2E.SpecificRule.Prompt.Bonus"
-          }
-        },
-        {
-          "type": "rule",
           "key": "GrantItem",
           "raw": {
             "flag": "bladeByrnieDagger",
@@ -2038,10 +2096,45 @@
             "predicate": [
               {
                 "not": "parent:origin:item"
-              }
+              },
+              "effect-blade-byrnie-bonus:1"
             ],
             "property": "runes-potency",
-            "value": "@item.flags.system.rulesSelections.bonus"
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{actor|flags.system.trackedItems.bladeByrnieDagger}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": [
+              {
+                "not": "parent:origin:item"
+              },
+              "effect-blade-byrnie-bonus:2"
+            ],
+            "property": "runes-potency",
+            "value": 2
+          }
+        },
+        {
+          "type": "rule",
+          "key": "ItemAlteration",
+          "raw": {
+            "itemId": "{actor|flags.system.trackedItems.bladeByrnieDagger}",
+            "key": "ItemAlteration",
+            "mode": "upgrade",
+            "predicate": [
+              {
+                "not": "parent:origin:item"
+              },
+              "effect-blade-byrnie-bonus:3"
+            ],
+            "property": "runes-potency",
+            "value": 3
           }
         },
         {
@@ -2145,8 +2238,19 @@
           "key": "Resistance",
           "raw": {
             "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 10
+            "type": "holy",
+            "value": 10,
+            "predicate": ["effect-book-of-warding-prayers-resistance:holy"]
+          }
+        },
+        {
+          "type": "rule",
+          "key": "Resistance",
+          "raw": {
+            "key": "Resistance",
+            "type": "unholy",
+            "value": 10,
+            "predicate": ["effect-book-of-warding-prayers-resistance:unholy"]
           }
         }
       ]
@@ -2266,23 +2370,6 @@
             "label": "PF2E.IWR.Custom.AllDamageFromDivineSpells",
             "type": "custom",
             "value": "@item.origin.flags.system.cloisterRobeResistance"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "effect:effect-energy-adaptive",
-      "foundry": "Compendium.pf2e.equipment-effects.Item.RfRoAdN9r06xId6r",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 5
           }
         }
       ]
@@ -2739,41 +2826,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.Skill.Arcana",
-                "value": "arcana"
-              },
-              {
-                "label": "PF2E.Skill.Medicine",
-                "value": "medicine"
-              },
-              {
-                "label": "PF2E.Skill.Nature",
-                "value": "nature"
-              },
-              {
-                "label": "PF2E.Skill.Occultism",
-                "value": "occultism"
-              },
-              {
-                "label": "PF2E.Skill.Religion",
-                "value": "religion"
-              },
-              {
-                "label": "PF2E.Skill.Society",
-                "value": "society"
-              }
-            ],
-            "flag": "insightCoffee",
-            "key": "ChoiceSet",
-            "prompt": "PF2E.SpecificRule.Prompt.Skill"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageAlteration",
           "raw": {
             "key": "DamageAlteration",
@@ -2794,42 +2846,6 @@
             "property": "dice-faces",
             "selectors": ["inline-damage"],
             "value": 8
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "predicate": ["action:recall-knowledge"],
-            "selector": "{item|flags.system.rulesSelections.insightCoffee}",
-            "slug": "insight-coffee-bonus",
-            "type": "item",
-            "value": 2
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["insight-coffee:insight-coffee-moderate"],
-            "selector": "{item|flags.system.rulesSelections.insightCoffee}",
-            "slug": "insight-coffee-bonus",
-            "value": 3
-          }
-        },
-        {
-          "type": "rule",
-          "key": "AdjustModifier",
-          "raw": {
-            "key": "AdjustModifier",
-            "mode": "upgrade",
-            "predicate": ["insight-coffee:insight-coffee-greater"],
-            "selector": "{item|flags.system.rulesSelections.insightCoffee}",
-            "slug": "insight-coffee-bonus",
-            "value": 4
           }
         }
       ]
@@ -3430,7 +3446,40 @@
             "predicate": [
               {
                 "or": ["item:trait:emotion", "item:trait:{item|flags.system.rulesSelections.soothing}"]
-              }
+              },
+              "effect-soothing-toddy-soothing:auditory"
+            ],
+            "selector": "saving-throw",
+            "type": "item",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["item:trait:emotion", "item:trait:{item|flags.system.rulesSelections.soothing}"]
+              },
+              "effect-soothing-toddy-soothing:olfactory"
+            ],
+            "selector": "saving-throw",
+            "type": "item",
+            "value": 1
+          }
+        },
+        {
+          "type": "rule",
+          "key": "FlatModifier",
+          "raw": {
+            "key": "FlatModifier",
+            "predicate": [
+              {
+                "or": ["item:trait:emotion", "item:trait:{item|flags.system.rulesSelections.soothing}"]
+              },
+              "effect-soothing-toddy-soothing:visual"
             ],
             "selector": "saving-throw",
             "type": "item",
@@ -3954,51 +4003,6 @@
         {
           "type": "markup",
           "markup": "td[style]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:eidolon-cape",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.nxAMYJrG96yn9iBq",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "arcana"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "religion"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "occultism"
-              },
-              {
-                "label": "PF2E.TraitPrimal",
-                "value": "nature"
-              }
-            ],
-            "flag": "eidolonCapeSelection",
-            "key": "ChoiceSet",
-            "prompt": "Select your eidolon's tradition"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "FlatModifier",
-          "raw": {
-            "key": "FlatModifier",
-            "selector": "{item|flags.system.rulesSelections.eidolonCapeSelection}",
-            "type": "item",
-            "value": 2
-          }
         }
       ]
     },
@@ -4821,138 +4825,6 @@
         {
           "type": "enricher",
           "enricher": "@Damage[options]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:wyrms-wingspan",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.WgW14gY5SPxQuf78",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "force"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "spirit"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "mental"
-              },
-              {
-                "label": "PF2E.TraitPrimal",
-                "value": "fire"
-              }
-            ],
-            "flag": "resistance",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 5
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:wyrms-wingspan-greater",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.eBUWprW319xzAh5B",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "force"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "spirit"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "mental"
-              },
-              {
-                "label": "PF2E.TraitPrimal",
-                "value": "fire"
-              }
-            ],
-            "flag": "resistance",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 10
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "treasure-vault",
-      "slug": "equipment:wyrms-wingspan-major",
-      "foundry": "Compendium.pf2e.equipment-srd.Item.ngUqDJjNCbzS3rxX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ChoiceSet",
-          "raw": {
-            "adjustName": false,
-            "choices": [
-              {
-                "label": "PF2E.TraitArcane",
-                "value": "force"
-              },
-              {
-                "label": "PF2E.TraitDivine",
-                "value": "spirit"
-              },
-              {
-                "label": "PF2E.TraitOccult",
-                "value": "mental"
-              },
-              {
-                "label": "PF2E.TraitPrimal",
-                "value": "fire"
-              }
-            ],
-            "flag": "resistance",
-            "key": "ChoiceSet"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "Resistance",
-          "raw": {
-            "key": "Resistance",
-            "type": "{item|flags.system.rulesSelections.resistance}",
-            "value": 15
-          }
         }
       ]
     },
