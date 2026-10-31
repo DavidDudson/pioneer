@@ -49,11 +49,11 @@ export const FormShiftSchema = z.strictObject({
 });
 export type FormShift = z.infer<typeof FormShiftSchema>;
 
-/** The form a spend puts on the character (casting a form spell): the instance, the form's effect, the rank cast, the form chosen within it, and the temporary Hit Points it gives. */
+/** The form a spend puts on the character (casting a form spell): the instance, the form's effect, the rank cast when a spell casts it, the form chosen within it, and the temporary Hit Points it gives. */
 export const FormApplySchema = z.strictObject({
   id: EffectInstanceId,
   effect: ContentId,
-  rank: SpellRank,
+  rank: SpellRank.optional(),
   form: RollOption.optional(),
   tempHp: HitPoints.optional(),
 });

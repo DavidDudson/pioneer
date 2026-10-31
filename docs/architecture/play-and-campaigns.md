@@ -405,6 +405,11 @@ left and swapping the temporary Hit Points. The server checks both against the s
 form must be listed and offered, and a shift must change a polymorph effect on the character. The general apply-effect
 edit is not a cast and is not checked this way; it is how a player or GM adds any effect to the sheet.
 
+A polymorph action lists its forms the same way, in the `effects` of its action data (the Change Shape Werecreature
+Dedication grants lists the werecreature effect behind `feat:werecreature-dedication`). Using it opens the same picker,
+worded "Use", and the spend carries `apply` with no rank, as an action has none. The server checks the listing in
+`contentRefusal` as for a spell. Players can still add the effect by hand.
+
 Humanoid Form is the committed example. It picks a size (`CreatureSize`, with the reach of that size), adds the
 `humanoid` trait and offers two toggles: passing as a humanoid (the Deception bonuses) and a sense. The sense is a
 toggle with suboptions rather than a second choice, because an active form keeps one chosen roll option.

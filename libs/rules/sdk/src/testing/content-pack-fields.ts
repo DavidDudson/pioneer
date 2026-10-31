@@ -27,6 +27,12 @@ export interface ConditionFields {
   readonly recovery?: ConditionRecovery;
 }
 
+/** What a test action has beyond its cost. */
+export interface ActionFields {
+  /** The effects using it can put on the user: ids, or ids with the predicate that offers them. */
+  readonly effects?: readonly (string | { readonly effect: string; readonly predicate: readonly string[] })[];
+}
+
 /** What a test spell has: its rank and traditions, and its traits (`cantrip`, `focus`) and rarity. */
 export interface SpellFields {
   readonly rank: number;

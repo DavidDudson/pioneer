@@ -48,6 +48,7 @@ const pack = effects
     effects: [APE, { effect: PLANT, predicate: ['feat:plant-shape'] }],
     shiftsForm: true,
   })
+  .withAction('change-shape', { effects: [{ effect: APE, predicate: ['feat:werecreature-dedication'] }] })
   .withSpell('morph', { rank: 1, traditions: [], effects: [APE] })
   .withSpell('mirror', { rank: 2, traditions: [], duration: { type: 'sustained' }, dismiss: true })
   .withItem(ContentKind.Weapon, 'longsword', {
@@ -214,6 +215,15 @@ describe('contentRefusal for sustained spells', () => {
       request(spell, { apply: { id: EFFECT, effect, rank: SpellRank.parse(2) } });
     expect(contentRefusal(apply(APE), registry, NO_SPELLS)).toBeUndefined();
     expect(contentRefusal(apply(BEAR), registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+  });
+
+  test('an action puts on the forms it lists, offered by its predicates, as a spell does', () => {
+    const action = idOf(ContentKind.Action, 'change-shape');
+    const apply = (effect: ContentId): SpendRequest => request(action, { apply: { id: EFFECT, effect } });
+    const has = new PredicateFacts([RollOption.parse('feat:werecreature-dedication')], new Map());
+    expect(contentRefusal(apply(APE), registry, { ...NO_SPELLS, facts: has })).toBeUndefined();
+    expect(contentRefusal(apply(APE), registry, NO_SPELLS)).toBe(SpendProblem.ShiftNotAllowed);
+    expect(contentRefusal(apply(BEAR), registry, { ...NO_SPELLS, facts: has })).toBe(SpendProblem.ShiftNotAllowed);
   });
 
   test('putting on a form with a predicate needs the character to satisfy it', () => {

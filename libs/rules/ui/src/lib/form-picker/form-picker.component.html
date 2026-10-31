@@ -1,6 +1,8 @@
 <fr-surface padding="sm">
   <fr-stack gap="sm">
-    <fr-text weight="semibold">{{ Message.Title | transloco: { spell: spell() } }}</fr-text>
+    <fr-text weight="semibold">{{
+      (action() ? Message.TitleAction : Message.Title) | transloco: { spell: spell() }
+    }}</fr-text>
     <pio-option-picker
       [ariaLabel]="Message.Pick | transloco"
       [placeholder]="Message.Pick | transloco"
@@ -29,7 +31,7 @@
         [disabled]="picked() === undefined"
         [describeError]="describeError()"
       >
-        {{ Message.Confirm | transloco }}
+        {{ (action() ? Message.ConfirmAction : Message.Confirm) | transloco }}
       </fr-async-button>
       <fr-button size="sm" (click)="cancelled.emit()">{{ Message.Cancel | transloco }}</fr-button>
     </fr-stack>

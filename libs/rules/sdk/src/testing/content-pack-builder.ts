@@ -16,6 +16,7 @@ import type { StatisticDefinition } from '../statistic';
 import { StatisticKind } from '../statistic';
 import type { VariantRuleDefinition } from '../variant-rule';
 import type {
+  ActionFields,
   ClassFeatureFields,
   ClassFields,
   ConditionFields,
@@ -166,6 +167,16 @@ export class ContentPackBuilder {
       traits,
       rules,
       ...text,
+    });
+    return this;
+  }
+
+  /** A one-action action, with the effects using it can put on the user: ids, or ids with the predicate that offers them. */
+  public withAction(name: string, { effects }: ActionFields = {}): this {
+    this.#entries.push({
+      kind: ContentKind.Action,
+      name,
+      data: { cost: 'one', ...(effects === undefined ? {} : { effects }) },
     });
     return this;
   }

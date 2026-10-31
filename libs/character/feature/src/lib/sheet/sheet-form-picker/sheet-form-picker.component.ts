@@ -75,7 +75,7 @@ export class SheetFormPicker {
           id: this.#instance(),
           effect: ContentId.parse(choice.effect),
           source: SELF,
-          rank: pending.rank,
+          ...(pending.rank === undefined ? {} : { rank: pending.rank }),
           ...(choice.form === undefined ? {} : { form: choice.form }),
         };
   });
