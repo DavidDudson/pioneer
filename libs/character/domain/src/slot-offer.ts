@@ -5,6 +5,8 @@ import { message } from '@pioneer/shared/kernel';
 
 import type { CharacterDocument } from './character-document';
 import { CHARACTER_LEVEL_MAX, CHARACTER_LEVEL_MIN } from './character-fields';
+import { documentSkills, withPickedLore } from './custom-lore';
+import type { LoreName } from './custom-lore';
 import { FeatPickProblem } from './feat-content';
 import { featPickProblem, prerequisiteReads, withoutPick } from './feat-slots';
 import { LanguagePickProblem, languageSlots, problemOf } from './languages';
@@ -31,10 +33,11 @@ export {
   slotContextOf,
 } from './slot-reads';
 
-/** A selection for a slot, as `selectSlot` asks for it. */
+/** A selection for a slot, as `selectSlot` asks for it; a custom Lore comes with the player's name for it. */
 export interface SlotPick {
   readonly slot: SlotKey;
   readonly selection: ChoiceValue;
+  readonly loreName?: LoreName | undefined;
 }
 
 /**
@@ -198,9 +201,10 @@ export function slotRefusal(
   if (flaw !== undefined) {
     return flawRefusal(flaw, pick.selection);
   }
-  const skill = skillSlotIn(document, content, pick.slot);
+  const named = withPickedLore(document, pick);
+  const skill = skillSlotIn(named, content, pick.slot);
   if (skill !== undefined) {
-    return skillRefusal(skill, content.skills, pick.selection);
+    return skillRefusal(skill, documentSkills(named, content.skills), pick.selection);
   }
   return keyedRefusal(document, content, pick);
 }

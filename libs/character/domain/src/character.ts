@@ -12,6 +12,7 @@ import type { CharacterId, CharacterName } from './character-fields';
 import { CharacterPatchField, isDocumentPatch, isInventoryPatch } from './character-patch';
 import type { CharacterPatch, InventoryPatch } from './character-patch';
 import { ANCESTRY_SLOT } from './character-slots';
+import { withLoreEdit } from './custom-lore';
 import { withDocumentEdit } from './document-edits';
 import { equipmentChange } from './equipment-change';
 import { inventoryRefusal, moveItem, removeItem, renameItem, setItemQuantity } from './inventory';
@@ -161,10 +162,10 @@ export class Character {
         return { document: { ...this.document, level: patch.value } };
       }
       case CharacterPatchField.SelectSlot: {
-        return { document: this.#choose(patch.slot, patch.selection, inputs) };
+        return { document: withLoreEdit(this.#choose(patch.slot, patch.selection, inputs), patch) };
       }
       case CharacterPatchField.ClearSlot: {
-        return { document: this.#clear(patch.slot, inputs) };
+        return { document: withLoreEdit(this.#clear(patch.slot, inputs)) };
       }
       case CharacterPatchField.CarryItem:
       case CharacterPatchField.InvestItem:

@@ -14,6 +14,23 @@ const SLUG = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*$/u;
 export const Slug = z.string().regex(SLUG).brand<'Slug'>();
 export type Slug = z.infer<typeof Slug>;
 
+/** The longest a Lore's topic may be: `skill:lore:<topic>` must stay a selector, which holds at most 128 characters. */
+export const LORE_TOPIC_MAX = 64;
+
+/** The longest a player's name for a Lore may be. */
+export const LORE_NAME_MAX_LENGTH = 60;
+
+/** What a pick of a Lore no loaded content names starts so: `lore:sailing`. */
+export const LORE_CHOICE_PREFIX = 'lore:';
+
+/** A pick of a custom-named Lore, by its topic (`lore:sailing`); the player's name for it is kept on the character. */
+export const LoreChoice = z
+  .string()
+  .max(LORE_CHOICE_PREFIX.length + LORE_TOPIC_MAX)
+  .regex(/^lore:[a-z\d](?:[a-z\d]|-(?=[a-z\d]))*$/u)
+  .brand<'LoreChoice'>();
+export type LoreChoice = z.infer<typeof LoreChoice>;
+
 /** Separates an entry slug's kind from its name. */
 const KIND_SEPARATOR = ':';
 

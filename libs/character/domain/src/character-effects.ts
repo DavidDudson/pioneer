@@ -1,9 +1,10 @@
-import { statisticContent, summariseEffects } from '@pioneer/rules/engine';
+import { summariseEffects } from '@pioneer/rules/engine';
 import type { EffectLine, EffectMode, SummarisedEntry } from '@pioneer/rules/engine';
 
 import type { CharacterDocument } from './character-document';
 import { rulesInPlay } from './character-statistics';
 import type { StatisticSources } from './character-statistics';
+import { characterStatisticContent } from './custom-lore';
 import { contentRolledAs } from './initiative-roll';
 
 /** The entry whose effects are asked for, and whether it is in play or would be. */
@@ -23,7 +24,7 @@ export function characterEffects(
   sources: StatisticSources,
   { entry, mode }: EffectsRequest,
 ): readonly EffectLine[] {
-  const content = statisticContent(sources.registry);
+  const content = characterStatisticContent(sources.registry, document);
   if (content === undefined) {
     return [];
   }

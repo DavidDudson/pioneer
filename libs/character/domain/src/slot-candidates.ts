@@ -1,5 +1,5 @@
 import { ChoiceValue, Level } from '@pioneer/rules/sdk';
-import type { ContentId, SlotKey } from '@pioneer/rules/sdk';
+import type { SlotKey } from '@pioneer/rules/sdk';
 
 import { boostSlots } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
@@ -19,7 +19,7 @@ import { slotContextOf } from './slot-reads';
 type Candidates = (document: CharacterDocument, content: SlotContent, key: SlotKey) => readonly ChoiceValue[];
 
 interface Identified {
-  readonly id: ContentId;
+  readonly id: ChoiceValue;
 }
 
 /** The ids of the things a slot offers, each as a pick. */

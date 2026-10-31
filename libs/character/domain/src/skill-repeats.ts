@@ -2,6 +2,7 @@ import { Level } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentId, Selector, SlotKey } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
+import { documentSkills } from './custom-lore';
 import { withoutPick } from './feat-slots';
 import type { SkillOption } from './skill-content';
 import { trainingEntries } from './skill-raises';
@@ -17,7 +18,8 @@ function pickedTrainings(document: CharacterDocument, content: SlotContent): Rea
     slots
       .filter((slot) => slot.kind === SkillSlotKind.Training && slot.level <= level)
       .flatMap((slot) => {
-        const named = slot.stored === undefined ? undefined : content.skills.skill(slot.stored);
+        const named =
+          slot.stored === undefined ? undefined : documentSkills(document, content.skills).skill(slot.stored);
         return named === undefined ? [] : [named.selector];
       }),
   );

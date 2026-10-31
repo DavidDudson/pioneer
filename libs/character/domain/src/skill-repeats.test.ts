@@ -32,7 +32,10 @@ function as(name: PlayerCoreClass): CharacterBuilder {
   return new CharacterBuilder().named(name).picking('class', playerCoreClassId(name)).picking('boost:1:class:0', 'dex');
 }
 
-function repeatedBy(builder: CharacterBuilder, values: readonly ChoiceValue[]): ReadonlyMap<ChoiceValue, ContentId[]> {
+function repeatedBy(
+  builder: CharacterBuilder,
+  values: readonly ChoiceValue[],
+): ReadonlyMap<ChoiceValue, ChoiceValue[]> {
   const { document } = builder.build();
   const repeats = repeatedTrainings(document, content, { slot: BACKGROUND, values });
   return new Map([...repeats].map(([value, skills]) => [value, skills.map((skill) => skill.id)]));

@@ -10,6 +10,7 @@ import type {
   CharacterSlot,
   ClearedPick,
   CreateCharacterBody,
+  LoreName,
   OverrideAuthor,
   PatchedCharacterSheet,
   SheetDeity,
@@ -288,9 +289,9 @@ export class CharacterStore {
     this.#cleared.set(cleared);
   }
 
-  /** Picks `selection` in `slot`. The server refuses a slot the character has at no level, or an option it doesn't offer. */
-  public async selectSlot(slot: SlotKey, selection: ChoiceValue): Promise<void> {
-    await this.patch({ field: CharacterPatchField.SelectSlot, slot, selection });
+  /** Picks `selection` in `slot`, a custom Lore with the name the player gave it. The server refuses a slot the character has at no level, or an option it doesn't offer. */
+  public async selectSlot(slot: SlotKey, selection: ChoiceValue, loreName?: LoreName): Promise<void> {
+    await this.patch({ field: CharacterPatchField.SelectSlot, slot, selection, loreName });
   }
 
   /** Empties `slot`, keeping every other pick. */

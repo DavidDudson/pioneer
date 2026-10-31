@@ -14,6 +14,7 @@ import { attributeModifiers, boostContent, boostSets } from './attribute-boosts'
 import type { BoostContent } from './attribute-boosts';
 import type { CharacterDocument } from './character-document';
 import { characterRootSlots, variantGrantRoots } from './character-slots';
+import { documentSkills } from './custom-lore';
 import { featContent } from './feat-content';
 import type { FeatContent } from './feat-content';
 import { languageContent } from './language-content';
@@ -145,7 +146,7 @@ export function skillReads(document: CharacterDocument, content: SlotContent): S
     resolved.set(level, resolution);
     return resolution;
   };
-  return { skills: content.skills, boosts: content.boosts, grantsAt };
+  return { skills: documentSkills(document, content.skills), boosts: content.boosts, grantsAt };
 }
 
 /** What language slots read: the languages content and namespaces, and the skill reads, grants resolved once. */

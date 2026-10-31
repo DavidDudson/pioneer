@@ -154,7 +154,7 @@ export class SheetState {
     engineRegistry: this.#engineRegistry,
     character: this.character,
     slots: this.store.slots,
-    select: async (slot, selection) => this.store.selectSlot(slot, selection),
+    select: async (slot, selection, loreName) => this.store.selectSlot(slot, selection, loreName),
     clear: async (slot) => this.store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
     claims: this.claims,

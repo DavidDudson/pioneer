@@ -1,5 +1,5 @@
 import type { PickerSort, TableColumn } from '@pioneer/frontier/data';
-import { Rarity } from '@pioneer/rules/sdk';
+import { Attribute, LORE_CHOICE_PREFIX, LORE_NAME_MAX_LENGTH, Proficiency, Rarity } from '@pioneer/rules/sdk';
 
 import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
 import { chips, shownBy } from '../origin-picker/origin-picker-table';
@@ -211,3 +211,28 @@ export const shownLanguageRows: ShownRows<LanguagePickerRow> = shownBy(languageO
 
 /** The attributes whose name holds `query`, by name or modifier when asked. */
 export const shownAttributeRows: ShownRows<AttributePickerRow> = shownBy(attributeOrder);
+
+const LORE_WORD = /\s+lore$/iu;
+const LETTER_OR_DIGIT = /[a-z\d]/iu;
+
+/**
+ * The row that adds what is typed in the search box as a Lore, when it names no skill or Lore the slot lists: picking
+ * it picks `lore:<what was typed>`, which the builder keeps under its topic. None for an empty or too long name.
+ */
+export function typedLoreRow(query: string, rows: readonly SkillPickerRow[], say: Say): SkillPickerRow | undefined {
+  const typed = query.trim();
+  const topic = typed.replace(LORE_WORD, '').toLowerCase();
+  const listed = rows.some(({ name }) => name.replace(LORE_WORD, '').toLowerCase() === topic);
+  if (listed || !LETTER_OR_DIGIT.test(typed) || typed.length > LORE_NAME_MAX_LENGTH) {
+    return undefined;
+  }
+  return {
+    id: `${LORE_CHOICE_PREFIX}${typed}`,
+    name: say(SlotPickerMessage.AddLore, { name: typed.replace(LORE_WORD, '') }),
+    attribute: Attribute.Intelligence,
+    rank: Proficiency.Untrained,
+    modifier: undefined,
+    armorPenalty: undefined,
+    disabledReason: undefined,
+  };
+}

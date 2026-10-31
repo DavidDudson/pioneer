@@ -2,6 +2,7 @@ import { Level } from '@pioneer/rules/sdk';
 import type { Selector, SlotKey } from '@pioneer/rules/sdk';
 
 import type { CharacterDocument } from './character-document';
+import { documentSkills } from './custom-lore';
 import { trainedEntries } from './skill-raises';
 import { trainedSkills } from './skill-trained';
 import type { TrainedSkill } from './skill-trained';
@@ -14,7 +15,7 @@ function slotTrainings(document: CharacterDocument, content: SlotContent): Reado
   const level = Level.parse(document.level);
   const picked = new Map<Selector, SlotKey[]>();
   for (const slot of skillSlots(document, skillReads(document, content))) {
-    const named = slot.stored === undefined ? undefined : content.skills.skill(slot.stored);
+    const named = slot.stored === undefined ? undefined : documentSkills(document, content.skills).skill(slot.stored);
     if (slot.kind === SkillSlotKind.Training && slot.level <= level && named !== undefined) {
       picked.set(named.selector, [...(picked.get(named.selector) ?? []), slot.key]);
     }
@@ -29,7 +30,8 @@ function slotTrainings(document: CharacterDocument, content: SlotContent): Reado
  */
 export function skillsTrainedTwice(document: CharacterDocument, content: SlotContent): readonly TrainedSkill[] {
   const entries = trainedEntries(skillReads(document, content).grantsAt(Level.parse(document.level)));
-  return trainedSkills(content.skills.skills, () => true, { entries, slots: slotTrainings(document, content) }).filter(
-    ({ sources }) => sources.length > 1,
-  );
+  return trainedSkills(documentSkills(document, content.skills).skills, () => true, {
+    entries,
+    slots: slotTrainings(document, content),
+  }).filter(({ sources }) => sources.length > 1);
 }

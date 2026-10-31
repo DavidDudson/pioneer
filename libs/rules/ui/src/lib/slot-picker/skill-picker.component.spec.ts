@@ -9,10 +9,12 @@ import {
   render,
   rowLabels,
   rowText,
+  search,
   settle,
   sortButton,
   stubLayout,
 } from '../testing/origin-picker-testing';
+import type { Rendered } from '../testing/origin-picker-testing';
 import { skillRow } from '../testing/slot-picker-fixtures';
 import { SkillPicker } from './skill-picker.component';
 
@@ -28,6 +30,18 @@ const ATHLETICS = skillRow({
   modifier: -1,
 });
 const LOCKED = skillRow({ id: 'stealth', name: 'Stealth', disabledReason: 'Trained already' });
+const LORE = skillRow({ id: 'scribing-lore', name: 'Scribing Lore' });
+const SEARCH_DELAY = 500;
+
+/** A picker that allows Lores, with `text` typed in its search box. */
+async function typed(text: string, inputs: Readonly<Record<string, unknown>> = {}): Promise<Rendered<SkillPicker>> {
+  vi.useFakeTimers();
+  const rendered = await render(SkillPicker, { rows: [ARCANA, LORE], allowLore: true, ...inputs });
+  search(rendered, text);
+  await vi.advanceTimersByTimeAsync(SEARCH_DELAY);
+  await settle(rendered.fixture);
+  return rendered;
+}
 
 describe(SkillPicker, () => {
   beforeEach(() => {
@@ -96,6 +110,41 @@ describe(SkillPicker, () => {
     await settle(rendered.fixture);
     expect(rendered.fixture.componentInstance.value()).toBe('athletics');
     expect(rendered.commits()).toBe(1);
+  });
+
+  describe('typing a Lore', () => {
+    it('offers to add what is typed when no skill is named so', async () => {
+      const { host } = await typed('Sailing');
+      expect(rowLabels(host)).toStrictEqual(['Add the Lore "Sailing"']);
+    });
+
+    it('picks the typed name as a Lore and commits it', async () => {
+      const rendered = await typed('Sailing');
+      nameCellAt(rendered.host, 0).click();
+      await settle(rendered.fixture);
+      expect(rendered.fixture.componentInstance.value()).toBe('lore:Sailing');
+      expect(rendered.commits()).toBe(1);
+    });
+
+    it('does not offer the Lore word twice', async () => {
+      const { host } = await typed('Sailing Lore');
+      expect(rowLabels(host)).toStrictEqual(['Add the Lore "Sailing"']);
+    });
+
+    it('offers nothing for a name a listed skill or Lore already has', async () => {
+      const { host } = await typed('scribing lore');
+      expect(rowLabels(host)).toStrictEqual(['Scribing Lore']);
+    });
+
+    it('offers nothing unless the slot allows Lores', async () => {
+      const { host } = await typed('Sailing', { allowLore: false });
+      expect(rowLabels(host)).toStrictEqual([]);
+    });
+
+    it('offers nothing for a name with no letters or digits', async () => {
+      const { host } = await typed('!!!');
+      expect(rowLabels(host)).toStrictEqual([]);
+    });
   });
 
   it('cancels on Escape and keeps the previous pick', async () => {

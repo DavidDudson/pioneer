@@ -1,11 +1,22 @@
 import { ContentId, ContentKind, Level } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, ContentText, Selector, SkillCount, StatisticId } from '@pioneer/rules/sdk';
+import type {
+  ChoiceValue,
+  ContentRegistry,
+  ContentText,
+  LoreChoice,
+  Selector,
+  SkillCount,
+  StatisticId,
+} from '@pioneer/rules/sdk';
 
 import { CHARACTER_LEVEL_MAX } from './character-fields';
 
-/** A skill or Lore a pick names: its statistic entry, the selector whose rank it raises, and its name. */
+/**
+ * A skill or Lore a pick names: its statistic entry (or, for a Lore the player named, its `lore:<topic>` pick), the
+ * selector whose rank it raises, and its name.
+ */
 export interface SkillOption {
-  readonly id: ContentId;
+  readonly id: ContentId | LoreChoice;
   readonly selector: Selector;
   readonly name: ContentText;
 }
@@ -57,10 +68,10 @@ function skillsById(registry: ContentRegistry): ReadonlyMap<ContentId, SkillOpti
   const fields = registry.statistics().map(({ id, definition: { name, selector } }) => ({ id, name, selector }));
   const skills = fields.flatMap((each) => skillOf(each) ?? []);
   const bySelector = new Map(skills.map((skill) => [skill.selector, skill]));
-  return new Map(
+  return new Map<ContentId, SkillOption>(
     skills.flatMap((skill) => {
       const current = bySelector.get(skill.selector);
-      return current === undefined ? [] : [[skill.id, current] as const];
+      return current === undefined ? [] : [[ContentId.parse(skill.id), current] as const];
     }),
   );
 }

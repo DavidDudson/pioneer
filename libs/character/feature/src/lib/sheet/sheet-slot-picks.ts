@@ -1,11 +1,13 @@
 import { computed, signal, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
+import { loreDisplayName, LoreName, loreSelectionOf, TypedLore } from '@pioneer/character/domain';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import type { AttributePickerRow, SkillPickerRow, SlotPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import * as z from 'zod';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { sheetField } from './sheet-field';
@@ -22,7 +24,7 @@ export interface SlotPickSources {
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;
-  readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
+  readonly select: (slot: SlotKey, selection: ChoiceValue, loreName?: LoreName) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string) => string;
 }
@@ -40,6 +42,25 @@ export interface SlotPickField {
   /** The skills the slot can't offer because the character is trained already, and what trains them. */
   readonly trained: Signal<readonly TrainedNote[]>;
   readonly field: InlineEdit<string | undefined>;
+}
+
+/** A draft in a skill pick: a pick, none, or a Lore typed in the picker (`lore:Sailing`). */
+const SlotDraft = z.union([RootPick, TypedLore]);
+
+/** Picks what a draft says in `slot`: a typed Lore becomes the pick of its topic, with the name it was typed as. */
+async function saveDraft(sources: SlotPickSources, slot: SlotKey, draft: string): Promise<void> {
+  const typed = TypedLore.safeParse(draft);
+  const lore = typed.success ? loreSelectionOf(typed.data) : undefined;
+  await (lore === undefined
+    ? sources.select(slot, ChoiceValue.parse(draft))
+    : sources.select(slot, lore.selection, lore.loreName));
+}
+
+/** The name a typed Lore draft shows as: what was typed, with Lore after it. */
+function typedName(draft: string): string | undefined {
+  const typed = TypedLore.safeParse(draft);
+  const lore = typed.success ? LoreName.safeParse(draft.slice(typed.data.indexOf(':') + 1)) : undefined;
+  return lore?.success === true ? loreDisplayName(lore.data) : undefined;
 }
 
 /** The name the server read for the pick stored in `slot`, shown when its slot no longer offers it. */
@@ -64,15 +85,13 @@ export function slotField(
       return key === undefined ? NOT_CHOSEN : (character.document.build.choices[key] ?? NOT_CHOSEN);
     },
     empty: NOT_CHOSEN,
-    schema: RootPick,
+    schema: SlotDraft,
     save: async (value) => {
       const key = slot();
       if (key === undefined) {
         return;
       }
-      await (value === undefined || value === NOT_CHOSEN
-        ? sources.clear(key)
-        : sources.select(key, ChoiceValue.parse(value)));
+      await (value === undefined || value === NOT_CHOSEN ? sources.clear(key) : saveDraft(sources, key, value));
     },
     format: (value) => {
       if (value === undefined || value === NOT_CHOSEN) {
@@ -80,7 +99,7 @@ export function slotField(
       }
       const key = slot();
       const stored = key === undefined ? undefined : storedName(sources, key);
-      return options().find((option) => option.value === value)?.label ?? stored ?? value;
+      return options().find((option) => option.value === value)?.label ?? stored ?? typedName(value) ?? value;
     },
   });
 }

@@ -5,6 +5,7 @@
     <fr-inline-field [label]="label" [edit]="current.field">
       <pio-skill-picker
         frInlineEditor
+        [allowLore]="true"
         [ariaLabel]="label"
         [placeholder]="Message.Search | transloco"
         [rows]="current.rows()"

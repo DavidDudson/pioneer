@@ -7,7 +7,7 @@ import { SkillPicker } from '@pioneer/rules/ui';
 import type { SkillPickerRow } from '@pioneer/rules/ui';
 import { describe, expect, it, vi } from 'vitest';
 
-import { pickRow, rowsShown } from '../../testing/origin-table-testing';
+import { pickRow, pickValue, rowsShown } from '../../testing/origin-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
 const openSheet = openerAt(SheetMode.Encounter);
@@ -18,9 +18,9 @@ const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1
 const FIRST_SLOT = 'Level 1 trained skill 1';
 
 /** Merisiel as a fighter, with `choices` picked besides. */
-function fighter(choices: Readonly<Record<string, string>> = {}): object {
+function fighter(choices: Readonly<Record<string, string>> = {}, lores: Readonly<Record<string, string>> = {}): object {
   const picks = { ...MERISIEL.build.choices, class: playerCoreClassId('fighter'), 'boost:1:class:0': 'str' };
-  return { ...MERISIEL, build: { choices: { ...picks, ...choices } } };
+  return { ...MERISIEL, build: { choices: { ...picks, ...choices }, lores } };
 }
 
 function skillsSection(root: HTMLElement): HTMLElement {
@@ -167,6 +167,35 @@ describe('CharacterSheetPage skills', () => {
       expect(rankOf(root, 'Athletics')).toStrictEqual({ letter: 'T', name: 'Trained' });
     });
     expect(rankOf(root, 'Acrobatics')).toStrictEqual({ letter: 'U', name: 'Untrained' });
+  });
+
+  it('lists a custom Lore the character picked with its rank, like a loaded one', async () => {
+    const { root } = await openSheet(fighter({ 'skill-training:1:0': 'lore:sailing' }, { sailing: 'Sailing' }));
+    const tab = await vi.waitFor(() =>
+      present(
+        [...skillsSection(root).querySelectorAll('fr-segmented button')].find(
+          (each) => each.textContent.trim() === 'Lores',
+        ),
+      ),
+    );
+    (tab as HTMLElement).click();
+
+    await vi.waitFor(() => {
+      expect(rankOf(root, 'Sailing Lore')).toStrictEqual({ letter: 'T', name: 'Trained' });
+    });
+    expect(skillRow(root, 'Sailing Lore')).toMatch(/[+-]\d/u);
+  });
+
+  it('saves a Lore typed in a skill picker as a pick of its topic, with the name as typed', async () => {
+    const { root } = await openSheet(fighter());
+    await pickValue(root, { label: FIRST_SLOT, type: SkillPicker }, 'lore:Sailing Lore');
+
+    const request = await vi.waitFor(() =>
+      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
+    );
+    expect(request.request.body).toMatchObject({
+      patch: { field: 'selectSlot', slot: 'skill-training:1:0', selection: 'lore:sailing', loreName: 'Sailing Lore' },
+    });
   });
 
   it('names a skill slot in the Choices section by its level', async () => {
