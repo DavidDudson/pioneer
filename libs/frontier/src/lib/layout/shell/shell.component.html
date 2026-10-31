@@ -43,8 +43,12 @@
     </fr-stack>
   </fr-box>
 </header>
-<main tabindex="-1" [id]="mainId" [class]="contentClasses()"><ng-content /></main>
-<aside [attr.aria-label]="panelLabel()" [class]="panelClasses()"><ng-content select="[frShellPanel]" /></aside>
+<div [class]="bodyClasses">
+  <div [class]="bodyRowClasses">
+    <main tabindex="-1" [id]="mainId" [class]="contentClasses"><ng-content /></main>
+    <aside [attr.aria-label]="panelLabel()" [class]="panelClasses()"><ng-content select="[frShellPanel]" /></aside>
+  </div>
+</div>
 <footer [class]="footerClasses">
   <fr-box width="page" padding="md" gutter>
     <ng-content select="[frShellFooter]" />

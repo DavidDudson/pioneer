@@ -30,23 +30,23 @@ import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { Stack } from '../stack/stack.component';
 import { readMinimised, writeMinimised } from './shell-panel-state';
 
-const shellClasses = cva('@container flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
+const shellClasses = cva('flex min-h-dvh flex-col bg-surface-canvas pr-safe-right pl-safe-left')();
+/** The query container for the body row; the row inside it is the flexbox, as an element cannot query its own size. */
+const bodyClasses = cva('@container flex flex-1 flex-col')();
+const bodyRowClasses = cva('flex flex-1 flex-col @lg:flex-row')();
 /**
- * Beside the page from `lg`, fixed to the end edge below the header and scrolling inside itself; narrower, a bar along
- * the bottom edge. Logical properties, so it moves to the start edge in right-to-left layouts.
+ * In the row beside the page from `lg`: stuck under the header and scrolling inside itself, at the end edge (the start
+ * edge in right-to-left layouts). Narrower, a bar stuck to the bottom edge of the screen, above the home indicator.
  */
 const panelVariants = cva(
   [
-    'fixed z-sticky overflow-auto border-line-subtle bg-surface-base',
-    'inset-x-none bottom-none h-shell-panel-bar pb-safe-bottom',
-    '@lg:inset-x-auto @lg:end-safe-right @lg:top-shell-header @lg:h-auto @lg:w-shell-panel @lg:border-s @lg:pb-none',
+    'sticky z-sticky overflow-auto border-line-subtle bg-surface-base',
+    'bottom-none h-shell-panel-bar border-t pb-safe-bottom',
+    '@lg:top-shell-header @lg:h-auto @lg:max-h-rail-height @lg:w-shell-panel @lg:shrink-0 @lg:self-start @lg:border-s @lg:pb-none',
   ].join(' '),
   { variants: { shown: { true: '', false: 'hidden' } } },
 );
-/** Room kept in the page for the panel, so nothing sits under it. */
-const contentVariants = cva('flex-1 focus:outline-hidden', {
-  variants: { panel: { true: 'pb-shell-panel-bar @lg:pe-shell-panel @lg:pb-none', false: '' } },
-});
+const contentClasses = cva('min-w-none flex-1 focus:outline-hidden')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
 const searchVariants = cva('', { variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } } });
@@ -68,8 +68,8 @@ const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
  * A skip link, hidden until focused, is the first thing Tab reaches and moves
  * focus past the header to `<main>`.
  * Pads for notches and home indicators (needs `viewport-fit=cover`).
- * A panel slot (`frShellPanel`) is fixed to the end edge below the header, outside `<main>`, once the page sets
- * `panelAvailable`; the page keeps matching end padding, and below `lg` the panel is a bar along the bottom edge.
+ * A panel slot (`frShellPanel`) is beside `<main>` in a row from `lg`, stuck under the header at the end edge, once the page sets
+ * `panelAvailable`; below `lg` the panel is a bar stuck to the bottom edge.
  * While available, a three-dot menu in the header minimises and restores it; the choice is kept in this browser.
  * Built only from layout primitives; apart from the panel, it has no responsive CSS of its own.
  */
@@ -121,8 +121,10 @@ export class Shell {
   protected readonly panelToggleKey = computed(() =>
     this.panelMinimised() ? 'frontier.shell.showPanel' : 'frontier.shell.hidePanel',
   );
+  protected readonly bodyClasses = bodyClasses;
+  protected readonly bodyRowClasses = bodyRowClasses;
   // Focused only by the skip link, as the starting point for the next Tab: the page itself draws no outline.
-  protected readonly contentClasses = computed(() => contentVariants({ panel: this.panelShown() }));
+  protected readonly contentClasses = contentClasses;
 
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
   readonly #destroyRef = inject(DestroyRef);

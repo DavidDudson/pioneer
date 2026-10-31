@@ -51,7 +51,7 @@ export const Default: ShellStory = {};
 export const SearchClosed: ShellStory = { args: { searchAvailable: true } };
 export const SearchOpen: ShellStory = { args: { searchAvailable: true, searchOpen: true } };
 
-/** The panel fixed beside the page (a bar along the bottom on a phone), with the header menu that minimises it. */
+/** The panel stuck beside the page (a bar along the bottom on a phone), with the header menu that minimises it. */
 export const WithPanel: ShellStory = { args: { panelAvailable: true, panelLabel: 'Party' } };
 
 /** Whether the span around the skip link fits its text: `sr-only` clips it to 1px (plus any padding) while hidden. */

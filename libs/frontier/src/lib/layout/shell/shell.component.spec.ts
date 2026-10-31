@@ -52,7 +52,7 @@ async function render(inputs: Readonly<Record<string, boolean | string>> = {}): 
   const shell = component.location.nativeElement as HTMLElement;
   const header = shell.querySelector<HTMLElement>(':scope > header');
   const search = shell.querySelector<HTMLElement>(':scope > header [frShellSearch]');
-  const content = shell.querySelector<HTMLElement>(':scope > main');
+  const content = shell.querySelector<HTMLElement>(':scope > div main');
   const footer = shell.querySelector<HTMLElement>(':scope > footer');
   if (header === null || search === null || content === null || footer === null) {
     throw new Error('fr-shell rendered no header, search slot, main or footer');
@@ -61,7 +61,7 @@ async function render(inputs: Readonly<Record<string, boolean | string>> = {}): 
 }
 
 function panelOf(shell: HTMLElement): HTMLElement | null {
-  return shell.querySelector<HTMLElement>(':scope > aside:not(.hidden)');
+  return shell.querySelector<HTMLElement>(':scope > div aside:not(.hidden)');
 }
 
 function menuTrigger(shell: HTMLElement): HTMLElement | null {
@@ -190,20 +190,19 @@ describe(Shell, () => {
     });
 
     it('takes no space and adds no menu while the page has no panel', async () => {
-      const { shell, content } = await render();
+      const { shell } = await render();
       expect(panelOf(shell)).toBeNull();
       expect(menuTrigger(shell)).toBeNull();
-      expect(content.className).not.toContain('pb-shell-panel-bar');
     });
 
-    it('fixes the panel outside main, padded for the home indicator, and keeps the page clear of it', async () => {
+    it('puts the panel beside main, not in it, stuck in place and padded for the home indicator', async () => {
       const { shell, content } = await render({ panelAvailable: true, panelLabel: 'Party' });
       const panel = panelOf(shell);
       expect(panel?.getAttribute('aria-label')).toBe('Party');
       expect(panel?.textContent.trim()).toBe('Avatars');
       expect(content.contains(panel)).toBe(false);
-      expect(panel?.className).toMatch(/\bfixed\b.*\bpb-safe-bottom\b/u);
-      expect([...content.classList]).toContain('pb-shell-panel-bar');
+      expect(panel?.className).toContain('sticky');
+      expect(panel?.className).toContain('pb-safe-bottom');
     });
 
     it('minimises and restores from the header menu, remembering the choice', async () => {
@@ -221,9 +220,8 @@ describe(Shell, () => {
 
     it('starts minimised when the browser remembers it', async () => {
       localStorage.setItem(MINIMISED_KEY, 'true');
-      const { shell, content } = await render({ panelAvailable: true, panelLabel: 'Party' });
+      const { shell } = await render({ panelAvailable: true, panelLabel: 'Party' });
       expect(panelOf(shell)).toBeNull();
-      expect(content.className).not.toContain('pb-shell-panel-bar');
       expect(menuTrigger(shell)).not.toBeNull();
     });
   });
@@ -231,9 +229,8 @@ describe(Shell, () => {
   it('projects routed content into main, between the header and the footer', async () => {
     const { content, header, footer } = await render();
     expect(content.textContent.trim()).toBe('Routed page');
-    expect(content.previousElementSibling).toBe(header);
-    // The panel's aside, hidden while empty, sits between main and the footer.
-    expect(content.nextElementSibling?.nextElementSibling).toBe(footer);
+    expect(content.closest('div')?.parentElement?.previousElementSibling).toBe(header);
+    expect(content.closest('div')?.parentElement?.nextElementSibling).toBe(footer);
     expect([...content.classList]).toContain('flex-1');
   });
 
