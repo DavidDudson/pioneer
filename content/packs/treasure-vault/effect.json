@@ -1617,6 +1617,37 @@
         ],
         "prompt": "Select an item variety.",
         "rollOption": "blade-byrnie"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "bonus",
+        "choices": [
+          {
+            "value": "1",
+            "label": "+1",
+            "predicate": ["blade-byrnie:blade-byrnie"]
+          },
+          {
+            "value": "2",
+            "label": "+2",
+            "predicate": [
+              {
+                "or": ["blade-byrnie:blade-byrnie", "blade-byrnie:blade-byrnie-greater"]
+              }
+            ]
+          },
+          {
+            "value": "3",
+            "label": "+3"
+          }
+        ],
+        "prompt": "Select a bonus.",
+        "rollOption": "effect-blade-byrnie-bonus",
+        "predicate": [
+          {
+            "not": "parent:origin:item"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -7016,6 +7047,182 @@
         ],
         "prompt": "Select an item variety.",
         "rollOption": "insight-coffee"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "insight-coffee",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcana"
+          },
+          {
+            "value": "medicine",
+            "label": "Medicine"
+          },
+          {
+            "value": "nature",
+            "label": "Nature"
+          },
+          {
+            "value": "occultism",
+            "label": "Occultism"
+          },
+          {
+            "value": "religion",
+            "label": "Religion"
+          },
+          {
+            "value": "society",
+            "label": "Society"
+          }
+        ],
+        "prompt": "Select a skill.",
+        "rollOption": "effect-insight-coffee-insight-coffee"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:medicine"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:medicine"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:nature"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:society"],
+        "type": "item",
+        "value": 2,
+        "slug": "insight-coffee-bonus",
+        "predicate": ["action:recall-knowledge", "effect-insight-coffee-insight-coffee:society"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:arcana"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:arcana"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:medicine"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:medicine"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:nature"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:nature"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:occultism"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:occultism"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:religion"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:society"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": ["insight-coffee:insight-coffee-moderate", "effect-insight-coffee-insight-coffee:society"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:arcana"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:arcana"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:medicine"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:medicine"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:nature"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:nature"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:occultism"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:occultism"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:religion"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:religion"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["skill:society"],
+        "slug": "insight-coffee-bonus",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": ["insight-coffee:insight-coffee-greater", "effect-insight-coffee-insight-coffee:society"]
       }
     ],
     "externalIds": {

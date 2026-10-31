@@ -14322,7 +14322,60 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "eidolon-cape-selection",
+        "choices": [
+          {
+            "value": "arcana",
+            "label": "Arcane"
+          },
+          {
+            "value": "religion",
+            "label": "Divine"
+          },
+          {
+            "value": "occultism",
+            "label": "Occult"
+          },
+          {
+            "value": "nature",
+            "label": "Primal"
+          }
+        ],
+        "prompt": "Select your eidolon's tradition",
+        "rollOption": "eidolon-cape-selection"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["eidolon-cape-selection:arcana"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["eidolon-cape-selection:religion"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:occultism"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["eidolon-cape-selection:occultism"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:nature"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["eidolon-cape-selection:nature"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.nxAMYJrG96yn9iBq"
     },
@@ -59010,7 +59063,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "force",
+            "label": "Arcane"
+          },
+          {
+            "value": "spirit",
+            "label": "Divine"
+          },
+          {
+            "value": "mental",
+            "label": "Occult"
+          },
+          {
+            "value": "fire",
+            "label": "Primal"
+          }
+        ],
+        "rollOption": "wyrm-s-wingspan-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 5,
+        "predicate": ["wyrm-s-wingspan-resistance:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": 5,
+        "predicate": ["wyrm-s-wingspan-resistance:spirit"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 5,
+        "predicate": ["wyrm-s-wingspan-resistance:mental"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["wyrm-s-wingspan-resistance:fire"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.WgW14gY5SPxQuf78"
     },
@@ -59259,7 +59360,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "force",
+            "label": "Arcane"
+          },
+          {
+            "value": "spirit",
+            "label": "Divine"
+          },
+          {
+            "value": "mental",
+            "label": "Occult"
+          },
+          {
+            "value": "fire",
+            "label": "Primal"
+          }
+        ],
+        "rollOption": "wyrm-s-wingspan-greater-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 10,
+        "predicate": ["wyrm-s-wingspan-greater-resistance:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": 10,
+        "predicate": ["wyrm-s-wingspan-greater-resistance:spirit"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 10,
+        "predicate": ["wyrm-s-wingspan-greater-resistance:mental"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 10,
+        "predicate": ["wyrm-s-wingspan-greater-resistance:fire"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.eBUWprW319xzAh5B"
     },
@@ -59508,7 +59657,55 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "resistance",
+        "choices": [
+          {
+            "value": "force",
+            "label": "Arcane"
+          },
+          {
+            "value": "spirit",
+            "label": "Divine"
+          },
+          {
+            "value": "mental",
+            "label": "Occult"
+          },
+          {
+            "value": "fire",
+            "label": "Primal"
+          }
+        ],
+        "rollOption": "wyrm-s-wingspan-major-resistance"
+      },
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 15,
+        "predicate": ["wyrm-s-wingspan-major-resistance:force"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["spirit"],
+        "value": 15,
+        "predicate": ["wyrm-s-wingspan-major-resistance:spirit"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["mental"],
+        "value": 15,
+        "predicate": ["wyrm-s-wingspan-major-resistance:mental"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 15,
+        "predicate": ["wyrm-s-wingspan-major-resistance:fire"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ngUqDJjNCbzS3rxX"
     },

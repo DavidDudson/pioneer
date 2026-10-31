@@ -175,7 +175,7 @@ function plainChoice(choice: Fields, field: string): Fields {
 }
 
 /** The elements that read the pick and are made once for each value of what they read, not as a variant of a form. */
-const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
+export const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
   'RollOption',
   'DamageDice',
   'FlatModifier',
@@ -186,13 +186,13 @@ const EXPANDED_KEYS: ReadonlySet<unknown> = new Set([
 ]);
 
 /** The predicate `raw` has already, which the test of the pick joins. */
-function predicateOf(raw: Fields): readonly unknown[] {
+export function predicateOf(raw: Fields): readonly unknown[] {
   const { predicate } = raw;
   return Array.isArray(predicate) ? predicate : [];
 }
 
 /** The test that one of the dragons with a value was picked: its roll option, or any of them. */
-function pickedOneOf(namespace: string, slugs: readonly string[]): unknown {
+export function pickedOneOf(namespace: string, slugs: readonly string[]): unknown {
   const options = slugs.map((slug) => `${namespace}:${slug}`);
   const [only] = options;
   return options.length === 1 ? only : { or: options };
