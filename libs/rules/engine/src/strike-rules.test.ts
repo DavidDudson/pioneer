@@ -6,6 +6,7 @@ import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/s
 
 import { deriveStatistics } from './derive-statistics';
 import { StatisticInputsJson } from './statistic-inputs';
+import type { StatisticResult } from './statistic-result';
 import { deriveStrikes } from './strikes';
 import type { Strike } from './strikes';
 import { inPlay, wielded } from './testing';
@@ -176,5 +177,45 @@ describe('Strike notes from rule elements', () => {
         [calm, 'b'],
       ])?.notes,
     ).toEqual([]);
+  });
+});
+
+const PICKED = { ...LONGSWORD, picked: ['edge'] };
+
+const spiritDice = (selectors: readonly string[]): object => ({
+  key: 'DamageDice',
+  selectors,
+  diceNumber: 1,
+  dieSize: 'd6',
+  damageType: 'spirit',
+});
+
+const statusBonus = (selector: string): object => ({
+  key: 'FlatModifier',
+  selectors: [selector],
+  type: 'status',
+  value: 4,
+});
+
+const totalOf = (result: StatisticResult | undefined): number =>
+  result?.ok === true ? Number(result.total) : Number.NaN;
+
+describe('Strikes of a weapon that a ChoiceSet over owned items picked', () => {
+  test('a DamageDice aimed at picked:<flag>-damage reaches the pick and no other weapon', () => {
+    const element = spiritDice(['picked:edge-damage']);
+
+    expect(strikeOf([[element, 'edge']], PICKED)?.damage?.extra).toHaveLength(1);
+    expect(strikeOf([[element, 'edge']])?.damage?.extra).toHaveLength(0);
+    expect(strikeOf([[spiritDice(['picked:other-damage']), 'edge']], PICKED)?.damage?.extra).toHaveLength(0);
+  });
+
+  test('a FlatModifier aimed at picked:<flag>-damage adds to the pick; one aimed at -attack adds to its attack roll', () => {
+    const plain = strikeOf([]);
+    const damage = strikeOf([[statusBonus('picked:edge-damage'), 'edge']], PICKED);
+    const attack = strikeOf([[statusBonus('picked:edge-attack'), 'edge']], PICKED);
+
+    expect(totalOf(damage?.damage?.bonus)).toBe(totalOf(plain?.damage?.bonus) + 4);
+    expect(totalOf(attack?.attack)).toBe(totalOf(plain?.attack) + 4);
+    expect(totalOf(attack?.damage?.bonus)).toBe(totalOf(plain?.damage?.bonus));
   });
 });

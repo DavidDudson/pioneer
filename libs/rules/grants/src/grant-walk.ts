@@ -70,8 +70,8 @@ export interface GrantWalk {
   readonly errors: readonly GrantError[];
 }
 
-/** What one walk reads: the roots, the content, the facts every predicate is tested against, and the picks. */
-export interface WalkInputs {
+/** What one walk reads: the roots, the content, the facts every predicate is tested against, the picks and the items owned. */
+export interface WalkInputs extends Partial<Pick<ChoiceContext, 'owned'>> {
   readonly roots: readonly GrantRoot[];
   readonly lookup: ContentLookup;
   readonly facts: PredicateFacts;
@@ -104,10 +104,10 @@ class Walker {
   readonly #answered: AnsweredSlot[] = [];
   readonly #errors: GrantError[] = [];
 
-  public constructor({ lookup, facts, picks }: WalkInputs) {
+  public constructor({ lookup, facts, picks, owned = [] }: WalkInputs) {
     this.#lookup = lookup;
     this.#facts = facts;
-    this.#context = { facts, picks, lookup };
+    this.#context = { facts, picks, lookup, owned };
   }
 
   public get walk(): GrantWalk {

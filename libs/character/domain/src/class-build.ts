@@ -167,7 +167,7 @@ export function classFeatures(
 
 /** Whether `element` is a `ChoiceSet` querying class features tagged `tag`. */
 function queriesTag(element: RuleElement | undefined, tag: Slug): boolean {
-  if (element?.key !== RuleElementKey.ChoiceSet || Array.isArray(element.choices)) {
+  if (element?.key !== RuleElementKey.ChoiceSet || Array.isArray(element.choices) || 'ownedKinds' in element.choices) {
     return false;
   }
   const wanted = `item:tag:${tag}`;

@@ -10,6 +10,7 @@ import {
   MagicTraditionSchema,
   Origin,
   ReferenceKind,
+  RuleSlug,
   RuneGrade,
   Selector,
   Slug,
@@ -35,6 +36,11 @@ export interface WeaponInputs {
   readonly traits: readonly Trait[];
   /** The precious materials it is made of, as its content names them and `ItemAlteration` elements add them. */
   readonly materials?: readonly Slug[] | undefined;
+  /**
+   * The flags of the `ChoiceSet`s over owned items that picked it: its rolls also answer to `picked:<flag>-attack` and
+   * `picked:<flag>-damage` (ADR-0075).
+   */
+  readonly picked?: readonly RuleSlug[] | undefined;
   /** The property runes (`flaming`) that `ItemAlteration` elements add to it; those etched on it work through its rules. */
   readonly propertyRunes?: readonly Slug[] | undefined;
   /** The range increment of a ranged weapon, which attacks with Dexterity. A melee weapon, thrown ones included, has none. */
@@ -115,6 +121,7 @@ const WeaponInputsJson = z.strictObject({
   splash: DamageAmount.optional(),
   quantity: ItemCount.optional(),
   favored: z.boolean().optional(),
+  picked: z.array(RuleSlug).readonly().optional(),
   origin: Origin,
 });
 

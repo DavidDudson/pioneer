@@ -1,5 +1,5 @@
 import { grantLookup, resolveGrants } from '@pioneer/rules/grants';
-import type { ContentLookup, GrantResolution, GrantRoot, RootSlotDefinition } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantResolution, GrantRoot, OwnedItem, RootSlotDefinition } from '@pioneer/rules/grants';
 import type { NamespaceTable } from '@pioneer/rules/predicate';
 import { Level, SlotKey } from '@pioneer/rules/sdk';
 import type {
@@ -17,9 +17,12 @@ import { characterRootSlots, variantGrantRoots } from './character-slots';
 import { documentSkills } from './custom-lore';
 import { featContent } from './feat-content';
 import type { FeatContent } from './feat-content';
+import { itemContent } from './inventory-content';
+import type { ItemContent } from './inventory-content';
 import { languageContent } from './language-content';
 import type { LanguageContent } from './language-content';
 import type { LanguageReads } from './language-levels';
+import { ownedItems } from './owned-items';
 import type { PreparedReads } from './prepared-spells';
 import { skillContent } from './skill-content';
 import type { SkillContent } from './skill-content';
@@ -47,6 +50,8 @@ export interface SlotContent {
   readonly feats: FeatContent;
   /** The roll options a roll supplies (an initiative roll's), which the facts every predicate reads include. */
   readonly situation?: readonly RollOption[] | undefined;
+  /** The items the loaded packs offer, which the character's inventory is read against; none when absent. */
+  readonly items?: ItemContent | undefined;
 }
 
 /** The slot content a registry gives, for a character with `variants` in force. */
@@ -62,12 +67,15 @@ export function slotContent(registry: ContentRegistry, variants: readonly Varian
     languages: languageContent(registry),
     spells: spellContent(registry),
     feats: featContent(registry),
+    items: itemContent(registry),
   };
 }
 
 /** What slots are read against: the character's picks and the content. */
 export interface SlotContext extends SlotContent {
   readonly picks: ReadonlyMap<SlotKey, ChoiceValue>;
+  /** The items the character owns, which a `ChoiceSet` over owned items offers. */
+  readonly owned?: readonly OwnedItem[] | undefined;
   /** The character's attribute modifiers at a level, which the engine sets `attribute:str:mod:2` from. */
   readonly modifiersAt?: ((level: Level) => AttributeModifiers) | undefined;
 }
@@ -75,7 +83,7 @@ export interface SlotContext extends SlotContent {
 /** The character's grants at `level` over `picks`, with its own slots as roots. */
 export function resolveSlotsAt(
   level: Level,
-  { picks, lookup, namespaces, rootSlots, variantRoots, modifiersAt }: SlotContext,
+  { picks, lookup, namespaces, rootSlots, variantRoots, modifiersAt, owned = [] }: SlotContext,
 ): GrantResolution {
   return resolveGrants({
     roots: variantRoots,
@@ -84,6 +92,7 @@ export function resolveSlotsAt(
     attributes: modifiersAt?.(level),
     situation: [],
     picks,
+    owned,
     toggles: new Map(),
     rootSlots,
     namespaces,
@@ -116,7 +125,12 @@ export function slotContextOf(
   content: SlotContent,
   picks: ReadonlyMap<SlotKey, ChoiceValue> = picksOf(document),
 ): SlotContext {
-  return { ...content, picks, modifiersAt: attributesAt(document, content) };
+  return {
+    ...content,
+    picks,
+    modifiersAt: attributesAt(document, content),
+    owned: ownedItems(document.inventory, content.items ?? new Map()),
+  };
 }
 
 /** The character's grants at `level` over every pick it holds, with its attribute modifiers there. */
