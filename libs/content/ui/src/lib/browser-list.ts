@@ -2,6 +2,7 @@ import type { FacetCounts } from '@pioneer/rules/sdk';
 import type { EntryPreview } from '@pioneer/rules/ui';
 
 import type { BrowseRow } from './browse-row';
+import type { StoreLink } from './browse-source';
 
 /** The list a tier shows: the rows to draw, how many entries the filters leave, and what each filter value would leave. */
 export interface ContentBrowserList {
@@ -16,4 +17,6 @@ export interface ContentBrowserList {
 /** The picked entry once its bundle has loaded; `card` is `undefined` when no entry has the link. */
 export interface ContentBrowserEntry {
   readonly card: EntryPreview | undefined;
+  /** Where the entry's books are sold. */
+  readonly stores: readonly StoreLink[];
 }

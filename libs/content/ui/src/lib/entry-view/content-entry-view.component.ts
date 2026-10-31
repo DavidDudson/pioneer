@@ -1,11 +1,14 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { LucidePackageSearch } from '@lucide/angular';
-import { EmptyState, HeadingLevel } from '@pioneer/frontier';
+import { EmptyState, HeadingLevel, Link, Stack } from '@pioneer/frontier';
 import { EntryPreviewView } from '@pioneer/rules/ui';
 import type { EntryPreview } from '@pioneer/rules/ui';
 
+import type { StoreLink } from '../browse-source';
+
 const EntryViewMessage = {
+  Store: 'contentBrowser.entry.store',
   MissingTitle: 'contentBrowser.entry.missingTitle',
   MissingDescription: 'contentBrowser.entry.missingDescription',
 } as const;
@@ -16,7 +19,7 @@ const EntryViewMessage = {
  */
 @Component({
   selector: 'pio-content-entry-view',
-  imports: [EmptyState, EntryPreviewView, TranslocoPipe],
+  imports: [EmptyState, EntryPreviewView, Link, Stack, TranslocoPipe],
   templateUrl: './content-entry-view.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -25,6 +28,8 @@ export class ContentEntryView {
   public readonly card = input.required<EntryPreview | undefined>();
   /** The whole description rather than its opening, for a page that is about the entry. */
   public readonly full = input(false, { transform: booleanAttribute });
+  /** Where the entry's books are sold, each a link. */
+  public readonly stores = input<readonly StoreLink[]>([]);
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 
   protected readonly Message = EntryViewMessage;

@@ -30,6 +30,7 @@ import { originOf } from '../panel/open-in-browser';
 import { injectEntryDescription } from './entry-description';
 import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry, kindOfParam } from './entry-lookup';
 import { injectEntryRegistry } from './entry-registry';
+import { storeLinks } from './entry-sources';
 
 const EntryMessage = {
   Title: 'content.page.title',
@@ -103,6 +104,10 @@ export class EntryPage {
   protected readonly card: Signal<EntryPreview | undefined> = computed(() => {
     const entry = this.entry();
     return entry === undefined ? undefined : entryCard(entry, this.#description.data());
+  });
+  protected readonly stores = computed(() => {
+    const entry = this.entry();
+    return entry === undefined ? [] : storeLinks(entry);
   });
 
   readonly #router = inject(Router);

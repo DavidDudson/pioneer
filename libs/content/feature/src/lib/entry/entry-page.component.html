@@ -17,7 +17,7 @@
           </fr-stack>
         </ng-template>
         <ng-template [frAsyncData]="registry">
-          <pio-content-entry-view full [card]="card()" [headingLevel]="headingLevel" />
+          <pio-content-entry-view full [card]="card()" [stores]="stores()" [headingLevel]="headingLevel" />
         </ng-template>
       </fr-async-region>
     </fr-stack>

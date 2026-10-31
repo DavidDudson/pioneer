@@ -34,3 +34,12 @@ export const Missing: ContentEntryViewStory = {
     await expect(canvas.getByText('No such entry')).toBeVisible();
   },
 };
+
+/** An entry whose book is sold by Paizo: a link under the card. */
+export const WithStore: ContentEntryViewStory = {
+  args: { stores: [{ title: 'rules.book.title.playerCore', url: 'https://store.paizo.com/pathfinder-player-core/' }] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('link', { name: /Buy Player Core from Paizo/u })).toBeVisible();
+  },
+};

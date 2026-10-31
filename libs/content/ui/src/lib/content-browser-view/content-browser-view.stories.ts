@@ -26,7 +26,7 @@ const meta: Meta<ContentBrowserView> = {
     fields: BROWSER_FIELDS,
     facetState: NO_FACETS,
     list: loaded(BROWSER_LIST),
-    entry: loaded({ card: SHIELD_BLOCK_CARD }),
+    entry: loaded({ card: SHIELD_BLOCK_CARD, stores: [] }),
     columns: [],
   },
 };

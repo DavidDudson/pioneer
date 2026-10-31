@@ -30,6 +30,7 @@ import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/
 
 import { injectEntryDescription } from '../entry/entry-description';
 import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry } from '../entry/entry-lookup';
+import { browseSources, storeLinks } from '../entry/entry-sources';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
@@ -182,12 +183,18 @@ export class ContentBrowser {
       : findEntry(registry, selected.kind, selected.name);
   });
   readonly #description = injectEntryDescription(() => this.#picked());
+  readonly #stores = computed(() => {
+    const entry = this.#picked();
+    return entry === undefined ? [] : storeLinks(entry);
+  });
   readonly #card: Signal<EntryPreview | undefined> = computed(() => {
     const entry = this.#picked();
     return entry === undefined ? undefined : entryCard(entry, this.#description.data());
   });
   protected readonly entry: AsyncQuery<ContentBrowserEntry> = {
-    data: computed(() => (this.registry.data() === undefined ? undefined : { card: this.#card() })),
+    data: computed(() =>
+      this.registry.data() === undefined ? undefined : { card: this.#card(), stores: this.#stores() },
+    ),
     error: this.registry.error,
     isPending: () => this.registry.isPending(),
     isError: () => this.registry.isError(),
@@ -223,7 +230,7 @@ export class ContentBrowser {
       levelValue: 'level' in entry && typeof entry.level === 'number' ? entry.level : undefined,
       creature: entry.kind === ContentKind.Creature ? this.#creatureOf(entry.data) : undefined,
       traits,
-      sources: entry.sources,
+      sources: browseSources(entry, this.#licenses()),
       legacy: isLegacyEntry(entry, this.#licenses()),
     };
   }
