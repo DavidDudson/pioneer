@@ -4,6 +4,7 @@ import type { Uuid } from '@pioneer/shared/kernel';
 
 import { ImportKind, ImportKindSchema } from './import-kind';
 import type { PathbuilderName } from './import-kind';
+import { LEGACY_ITEM_NAMES } from './legacy-names';
 
 /** The content entry a Pathbuilder name resolved to. */
 export interface ContentMatch {
@@ -40,12 +41,51 @@ export function matchKey(name: string): string {
     .trim();
 }
 
-/** Index of one kind's entries: Pathbuilder ids (their names) win over our names when both match. */
+/** Shortest name a typo is forgiven in; below this, one edit often makes a different word. */
+const MIN_FUZZY_LENGTH = 10;
+
+/** Pre-remaster names per kind, as match keys: legacy key to remaster key. */
+const LEGACY_KEYS: Partial<Record<ImportKind, ReadonlyMap<string, string>>> = {
+  [ImportKind.Item]: new Map(LEGACY_ITEM_NAMES.map(([legacy, remaster]) => [matchKey(legacy), matchKey(remaster)])),
+};
+
+function digitsOf(key: string): string {
+  return key.replaceAll(/\D/gu, '');
+}
+
+/** Whether `left` becomes `right` by one insertion, deletion, substitution or swap of neighbours. */
+function withinOneEdit(left: string, right: string): boolean {
+  if (Math.abs(left.length - right.length) > 1) {
+    return false;
+  }
+  let start = 0;
+  while (start < left.length && start < right.length && left[start] === right[start]) {
+    start += 1;
+  }
+  const first = left.slice(start);
+  const second = right.slice(start);
+  if (first.length === second.length) {
+    const swapped =
+      first.length > 1 &&
+      first.startsWith(`${second.charAt(1)}${second.charAt(0)}`) &&
+      first.slice(2) === second.slice(2);
+    return first.slice(1) === second.slice(1) || swapped;
+  }
+  const [long, short] = first.length > second.length ? [first, second] : [second, first];
+  return long.slice(1) === short;
+}
+
+/**
+ * Index of one kind's entries: Pathbuilder ids (their names) win over our names when both match, then pre-remaster
+ * names, then a lone name one typo away.
+ */
 class NameIndex {
   readonly #byExternal = new Map<string, ContentMatch>();
   readonly #byName = new Map<string, ContentMatch>();
+  readonly #legacy: ReadonlyMap<string, string>;
 
-  public constructor(entries: readonly LookupEntry[]) {
+  public constructor(entries: readonly LookupEntry[], legacy: ReadonlyMap<string, string> = new Map()) {
+    this.#legacy = legacy;
     for (const entry of entries) {
       const match: ContentMatch = { id: entry.id, name: entry.name };
       const external = entry.externalIds?.pathbuilder;
@@ -58,14 +98,34 @@ class NameIndex {
 
   public resolve(name: PathbuilderName): ContentMatch | undefined {
     const key = matchKey(name);
-    return this.#byExternal.get(key) ?? this.#byName.get(key);
+    return this.#exact(key) ?? this.#exact(this.#legacy.get(key)) ?? this.#nearby(key);
+  }
+
+  #exact(key: string | undefined): ContentMatch | undefined {
+    return key === undefined ? undefined : (this.#byExternal.get(key) ?? this.#byName.get(key));
+  }
+
+  /** The only entry one edit from `key` with the same numbers (+1 is not +2); nothing when none or several. */
+  #nearby(key: string): ContentMatch | undefined {
+    if (key.length < MIN_FUZZY_LENGTH) {
+      return undefined;
+    }
+    const digits = digitsOf(key);
+    const near = [...this.#byExternal, ...this.#byName].filter(
+      ([candidate]) => digitsOf(candidate) === digits && withinOneEdit(key, candidate),
+    );
+    const [only] = near;
+    return only !== undefined && near.every(([, match]) => match.id === only[1].id) ? only[1] : undefined;
   }
 }
 
 /** A lookup over in-memory entries per kind; a kind left out is not loaded. */
 export function entryLookup(entries: Partial<Record<ImportKind, readonly LookupEntry[]>>): ContentLookup {
   const indexes = new Map(
-    Object.entries(entries).map(([kind, list]) => [ImportKindSchema.parse(kind), new NameIndex(list)] as const),
+    Object.entries(entries).map(
+      ([kind, list]) =>
+        [ImportKindSchema.parse(kind), new NameIndex(list, LEGACY_KEYS[ImportKindSchema.parse(kind)])] as const,
+    ),
   );
   return {
     supports: (kind) => indexes.has(kind),
