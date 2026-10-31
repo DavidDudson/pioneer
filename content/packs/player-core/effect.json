@@ -18338,6 +18338,12 @@
       },
       {
         "key": "Resistance",
+        "type": ["spells"],
+        "value": 5,
+        "predicate": ["parent:spellcasting:tradition:arcane", "dragon-form-tradition:arcane"]
+      },
+      {
+        "key": "Resistance",
         "type": ["spirit", "void", "vitality"],
         "value": 10,
         "predicate": ["parent:spellcasting:tradition:divine", "dragon-form-tradition:divine"]

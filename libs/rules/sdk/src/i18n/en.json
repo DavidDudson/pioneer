@@ -752,7 +752,8 @@
       },
       "context": {
         "areaDamage": "area damage",
-        "splashDamage": "splash damage"
+        "splashDamage": "splash damage",
+        "spells": "spells"
       },
       "status": {
         "conditional": "Conditional",

@@ -34,6 +34,7 @@ export const DAMAGE_GROUP_MESSAGES: Readonly<Record<DamageGroup, string>> = {
 export const DAMAGE_CONTEXT_MESSAGES: Readonly<Record<DamageContext, string>> = {
   [DamageContext.AreaDamage]: 'rules.defences.context.areaDamage',
   [DamageContext.SplashDamage]: 'rules.defences.context.splashDamage',
+  [DamageContext.Spells]: 'rules.defences.context.spells',
 };
 
 /** The status a line that does not simply apply is marked with. */

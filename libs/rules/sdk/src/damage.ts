@@ -51,9 +51,9 @@ export const DAMAGE_GROUP_TYPES: Readonly<
 
 /**
  * Where damage came from, which a weakness or resistance can name instead of a type (`weakness 5 to area damage`):
- * area damage is from an area effect, splash damage is the splash of an attack.
+ * area damage is from an area effect, splash damage is the splash of an attack, and spells is from a spell.
  */
-export const DamageContext = { AreaDamage: 'area-damage', SplashDamage: 'splash-damage' } as const;
+export const DamageContext = { AreaDamage: 'area-damage', SplashDamage: 'splash-damage', Spells: 'spells' } as const;
 export type DamageContext = ValueOf<typeof DamageContext>;
 export const DamageContextSchema = z.enum(DamageContext);
 

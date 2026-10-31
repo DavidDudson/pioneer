@@ -211,3 +211,17 @@ describe('Player Core: Dragon Form, the tradition it was cast with', () => {
     expect(resistances(form)).toContainEqual(['physical', 5]);
   });
 });
+
+describe('Player Core: Dragon Form, the arcane dragon', () => {
+  test('cast by an arcane caster it resists spells 5', () => {
+    const form = viewOf(castBy(MagicTradition.Arcane), chosen('dragon-form:mirage', 'dragon-form-tradition:arcane'));
+
+    expect(resistances(form)).toContainEqual(['spells', 5]);
+  });
+
+  test('cast by a divine caster it does not', () => {
+    const form = viewOf(castBy(MagicTradition.Divine), chosen('dragon-form:mirage', 'dragon-form-tradition:arcane'));
+
+    expect(resistances(form)).not.toContainEqual(['spells', 5]);
+  });
+});

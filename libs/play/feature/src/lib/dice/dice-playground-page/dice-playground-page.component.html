@@ -42,6 +42,9 @@
               <fr-toggle-button [disabled]="!againstTarget()" [(value)]="area">{{
                 'play.dice.area' | transloco
               }}</fr-toggle-button>
+              <fr-toggle-button [disabled]="!againstTarget()" [(value)]="spell">{{
+                'play.dice.spell' | transloco
+              }}</fr-toggle-button>
             </fr-stack>
             <fr-button variant="primary" [disabled]="!canRoll()" (pressed)="roll()">{{
               'play.dice.roll' | transloco

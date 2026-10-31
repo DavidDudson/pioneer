@@ -131,6 +131,7 @@ export class DicePlaygroundPage {
   protected readonly againstTarget = signal(false);
   protected readonly critical = signal(false);
   protected readonly area = signal(false);
+  protected readonly spell = signal(false);
   protected readonly target = signal<DamageTarget>(NO_DEFENCES);
   protected readonly rolls = signal<readonly RollView[]>([]);
 
@@ -156,7 +157,11 @@ export class DicePlaygroundPage {
     if (!this.againstTarget() || kept === undefined) {
       return undefined;
     }
-    return applyDamage(kept.result, this.target(), { critical: this.critical(), area: this.area() });
+    return applyDamage(kept.result, this.target(), {
+      critical: this.critical(),
+      area: this.area(),
+      spell: this.spell(),
+    });
   }
 
   /** The kept roll's degree of success, when rolling against a DC. */
