@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ACTION_FACETS, FEAT_FACETS } from './action-facets';
+import { ACTION_FACETS, FEAT_FACETS, prerequisitesMetFacet } from './action-facets';
+import type { PrerequisiteValue } from './action-facets';
 import { ContentEntry } from './content-entry';
 import { contentId, EntrySlug, PackId, slugName } from './content-id';
 import { COMMON_FACETS, facetValues, UNKNOWN } from './facet';
@@ -186,5 +187,37 @@ describe('a mixed list', () => {
     const kept = slugs(filterEntries(list, facets, filterFromQuery({ 'f.mode': 'encounter' }, facets)));
 
     expect(kept).toStrictEqual(['climb', 'aid', 'elemental-blast']);
+  });
+});
+
+describe('prerequisites met facet', () => {
+  const statuses: Readonly<Record<string, PrerequisiteValue>> = {
+    'feat:sudden-charge': 'met',
+    'feat:assurance': 'unknown',
+    'feat:toughness': 'unmet',
+  };
+  const facet = prerequisitesMetFacet((subject) => statuses[subject.slug] ?? 'unmet');
+  const withStatus = [...FEAT_FACETS, facet];
+  const candidates = [suddenCharge, assurance, toughness, climb];
+
+  test('a feat has the status the character gives it, and a non-feat has none', () => {
+    expect(candidates.map((each) => facetValues(each, facet).map(String))).toStrictEqual([
+      ['met'],
+      ['unknown'],
+      ['unmet'],
+      [],
+    ]);
+  });
+
+  test('picking met and unknown keeps both, and leaves out unmet', () => {
+    const state = filterFromQuery({ 'f.prerequisites-met': 'met,unknown' }, withStatus);
+
+    expect(slugs(filterEntries(candidates, withStatus, state))).toStrictEqual(['sudden-charge', 'assurance']);
+  });
+
+  test('excluding unmet reads the same way', () => {
+    const state = filterFromQuery({ 'f.prerequisites-met': '!unmet' }, withStatus);
+
+    expect(slugs(filterEntries(candidates, withStatus, state))).toStrictEqual(['sudden-charge', 'assurance', 'climb']);
   });
 });

@@ -10,6 +10,8 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { NOT_CHOSEN, RootPick } from './sheet-build';
 import { visibleFeatGroups } from './sheet-feat-groups';
 import type { SheetFeatGroup } from './sheet-feat-groups';
+import { featSlotFilter } from './sheet-feat-slot-filter';
+import type { FeatFilterSources, FeatSlotFilter } from './sheet-feat-slot-filter';
 import { featRows, sheetFeats } from './sheet-feats';
 import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
 import { sheetField } from './sheet-field';
@@ -28,6 +30,8 @@ export interface FeatPickSources {
   readonly showGrantOnly: Signal<boolean>;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
+  /** Where the pickers keep their filters; without it they list everything their slot offers, unfiltered. */
+  readonly filters?: FeatFilterSources;
 }
 
 /** A feat slot as an inline pick: the feats it offers as table rows, and why its pick counts for nothing. */
@@ -36,6 +40,8 @@ export interface FeatField {
   readonly label: MessageDescriptor;
   readonly rows: Signal<readonly FeatPickerRow[]>;
   readonly reason: Signal<MessageDescriptor | undefined>;
+  /** The filter panel's state, when the pickers filter. */
+  readonly filter: FeatSlotFilter | undefined;
   readonly field: InlineEdit<string | undefined>;
 }
 
@@ -45,6 +51,11 @@ export interface FeatFields {
   readonly groups: readonly SheetFeatGroup[];
   /** Whether the character has a feat that only grants something else, so there is a filter to offer. */
   readonly hasGrantOnly: boolean;
+}
+
+/** `rows` less the feats the filters leave out; all of them where there are no filters. */
+function without(rows: readonly FeatPickerRow[], hidden: ReadonlySet<string> | undefined): readonly FeatPickerRow[] {
+  return hidden === undefined ? rows : rows.filter((row) => !hidden.has(row.id));
 }
 
 /** One feat slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
@@ -69,17 +80,23 @@ function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefine
       return named ?? sources.translate('character.sheet.feats.unknownFeat');
     },
   });
+  const filter =
+    sources.filters === undefined ? undefined : featSlotFilter({ ...sources, filters: sources.filters, key, options });
   return {
     key,
     label,
     rows: computed(() => {
       sources.messages();
-      return featRows(options(), {
-        translate: sources.translate,
-        trainedAgain: slot()?.trainedAgain ?? (() => new Map()),
-      });
+      return without(
+        featRows(options(), {
+          translate: sources.translate,
+          trainedAgain: slot()?.trainedAgain ?? (() => new Map()),
+        }),
+        filter?.hidden(),
+      );
     }),
     reason: computed(() => slot()?.reason),
+    filter,
     field,
   };
 }

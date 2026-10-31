@@ -332,6 +332,8 @@
       "slot": "{prompt}, level {level}",
       "slotFrom": "Feat from {entry}, level {level}",
       "placeholder": "Search feats by name",
+      "everything": "Show every feat",
+      "available": "Available to you: up to this slot’s level, no unique feats or artifacts, prerequisites not unmet.",
       "unknownFeat": "Unknown feat",
       "unmet": "Prerequisites not met: {prerequisites}",
       "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}",

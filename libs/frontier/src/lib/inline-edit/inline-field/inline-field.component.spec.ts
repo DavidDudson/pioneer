@@ -31,13 +31,15 @@ interface Options {
   readonly save?: (value: string) => Promise<void>;
   /** A warning about the value as it stands. */
   readonly notice?: string;
+  /** A button ahead of the editor, in the same projected element, the editor marked `data-autofocus`. */
+  readonly leading?: boolean;
 }
 
 /**
  * Renders `fr-inline-field` labelled "Name" with an `fr-text-input` editor wired to the edit the way the
  * component's docs show, in the document so focus moves.
  */
-async function render({ loading = false, save, notice }: Options = {}): Promise<Rendered> {
+async function render({ loading = false, save, notice, leading = false }: Options = {}): Promise<Rendered> {
   TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
   const environmentInjector = TestBed.inject(EnvironmentInjector);
   const appRef = TestBed.inject(ApplicationRef);
@@ -58,7 +60,12 @@ async function render({ loading = false, save, notice }: Options = {}): Promise<
 
   const editor: ComponentRef<TextInput> = createComponent(TextInput, { environmentInjector });
   const editorHost = editor.location.nativeElement as HTMLElement;
-  editorHost.setAttribute('frInlineEditor', '');
+  const projected = leading ? document.createElement('div') : editorHost;
+  projected.setAttribute('frInlineEditor', '');
+  if (leading) {
+    projected.append(document.createElement('button'), editorHost);
+    editorHost.dataset.autofocus = '';
+  }
   editor.setInput('ariaLabel', 'Name');
   editor.setInput('value', edit.draft());
   editor.instance.value.subscribe((value) => {
@@ -73,7 +80,7 @@ async function render({ loading = false, save, notice }: Options = {}): Promise<
 
   const field = createComponent(InlineField<string>, {
     environmentInjector,
-    projectableNodes: projectBySelector(InlineField, [editorHost]),
+    projectableNodes: projectBySelector(InlineField, [projected]),
   });
   field.setInput('label', 'Name');
   field.setInput('edit', edit);
@@ -163,6 +170,12 @@ describe(InlineField, () => {
     const input = await open(rendered);
     expect(readButton(rendered)).toBeNull();
     expect(input.value).toBe('Valeros');
+    expect(document.activeElement).toBe(input);
+  });
+
+  it('focuses the control marked data-autofocus, not the first one ahead of it', async () => {
+    const rendered = await render({ leading: true });
+    const input = await open(rendered);
     expect(document.activeElement).toBe(input);
   });
 

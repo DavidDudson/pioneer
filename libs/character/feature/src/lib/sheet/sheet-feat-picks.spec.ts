@@ -1,11 +1,12 @@
 import { signal } from '@angular/core';
+import type { Signal, WritableSignal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { PrerequisiteStatus } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import { CharacterBuilder, playerCoreClassId } from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
-import { packContentsFromFiles, PackId } from '@pioneer/rules/sdk';
-import type { ContentRegistry, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
+import { FacetId, packContentsFromFiles, PackId, RangeBound, SelectionKind } from '@pioneer/rules/sdk';
+import type { ContentRegistry, PackContents, PackContentsLoader, QueryParams } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { beforeAll, describe, expect, it } from 'vitest';
 
@@ -17,7 +18,7 @@ import {
 } from '../testing/provide-server-state-testing';
 import { cutTo } from '../testing/test-packs';
 import { featFieldsOf, plannedFeatFieldsOf } from './sheet-feat-picks';
-import type { FeatPickSources } from './sheet-feat-picks';
+import type { FeatField, FeatFields, FeatPickSources } from './sheet-feat-picks';
 import { FEAT_CONTENT_KINDS, sheetFeats } from './sheet-feats';
 import type { SheetFeats } from './sheet-feats';
 
@@ -133,5 +134,91 @@ describe('feat pickers across a level change', () => {
     expect(keysOf(fields()?.fields)).toContain(FIGHTER_FEAT_2);
     expect(keysOf(planned())).not.toContain(FIGHTER_FEAT_2);
     expect(keysOf(planned())).toContain(FIGHTER_FEAT_4);
+  });
+});
+
+interface Filtered {
+  readonly fields: Signal<FeatFields | undefined>;
+  readonly params: WritableSignal<QueryParams>;
+  readonly writes: Record<string, string | undefined>[];
+}
+
+/** A fighter at 4th level whose pickers filter, with the URL's params and what was written to them. */
+async function filtered(params: QueryParams = {}): Promise<Filtered> {
+  const registry = await gatedRegistry();
+  const url = signal<QueryParams>(params);
+  const writes: Record<string, string | undefined>[] = [];
+  const sources: FeatPickSources = {
+    registry: signal(registry),
+    character: signal<Character | undefined>(fighterAt(4)),
+    slots: signal([]),
+    select: async () => undefined,
+    clear: async () => undefined,
+    translate: (key) => key,
+    showGrantOnly: signal(false),
+    messages: signal(undefined),
+    filters: {
+      params: url,
+      write: async (changes) => {
+        writes.push({ ...changes });
+        url.update((now) => {
+          const named = new Set(Object.keys(changes));
+          const kept = Object.entries(now).filter(([name]) => !named.has(name));
+          const set = Object.entries(changes).filter((change) => change[1] !== undefined);
+          return Object.fromEntries([...kept, ...set]);
+        });
+        await Promise.resolve();
+      },
+    },
+  };
+  return { fields: TestBed.runInInjectionContext(() => featFieldsOf(sources)), params: url, writes };
+}
+
+const fieldAt = (read: Filtered, key: string): FeatField | undefined =>
+  read.fields()?.fields.find((field) => field.key === key);
+const namesAt = (read: Filtered, key: string): readonly string[] =>
+  (fieldAt(read, key)?.rows() ?? []).map((row) => row.name);
+
+describe('feat picker filters', () => {
+  beforeAll(async () => {
+    await prebuildServerStateTesting([], [...FEAT_PACKS, GATED_FEATS]);
+  }, PREBUILD_TIMEOUT);
+
+  it('opens on Available to you: a feat the character does not meet at the slot is left out, then offered from its level', async () => {
+    const read = await filtered();
+
+    expect(namesAt(read, FIGHTER_FEAT_2)).not.toContain('Veteran-stance');
+    expect(namesAt(read, FIGHTER_FEAT_4)).toContain('Veteran-stance');
+    expect(fieldAt(read, FIGHTER_FEAT_2)?.filter?.preset()).toBe(true);
+  });
+
+  it('shows every feat the slot offers once everything is asked for, and clears the slot’s params', async () => {
+    const read = await filtered();
+
+    await fieldAt(read, FIGHTER_FEAT_2)?.filter?.showEverything(true);
+
+    expect(namesAt(read, FIGHTER_FEAT_2)).toContain('Veteran-stance');
+    expect(fieldAt(read, FIGHTER_FEAT_2)?.filter?.preset()).toBe(false);
+    expect(read.writes.at(-1)).toMatchObject({ [`f.${FIGHTER_FEAT_2}.level`]: undefined });
+    expect(read.params()).toMatchObject({ [`f.${FIGHTER_FEAT_2}`]: 'all' });
+  });
+
+  it('takes the filters in the URL for the preset, for its own slot alone', async () => {
+    const read = await filtered({ [`f.${FIGHTER_FEAT_2}.level`]: '..1' });
+
+    expect(fieldAt(read, FIGHTER_FEAT_2)?.filter?.preset()).toBe(false);
+    expect(namesAt(read, FIGHTER_FEAT_2)).toContain('Veteran-stance');
+    expect(fieldAt(read, FIGHTER_FEAT_4)?.filter?.preset()).toBe(true);
+  });
+
+  it('writes a changed filter under the slot', async () => {
+    const read = await filtered();
+    const filter = fieldAt(read, FIGHTER_FEAT_4)?.filter;
+
+    await filter?.apply(
+      new Map([[FacetId.parse('level'), { kind: SelectionKind.Range, min: undefined, max: RangeBound.parse(1) }]]),
+    );
+
+    expect(read.writes.at(-1)).toMatchObject({ [`f.${FIGHTER_FEAT_4}.level`]: '..1' });
   });
 });

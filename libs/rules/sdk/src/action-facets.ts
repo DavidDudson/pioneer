@@ -1,3 +1,5 @@
+import type { ValueOf } from '@pioneer/shared/kernel';
+
 import {
   ActionCostValue,
   actionCostValue,
@@ -8,6 +10,7 @@ import {
   featSkills,
   SkillValue,
 } from './action-facet-values';
+import type { ContentEntry } from './content-entry';
 import { ContentKind } from './content-kind';
 import { FacetId, FacetLabel, facetLabels, FacetType } from './facet';
 import type { FacetDefinition } from './facet';
@@ -19,6 +22,7 @@ const ActionFacetMessage = {
   Archetype: FacetLabel.parse('rules.facet.label.archetype'),
   Skill: FacetLabel.parse('rules.facet.label.skill'),
   Mode: FacetLabel.parse('rules.facet.label.mode'),
+  Prerequisites: FacetLabel.parse('rules.facet.label.prerequisites'),
 } as const;
 
 const ACTION_COST_LABELS = facetLabels({
@@ -97,7 +101,7 @@ const SKILL_FACET: FacetDefinition = {
   },
 };
 
-/** The feat facets (content-model.md, "Filters"), beyond the common ones. Prerequisites met needs a character. */
+/** The feat facets (content-model.md, "Filters"), beyond the common ones; prerequisites met is `prerequisitesMetFacet`. */
 export const FEAT_FACETS: readonly FacetDefinition[] = [
   {
     id: FacetId.parse('feat-category'),
@@ -128,3 +132,32 @@ export const ACTION_FACETS: readonly FacetDefinition[] = [
   },
   SKILL_FACET,
 ];
+
+/** Whether a character meets a feat's prerequisites, as a facet value (ADR-0002: unknown is an answer of its own). */
+export const PrerequisiteValue = { Met: 'met', Unknown: 'unknown', Unmet: 'unmet' } as const;
+export type PrerequisiteValue = ValueOf<typeof PrerequisiteValue>;
+
+/** How a character's prerequisites read for a feat; the sdk can't see the character, so the caller supplies it. */
+export type PrerequisiteStatusOf = (entry: ContentEntry) => PrerequisiteValue;
+
+export const PREREQUISITES_MET_FACET = FacetId.parse('prerequisites-met');
+
+const PREREQUISITE_LABELS = facetLabels({
+  [PrerequisiteValue.Met]: 'rules.facet.prerequisites.met',
+  [PrerequisiteValue.Unknown]: 'rules.facet.prerequisites.unknown',
+  [PrerequisiteValue.Unmet]: 'rules.facet.prerequisites.unmet',
+});
+
+/**
+ * The "prerequisites met" feat facet, made per character: `statusOf` closes over what the character has. It is not
+ * in `FEAT_FACETS`, which hold only what an entry alone decides. An entry that isn't a feat has no value.
+ */
+export function prerequisitesMetFacet(statusOf: PrerequisiteStatusOf): FacetDefinition {
+  return {
+    id: PREREQUISITES_MET_FACET,
+    type: FacetType.Set,
+    label: ActionFacetMessage.Prerequisites,
+    values: PREREQUISITE_LABELS,
+    derive: (entry): readonly unknown[] => (entry.kind === ContentKind.Feat ? [statusOf(entry)] : []),
+  };
+}
