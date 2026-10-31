@@ -22,7 +22,13 @@ export class CharacterTransferLinesAdapter extends TransferLines {
     item: ReviewedItemId,
   ): Promise<OfferableLine | undefined> {
     const found = await this.#lines.describe(CharacterId.parse(character), InventoryItemId.parse(item));
-    return found === undefined ? undefined : { ...found, name: ReviewedName.parse(found.name) };
+    return found === undefined
+      ? undefined
+      : {
+          ...found,
+          name: ReviewedName.parse(found.name),
+          contents: found.contents.map((each) => ReviewedName.parse(each)),
+        };
   }
 
   public override async purse(character: CampaignCharacterId): Promise<OfferablePurse | undefined> {

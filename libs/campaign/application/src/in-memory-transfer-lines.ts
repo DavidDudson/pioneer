@@ -23,7 +23,10 @@ export class InMemoryTransferLines extends TransferLines {
 
   /** The character has this inventory line; a key item's when `keyItem` is set. */
   public hasLine(character: CharacterId, item: ReviewedItemId, line: Partial<OfferableLine> = {}): this {
-    this.#lines.set(item, { character, line: { keyItem: false, name: DEFAULT_NAME, version: FIRST_VERSION, ...line } });
+    this.#lines.set(item, {
+      character,
+      line: { keyItem: false, name: DEFAULT_NAME, contents: [], version: FIRST_VERSION, ...line },
+    });
     return this;
   }
 

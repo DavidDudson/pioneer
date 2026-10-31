@@ -2,6 +2,11 @@
   <fr-stack direction="horizontal" gap="sm" align="center" wrap>
     <fr-stack gap="3xs" grow>
       <fr-text weight="medium">{{ 'campaign.transfers.offerLine' | transloco: names() }}</fr-text>
+      @if (includes(); as includes) {
+        <fr-text tone="subtle" variant="caption">{{
+          'campaign.transfers.includes' | transloco: { items: includes }
+        }}</fr-text>
+      }
     </fr-stack>
     @if (transfer().asRecipient) {
       <fr-async-button
