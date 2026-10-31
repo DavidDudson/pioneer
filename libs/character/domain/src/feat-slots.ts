@@ -36,7 +36,7 @@ const STATUSES: Readonly<Record<Truth, PrerequisiteStatus>> = {
  * How `feat`'s prerequisites read against `facts`: by its predicate; unknown when it has printed prerequisites the
  * importer couldn't parse; met when it has none.
  */
-function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): PrerequisiteStatus {
+export function prerequisiteStatus(feat: FeatRead | undefined, facts: PredicateFacts): PrerequisiteStatus {
   if (feat?.predicate !== undefined) {
     return STATUSES[evaluatePredicate(feat.predicate, facts)];
   }
