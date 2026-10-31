@@ -25,4 +25,6 @@
     </fr-text>
   </fr-stack>
 </fr-shell>
-<pio-roll-stage />
+@defer (on idle) {
+  <pio-roll-stage />
+}
