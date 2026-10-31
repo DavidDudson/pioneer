@@ -13,6 +13,8 @@ export const LinkAppearance = {
   Inline: 'inline',
   /** One tab of `fr-tabs`: a touch-sized label, underlined only when current. Features use `fr-tab`. */
   Tab: 'tab',
+  /** One tab of `fr-tabs` in its segment look: a button in a track, filled with the accent while current. Features use `fr-tab`. */
+  Segment: 'segment',
   /** One link of `fr-section-index`: inline-link look at touch height. Features use `fr-section-link`. */
   Index: 'index',
   /** One row of a menu or dropdown panel: looks like `fr-button` variant `menu`, with the current page filled. */
@@ -29,6 +31,8 @@ const linkVariants = cva('focus-visible:focus-ring', {
       // Touch-sized like a tab, but reads as a link: the index wraps instead of scrolling.
       index:
         'inline-flex h-touch items-center text-accent-fg underline decoration-line-strong underline-offset-link hover:decoration-accent-fg pointer-fine:h-control-sm',
+      segment:
+        'inline-flex h-touch items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline pointer-fine:h-control-sm',
       menu: 'flex h-touch w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken pointer-fine:h-control-sm',
     } satisfies Record<LinkAppearance, string>,
     // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
@@ -38,6 +42,8 @@ const linkVariants = cva('focus-visible:focus-ring', {
     { appearance: 'inline', current: false, class: 'decoration-line-strong' },
     { appearance: 'tab', current: true, class: 'text-fg-default underline' },
     { appearance: 'menu', current: true, class: 'bg-accent-subtle text-accent-fg' },
+    { appearance: 'segment', current: true, class: 'bg-accent-solid text-accent-on-solid hover:bg-accent-solid-hover' },
+    { appearance: 'segment', current: false, class: 'text-fg-muted hover:bg-surface-sunken hover:text-fg-default' },
     {
       appearance: 'tab',
       current: false,

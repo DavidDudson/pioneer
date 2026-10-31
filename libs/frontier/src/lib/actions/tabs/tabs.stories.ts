@@ -51,6 +51,17 @@ export default meta;
 
 export const Default: TabsStory = {};
 
+/** `appearance="segment"` is the look of `fr-segmented`: a track of buttons, the current one filled. `centered` puts the row in the middle. */
+export const Segment: TabsStory = {
+  render: () => ({
+    template: `<fr-tabs centered appearance="segment" label="Sheet sections">
+      <fr-tab to="/" exact>Overview</fr-tab>
+      <fr-tab to="/feats">Feats</fr-tab>
+      <fr-tab to="/spells">Spells</fr-tab>
+    </fr-tabs>`,
+  }),
+};
+
 /**
  * More sections than fit: the row scrolls sideways on its own, and the page does not. Shown in a prose-width box so
  * it overflows at any viewport, as it does on a phone.

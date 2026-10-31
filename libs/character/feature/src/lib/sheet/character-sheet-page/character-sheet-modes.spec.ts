@@ -72,7 +72,7 @@ describe('CharacterSheetPage modes', () => {
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([true, false, false, false]);
 
     await openTab(root, 'Encounter', 'Skills');
-    expect(TestBed.inject(Router).url).toBe(`/characters/${id}/encounter`);
+    expect(TestBed.inject(Router).url).toBe(`/characters/${id}/encounter/defences`);
     expect(links.map((link) => link.hasAttribute('aria-current'))).toStrictEqual([false, true, false, false]);
   });
 
@@ -84,7 +84,7 @@ describe('CharacterSheetPage modes', () => {
     });
     await vi.waitFor(async () => {
       await settle();
-      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
+      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration/roleplay`);
       expect(regionsOf(root)[0]?.[0]).toBe('Appearance and personality');
     });
   });
@@ -99,7 +99,7 @@ describe('CharacterSheetPage modes', () => {
     });
     await vi.waitFor(() => {
       render();
-      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
+      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration/roleplay`);
     });
   });
 

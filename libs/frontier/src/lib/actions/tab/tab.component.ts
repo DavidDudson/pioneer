@@ -11,10 +11,11 @@ import {
 import { RovingFocusItem } from '../../focus/roving-focus-item.directive';
 import { Link, LinkAppearance } from '../link/link.component';
 import type { LinkTarget } from '../link/link.component';
+import { TABS_APPEARANCE, TabsAppearance } from '../tabs/tabs-appearance';
 
 /**
- * One tab of `fr-tabs`: a router link to a section's own route, marked `aria-current="page"` and underlined while
- * that route is shown. While focus is outside the tabs, the current tab is their one Tab stop.
+ * One tab of `fr-tabs`: a router link to a section's own route, marked `aria-current="page"` while that route is
+ * shown: underlined, or filled with the accent in a `segment` row. While focus is outside the tabs, the current tab is their one Tab stop.
  */
 @Component({
   selector: 'fr-tab',
@@ -29,7 +30,10 @@ export class Tab {
   /** Only the `to` route itself is current, not the routes under it; for a tab whose route is the others' parent. */
   public readonly exact = input(false, { transform: booleanAttribute });
 
-  protected readonly appearance = LinkAppearance.Tab;
+  readonly #tabsAppearance = inject(TABS_APPEARANCE, { optional: true });
+  protected readonly appearance = computed(() =>
+    this.#tabsAppearance?.() === TabsAppearance.Segment ? LinkAppearance.Segment : LinkAppearance.Tab,
+  );
 
   private readonly link = viewChild(Link);
   readonly #item = inject(RovingFocusItem, { self: true });

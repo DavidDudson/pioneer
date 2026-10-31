@@ -6,6 +6,7 @@ import {
   ElementRef,
   inject,
   Injector,
+  input,
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
@@ -33,8 +34,6 @@ import {
   Message,
   NumberInput,
   Section,
-  SectionIndex,
-  SectionLink,
   Stack,
   Surface,
   TextInput,
@@ -59,11 +58,12 @@ import { injectOriginRows } from '../sheet-origin-rows';
 import { SheetPacks } from '../sheet-packs/sheet-packs.component';
 import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SheetRuleBreaks } from '../sheet-rule-breaks/sheet-rule-breaks.component';
-import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
+import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
+import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
+// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every section of who the character is, and the warning and section tabs that go with them
 import { SheetTableRules } from '../sheet-table-rules/sheet-table-rules.component';
-// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every section of who the character is, and the rule-break warning that belongs to it
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
@@ -79,6 +79,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
 @Component({
   selector: 'pio-sheet-plan-tab',
   imports: [
+    SheetSectionTabs,
     AncestryPicker,
     AsyncData,
     AsyncPending,
@@ -96,8 +97,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     Message,
     NumberInput,
     Section,
-    SectionIndex,
-    SectionLink,
     SheetClassFields,
     SheetFeats,
     SheetLevelPlan,
@@ -132,7 +131,10 @@ export class SheetPlanTab {
   protected readonly levelMin = CHARACTER_LEVEL_MIN;
   protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly sections = SHEET_SECTIONS;
+  /** The section the route names, bound from the route's `:section` parameter. */
+  public readonly section = input<string>();
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Plan];
+  protected readonly shown = shownSection(this.sectionOrder, this.section);
 
   protected readonly name = sheetField<string>(this.sheet.character, {
     read: (character) => character.name,

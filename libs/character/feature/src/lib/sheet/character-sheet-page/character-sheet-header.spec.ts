@@ -118,7 +118,7 @@ describe('CharacterSheetPage header', () => {
     });
     await vi.waitFor(() => {
       render();
-      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration`);
+      expect(TestBed.inject(Router).url).toBe(`/characters/${id}/exploration/roleplay`);
     });
   });
 

@@ -8,6 +8,7 @@ export { SectionIndex } from './lib/actions/section-index/section-index.componen
 export { SectionLink } from './lib/actions/section-link/section-link.component';
 export { Tab } from './lib/actions/tab/tab.component';
 export { Tabs } from './lib/actions/tabs/tabs.component';
+export { TabsAppearance } from './lib/actions/tabs/tabs-appearance';
 
 // Async
 export {

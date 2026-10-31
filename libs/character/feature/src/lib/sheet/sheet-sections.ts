@@ -1,3 +1,5 @@
+import { computed } from '@angular/core';
+import type { Signal } from '@angular/core';
 import { SheetMode } from '@pioneer/character/domain';
 
 /** One section of the character sheet: the anchor its heading carries and the message key naming it. */
@@ -95,3 +97,25 @@ export const SHEET_TABS: readonly SheetTab[] = [
   { mode: SheetMode.Exploration, labelKey: 'character.sheet.tabs.exploration' },
   { mode: SheetMode.Downtime, labelKey: 'character.sheet.tabs.downtime' },
 ];
+
+/** The path segment of a section's route below its tab: its anchor without the `sheet-` every anchor starts with. */
+export function sectionPath(section: SheetSection): string {
+  return section.anchor.replace(/^sheet-/u, '');
+}
+
+/** The section a tab's own address opens, by its path. */
+export function firstSectionPath(mode: SheetMode): string {
+  const [first] = SHEET_TAB_SECTIONS[mode];
+  return first === undefined ? mode : sectionPath(first);
+}
+
+/**
+ * The section of `order` the route names: the first when the route names none, or one this tab has no section by. A
+ * tab renders every section and conceals all but this one, so each keeps its state while another is open.
+ */
+export function shownSection(
+  order: readonly SheetSection[],
+  path: Signal<string | undefined>,
+): Signal<SheetSection | undefined> {
+  return computed(() => order.find((section) => sectionPath(section) === path()) ?? order[0]);
+}

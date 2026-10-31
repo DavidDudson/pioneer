@@ -2,7 +2,7 @@
   <fr-page-header [title]="title()" />
   <fr-page-body>
     <fr-stack gap="lg">
-      <fr-tabs [label]="'character.sheet.tabs.label' | transloco">
+      <fr-tabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
         @for (tab of tabs; track tab.mode) {
           <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
         }
