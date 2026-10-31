@@ -17,7 +17,6 @@ import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
 import { SheetConsumables } from '../sheet-consumables/sheet-consumables.component';
-import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS } from '../sheet-sections';
 import { SheetShields } from '../sheet-shields/sheet-shields.component';
 import { SheetSpells } from '../sheet-spells/sheet-spells.component';
@@ -31,9 +30,9 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
 import { SheetWands } from '../sheet-wands/sheet-wands.component';
 
 /**
- * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total, in a rail that stays in view, and the
- * pickers for trained skills and skill increases, its Strikes, and its spellcasting with the spells it knows or
- * prepares. Actions and usable items join as their stories land.
+ * The Encounter tab: what the character does in a fight. Its defences, every skill and Lore with its total, in a rail
+ * that stays in view, its Strikes, and its spellcasting with the spells it knows or prepares. Actions and usable items
+ * join as their stories land.
  */
 @Component({
   selector: 'pio-sheet-encounter-tab',
@@ -48,7 +47,6 @@ import { SheetWands } from '../sheet-wands/sheet-wands.component';
     SectionIndex,
     SectionLink,
     Rail,
-    SheetPickFields,
     SkillsView,
     SheetSpells,
     SheetStaves,
