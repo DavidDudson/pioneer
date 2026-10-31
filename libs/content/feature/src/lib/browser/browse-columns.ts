@@ -1,4 +1,5 @@
 import type { BrowseRow } from '@pioneer/content/ui';
+import { LegacyBadge } from '@pioneer/content/ui';
 import type { TableColumn } from '@pioneer/frontier/data';
 import { RulesTableSchema } from '@pioneer/rules/ui';
 
@@ -15,6 +16,7 @@ const ColumnMessage = {
   ArmorClass: 'content.column.armorClass',
   Traits: 'content.column.traits',
   Source: 'content.column.source',
+  Legacy: 'content.column.legacy',
 } as const;
 
 /** What a row with nothing to compare sorts by: before every level, creatures' -1 included. */
@@ -59,6 +61,37 @@ function withCreatureColumns(
     });
 }
 
+/** Traits, source and whether the entry is legacy, which close the table. */
+function withClosingColumns(
+  schema: RulesTableSchema<BrowseRow>,
+  say: (key: string) => string,
+): RulesTableSchema<BrowseRow> {
+  return schema
+    .addTraits({
+      id: BrowseColumn.Traits,
+      code: BrowseColumnCode.Traits,
+      header: say(ColumnMessage.Traits),
+      value: (row) => row.traits,
+      hideable: true,
+    })
+    .addSource({
+      id: BrowseColumn.Source,
+      code: BrowseColumnCode.Source,
+      header: say(ColumnMessage.Source),
+      value: (row) => row.sources,
+      hideable: true,
+    })
+    .addComponent({
+      id: BrowseColumn.Legacy,
+      code: BrowseColumnCode.Legacy,
+      header: say(ColumnMessage.Legacy),
+      sortValue: (row) => (row.legacy ? 1 : 0),
+      component: LegacyBadge,
+      inputs: (row) => ({ legacy: row.legacy }),
+      hideable: true,
+    });
+}
+
 /**
  * The list's table columns. Every column but the name can be hidden; the kind starts hidden when the list holds one
  * kind, where it says the same on every row. A list with creatures adds their role, size, Hit Points and Armor Class.
@@ -93,20 +126,5 @@ export function browseColumns(
       sortValue: (row) => row.levelValue ?? NO_LEVEL,
       hideable: true,
     });
-  return (creatures ? withCreatureColumns(base, say) : base)
-    .addTraits({
-      id: BrowseColumn.Traits,
-      code: BrowseColumnCode.Traits,
-      header: say(ColumnMessage.Traits),
-      value: (row) => row.traits,
-      hideable: true,
-    })
-    .addSource({
-      id: BrowseColumn.Source,
-      code: BrowseColumnCode.Source,
-      header: say(ColumnMessage.Source),
-      value: (row) => row.sources,
-      hideable: true,
-    })
-    .build();
+  return withClosingColumns(creatures ? withCreatureColumns(base, say) : base, say).build();
 }

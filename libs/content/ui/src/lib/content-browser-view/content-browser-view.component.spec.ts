@@ -3,12 +3,14 @@ import type { ComponentFixture } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { describe, expect, it } from 'vitest';
 
+import type { ContentBrowserList } from '../browser-list';
 import { ContentBrowserTier } from '../browser-state';
 import type { ContentBrowserState } from '../browser-state';
 import {
   BROWSER_FIELDS,
   BROWSER_LIST,
   BROWSER_ROWS,
+  LEGACY_LIST,
   LISTING_STATE,
   loaded,
   NO_FACETS,
@@ -25,6 +27,7 @@ const FIRST_ROW = BROWSER_ROWS[0]?.name ?? '';
 async function render(
   tier: ContentBrowserTier,
   state: ContentBrowserState,
+  list: ContentBrowserList = BROWSER_LIST,
 ): Promise<ComponentFixture<ContentBrowserView>> {
   TestBed.configureTestingModule({ providers: [provideRouter([]), ...provideContentUiI18nTesting()] });
   const fixture = TestBed.createComponent(ContentBrowserView);
@@ -33,7 +36,7 @@ async function render(
   fixture.componentRef.setInput('kindOptions', []);
   fixture.componentRef.setInput('fields', BROWSER_FIELDS);
   fixture.componentRef.setInput('facetState', NO_FACETS);
-  fixture.componentRef.setInput('list', loaded(BROWSER_LIST));
+  fixture.componentRef.setInput('list', loaded(list));
   fixture.componentRef.setInput('entry', loaded({ card: SHIELD_BLOCK_CARD }));
   fixture.componentRef.setInput('columns', []);
   await fixture.whenStable();
@@ -97,6 +100,12 @@ describe('ContentBrowserView panel tier', () => {
   it('names the entries it lists', async () => {
     const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE);
     expect(text(fixture)).toContain(FIRST_ROW);
+  });
+
+  it('badges a legacy entry in the list', async () => {
+    const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE, LEGACY_LIST);
+    expect((fixture.nativeElement as HTMLElement).querySelectorAll('fr-list-item fr-badge')).toHaveLength(1);
+    expect(text(fixture)).toContain('Legacy');
   });
 
   it('picks an entry in place when its name is pressed', async () => {

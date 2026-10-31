@@ -10,4 +10,5 @@ export {
 } from './lib/browser-state';
 export { ContentBrowserView } from './lib/content-browser-view/content-browser-view.component';
 export { ContentEntryView } from './lib/entry-view/content-entry-view.component';
+export { LegacyBadge } from './lib/legacy-badge/legacy-badge.component';
 export { tierRegions, type TierRegions } from './lib/tier-regions';

@@ -6,6 +6,7 @@ import {
   BROWSER_FIELDS,
   BROWSER_LIST,
   BROWSER_ROWS,
+  LEGACY_LIST,
   LISTING_STATE,
   loaded,
   NO_FACETS,
@@ -48,6 +49,15 @@ export const Panel: ContentBrowserStory = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('button', { name: FIRST_NAME })).toBeVisible();
+  },
+};
+
+/** The panel listing a legacy entry: its name carries a Legacy badge. */
+export const PanelLegacy: ContentBrowserStory = {
+  args: { tier: ContentBrowserTier.Panel, list: loaded(LEGACY_LIST) },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Legacy')).toBeVisible();
   },
 };
 

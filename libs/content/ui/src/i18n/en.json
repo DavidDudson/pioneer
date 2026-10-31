@@ -16,6 +16,9 @@
       "emptyDescription": "No entry has all of the filters picked. Clear one to widen the list.",
       "searchEmptyDescription": "No entry matches those words and filters. Try fewer words, or clear a filter."
     },
+    "legacy": {
+      "label": "Legacy"
+    },
     "entry": {
       "back": "Back to the list",
       "loadError": "The entry could not be loaded.",
