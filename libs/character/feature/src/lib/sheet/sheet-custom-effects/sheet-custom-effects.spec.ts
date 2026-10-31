@@ -144,6 +144,29 @@ describe('CharacterSheet custom effects section', () => {
     expect(root.querySelector('button[aria-label="Remove Blessing of the Hearth"]')).toBeNull();
   });
 
+  it('words a line that sets a statistic as a pin, and still words an adjust as before', async () => {
+    const pinning = { ...BLESSING, lines: [{ target: 'perception', mode: 'set', value: 20 }, ...BLESSING.lines] };
+    const text = await listed(await openWith([pinning]));
+
+    expect(text).toContain('Perception: Pinned to 20');
+    expect(text).toContain('Perception: +1 status');
+  });
+
+  it('offers Adjust or Set on a line, and a type only for an adjust', async () => {
+    const root = await openWith([]);
+    const form = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-custom-effect-form')));
+    const buttons = (): HTMLButtonElement[] => [...form.querySelectorAll<HTMLButtonElement>('button')];
+    const named = (label: string): HTMLButtonElement | undefined => buttons().find((each) => textOf(each) === label);
+
+    expect(named('Adjust')).toBeDefined();
+    expect(textOf(form)).toContain('Type');
+
+    present(named('Set')).click();
+    await TestBed.inject(ApplicationRef).whenStable();
+
+    expect(textOf(form)).not.toContain('Type');
+  });
+
   it('keeps Add effect off until the effect has a name, a reason and a line', async () => {
     const root = await openWith([]);
     const form = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-sheet-custom-effect-form')));

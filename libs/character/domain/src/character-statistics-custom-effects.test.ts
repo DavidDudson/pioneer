@@ -44,6 +44,11 @@ const BLESSING = CustomEffectInput.parse({
   reason: 'Festival boon',
   lines: [{ target: 'perception', value: 2, type: 'circumstance' }],
 });
+const PINNING = CustomEffectInput.parse({
+  name: 'Eagle eyes',
+  reason: 'GM ruling: the character sees as a hawk',
+  lines: [{ target: 'perception', mode: 'set', value: 20 }],
+});
 const ADJUST = OverrideInput.parse({
   target: 'perception',
   mode: 'adjust',
@@ -56,6 +61,13 @@ const blank = new CharacterBuilder().build();
 
 function withEffect(character: Character): Character {
   return character.apply({ field: CharacterPatchField.AddCustomEffect, effect: BLESSING }, NOW, {
+    actor: AUTHOR,
+    newCustomEffectId: EFFECT,
+  });
+}
+
+function withPinning(character: Character): Character {
+  return character.apply({ field: CharacterPatchField.AddCustomEffect, effect: PINNING }, NOW, {
     actor: AUTHOR,
     newCustomEffectId: EFFECT,
   });
@@ -97,6 +109,24 @@ describe('characterStatistics with custom effects', () => {
     );
 
     expect(Number(perception(removed).total)).toBe(6);
+  });
+
+  test('a line that sets a statistic pins it and keeps the computed value', () => {
+    const result = perception(withPinning(blank));
+
+    expect(Number(result.total)).toBe(20);
+    expect(Number(result.computed)).toBe(6);
+    expect(result.pinnedBy).toBeDefined();
+  });
+
+  test("switching a setting effect off gives the rules' total back", () => {
+    const off = withPinning(blank).apply(
+      { field: CharacterPatchField.ToggleCustomEffect, id: EFFECT, enabled: false },
+      NOW,
+      { actor: AUTHOR },
+    );
+
+    expect(Number(perception(off).total)).toBe(6);
   });
 
   test('an effect and an override on one statistic both count', () => {

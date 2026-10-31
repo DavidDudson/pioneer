@@ -685,16 +685,16 @@ characters; the player sees them.
 
 ### Custom effects
 
-A custom effect is a named bundle of adjust lines with one reason, switched on and off as a whole (a GM's blessing, a
-homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 18, #1132); an
-override keeps its own shape and a custom effect is not an override with an `effectId`.
+A custom effect is a named bundle of adjust and set lines with one reason, switched on and off as a whole (a GM's
+blessing, a homebrew curse). `CharacterDocument.customEffects` stores them beside `overrides` (schema version 18,
+story #1132); an override keeps its own shape and a custom effect is not an override with an `effectId`.
 
 ```ts
 interface CustomEffect {
   id: CustomEffectId;
   name: string; // required; shown in the breakdown
   reason: string; // required, one for the whole effect
-  lines: { target: Selector; value: number; type?: ModifierType; predicate?: Predicate }[]; // at least one, adjust only
+  lines: { target: Selector; mode?: 'adjust' | 'set'; value: number; type?: ModifierType; predicate?: Predicate }[]; // at least one; no mode reads as adjust; a set has no type
   by: UserId; // who added it
   byRole: 'player' | 'gm'; // what `by` was to the character
   at: Instant;
@@ -704,13 +704,16 @@ interface CustomEffect {
 }
 ```
 
-While `enabled`, each line compiles (`customEffectRules`) to a typed `FlatModifier` with the effect's name as its
+While `enabled`, each line compiles (`customEffectRules`) to a typed `FlatModifier` (an adjust) or a `Change` that
+overrides (a set, which pins the statistic as a standalone set override does), with the effect's name as its
 `display.label` and an `override` origin hop naming who added it and why, so the breakdown lists the lines under the
-effect's name. Switching off compiles nothing and switching on restores every line. A toggle to the state the effect is
-already in records nothing; an effect keeps its latest 100 switches, dropping the oldest, so switching never runs out.
-`addCustomEffect`, `toggleCustomEffect` and `removeCustomEffect` are the patches, each its own audited command. A removal
-keeps the effect with `removed` set (ADR-0062). The GM of a campaign may add and switch effects on its characters; an
-effect a GM added is the GM's to remove, as for an override.
+effect's name. This is the way to adjust or set a statistic for a boon or a curse: a statistic row has no control of its
+own for it, and the Overrides section only edits and removes the overrides already made. Switching off compiles
+nothing and switching on restores every line. A toggle to the state the effect is already in records nothing; an
+effect keeps its latest 100 switches, dropping the oldest, so switching never runs out. `addCustomEffect`,
+`toggleCustomEffect` and `removeCustomEffect` are the patches, each its own audited command. A removal keeps the
+effect with `removed` set (ADR-0062). The GM of a campaign may add and switch effects on its characters; an effect a
+GM added is the GM's to remove, as for an override.
 
 ## Import and export
 

@@ -6,6 +6,7 @@ import {
   CUSTOM_EFFECT_LINES_MAX,
   CustomEffectInput,
   CustomEffectLine,
+  OverrideMode,
   OverrideModifierType,
 } from '@pioneer/character/domain';
 import {
@@ -34,11 +35,19 @@ interface EffectModel {
   readonly name: string;
   readonly reason: string;
   readonly target: string;
+  readonly mode: OverrideMode;
   readonly value: number;
   readonly type: OverrideModifierType;
 }
 
-const EMPTY: EffectModel = { name: '', reason: '', target: '', value: 0, type: ModifierType.Untyped };
+const EMPTY: EffectModel = {
+  name: '',
+  reason: '',
+  target: '',
+  mode: OverrideMode.Adjust,
+  value: 0,
+  type: ModifierType.Untyped,
+};
 
 /** The part of the effect the form's fields give; its lines are the ones added so far. */
 const FormInput = CustomEffectInput.pick({ name: true, reason: true });
@@ -51,6 +60,9 @@ const Message = {
   Statistic: 'character.sheet.customEffects.form.statistic',
   Amount: 'character.sheet.customEffects.form.amount',
   Type: 'character.sheet.customEffects.form.type',
+  Mode: 'character.sheet.customEffects.form.mode',
+  ModeAdjust: 'character.sheet.customEffects.form.modeAdjust',
+  ModeSet: 'character.sheet.customEffects.form.modeSet',
   AddLine: 'character.sheet.customEffects.form.addLine',
   Lines: 'character.sheet.customEffects.form.lines',
   LinesRequired: 'character.validation.customEffectLinesRequired',
@@ -58,6 +70,7 @@ const Message = {
   RemoveLineLabel: 'character.sheet.customEffects.form.removeLineLabel',
   LineWords: 'character.sheet.customEffects.line',
   EffectAdjust: 'character.sheet.overrides.effectAdjust',
+  EffectSet: 'character.sheet.overrides.effectSet',
   Submit: 'character.sheet.customEffects.form.submit',
   Pending: 'character.sheet.customEffects.form.pending',
   Done: 'character.sheet.customEffects.form.done',
@@ -100,6 +113,10 @@ export class SheetCustomEffectForm {
       label: this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type]),
     }),
   );
+  protected readonly modes: readonly SelectOption<OverrideMode>[] = [
+    { value: OverrideMode.Adjust, label: this.#i18n.translate(Message.ModeAdjust) },
+    { value: OverrideMode.Set, label: this.#i18n.translate(Message.ModeSet) },
+  ];
   /** The statistics a line can aim at, named as the sheet names them. */
   protected readonly statistics = computed((): readonly SelectOption<string>[] => {
     const registry = this.#sheet.engine();
@@ -134,19 +151,24 @@ export class SheetCustomEffectForm {
   /** The statistic picked for the line being written, if any. */
   protected readonly target = computed(() => this.model().target || undefined);
 
+  /** Whether the line being written adjusts a statistic, which is the only line that has a type. */
+  protected readonly isAdjust = computed((): boolean => this.model().mode === OverrideMode.Adjust);
+
   protected readonly pickTarget = (target: string | undefined): void => {
     this.model.update((model) => ({ ...model, target: target ?? '' }));
   };
 
   /** The line being written, once its statistic and amount make a valid one. */
   readonly #pendingLine = computed((): CustomEffectLine | undefined => {
-    const { target, value, type } = this.model();
+    const { target, mode, value, type } = this.model();
     const parsedTarget = Selector.safeParse(target);
     const parsedValue = Modifier.safeParse(value);
     if (!parsedTarget.success || !parsedValue.success) {
       return undefined;
     }
-    const line = CustomEffectLine.safeParse({ target: parsedTarget.data, value: parsedValue.data, type });
+    // An adjust keeps no mode, as before sets were possible; a set has no type.
+    const parts = mode === OverrideMode.Set ? { mode } : { type };
+    const line = CustomEffectLine.safeParse({ target: parsedTarget.data, value: parsedValue.data, ...parts });
     return line.success ? line.data : undefined;
   });
 
@@ -184,7 +206,10 @@ export class SheetCustomEffectForm {
     return this.statistics().find(({ value }) => value === target)?.label ?? target;
   }
 
-  #effect({ value, type }: CustomEffectLine): string {
+  #effect({ value, type, mode }: CustomEffectLine): string {
+    if (mode === OverrideMode.Set) {
+      return this.#i18n.translate(Message.EffectSet, { value: this.#format.number(value) });
+    }
     const label: string = this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type ?? ModifierType.Untyped]);
     return this.#i18n.translate(Message.EffectAdjust, {
       value: this.#format.number(value, { signDisplay: 'exceptZero' }),

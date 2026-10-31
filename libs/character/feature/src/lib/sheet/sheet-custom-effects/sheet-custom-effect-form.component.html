@@ -32,8 +32,11 @@
       [value]="target()"
       (valueChange)="pickTarget($event)"
     />
+    <fr-segmented-field [label]="Message.Mode | transloco" [options]="modes" [formField]="form.mode" />
     <fr-number-field [label]="Message.Amount | transloco" [formField]="form.value" />
-    <fr-segmented-field [label]="Message.Type | transloco" [options]="types" [formField]="form.type" />
+    @if (isAdjust()) {
+      <fr-segmented-field [label]="Message.Type | transloco" [options]="types" [formField]="form.type" />
+    }
     <fr-stack direction="horizontal" justify="start">
       <fr-button [disabled]="!canAddLine()" (pressed)="addLine()">
         {{ Message.AddLine | transloco }}

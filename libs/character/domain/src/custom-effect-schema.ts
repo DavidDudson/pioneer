@@ -2,7 +2,7 @@ import { Modifier, OverrideNote, Predicate, Selector } from '@pioneer/rules/sdk'
 import { issueParams, message, UserId, Uuid } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
-import { OverrideModifierType, OverrideReason, OverrideRole, OverrideTime } from './override-schema';
+import { OverrideMode, OverrideModifierType, OverrideReason, OverrideRole, OverrideTime } from './override-schema';
 
 /** One custom effect a character carries. */
 export const CustomEffectId = Uuid.brand<'CustomEffectId'>();
@@ -28,14 +28,23 @@ export const CustomEffectName = z
   .brand<'CustomEffectName'>();
 export type CustomEffectName = z.infer<typeof CustomEffectName>;
 
-/** One adjustment in a custom effect: a typed modifier on a statistic. */
-export const CustomEffectLine = z.strictObject({
-  target: Selector,
-  value: Modifier,
-  /** Absent reads as untyped. */
-  type: OverrideModifierType.optional(),
-  predicate: Predicate.optional(),
-});
+/**
+ * One line of a custom effect on a statistic: an adjust (a typed modifier) or a set (pins the statistic to the value).
+ * Absent `mode` reads as an adjust, as every effect written before sets were possible has it.
+ */
+export const CustomEffectLine = z
+  .strictObject({
+    target: Selector,
+    mode: z.enum(OverrideMode).optional(),
+    value: Modifier,
+    /** Adjust only; absent reads as untyped. */
+    type: OverrideModifierType.optional(),
+    predicate: Predicate.optional(),
+  })
+  .refine((line) => line.mode !== OverrideMode.Set || line.type === undefined, {
+    ...issueParams(message('character.validation.customEffectSetUntyped')),
+    path: ['type'],
+  });
 export type CustomEffectLine = z.infer<typeof CustomEffectLine>;
 
 /** What an author gives for a custom effect: its name, the reason for it, and at least one line. */

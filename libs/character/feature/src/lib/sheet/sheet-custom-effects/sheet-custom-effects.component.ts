@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { OverrideMode } from '@pioneer/character/domain';
 import type { CustomEffectLine } from '@pioneer/character/domain';
 import { EmptyState, List, ListItem, LocaleFormat, Stack } from '@pioneer/frontier';
 import type { Selector } from '@pioneer/rules/sdk';
@@ -17,6 +18,7 @@ import type { CustomEffectRow } from './sheet-custom-effect-rows';
 /** Message keys the list renders with, spelled out so the key check sees them. */
 const Message = {
   EffectAdjust: 'character.sheet.overrides.effectAdjust',
+  EffectSet: 'character.sheet.overrides.effectSet',
   Empty: 'character.sheet.customEffects.empty',
   EmptyHint: 'character.sheet.customEffects.emptyHint',
 } as const;
@@ -62,8 +64,11 @@ export class SheetCustomEffectsSection {
     return found.nameKey === undefined ? found.name : this.#i18n.translate(found.nameKey);
   }
 
-  /** "+1 status". */
-  #effect({ value, type }: CustomEffectLine): string {
+  /** "+1 status", or "Pinned to 20" for a line that sets. */
+  #effect({ value, type, mode }: CustomEffectLine): string {
+    if (mode === OverrideMode.Set) {
+      return this.#i18n.translate(Message.EffectSet, { value: this.#format.number(value) });
+    }
     const label: string = this.#i18n.translate(MODIFIER_TYPE_MESSAGES[type ?? ModifierType.Untyped]);
     return this.#i18n.translate(Message.EffectAdjust, {
       value: this.#format.number(value, { signDisplay: 'exceptZero' }),
