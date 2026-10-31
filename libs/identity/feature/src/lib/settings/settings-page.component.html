@@ -37,6 +37,25 @@
           [value]="shown.distanceUnit()"
           (valueChange)="chooseDistanceUnit($event)"
         />
+        <fr-picker-field
+          [label]="'identity.settings.bodyFont' | transloco"
+          [hint]="'identity.settings.bodyFontHint' | transloco"
+          [error]="bodyFontError()"
+          [rows]="bodyFonts()"
+          [columns]="bodyFontColumns()"
+          [rowValue]="bodyFontValue"
+          [rowLabel]="bodyFontLabel"
+          [value]="shown.bodyFont()"
+          (valueChange)="chooseBodyFont($event)"
+        />
+        <fr-segmented-field
+          [label]="'identity.settings.monoFont' | transloco"
+          [hint]="'identity.settings.monoFontHint' | transloco"
+          [error]="monoFontError()"
+          [options]="monoFonts()"
+          [value]="shown.monoFont()"
+          (valueChange)="chooseMonoFont($event)"
+        />
       </fr-stack>
     </fr-surface>
   </fr-page-body>

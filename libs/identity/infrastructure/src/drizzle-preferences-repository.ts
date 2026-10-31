@@ -15,6 +15,8 @@ function toPreferences(row: PreferencesRow): Preferences {
     uiLocale: row.uiLocale ?? undefined,
     contentLocale: row.contentLocale ?? undefined,
     distanceUnit: row.distanceUnit ?? undefined,
+    bodyFont: row.bodyFont ?? undefined,
+    monoFont: row.monoFont ?? undefined,
   };
 }
 

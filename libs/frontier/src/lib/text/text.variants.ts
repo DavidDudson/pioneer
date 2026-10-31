@@ -32,7 +32,7 @@ export const textVariants = cva('', {
       body: 'text-body',
       label: 'text-label font-medium',
       caption: 'text-caption',
-      brand: 'font-display text-subheading font-semibold',
+      brand: 'font-brand text-subheading',
     } satisfies Record<TextVariant, string>,
     tone: toneVariants,
     weight: {

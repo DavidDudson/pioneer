@@ -2,7 +2,7 @@
  * Theme "frontier", the default: warm stone neutrals with an ember accent.
  * A theme sets each colour role's hue and peak chroma (the ramps in
  * primitives.color.css derive from them) and may override any semantic
- * token that is not mode-dependent, such as fonts. This file is the
+ * token that is not mode-dependent. This file is the
  * baseline on plain :root, so it defines every theme parameter; other
  * themes override them under :root[data-theme='<name>'].
  */
@@ -19,8 +19,4 @@
   --fr-ramp-warning-chroma: 0.15;
   --fr-ramp-info-hue: 245;
   --fr-ramp-info-chroma: 0.14;
-
-  --fr-font-body: ui-sans-serif, system-ui, sans-serif;
-  --fr-font-display: ui-serif, Georgia, serif;
-  --fr-font-mono: ui-monospace, monospace;
 }
