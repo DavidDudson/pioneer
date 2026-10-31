@@ -167,7 +167,7 @@ export class SheetSpender extends ActionUser {
       await this.#spend(
         cast.request,
         cast.shift === undefined
-          ? { apply: { id, effect: choice.effect, rank: cast.rank, ...chosen } }
+          ? { apply: { id, effect: choice.effect, ...(cast.rank === undefined ? {} : { rank: cast.rank }), ...chosen } }
           : { shift: { effect: cast.shift, to: choice.effect, ...chosen } },
       );
       this.pendingForm.set(undefined);

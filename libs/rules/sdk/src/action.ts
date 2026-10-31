@@ -3,6 +3,7 @@ import { issueParams, message, Pg } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId } from './content-id';
+import { FormEffects } from './form-effects';
 import { RulesMessage } from './messages';
 import { Predicate } from './predicate';
 import { ProficiencySchema } from './proficiency';
@@ -166,6 +167,12 @@ export const ActionData = z
     frequency: Frequency.optional(),
     /** The effect using it applies to the user (Raise a Shield's Shield Raised). */
     selfEffect: ContentId.optional(),
+    /**
+     * The effects using it can put on the user, one per form it offers (a werecreature's Change Shape), so using it
+     * can offer the forms. An effect with a predicate is offered only to a character it holds for. Players can still
+     * add the effect by hand.
+     */
+    effects: FormEffects.optional(),
   })
   .refine((data) => data.cost !== ActionCost.Reaction || data.trigger !== undefined, {
     ...issueParams(message(RulesMessage.ActionReactionTrigger)),

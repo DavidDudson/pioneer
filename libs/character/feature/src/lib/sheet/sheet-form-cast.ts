@@ -5,7 +5,7 @@ import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, RollOption, SpellRank } from '@pioneer/rules/sdk';
 import type { ActionUse } from '@pioneer/rules/ui';
 
-import { slotRank, spellEntries } from './sheet-active-list';
+import { actionEntries, slotRank, spellEntries } from './sheet-active-list';
 import { effectOptions } from './sheet-effects';
 import type { EffectOption } from './sheet-effects';
 
@@ -14,8 +14,12 @@ const CANTRIP = Trait.parse('cantrip');
 /** What a battle form spell's effect is called in the content, before the name of the form. */
 const EFFECT_PREFIX = 'Spell Effect: ';
 
-/** The registry kinds a form cast reads: the spells, and the effects they cast. */
-export const FORM_CAST_CONTENT_KINDS: readonly ContentKind[] = [ContentKind.Spell, ContentKind.Effect];
+/** The registry kinds a form cast reads: the spells and actions that put a form on the user, and the effects they cast. */
+export const FORM_CAST_CONTENT_KINDS: readonly ContentKind[] = [
+  ContentKind.Spell,
+  ContentKind.Action,
+  ContentKind.Effect,
+];
 
 /** One form a cast offers: the effect that carries it, and the choice of form within it when the effect has one. */
 export interface FormCastChoice {
@@ -27,13 +31,15 @@ export interface FormCastChoice {
   readonly form: RollOption | undefined;
 }
 
-/** A cast of a spell that puts a form on the caster, waiting for the form to be picked. */
+/** A use of a spell or action that puts a form on the user, waiting for the form to be picked. */
 export interface FormCast {
   readonly request: ActionUse;
   readonly spell: ContentId;
   readonly name: string;
-  /** The rank it is cast at: the slot's, else the spell's own. */
-  readonly rank: SpellRank;
+  /** Whether it is an action used rather than a spell cast. */
+  readonly action: boolean;
+  /** The rank a spell is cast at: the slot's, else the spell's own; an action has none. */
+  readonly rank: SpellRank | undefined;
   readonly choices: readonly FormCastChoice[];
   /** The form the caster is in when the spell changes it, rather than putting one on. */
   readonly shift: EffectInstanceId | undefined;
@@ -93,8 +99,10 @@ export function formCastOf(
   caster: FormCaster | undefined,
 ): FormCast | undefined {
   const spell = spellEntries(registry).get(request.line.id);
-  const listed = spell?.data.effects;
-  if (spell === undefined || listed === undefined) {
+  const action = spell === undefined ? actionEntries(registry).get(request.line.id) : undefined;
+  const source = spell ?? action;
+  const listed = source?.data.effects;
+  if (source === undefined || listed === undefined) {
     return undefined;
   }
   const offered = new Set(
@@ -107,10 +115,11 @@ export function formCastOf(
     ? undefined
     : {
         request,
-        spell: spell.id,
-        name: spell.name,
-        rank: rankOf({ slot, focus, spell, caster }),
+        spell: source.id,
+        name: source.name,
+        action: spell === undefined,
+        rank: spell === undefined ? undefined : rankOf({ slot, focus, spell, caster }),
         choices,
-        shift: spell.data.shiftsForm === true ? caster?.form : undefined,
+        shift: spell?.data.shiftsForm === true ? caster?.form : undefined,
       };
 }

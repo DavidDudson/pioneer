@@ -26,11 +26,13 @@ export interface FormPreview {
 /** Message keys the picker renders with, spelled out so the key check sees them. */
 const FormPickerMessage = {
   Title: 'rules.form.pickerTitle',
+  TitleAction: 'rules.form.pickerTitleAction',
   Pick: 'rules.form.pick',
   Own: 'rules.form.previewOwn',
   Form: 'rules.form.previewForm',
   Unchanged: 'rules.form.previewUnchanged',
   Confirm: 'rules.form.confirm',
+  ConfirmAction: 'rules.form.confirmAction',
   Cancel: 'rules.form.cancel',
 } as const;
 
@@ -52,8 +54,10 @@ const FormPickerMessage = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormPicker {
-  /** The spell being cast, by name. */
+  /** The spell being cast, or the action used, by name. */
   public readonly spell = input.required<string>();
+  /** Whether it is an action used rather than a spell cast, which words the title and the button. */
+  public readonly action = input(false);
   public readonly options = input.required<readonly FormPickerOption[]>();
   /** The form picked, by its value; undefined until one is. */
   public readonly picked = model<string | undefined>(undefined);

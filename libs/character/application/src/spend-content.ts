@@ -10,7 +10,7 @@ import {
 import type { ActiveEffect, ActiveSpell, FormShift, SpendRequest } from '@pioneer/character/domain';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ContentKind, spellEffectId, Trait } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, SpellEffectEntry } from '@pioneer/rules/sdk';
 
 const ATTACK = Trait.parse('attack');
 
@@ -87,13 +87,19 @@ function shiftsNonForm(shift: FormShift, registry: ContentRegistry, active: read
   return target !== undefined && effectContent(registry).get(target.effect)?.polymorph !== true;
 }
 
-/** Whether the spell `action` lists the form `to` among its effects, and offers it to the character by its roll options `facts`. */
+/** The effects a spell or an action lists as the forms it puts on the user. */
+function listedEffects(registry: ContentRegistry, id: ContentId): readonly SpellEffectEntry[] {
+  const entry = entryOf(registry, id);
+  return entry?.kind === ContentKind.Spell || entry?.kind === ContentKind.Action ? (entry.data.effects ?? []) : [];
+}
+
+/** Whether the spell or action `action` lists the form `to` among its effects, and offers it to the character by its roll options `facts`. */
 function listsForm(
   { action, to }: { readonly action: ContentId; readonly to: ContentId },
   registry: ContentRegistry,
   facts: PredicateFacts | undefined,
 ): boolean {
-  const effects = spellEntryOf(registry, action)?.data.effects ?? [];
+  const effects = listedEffects(registry, action);
   return effects.some((listed) => spellEffectId(listed) === to && isSpellEffectOffered(listed, facts));
 }
 

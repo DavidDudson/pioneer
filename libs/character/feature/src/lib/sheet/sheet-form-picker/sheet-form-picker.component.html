@@ -1,6 +1,7 @@
 @if (pending(); as cast) {
   <pio-form-picker
     [spell]="cast.name"
+    [action]="cast.action"
     [options]="options()"
     [preview]="preview()"
     [confirm]="confirm"

@@ -52,11 +52,18 @@ export interface ActiveLists {
 }
 
 type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
+type ActionEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Action }>;
 
 /** The spells of the registry's packs by id. */
 export function spellEntries(registry: ContentRegistry): ReadonlyMap<ContentId, SpellEntry> {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   return new Map(entries.flatMap((entry) => (entry.kind === ContentKind.Spell ? [[entry.id, entry] as const] : [])));
+}
+
+/** The actions of the registry's packs by id. */
+export function actionEntries(registry: ContentRegistry): ReadonlyMap<ContentId, ActionEntry> {
+  const entries = registry.packs.flatMap((pack) => pack.otherEntries);
+  return new Map(entries.flatMap((entry) => (entry.kind === ContentKind.Action ? [[entry.id, entry] as const] : [])));
 }
 
 /** The row of an active spell; a spell the content lacks is left out. */

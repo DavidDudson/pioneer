@@ -289,7 +289,8 @@
     },
     "data": {
       "cost": "one",
-      "category": "interaction"
+      "category": "interaction",
+      "effects": [{ "effect": "1e11ae6a-f022-5ac8-a6b4-6e47b858c2bb", "predicate": ["feat:werecreature-dedication"] }]
     }
   }
 ]
