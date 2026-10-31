@@ -53,7 +53,7 @@ describe('translateRules: subclass choices', () => {
     expect(orphan.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet', 'GrantItem']);
   });
 
-  test('a grant of the pick whose granter does not cascade is kept for the backlog', () => {
+  test('a grant of the pick whose granter does not cascade is kept for the backlog, with the pick it reads', () => {
     const choiceSet = {
       key: 'ChoiceSet',
       flag: 'clericDoctrine',
@@ -66,7 +66,7 @@ describe('translateRules: subclass choices', () => {
     };
     const detached = translate([{ ...DOCTRINE, system: { ...DOCTRINE.system, rules: [choiceSet, grant] } }]);
 
-    expect(detached.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
+    expect(detached.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['ChoiceSet', 'GrantItem']);
   });
 
   test('a tag that is no slug is reported and left off; a repeated tag is kept once', () => {
