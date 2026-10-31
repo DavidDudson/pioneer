@@ -7,7 +7,7 @@ import { ContentKind } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
-import { pickRow } from '../../testing/option-picker-testing';
+import { pickLoadedRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
@@ -32,7 +32,7 @@ function pickerOf(root: HTMLElement): HTMLElement {
 }
 
 async function choose(harness: RouterTestingHarness, root: HTMLElement, label: string): Promise<void> {
-  pickRow(harness, pickerOf(root), { matches: (each) => each === label });
+  await pickLoadedRow(harness, pickerOf(root), { matches: (each) => each === label });
   await TestBed.inject(ApplicationRef).whenStable();
 }
 
