@@ -28,6 +28,6 @@ export async function runMigrations(db: Database, folder: string): Promise<void>
     await migrate(drizzle({ client: connection, casing: 'snake_case' }), { migrationsFolder: folder });
   } finally {
     await connection`select pg_advisory_unlock(${MIGRATION_LOCK})`;
-    connection.release();
+    await connection.release();
   }
 }
