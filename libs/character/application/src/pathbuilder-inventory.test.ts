@@ -5,11 +5,12 @@ import type { Inventory } from '@pioneer/character/domain';
 import {
   entryLookup,
   ImportKind,
+  PathbuilderContainerKey,
   PathbuilderName,
   readPathbuilderExport,
   registryLookup,
 } from '@pioneer/interop/pathbuilder';
-import type { ImportedItem, PathbuilderImport } from '@pioneer/interop/pathbuilder';
+import type { ImportedContainer, ImportedItem, PathbuilderImport } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { ContentKind, ContentText } from '@pioneer/rules/sdk';
 import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
@@ -47,6 +48,9 @@ const GEAR = new ContentPackBuilder()
     traits: ['invested', 'magical'],
   })
   .withItem(ContentKind.Equipment, 'torch', { bulk: 'light' })
+  .withItem(ContentKind.Equipment, 'backpack', { bulk: 'negligible', container: { capacity: 4, ignored: 2 } })
+  .withItem(ContentKind.Equipment, 'sack', { bulk: 'light', container: { capacity: 8 } })
+  .withItem(ContentKind.Equipment, 'spacious-pouch-type-i', { bulk: 'light', container: { capacity: 25 } })
   .build();
 
 /** Caliburn's property runes: seven, two more than an item holds. */
@@ -159,6 +163,7 @@ describe('importedInventory (over the limits)', () => {
     worn: false,
     invested: true,
     runes: undefined,
+    container: undefined,
   };
   const CLOAKS = 12;
 
@@ -166,5 +171,96 @@ describe('importedInventory (over the limits)', () => {
     const value = { ...readExport(mordredExport), items: Array.from({ length: CLOAKS }, () => cloak) };
     const { inventory } = await importOf(value);
     expect(inventory.items.filter((item) => item.invested === true)).toHaveLength(CLOAKS);
+  });
+});
+
+function container(
+  key: PathbuilderContainerKey,
+  name: string,
+  flags: Partial<ImportedContainer> = {},
+): ImportedContainer {
+  return { key, name: PathbuilderName.parse(name), backpack: false, bagOfHolding: false, ...flags };
+}
+
+function torch(inside: PathbuilderContainerKey | undefined): ImportedItem {
+  return {
+    name: PathbuilderName.parse('Torch'),
+    quantity: 1,
+    displayName: undefined,
+    worn: false,
+    invested: false,
+    runes: undefined,
+    container: inside,
+  };
+}
+
+async function withContainers(
+  containers: readonly ImportedContainer[],
+  items: readonly ImportedItem[],
+): Promise<Inventory> {
+  const { inventory } = await importOf({ ...readExport(mordredExport), containers, items });
+  return inventory;
+}
+
+describe('importedInventory (containers)', () => {
+  const PACK = PathbuilderContainerKey.parse('pack-key');
+  const FOLDER = PathbuilderContainerKey.parse('folder-key');
+  const POUCH = PathbuilderContainerKey.parse('pouch-key');
+
+  test('a container that is a core container becomes that item with its lines stowed inside', async () => {
+    const { items } = await withContainers([container(PACK, 'Backpack')], [torch(PACK), torch(PACK), torch(undefined)]);
+    const [bag, ...lines] = items;
+    expect(bag?.container).toBeUndefined();
+    expect(bag?.carry.state).toBe(CarryState.Stowed);
+    expect(bag?.origin).toBe(ItemOrigin.Import);
+    expect(lines.map((line) => line.container)).toStrictEqual([bag?.id, bag?.id, undefined]);
+  });
+
+  test('a container with no match drops its grouping and none of its lines is lost', async () => {
+    const { items, customItems } = await withContainers(
+      [container(FOLDER, 'Plot Items')],
+      [torch(FOLDER), torch(FOLDER)],
+    );
+    expect(items).toHaveLength(2);
+    expect(items.map((line) => line.container)).toStrictEqual([undefined, undefined]);
+    expect(customItems).toStrictEqual([]);
+  });
+
+  test('a folder named for a core item that holds nothing is not a container', async () => {
+    const { items } = await withContainers([container(FOLDER, 'Torch')], [torch(FOLDER)]);
+    expect(items).toHaveLength(1);
+    expect(items[0]?.container).toBeUndefined();
+  });
+
+  test("Pathbuilder's backpack flag stands for a backpack whatever the folder is called", async () => {
+    const { items } = await withContainers([container(PACK, 'My Stuff', { backpack: true })], [torch(PACK)]);
+    expect(items).toHaveLength(2);
+    expect(items[1]?.container).toBe(items[0]?.id);
+  });
+
+  test("Pathbuilder's bag of holding flag stands for the remaster's spacious pouch", async () => {
+    const { items } = await withContainers([container(POUCH, 'Loot', { bagOfHolding: true })], [torch(POUCH)]);
+    expect(items).toHaveLength(2);
+    expect(items[1]?.container).toBe(items[0]?.id);
+  });
+
+  test('an empty core container is still imported', async () => {
+    const { items } = await withContainers([container(PACK, 'Sack')], []);
+    expect(items).toHaveLength(1);
+  });
+
+  test('a line naming a container the export lacks stays loose', async () => {
+    const { items } = await withContainers([], [torch(PACK)]);
+    expect(items.map((line) => line.container)).toStrictEqual([undefined]);
+  });
+});
+
+describe('importedInventory (Mordred containers)', () => {
+  test("drops Mordred's two folders, which are not core containers, and keeps every line", async () => {
+    const value = readExport(mordredExport);
+    const { inventory, matched } = await importOf(value);
+    expect(value.containers).toHaveLength(2);
+    expect(inventory.items).toHaveLength(matched);
+    expect(inventory.items.filter((line) => line.container !== undefined)).toStrictEqual([]);
   });
 });

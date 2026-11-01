@@ -4,6 +4,7 @@ import {
   InventoryItemId,
   InventoryItemName,
   InventorySchema,
+  isContainer,
   isInvestable,
   isSpecific,
   isWearable,
@@ -21,8 +22,15 @@ import type {
   ItemEntry,
   ItemRunes,
 } from '@pioneer/character/domain';
-import { ImportKind } from '@pioneer/interop/pathbuilder';
-import type { ContentLookup, ImportedItem, ImportedRunes, PathbuilderImport } from '@pioneer/interop/pathbuilder';
+import { ImportKind, PathbuilderName } from '@pioneer/interop/pathbuilder';
+import type {
+  ContentLookup,
+  ImportedContainer,
+  ImportedItem,
+  ImportedRunes,
+  PathbuilderContainerKey,
+  PathbuilderImport,
+} from '@pioneer/interop/pathbuilder';
 import { Coin, ContentId, ContentKind, RunedItem, RuneGrade } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
@@ -32,6 +40,12 @@ export interface InventoryContent {
   readonly runes: ContentLookup;
   readonly entries: ItemContent;
 }
+
+/** The core item Pathbuilder's backpack flag stands for. */
+const BACKPACK = PathbuilderName.parse('Backpack');
+
+/** The core item Pathbuilder's bag of holding flag stands for: the remaster renamed the bag a spacious pouch. */
+const BAG_OF_HOLDING = PathbuilderName.parse('Spacious Pouch (Type I)');
 
 function grade(value: number | undefined): RuneGrade | undefined {
   const parsed = RuneGrade.safeParse(value);
@@ -79,17 +93,21 @@ function carryOf(imported: ImportedItem, entry: ItemEntry, armourWorn: boolean):
 }
 
 /** The inventory line `imported` makes, or undefined when no loaded item or quantity fits. */
-function lineFor(
-  imported: ImportedItem,
-  content: InventoryContent,
-  items: readonly InventoryItem[],
-): InventoryItem | undefined {
+/** What a line is placed against: the lines made so far, and the item each Pathbuilder container became. */
+interface Placed {
+  readonly items: readonly InventoryItem[];
+  readonly containers: ReadonlyMap<PathbuilderContainerKey, InventoryItemId>;
+}
+
+function lineFor(imported: ImportedItem, content: InventoryContent, placed: Placed): InventoryItem | undefined {
   const match = content.items.resolve(ImportKind.Item, imported.name);
   const entry = match === undefined ? undefined : content.entries.get(ContentId.parse(match.id));
   const quantity = ItemQuantity.safeParse(imported.quantity);
   if (entry === undefined || !quantity.success) {
     return undefined;
   }
+  const { items, containers } = placed;
+  const container = imported.container === undefined ? undefined : containers.get(imported.container);
   const armourWorn = items.some(
     (each) => each.carry.state === CarryState.Worn && content.entries.get(each.item)?.kind === ContentKind.Armor,
   );
@@ -101,8 +119,47 @@ function lineFor(
     carry: carryOf(imported, entry, armourWorn),
     origin: ItemOrigin.Import,
     ...(name.success ? { name: name.data } : {}),
+    ...(container === undefined ? {} : { container }),
   };
   return withRunes(base, etched(imported.runes, entry, content));
+}
+
+/** The core container `container` is: its own name when that names one, else the item its backpack or bag flag stands for. */
+function containerEntry(container: ImportedContainer, content: InventoryContent): ItemEntry | undefined {
+  const names = [
+    container.name,
+    ...(container.backpack ? [BACKPACK] : []),
+    ...(container.bagOfHolding ? [BAG_OF_HOLDING] : []),
+  ];
+  for (const name of names) {
+    const match = content.items.resolve(ImportKind.Item, name);
+    const entry = match === undefined ? undefined : content.entries.get(ContentId.parse(match.id));
+    if (entry !== undefined && isContainer(entry)) {
+      return entry;
+    }
+  }
+  return undefined;
+}
+
+/** A stowed line for each of Pathbuilder's containers that is a core container, by the key its rows name. */
+function containerLines(
+  value: PathbuilderImport,
+  content: InventoryContent,
+): ReadonlyMap<PathbuilderContainerKey, InventoryItem> {
+  const lines = new Map<PathbuilderContainerKey, InventoryItem>();
+  for (const container of value.containers) {
+    const entry = containerEntry(container, content);
+    if (entry !== undefined) {
+      lines.set(container.key, {
+        id: InventoryItemId.parse(newId()),
+        item: entry.id,
+        quantity: ItemQuantity.parse(1),
+        carry: { state: CarryState.Stowed },
+        origin: ItemOrigin.Import,
+      });
+    }
+  }
+  return lines;
 }
 
 /** `line` as an import keeps it: invested when Pathbuilder says so or it is worn and content allows, past any limit. */
@@ -122,13 +179,17 @@ function customFor(imported: ImportedItem): CustomItem | undefined {
 
 /**
  * The inventory an import carries: every matched item with its runes, carry state and investment, every other line as
- * a custom item under Pathbuilder's name, and the coins. Nothing is dropped.
+ * a custom item under Pathbuilder's name, and the coins. Nothing is dropped. A Pathbuilder container that is a core
+ * container becomes that item, with the lines it held stowed inside; any other container drops its grouping, and its
+ * lines stay loose.
  */
 export function importedInventory(value: PathbuilderImport, content: InventoryContent): Inventory {
-  const items: InventoryItem[] = [];
+  const bags = containerLines(value, content);
+  const containers = new Map([...bags].map(([key, bag]) => [key, bag.id]));
+  const items: InventoryItem[] = [...bags.values()];
   const customItems: CustomItem[] = [];
   for (const imported of value.items) {
-    const line = lineFor(imported, content, items);
+    const line = lineFor(imported, content, { items, containers });
     const custom = line === undefined ? customFor(imported) : undefined;
     if (line !== undefined) {
       items.push(investedAs(line, imported, content));

@@ -29,6 +29,10 @@ export const IMPORT_KIND_ORDER: readonly ImportKind[] = Object.values(ImportKind
 export const PathbuilderName = z.string().min(1).brand<'PathbuilderName'>();
 export type PathbuilderName = z.infer<typeof PathbuilderName>;
 
+/** The id Pathbuilder keys a gear container by, which the equipment rows in it name. */
+export const PathbuilderContainerKey = z.string().min(1).brand<'PathbuilderContainerKey'>();
+export type PathbuilderContainerKey = z.infer<typeof PathbuilderContainerKey>;
+
 /** One reference in the export to a content entry, before matching. */
 export interface ImportedName {
   readonly kind: ImportKind;

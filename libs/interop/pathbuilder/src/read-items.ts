@@ -1,5 +1,5 @@
 import { matchKey } from './content-lookup';
-import { PathbuilderName } from './import-kind';
+import { PathbuilderContainerKey, PathbuilderName } from './import-kind';
 import type { PathbuilderBuild } from './pathbuilder-export';
 
 /** Fundamental rune grades and property rune names Pathbuilder lists on a weapon or armour. */
@@ -21,6 +21,16 @@ export interface ImportedItem {
   /** Pathbuilder flags gear it counts as invested; whether the item can be is content's to say. */
   readonly invested: boolean;
   readonly runes: ImportedRunes | undefined;
+  /** The container Pathbuilder keeps the line in, when it names one the export lists. */
+  readonly container: PathbuilderContainerKey | undefined;
+}
+
+/** One of Pathbuilder's gear containers: a folder, or a backpack or bag of holding it knows by kind. */
+export interface ImportedContainer {
+  readonly key: PathbuilderContainerKey;
+  readonly name: PathbuilderName;
+  readonly backpack: boolean;
+  readonly bagOfHolding: boolean;
 }
 
 /** Coins, each as Pathbuilder wrote them. */
@@ -82,7 +92,7 @@ function displayName(base: string, display: string | undefined): PathbuilderName
   return shown === undefined || matchKey(shown).includes(matchKey(base)) ? undefined : shown;
 }
 
-type Carried = Pick<ImportedItem, 'worn' | 'invested' | 'runes' | 'displayName'>;
+type Carried = Pick<ImportedItem, 'worn' | 'invested' | 'runes' | 'displayName' | 'container'>;
 
 function line(name: string, quantity: number, carried: Carried): ImportedItem[] {
   const chosenName = chosen(name);
@@ -98,12 +108,47 @@ type ArmorRow = PathbuilderBuild['armor'][number];
 function armourLine(armor: ArmorRow, otherWorn: boolean): ImportedItem[] {
   const runes = runesOf(armor);
   if (armor.name !== UNARMORED) {
-    return line(armor.name, armor.qty, { worn: armor.worn, invested: false, runes, displayName: undefined });
+    return line(armor.name, armor.qty, {
+      worn: armor.worn,
+      invested: false,
+      runes,
+      displayName: undefined,
+      container: undefined,
+    });
   }
   const clothing = armor.prof?.toLowerCase() === UNARMORED_PROFICIENCY && runes !== undefined;
   return clothing
-    ? line(CLOTHING, armor.qty, { worn: armor.worn || !otherWorn, invested: false, runes, displayName: undefined })
+    ? line(CLOTHING, armor.qty, {
+        worn: armor.worn || !otherWorn,
+        invested: false,
+        runes,
+        displayName: undefined,
+        container: undefined,
+      })
     : [];
+}
+
+/** The container an equipment row's trailing flags name, when the export lists it; "Invested" and the rest are not. */
+function containerOf(build: PathbuilderBuild, flags: readonly unknown[]): PathbuilderContainerKey | undefined {
+  const key = flags.find((flag) => typeof flag === 'string' && flag in build.equipmentContainers);
+  return typeof key === 'string' ? PathbuilderContainerKey.parse(key) : undefined;
+}
+
+/** Pathbuilder's gear containers in export order. */
+export function importedContainers(build: PathbuilderBuild): ImportedContainer[] {
+  return Object.entries(build.equipmentContainers).flatMap(([key, container]) => {
+    const name = chosen(container.containerName);
+    return name === undefined
+      ? []
+      : [
+          {
+            key: PathbuilderContainerKey.parse(key),
+            name,
+            backpack: container.backpack,
+            bagOfHolding: container.bagOfHolding,
+          },
+        ];
+  });
 }
 
 /** Equipment, then weapons, then armour, in export order. */
@@ -115,6 +160,7 @@ export function importedItems(build: PathbuilderBuild): ImportedItem[] {
         invested: flags.includes('Invested'),
         runes: undefined,
         displayName: undefined,
+        container: containerOf(build, flags),
       }),
     ),
     ...build.weapons.flatMap((weapon) =>
@@ -123,6 +169,7 @@ export function importedItems(build: PathbuilderBuild): ImportedItem[] {
         invested: false,
         runes: runesOf(weapon),
         displayName: displayName(weapon.name, weapon.display),
+        container: undefined,
       }),
     ),
     ...build.armor.flatMap((armor) =>
