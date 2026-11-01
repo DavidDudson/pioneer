@@ -484,7 +484,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "force"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Impactful",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can choose to force the target to succeed at a save or be pushed 5 feet away from you."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.H9qYN48voa2ZDy3i"
     },
@@ -538,7 +563,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "force"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Impactful",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can choose to force the target to succeed at a save or be pushed 10 feet away from you."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ri9QkRCD6cAbQ6t3"
     },
