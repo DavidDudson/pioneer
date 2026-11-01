@@ -158,14 +158,16 @@ describe('CharacterSheet override authors', () => {
   };
 
   async function breakdownText(authors: readonly object[]): Promise<string> {
-    const { root } = await openSheet(ADJUSTED, { authors });
-    const row = await vi.waitFor(() => {
-      const found = [...root.querySelectorAll('fr-list-item')].find((item) => item.textContent.includes('Armor Class'));
+    fakeDialog();
+    const { root, harness } = await openSheet(ADJUSTED, { authors });
+    const page = TestBed.inject(Router).url.split('?')[0] ?? '';
+    await harness.navigateByUrl(`${page}?breakdown=open&statistic=ac`);
+    const breakdown = await vi.waitFor(() => {
+      const found = root.ownerDocument.querySelector<HTMLElement>('dialog pio-breakdown');
       return present(found);
     });
-    present(row.querySelector<HTMLElement>('summary')).click();
-    await TestBed.inject(ApplicationRef).whenStable();
-    return row.textContent.replaceAll(/\s+/gu, ' ');
+    const block = present(root.querySelector<HTMLElement>('pio-armor-class'));
+    return `${block.textContent} ${breakdown.textContent}`.replaceAll(/\s+/gu, ' ');
   }
 
   it('marks the statistic and names the author, the time and the reason in its breakdown', async () => {

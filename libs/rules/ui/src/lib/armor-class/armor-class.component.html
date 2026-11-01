@@ -18,6 +18,15 @@
           />
         </ng-template>
       </fr-hover-card>
+      @if (armor.computed; as unpinned) {
+        <fr-stack direction="horizontal" align="center" gap="xs">
+          <fr-badge tone="warning">{{ Pinned | transloco }}</fr-badge>
+          <fr-text tone="muted" numeric>{{ unpinned }}</fr-text>
+        </fr-stack>
+      }
+      @if (armor.adjusted) {
+        <fr-badge tone="info">{{ Adjusted | transloco }}</fr-badge>
+      }
     } @else {
       <fr-text tone="danger">{{ armor.error }}</fr-text>
     }

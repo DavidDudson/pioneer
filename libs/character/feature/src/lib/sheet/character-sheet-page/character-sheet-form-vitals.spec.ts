@@ -6,7 +6,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { fakeDialog, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
 /** Player Core's character kinds and the effects of Divine Mysteries. */
@@ -34,8 +34,15 @@ function vitalsOf(root: HTMLElement): string {
   return textOf(present(root.querySelector<HTMLElement>('pio-vitals')));
 }
 
-function hitPointsOf(root: HTMLElement): string {
-  return textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-points')));
+/** The Hit Points controls, in the drawer the block opens. */
+function hitPointControlsOf(root: HTMLElement): string {
+  return textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls')));
+}
+
+/** Presses the Hit Points block, which opens the controls. */
+function openHitPoints(root: HTMLElement): void {
+  fakeDialog();
+  present(root.querySelector<HTMLElement>('pio-sheet-hit-points button')).click();
 }
 
 describe('CharacterSheetPage form speed and size', () => {
@@ -64,7 +71,8 @@ describe('CharacterSheetPage form speed and size', () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: ape, packs: PACKS });
 
     await vi.waitFor(() => {
-      expect(hitPointsOf(root)).toMatch(
+      openHitPoints(root);
+      expect(hitPointControlsOf(root)).toMatch(
         /Size Large, reach \d+ feet, from [^;]*Animal Form[^;]*; your own size is Medium\./u,
       );
     });

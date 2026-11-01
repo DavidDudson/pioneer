@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
-import { Button, ButtonVariant, HoverCard, HoverCardContent, LocaleFormat, Stack, Text } from '@pioneer/frontier';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import {
+  Badge,
+  Button,
+  ButtonVariant,
+  HoverCard,
+  HoverCardContent,
+  LocaleFormat,
+  Stack,
+  Text,
+} from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import type { ContentId, Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 
@@ -9,6 +18,8 @@ import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { ProficiencyBadge } from '../proficiency-badge/proficiency-badge.component';
 import type { RankSource } from '../proficiency-badge/proficiency-badge.component';
+import { isAdjustedByHand } from '../statistics/statistic-adjusted';
+import { StatisticsMessage } from '../statistics/statistics-messages';
 import { VitalBasisKind } from '../vitals/vital';
 import type { Vital } from '../vitals/vital';
 
@@ -26,6 +37,10 @@ interface ShownArmorClass {
   readonly kind: StatisticKind;
   readonly rank: Proficiency | undefined;
   readonly rankSources: readonly RankSource[];
+  /** "computed 18" when a set override pinned the total. */
+  readonly computed: string | undefined;
+  /** A user added a modifier by hand that counts toward the total. */
+  readonly adjusted: boolean;
   /** What sets it, worded: the worn armour's name, or unarmored. */
   readonly basis: string | undefined;
 }
@@ -43,7 +58,7 @@ interface ShownArmorClass {
  */
 @Component({
   selector: 'pio-armor-class',
-  imports: [BreakdownView, Button, HoverCard, HoverCardContent, ProficiencyBadge, Stack, Text],
+  imports: [Badge, BreakdownView, Button, HoverCard, HoverCardContent, ProficiencyBadge, Stack, Text, TranslocoPipe],
   templateUrl: './armor-class.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -54,6 +69,8 @@ export class ArmorClass {
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly inline = ButtonVariant.Inline;
+  protected readonly Pinned = StatisticsMessage.Pinned;
+  protected readonly Adjusted = StatisticsMessage.Adjusted;
 
   readonly #format = inject(LocaleFormat);
   readonly #i18n = inject(TranslocoService);
@@ -74,6 +91,8 @@ export class ArmorClass {
         total: undefined,
         error: this.#i18n.translate(result.error.key, result.error.params),
         statistic: undefined,
+        computed: undefined,
+        adjusted: false,
         kind,
         rank,
         rankSources: rankSources ?? [],
@@ -85,6 +104,11 @@ export class ArmorClass {
       total: this.#format.number(result.total),
       error: undefined,
       statistic: result,
+      computed:
+        result.pinnedBy === undefined
+          ? undefined
+          : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed) }),
+      adjusted: isAdjustedByHand(result),
       kind,
       rank,
       rankSources: rankSources ?? [],

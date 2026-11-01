@@ -1,7 +1,9 @@
 import { TestBed } from '@angular/core/testing';
+import { Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
+import { ADJUSTED_WILL, PINNED_AC } from '../testing/override-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { FIGHTER_VITALS, UNARMORED_VITALS } from '../testing/vitals-fixtures';
 import type { Vital } from '../vitals/vital';
@@ -60,5 +62,28 @@ describe(ArmorClass, () => {
     await vi.waitFor(() => {
       expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('Unarmored');
     });
+  });
+
+  it('marks a total a set override pinned, with the computed value beside it', async () => {
+    const vital: Vital = {
+      statistic: { name: 'Armor Class', kind: StatisticKind.Dc, result: PINNED_AC },
+      rank: Proficiency.Trained,
+    };
+    const host = await render(vital);
+    expect(textOf(host)).toContain('22Pinnedcomputed 20');
+  });
+
+  it('marks a total a user adjusted by hand', async () => {
+    const vital: Vital = {
+      statistic: { name: 'Armor Class', kind: StatisticKind.Dc, result: ADJUSTED_WILL },
+      rank: Proficiency.Trained,
+    };
+    const host = await render(vital);
+    expect(textOf(host)).toContain('Adjusted by hand');
+  });
+
+  it('marks neither on an untouched total', async () => {
+    const host = await render(FIGHTER_VITALS[0]);
+    expect(textOf(host)).not.toMatch(/Pinned|Adjusted/u);
   });
 });
