@@ -1,0 +1,8 @@
+@if (top(); as top) {
+  <fr-badge [variant]="solid">
+    <fr-icon [icon]="top.icon" [label]="top.name | transloco" />
+    @if (count(); as count) {
+      {{ count }}
+    }
+  </fr-badge>
+}
