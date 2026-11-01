@@ -114,6 +114,8 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
     attack: attackTargets(weapon),
     damage: damageTargets(weapon),
     origin: weapon.origin,
+    group: weapon.group,
+    rollOptions: weapon.rollOptions,
   });
 }
 

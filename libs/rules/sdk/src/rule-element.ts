@@ -8,6 +8,7 @@ import { ActorTraitsElement } from './rule-element-actor-traits';
 import { AuraElement } from './rule-element-aura';
 import { RuleElementKey } from './rule-element-base';
 import { BattleFormElement, CreatureSizeElement } from './rule-element-creature-size';
+import { CriticalSpecializationElement } from './rule-element-critical-specialization';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { GrantShieldElement } from './rule-element-grant-shield';
@@ -76,6 +77,7 @@ const Element = z.discriminatedUnion('key', [
   ActorTraitsElement,
   StrikeElement,
   AdjustStrikeElement,
+  CriticalSpecializationElement,
   DamageDiceElement,
   DamageAlterationElement,
   NoteElement,

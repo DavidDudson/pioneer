@@ -40,3 +40,16 @@ describe('AdjustStrike', () => {
     );
   });
 });
+
+describe('CriticalSpecialization', () => {
+  test.each([{ key: 'CriticalSpecialization' }, { key: 'CriticalSpecialization', predicate: ['item:group:sword'] }])(
+    'parses %j',
+    (element) => {
+      expect(RuleElement.safeParse(element).success).toBe(true);
+    },
+  );
+
+  test('has no other fields', () => {
+    expect(RuleElement.safeParse({ key: 'CriticalSpecialization', alternate: true }).success).toBe(false);
+  });
+});

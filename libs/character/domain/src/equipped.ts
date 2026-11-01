@@ -128,6 +128,8 @@ function weaponInputs(
       {
         slug,
         category: entry.data.category,
+        group: entry.data.group,
+        rollOptions: altered.rollOptions,
         traits: altered.traits,
         materials: altered.materials,
         propertyRunes: altered.propertyRunes,

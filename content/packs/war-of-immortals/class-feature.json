@@ -474,6 +474,10 @@
             "gte": ["self:level", 2]
           }
         ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:deity-favored", "target:condition:off-guard"]
       }
     ],
     "externalIds": {
@@ -1058,6 +1062,10 @@
         "display": {
           "label": "Use epithet critical specialization effect"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -2008,6 +2016,10 @@
         "display": {
           "label": "Use epithet critical specialization effect"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -6023,6 +6035,10 @@
         "display": {
           "label": "Use epithet critical specialization effect"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -6155,6 +6171,9 @@
         "property": "property-runes",
         "mode": "add",
         "value": "grievous"
+      },
+      {
+        "key": "CriticalSpecialization"
       }
     ],
     "externalIds": {
@@ -6369,6 +6388,10 @@
         "display": {
           "label": "Use epithet critical specialization effect"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
@@ -10658,6 +10681,10 @@
         "display": {
           "label": "Use epithet critical specialization effect"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:epithet-critical-specialization"]
       }
     ],
     "externalIds": {
