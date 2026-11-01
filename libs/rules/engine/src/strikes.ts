@@ -1,4 +1,4 @@
-import { DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
+import { DamageException, DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from '@pioneer/rules/sdk';
 import type { DamageAmount, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
 
 import { strikesUnderForm } from './battle-form-strikes';
@@ -29,6 +29,11 @@ export interface StrikeDamage {
   readonly persistent: PersistentDamage | undefined;
   /** A bomb's splash damage, of the damage's type, dealt to creatures near its target; no bonus adds to it. */
   readonly splash: DamageAmount | undefined;
+  /**
+   * The materials and property runes the damage counts as (the Strike's, after item alterations and adjustments), which
+   * a weakness or resistance with exceptions reads (`applyDamage`'s `counts`).
+   */
+  readonly counts: readonly DamageException[];
   /** The `strike-damage:<slug>` statistic: Strength and whatever else adds to damage. Undefined if not derived. */
   readonly bonus: StatisticResult | undefined;
 }
@@ -138,6 +143,7 @@ function damageOf(
     extra: changes?.extra ?? [],
     persistent,
     splash: weapon.splash,
+    counts: [...(weapon.materials ?? []), ...(weapon.propertyRunes ?? [])].map((each) => DamageException.parse(each)),
     bonus: results.get(Selector.parse(`${DAMAGE}:${weapon.slug}`)),
   };
 }

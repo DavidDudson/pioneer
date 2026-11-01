@@ -1,5 +1,5 @@
 import { DAMAGE_GROUP_TYPES, DamageContext, DamageGroup, DamageType } from '@pioneer/rules/sdk';
-import type { DamageAdjustment, DamageAdjustmentTarget, DamageTarget } from '@pioneer/rules/sdk';
+import type { DamageAdjustment, DamageAdjustmentTarget, DamageException, DamageTarget } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -18,6 +18,8 @@ export interface Source {
   readonly splash: boolean;
   /** The damage is from a spell. */
   readonly spell: boolean;
+  /** The materials and property runes the damage counts as (`silver`, `ghost-touch`), which an exception names. */
+  readonly counts: readonly DamageException[];
 }
 
 /**
@@ -58,6 +60,11 @@ function nameOf(target: DamageAdjustmentTarget): MessageTarget {
   return target === DamageContext.Spells ? 'spells' : target;
 }
 
+/** Whether the source counts as one of the adjustment's exceptions (`resistance 5 physical except silver`), so it does not apply. */
+function excepted({ exceptions = [] }: DamageAdjustment, { counts }: Source): boolean {
+  return exceptions.some((exception) => counts.includes(exception));
+}
+
 /** The highest of `adjustments` that applies: only one weakness or resistance counts per instance. */
 function highest(
   adjustments: readonly DamageAdjustment[],
@@ -65,7 +72,7 @@ function highest(
   source: Source,
 ): DamageAdjustment | undefined {
   return adjustments
-    .filter((adjustment) => covers(adjustment.type, types, source))
+    .filter((adjustment) => covers(adjustment.type, types, source) && !excepted(adjustment, source))
     .toSorted((left, right) => right.value - left.value)[0];
 }
 
@@ -103,7 +110,10 @@ export function resist(amount: DamageTotal, exposure: Exposure, target: DamageTa
   const resistance =
     amount > 0
       ? target.resistances
-          .filter((candidate) => covers(candidate.type, exposure.types, exposure.source))
+          .filter(
+            (candidate) =>
+              covers(candidate.type, exposure.types, exposure.source) && !excepted(candidate, exposure.source),
+          )
           .toSorted((left, right) => preventing(right, amount, exposure) - preventing(left, amount, exposure))[0]
       : undefined;
   if (resistance === undefined) {

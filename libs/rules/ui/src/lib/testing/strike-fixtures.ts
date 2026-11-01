@@ -139,6 +139,7 @@ const LONGSWORD_DAMAGE_ROLL = {
   extra: [],
   persistent: undefined,
   splash: undefined,
+  counts: [],
 } as const;
 const DARKNESS_ATTACK_BONUS = 1;
 const DARKNESS_DAMAGE_BONUS = 2;

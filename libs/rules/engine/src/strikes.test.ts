@@ -1,7 +1,9 @@
 import { describe, expect, test } from 'bun:test';
 
+import { applyDamage, DiceExpressionText, DieFace, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
+import { scriptedRandom } from '@pioneer/rules/dice/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { DamageAdjustment, Selector, Slug, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
@@ -81,8 +83,19 @@ const GLUE_BOMB = {
   damage: { dice: 0, damageType: 'bludgeoning' },
 };
 
+/** What item alterations and adjustments made of a weapon: its materials and property runes. */
+interface Made {
+  readonly materials?: readonly Slug[];
+  readonly propertyRunes?: readonly Slug[];
+}
+
+/** `weapon` as item alterations and adjustments made it. */
+function madeOf<Weapon extends object>(weapon: Weapon, made: Made): Weapon & Made {
+  return { ...weapon, ...made };
+}
+
 /** Strikes for `weapons` of a level 1 character with Strength `strength` and Dexterity 3. */
-function strikesOf(weapons: readonly object[], strength = 4): readonly Strike[] {
+function strikesOf(weapons: readonly object[], strength = 4, made: Made = {}): readonly Strike[] {
   const inputs = StatisticInputsJson.parse({
     level: 1,
     attributes: { str: strength, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -91,7 +104,10 @@ function strikesOf(weapons: readonly object[], strength = 4): readonly Strike[] 
   });
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
   const results = deriveStatistics(content, inputs, { rules: [], facts: new PredicateFacts([], CORE_NAMESPACES) });
-  return deriveStrikes(inputs.weapons ?? [], results);
+  return deriveStrikes(
+    (inputs.weapons ?? []).map((weapon) => madeOf(weapon, made)),
+    results,
+  );
 }
 
 /** A branded number as the plain one a test compares. */
@@ -163,5 +179,47 @@ describe('the multiple attack penalty', () => {
     const [sword, dagger] = strikesOf([LONGSWORD, DAGGER]);
     expect([sword?.map.second, sword?.map.third].map((penalty) => plain(penalty))).toStrictEqual([-5, -10]);
     expect([dagger?.map.second, dagger?.map.third].map((penalty) => plain(penalty))).toStrictEqual([-4, -8]);
+  });
+});
+
+const WEREWOLF = {
+  weaknesses: [],
+  resistances: [DamageAdjustment.parse({ type: 'physical', value: 5, exceptions: ['silver'] })],
+  immunities: [],
+};
+
+/** The materials and runes a longsword made as `made` deals damage as, as plain text. */
+function countsOf(made: Made): readonly string[] {
+  return (strikesOf([LONGSWORD], 4, made)[0]?.damage?.counts ?? []).map(String);
+}
+
+/** The damage a Strike of `weapon` does to the werewolf on a roll of 7. */
+function takenBy(weapon: object, made: Made = {}): number | undefined {
+  const [strike] = strikesOf([weapon], 4, made);
+  const outcome = parseDiceExpression(DiceExpressionText.parse('1d8[slashing]'));
+  if (!outcome.ok || strike?.damage === undefined) {
+    return undefined;
+  }
+  const rolled = rollDice(outcome.expression, scriptedRandom([DieFace.parse(7)]));
+  return applyDamage(rolled, WEREWOLF, { critical: false, counts: strike.damage.counts }).taken;
+}
+
+describe('Strike damage counts', () => {
+  test('a plain weapon counts as nothing, so a resistance to physical damage applies', () => {
+    expect(countsOf({})).toEqual([]);
+    expect(takenBy(LONGSWORD)).toBe(2);
+  });
+
+  test('a silver weapon counts as silver, and a resistance that excepts silver does not apply', () => {
+    const silver = { materials: [Slug.parse('silver')] };
+
+    expect(countsOf(silver)).toEqual(['silver']);
+    expect(takenBy(LONGSWORD, silver)).toBe(7);
+  });
+
+  test('a weapon counts as its property runes too', () => {
+    const ghostly = { materials: [Slug.parse('cold-iron')], propertyRunes: [Slug.parse('ghost-touch')] };
+
+    expect(countsOf(ghostly)).toEqual(['cold-iron', 'ghost-touch']);
   });
 });

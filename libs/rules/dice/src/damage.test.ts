@@ -153,7 +153,7 @@ describe('applyDamage', () => {
     expect(result.immediate[0]?.lines).toEqual([]);
   });
 
-  test('an exception travels with a resistance but never matches until damage carries traits', () => {
+  test('an exception applies when the damage counts as nothing it names', () => {
     const resistance = DamageAdjustment.parse({ type: DamageGroup.Physical, value: 5, exceptions: ['adamantine'] });
     const result = applyDamage(roll('1d8[slashing]', [7]), target({ resistances: [resistance] }));
     expect(result.taken).toBe(amount(2));
