@@ -1,4 +1,4 @@
-import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ClassRoleSchema, SlotKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { Character } from './character';
@@ -18,11 +18,13 @@ export type GenerateLock = z.infer<typeof GenerateLock>;
  * and packs give the same character; the server picks one when it is left out) and `name` replaces the rolled one.
  * `locks` are picks to keep: only the other slots are drawn, so a new seed with the same locks re-rolls the rest. A
  * lock the build cannot keep (its slot only opens under a pick that was not locked) is refused as a 422. `theme`
- * weighs the picks and, with a weapon, equips it.
+ * weighs the picks and, with a weapon, equips it. `role` draws the class from those that play it (by `seed`), unless a
+ * lock already picks the class; a role no loaded class plays is a 422. `level` is 1 when left out.
  */
 export const GenerateCharacterBody = z.object({
-  level: CharacterLevel,
+  level: CharacterLevel.optional(),
   seed: Seed.optional(),
+  role: ClassRoleSchema.optional(),
   name: CharacterName.optional(),
   locks: z.array(GenerateLock).max(LOCKS_MAX).optional(),
   theme: GenerationThemeSchema.optional(),

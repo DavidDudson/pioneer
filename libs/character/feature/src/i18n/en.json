@@ -782,6 +782,7 @@
     "runeNotForItem": "That rune doesn't go on this item.",
     "runeNotHigher": "This item comes with that rune at grade {grade}. Etch a higher grade.",
     "lockNotKept": "That pick can't be kept: its slot only opens under a pick that is not locked. Lock the picks it depends on, or unlock it.",
+    "roleHasNoClass": "No class plays that role.",
     "unknownRune": "No loaded pack has that property rune.",
     "specificRunes": "A specific magic item's property runes are part of it. They can't be etched, erased or moved, and runes can't be moved onto or off it.",
     "runeEtched": "This item already has that rune.",

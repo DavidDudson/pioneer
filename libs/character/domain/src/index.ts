@@ -565,6 +565,7 @@ export {
   type ClassPickerContent,
   type ClassProficiency,
   classesForRole,
+  classForRole,
   classPickerContent,
   type SubclassOption,
 } from './class-options';

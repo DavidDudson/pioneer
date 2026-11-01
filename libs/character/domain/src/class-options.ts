@@ -15,6 +15,10 @@ import type {
   SourceRef,
 } from '@pioneer/rules/sdk';
 
+import { seededPicks } from './pick-source';
+import type { Seed } from './pick-source';
+import { pickOne } from './picks';
+
 /** A statistic a class starts with a rank in, by selector: Perception, a save, a weapon or armor category. */
 export interface ClassProficiency {
   readonly selector: Selector;
@@ -61,6 +65,12 @@ export interface ClassPickerContent {
 /** The classes that play `role`, in the order given. */
 export function classesForRole(classes: readonly ClassOption[], role: ClassRole): readonly ClassOption[] {
   return classes.filter((option) => option.roles.includes(role));
+}
+
+/** One class that plays `role`, drawn by `seed`: the same seed and classes give the same class. None when no class plays it. */
+export function classForRole(classes: readonly ClassOption[], role: ClassRole, seed: Seed): ClassOption | undefined {
+  const outcome = pickOne(seededPicks(seed), classesForRole(classes, role));
+  return outcome.ok ? outcome.picked : undefined;
 }
 
 /** Class content already read, by registry: a registry's packs never change once loaded. */
