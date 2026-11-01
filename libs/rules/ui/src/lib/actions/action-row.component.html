@@ -11,7 +11,12 @@
     }
     <pio-use-buttons [line]="action().line" />
   </fr-stack>
-  <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    @if (action().costIcon; as costIcon) {
+      <fr-action-icon [cost]="costIcon.cost" [upTo]="costIcon.upTo" [label]="costIcon.label" />
+    }
+    <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
+  </fr-stack>
   <pio-statistic-conditions [conditions]="action().conditions" />
   @if (chips().length > 0) {
     <pio-chip-list [chips]="chips()" />

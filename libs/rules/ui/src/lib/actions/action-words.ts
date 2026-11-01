@@ -4,15 +4,22 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { LocaleFormat } from '@pioneer/frontier';
 import { ActionOriginKind } from '@pioneer/rules/engine';
+import { ACTION_COUNT } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import type { LabelNames } from '../breakdown/line-words';
 import { conditionalLines } from '../statistics/conditional-lines';
 import type { ActionLine } from './action-line';
-import type { ShownAction } from './action-row.component';
+import type { ActionCostIcon, ShownAction } from './action-row.component';
 import { PASSIVE } from './actions-list';
 import type { CostGroup } from './actions-list';
-import { ACTION_COST_MESSAGES, ACTION_SOURCE_MESSAGES, ActionsMessage } from './actions-messages';
+import {
+  ACTION_COST_MESSAGES,
+  ACTION_COUNT_COSTS,
+  ACTION_RANGE_MESSAGES,
+  ACTION_SOURCE_MESSAGES,
+  ActionsMessage,
+} from './actions-messages';
 
 const NO_NAMES: LabelNames = { entries: new Map() };
 
@@ -48,11 +55,34 @@ export class ActionWords {
       : this.#i18n.translate(ACTION_SOURCE_MESSAGES[origin.kind]);
   }
 
-  /** The line with its cost and source worded together, and the reasons it is not plainly available worded. */
+  /**
+   * The line's cost to draw as icons, named for a screen reader. Absent when it has no cost, or runs to more actions
+   * than the icons draw a range for.
+   */
+  public costIcon({ cost, upTo }: ActionLine): ActionCostIcon | undefined {
+    if (cost === undefined) {
+      return undefined;
+    }
+    if (upTo === undefined) {
+      return { cost, label: this.cost(cost) };
+    }
+    const label = ACTION_RANGE_MESSAGES[cost]?.[upTo];
+    const end = ACTION_COUNT_COSTS[upTo];
+    return label === undefined || end === undefined || ACTION_COUNT[cost] === undefined
+      ? undefined
+      : { cost, upTo: end, label: this.#i18n.translate(label) };
+  }
+
+  /** The line with its cost icon and source worded, and the reasons it is not plainly available worded. */
   public shown(line: ActionLine, names: LabelNames = NO_NAMES): ShownAction {
+    const costIcon = this.costIcon(line);
     return {
       line,
-      detail: this.#format.list([this.cost(line.cost ?? PASSIVE), this.source(line)], 'unit'),
+      detail:
+        costIcon === undefined
+          ? this.#format.list([this.cost(line.cost ?? PASSIVE), this.source(line)], 'unit')
+          : this.source(line),
+      costIcon,
       reasons: line.reasons.map(({ key, params }) => this.#i18n.translate(key, params)),
       conditions:
         line.roll === undefined ? [] : conditionalLines(line.roll, { i18n: this.#i18n, format: this.#format, names }),

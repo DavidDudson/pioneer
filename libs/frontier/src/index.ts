@@ -84,6 +84,7 @@ export { TextField } from './lib/forms/text-field/text-field.component';
 export { ToggleButtonField } from './lib/forms/toggle-button-field/toggle-button-field.component';
 
 // Icons (Lucide)
+export { ActionIcon, ActionIconCost } from './lib/icon/action-icon.component';
 export { Icon } from './lib/icon/icon.component';
 
 // Inline edit
