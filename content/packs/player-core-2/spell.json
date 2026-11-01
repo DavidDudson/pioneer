@@ -8508,16 +8508,41 @@
             "type": "check",
             "statistic": "save:will",
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -18417,8 +18442,14 @@
                   "type": "text",
                   "text": "The creature is immobilized until the start of its next turn, after which it takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to "
                 },
-                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
-                { "type": "text", "text": " to remove its immobilized condition." }
+                {
+                  "type": "ref",
+                  "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+                },
+                {
+                  "type": "text",
+                  "text": " to remove its immobilized condition."
+                }
               ]
             }
           },

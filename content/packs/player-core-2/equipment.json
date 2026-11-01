@@ -1157,17 +1157,46 @@
             "statistic": "save:fortitude",
             "dc": 41,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes full damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b" },
-                { "type": "text", "text": " 1d4." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+                },
+                {
+                  "type": "text",
+                  "text": " 1d4."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 4" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 4"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

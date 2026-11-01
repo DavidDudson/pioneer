@@ -4139,7 +4139,12 @@
             "statistic": "flat",
             "dc": 5,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "As success, but the ritual lasts for 1 year." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "As success, but the ritual lasts for 1 year."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -4147,7 +4152,10 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "You fail to bend the fates of the targets away from each other." }
+                {
+                  "type": "text",
+                  "text": "You fail to bend the fates of the targets away from each other."
+                }
               ],
               "criticalFailure": [
                 {

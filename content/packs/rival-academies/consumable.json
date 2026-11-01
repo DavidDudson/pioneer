@@ -2409,7 +2409,12 @@
             "statistic": "save:will",
             "dc": 27,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -2572,7 +2577,12 @@
             "statistic": "save:will",
             "dc": 35,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -3005,7 +3015,12 @@
                   "text": "The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The movement or Strike is disrupted." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The movement or Strike is disrupted."
+                }
+              ]
             }
           },
           {
@@ -3157,7 +3172,12 @@
                   "text": "The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The movement or Strike is disrupted." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The movement or Strike is disrupted."
+                }
+              ]
             }
           },
           {
@@ -3309,7 +3329,12 @@
                   "text": "The movement or Strike is disrupted, but the creature is immune to further effects of the portable seal this round."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The movement or Strike is disrupted." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The movement or Strike is disrupted."
+                }
+              ]
             }
           },
           {
@@ -4395,16 +4420,39 @@
             "statistic": "save:fortitude",
             "dc": 19,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is immobilized and " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is immobilized and "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },
@@ -4552,16 +4600,39 @@
             "statistic": "save:fortitude",
             "dc": 35,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is immobilized and " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is immobilized and "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },
@@ -4709,16 +4780,39 @@
             "statistic": "save:fortitude",
             "dc": 27,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is immobilized and " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is immobilized and "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },
@@ -4953,16 +5047,40 @@
             "statistic": "save:reflex",
             "dc": 33,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ]
             }
           },
@@ -5128,16 +5246,40 @@
             "statistic": "save:reflex",
             "dc": 22,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ]
             }
           },
@@ -5303,16 +5445,40 @@
             "statistic": "save:reflex",
             "dc": 38,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ]
             }
           },
@@ -5478,16 +5644,40 @@
             "statistic": "save:reflex",
             "dc": 27,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ]
             }
           },

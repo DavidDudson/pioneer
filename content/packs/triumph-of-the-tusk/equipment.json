@@ -206,21 +206,58 @@
             "statistic": "save:fortitude",
             "dc": 38,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the beginning of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the beginning of its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is knocked " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is knocked "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the target also takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the target also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -428,21 +465,58 @@
             "statistic": "save:fortitude",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the beginning of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the beginning of its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is knocked " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is knocked "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the target also takes " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the target also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -650,21 +724,58 @@
             "statistic": "save:fortitude",
             "dc": 30,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the beginning of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the beginning of its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is knocked " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is knocked "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the target also takes " },
-                { "type": "damage", "instances": [{ "formula": "4d6", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the target also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },

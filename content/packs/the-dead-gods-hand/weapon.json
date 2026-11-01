@@ -574,7 +574,12 @@
                   "text": "The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
                 }
               ],
-              "success": [{ "type": "text", "text": "The character is unaffected by Meloth's influence this round." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The character is unaffected by Meloth's influence this round."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -829,7 +834,12 @@
                   "text": "The character is temporarily immune to Meloth's influence for 24 hours and can carry or wield the sword normally as a +1 longsword."
                 }
               ],
-              "success": [{ "type": "text", "text": "The character is unaffected by Meloth's influence this round." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The character is unaffected by Meloth's influence this round."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",

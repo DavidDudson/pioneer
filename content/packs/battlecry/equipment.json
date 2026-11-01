@@ -6597,21 +6597,55 @@
             "dc": 35,
             "options": ["inflicts:off-guard", "inflicts:stunned"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
-                { "type": "text", "text": " and off-guard for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 1 round."
+                }
               ]
             }
           },
@@ -6905,21 +6939,56 @@
             "dc": 34,
             "options": ["inflicts:stupefied"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is stupefied 1 and " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is stupefied 1 and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
-                { "type": "text", "text": " and stunned 1 until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and stunned 1 until the start of your next turn."
+                }
               ]
             }
           },
@@ -10739,21 +10808,55 @@
             "dc": 28,
             "options": ["inflicts:frightened", "inflicts:off-guard"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is frightened 1 and is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is frightened 1 and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": " and off-guard for 2 rounds." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and off-guard for 2 rounds."
+                }
               ]
             }
           },
@@ -11098,9 +11201,17 @@
             "dc": 20,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target's attitude toward you decreases by one step." }
+                {
+                  "type": "text",
+                  "text": "The target's attitude toward you decreases by one step."
+                }
               ],
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -11108,7 +11219,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the target's attitude toward you improves by two steps." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the target's attitude toward you improves by two steps."
+                }
               ]
             }
           },
@@ -11382,21 +11496,55 @@
             "dc": 34,
             "options": ["inflicts:slowed", "inflicts:off-guard"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is slowed 2 and " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is slowed 2 and "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },
@@ -12907,17 +13055,38 @@
             "dc": 26,
             "options": ["inflicts:frightened"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target can't reduce its frightened value below 1 for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target can't reduce its frightened value below 1 for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target can't reduce its frightened value below 1 for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The target can't reduce its frightened value below 1 for 1 minute."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, and it becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, and it becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

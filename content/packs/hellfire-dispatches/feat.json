@@ -1492,7 +1492,12 @@
                   "text": "The ally gains a +2 circumstance bonus to AC against the target creature's or hazard's next attack."
                 }
               ],
-              "success": [{ "type": "text", "text": "As critical success, but the bonus is +1." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "As critical success, but the bonus is +1."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",
@@ -2802,27 +2807,85 @@
             "statistic": "skill:intimidation",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target takes " },
-                { "type": "damage", "instances": [{ "formula": "12d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "12d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
                 {
                   "type": "text",
                   "text": ". It can't reduce its frightened condition below 1 if it ends its turn adjacent to you."
                 }
               ],
               "success": [
-                { "type": "text", "text": "The target takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
-              "failure": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is unaffected, and the embarrassment causes you to take " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "The target is unaffected, and the embarrassment causes you to take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -3132,21 +3195,52 @@
             "statistic": "skill:intimidation",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                {
+                  "type": "text",
+                  "text": "The target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
                 {
                   "type": "text",
                   "text": ". Until the start of your next turn, if the target attempts to Cast a Spell with the divine trait, it must succeed at a "
                 },
-                { "type": "check", "statistic": "flat", "dc": 7 },
-                { "type": "text", "text": " or the action is lost." }
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 7
+                },
+                {
+                  "type": "text",
+                  "text": " or the action is lost."
+                }
               ],
               "success": [
-                { "type": "text", "text": "As critical success, but " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": ", and the DC of the " },
-                { "type": "check", "statistic": "flat", "dc": 5 },
-                { "type": "text", "text": " is 5." }
+                {
+                  "type": "text",
+                  "text": "As critical success, but "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": ", and the DC of the "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 5
+                },
+                {
+                  "type": "text",
+                  "text": " is 5."
+                }
               ]
             }
           },
@@ -3822,8 +3916,17 @@
                   "type": "text",
                   "text": "You and the target are considered allies until the end of your next turn or until you take a hostile action against it, whichever comes first. In order to take a hostile action against you, the target must succeed at a "
                 },
-                { "type": "check", "statistic": "save:will", "dc": { "against": "skill:deception" } },
-                { "type": "text", "text": " save against your Deception DC or it loses the action." }
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": {
+                    "against": "skill:deception"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": " save against your Deception DC or it loses the action."
+                }
               ],
               "success": [
                 {
@@ -3831,11 +3934,25 @@
                   "text": "As critical success, but lasts until the end of your turn or until you take a hostile action against it, whichever comes first."
                 }
               ],
-              "failure": [{ "type": "text", "text": "No effect." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "No effect."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The target knows you attempted to fool it and plays along. You're " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " to the target until the beginning of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The target knows you attempted to fool it and plays along. You're "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " to the target until the beginning of your next turn."
+                }
               ]
             }
           },
@@ -4183,21 +4300,56 @@
             "statistic": "skill:deception",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 3" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 3"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The target is unaffected." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ]
             }
           },
           {
@@ -4440,22 +4592,49 @@
                 }
               ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
                 {
                   "type": "text",
                   "text": " and can't reduce its frightened condition below 1 while it's in your aura."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -5827,7 +6006,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -5835,14 +6019,34 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "As success, and the target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "As success, and the target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As success, and the target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "As success, and the target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ]
             }
           },
@@ -8635,18 +8839,49 @@
             "options": ["inflicts:stupefied", "inflicts:confused"],
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 3" },
-                { "type": "text", "text": " and " },
-                { "type": "ref", "id": "6f53a234-670f-5b02-a986-7cce57585fc8" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 3"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
-              "failure": [{ "type": "text", "text": "The target is unaffected." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ]
             }
           },
           {
@@ -8863,19 +9098,45 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " for 1 round and dazzled for 2 rounds." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round and dazzled for 2 rounds."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is blinded for 2 rounds and dazzled for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature is blinded for 2 rounds and dazzled for 1 minute."
+                }
               ]
             }
           },
@@ -9131,14 +9392,36 @@
             "dc": 30,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "You Leap up to 15 feet vertically and 5 feet horizontally." }
+                {
+                  "type": "text",
+                  "text": "You Leap up to 15 feet vertically and 5 feet horizontally."
+                }
               ],
-              "success": [{ "type": "text", "text": "You Leap up to 10 feet vertically and 5 feet horizontally." }],
-              "failure": [{ "type": "text", "text": "You Leap up to 5 feet vertically and 5 feet horizontally." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You Leap up to 10 feet vertically and 5 feet horizontally."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You Leap up to 5 feet vertically and 5 feet horizontally."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "You're " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "You're "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ]
             }
           },
@@ -9845,12 +10128,31 @@
             "type": "check",
             "statistic": "skill:athletics",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is pulled 10 feet toward you." }],
-              "success": [{ "type": "text", "text": "The target is pulled 5 feet toward you." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is pulled 10 feet toward you."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is pulled 5 feet toward you."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "Your movements cause you to be " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the beginning of your next turn." }
+                {
+                  "type": "text",
+                  "text": "Your movements cause you to be "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the beginning of your next turn."
+                }
               ]
             }
           },

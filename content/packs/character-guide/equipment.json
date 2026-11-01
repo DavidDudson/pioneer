@@ -2386,7 +2386,12 @@
                   "text": "The creature recalls the interaction clearly and realizes you were trying to alter their memory."
                 }
               ],
-              "success": [{ "type": "text", "text": "The creature recalls the interaction clearly." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature recalls the interaction clearly."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -2607,7 +2612,12 @@
                   "text": "The creature recalls the interaction clearly and realizes you were trying to alter their memory."
                 }
               ],
-              "success": [{ "type": "text", "text": "The creature recalls the interaction clearly." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature recalls the interaction clearly."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -2828,7 +2838,12 @@
                   "text": "The creature recalls the interaction clearly and realizes you were trying to alter their memory."
                 }
               ],
-              "success": [{ "type": "text", "text": "The creature recalls the interaction clearly." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature recalls the interaction clearly."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",

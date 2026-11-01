@@ -830,7 +830,12 @@
             "statistic": "save:will",
             "dc": 21,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",

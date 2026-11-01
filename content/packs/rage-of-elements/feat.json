@@ -1669,16 +1669,40 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ]
             }
           },
@@ -2056,9 +2080,17 @@
             },
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target is unaffected and is temporarily immune for 24 hours." }
+                {
+                  "type": "text",
+                  "text": "The target is unaffected and is temporarily immune for 24 hours."
+                }
               ],
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -2066,7 +2098,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but you can Sustain the impulse up to 1 hour." }
+                {
+                  "type": "text",
+                  "text": "As failure, but you can Sustain the impulse up to 1 hour."
+                }
               ]
             }
           },
@@ -5039,9 +5074,24 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [{ "type": "text", "text": "You make the creature jump up to half the maximum distance." }],
-              "criticalFailure": [{ "type": "text", "text": "You make the creature jump up to the maximum distance." }]
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You make the creature jump up to half the maximum distance."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "You make the creature jump up to the maximum distance."
+                }
+              ]
             }
           },
           {
@@ -5701,11 +5751,26 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "failure": [
                 {
@@ -6721,20 +6786,44 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is off-guard. It is " },
-                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
+                {
+                  "type": "text",
+                  "text": "The creature is off-guard. It is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
                 {
                   "type": "text",
                   "text": " from the illusory sky but is also disoriented; any time it uses an action to attempt to flee, it must succeed at a "
                 },
-                { "type": "check", "statistic": "flat", "dc": 11 },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 11
+                },
                 {
                   "type": "text",
                   "text": " or flee to a space that's still within the illusion. The GM determines where the creatures ends up, but the creature can't stay stationary if it's able to move."
@@ -11282,7 +11371,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -11296,7 +11390,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is blinded for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is blinded for 1 minute."
+                }
               ]
             }
           },
@@ -12826,8 +12923,18 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -12835,9 +12942,18 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is knocked " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is knocked "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -14010,15 +14126,31 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
                   "text": "The creature takes full damage and is pushed downward 40 feet without taking falling damage. If it reaches the bottom of the cylinder or the ground, the push ends. If the creature is pushed to the ground, it can't Fly, "
                 },
-                { "type": "ref", "id": "daa245e0-fdd6-582d-888d-f47865223c52" },
-                { "type": "text", "text": ", or otherwise leave the ground for 1 round." }
+                {
+                  "type": "ref",
+                  "id": "daa245e0-fdd6-582d-888d-f47865223c52"
+                },
+                {
+                  "type": "text",
+                  "text": ", or otherwise leave the ground for 1 round."
+                }
               ],
               "criticalFailure": [
                 {
@@ -14338,8 +14470,14 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+                },
                 {
                   "type": "text",
                   "text": " with the source of the sound until the end of its next turn. When the fascination ends, the creature is temporarily immune for 1 hour."
@@ -14715,7 +14853,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -14723,11 +14866,27 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The target takes full damage and is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
-                { "type": "text", "text": " and " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "criticalFailure": [
                 {

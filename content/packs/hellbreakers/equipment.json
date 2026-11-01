@@ -27,9 +27,17 @@
             "statistic": "skill:performance",
             "dc": 19,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "As success, but you gain 2 Uprising Points." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "As success, but you gain 2 Uprising Points."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The people are roused by your performance. You gain 1 Uprising Point." }
+                {
+                  "type": "text",
+                  "text": "The people are roused by your performance. You gain 1 Uprising Point."
+                }
               ],
               "failure": [
                 {
@@ -38,7 +46,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the people are intimidated and you lose 1 Uprising Point." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the people are intimidated and you lose 1 Uprising Point."
+                }
               ]
             }
           },

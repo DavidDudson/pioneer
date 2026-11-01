@@ -11126,9 +11126,18 @@
             "dc": 38,
             "outcomes": {
               "failure": [
-                { "type": "text", "text": "This creature is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " against the Strike." }
+                {
+                  "type": "text",
+                  "text": "This creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " against the Strike."
+                }
               ],
               "criticalFailure": [
                 {
@@ -15137,17 +15146,46 @@
             "statistic": "save:fortitude",
             "dc": 35,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage, is deafened for 1 minute, and is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage, is deafened for 1 minute, and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

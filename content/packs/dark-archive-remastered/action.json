@@ -1944,7 +1944,10 @@
             },
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The creature is unaffected, and the curse's energy dissipates harmlessly." }
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected, and the curse's energy dissipates harmlessly."
+                }
               ],
               "success": [
                 {
@@ -2139,8 +2142,14 @@
                   "type": "text",
                   "text": "You couldn't remember the right object to use and become distracted while you rummage through your esoterica. You become "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ]
             }
           },

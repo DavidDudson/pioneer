@@ -283,22 +283,61 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes half damage and becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" }
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage, becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": ", and is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage, becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": ", and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

@@ -5929,7 +5929,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -5943,8 +5948,15 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target takes double damage, is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                {
+                  "type": "text",
+                  "text": "The target takes double damage, is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
                 {
                   "type": "text",
                   "text": " for 1 round, and takes a –15-foot status penalty to its Speeds for 1 round."
@@ -9728,10 +9740,30 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature is pushed back 5 feet." }],
-              "failure": [{ "type": "text", "text": "The creature is pushed back 10 feet." }],
-              "criticalFailure": [{ "type": "text", "text": "The creature is pushed back 20 feet." }]
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 5 feet."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 10 feet."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 20 feet."
+                }
+              ]
             }
           },
           {
@@ -18552,23 +18584,44 @@
                   "type": "text",
                   "text": "Your tampering is incredibly effective. If you tampered with a weapon, the enemy takes a -2 circumstance penalty to attack rolls and damage rolls with that weapon. If you tampered with armor, the armor hampers the enemy's movement, making the enemy "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
                 {
                   "type": "text",
                   "text": " and inflicting a –10-foot penalty to its Speeds. The effect lasts until the enemy Interacts to remove it, regardless of which one you used. "
                 },
-                { "type": "ref", "id": "826d2fe1-c05e-586c-9778-f3b73bcc3bb9" },
-                { "type": "text", "text": " " },
-                { "type": "ref", "id": "eab7a738-0f82-51e2-97f8-a6348e1fd0eb" }
+                {
+                  "type": "ref",
+                  "id": "826d2fe1-c05e-586c-9778-f3b73bcc3bb9"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "eab7a738-0f82-51e2-97f8-a6348e1fd0eb"
+                }
               ],
               "success": [
                 {
                   "type": "text",
                   "text": "Your tampering is temporarily effective. As critical success, but the effect ends at the start of your next turn, even if the enemy doesn't Interact to end it. "
                 },
-                { "type": "ref", "id": "3a0ad382-3296-578a-a96f-e84440b9dda2" },
-                { "type": "text", "text": " " },
-                { "type": "ref", "id": "2aac968e-5104-5468-8e45-942e09cb9a5f" }
+                {
+                  "type": "ref",
+                  "id": "3a0ad382-3296-578a-a96f-e84440b9dda2"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2aac968e-5104-5468-8e45-942e09cb9a5f"
+                }
               ],
               "criticalFailure": [
                 {
@@ -18577,10 +18630,18 @@
                 },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "@level", "damageType": "fire" }],
+                  "instances": [
+                    {
+                      "formula": "@level",
+                      "damageType": "fire"
+                    }
+                  ],
                   "label": "fire damage equal to your level"
                 },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -20326,13 +20387,38 @@
             "statistic": "skill:performance",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target falls and lands " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": ". It takes " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage from the fall." }
+                {
+                  "type": "text",
+                  "text": "The target falls and lands "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ". It takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage from the fall."
+                }
               ],
-              "success": [{ "type": "text", "text": "The target falls and lands prone." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target falls and lands prone."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",

@@ -2466,23 +2466,64 @@
             },
             "options": ["inflicts:frightened", "inflicts:fleeing"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "No effect." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "No effect."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": " and " },
-                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },

@@ -264,21 +264,68 @@
             "dc": 29,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "You make significant progress toward escaping and earn 2 Freedom Points." }
+                {
+                  "type": "text",
+                  "text": "You make significant progress toward escaping and earn 2 Freedom Points."
+                }
               ],
-              "success": [{ "type": "text", "text": "You're on the way to escaping and earn 1 Freedom Point." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "You're on the way to escaping and earn 1 Freedom Point."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "You fail to make any progress toward escaping and take " },
-                { "type": "damage", "instances": [{ "formula": "2d8", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage from being twisted up." }
+                {
+                  "type": "text",
+                  "text": "You fail to make any progress toward escaping and take "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d8",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage from being twisted up."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but " },
-                { "type": "damage", "instances": [{ "formula": "4d8", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage. In addition, you must attempt a " },
-                { "type": "check", "statistic": "save:fortitude", "dc": 24, "options": ["inflicts:drained"] },
-                { "type": "text", "text": " save to resist having your " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b" },
+                {
+                  "type": "text",
+                  "text": "As failure, but "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d8",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage. In addition, you must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": 24,
+                  "options": ["inflicts:drained"]
+                },
+                {
+                  "type": "text",
+                  "text": " save to resist having your "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+                },
                 {
                   "type": "text",
                   "text": " condition value increase by 1 as your bones begin to break and your joints start to dislocate."
@@ -605,7 +652,12 @@
                   "text": "The PC truly catches Pharasma off-guard. They keep their card and draw a second card from the deck to keep it as a bonus card. Once a PC has collected 10 cards, they win."
                 }
               ],
-              "success": [{ "type": "text", "text": "The PC catches Pharasma off-guard and keeps their card." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The PC catches Pharasma off-guard and keeps their card."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -705,10 +757,30 @@
             "statistic": "skill:lore:games",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The DCs for all checks to spin a fate increase by 2." }],
-              "success": [{ "type": "text", "text": "The DCs for all checks to spin a fate increase by 1." }],
-              "failure": [{ "type": "text", "text": "The DCs to spin a fate do not change." }],
-              "criticalFailure": [{ "type": "text", "text": "The DCs for all checks to spin a fate decrease by 1." }]
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The DCs for all checks to spin a fate increase by 2."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The DCs for all checks to spin a fate increase by 1."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The DCs to spin a fate do not change."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The DCs for all checks to spin a fate decrease by 1."
+                }
+              ]
             }
           },
           {

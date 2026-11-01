@@ -52,33 +52,100 @@
             "statistic": "save:fortitude",
             "dc": 20,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "acid" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
-              ],
-              "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "4d6", "damageType": "acid" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
-              ],
-              "criticalFailure": [
-                { "type": "text", "text": "The creature takes " },
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "4d6", "damageType": "acid" },
-                    { "formula": "2d6", "damageType": "acid", "category": "persistent" }
+                    {
+                      "formula": "2d6",
+                      "damageType": "acid"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage, and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "acid"
+                    },
+                    {
+                      "formula": "2d6",
+                      "damageType": "acid",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage, and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -574,20 +641,44 @@
             "statistic": "save:fortitude",
             "dc": 23,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes a –2 status penalty to Perception checks and is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature takes a –2 status penalty to Perception checks and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
                 {
                   "type": "text",
                   "text": "The creature is slowed 1 for 1 minute. At the end of their next turn, they fall "
                 },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": " and fall " },
-                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": " and fall "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
                 {
                   "type": "text",
                   "text": " for 1 minute. A creature can Interact to shake the creature awake as normal, but this doesn't shorten the duration of the slowed condition."

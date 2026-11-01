@@ -10632,7 +10632,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The GM gives you false information (the GM makes up the information)." }
+                {
+                  "type": "text",
+                  "text": "The GM gives you false information (the GM makes up the information)."
+                }
               ]
             }
           },
@@ -12793,21 +12796,56 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -22054,7 +22092,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -37725,8 +37768,18 @@
             "type": "check",
             "statistic": "skill:diplomacy",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "Reduce the creature's frightened value by 2." }],
-              "success": [{ "type": "text", "text": "Reduce the creature's frightened value by 1." }]
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Reduce the creature's frightened value by 2."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Reduce the creature's frightened value by 1."
+                }
+              ]
             }
           },
           {
@@ -47873,13 +47926,22 @@
             "statistic": "skill:thievery",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "You deal damage equal to 4 x your Thievery proficiency bonus." }
+                {
+                  "type": "text",
+                  "text": "You deal damage equal to 4 x your Thievery proficiency bonus."
+                }
               ],
               "success": [
-                { "type": "text", "text": "You deal damage equal to double your Thievery proficiency bonus." }
+                {
+                  "type": "text",
+                  "text": "You deal damage equal to double your Thievery proficiency bonus."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The item is temporarily immune to your Sabotage for 1 day." }
+                {
+                  "type": "text",
+                  "text": "The item is temporarily immune to your Sabotage for 1 day."
+                }
               ]
             }
           },
@@ -48240,14 +48302,34 @@
             "statistic": "skill:religion",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
-                { "type": "text", "text": " until it spends at least 1 action moving away from you." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " until it spends at least 1 action moving away from you."
+                }
               ],
               "success": [
-                { "type": "text", "text": "As critical success, but " },
-                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As critical success, but "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -48461,24 +48543,66 @@
             "statistic": "skill:intimidation",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target must attempt a " },
-                { "type": "check", "statistic": "save:fortitude", "dc": { "against": "skill:intimidation" } },
+                {
+                  "type": "text",
+                  "text": "The target must attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "dc": {
+                    "against": "skill:intimidation"
+                  }
+                },
                 {
                   "type": "text",
                   "text": " save against your Intimidation DC. On a critical failure, it dies. On any other result, it becomes "
                 },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": " and is " },
-                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
-                { "type": "text", "text": " for 1 round. The critical failure effect has the death trait." }
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round. The critical failure effect has the death trait."
+                }
               ],
-              "success": [{ "type": "text", "text": "The target becomes frightened 2." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target becomes frightened 2."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The target is unaffected." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ]
             }
           },
           {

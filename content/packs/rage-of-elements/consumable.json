@@ -845,18 +845,37 @@
             "statistic": "save:will",
             "dc": 18,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature takes a –1 status penalty to Perception checks for 10 minutes."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but a –2 penalty." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but a –2 penalty."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "As success, but a –2 penalty and the creature is " },
-                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
-                { "type": "text", "text": " by the rosebush." }
+                {
+                  "type": "text",
+                  "text": "As success, but a –2 penalty and the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+                },
+                {
+                  "type": "text",
+                  "text": " by the rosebush."
+                }
               ]
             }
           },

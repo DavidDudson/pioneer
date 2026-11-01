@@ -1550,22 +1550,49 @@
             "dc": 40,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
                 {
                   "type": "text",
                   "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +3 item bonus to the skill you used to Prime the Forge for the next 24 hours."
                 }
               ],
               "success": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to the value of the raw materials."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The raw materials are consumed, but the burn is inefficient, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to half the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, but the burn is inefficient, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to half the value of the raw materials."
+                }
               ],
               "criticalFailure": [
                 {
@@ -2235,22 +2262,49 @@
             "dc": 20,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
                 {
                   "type": "text",
                   "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +1 item bonus to the skill you used to Prime the Forge for the next 24 hours."
                 }
               ],
               "success": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to the value of the raw materials."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The raw materials are consumed, but the burn is inefficient, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to half the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, but the burn is inefficient, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to half the value of the raw materials."
+                }
               ],
               "criticalFailure": [
                 {
@@ -2920,22 +2974,49 @@
             "dc": 30,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
                 {
                   "type": "text",
                   "text": " stores essence equal to the value of the raw materials. Additional essence overflows back into you, granting a +2 item bonus to the skill you used to Prime the Forge for the next 24 hours."
                 }
               ],
               "success": [
-                { "type": "text", "text": "The raw materials are consumed, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to the value of the raw materials."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The raw materials are consumed, but the burn is inefficient, and the " },
-                { "type": "text", "text": "essence forge", "marks": ["emphasis"] },
-                { "type": "text", "text": " stores essence equal to half the value of the raw materials." }
+                {
+                  "type": "text",
+                  "text": "The raw materials are consumed, but the burn is inefficient, and the "
+                },
+                {
+                  "type": "text",
+                  "text": "essence forge",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " stores essence equal to half the value of the raw materials."
+                }
               ],
               "criticalFailure": [
                 {
@@ -4040,26 +4121,52 @@
             "statistic": "save:will",
             "dc": 23,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
                 {
                   "type": "text",
                   "text": " as it does one of the following at the beginning of its next turn: stand in place or release what it's holding."
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
                 {
                   "type": "text",
                   "text": " as it stands in place and releases what it's holding at the beginning of its next turn."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 3" },
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 3"
+                },
                 {
                   "type": "text",
                   "text": " as it spends its next turn to stand in place, release what it's holding, and place its hands in the air."

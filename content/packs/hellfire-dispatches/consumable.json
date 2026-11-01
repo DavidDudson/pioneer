@@ -42,17 +42,41 @@
             "statistic": "save:fortitude",
             "dc": 26,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature takes no damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature takes no damage."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes half damage and is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " for 1 round as the icy figure clings to its legs." }
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round as the icy figure clings to its legs."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and " },
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "1d6", "damageType": "cold", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "cold",
+                      "category": "persistent"
+                    }
+                  ]
                 },
                 {
                   "type": "text",
@@ -60,14 +84,33 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and " },
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "2d6", "damageType": "cold", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "cold",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage from the icy figure's embrace. It is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
-                { "type": "text", "text": " for as long as it takes this persistent damage." }
+                {
+                  "type": "text",
+                  "text": " damage from the icy figure's embrace. It is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for as long as it takes this persistent damage."
+                }
               ]
             }
           },
@@ -236,17 +279,45 @@
             "statistic": "save:reflex",
             "dc": 22,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 2 rounds." }
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
               ],
-              "failure": [{ "type": "text", "text": "The creature is dazzled for 1 minute." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 2 rounds."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is dazzled for 1 minute."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " for 1 round and then dazzled for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round and then dazzled for 1 minute."
+                }
               ]
             }
           },
@@ -462,7 +533,12 @@
             "statistic": "save:will",
             "dc": 20,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -470,14 +546,37 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The creature falls " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature falls "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature falls prone and takes " },
-                { "type": "damage", "instances": [{ "formula": "1d4", "damageType": "mental" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "The creature falls prone and takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d4",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -629,8 +728,18 @@
             "statistic": "save:fortitude",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",

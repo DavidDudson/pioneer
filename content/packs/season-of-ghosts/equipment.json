@@ -207,14 +207,25 @@
             "dc": 18,
             "options": ["inflicts:off-guard", "inflicts:immobilized"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected, and the manacles vanish." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected, and the manacles vanish."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The manacles strike the target's legs but fail to latch properly. The target is "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the start of your next turn, at which point the manacles vanish." }
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn, at which point the manacles vanish."
+                }
               ],
               "failure": [
                 {

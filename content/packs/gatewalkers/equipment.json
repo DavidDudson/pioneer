@@ -289,22 +289,53 @@
             "statistic": "save:reflex",
             "dc": 30,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "piercing" }] },
-                { "type": "text", "text": " damage." }
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
               ],
-              "criticalFailure": [
-                { "type": "text", "text": "The creature takes " },
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "4d6", "damageType": "piercing" },
-                    { "formula": "3", "damageType": "bleed" }
+                    {
+                      "formula": "2d6",
+                      "damageType": "piercing"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "piercing"
+                    },
+                    {
+                      "formula": "3",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -511,22 +542,53 @@
             "statistic": "save:reflex",
             "dc": 17,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "1d4", "damageType": "piercing" }] },
-                { "type": "text", "text": " damage." }
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
               ],
-              "criticalFailure": [
-                { "type": "text", "text": "The creature takes " },
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "2d4", "damageType": "piercing" },
-                    { "formula": "1", "damageType": "bleed" }
+                    {
+                      "formula": "1d4",
+                      "damageType": "piercing"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d4",
+                      "damageType": "piercing"
+                    },
+                    {
+                      "formula": "1",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -733,22 +795,53 @@
             "statistic": "save:reflex",
             "dc": 23,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "1d6", "damageType": "piercing" }] },
-                { "type": "text", "text": " damage." }
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
               ],
-              "criticalFailure": [
-                { "type": "text", "text": "The creature takes " },
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "2d6", "damageType": "piercing" },
-                    { "formula": "2", "damageType": "bleed" }
+                    {
+                      "formula": "1d6",
+                      "damageType": "piercing"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "piercing"
+                    },
+                    {
+                      "formula": "2",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },

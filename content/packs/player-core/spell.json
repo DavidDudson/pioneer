@@ -29706,8 +29706,18 @@
             "type": "check",
             "statistic": "skill:performance",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The composition lasts 4 rounds." }],
-              "success": [{ "type": "text", "text": "The composition lasts 3 rounds." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The composition lasts 4 rounds."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The composition lasts 3 rounds."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -39827,14 +39837,24 @@
             "type": "check",
             "statistic": "skill:thievery",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target solves the puzzle and escapes." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target solves the puzzle and escapes."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The target is on the right path to the solution. If it was already on the right path, it solves the puzzle and escapes."
                 }
               ],
-              "failure": [{ "type": "text", "text": "The target makes no progress toward a solution." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target makes no progress toward a solution."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",
@@ -53837,23 +53857,74 @@
         "48bbaa3c-aef1-56f5-a99f-c5b87bd9f192",
         "810e2729-7fc9-5db8-bdbf-9ec460d5dbfc",
         "05b20b04-e1a0-508b-9d8f-5018cb7aa663",
-        { "effect": "364d6d32-3a80-511d-95b1-952f32748076", "predicate": ["feat:plant-shape"] },
-        { "effect": "d30c5c51-b09b-5534-956e-2b486c206c2d", "predicate": ["feat:soaring-shape"] },
-        { "effect": "6403730c-6b7c-59a6-a401-44019061cacd", "predicate": ["feat:elemental-shape"] },
-        { "effect": "fc636190-3ca4-5f21-9062-f5aed671e532", "predicate": ["feat:monstrosity-shape"] },
-        { "effect": "942c093a-fa61-502b-bcef-f54a166c21f4", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "75944d72-2b39-5c73-b59c-045230cf67e4", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "f434251f-9c7c-5d5f-a94d-45da7c07fdc9", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "7d9252cd-6e9f-53d1-a4de-3188bc0bcee8", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "d479a56f-1b30-5a50-8ca5-7b81130a58d5", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "762f97ed-8b59-5df2-955e-1d7279c94e0f", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2", "predicate": ["feat:insect-shape"] },
-        { "effect": "4697e9a2-84b4-5564-a24f-602eeb280e77", "predicate": ["feat:insect-shape"] },
-        { "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b", "predicate": ["feat:insect-shape"] },
-        { "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6", "predicate": ["feat:insect-shape"] },
-        { "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e", "predicate": ["feat:insect-shape"] },
-        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] },
-        { "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd", "predicate": ["feat:dragon-shape"] }
+        {
+          "effect": "364d6d32-3a80-511d-95b1-952f32748076",
+          "predicate": ["feat:plant-shape"]
+        },
+        {
+          "effect": "d30c5c51-b09b-5534-956e-2b486c206c2d",
+          "predicate": ["feat:soaring-shape"]
+        },
+        {
+          "effect": "6403730c-6b7c-59a6-a401-44019061cacd",
+          "predicate": ["feat:elemental-shape"]
+        },
+        {
+          "effect": "fc636190-3ca4-5f21-9062-f5aed671e532",
+          "predicate": ["feat:monstrosity-shape"]
+        },
+        {
+          "effect": "942c093a-fa61-502b-bcef-f54a166c21f4",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "75944d72-2b39-5c73-b59c-045230cf67e4",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "f434251f-9c7c-5d5f-a94d-45da7c07fdc9",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "7d9252cd-6e9f-53d1-a4de-3188bc0bcee8",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "d479a56f-1b30-5a50-8ca5-7b81130a58d5",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "762f97ed-8b59-5df2-955e-1d7279c94e0f",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "4697e9a2-84b4-5564-a24f-602eeb280e77",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd",
+          "predicate": ["feat:dragon-shape"]
+        }
       ],
       "traditions": [],
       "damage": []
@@ -54048,23 +54119,74 @@
         "48bbaa3c-aef1-56f5-a99f-c5b87bd9f192",
         "810e2729-7fc9-5db8-bdbf-9ec460d5dbfc",
         "05b20b04-e1a0-508b-9d8f-5018cb7aa663",
-        { "effect": "364d6d32-3a80-511d-95b1-952f32748076", "predicate": ["feat:plant-shape"] },
-        { "effect": "d30c5c51-b09b-5534-956e-2b486c206c2d", "predicate": ["feat:soaring-shape"] },
-        { "effect": "6403730c-6b7c-59a6-a401-44019061cacd", "predicate": ["feat:elemental-shape"] },
-        { "effect": "fc636190-3ca4-5f21-9062-f5aed671e532", "predicate": ["feat:monstrosity-shape"] },
-        { "effect": "942c093a-fa61-502b-bcef-f54a166c21f4", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "75944d72-2b39-5c73-b59c-045230cf67e4", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "f434251f-9c7c-5d5f-a94d-45da7c07fdc9", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "7d9252cd-6e9f-53d1-a4de-3188bc0bcee8", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "d479a56f-1b30-5a50-8ca5-7b81130a58d5", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "762f97ed-8b59-5df2-955e-1d7279c94e0f", "predicate": ["feat:ferocious-shape"] },
-        { "effect": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2", "predicate": ["feat:insect-shape"] },
-        { "effect": "4697e9a2-84b4-5564-a24f-602eeb280e77", "predicate": ["feat:insect-shape"] },
-        { "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b", "predicate": ["feat:insect-shape"] },
-        { "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6", "predicate": ["feat:insect-shape"] },
-        { "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e", "predicate": ["feat:insect-shape"] },
-        { "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47", "predicate": ["feat:insect-shape"] },
-        { "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd", "predicate": ["feat:dragon-shape"] }
+        {
+          "effect": "364d6d32-3a80-511d-95b1-952f32748076",
+          "predicate": ["feat:plant-shape"]
+        },
+        {
+          "effect": "d30c5c51-b09b-5534-956e-2b486c206c2d",
+          "predicate": ["feat:soaring-shape"]
+        },
+        {
+          "effect": "6403730c-6b7c-59a6-a401-44019061cacd",
+          "predicate": ["feat:elemental-shape"]
+        },
+        {
+          "effect": "fc636190-3ca4-5f21-9062-f5aed671e532",
+          "predicate": ["feat:monstrosity-shape"]
+        },
+        {
+          "effect": "942c093a-fa61-502b-bcef-f54a166c21f4",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "75944d72-2b39-5c73-b59c-045230cf67e4",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "f434251f-9c7c-5d5f-a94d-45da7c07fdc9",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "7d9252cd-6e9f-53d1-a4de-3188bc0bcee8",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "d479a56f-1b30-5a50-8ca5-7b81130a58d5",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "762f97ed-8b59-5df2-955e-1d7279c94e0f",
+          "predicate": ["feat:ferocious-shape"]
+        },
+        {
+          "effect": "6e9ec020-d767-5371-9efd-c2a1e12cf4c2",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "4697e9a2-84b4-5564-a24f-602eeb280e77",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "1bacec27-0b89-5406-b1c7-6834451eab0b",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "9a569d5e-01de-5449-a4cf-dcd341455ee6",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "99274af8-3bcf-5c30-b7bf-39b65c9c774e",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "9be195ac-f2e4-5db5-8380-bc08a532ec47",
+          "predicate": ["feat:insect-shape"]
+        },
+        {
+          "effect": "43b68cc1-cc3f-5c35-b3e6-f32f001d3ecd",
+          "predicate": ["feat:dragon-shape"]
+        }
       ],
       "shiftsForm": true,
       "traditions": [],
