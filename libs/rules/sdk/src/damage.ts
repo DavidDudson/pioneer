@@ -62,6 +62,13 @@ export const DamageAdjustmentTarget = { ...DamageType, ...DamageGroup, ...Damage
 export type DamageAdjustmentTarget = ValueOf<typeof DamageAdjustmentTarget>;
 export const DamageAdjustmentTargetSchema = z.enum(DamageAdjustmentTarget);
 
+/**
+ * What a weakness or resistance applies to, besides the known targets: a material or property rune the damage counts as
+ * (`weakness 5 to silver`), named as an exception is.
+ */
+export const DamageAdjustmentSubject = z.union([DamageAdjustmentTargetSchema, DamageException]);
+export type DamageAdjustmentSubject = z.infer<typeof DamageAdjustmentSubject>;
+
 const EXCEPTIONS_MAX = 8;
 
 /** The damage traits a defence makes an exception for. */
@@ -69,7 +76,7 @@ export const DamageExceptions = z.array(DamageException).max(EXCEPTIONS_MAX).rea
 
 /** A weakness or resistance to a damage type or group, and the damage traits it does not cover. */
 export const DamageAdjustment = z.object({
-  type: DamageAdjustmentTargetSchema,
+  type: DamageAdjustmentSubject,
   value: DamageAmount,
   exceptions: DamageExceptions.optional(),
 });

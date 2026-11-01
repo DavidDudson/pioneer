@@ -3,7 +3,7 @@ import type { PredicateSummary } from '@pioneer/rules/predicate';
 import type {
   ChangeMode,
   ContentId,
-  DamageAdjustmentTarget,
+  DamageAdjustmentSubject,
   DamageAmount,
   DamageException,
   Feet,
@@ -100,7 +100,7 @@ export interface SetEffect extends LineBase {
 /** A weakness or resistance to a damage type or group. */
 export interface DamageAdjustmentEffect extends LineBase {
   readonly change: typeof EffectChange.Weakness | typeof EffectChange.Resistance;
-  readonly damage: DamageAdjustmentTarget;
+  readonly damage: DamageAdjustmentSubject;
   /** Undefined only when the line failed. */
   readonly value: DamageAmount | undefined;
   readonly exceptions: readonly DamageException[];

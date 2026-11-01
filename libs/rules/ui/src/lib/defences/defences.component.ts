@@ -8,11 +8,12 @@ import { formatSummary } from '@pioneer/rules/predicate';
 import {
   DAMAGE_GROUP_TYPES,
   DamageContextSchema,
+  DamageException,
   DamageGroup,
   DamageGroupSchema,
   DamageTypeSchema,
 } from '@pioneer/rules/sdk';
-import type { ContentId, DamageAdjustmentTarget, DamageException, Immunity } from '@pioneer/rules/sdk';
+import type { ContentId, DamageAdjustmentSubject, Immunity } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { filter, merge } from 'rxjs';
 
@@ -35,6 +36,11 @@ interface DefenceNames {
 interface ListContext {
   readonly lines: readonly (ImmunityLine | AdjustmentLine)[];
   readonly names: DefenceNames;
+}
+
+/** A material or property rune's name, or its slug when no name is given. */
+function materialName(material: DamageException, list: ListContext): string {
+  return list.names.exceptions.get(material) ?? material;
 }
 
 const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
@@ -134,7 +140,7 @@ export class DefencesView {
       text: this.#i18n.translate(key, {
         hasValue: line.value === undefined ? 'no' : 'yes',
         value: line.value === undefined ? '' : this.#format.number(line.value),
-        target: this.#target(line.type),
+        target: this.#target(line.type, context),
         hasExceptions: exceptions.length === 0 ? 'no' : 'yes',
         exceptions: this.#format.list(exceptions, 'disjunction'),
       }),
@@ -142,22 +148,29 @@ export class DefencesView {
     };
   }
 
-  /** A damage type's name, or a group's with the types it covers; `all` reads as "all damage". */
-  #target(target: DamageAdjustmentTarget): string {
+  /** A damage type's name, a source's or a group's; a material or rune reads as its name in the rule list. */
+  #target(target: DamageAdjustmentSubject, list: ListContext): string {
     const context = DamageContextSchema.safeParse(target);
     if (context.success) {
       return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
     }
     const group = DamageGroupSchema.safeParse(target);
-    if (!group.success) {
-      const damageType = DamageTypeSchema.parse(target);
-      return this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType]);
+    if (group.success) {
+      return this.#group(group.data);
     }
-    const name = this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group.data]);
-    if (group.data === DamageGroup.All) {
+    const damageType = DamageTypeSchema.safeParse(target);
+    return damageType.success
+      ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
+      : materialName(DamageException.parse(target), list);
+  }
+
+  /** A group's name with the types it covers; `all` reads as "all damage". */
+  #group(group: DamageGroup): string {
+    const name = this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group]);
+    if (group === DamageGroup.All) {
       return name;
     }
-    const types = DAMAGE_GROUP_TYPES[group.data].map((type) => this.#i18n.translate(DAMAGE_TYPE_MESSAGES[type]));
+    const types = DAMAGE_GROUP_TYPES[group].map((type) => this.#i18n.translate(DAMAGE_TYPE_MESSAGES[type]));
     return this.#i18n.translate(DefencesMessage.GroupTypes, { group: name, types: this.#format.list(types, 'unit') });
   }
 
