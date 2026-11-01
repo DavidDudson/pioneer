@@ -661,50 +661,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:mystic-armor",
-                          "item:slug:spiritual-armament",
-                          "item:slug:heroism",
-                          "item:slug:seal-fate",
-                          "item:slug:invoke-spirits",
-                          "item:slug:blinding-fury",
-                          "item:slug:execute",
-                          "item:slug:spirit-song",
-                          "item:slug:massacre"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -4511,42 +4467,6 @@
         },
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["parent:origin:item:tag:bodyguard", "bodyguard-taunt"],
-            "property": "other-tags",
-            "value": "bodyguard-taunt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["parent:origin:item:tag:bodyguard", "bodyguard-taunt"],
-            "property": "other-tags",
-            "value": "bodyguard-taunt"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["parent:origin:item:tag:bodyguard", "bodyguard-taunt"],
-            "property": "other-tags",
-            "value": "bodyguard-taunt"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "key": "RollOption",
@@ -7976,26 +7896,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "feat:bodyguard",
-      "foundry": "Compendium.pf2e.feats-srd.Item.hLchognQOno3KWr1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:taunt"],
-            "property": "other-tags",
-            "value": "bodyguard"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "feat:burrowing-shot",
       "foundry": "Compendium.pf2e.feats-srd.Item.G6aNxXTIJYIGeicK",
       "gaps": [
@@ -8678,18 +8578,6 @@
             "mode": "add",
             "predicate": ["item:slug:flicker", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:flicker", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:jotunborn"
           }
         },
@@ -8868,18 +8756,6 @@
       "slug": "feat:jotuns-transposition",
       "foundry": "Compendium.pf2e.feats-srd.Item.TH4mB4nyHqmBAOnR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -9455,18 +9331,6 @@
                 "text": "{item|description}"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:shield-from-arrows"],
-            "property": "other-tags",
-            "value": "shield-from-spells"
           }
         }
       ]

@@ -308,7 +308,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:augury", "item:slug:calm"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.nYSSdczKdRj7pdW6"
     },
@@ -360,7 +374,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:resist-energy", "item:slug:share-life"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.qAdlJvAHkWBisDJ0"
     },
@@ -1601,7 +1629,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:hypercognition"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Zr1sspa9Q16V8uZV"
     },
@@ -2156,7 +2193,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:veil-of-privacy"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.cpsyKarYRHiOF0Nd"
     },
@@ -2661,7 +2707,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:scouting-eye"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.M8pDuRo6tO0Kok9z"
     },
@@ -3048,7 +3103,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:humanoid-form", "item:slug:mirror-image"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.C2PmqTxQgWGTHluf"
     },

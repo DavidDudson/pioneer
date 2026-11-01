@@ -2426,7 +2426,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:taunt"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "bodyguard"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.hLchognQOno3KWr1"
     },
@@ -8014,7 +8022,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:flicker"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mBYXOPc37AawNza6"
     },
@@ -9647,7 +9664,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:interplanar-teleport"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.TH4mB4nyHqmBAOnR"
     },
@@ -16447,7 +16473,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat", "item:slug:shield-from-arrows"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "shield-from-spells"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ueQoFDPHUe3dqmS1"
     },

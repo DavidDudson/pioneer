@@ -836,18 +836,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:deity-favored", "target:mark:hunted-prey"],
-            "property": "other-tags",
-            "value": "sneak-attack"
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-field",
           "field": "subfeatures.suppressedFeatures",
@@ -5208,18 +5196,6 @@
           "type": "rule",
           "key": "ItemAlteration",
           "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["spellcasting:tradition:divine", "self:effect:hunt-prey", "feature:masterful-hunter"],
-            "property": "other-tags",
-            "value": "vindicator-masterful-hunter"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
             "itemType": "feat",
             "key": "ItemAlteration",
             "mode": "add",
@@ -7338,18 +7314,6 @@
             "mode": "add",
             "predicate": ["item:slug:breath-of-life", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:breath-of-life", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:battleblooded"
           }
         }
@@ -9025,18 +8989,6 @@
       "slug": "feat:multifaceted-will",
       "foundry": "Compendium.pf2e.feats-srd.Item.LBfLDfLnCFn1iy5h",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:manifest-will"],
-            "property": "other-tags",
-            "value": "multifaceted-will"
-          }
-        },
         {
           "type": "field",
           "reason": "unresolved-reference",

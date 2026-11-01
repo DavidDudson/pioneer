@@ -164,6 +164,13 @@
             ]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:drink-from-the-chalice"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "chalice-adept-benefit"
       }
     ],
     "externalIds": {
@@ -3838,6 +3845,22 @@
         "display": {
           "label": "Amp Psi Cantrips"
         }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:trait:cantrip", "item:trait:psychic"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "priority": 19
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:tag:psi-cantrip"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "amped",
+        "predicate": ["option:amp-spell"]
       }
     ],
     "externalIds": {
@@ -4941,7 +4964,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:telekinetic-hand", "item:slug:telekinetic-projectile"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.1rlBo3LcwIuPDCvz"
     },
@@ -5359,7 +5397,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:detect-magic", "item:slug:guidance"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.rvpTsj9epRuNH3uB"
     },
@@ -5904,6 +5957,20 @@
         "display": {
           "label": "Mindshift: Add/Remove Energy"
         }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:frostbite", "item:slug:ignition"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
       }
     ],
     "externalIds": {
@@ -6337,7 +6404,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:daze", "item:slug:message"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.rdWWlqvxXgfWDaSO"
     },
@@ -6719,7 +6801,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:figment", "item:slug:shield"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.8dAm3ULUqaK4N5a7"
     },
@@ -7132,7 +7229,22 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:phase-bolt", "item:slug:warp-step"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "psi-cantrip",
+        "predicate": ["class:psychic", "spellcasting:tradition:occult"],
+        "priority": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.FaSY47siV1x6CAQp"
     },

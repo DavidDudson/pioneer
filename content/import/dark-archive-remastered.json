@@ -865,18 +865,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:drink-from-the-chalice"],
-            "property": "other-tags",
-            "value": "chalice-adept-benefit"
-          }
         }
       ]
     },
@@ -2352,31 +2340,6 @@
             "itemType": "spell",
             "key": "ItemAlteration",
             "mode": "add",
-            "predicate": ["item:trait:cantrip", "item:trait:psychic"],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["amp-spell", "item:tag:psi-cantrip"],
-            "property": "other-tags",
-            "value": "amped"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
             "predicate": ["amp-spell", "item:tag:psi-cantrip"],
             "property": "focus-point-cost",
             "value": 1
@@ -2468,25 +2431,6 @@
       "slug": "class-feature:the-distant-grasp",
       "foundry": "Compendium.pf2e.classfeatures.Item.1rlBo3LcwIuPDCvz",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:telekinetic-hand", "item:slug:telekinetic-projectile"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2802,25 +2746,6 @@
             "itemType": "spell",
             "key": "ItemAlteration",
             "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:detect-magic", "item:slug:guidance"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
             "predicate": ["item:slug:detect-magic", "item:tag:psi-cantrip"],
             "property": "description",
             "value": [
@@ -3051,25 +2976,6 @@
       "slug": "class-feature:the-oscillating-wave",
       "foundry": "Compendium.pf2e.classfeatures.Item.5tSR0WzMPFn5s3Xs",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:frostbite", "item:slug:ignition"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3494,25 +3400,6 @@
             "itemType": "spell",
             "key": "ItemAlteration",
             "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:daze", "item:slug:message"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
             "predicate": ["item:slug:daze", "item:tag:psi-cantrip"],
             "property": "description",
             "value": [
@@ -3772,25 +3659,6 @@
             "itemType": "spell",
             "key": "ItemAlteration",
             "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:figment", "item:slug:shield"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
             "predicate": ["item:slug:figment", "item:tag:psi-cantrip"],
             "property": "description",
             "value": [
@@ -4022,25 +3890,6 @@
       "slug": "class-feature:the-unbound-step",
       "foundry": "Compendium.pf2e.classfeatures.Item.FaSY47siV1x6CAQp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "class:psychic",
-              "spellcasting:tradition:occult",
-              {
-                "or": ["item:slug:phase-bolt", "item:slug:warp-step"]
-              }
-            ],
-            "priority": 19,
-            "property": "other-tags",
-            "value": "psi-cantrip"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5401,18 +5250,6 @@
       "slug": "effect:effect-chalice-adept-benefit-self",
       "foundry": "Compendium.pf2e.feat-effects.Item.Sq558879cgEc1lGC",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:drink-from-the-chalice"],
-            "property": "other-tags",
-            "value": "chalice-adept-benefit"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -8789,18 +8626,6 @@
             "mode": "add",
             "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:reflection"
           }
         }
@@ -8861,18 +8686,6 @@
       "slug": "feat:replicate",
       "foundry": "Compendium.pf2e.feats-srd.Item.bZGCOKLtCzMnrVwk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

@@ -3204,18 +3204,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.o1Bj8xvco9MtBVkl",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:empowered-onslaught"],
-            "property": "other-tags",
-            "value": "aura-enhancement"
-          }
-        },
-        {
           "type": "field",
           "reason": "unresolved-reference",
           "field": "archetype",

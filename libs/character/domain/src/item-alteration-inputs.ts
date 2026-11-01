@@ -84,9 +84,10 @@ function weaponRollOptions(
   entry: Extract<ItemEntry, { readonly kind: typeof ContentKind.Weapon }>,
   favored: boolean,
 ): readonly RollOptionTail[] {
-  const { category, group, baseItem, range } = entry.data;
+  const { category, group, baseItem, range, tags = [] } = entry.data;
   const thrown = entry.traits.includes(THROWN);
   return [
+    ...tags.map((tag) => `tag:${tag}`),
     `category:${category}`,
     ...(group === undefined ? [] : [`group:${group}`]),
     ...(baseItem === undefined ? [] : [`base:${baseItem}`]),

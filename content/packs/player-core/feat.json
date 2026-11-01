@@ -4562,7 +4562,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:entangling-flora", "item:slug:oaken-resilience"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.2kAyZ3LB28BDhXKa"
     },
@@ -7961,7 +7975,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:plant-form"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.uDFgL6uCwJsaTHi3"
     },
@@ -8743,7 +8766,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:disguise-magic", "item:slug:silence"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ZPK2Un5ChzeNc9Dx"
     },
@@ -9079,7 +9116,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:cleanse-affliction"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.V6iJ4v15Qc8awVCH"
     },
@@ -15296,7 +15342,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:divine-decree"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.KL3Pk10ReItAHTw9"
     },
@@ -20972,7 +21027,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:bless", "item:slug:bane"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.n3CbbtK4fgBznIMf"
     },
@@ -22795,7 +22864,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:invisibility", "item:slug:revealing-light"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.WUVNZoIZvr9XFv2x"
     },
@@ -23171,7 +23254,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:field-of-life", "item:slug:tangling-creepers"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.U9nJy5suyYDE0b20"
     },
@@ -27565,7 +27662,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:interplanar-teleport"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UKHIKipBvOGhzcSQ"
     },
@@ -31470,7 +31576,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat", "item:slug:monster-hunter"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "legendary-monster-hunter"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Veyt4x2Kb5YcPGTv"
     },
@@ -41776,6 +41890,13 @@
         "dieSize": "d6",
         "category": "precision",
         "predicate": ["target:mark:precise-debilitations"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:effect", "item:slug:effect-precise-debilitations"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "precise-debilitations-dice-added"
       }
     ],
     "externalIds": {
@@ -46046,7 +46167,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:regenerate"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ffjoPXtAoIR2Drwe"
     },
@@ -51938,7 +52068,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:translocate"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rCajlx2KjGxzabAJ"
     },
@@ -54690,7 +54829,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:magic-passage"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.UquGIEFKhutgJsEz"
     },
@@ -54866,7 +55014,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:one-with-stone"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.KTLdk65OOAVixqtY"
     },
@@ -55717,7 +55874,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:summon-monitor", "item:summon-celestial", "item:summon-fiend"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.L231BR4815B6hwKT"
     },
@@ -55827,7 +55998,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:charm"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Rr7GdUjXhGhV04Pe"
     },
@@ -60498,7 +60678,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:unfettered-movement"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.RFXzsfEgz7WbDCQO"
     },

@@ -918,50 +918,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:occult",
-                      {
-                        "or": [
-                          "item:slug:phantom-pain",
-                          "item:slug:stupefy",
-                          "item:slug:vampiric-feast",
-                          "item:slug:confusion",
-                          "item:slug:slither",
-                          "item:slug:never-mind",
-                          "item:slug:warp-mind",
-                          "item:slug:uncontrollable-dance",
-                          "item:slug:unfathomable-song"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -1081,50 +1037,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:heal",
-                          "item:slug:spiritual-armament",
-                          "item:slug:holy-light",
-                          "item:slug:divine-wrath",
-                          "item:slug:divine-immolation",
-                          "item:slug:blessed-boundary",
-                          "item:slug:divine-decree",
-                          "item:slug:moment-of-renewal",
-                          "item:slug:foresight"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -1242,50 +1154,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:fear",
-                          "item:slug:enlarge",
-                          "item:slug:slow",
-                          "item:slug:divine-wrath",
-                          "item:slug:blister",
-                          "item:slug:disintegrate",
-                          "item:slug:divine-decree",
-                          "item:slug:canticle-of-everlasting-grief",
-                          "item:slug:implosion"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -1401,50 +1269,6 @@
       "slug": "class-feature:bloodline-diabolic",
       "foundry": "Compendium.pf2e.classfeatures.Item.o39zQMIdERWtmBSB",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:charm",
-                          "item:slug:floating-flame",
-                          "item:slug:enthrall",
-                          "item:slug:suggestion",
-                          "item:slug:wave-of-despair",
-                          "item:slug:truesight",
-                          "item:slug:divine-decree",
-                          "item:slug:divine-inspiration",
-                          "item:slug:falling-stars"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -2858,107 +2682,6 @@
         },
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:primal",
-                      {
-                        "or": [
-                          "item:slug:resist-energy",
-                          "item:slug:unfettered-movement",
-                          "item:slug:elemental-form",
-                          "item:slug:energy-aegis",
-                          "item:slug:earthquake",
-                          "item:slug:wrathful-storm",
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:air",
-                              {
-                                "or": ["item:slug:tailwind", "item:slug:wall-of-wind", "item:slug:chain-lightning"]
-                              }
-                            ]
-                          },
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:earth",
-                              {
-                                "or": ["item:slug:pummeling-rubble", "item:slug:earthbind", "item:slug:petrify"]
-                              }
-                            ]
-                          },
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:fire",
-                              {
-                                "or": ["item:slug:breathe-fire", "item:slug:fireball", "item:slug:tree-of-seasons"]
-                              }
-                            ]
-                          },
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:metal",
-                              {
-                                "or": [
-                                  "item:slug:thunderstrike",
-                                  "item:slug:lightning-bolt",
-                                  "item:slug:chain-lightning"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:water",
-                              {
-                                "or": [
-                                  "item:slug:hydraulic-push",
-                                  "item:slug:aqueous-orb",
-                                  "item:slug:scintillating-safeguard"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "and": [
-                              "feature:bloodline:elemental:wood",
-                              {
-                                "or": [
-                                  "item:slug:cleanse-cuisine",
-                                  "item:slug:wall-of-thorns",
-                                  "item:slug:tangling-creepers"
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -3109,50 +2832,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:primal",
-                      {
-                        "or": [
-                          "item:slug:charm",
-                          "item:slug:laughing-fit",
-                          "item:slug:enthrall",
-                          "item:slug:suggestion",
-                          "item:slug:hallucination",
-                          "item:slug:mislead",
-                          "item:slug:visions-of-danger",
-                          "item:slug:uncontrollable-dance",
-                          "item:slug:resplendent-mansion"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -3268,50 +2947,6 @@
       "slug": "class-feature:bloodline-hag",
       "foundry": "Compendium.pf2e.classfeatures.Item.O0uXZRWMNliDbkxU",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:occult",
-                      {
-                        "or": [
-                          "item:slug:illusory-disguise",
-                          "item:slug:stupefy",
-                          "item:slug:blindness",
-                          "item:slug:outcasts-curse",
-                          "item:slug:mariners-curse",
-                          "item:slug:cursed-metamorphosis",
-                          "item:slug:warp-mind",
-                          "item:slug:quandary",
-                          "item:slug:phantasmagoria"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -3431,50 +3066,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:arcane",
-                      {
-                        "or": [
-                          "item:slug:force-barrage",
-                          "item:slug:dispel-magic",
-                          "item:slug:haste",
-                          "item:slug:translocate",
-                          "item:slug:scouting-eye",
-                          "item:slug:disintegrate",
-                          "item:slug:retrocognition",
-                          "item:slug:quandary",
-                          "item:slug:implosion"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -3590,50 +3181,6 @@
       "slug": "class-feature:bloodline-undead",
       "foundry": "Compendium.pf2e.classfeatures.Item.7WBZ2kkhZ7JorWu2",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:harm",
-                          "item:slug:see-the-unseen",
-                          "item:slug:bind-undead",
-                          "item:slug:talking-corpse",
-                          "item:slug:invoke-spirits",
-                          "item:slug:vampiric-exsanguination",
-                          "item:slug:execute",
-                          "item:slug:canticle-of-everlasting-grief",
-                          "item:slug:wails-of-the-damned"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "RollOption",
@@ -5223,26 +4770,6 @@
             "predicate": ["feat:unstoppable-juggernaut"],
             "priority": 55,
             "value": "8 + @actor.abilities.con.mod"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "class-feature:investigator-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.PFvB79O2VFdiAeSj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:clue-in"],
-            "property": "other-tags",
-            "value": "investigator-expertise"
           }
         }
       ]
@@ -10579,18 +10106,6 @@
             "mode": "add",
             "predicate": ["item:slug:animal-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:kholo"
           }
         }
@@ -11590,18 +11105,6 @@
             "mode": "add",
             "predicate": ["item:slug:dinosaur-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:dinosaur-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:lizardfolk"
           }
         }
@@ -11613,18 +11116,6 @@
       "slug": "feat:boneyards-call",
       "foundry": "Compendium.pf2e.feats-srd.Item.wfOGyLnuVMFo7Rwy",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -11667,18 +11158,6 @@
       "slug": "feat:breath-like-honey",
       "foundry": "Compendium.pf2e.feats-srd.Item.FZZXgmVMAmvKHWIo",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:enthrall", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -12381,40 +11860,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:deadly-grace",
-      "foundry": "Compendium.pf2e.feats-srd.Item.e8ChYAaQ9Aa8aZES",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:equipped",
-              {
-                "or": ["item:trait:agile", "item:trait:finesse"]
-              },
-              {
-                "nor": [
-                  "item:trait:deadly-d4",
-                  "item:trait:deadly-d6",
-                  "item:trait:deadly-d8",
-                  "item:trait:deadly-d10",
-                  "item:trait:deadly-d12"
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "deadly-from-deadly-grace"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:deeper-dabbler",
       "foundry": "Compendium.pf2e.feats-srd.Item.PTXZ2C3AV8tZf0iX",
       "gaps": [
@@ -12551,23 +11996,6 @@
       "gaps": [
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:category:unarmed",
-              {
-                "or": ["item:trait:deadly-d10", "item:trait:forceful"]
-              }
-            ],
-            "property": "other-tags",
-            "value": "diamond-fists-dice-upgrade"
-          }
-        },
-        {
-          "type": "rule",
           "key": "DamageAlteration",
           "raw": {
             "key": "DamageAlteration",
@@ -12617,18 +12045,6 @@
       "slug": "feat:distant-cackle",
       "foundry": "Compendium.pf2e.feats-srd.Item.P19AnciwNcSqxU7z",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -12952,18 +12368,6 @@
             "mode": "add",
             "predicate": ["item:slug:humanoid-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:humanoid-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dragonblood"
           }
         }
@@ -13168,23 +12572,6 @@
       "slug": "feat:duskwalker-magic",
       "foundry": "Compendium.pf2e.feats-srd.Item.PxWdf4HAhZ8fUB3R",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:augury", "item:slug:peaceful-rest"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -13420,18 +12807,6 @@
       "slug": "feat:enthralling-allure",
       "foundry": "Compendium.pf2e.feats-srd.Item.Zz5A8Yg0jGSK8GNu",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:charm", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -13846,18 +13221,6 @@
             "mode": "add",
             "predicate": ["item:slug:dragon-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:dragon-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dragonblood"
           }
         }
@@ -13915,18 +13278,6 @@
       "slug": "feat:fossil-rider",
       "foundry": "Compendium.pf2e.feats-srd.Item.IOlvpmeIwlk0IACr",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:mask-of-terror", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -14096,18 +13447,6 @@
             "mode": "add",
             "predicate": ["item:slug:augury", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:augury", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:kholo"
           }
         }
@@ -14140,26 +13479,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:greater-debilitating-bomb",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Cn4w9U7uk5m1bb2S",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:base:alchemical-bomb"],
-            "property": "other-tags",
-            "value": "greater-debilitating-bomb"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:greater-security",
       "foundry": "Compendium.pf2e.feats-srd.Item.3aolZmAj0ue8vc6q",
       "gaps": [
@@ -14178,18 +13497,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:shields-of-the-spirit", "security"],
-            "property": "other-tags",
-            "value": "greater-security"
-          }
         }
       ]
     },
@@ -14199,18 +13506,6 @@
       "slug": "feat:greater-than-the-sum",
       "foundry": "Compendium.pf2e.feats-srd.Item.BS6UoGLyJ12xVD9P",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:enlarge", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -15224,18 +14519,6 @@
             "mode": "add",
             "predicate": ["item:slug:ignition", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:ignition", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:tengu"
           }
         }
@@ -15683,23 +14966,6 @@
       "slug": "feat:night-magic",
       "foundry": "Compendium.pf2e.feats-srd.Item.iRpVW1DPKVxlzIzt",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:animal-form", "item:slug:mist"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -16200,23 +15466,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:unfettered-movement", "item:slug:mountain-resilience"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:lizardfolk"
           }
         }
@@ -16391,18 +15640,6 @@
       "slug": "feat:rat-magic",
       "foundry": "Compendium.pf2e.feats-srd.Item.8MMYFIudSDkdo8cx",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:animal-messenger", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -16651,18 +15888,6 @@
       "slug": "feat:resist-ruin",
       "foundry": "Compendium.pf2e.feats-srd.Item.FqZKSSBU7M4zhsXM",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:false-vitality", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -17614,18 +16839,6 @@
             "mode": "add",
             "predicate": ["item:slug:electric-arc", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:electric-arc", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:tengu"
           }
         }
@@ -17957,18 +17170,6 @@
             "mode": "add",
             "predicate": ["item:slug:vampiric-exsanguination", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:vampiric-exsanguination", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dhampir"
           }
         }
@@ -18125,18 +17326,6 @@
           "raw": {
             "key": "GrantItem",
             "uuid": "Compendium.pf2e.equipment-srd.Item.Tengu Feather Fan"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:gust-of-wind", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "tengu-fan"
           }
         },
         {
@@ -18435,18 +17624,6 @@
             "mode": "add",
             "predicate": ["item:slug:lightning-bolt", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "tengu-fan"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:lightning-bolt", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:tengu"
           }
         },
@@ -18604,23 +17781,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:aerial-form", "item:slug:cursed-metamorphosis"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:tengu"
           }
         }
@@ -18644,26 +17804,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:true-debilitating-bomb",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2HMvAB6mIVwvwtjT",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:base:alchemical-bomb"],
-            "property": "other-tags",
-            "value": "true-debilitating-bomb"
           }
         }
       ]
@@ -19021,18 +18161,6 @@
       "slug": "feat:wind-gods-fan",
       "foundry": "Compendium.pf2e.feats-srd.Item.QUaSGUmRnlMbzw1P",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:wall-of-wind", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "tengu-fan"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -19638,18 +18766,6 @@
             "mode": "add",
             "predicate": ["item:slug:vitality-lash", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:vitality-lash", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:tengu"
           }
         }
@@ -19716,18 +18832,6 @@
       "slug": "heritage:witch-kholo",
       "foundry": "Compendium.pf2e.heritages.Item.kXp8qRh5AgtD4Izi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:figment", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

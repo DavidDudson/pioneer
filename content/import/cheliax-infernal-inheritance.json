@@ -952,18 +952,6 @@
             "mode": "add",
             "predicate": ["item:slug:aerial-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:aerial-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:strix"
           }
         }
@@ -1528,18 +1516,6 @@
             "mode": "add",
             "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:fetchling"
           }
         }
@@ -1621,23 +1597,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:status", "item:slug:speak-with-animals"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:strix"
           }
         }
@@ -1677,18 +1636,6 @@
             "mode": "add",
             "predicate": ["item:slug:shadow-blast", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:shadow-blast", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:fetchling"
           }
         }
@@ -1700,18 +1647,6 @@
       "slug": "feat:shadowy-disguise",
       "foundry": "Compendium.pf2e.feats-srd.Item.oSA1Ii6gTRGobeSO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1744,18 +1679,6 @@
       "slug": "feat:skirt-the-light",
       "foundry": "Compendium.pf2e.feats-srd.Item.dor2F3g8gL2KVwX6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:umbral-journey", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1875,18 +1798,6 @@
             "mode": "add",
             "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:strix"
           }
         }
@@ -1936,18 +1847,6 @@
       "slug": "heritage:bright-fetchling",
       "foundry": "Compendium.pf2e.heritages.Item.wHO5luJMODbDLXNi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:light", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

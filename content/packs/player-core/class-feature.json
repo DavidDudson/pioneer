@@ -9480,6 +9480,37 @@
             "not": "item:category:unarmed"
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          {
+            "or": [
+              {
+                "and": [
+                  "item:category:simple",
+                  {
+                    "lte": ["item:damage:die:faces", 8]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "or": ["item:category:martial", "item:category:advanced"]
+                  },
+                  {
+                    "lte": ["item:damage:die:faces", 6]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "sneak-attack"
       }
     ],
     "externalIds": {
@@ -13285,7 +13316,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          {
+            "or": [
+              "item:trait:agile",
+              "item:trait:finesse",
+              {
+                "and": [
+                  "item:ranged",
+                  {
+                    "not": "item:thrown-melee"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "sneak-attack"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.j1JE61quDxdge4mg"
     },

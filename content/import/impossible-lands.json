@@ -754,23 +754,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:blood-vendetta", "item:slug:death-knell"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:nephilim"
           }
         },
@@ -795,18 +778,6 @@
             "mode": "add",
             "predicate": ["item:slug:teleport", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:teleport", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:kashrishi"
           }
         }
@@ -818,18 +789,6 @@
       "slug": "feat:breath-of-calamity",
       "foundry": "Compendium.pf2e.feats-srd.Item.rq0lnwZ51AtJ0aux",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:chain-lightning", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1093,23 +1052,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:calm", "item:slug:sanctuary"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:kashrishi"
           }
         }
@@ -1201,49 +1143,6 @@
             "priority": 51,
             "value": 1
           }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": [
-                      {
-                        "or": [
-                          {
-                            "and": ["item:slug:slow", "fey-influence:anteater"]
-                          },
-                          {
-                            "and": [
-                              {
-                                "or": ["item:slug:charm", "item:slug:sleep"]
-                              },
-                              "fey-influence:faun"
-                            ]
-                          },
-                          {
-                            "and": ["item:slug:mad-monkeys", "fey-influence:gremlin"]
-                          }
-                        ]
-                      },
-                      "spellcasting:innate"
-                    ]
-                  },
-                  {
-                    "and": ["item:slug:triple-time", "fey-influence:faun"]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
         }
       ]
     },
@@ -1323,23 +1222,6 @@
       "slug": "feat:flower-magic",
       "foundry": "Compendium.pf2e.feats-srd.Item.oGPX29AOsyHj18mK",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:oaken-resilience", "item:slug:one-with-plants"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1510,39 +1392,7 @@
             "mode": "add",
             "predicate": ["item:slug:natures-reprisal", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:natures-reprisal", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:ghoran"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
-      "slug": "feat:glamour",
-      "foundry": "Compendium.pf2e.feats-srd.Item.ewwhgHZbxHcpMdLn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:fey-glamour"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
           }
         }
       ]
@@ -1591,23 +1441,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:dispel-magic", "item:slug:reapers-lantern"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:nephilim"
           }
         }
@@ -1619,23 +1452,6 @@
       "slug": "feat:legendary-size",
       "foundry": "Compendium.pf2e.feats-srd.Item.IlzUi1viWgeRolU8",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:enlarge", "item:slug:shrink"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1691,18 +1507,6 @@
       "slug": "feat:monkey-spirits",
       "foundry": "Compendium.pf2e.feats-srd.Item.7NsqI50oBIJ4bFwb",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:mad-monkeys", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1827,18 +1631,6 @@
             "mode": "add",
             "predicate": ["item:slug:prismatic-armor", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:prismatic-armor", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:nagaji"
           }
         }
@@ -1870,18 +1662,6 @@
       "slug": "feat:reimagine",
       "foundry": "Compendium.pf2e.feats-srd.Item.b5j3boj1iEcXSB9f",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:dreaming-potential", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1970,18 +1750,6 @@
             "mode": "add",
             "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:ghoran"
           }
         }
@@ -1993,18 +1761,6 @@
       "slug": "feat:unfettering-prankster",
       "foundry": "Compendium.pf2e.feats-srd.Item.IyFz7kVF8wzPdrfJ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:unfettered-pack", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2215,18 +1971,6 @@
       "slug": "feat:violent-vines",
       "foundry": "Compendium.pf2e.feats-srd.Item.vWUPSvEBHr5AAPUU",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:murderous-vine", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

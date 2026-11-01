@@ -92,3 +92,27 @@ describe('ItemAlteration from Foundry', () => {
     expect([own, text, picked].map(({ untranslated }) => untranslated.length)).toEqual([1, 1, 1]);
   });
 });
+
+describe('ItemAlteration of other-tags from Foundry', () => {
+  test.each(['add', 'remove'])('a tag %sed on the weapons it reaches is translated', (mode) => {
+    const { rules, untranslated } = translated({
+      itemType: 'weapon',
+      key: RuleElementKey.ItemAlteration,
+      mode,
+      predicate: ['item:slug:longsword'],
+      property: 'other-tags',
+      value: 'starlit-sentinel-weapon',
+    });
+
+    expect(untranslated).toEqual([]);
+    expect(rules as readonly unknown[]).toEqual([
+      {
+        items: ['item:type:weapon', 'item:slug:longsword'],
+        key: RuleElementKey.ItemAlteration,
+        mode,
+        property: 'other-tags',
+        value: 'starlit-sentinel-weapon',
+      },
+    ]);
+  });
+});

@@ -1107,7 +1107,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:shield",
+              "item:slug:tangle-vine",
+              "item:slug:schadenfreude",
+              "item:slug:enfeeble",
+              "item:slug:dispel-magic",
+              "item:slug:stupefy",
+              "item:slug:earthbind",
+              "item:slug:thief-of-fortune",
+              "item:slug:containment",
+              "item:slug:outcasts-curse",
+              "item:slug:banishment",
+              "item:slug:grisly-growths",
+              "item:slug:cursed-metamorphosis",
+              "item:slug:spellwrack",
+              "item:slug:duplicate-foe",
+              "item:slug:planar-seal",
+              "item:slug:quandary",
+              "item:slug:detonate-magic"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.Fh5Khtx5bgGpBeOu"
     },
@@ -1451,7 +1484,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:caustic-blast",
+              "item:slug:void-warp",
+              "item:slug:grim-tendrils",
+              "item:slug:summon-undead",
+              "item:slug:create-food",
+              "item:slug:ghoulish-cravings",
+              "item:slug:rouse-skeletons",
+              "item:slug:vampiric-feast",
+              "item:slug:seal-fate",
+              "item:slug:vampiric-maiden",
+              "item:slug:corrosive-muck",
+              "item:slug:slither",
+              "item:slug:disintegrate",
+              "item:slug:vampiric-exsanguination",
+              "item:slug:devouring-void",
+              "item:slug:eclipse-burst",
+              "item:slug:desiccate",
+              "item:slug:massacre"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.hzATJ1FV3lTPgeG9"
     },
@@ -1795,7 +1861,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:live-wire",
+              "item:slug:read-aura",
+              "item:slug:ant-haul",
+              "item:slug:leaden-steps",
+              "item:slug:enlarge",
+              "item:slug:phantasmal-treasure",
+              "item:slug:one-with-stone",
+              "item:slug:shrink-item",
+              "item:slug:aerial-form",
+              "item:slug:shape-stone",
+              "item:slug:elemental-form",
+              "item:slug:impaling-spike",
+              "item:slug:dragon-form",
+              "item:slug:petrify",
+              "item:slug:chrysopoetic-curse",
+              "item:slug:lifewood-cage",
+              "item:slug:monstrosity-form",
+              "item:slug:metamorphosis"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.COMhWWNBJOdaJqp7"
     },
@@ -2239,7 +2338,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:daze",
+              "item:slug:message",
+              "item:slug:charm",
+              "item:slug:command",
+              "item:slug:charitable-urge",
+              "item:slug:stupefy",
+              "item:slug:dream-message",
+              "item:slug:enthrall",
+              "item:slug:confusion",
+              "item:slug:suggestion",
+              "item:slug:mind-probe",
+              "item:slug:subconscious-suggestion",
+              "item:slug:dominate",
+              "item:slug:never-mind",
+              "item:slug:loves-sacrifice",
+              "item:slug:warp-mind",
+              "item:slug:uncontrollable-dance",
+              "item:slug:telepathic-demand"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.MpZ0sdwMJ8fdZmtR"
     },
@@ -2567,7 +2699,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:bullhorn",
+              "item:slug:figment",
+              "item:slug:dizzying-colors",
+              "item:slug:illusory-disguise",
+              "item:slug:illusory-creature",
+              "item:slug:invisibility",
+              "item:slug:blindness",
+              "item:slug:levitate",
+              "item:slug:mirage",
+              "item:slug:vision-of-death",
+              "item:slug:cloak-of-colors",
+              "item:slug:phantasmal-calamity",
+              "item:slug:mask-of-terror",
+              "item:slug:project-image",
+              "item:slug:confusing-colors",
+              "item:slug:overwhelming-presence"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.GI09dKNZVCPdSGZC"
     },
@@ -2967,7 +3130,47 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "studious-spell",
+        "predicate": [
+          "spellcasting:category:prepared",
+          "spellcasting:tradition:arcane",
+          {
+            "or": [
+              {
+                "and": [
+                  "item:slug:water-walk",
+                  {
+                    "gte": ["self:level", 7]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "item:slug:aqueous-orb",
+                  {
+                    "gte": ["self:level", 11]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  "item:slug:unfettered-movement",
+                  {
+                    "gte": ["self:level", 13]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.X3nPGnqh6rkRJ75i"
     },
@@ -4084,6 +4287,42 @@
         "item": {
           "choice": "sin"
         }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:tag:runelord-sin-spell",
+              "item:slug:detect-magic",
+              "item:slug:sigil",
+              "item:slug:mystic-armor",
+              "item:slug:runic-body",
+              "item:slug:runic-weapon",
+              "item:slug:sure-strike",
+              "item:slug:darkvision",
+              "item:slug:see-the-unseen",
+              "item:slug:clairaudience",
+              "item:slug:veil-of-privacy",
+              "item:slug:clairvoyance",
+              "item:slug:fly",
+              "item:slug:mind-probe",
+              "item:slug:sending",
+              "item:slug:scrying",
+              "item:slug:truesight",
+              "item:slug:contingency",
+              "item:slug:spell-riposte",
+              "item:slug:unrelenting-observation",
+              "item:slug:seize-soul",
+              "item:slug:foresight"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-curriculum-spell",
+        "priority": 119
       }
     ],
     "externalIds": {
@@ -4805,7 +5044,39 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:telekinetic-hand",
+              "item:slug:telekinetic-projectile",
+              "item:slug:sleep",
+              "item:slug:enfeeble",
+              "item:slug:ghostly-carrier",
+              "item:slug:summon-elemental",
+              "item:slug:cozy-cabin",
+              "item:slug:slow",
+              "item:slug:dull-ambition",
+              "item:slug:translocate",
+              "item:slug:summon-dragon",
+              "item:slug:telekinetic-haul",
+              "item:slug:collective-transposition",
+              "item:slug:indolent-haze",
+              "item:slug:planar-palace",
+              "item:slug:quandary",
+              "item:slug:resplendent-mansion"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.cz9fwc6KSkqxD3Nn"
     },
@@ -5669,7 +5940,40 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": [
+              "item:slug:frostbite",
+              "item:slug:ignition",
+              "item:slug:force-barrage",
+              "item:slug:thunderstrike",
+              "item:slug:blistering-invective",
+              "item:slug:floating-flame",
+              "item:slug:fireball",
+              "item:slug:lightning-bolt",
+              "item:slug:ice-storm",
+              "item:slug:wall-of-fire",
+              "item:slug:howling-blizzard",
+              "item:slug:wall-of-ice",
+              "item:slug:blinding-fury",
+              "item:slug:disintegrate",
+              "item:slug:eclipse-burst",
+              "item:slug:fiery-body",
+              "item:slug:earthquake",
+              "item:slug:falling-stars"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "runelord-sin-spell",
+        "priority": 118
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.wtPywk3wqEg3iYOP"
     },

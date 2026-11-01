@@ -5,7 +5,6 @@ import {
   FeatCategory,
   InlineKind,
   RichTextString,
-  Slug,
   Trait,
   UNLIMITED,
 } from '@pioneer/rules/sdk';
@@ -21,6 +20,7 @@ import { languageRules } from './translate-languages';
 import { proficiencyRules } from './translate-proficiencies';
 import { senseElement } from './translate-senses';
 import { spellcastingRules } from './translate-spellcasting';
+import { FoundryTags, tagsOf } from './translate-tags';
 
 /**
  * A feat's `data` from Foundry's `feat` item, and a class or ancestry feature's from a `feat` item of category
@@ -41,7 +41,6 @@ export const FEAT_FIELDS: ReadonlySet<string> = new Set([
 const FIELD_MAX = 64;
 const NAME_MAX = 1000;
 const PREREQUISITES_MAX = 16;
-const TAGS_MAX = 16;
 
 const FeatCategorySchema = z.enum(FeatCategory);
 
@@ -49,8 +48,6 @@ const FeatCategorySchema = z.enum(FeatCategory);
 const FOUNDRY_CATEGORIES: ReadonlyMap<string, FeatCategory> = new Map([['deityboon', FeatCategory.DeityBoon]]);
 
 const FoundryPrerequisite = z.looseObject({ value: z.string().max(NAME_MAX) });
-
-const FoundryTags = z.array(z.string().max(FIELD_MAX)).max(TAGS_MAX);
 
 const FoundryFeatSystem = z.looseObject({
   category: z.string().max(FIELD_MAX).nullish(),
@@ -116,18 +113,6 @@ function senseRules(senses: unknown, input: KindInput): void {
       addRule(input, `subfeatures.senses.${slug}`, element);
     }
   }
-}
-
-/** A class feature's `otherTags` as tags (`cleric-doctrine`); a tag that is no slug is reported and left off. */
-function tagsOf(system: FoundryFeatSystem, { log }: KindInput): object {
-  const tags = (system.traits?.otherTags ?? []).flatMap((tag): Slug[] => {
-    const slug = Slug.safeParse(tag);
-    if (!slug.success) {
-      report(log, { reason: KindDataGapReason.UnmappedValue, field: 'traits.otherTags', raw: tag });
-    }
-    return slug.success ? [slug.data] : [];
-  });
-  return tags.length === 0 ? {} : { tags: [...new Set(tags)] };
 }
 
 /**
@@ -256,7 +241,11 @@ export function classFeatureData(input: KindInput): object | undefined {
   }
   spellcastingRules(input);
   subfeatureRules(system, input, CLASS_FEATURE_SUBFEATURES);
-  return { ...actionOf(system, input), ...tagsOf(system, input), ...keyAttributeOptionsOf(system, input) };
+  return {
+    ...actionOf(system, input),
+    ...tagsOf(system.traits?.otherTags, input.log),
+    ...keyAttributeOptionsOf(system, input),
+  };
 }
 
 /** The ancestry feature's data, unparsed: its `action` data when it is itself an action. */

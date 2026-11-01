@@ -1913,49 +1913,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:ruffian",
-      "foundry": "Compendium.pf2e.classfeatures.Item.3KPZ7svIO6kmmEKH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:category:simple",
-                      {
-                        "lte": ["item:damage:die:faces", 8]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      {
-                        "or": ["item:category:martial", "item:category:advanced"]
-                      },
-                      {
-                        "lte": ["item:damage:die:faces", 6]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "sneak-attack"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:school-of-unified-magical-theory",
       "foundry": "Compendium.pf2e.classfeatures.Item.xYYhJtGhFSWNifcO",
       "gaps": [
@@ -2054,33 +2011,6 @@
             "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
             "option": "target:condition:off-guard",
             "toggleable": "totm"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "weapon",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:agile",
-                  "item:trait:finesse",
-                  {
-                    "and": [
-                      "item:ranged",
-                      {
-                        "not": "item:thrown-melee"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "sneak-attack"
           }
         },
         {
@@ -7250,23 +7180,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:entangling-flora", "item:slug:oaken-resilience"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:leshy"
           }
         }
@@ -7760,18 +7673,6 @@
             "mode": "add",
             "predicate": ["item:slug:plant-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:plant-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:leshy"
           }
         }
@@ -7936,23 +7837,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:disguise-magic", "item:slug:silence"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:gnome"
           }
         }
@@ -8022,18 +7906,6 @@
       "slug": "feat:celestial-mercy",
       "foundry": "Compendium.pf2e.feats-srd.Item.V6iJ4v15Qc8awVCH",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:cleanse-affliction", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -8636,18 +8508,6 @@
       "slug": "feat:divine-declaration",
       "foundry": "Compendium.pf2e.feats-srd.Item.KL3Pk10ReItAHTw9",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:divine-decree", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -9383,23 +9243,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:bless", "item:slug:bane"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:nephilim"
           }
         }
@@ -9717,23 +9560,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:invisibility", "item:slug:revealing-light"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:gnome"
           }
         }
@@ -9745,23 +9571,6 @@
       "slug": "feat:flourish-and-ruin",
       "foundry": "Compendium.pf2e.feats-srd.Item.U9nJy5suyYDE0b20",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:field-of-life", "item:slug:tangling-creepers"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -10467,26 +10276,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:homeward-bound",
-      "foundry": "Compendium.pf2e.feats-srd.Item.UKHIKipBvOGhzcSQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:hunters-aim",
       "foundry": "Compendium.pf2e.feats-srd.Item.GFtNQvpzuqtsdOTG",
       "gaps": [
@@ -10715,26 +10504,6 @@
             "mode": "remove",
             "property": "traits",
             "value": "nonlethal"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:legendary-monster-hunter",
-      "foundry": "Compendium.pf2e.feats-srd.Item.Veyt4x2Kb5YcPGTv",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:monster-hunter"],
-            "property": "other-tags",
-            "value": "legendary-monster-hunter"
           }
         }
       ]
@@ -11806,26 +11575,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:precise-debilitations",
-      "foundry": "Compendium.pf2e.feats-srd.Item.wvJBIzgS298ZRp6w",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "effect",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:effect-precise-debilitations"],
-            "property": "other-tags",
-            "value": "precise-debilitations-dice-added"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:pristine-weapon",
       "foundry": "Compendium.pf2e.feats-srd.Item.nWxNV9pFeBHV671W",
       "gaps": [
@@ -12107,18 +11856,6 @@
       "slug": "feat:regrowth",
       "foundry": "Compendium.pf2e.feats-srd.Item.ffjoPXtAoIR2Drwe",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:regenerate", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -12761,18 +12498,6 @@
             "mode": "add",
             "predicate": ["item:slug:translocate", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:translocate", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:nephilim"
           }
         }
@@ -13088,18 +12813,6 @@
             "mode": "add",
             "predicate": ["item:slug:magic-passage", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:magic-passage", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dwarf"
           }
         }
@@ -13111,18 +12824,6 @@
       "slug": "feat:stonewalker",
       "foundry": "Compendium.pf2e.feats-srd.Item.KTLdk65OOAVixqtY",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:one-with-stone", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -13169,23 +12870,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:summon-monitor", "item:summon-celestial", "item:summon-fiend"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:nephilim"
           }
         }
@@ -13197,18 +12881,6 @@
       "slug": "feat:supernatural-charm",
       "foundry": "Compendium.pf2e.feats-srd.Item.Rr7GdUjXhGhV04Pe",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:charm", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -13590,18 +13262,6 @@
       "slug": "feat:unhampered-passage",
       "foundry": "Compendium.pf2e.feats-srd.Item.RFXzsfEgz7WbDCQO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:unfettered-movement", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -14451,18 +14111,6 @@
       "slug": "heritage:seer-elf",
       "foundry": "Compendium.pf2e.heritages.Item.jEtVesbqYcWGbBYk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:detect-magic", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

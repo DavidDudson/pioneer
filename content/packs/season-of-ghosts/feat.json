@@ -50,6 +50,14 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["target:trait:animal", "action:gather-information"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:speak-with-animals"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -95,7 +103,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:spiritual-guardian"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.fjzxzlHhiORtV7Ll"
     },
@@ -1477,7 +1494,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:spirit-sense"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.aEcK9cX64xDrbzwH"
     },
@@ -1782,7 +1808,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:talking-corpse"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ZTIM5YyCiNxIO3Mp"
     },
@@ -1837,6 +1872,14 @@
             "not": "language:speaking:common"
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:truespeech"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -2154,6 +2197,14 @@
           },
           "action:gather-information"
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:speak-with-plants"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -2938,6 +2989,14 @@
         "type": "circumstance",
         "value": 2,
         "predicate": ["target:trait:stone", "action:gather-information"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:speak-with-stones"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {

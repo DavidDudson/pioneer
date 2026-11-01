@@ -1753,6 +1753,94 @@
             "gte": ["self:level", 2]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "blood-magic-spell",
+        "predicate": [
+          "elemental-focus-initial:yes",
+          {
+            "or": [
+              {
+                "and": ["item:slug:serrate", "elementalist:elemental-cycle", "feature:bloodline:elemental:metal"]
+              },
+              {
+                "and": ["item:slug:arms-of-nature", "elementalist:elemental-cycle", "feature:bloodline:elemental:wood"]
+              },
+              {
+                "and": ["item:slug:updraft", "elementalist:inner-sea-elementalism", "feature:bloodline:elemental:air"]
+              },
+              {
+                "and": ["item:slug:crushing-ground", "feature:bloodline:elemental:earth"]
+              },
+              {
+                "and": ["item:slug:wildfire", "feature:bloodline:elemental:fire"]
+              },
+              {
+                "and": ["item:slug:rising-surf", "feature:bloodline:elemental:water"]
+              }
+            ]
+          }
+        ],
+        "priority": 121
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:elemental-toss"],
+        "property": "other-tags",
+        "mode": "remove",
+        "value": "blood-magic-spell",
+        "predicate": ["elemental-focus-initial:yes"],
+        "priority": 121
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "blood-magic-spell",
+        "predicate": [
+          "elemental-focus-initial:yes",
+          {
+            "or": [
+              {
+                "and": ["item:slug:repel-metal", "elementalist:elemental-cycle", "feature:bloodline:elemental:metal"]
+              },
+              {
+                "and": ["item:slug:wood-walk", "elementalist:elemental-cycle", "feature:bloodline:elemental:wood"]
+              },
+              {
+                "and": [
+                  "item:slug:powerful-inhalation",
+                  "elementalist:inner-sea-elementalism",
+                  "feature:bloodline:elemental:air"
+                ]
+              },
+              {
+                "and": ["item:slug:stone-lance", "feature:bloodline:elemental:earth"]
+              },
+              {
+                "and": ["item:slug:combustion", "feature:bloodline:elemental:fire"]
+              },
+              {
+                "and": ["item:slug:pulverizing-cascade", "feature:bloodline:elemental:water"]
+              }
+            ]
+          }
+        ],
+        "priority": 121
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:elemental-motion"],
+        "property": "other-tags",
+        "mode": "remove",
+        "value": "blood-magic-spell",
+        "predicate": ["elemental-focus-advanced:yes"],
+        "priority": 121
       }
     ],
     "externalIds": {

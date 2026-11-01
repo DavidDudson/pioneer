@@ -7292,7 +7292,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:enangling-flora", "item:slug:one-with-plants"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.j7BhuP2ccnwpbQhw"
     },
@@ -8272,7 +8286,27 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": [
+          {
+            "or": [
+              "item:slug:magnetic-attraction",
+              "item:slug:magnetic-repulsion",
+              {
+                "and": ["feat:gildedsoul", "item:slug:enthrall"]
+              }
+            ]
+          },
+          "spellcasting:innate"
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.S6ilPkeroXoGgZXm"
     },
@@ -11492,7 +11526,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:tangle-vine"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.eeXyNpzNvPcuOflc"
     },
@@ -11848,7 +11891,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:summon-elemental"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.j5AFlrvDipO0s7UW"
     },
@@ -11892,7 +11944,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:summon-elemental"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Mjt89h8hvZS4nl0P"
     },
@@ -14908,7 +14969,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:mantle-of-the-unwavering-heart"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.9UD7TwyMIjbUun6U"
     },

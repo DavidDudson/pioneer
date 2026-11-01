@@ -307,7 +307,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:blood-vendetta", "item:slug:death-knell"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.gOv0OGTzKUhMoI8d"
     },
@@ -368,7 +382,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:teleport"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.715iDDXFPguSO9Or"
     },
@@ -439,7 +462,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:chain-lightning"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.rq0lnwZ51AtJ0aux"
     },
@@ -2317,7 +2349,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:calm", "item:slug:sanctuary"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.llWKddRiyUHouaZx"
     },
@@ -2966,6 +3012,45 @@
           }
         ],
         "predicate": ["fey-influence:gremlin"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": [
+          {
+            "or": [
+              {
+                "and": [
+                  {
+                    "or": [
+                      {
+                        "and": ["item:slug:slow", "fey-influence:anteater"]
+                      },
+                      {
+                        "and": [
+                          {
+                            "or": ["item:slug:charm", "item:slug:sleep"]
+                          },
+                          "fey-influence:faun"
+                        ]
+                      },
+                      {
+                        "and": ["item:slug:mad-monkeys", "fey-influence:gremlin"]
+                      }
+                    ]
+                  },
+                  "spellcasting:innate"
+                ]
+              },
+              {
+                "and": ["item:slug:triple-time", "fey-influence:faun"]
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -3818,7 +3903,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:oaken-resilience", "item:slug:one-with-plants"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.oGPX29AOsyHj18mK"
     },
@@ -4133,7 +4232,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:natures-reprisal"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.4TndDyCjnF7pc1GC"
     },
@@ -4201,6 +4309,13 @@
         "property": "traits",
         "mode": "remove",
         "value": "sorcerer"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:fey-glamour"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell"
       }
     ],
     "externalIds": {
@@ -5317,7 +5432,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:dispel-magic", "item:slug:reapers-lantern"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.fYkAlUeIryOw7Ht8"
     },
@@ -5523,7 +5652,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:enlarge", "item:slug:shrink"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.IlzUi1viWgeRolU8"
     },
@@ -6273,6 +6416,14 @@
         "key": "Proficiency",
         "selector": "spellcasting",
         "rank": "expert"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:mad-monkeys"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -7654,7 +7805,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:prismatic-armor"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.SFnKHPrd65RORTgN"
     },
@@ -8007,7 +8167,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:dreaming-potential"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.b5j3boj1iEcXSB9f"
     },
@@ -9968,7 +10137,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:protector-tree"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.KeE8Ky38dCX8XaTg"
     },
@@ -10261,7 +10439,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:unfettered-pack"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.IyFz7kVF8wzPdrfJ"
     },
@@ -10873,7 +11060,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:murderous-vine"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.vWUPSvEBHr5AAPUU"
     },

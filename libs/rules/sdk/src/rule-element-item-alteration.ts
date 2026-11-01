@@ -42,6 +42,7 @@ export const ItemProperty = {
   DamageType: 'damage-type',
   Materials: 'materials',
   PropertyRunes: 'property-runes',
+  OtherTags: 'other-tags',
   Description: 'description',
 } as const;
 export type ItemProperty = ValueOf<typeof ItemProperty>;
@@ -56,7 +57,7 @@ const alterationBase = {
 
 /**
  * Changes a property of the character's items that satisfy `items`: a shield's hardness, a
- * weapon's traits, damage type, range increment, materials or property runes. The `property` decides which modes and values fit.
+ * weapon's traits, damage type, range increment, materials, property runes or tags (`other-tags`). The `property` decides which modes and values fit.
  */
 export const ItemAlterationElement = z.discriminatedUnion('property', [
   z.strictObject({
@@ -75,7 +76,7 @@ export const ItemAlterationElement = z.discriminatedUnion('property', [
   }),
   z.strictObject({
     ...alterationBase,
-    property: z.enum([ItemProperty.Materials, ItemProperty.PropertyRunes]),
+    property: z.enum([ItemProperty.Materials, ItemProperty.PropertyRunes, ItemProperty.OtherTags]),
     mode: z.enum(TraitAlterationMode),
     value: Slug,
     ...ruleElementBase,

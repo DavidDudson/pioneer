@@ -7069,6 +7069,30 @@
         "mode": "downgrade",
         "value": -2,
         "predicate": ["option:bodyguard-taunt"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "bodyguard-taunt",
+        "predicate": ["parent:origin:item:tag:bodyguard", "option:bodyguard-taunt"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "bodyguard-taunt",
+        "predicate": ["parent:origin:item:tag:bodyguard", "option:bodyguard-taunt"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "bodyguard-taunt",
+        "predicate": ["parent:origin:item:tag:bodyguard", "option:bodyguard-taunt"]
       }
     ],
     "externalIds": {

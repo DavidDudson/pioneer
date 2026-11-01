@@ -316,6 +316,13 @@
         "selectors": ["drink-from-the-chalice-inline-healing"],
         "type": "untyped",
         "value": "2 * @level"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:drink-from-the-chalice"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "chalice-adept-benefit"
       }
     ],
     "externalIds": {

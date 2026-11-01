@@ -329,50 +329,6 @@
         },
         {
           "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "not": "parent:granter:slug:crossblooded-evolution"
-              },
-              {
-                "or": [
-                  {
-                    "and": ["item:trait:focus", "item:trait:sorcerer"]
-                  },
-                  {
-                    "and": [
-                      "item:spell-slot",
-                      "spellcasting:category:spontaneous",
-                      "spellcasting:tradition:divine",
-                      {
-                        "or": [
-                          "item:slug:mystic-armor",
-                          "item:slug:resist-energy",
-                          "item:slug:haste",
-                          "item:slug:reflective-scales",
-                          "item:slug:cloak-of-colors",
-                          "item:slug:repulsion",
-                          "item:slug:mask-of-terrors",
-                          "item:slug:divine-inspiration",
-                          "item:slug:overwhelming-presence"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
           "key": "RollOption",
           "raw": {
             "alwaysActive": true,
@@ -1209,23 +1165,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:augury", "item:slug:calm"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:conrasu"
           }
         }
@@ -1237,23 +1176,6 @@
       "slug": "feat:ceremony-of-aeons-shield",
       "foundry": "Compendium.pf2e.feats-srd.Item.qAdlJvAHkWBisDJ0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:resist-energy", "item:slug:share-life"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1502,18 +1424,6 @@
             "mode": "add",
             "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:shisk"
           }
         }
@@ -1583,18 +1493,6 @@
             "mode": "add",
             "predicate": ["item:slug:veil-of-privacy", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:veil-of-privacy", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:shisk"
           }
         }
@@ -1622,18 +1520,6 @@
       "slug": "feat:secret-eyes",
       "foundry": "Compendium.pf2e.feats-srd.Item.M8pDuRo6tO0Kok9z",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:scouting-eye", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1682,23 +1568,6 @@
       "slug": "feat:studious-adept",
       "foundry": "Compendium.pf2e.feats-srd.Item.C2PmqTxQgWGTHluf",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:humanoid-form", "item:slug:mirror-image"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1765,18 +1634,6 @@
       "slug": "heritage:vigilant-goloma",
       "foundry": "Compendium.pf2e.heritages.Item.sGzhnQpgWErX1bmx",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:detect-magic", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

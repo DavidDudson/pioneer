@@ -503,7 +503,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:blur", "item:slug:invisiblity"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.N8Ci3w5gQ68rj6a6"
     },
@@ -634,6 +648,14 @@
       {
         "key": "Sense",
         "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:see-the-unseen"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate", "enhancement:arcane-eye"]
       }
     ],
     "externalIds": {
@@ -1201,7 +1223,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:translocate"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.BTQj2N5erpJDWNFA"
     },
@@ -1437,7 +1468,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:interplanar-teleport"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.h9b5CId7S7gV7j2t"
     },
@@ -13801,7 +13841,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat", "item:slug:offensive-boost"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "persistent-boost"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.LbMPCAyUrLRHykGA"
     },

@@ -1104,6 +1104,14 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["item:trait:illusion"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:figment"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -1262,6 +1270,14 @@
         "key": "Proficiency",
         "selector": "skill:performance",
         "rank": "trained"
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:summon-instrument"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {

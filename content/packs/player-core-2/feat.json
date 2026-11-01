@@ -3350,7 +3350,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:animal-form"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ytgmam8COVq8B7Do"
     },
@@ -9934,7 +9943,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:dinosaur-form"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.XuL3g2ExgadFtWbb"
     },
@@ -10078,7 +10096,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:interplanar-teleport"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.wfOGyLnuVMFo7Rwy"
     },
@@ -10289,6 +10316,14 @@
         "property": "traits",
         "mode": "remove",
         "value": "auditory",
+        "predicate": ["spellcasting:innate"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:enthrall"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
         "predicate": ["spellcasting:innate"]
       }
     ],
@@ -15971,6 +16006,28 @@
             ]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          "item:equipped",
+          {
+            "or": ["item:trait:agile", "item:trait:finesse"]
+          },
+          {
+            "nor": [
+              "item:trait:deadly-d4",
+              "item:trait:deadly-d6",
+              "item:trait:deadly-d8",
+              "item:trait:deadly-d10",
+              "item:trait:deadly-d12"
+            ]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "deadly-from-deadly-grace"
       }
     ],
     "externalIds": {
@@ -17313,6 +17370,19 @@
         "mode": "add",
         "value": "forceful",
         "priority": 121
+      },
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:weapon",
+          "item:category:unarmed",
+          {
+            "or": ["item:trait:deadly-d10", "item:trait:forceful"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "diamond-fists-dice-upgrade"
       }
     ],
     "externalIds": {
@@ -18142,7 +18212,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:ventriloquism"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.P19AnciwNcSqxU7z"
     },
@@ -20515,7 +20594,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:humanoid-form"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.VDOROn71nTjuQ7To"
     },
@@ -21969,7 +22057,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:augury", "item:slug:peaceful-rest"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.PxWdf4HAhZ8fUB3R"
     },
@@ -23893,7 +23995,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:charm"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.Zz5A8Yg0jGSK8GNu"
     },
@@ -29110,7 +29221,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:dragon-form"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.ehiLW2Kjl5csT3fk"
     },
@@ -29255,7 +29375,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:mask-of-terror"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.IOlvpmeIwlk0IACr"
     },
@@ -31155,7 +31284,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:augury"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.mU8vTzrWX9fIlG0d"
     },
@@ -31630,6 +31768,13 @@
             "not": "feat:true-debilitating-bomb"
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:base:alchemical-bomb"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "greater-debilitating-bomb"
       }
     ],
     "externalIds": {
@@ -32132,7 +32277,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:shields-of-the-spirit"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "greater-security",
+        "predicate": ["option:security"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.3aolZmAj0ue8vc6q"
     },
@@ -32256,7 +32410,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:enlarge"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.BS6UoGLyJ12xVD9P"
     },
@@ -41816,7 +41979,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:ignition"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.TmaxLWraJrvSQOkY"
     },
@@ -45426,7 +45598,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:animal-form", "item:slug:mist"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.iRpVW1DPKVxlzIzt"
     },
@@ -50620,7 +50806,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:unfettered-movement", "item:slug:mountain-resilience"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.X1SPiYJqWzqwzPTs"
     },
@@ -52183,7 +52383,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:animal-messenger"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.8MMYFIudSDkdo8cx"
     },
@@ -53323,6 +53532,14 @@
         "key": "Resistance",
         "type": ["void"],
         "value": 5
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:false-vitality"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {
@@ -61954,7 +62171,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:electric-arc"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.bWyY9NtLU5wXr03y"
     },
@@ -65242,7 +65468,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:vampiric-exsanguination"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.nJRcbt72wRk5Rmc4"
     },
@@ -66398,7 +66633,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:gust-of-wind"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "tengu-fan",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.GAh4CwCMS3Gsl8WH"
     },
@@ -67489,7 +67733,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:lightning-bolt"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "tengu-fan",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.1jZ7f4TJqiFH8Ied"
     },
@@ -68771,7 +69024,21 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [
+          "item:type:spell",
+          {
+            "or": ["item:slug:aerial-form", "item:slug:cursed-metamorphosis"]
+          }
+        ],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.oItG5dqlPEi8wNnR"
     },
@@ -69194,6 +69461,13 @@
         ],
         "outcome": ["success", "criticalSuccess"],
         "predicate": ["option:debilitating-bomb"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:base:alchemical-bomb"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "true-debilitating-bomb"
       }
     ],
     "externalIds": {
@@ -73807,7 +74081,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:wall-of-wind"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "tengu-fan",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.QUaSGUmRnlMbzw1P"
     },

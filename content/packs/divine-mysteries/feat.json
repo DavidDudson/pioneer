@@ -92,7 +92,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:feat", "item:slug:empowered-onslaught"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "aura-enhancement"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.o1Bj8xvco9MtBVkl"
     },
