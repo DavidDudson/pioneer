@@ -332,6 +332,60 @@
   clip-path: circle(50%);
 }
 
+/*
+ * Wounds on a character avatar (`fr-character-avatar`), in steps because frontier takes no raw numbers in classes.
+ * `vignette-*` is a red edge that deepens, `splatter-*` is the blood-splatter mask filled with the danger colour, and
+ * `darkness-*` blackens the portrait. The splatter image loads only once an element uses the class, so a healthy
+ * avatar never fetches it.
+ */
+@utility vignette-faint {
+  background: radial-gradient(circle, transparent 55%, color-mix(in oklab, var(--color-danger-solid) 30%, transparent));
+}
+
+@utility vignette-light {
+  background: radial-gradient(circle, transparent 45%, color-mix(in oklab, var(--color-danger-solid) 50%, transparent));
+}
+
+@utility vignette-heavy {
+  background: radial-gradient(circle, transparent 35%, color-mix(in oklab, var(--color-danger-solid) 70%, transparent));
+}
+
+@utility vignette-full {
+  background: radial-gradient(circle, transparent 25%, color-mix(in oklab, var(--color-danger-solid) 90%, transparent));
+}
+
+@utility splatter-faint {
+  background: color-mix(in oklab, var(--color-danger-solid) 40%, transparent);
+  mask: url('./blood-splatter.png') center / cover no-repeat;
+}
+
+@utility splatter-light {
+  background: color-mix(in oklab, var(--color-danger-solid) 60%, transparent);
+  mask: url('./blood-splatter.png') center / cover no-repeat;
+}
+
+@utility splatter-heavy {
+  background: color-mix(in oklab, var(--color-danger-solid) 80%, transparent);
+  mask: url('./blood-splatter.png') center / cover no-repeat;
+}
+
+@utility splatter-full {
+  background: var(--color-danger-solid);
+  mask: url('./blood-splatter.png') center / cover no-repeat;
+}
+
+@utility darkness-dim {
+  background: color-mix(in oklab, black 35%, transparent);
+}
+
+@utility darkness-dark {
+  background: color-mix(in oklab, black 65%, transparent);
+}
+
+@utility darkness-black {
+  background: black;
+}
+
 @utility focus-ring {
   outline: var(--fr-focus-ring-width) solid var(--color-line-focus);
   outline-offset: var(--fr-focus-ring-offset);

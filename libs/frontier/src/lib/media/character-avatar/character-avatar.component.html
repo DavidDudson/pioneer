@@ -1,6 +1,14 @@
 <span [class]="portraitClasses">
   <fr-avatar decorative [name]="name()" [src]="src()" [size]="size()" />
+  <span [class]="overlays().vignette"></span>
+  <span [class]="overlays().splatter"></span>
+  <span [class]="overlays().darkness"></span>
 </span>
+@if (cue(); as cue) {
+  <span [class]="cueClasses">
+    <span [class]="cueChipClasses"><fr-icon tone="danger" [icon]="cue.icon" [label]="cue.key | transloco" /></span>
+  </span>
+}
 @if (hasBar()) {
   <svg
     viewBox="0 0 100 100"
