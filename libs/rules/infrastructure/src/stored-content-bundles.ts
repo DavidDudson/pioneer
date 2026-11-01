@@ -1,12 +1,5 @@
-import { BundleHash, bundlePath, contentBundles } from '@pioneer/rules/sdk';
-import type {
-  BundleBody,
-  BundleFile,
-  CanonicalJson,
-  ContentBundles,
-  ContentManifest,
-  PackId,
-} from '@pioneer/rules/sdk';
+import { BundleHash, bundlePath, CanonicalJson, contentBundles } from '@pioneer/rules/sdk';
+import type { BundleBody, BundleFile, ContentBundles, ContentManifest, PackId } from '@pioneer/rules/sdk';
 import { NotFoundError } from '@pioneer/shared/kernel';
 
 import type { ContentRepository } from './content-repository';
@@ -35,6 +28,16 @@ export class StoredContentBundles {
   public async manifest(): Promise<ContentManifest> {
     const bundles = await this.#current();
     return bundles.manifest;
+  }
+
+  /**
+   * A validator for the current manifest: it changes exactly when a stored pack hash does, so a client holding it
+   * can be told "not modified" without the manifest being built or sent.
+   */
+  public async manifestEtag(): Promise<string> {
+    const hashes = await this.#repository.officialHashes();
+    const joined = hashes.map(({ pack, hash }) => `${pack}:${hash}`).join(',');
+    return `"${bundleHash(CanonicalJson.parse(joined))}"`;
   }
 
   /** A current bundle's contents. A file no current manifest names, an older hash included, is not found. */
