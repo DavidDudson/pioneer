@@ -19,7 +19,8 @@ import type {
   VariantRuleDefinition,
 } from '@pioneer/rules/sdk';
 
-import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
+import type { ContentLookup, EntryFacts, GrantEntry, Replacement } from './grant-entry';
+import { replacementsOf } from './replacements';
 
 /**
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
@@ -159,7 +160,9 @@ function levelOptions(entry: ContentEntry): RollOption[] {
  * The facts a list shows of an envelope entry: its level when it has one, rarity, traits, description, whether it is
  * legacy, and whether its pack is unsupported for the character.
  */
-function factsOf(entry: ContentEntry, pack: ContentPack, unsupported: boolean): EntryFacts {
+function factsOf(entry: ContentEntry, pack: ContentPack, state: LookupState): EntryFacts {
+  const unsupported = isHeldBack(entry, pack, state);
+  const replacedBy = state.replacements.get(entry.id) ?? [];
   const level = 'level' in entry ? entry.level : undefined;
   return {
     ...(level === undefined ? {} : { level }),
@@ -168,6 +171,7 @@ function factsOf(entry: ContentEntry, pack: ContentPack, unsupported: boolean): 
     description: entry.description,
     ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
     ...(unsupported ? { unsupported: true as const } : {}),
+    ...(replacedBy.length > 0 ? { replacedBy } : {}),
   };
 }
 
@@ -190,7 +194,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
 }
 
 /** A background, class, class feature, feat or heritage, read from its envelope with its rule elements. */
-function envelopeEntry(entry: ContentEntry, pack: ContentPack, unsupported: boolean): GrantEntry | undefined {
+function envelopeEntry(entry: ContentEntry, pack: ContentPack, state: LookupState): GrantEntry | undefined {
   const [source, ...sources] = entry.sources;
   if (source === undefined || !ENVELOPE_KINDS.has(entry.kind)) {
     return undefined;
@@ -209,7 +213,7 @@ function envelopeEntry(entry: ContentEntry, pack: ContentPack, unsupported: bool
       ...levelOptions(entry),
       ...domainOptions(entry),
     ],
-    facts: factsOf(entry, pack, unsupported),
+    facts: factsOf(entry, pack, state),
     ...belongsTo(entry),
     ...archetypeFields(entry),
     ...valued(entry),
@@ -240,6 +244,8 @@ function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantE
 interface LookupState {
   readonly unsupported: ReadonlySet<ContentPackId>;
   readonly legacyContent: boolean;
+  /** The remaster entries in force that replace each legacy entry. */
+  readonly replacements: ReadonlyMap<ContentId, readonly Replacement[]>;
 }
 
 /** Whether the entry is held back: its pack is unsupported, or it is legacy content and the character has none on. */
@@ -252,7 +258,7 @@ function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
   return [
     ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
-    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, isHeldBack(each, pack, state)) ?? []),
+    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, state) ?? []),
   ];
 }
 
@@ -263,7 +269,8 @@ function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
  * unsupported unless `legacyContent` says the character has them on.
  */
 export function grantLookup(registry: ContentRegistry, legacyContent = false): ContentLookup {
-  const state: LookupState = { unsupported: unsupportedPacksOf(registry), legacyContent };
+  const unsupported = unsupportedPacksOf(registry);
+  const state: LookupState = { unsupported, legacyContent, replacements: replacementsOf(registry, unsupported) };
   const entries = registry.packs.flatMap((pack) => packEntries(pack, state));
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const byKind = Map.groupBy(entries, (entry) => entry.kind);

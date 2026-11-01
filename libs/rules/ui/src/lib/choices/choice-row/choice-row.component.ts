@@ -1,4 +1,4 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Badge, BadgeTone, Stack, Text, ToggleButton } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
@@ -6,8 +6,9 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { ATTRIBUTE_MESSAGES } from '../../attributes/attributes-messages';
 import { ChoiceState } from '../choice-line';
-import type { ChoiceLine } from '../choice-line';
+import type { ChoiceLine, ChoiceReplacement } from '../choice-line';
 import { CHOICE_STATE_MESSAGES, ChoicesMessage, INVALID_AT_MESSAGE } from '../choices-messages';
+import { ReplacementOffer } from '../replacement-offer/replacement-offer.component';
 
 /** A line as rendered: its badge and its pick worked out. */
 interface ShownChoice {
@@ -18,6 +19,8 @@ interface ShownChoice {
   readonly selectionName: string | undefined;
   /** Message keys of what the pick is flagged for: a pre-remaster book, a pack no longer in force. */
   readonly flags: readonly string[];
+  /** The newer entries that replace the pick, for the mark that offers them. */
+  readonly replacements: readonly ChoiceReplacement[];
   readonly reason: MessageDescriptor | undefined;
 }
 
@@ -58,6 +61,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
       selection !== undefined && 'attribute' in selection ? ATTRIBUTE_MESSAGES[selection.attribute] : undefined,
     selectionName: selection !== undefined && 'name' in selection ? selection.name : undefined,
     flags: flagsOf(selection),
+    replacements: selection !== undefined && 'replacedBy' in selection ? (selection.replacedBy ?? []) : [],
     reason: line.reason,
   };
 }
@@ -68,7 +72,7 @@ function shownOf(line: ChoiceLine): ShownChoice {
  */
 @Component({
   selector: 'pio-choice-row',
-  imports: [Badge, Stack, Text, ToggleButton, TranslocoPipe],
+  imports: [Badge, ReplacementOffer, Stack, Text, ToggleButton, TranslocoPipe],
   templateUrl: './choice-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -82,10 +86,18 @@ export class ChoiceRow {
   public readonly problem = input<MessageDescriptor | undefined>();
   /** The keep toggle was pressed: the choice is now kept, or not. */
   public readonly lockChange = output<boolean>();
+  /** A replacement was pressed: the pick should become this entry. */
+  public readonly replace = output<ChoiceReplacement>();
 
   protected readonly Message = ChoicesMessage;
   protected readonly Tone = BadgeTone;
   protected readonly canLock = computed((): boolean => this.lockable() && this.line().state === ChoiceState.Filled);
 
+  /** Whether the mark on a replaced pick is open, showing why and the replacements. */
+  protected readonly explaining = signal(false);
   protected readonly shown = computed((): ShownChoice => shownOf(this.line()));
+  /** Why the choice is not settled: what its line says, and what keeping it ran into. */
+  protected readonly notes = computed((): MessageDescriptor[] =>
+    [this.shown().reason, this.problem()].filter((note) => note !== undefined),
+  );
 }

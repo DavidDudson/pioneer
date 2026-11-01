@@ -11,6 +11,14 @@ export const ChoicesMessage = {
   Legacy: 'rules.choices.legacy',
   /** Marks a pick from a pack the character no longer has in force. */
   Unsupported: 'rules.choices.unsupported',
+  /** The tiny mark on a replaced pick; its accessible name: "Legacy Elf has a newer version". */
+  Replaced: 'rules.choices.replaced',
+  /** The mark's visible text. */
+  ReplacedMark: 'rules.choices.replacedMark',
+  /** What the open mark explains: "{name} is legacy content; {replacement} replaces it." */
+  ReplacedExplained: 'rules.choices.replacedExplained',
+  /** The button that swaps the pick: "Replace with {name}". */
+  ReplaceWith: 'rules.choices.replaceWith',
 } as const;
 
 /** What each state's badge says. A planned or invalid one at a level above the character's names it. */

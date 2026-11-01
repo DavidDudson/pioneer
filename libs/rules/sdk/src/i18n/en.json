@@ -1082,6 +1082,10 @@
       "keepShort": "Keep",
       "legacy": "Legacy",
       "unsupported": "Unsupported",
+      "replaced": "{name} has a newer version",
+      "replacedMark": "!",
+      "replacedExplained": "{name} is legacy content. {replacement} replaces it.",
+      "replaceWith": "Replace with {name}",
       "state": {
         "open": "Not chosen",
         "filled": "Chosen",
@@ -1507,6 +1511,7 @@
       "knownNo": "Not known",
       "addLore": "Add the Lore \"{name}\"",
       "legacy": "Legacy",
+      "replacedBy": "Replaced by {name}",
       "unsupported": "Unsupported"
     }
   }

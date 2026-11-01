@@ -10,6 +10,15 @@
       <fr-badge [tone]="Tone.Warning">{{ flag | transloco }}</fr-badge>
     }
     <fr-badge [tone]="shown().tone">{{ shown().badge.key | transloco: shown().badge.params }}</fr-badge>
+    @if (shown().replacements.length > 0) {
+      <fr-toggle-button
+        size="sm"
+        [value]="explaining()"
+        [ariaLabel]="Message.Replaced | transloco: { name: shown().selectionName }"
+        (valueChange)="explaining.set($event)"
+        >{{ Message.ReplacedMark | transloco }}</fr-toggle-button
+      >
+    }
     @if (canLock()) {
       <fr-toggle-button
         size="sm"
@@ -20,10 +29,13 @@
       >
     }
   </fr-stack>
-  @if (shown().reason; as reason) {
-    <fr-text variant="caption" tone="danger">{{ reason.key | transloco: reason.params }}</fr-text>
-  }
-  @if (problem(); as kept) {
-    <fr-text variant="caption" tone="danger">{{ kept.key | transloco: kept.params }}</fr-text>
+  <pio-replacement-offer
+    [open]="explaining()"
+    [name]="shown().selectionName"
+    [replacements]="shown().replacements"
+    (replace)="replace.emit($event)"
+  />
+  @for (note of notes(); track note.key) {
+    <fr-text variant="caption" tone="danger">{{ note.key | transloco: note.params }}</fr-text>
   }
 </fr-stack>

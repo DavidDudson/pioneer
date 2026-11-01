@@ -1,15 +1,16 @@
+import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { SlotKey } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import { describe, expect, it } from 'vitest';
 
-import { ELF_CHOICES } from '../testing/choices-fixtures';
+import { ELF_CHOICES, REPLACED_CHOICE } from '../testing/choices-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { ChoiceLine } from './choice-line';
 import { ChoicesMessage } from './choices-messages';
 import { ChoicesView } from './choices.component';
-import type { ChoiceLockChange } from './choices.component';
+import type { ChoiceLockChange, ChoiceReplace } from './choices.component';
 
 async function render(lines: readonly ChoiceLine[] | undefined): Promise<HTMLElement> {
   TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
@@ -125,4 +126,41 @@ describe(ChoicesView, () => {
     expect(ancestry).toContain('Keep the ancestry when re-rolling');
     expect(background).not.toContain('Keep the ancestry when re-rolling');
   });
+
+  it('marks a replaced legacy pick with a small mark named by the pick, closed until it is pressed', async () => {
+    const { host } = await renderReplaced();
+    const mark = host.querySelector<HTMLButtonElement>('fr-toggle-button button');
+    expect(mark?.getAttribute('aria-label')).toBe('Old Charge has a newer version');
+    expect(mark?.getAttribute('aria-pressed')).toBe('false');
+    expect(host.textContent).not.toContain('Replace with Charge');
+  });
+
+  it('explains the replacement when the mark is open, and reports a press on it with the slot', async () => {
+    const { host, replaced } = await renderReplaced();
+    host.querySelector<HTMLButtonElement>('fr-toggle-button button')?.click();
+    await TestBed.inject(ApplicationRef).whenStable();
+    expect(host.textContent).toContain('Old Charge is legacy content. Charge replaces it.');
+    [...host.querySelectorAll<HTMLButtonElement>('fr-button button')]
+      .find((button) => button.textContent.includes('Replace with Charge'))
+      ?.click();
+    expect(replaced).toStrictEqual([{ slot: REPLACED_CHOICE.key, replacement: { id: 'charge-id', name: 'Charge' } }]);
+  });
 });
+
+interface ReplacedRender {
+  readonly host: HTMLElement;
+  readonly replaced: ChoiceReplace[];
+}
+
+/** The component with one legacy pick a newer entry replaces, and the replacements pressed so far. */
+async function renderReplaced(): Promise<ReplacedRender> {
+  TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+  const fixture: ComponentFixture<ChoicesView> = TestBed.createComponent(ChoicesView);
+  const replaced: ChoiceReplace[] = [];
+  fixture.componentInstance.replace.subscribe((change) => {
+    replaced.push(change);
+  });
+  fixture.componentRef.setInput('lines', [REPLACED_CHOICE]);
+  await fixture.whenStable();
+  return { host: fixture.nativeElement as HTMLElement, replaced };
+}
