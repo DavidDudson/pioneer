@@ -1,5 +1,6 @@
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { ConditionValue, Level, Origin, RuleElement, RuleIndex } from '@pioneer/rules/sdk';
+import { ConditionValue, Level, Origin, OriginHopKind, RuleElement, RuleIndex } from '@pioneer/rules/sdk';
+import type { InventoryItemId } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 /**
@@ -60,3 +61,9 @@ export const NO_SITUATION: ReadonlySet<RuleId> = new Set();
 
 /** No rules, so no predicate reads the facts or their namespace table. */
 export const NO_MODIFIERS: ModifierInputs = { rules: [], facts: new PredicateFacts([], new Map()) };
+
+/** The inventory item an origin starts at, when it starts at one. */
+export function inventoryItemOf(origin: Origin | undefined): InventoryItemId | undefined {
+  const [hop] = origin?.hops ?? [];
+  return hop?.kind === OriginHopKind.Inventory ? hop.item : undefined;
+}

@@ -895,6 +895,8 @@ FlatModifier` appends the import's rules of the keys named to the committed entr
   `ChoiceSet` over owned items (`item:id:{pick}`, `item:slug:{pick}`), which becomes `item:picked:<flag>` (ADR-0075).
   Pioneer's engine reads `Strike` elements and applies `AdjustStrike` to equipped weapons' Strikes (`adjustStrike`),
   reading `strikes` against the weapon's roll options (`item:group`, `item:base`, `item:ranged`, its traits and slug).
+  A property rune's `AdjustStrike` sets `etched: true` to reach only the weapon it is etched on, as `etched-damage`
+  does for damage (Ghost Touch adds the `ghost-touch` rune to its weapon's Strike).
   `ItemAlteration` is applied (rules-engine.md, "Item alterations").
 - **Size and traits.** A `CreatureSize` takes its `value` and `maximumSize` as Pioneer names a size (`sm` is `small`,
   `med` `medium`, `lg` `large`, `grg` `gargantuan`) or, as a number, as steps from the current size; `resizeEquipment` and

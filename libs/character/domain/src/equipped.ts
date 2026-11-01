@@ -122,7 +122,11 @@ function weaponInputs(
     const flags = picked.get(slug);
     const runes = itemRunes(each.item, entry);
     const potency = runes.potency ?? entry.data.itemBonus;
-    const altered = alteredItem(rules, entry, { picked: flags, favored: favoredBy(favored, entry.data.baseItem) });
+    const altered = alteredItem(rules, entry, {
+      picked: flags,
+      favored: favoredBy(favored, entry.data.baseItem),
+      item: each.item.id,
+    });
     const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
     return [
       {

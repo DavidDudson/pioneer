@@ -10,6 +10,10 @@ const ETCHED_DAMAGE = 'etched-damage';
  * Weapon property runes with no activation and no rules yet: each needs an engine gap closed first (a critical
  * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
  * land; a new book's rune must get rules or be listed here.
+ *
+ * Why the weapon-changing runes stay here: keen needs a critical range the Strike has no concept of; quickstrike grants
+ * a conditional action; returning, extending and shifting are activations or movement the sheet does not model; the
+ * rooting family is a critical-hit effect on the target (a condition it can't yet apply).
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
@@ -29,7 +33,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:extending-greater',
   'rune:fearsome',
   'rune:fearsome-greater',
-  'rune:ghost-touch',
   'rune:grievous',
   'rune:impactful',
   'rune:impactful-greater',
@@ -200,6 +203,15 @@ describe('weapon property rune rules', () => {
 
     expect(entry?.rules).toMatchObject(expectedRules(rune));
   });
+
+  test('ghost touch makes the weapon it is etched on count as having the rune', () => {
+    const entry = RUNES.find(({ slug }) => slug === 'rune:ghost-touch');
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'AdjustStrike', property: 'property-runes', mode: 'add', value: 'ghost-touch', etched: true },
+    ]);
+  });
+
   test('wounding adds persistent bleed damage on a hit', () => {
     const entry = RUNES.find(({ slug }) => slug === 'rune:wounding');
 
