@@ -840,7 +840,9 @@ while a form is in force; it needs the rule elements in play (`StrikeRulesInput`
 `DamageAlteration` and `Note` elements whose predicate holds and whose selectors reach a Strike's rolls: for damage
 `strike-damage:<slug>`, `strike-damage`, `<slug>-damage` and `damage`, for the attack `strike:<slug>`, `strike`,
 `<slug>-attack`, `attack`, `attack-roll` and `strike-attack-roll`. An element that depends on the situation (the target
-is undead) gives nothing here. Elements apply in the order found:
+is undead: a predicate over `target:` options) gives nothing until a roll claims it (`ModifierInputs.situation`, as for
+statistics); the Strike lists the elements it would change it with in `conditional`, for the roll to offer. Elements
+apply in the order found:
 
 - A `DamageDice` with a `dieSize` adds `ExtraDice` of its own (one die by default), typed `damageType` or as the weapon,
   in its `category` and for a critical hit only when `critical`. Without a `dieSize` it adds `diceNumber` to the
