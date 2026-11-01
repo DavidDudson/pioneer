@@ -1,0 +1,8 @@
+[
+  { "hardness": 3, "hitPoints": 44, "maxHardness": 8, "maxHitPoints": 64 },
+  { "hardness": 3, "hitPoints": 52, "maxHardness": 10, "maxHitPoints": 80 },
+  { "hardness": 3, "hitPoints": 64, "maxHardness": 13, "maxHitPoints": 104 },
+  { "hardness": 5, "hitPoints": 80, "maxHardness": 15, "maxHitPoints": 120 },
+  { "hardness": 5, "hitPoints": 84, "maxHardness": 17, "maxHitPoints": 136 },
+  { "hardness": 7, "hitPoints": 108, "maxHardness": 20, "maxHitPoints": 160 }
+]

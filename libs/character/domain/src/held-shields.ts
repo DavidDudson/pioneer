@@ -10,6 +10,9 @@ import type { Inventory } from './inventory';
 import { equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
 import { alteredItem } from './item-alteration-inputs';
+import { itemRunes } from './item-runes';
+import { reinforced } from './reinforcing-rune';
+import type { ShieldFigures } from './reinforcing-rune';
 
 /** What ends the effect that gives a shield, when it is one: the effect, and the blows that end it. */
 export interface ShieldGrant {
@@ -89,7 +92,7 @@ function grantedShields(inputs: ModifierInputs): readonly HeldShield[] {
 
 /**
  * Each shield held, in inventory order, with its Hardness, Hit Points and Broken Threshold from its content, as the
- * `ItemAlteration` elements in `rules` change them. A reinforcing rune does not change them yet.
+ * `ItemAlteration` elements in `rules` change them. A reinforcing rune on the shield adds to them, up to its maximum.
  */
 export function heldShields(
   inventory: Inventory,
@@ -103,8 +106,11 @@ export function heldShields(
       return [];
     }
     const { numbers } = alteredItem(inPlay, entry);
-    const hardness = Hardness.parse(numbers.get(NumericItemProperty.Hardness) ?? entry.data.hardness);
-    const hitPoints = HitPoints.parse(numbers.get(NumericItemProperty.HitPointsMax) ?? entry.data.hitPoints);
+    const altered: ShieldFigures = {
+      hardness: Hardness.parse(numbers.get(NumericItemProperty.Hardness) ?? entry.data.hardness),
+      hitPoints: HitPoints.parse(numbers.get(NumericItemProperty.HitPointsMax) ?? entry.data.hitPoints),
+    };
+    const { hardness, hitPoints } = reinforced(altered, itemRunes(item, entry).reinforcing);
     return [
       {
         entry: entry.id,
