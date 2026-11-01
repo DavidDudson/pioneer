@@ -15,17 +15,22 @@ import { mergeLang } from './foundry-lang';
 /** Archive members the importer reads, below the archive's top-level directory. */
 export const RELEASE_FILES: readonly string[] = [
   '*/system.pf2e.json',
+  '*/static/system.json',
   '*/static/lang/*.json',
-  '*/packs/pf2e/**/*.json',
+  '*/packs/**/*.json',
   ...Object.values(CONFIG_MODULES).map((module) => `*/${module}`),
 ];
 
+/** The manifest of a release from 6.0 on, and of one before it (ADR-0077). */
 const MANIFEST = 'system.pf2e.json';
+const MANIFEST_BEFORE_6 = 'static/system.json';
 /** Where the manifest's language paths (`lang/en.json`) live in the source tree. */
 const LANG_ROOT = 'static/';
 const ENGLISH = 'en';
 const LANGUAGES_MAX = 50;
+/** Where the pack sources are: below `packs/pf2e/` from 6.0 on, directly below `packs/` before it. */
 const PACK_SOURCES = 'packs/pf2e/';
+const PACK_SOURCES_BEFORE_6 = 'packs/';
 /** Foundry's folder tree for a pack, not a document. */
 const FOLDERS = '_folders.json';
 const NAME_MAX = 200;
@@ -158,11 +163,11 @@ function packsOf(manifest: Manifest, type: PackType): ReadonlyMap<string, Foundr
   );
 }
 
-function packOf(packs: ReadonlyMap<string, FoundryPack>, path: string): FoundryPack | undefined {
-  if (!path.startsWith(PACK_SOURCES) || path.endsWith(`/${FOLDERS}`)) {
+function packOf(packs: ReadonlyMap<string, FoundryPack>, path: string, sources: string): FoundryPack | undefined {
+  if (!path.startsWith(sources) || path.endsWith(`/${FOLDERS}`)) {
     return undefined;
   }
-  return packs.get(path.slice(PACK_SOURCES.length).split('/')[0] ?? '');
+  return packs.get(path.slice(sources.length).split('/')[0] ?? '');
 }
 
 /** Foundry's English lang tables, merged in the manifest's order. */
@@ -180,16 +185,19 @@ function englishLang(files: ReadonlyMap<string, string>, manifest: Manifest): Fo
  */
 export function readFoundryRelease(archiveFiles: ReadonlyMap<string, string>): FoundryRelease {
   const files = new Map([...archiveFiles].map(([path, text]) => [withoutRoot(path), text]));
-  const manifest = Manifest.parse(JSON.parse(required(files, MANIFEST)));
+  const before6 = !files.has(MANIFEST) && files.has(MANIFEST_BEFORE_6);
+  const sources = before6 ? PACK_SOURCES_BEFORE_6 : PACK_SOURCES;
+  const manifestText = required(files, before6 ? MANIFEST_BEFORE_6 : MANIFEST);
+  const manifest = Manifest.parse(JSON.parse(manifestText));
   const items = packsOf(manifest, PackType.Item);
   const journals = packsOf(manifest, PackType.Journal);
   const actors = packsOf(manifest, PackType.Actor);
   const reads = [...files]
     .toSorted(([left], [right]) => left.localeCompare(right))
     .flatMap(([path, text]): (PackDocument | JournalDocument | ActorDocument | UnreadableDocument)[] => {
-      const itemPack = packOf(items, path);
-      const journalPack = packOf(journals, path);
-      const actorPack = packOf(actors, path);
+      const itemPack = packOf(items, path, sources);
+      const journalPack = packOf(journals, path, sources);
+      const actorPack = packOf(actors, path, sources);
       if (itemPack !== undefined) {
         return [readDocument(itemPack, path, text)];
       }
