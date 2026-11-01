@@ -26,7 +26,7 @@ export const Lores: SkillsStory = {
   play: async ({ canvasElement, userEvent }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'Lores' }));
-    await expect(canvas.getByText('Sailing Lore')).toBeVisible();
+    await expect(await canvas.findByText('Sailing')).toBeVisible();
     await expect(canvas.queryByText('Athletics')).toBeNull();
   },
 };
