@@ -1,7 +1,8 @@
 import { DegreeOfSuccess } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
-const DEATH_VALUE_MAX = 4;
+/** The highest value a death-track condition takes: dying 4 is death. */
+export const DEATH_VALUE_MAX = 4;
 
 /** The dying condition's value: 0 when not dying, up to the 4 at which a character dies at doomed 0. */
 export const Dying = z.int().min(0).max(DEATH_VALUE_MAX).brand<'Dying'>();

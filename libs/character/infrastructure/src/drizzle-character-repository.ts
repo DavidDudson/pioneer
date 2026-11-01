@@ -18,7 +18,7 @@ import {
 } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
 import { stampAudit } from '@pioneer/shared/server';
-import { and, asc, desc, eq, isNotNull, isNull, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -120,6 +120,18 @@ export class DrizzleCharacterRepository extends CharacterRepository {
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {
     return this.#findOne(and(eq(characters.id, id), isNull(characters.archivedAt)));
+  }
+
+  public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
+    if (ids.length === 0) {
+      return [];
+    }
+    const rows = await this.#db
+      .select({ character: characters, play: characterPlay.state })
+      .from(characters)
+      .leftJoin(characterPlay, eq(characterPlay.characterId, characters.id))
+      .where(and(inArray(characters.id, [...ids]), isNull(characters.archivedAt)));
+    return rows.map((row) => toCharacter(row));
   }
 
   public override async findArchivedById(id: CharacterId): Promise<Character | undefined> {

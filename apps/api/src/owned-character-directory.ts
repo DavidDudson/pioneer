@@ -57,14 +57,15 @@ function toSummary(row: SummaryRow): CharacterSummary {
 
 /**
  * Campaign's `CharacterDirectory` over the character context's table. It lives in the composition
- * root because neither context may import the other.
+ * root because neither context may import the other. `vitals` is for the party directory alone: without it `vitalsOf`
+ * answers for no one.
  */
 export class OwnedCharacterDirectory extends CharacterDirectory {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
   readonly #repository: DrizzleCharacterRepository;
-  readonly #vitals: CharacterVitals;
+  readonly #vitals: CharacterVitals | undefined;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>, vitals: CharacterVitals) {
+  public constructor(db: BunSQLDatabase<Record<string, unknown>>, vitals?: CharacterVitals) {
     super();
     this.#db = db;
     this.#repository = new DrizzleCharacterRepository(db);
@@ -92,15 +93,21 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
   }
 
   public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
-    const found = await Promise.all(ids.map(async (id) => this.#repository.findById(id)));
-    const seen = await Promise.all(
-      found.map(async (character) => (character === undefined ? undefined : this.#vitals.of(character))),
-    );
-    return new Map(
-      ids.flatMap((id, index): [CharacterId, PartyVitals][] => {
-        const vitals = seen[index];
-        return vitals === undefined ? [] : [[id, PartyVitals.parse(vitals)]];
+    if (this.#vitals === undefined) {
+      return new Map();
+    }
+    const vitals = this.#vitals;
+    const found = await this.#repository.findByIds(ids);
+    const worked = await Promise.all(
+      found.map(async (character): Promise<readonly [CharacterId, PartyVitals] | undefined> => {
+        try {
+          return [CharacterId.parse(character.id), PartyVitals.parse(await vitals.of(character))];
+        } catch {
+          // The party read is not worth failing for one character's vitals: it shows none, as for an archived one.
+          return undefined;
+        }
       }),
     );
+    return new Map(worked.filter((entry) => entry !== undefined));
   }
 }

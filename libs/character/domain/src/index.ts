@@ -4,6 +4,7 @@ export { type EditInputs } from './item-purchase';
 export { CharacterCommand, PATCH_COMMANDS, PLAY_COMMANDS } from './character-command';
 export {
   afterRecoveryCheck,
+  DEATH_VALUE_MAX,
   deathThreshold,
   type DeathTrack,
   DeathTrackSchema,

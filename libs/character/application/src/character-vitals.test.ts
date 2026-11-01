@@ -82,6 +82,7 @@ describe('CharacterVitals', () => {
   test('a dead character is at the highest dying value', async () => {
     const seen = await vitals.of(played(kyra, { dead: true }));
     expect(seen.dying).toBe(Dying.parse(4));
+    expect(seen.conditions).toContain('dying');
   });
 
   test('a build with no ancestry or class has no Hit Points', async () => {

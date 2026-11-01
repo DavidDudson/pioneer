@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { afterAll, beforeAll, describe, expect, spyOn, test } from 'bun:test';
 
 import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
 import { CharacterVitals } from '@pioneer/character/application';
@@ -137,5 +137,13 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
     expect(seen.get(kyra)).toMatchObject({ dying: 0, conditions: [] });
     expect(seen.get(kyra)?.hp).toBeUndefined();
     expect(await directory.vitalsOf([])).toStrictEqual(new Map());
+  });
+
+  test('leaves a character out when its vitals cannot be worked out, and answers for no one without them', async () => {
+    const broken = new CharacterVitals(fixedContent(new ContentPackBuilder().withId('player-core').build()));
+    spyOn(broken, 'of').mockRejectedValue(new Error('content failed'));
+    const seen = await new OwnedCharacterDirectory(database.db, broken).vitalsOf([kyra, valeros]);
+    expect(seen).toStrictEqual(new Map());
+    expect(await new OwnedCharacterDirectory(database.db).vitalsOf([kyra])).toStrictEqual(new Map());
   });
 });

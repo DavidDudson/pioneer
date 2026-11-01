@@ -38,7 +38,7 @@ export class CampaignPartyAvatar {
   /** The avatar's Hit Points; none while the character has no maximum. */
   protected readonly hp = computed(() => this.vitals().hp);
 
-  /** Failed death saves, from the dying value; undefined while the character is not dying. */
+  /** The avatar's death-save darkening, one step per point of the dying value (not failed saves as such); undefined while not dying. */
   protected readonly failedSaves = computed(() => {
     const { dying } = this.vitals();
     return dying > 0 ? dying : undefined;
