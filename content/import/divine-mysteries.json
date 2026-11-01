@@ -265,22 +265,6 @@
     {
       "type": "entry",
       "pack": "divine-mysteries",
-      "slug": "class-feature:lesser-creed",
-      "foundry": "Compendium.pf2e.classfeatures.Item.rzuZSgunJCQqdOxv",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:deity-favored"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "divine-mysteries",
       "slug": "class-feature:moderate-creed",
       "foundry": "Compendium.pf2e.classfeatures.Item.cs9SDe93GHTHlzTz",
       "gaps": [

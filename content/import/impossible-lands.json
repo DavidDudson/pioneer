@@ -1498,33 +1498,6 @@
     {
       "type": "entry",
       "pack": "impossible-lands",
-      "slug": "feat:ghoran-weapon-practice",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8NnYg8RUY4DQ8Wkf",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:ghoran",
-                  "item:base:glaive",
-                  "item:base:greatclub",
-                  "item:base:hatchet",
-                  "item:base:scythe",
-                  "item:base:sickle"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
       "slug": "feat:ghorans-wrath",
       "foundry": "Compendium.pf2e.feats-srd.Item.4TndDyCjnF7pc1GC",
       "gaps": [
@@ -2208,33 +2181,6 @@
     {
       "type": "entry",
       "pack": "impossible-lands",
-      "slug": "feat:vanara-weapon-trickery",
-      "foundry": "Compendium.pf2e.feats-srd.Item.v0ovKn4ZKmtXfXnu",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:vanara",
-                  "item:base:bo-staff",
-                  "item:base:chakram",
-                  "item:base:katar",
-                  "item:base:panabas",
-                  "item:base:urumi"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
       "slug": "feat:venom-spit",
       "foundry": "Compendium.pf2e.feats-srd.Item.6kC0OuuWHyaqR3UQ",
       "gaps": [
@@ -2296,33 +2242,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[spells-srd] Pathfinder Impossible Magic"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-lands",
-      "slug": "feat:vishkanya-weapon-arts",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OCANjuCQ1wcCRBsn",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:vishkanya",
-                  "item:base:blowgun",
-                  "item:base:fighting-fan",
-                  "item:base:kris",
-                  "item:base:kukri",
-                  "item:base:shuriken"
-                ]
-              }
-            ]
-          }
         }
       ]
     },

@@ -1577,6 +1577,14 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

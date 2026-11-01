@@ -4160,6 +4160,17 @@
         "display": {
           "label": "Advanced Bows and Crossbows"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:group:bow", "item:group:crossbow"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -11792,6 +11803,17 @@
         "display": {
           "label": "Martial Catfolk Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:catfolk", "item:base:kama", "item:base:kukri", "item:base:scimitar", "item:base:sickle"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -22011,6 +22033,23 @@
         "display": {
           "label": "Martial Duskwalker Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:bo-staff",
+              "item:base:staff",
+              "item:base:scythe",
+              "item:base:longbow",
+              "item:base:composite-longbow"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -33418,6 +33457,25 @@
         "display": {
           "label": "Martial Hobgoblin Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:hobgoblin",
+              "item:base:composite-longbow",
+              "item:base:longbow",
+              "item:base:composite-shortbow",
+              "item:base:shortbow",
+              "item:base:glaive",
+              "item:base:longsword"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -35465,7 +35523,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:tag:improvised"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.YDpSnLmnSLsItP45"
     },
@@ -38667,6 +38730,23 @@
         "display": {
           "label": "Advanced Kholo Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:kholo",
+              "item:base:flail",
+              "item:base:khopesh",
+              "item:base:mambele",
+              "item:base:war-flail"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -39067,6 +39147,17 @@
         "display": {
           "label": "Martial Kobold Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:kobold", "item:base:greatpick", "item:base:light-pick", "item:base:pick"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -42535,6 +42626,24 @@
         "display": {
           "label": "Advanced Two-Handed Melee Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "item:melee",
+          {
+            "or": [
+              "item:usage:hands:2",
+              "item:trait:two-hand-d6",
+              "item:trait:two-hand-d8",
+              "item:trait:two-hand-d10",
+              "item:trait:two-hand-d12"
+            ]
+          },
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -43764,6 +43873,10 @@
         ],
         "sameAs": "unarmed",
         "maxRank": "master"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["feature:expert-strikes", "item:trait:monk"]
       }
     ],
     "externalIds": {
@@ -48138,6 +48251,22 @@
         "display": {
           "label": "Gladiator Performative Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "or": [
+              "item:base:bo-staff",
+              "item:base:dueling-cape",
+              "item:base:spiked-chain",
+              "item:base:sword-cane",
+              "item:base:trident",
+              "item:base:war-flail",
+              "item:base:whip"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -48778,6 +48907,17 @@
         "item": {
           "choice": "feat"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:base:hatchet", "item:base:rapier", "item:base:scimitar", "item:base:whip"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -68943,6 +69083,25 @@
         "display": {
           "label": "Advanced Tripkee Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:tripkee",
+              "item:base:hatchet",
+              "item:base:scythe",
+              "item:base:shortbow",
+              "item:base:composite-shortbow",
+              "item:base:blowgun",
+              "item:base:dart"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -71603,6 +71762,24 @@
         "display": {
           "label": "Viking Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:battle-axe",
+              "item:base:hatchet",
+              "item:base:longsword",
+              "item:base:shield-boss",
+              "item:base:shield-spikes",
+              "item:base:shortsword"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -3925,19 +3925,6 @@
             "mode": "upgrade",
             "property": "damage-dice-faces"
           }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              "item:group:brawling",
-              {
-                "gte": ["self:level", 5]
-              }
-            ]
-          }
         }
       ]
     },
@@ -5865,14 +5852,6 @@
       "slug": "feat:student-of-the-staff",
       "foundry": "Compendium.pf2e.feats-srd.Item.3R9l2t1ycN8iwmdU",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:base:staff"]
-          }
-        },
         {
           "type": "rule",
           "key": "DamageAlteration",

@@ -3794,22 +3794,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "class-feature:brutality",
-      "foundry": "Compendium.pf2e.classfeatures.Item.EEUTd0jAyfwTLzjk",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["self:effect:rage", "item:melee"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "class-feature:cause",
       "foundry": "Compendium.pf2e.classfeatures.Item.D4k8wuq1ncHFCBZz",
       "gaps": [
@@ -5072,22 +5056,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "class-feature:expert-strikes",
-      "foundry": "Compendium.pf2e.classfeatures.Item.VgZIutWjFl8oZQFi",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:category:unarmed", "item:group:brawling"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "class-feature:field-discovery",
       "foundry": "Compendium.pf2e.classfeatures.Item.IxxPEahbqXwIXum7",
       "gaps": [
@@ -6062,26 +6030,6 @@
             "level": "ternary(gte(@actor.level, 18), 18, ternary(gte(@actor.level, 12), 12, ternary(gte(@actor.level, 4), 4, 1)))",
             "max": "2 + @actor.system.abilities.int.mod",
             "slug": "versatile-vials"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "class-feature:weapon-expertise-swashbuckler",
-      "foundry": "Compendium.pf2e.classfeatures.Item.F5BHEav90oOJ2LwN",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 2]
-              }
-            ]
           }
         }
       ]
@@ -10779,21 +10727,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.4QFElZoWjg1X0vsg",
       "gaps": [
         {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 2]
-              },
-              {
-                "or": ["item:group:bow", "item:group:crossbow"]
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -11922,35 +11855,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:catfolk-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.bEh5qUgX5eFaQwzU",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:catfolk",
-                  "item:base:kama",
-                  "item:base:kukri",
-                  "item:base:scimitar",
-                  "item:base:sickle"
-                ]
-              }
-            ]
           }
         }
       ]
@@ -13303,35 +13207,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:duskwalker-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.8rKlptZ7ArtJ6cI8",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:base:bo-staff",
-                  "item:base:staff",
-                  "item:base:scythe",
-                  "item:base:longbow",
-                  "item:base:composite-longbow"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:echoing-spell",
       "foundry": "Compendium.pf2e.feats-srd.Item.NvEYf0jIETEu2LtP",
       "gaps": [
@@ -14386,37 +14261,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:hobgoblin-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.n9CBjyiB17srkyr4",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:hobgoblin",
-                  "item:base:composite-longbow",
-                  "item:base:longbow",
-                  "item:base:composite-shortbow",
-                  "item:base:shortbow",
-                  "item:base:glaive",
-                  "item:base:longsword"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:holistic-care",
       "foundry": "Compendium.pf2e.feats-srd.Item.1WfvvjjObPKeZyid",
       "gaps": [
@@ -14643,22 +14487,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[dc]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:improvised-critical",
-      "foundry": "Compendium.pf2e.feats-srd.Item.YDpSnLmnSLsItP45",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:tag:improvised"]
-          }
         }
       ]
     },
@@ -15098,35 +14926,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:kholo-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.zb7F0M3H8PN3XsdX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:kholo",
-                  "item:base:flail",
-                  "item:base:khopesh",
-                  "item:base:mambele",
-                  "item:base:war-flail"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:knowledge-of-shapes",
       "foundry": "Compendium.pf2e.feats-srd.Item.zSWTX520paO6Zv1i",
       "gaps": [
@@ -15213,29 +15012,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:kobold-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OTjRxyCtwPoqNFP2",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:kobold", "item:base:greatpick", "item:base:light-pick", "item:base:pick"]
-              }
-            ]
           }
         }
       ]
@@ -15542,28 +15318,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.AimSmPyiMhJZVZRq",
       "gaps": [
         {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              "item:melee",
-              {
-                "or": [
-                  "item:usage:hands:2",
-                  "item:trait:two-hand-d6",
-                  "item:trait:two-hand-d8",
-                  "item:trait:two-hand-d10",
-                  "item:trait:two-hand-d12"
-                ]
-              },
-              {
-                "gte": ["item:proficiency:rank", 2]
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -15684,22 +15438,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:monastic-weaponry",
-      "foundry": "Compendium.pf2e.feats-srd.Item.YW4FdWgzTwRFneFF",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["feature:expert-strikes", "item:trait:monk"]
-          }
         }
       ]
     },
@@ -16286,34 +16024,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:performative-weapons-training",
-      "foundry": "Compendium.pf2e.feats-srd.Item.SOG0yVNtiDsaNbIO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": [
-                  "item:base:bo-staff",
-                  "item:base:dueling-cape",
-                  "item:base:spiked-chain",
-                  "item:base:sword-cane",
-                  "item:base:trident",
-                  "item:base:war-flail",
-                  "item:base:whip"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:pilgrims-token",
       "foundry": "Compendium.pf2e.feats-srd.Item.BqceQIKE0lwIS98s",
       "gaps": [
@@ -16353,29 +16063,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[actionspf2e] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:pirate-combat-training",
-      "foundry": "Compendium.pf2e.feats-srd.Item.i86JRWsFRpfEJnZP",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:base:hatchet", "item:base:rapier", "item:base:scimitar", "item:base:whip"]
-              }
-            ]
-          }
         }
       ]
     },
@@ -18964,37 +18651,6 @@
     {
       "type": "entry",
       "pack": "player-core-2",
-      "slug": "feat:tripkee-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.CvtJ98EZvBGSCLOX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:tripkee",
-                  "item:base:hatchet",
-                  "item:base:scythe",
-                  "item:base:shortbow",
-                  "item:base:composite-shortbow",
-                  "item:base:blowgun",
-                  "item:base:dart"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
       "slug": "feat:true-debilitating-bomb",
       "foundry": "Compendium.pf2e.feats-srd.Item.2HMvAB6mIVwvwtjT",
       "gaps": [
@@ -19286,36 +18942,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[journals]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core-2",
-      "slug": "feat:viking-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.j9Rp4fOZIxizyvYy",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:base:battle-axe",
-                  "item:base:hatchet",
-                  "item:base:longsword",
-                  "item:base:shield-boss",
-                  "item:base:shield-spikes",
-                  "item:base:shortsword"
-                ]
-              }
-            ]
-          }
         }
       ]
     },

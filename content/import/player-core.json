@@ -1210,18 +1210,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 3]
-              }
-            ]
-          }
-        },
-        {
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.FighterWeaponMasteryLegend.SimpleMartial.{item|flags.system.rulesSelections.fighterWeaponMastery}"
@@ -1369,22 +1357,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.ClassFeatures.FortitudeExpertise.{actor|class.slug}.Description"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:fourth-doctrine-cloistered-cleric",
-      "foundry": "Compendium.pf2e.classfeatures.Item.vxOf4LXZcqUG3P7a",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:deity-favored"]
-          }
         }
       ]
     },
@@ -1929,27 +1901,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:ranger-weapon-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.QhoW8ivPvYmWzyEZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              "target:mark:hunted-prey",
-              {
-                "or": ["item:category:simple", "item:category:martial", "item:category:unarmed"]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:rogues-racket",
       "foundry": "Compendium.pf2e.classfeatures.Item.uGuCGQvUmioFV2Bd",
       "gaps": [
@@ -1998,20 +1949,6 @@
             ],
             "property": "other-tags",
             "value": "sneak-attack"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              "item:tag:sneak-attack",
-              "target:condition:off-guard",
-              {
-                "not": "item:category:unarmed"
-              }
-            ]
           }
         }
       ]
@@ -2422,22 +2359,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "class-feature:third-doctrine-warpriest",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Zp81uTBItG1xlH4O",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:deity-favored"]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "class-feature:unimpeded-journey",
       "foundry": "Compendium.pf2e.classfeatures.Item.RlwE99yKnhq8FUuy",
       "gaps": [
@@ -2462,22 +2383,6 @@
       "slug": "class-feature:weapon-expertise",
       "foundry": "Compendium.pf2e.classfeatures.Item.9XLUh9iMepZesdmc",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 2]
-              },
-              "class:swashbuckler",
-              {
-                "not": "item:category:unarmed"
-              }
-            ]
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2563,27 +2468,6 @@
           "type": "text",
           "reason": "runtime-key",
           "key": "PF2E.SpecificRule.FighterWeaponMasteryLegend.Advanced.{item|flags.system.rulesSelections.weaponLegend}"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "class-feature:weapon-tricks",
-      "foundry": "Compendium.pf2e.classfeatures.Item.v8UNEJR5IDKi8yqa",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              "target:condition:off-guard",
-              {
-                "or": ["item:trait:agile", "item:trait:finesse"]
-              }
-            ]
-          }
         }
       ]
     },
@@ -9091,29 +8975,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:dwarven-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.CXS0ryG2SODSobm9",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:dwarf", "item:base:battle-axe", "item:base:pick", "item:base:warhammer"]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:ebb-and-flow",
       "foundry": "Compendium.pf2e.feats-srd.Item.xSJaOcdhqDF1CBs3",
       "gaps": [
@@ -9244,29 +9105,6 @@
               "label": "PF2E.SpecificLore.Elf",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:elven-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.4NKyZVkmWjDyyIYZ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:elf", "item:base:longbow", "item:base:rapier", "item:base:shortbow"]
-              }
-            ]
           }
         }
       ]
@@ -10123,29 +9961,6 @@
     {
       "type": "entry",
       "pack": "player-core",
-      "slug": "feat:gnome-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.3zr5Gt5LgHsMNpSO",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:gnome", "item:base:glaive", "item:base:kukri"]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
       "slug": "feat:goblin-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.sm6Y3fTcltxE8N0p",
       "gaps": [
@@ -10178,27 +9993,6 @@
         {
           "type": "enricher",
           "enricher": "@UUID[feat-effects] Pathfinder Core Rulebook"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:goblin-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.OYjzfTeWU7RJBT7v",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              "item:trait:goblin"
-            ]
-          }
         }
       ]
     },
@@ -10419,29 +10213,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:halfling-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.2ebcYbg68pCZfAFQ",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:halfling", "item:base:sling", "item:base:shortsword"]
-              }
-            ]
           }
         }
       ]
@@ -11777,29 +11548,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "player-core",
-      "slug": "feat:orc-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.1tVC0mcxl8sTCg4U",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:trait:orc", "item:base:falchion", "item:base:greataxe"]
-              }
-            ]
           }
         }
       ]

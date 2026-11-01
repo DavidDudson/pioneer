@@ -4806,7 +4806,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 3]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.gApJtAdNb9ST4Ms9"
     },
@@ -5419,6 +5428,10 @@
         "key": "Proficiency",
         "selector": "attack:favored-weapon",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:deity-favored"]
       }
     ],
     "externalIds": {
@@ -9101,6 +9114,15 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "target:mark:hunted-prey",
+          {
+            "or": ["item:category:simple", "item:category:martial", "item:category:unarmed"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -9448,6 +9470,16 @@
         "selector": "defense:medium",
         "rank": "master",
         "predicate": ["feature:light-armor-mastery"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "item:tag:sneak-attack",
+          "target:condition:off-guard",
+          {
+            "not": "item:category:unarmed"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -14804,6 +14836,10 @@
         "key": "Proficiency",
         "selector": "attack:favored-weapon",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:deity-favored"]
       }
     ],
     "externalIds": {
@@ -15688,6 +15724,18 @@
             ]
           }
         ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          "class:swashbuckler",
+          {
+            "not": "item:category:unarmed"
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -15806,6 +15854,15 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "target:condition:off-guard",
+          {
+            "or": ["item:trait:agile", "item:trait:finesse"]
+          }
+        ]
       }
     ],
     "externalIds": {

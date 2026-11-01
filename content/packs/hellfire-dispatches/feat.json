@@ -12630,6 +12630,10 @@
         "key": "Proficiency",
         "selector": "skill:athletics",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["option:undersea-privateer", "proficiency:expert"]
       }
     ],
     "externalIds": {

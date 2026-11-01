@@ -3757,6 +3757,17 @@
       {
         "key": "GrantItem",
         "item": "cda0387c-82c8-5259-a0fd-edff712c33a8"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:base:hand-crossbow", "item:base:gauntlet-bow", "item:base:repeating-hand-crossbow"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -16045,7 +16056,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:tag:bespell-strikes"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.76MJ4dyEFim6dfoa"
     },

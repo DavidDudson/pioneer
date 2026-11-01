@@ -1967,6 +1967,14 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "or": ["item:group:firearm", "item:group:crossbow"]
+          }
+        ]
       }
     ],
     "externalIds": {

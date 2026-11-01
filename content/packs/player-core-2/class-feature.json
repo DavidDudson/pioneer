@@ -9101,6 +9101,10 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["self:effect:rage", "item:melee"]
       }
     ],
     "externalIds": {
@@ -13012,6 +13016,10 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:category:unarmed", "item:group:brawling"]
       }
     ],
     "externalIds": {
@@ -21411,6 +21419,14 @@
         "key": "Proficiency",
         "selector": "attack:unarmed",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ]
       }
     ],
     "externalIds": {

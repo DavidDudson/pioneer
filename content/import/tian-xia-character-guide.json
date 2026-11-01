@@ -2658,35 +2658,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "feat:oni-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.3o5tWjDIcfIARHIj",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:base:khakkhara",
-                  "item:base:nodachi",
-                  "item:base:ogre-hook",
-                  "item:base:tetsubo",
-                  "item:tag:hungerseed-horns"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "feat:onis-mask",
       "foundry": "Compendium.pf2e.feats-srd.Item.YrawssRNHsyqYuHi",
       "gaps": [
@@ -4176,36 +4147,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "feat:wayang-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.5ij2nnZj4v2dx5N1",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:base:blowgun",
-                  "item:base:fighting-fan",
-                  "item:base:longspear",
-                  "item:base:machete",
-                  "item:base:sai",
-                  "item:base:trident"
-                ]
-              }
-            ]
           }
         }
       ]

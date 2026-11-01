@@ -98,3 +98,34 @@ describe('translateRules: GrantItem badge value', () => {
     expect(translation.envelopes.untranslatedRules.map(({ key }) => key)).toEqual(['GrantItem']);
   });
 });
+
+const feat = (raw: object): DocumentFixture => ({
+  id: 'cRiTsPeC00000000',
+  name: 'Weapon Familiarity',
+  type: 'feat',
+  system: { rules: [raw] },
+});
+
+describe('translateRules: CriticalSpecialization', () => {
+  test.each([
+    [
+      'a level-gated list of bases and a trait',
+      { predicate: [{ gte: ['self:level', 5] }, { or: ['item:trait:dwarf', 'item:base:war-hammer'] }] },
+    ],
+    ['a group', { predicate: ['item:group:firearm'] }],
+    ['no predicate', {}],
+  ])('%s is translated, with its roll options namespaced', (_case, fields) => {
+    const translation = translate([feat({ key: 'CriticalSpecialization', ...fields })]);
+
+    expect(translation.envelopes.untranslatedRules).toEqual([]);
+    expect(translation.entries[0]?.envelope.rules.map(({ key }) => key)).toEqual(['CriticalSpecialization']);
+  });
+
+  test('a predicate that reads a pick by id is kept for the backlog', () => {
+    const raw = { key: 'CriticalSpecialization', predicate: ['item:id:{item|flags.system.rulesSelections.weapon}'] };
+
+    expect(translate([feat(raw)]).envelopes.untranslatedRules.map(({ key }) => key)).toEqual([
+      'CriticalSpecialization',
+    ]);
+  });
+});
