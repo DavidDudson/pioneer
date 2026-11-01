@@ -1,5 +1,5 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import type { LucideIcon } from '@lucide/angular';
+import type { LucideIcon, LucideIconData } from '@lucide/angular';
 import { LucideDynamicIcon } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
 
@@ -30,7 +30,7 @@ const iconVariants = cva('inline-block shrink-0', {
   host: { class: 'contents' },
 })
 export class Icon {
-  public readonly icon = input.required<LucideIcon>();
+  public readonly icon = input.required<LucideIcon | LucideIconData>();
   public readonly size = input<Size>(Size.Sm);
   public readonly tone = input<Tone | undefined>(undefined);
   public readonly label = input<string | undefined>(undefined);

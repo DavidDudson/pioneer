@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Badge, Stack, Text } from '@pioneer/frontier';
-import type { BadgeTone } from '@pioneer/frontier';
+import { ActionIcon, Badge, Stack, Text } from '@pioneer/frontier';
+import type { ActionIconCost, BadgeTone } from '@pioneer/frontier';
 import { ActionStatus } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 
@@ -14,11 +14,20 @@ import type { ActionLine } from './action-line';
 import { ACTION_STATUS_MESSAGES } from './actions-messages';
 import { UseButtons } from './use-buttons.component';
 
+/** An action cost to draw as icons: what it costs, the cost a range runs to, and the name a screen reader says. */
+export interface ActionCostIcon {
+  readonly cost: ActionIconCost;
+  readonly upTo?: ActionIconCost | undefined;
+  readonly label: string;
+}
+
 /** One action as shown: the line with its cost, source and reasons already worded. */
 export interface ShownAction {
   readonly line: ActionLine;
   /** "1 action, Basic action" or "Reaction, Granted by Shield Block": its cost and where it comes from. */
   readonly detail: string;
+  /** The cost drawn as action icons, with its words; absent for a cost the icons cannot draw, which `detail` words. */
+  readonly costIcon?: ActionCostIcon | undefined;
   /** Why it is not plainly available, worded. */
   readonly reasons: readonly string[];
   /** "+2 circumstance when your shield is raised (Steel Shield)": the roll's lines that apply only in some situations. */
@@ -37,7 +46,18 @@ const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {
  */
 @Component({
   selector: 'pio-action-row',
-  imports: [Badge, ChipList, EntryNameCell, Stack, StatisticConditions, StatisticRoll, Text, TranslocoPipe, UseButtons],
+  imports: [
+    ActionIcon,
+    Badge,
+    ChipList,
+    EntryNameCell,
+    Stack,
+    StatisticConditions,
+    StatisticRoll,
+    Text,
+    TranslocoPipe,
+    UseButtons,
+  ],
   templateUrl: './action-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

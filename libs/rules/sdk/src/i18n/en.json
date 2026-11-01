@@ -339,6 +339,11 @@
         "reactionSpent": "Reaction already spent."
       },
       "passive": "No cost",
+      "costRange": {
+        "oneToTwo": "1 to 2 actions",
+        "oneToThree": "1 to 3 actions",
+        "twoToThree": "2 to 3 actions"
+      },
       "source": {
         "basic": "Basic action",
         "skill": "Skill action",

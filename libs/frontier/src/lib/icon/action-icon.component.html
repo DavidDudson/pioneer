@@ -1,0 +1,5 @@
+<fr-glyph [label]="label()">
+  @for (shape of shapes(); track $index) {
+    <fr-icon [icon]="shape" [size]="size()" [tone]="tone()" />
+  }
+</fr-glyph>

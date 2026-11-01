@@ -60,3 +60,15 @@ export const ACTION_STATUS_MESSAGES: Readonly<Record<ActionStatus, string>> = {
   [ActionStatus.Conditional]: 'rules.actions.status.conditional',
   [ActionStatus.Unavailable]: 'rules.actions.status.unavailable',
 };
+
+/** How a variable cost is worded, by the action count it starts at and the one it runs to. Only the ranges drawn. */
+export const ACTION_RANGE_MESSAGES: Readonly<Partial<Record<ActionCost, Readonly<Partial<Record<number, string>>>>>> = {
+  [ActionCost.One]: { 2: 'rules.actions.costRange.oneToTwo', 3: 'rules.actions.costRange.oneToThree' },
+  [ActionCost.Two]: { 3: 'rules.actions.costRange.twoToThree' },
+};
+
+/** The cost an action count is drawn as. */
+export const ACTION_COUNT_COSTS: Readonly<Partial<Record<number, ActionCost>>> = {
+  2: ActionCost.Two,
+  3: ActionCost.Three,
+};
