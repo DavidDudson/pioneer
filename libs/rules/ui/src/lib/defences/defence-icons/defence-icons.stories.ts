@@ -30,9 +30,11 @@ export const ResistanceOnly: DefenceIconsStory = {
 /** An icon focused: the lines of its kind open. */
 export const Opened: DefenceIconsStory = {
   args: { defences: BARBARIAN_DEFENCES },
-  play: async ({ canvasElement, userEvent }) => {
+  play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await userEvent.hover(canvas.getByRole('button', { name: 'Resistances' }));
-    await expect(await within(document.body).findByText('Fire')).toBeVisible();
+    // Focus opens a hover card at once; the card is in the overlay container on the body, and names the damage in lower case.
+    canvas.getByRole('button', { name: 'Resistances' }).focus();
+    const lines = await within(canvasElement.ownerDocument.body).findAllByText(/fire/iu);
+    await expect(lines[0]).toBeVisible();
   },
 };
