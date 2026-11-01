@@ -63,6 +63,11 @@ export class Dropdown {
   protected readonly originClasses = originClasses;
   protected readonly panelClasses = panelClasses;
   protected readonly positions = computed(() => positionsFor(this.align()));
+  /** A visible caption must be part of the accessible name (WCAG 2.5.3), so the label follows it. */
+  protected readonly triggerLabel = computed(() => {
+    const caption = this.caption();
+    return caption === undefined ? this.label() : `${caption} (${this.label()})`;
+  });
 
   protected close(): void {
     this.open.set(false);

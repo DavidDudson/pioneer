@@ -38,7 +38,7 @@ export const Runed: InventoryStory = {
   args: { groups: RUNED_INVENTORY },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Breastplate')).toBeVisible();
-    await expect(canvas.getByText('Steel Shield')).toBeVisible();
+    await expect(await canvas.findByText(/Breastplate/u)).toBeVisible();
+    await expect(await canvas.findByText(/Steel Shield/u)).toBeVisible();
   },
 };
