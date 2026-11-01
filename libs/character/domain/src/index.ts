@@ -442,6 +442,7 @@ export {
   type RuneContent,
   runeContent,
   type RuneEntry,
+  runeApplied,
   runedItemOf,
   workingPropertyRunes,
 } from './item-runes';

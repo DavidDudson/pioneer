@@ -20,3 +20,4 @@ export const Purple: GemStory = { args: { tone: GemTone.Purple, label: 'Greater 
 export const Red: GemStory = { args: { tone: GemTone.Red, label: 'Major striking', glyphs: 'ᚦ' } };
 export const Gold: GemStory = { args: { tone: GemTone.Gold, label: 'Mythic striking', glyphs: 'ᚦ' } };
 export const Hole: GemStory = { args: { tone: undefined, glyphs: '+', label: 'Empty rune slot' } };
+export const Black: GemStory = { args: { tone: GemTone.Black, label: 'Not applied', glyphs: 'ᚠᚢ' } };

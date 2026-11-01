@@ -165,11 +165,13 @@
   --fr-damage-spirit: oklch(0.8 0.09 60);
   --fr-damage-bleed: oklch(0.8 0.17 15);
 
-  /* Rune tiers: fixed hues, so a tier reads the same in every theme. The gem fill, and the glyph on it. */
+  /* Rune tiers: fixed hues, so a tier reads the same in every theme. The gem outline, and the glyph on it. */
   --fr-rune-base: oklch(0.72 0.15 250);
   --fr-rune-greater: oklch(0.72 0.15 305);
   --fr-rune-major: oklch(0.72 0.17 25);
   --fr-rune-mythic: oklch(0.8 0.14 85);
+  /* A rune that does nothing on its item: black in every theme, and it does not pulse. */
+  --fr-rune-void: oklch(0.1 0 0);
 
   /* Categorical chart series, in order. Feeds TanStack Charts' --ts-chart-* palette. */
   --fr-chart-1: var(--fr-ramp-accent-400);

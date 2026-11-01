@@ -11,7 +11,9 @@ import {
   itemRunes,
   partitionApproved,
   propertyRoom,
+  runeApplied,
   runedItemOf,
+  workingPropertyRunes,
 } from '@pioneer/character/domain';
 import type {
   Inventory,
@@ -21,10 +23,11 @@ import type {
   ItemEntry,
   RuneContent,
   RunedContent,
+  RuneEntry,
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, FundamentalRune, RunedItem } from '@pioneer/rules/sdk';
-import { InventoryPlacement, LoadEffect, RuneBadgeKind } from '@pioneer/rules/ui';
+import { InventoryPlacement, LoadEffect, RuneBadgeKind, RuneNote } from '@pioneer/rules/ui';
 import type {
   GradedRune,
   GradedRuneLine,
@@ -98,6 +101,14 @@ export function lineRunes(
 
 const HOLE: RuneBadgeData = { kind: RuneBadgeKind.Hole };
 
+/** Why a property rune does nothing: its potency rune is too low, or the engine does not apply it yet; undefined when it works. */
+function runeNote(rune: RuneEntry, working: boolean): RuneNote | undefined {
+  if (!working) {
+    return RuneNote.NoEffect;
+  }
+  return runeApplied(rune) ? undefined : RuneNote.NotApplied;
+}
+
 /** A fundamental rune's badge, or a hole when the item has none and its runes can still be etched. */
 function fundamentalBadge(rune: FundamentalRune, grade: number | undefined, etchable: boolean): RuneBadgeData[] {
   if (grade !== undefined) {
@@ -125,9 +136,14 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   }
   const etched = itemRunes(item, entry);
   const etchable = !isSpecific(entry);
+  const working = new Set(workingPropertyRunes(item, entry));
   const named = etched.property.flatMap((id): RuneBadgeData[] => {
-    const name = runes.get(id)?.name;
-    return name === undefined ? [] : [{ kind: RuneBadgeKind.Property, id, name }];
+    const rune = runes.get(id);
+    if (rune === undefined) {
+      return [];
+    }
+    const note = runeNote(rune, working.has(id));
+    return [{ kind: RuneBadgeKind.Property, id, name: rune.name, ...(note === undefined ? {} : { note }) }];
   });
   const room = kind === RunedItem.Shield ? 0 : propertyRoom(etched) - etched.property.length;
   const free = etchable ? Math.max(0, room) : 0;

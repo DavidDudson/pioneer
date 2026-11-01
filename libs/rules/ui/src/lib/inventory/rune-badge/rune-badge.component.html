@@ -1,1 +1,8 @@
-<fr-gem [tone]="shown().tone" [glyphs]="shown().glyphs" [label]="shown().label" />
+@if (shown().note; as note) {
+  <fr-hover-card>
+    <fr-gem [tone]="shown().tone" [glyphs]="shown().glyphs" [label]="shown().described" />
+    <ng-template frHoverCardContent>{{ note }}</ng-template>
+  </fr-hover-card>
+} @else {
+  <fr-gem [tone]="shown().tone" [glyphs]="shown().glyphs" [label]="shown().label" />
+}

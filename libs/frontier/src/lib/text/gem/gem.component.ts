@@ -7,6 +7,8 @@ export const GemTone = {
   Purple: 'purple',
   Red: 'red',
   Gold: 'gold',
+  /** A rune that does nothing: black, and still. */
+  Black: 'black',
 } as const;
 export type GemTone = ValueOf<typeof GemTone>;
 
@@ -23,6 +25,7 @@ const outlineVariants = cva(
         purple: 'bg-rune-greater motion-safe:animate-rune-pulse',
         red: 'bg-rune-major motion-safe:animate-rune-pulse',
         gold: 'bg-rune-mythic motion-safe:animate-rune-pulse',
+        black: 'bg-rune-void',
         empty: 'bg-line-default',
       } satisfies Record<GemTone | 'empty', string>,
     },
@@ -38,6 +41,7 @@ const fillVariants = cva(
         purple: 'text-rune-greater',
         red: 'text-rune-major',
         gold: 'text-rune-mythic',
+        black: 'text-rune-void',
         empty: 'text-fg-muted',
       } satisfies Record<GemTone | 'empty', string>,
     },
@@ -48,7 +52,7 @@ const labelClasses = cva('sr-only')();
 
 /**
  * A cut stone with a short run of glyphs on it, such as a rune. The glyphs take the tone's colour on a dark fill, inside a
- * tone-coloured outline. A filled gem pulses in its tone, and holds still under reduced motion; with
+ * tone-coloured outline. A filled gem pulses in its tone, and holds still under reduced motion or when black (it does nothing); with
  * no `tone` it is a hole: the same outline, empty. The glyphs are decorative; `label`, already translated, is read
  * out instead, so the tone is never the only signal.
  *

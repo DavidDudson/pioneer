@@ -28,6 +28,9 @@ export const RuneMessage = {
   Potency: 'rules.runes.potency',
   PotencyName: 'rules.runes.potencyName',
   EmptySlot: 'rules.runes.emptySlot',
+  NotApplied: 'rules.runes.notApplied',
+  NoEffect: 'rules.runes.noEffect',
+  Described: 'rules.runes.described',
   RunedName: 'rules.inventory.runedName',
 } as const;
 

@@ -22,7 +22,7 @@ import {
   runeFixtureId,
 } from '@pioneer/character/domain/testing';
 import { FundamentalRune } from '@pioneer/rules/sdk';
-import { LoadEffect } from '@pioneer/rules/ui';
+import { LoadEffect, RuneNote } from '@pioneer/rules/ui';
 import type { RuneBadgeData } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
@@ -163,6 +163,27 @@ describe(sheetInventory, () => {
       { kind: 'property', id: runeFixtureId(RuneFixture.Flaming), name: 'Flaming' },
       { kind: 'hole' },
     ]);
+  });
+
+  it('notes a property rune the engine does not apply, and one the potency rune leaves without effect', () => {
+    let etched = stock([[sword, ItemFixture.Longsword, undefined]]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Potency, 1));
+    etched = etchRune(etched, sword, propertyRune(RuneFixture.Frost));
+    const [held] = sheetInventory(etched, runed);
+    expect(present(held).lines[0]?.runeBadges).toContainEqual({
+      kind: 'property',
+      id: runeFixtureId(RuneFixture.Frost),
+      name: 'Frost',
+      note: RuneNote.NotApplied,
+    });
+    etched = etchRune(etched, sword, propertyRune(RuneFixture.Flaming));
+    const crowded = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(crowded).toContainEqual({
+      kind: 'property',
+      id: runeFixtureId(RuneFixture.Flaming),
+      name: 'Flaming',
+      note: RuneNote.NoEffect,
+    });
   });
 
   it('leaves another rune’s badge as it was when a rune is added', () => {

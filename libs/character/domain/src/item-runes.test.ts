@@ -4,7 +4,8 @@ import { FundamentalRune, RuneGrade } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import type { Inventory, InventoryItemId } from './inventory';
-import { itemRunes, workingPropertyRunes } from './item-runes';
+import { itemRunes, runeApplied, workingPropertyRunes } from './item-runes';
+import type { RuneEntry } from './item-runes';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
 import { ItemRunesSchema, NO_RUNES } from './rune-etching';
 import type { ItemRunes } from './rune-etching';
@@ -17,6 +18,7 @@ import {
   lineOf,
   propertyRune,
   RuneFixture,
+  runeFixtureContent,
   runeFixtureId,
 } from './testing';
 
@@ -113,5 +115,26 @@ describe('property runes that work', () => {
 
   test("all of a specific item's, whatever its potency", () => {
     expect(working(armoury(), Armoury.Tongue)).toStrictEqual([FLAMING_ID]);
+  });
+});
+
+describe('runes the engine applies', () => {
+  const loaded = runeFixtureContent();
+  const rune = (name: RuneFixture): RuneEntry => {
+    const entry = loaded.get(runeFixtureId(name));
+    if (entry === undefined) {
+      throw new Error(`no ${name} rune`);
+    }
+    return entry;
+  };
+
+  test('a property rune with rules is applied, one without is not', () => {
+    expect(runeApplied(rune(RuneFixture.Flaming))).toBe(true);
+    expect(runeApplied(rune(RuneFixture.Frost))).toBe(false);
+  });
+
+  test('a flagged property rune is not applied, whatever its rules', () => {
+    const flagged = { ...rune(RuneFixture.Flaming), data: { ...rune(RuneFixture.Flaming).data, unapplied: true } };
+    expect(runeApplied(flagged as RuneEntry)).toBe(false);
   });
 });
