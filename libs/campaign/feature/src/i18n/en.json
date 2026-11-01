@@ -82,6 +82,7 @@
   },
   "party": {
     "heading": "Party",
+    "conditionsOf": "{name}'s conditions",
     "inventoryLink": "Open the Party Inventory",
     "columns": {
       "name": "Character",

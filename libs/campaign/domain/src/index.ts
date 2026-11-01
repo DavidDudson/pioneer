@@ -33,6 +33,7 @@ export {
   PartyCharacterLevel,
   VitalDying,
   VitalHitPoints,
+  ConditionLevel,
   ConditionName,
   PartyCharacterOrigin,
   PartyCharacterName,
@@ -46,6 +47,7 @@ export {
   OwnedCharacter,
   PartyCharacter,
   PartyHitPoints,
+  PartyCondition,
   PartyVitals,
 } from './campaign-party';
 export { CampaignRoster, NamedMember } from './campaign-roster';

@@ -71,18 +71,23 @@ describe('CharacterVitals', () => {
     });
   });
 
-  test('lists the death track first, then the active conditions, each once', async () => {
+  test('lists the death track first, then the active conditions, each once at its highest value', async () => {
+    const worse = { ...drained, id: ConditionInstanceId.parse(newId()), value: ConditionValue.parse(3) };
     const seen = await vitals.of(
-      played(kyra, { dying: Dying.parse(2), wounded: Wounded.parse(1), conditions: [drained, drained] }),
+      played(kyra, { dying: Dying.parse(2), wounded: Wounded.parse(1), conditions: [drained, worse] }),
     );
-    expect(seen.conditions).toStrictEqual(['dying', 'wounded', DRAINED]);
+    expect(seen.conditions).toStrictEqual([
+      { name: 'dying', value: 2 },
+      { name: 'wounded', value: 1 },
+      { name: DRAINED, value: 3 },
+    ]);
     expect(seen.dying).toBe(Dying.parse(2));
   });
 
   test('a dead character is at the highest dying value', async () => {
     const seen = await vitals.of(played(kyra, { dead: true }));
     expect(seen.dying).toBe(Dying.parse(4));
-    expect(seen.conditions).toContain('dying');
+    expect(seen.conditions).toContainEqual({ name: 'dying', value: 4 });
   });
 
   test('a build with no ancestry or class has no Hit Points', async () => {

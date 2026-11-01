@@ -4,6 +4,7 @@ import * as z from 'zod';
 
 import {
   CharacterId,
+  ConditionLevel,
   ConditionName,
   MemberName,
   PartyCharacterLevel,
@@ -41,6 +42,10 @@ export type OwnedCharacter = z.output<typeof OwnedCharacter>;
 export const PartyHitPoints = z.object({ current: VitalHitPoints, max: VitalHitPoints, temp: VitalHitPoints });
 export type PartyHitPoints = z.output<typeof PartyHitPoints>;
 
+/** A condition on a character: its name, and its value when it is valued. */
+export const PartyCondition = z.object({ name: ConditionName, value: ConditionLevel.optional() });
+export type PartyCondition = z.output<typeof PartyCondition>;
+
 /**
  * How a character stands, as every member of the campaign sees it: worked out from its play state on every read,
  * never stored. A character with no maximum yet, and an archived one, have no Hit Points.
@@ -49,8 +54,8 @@ export const PartyVitals = z.object({
   hp: PartyHitPoints.optional(),
   /** The dying value, 0 when not dying; a dead character is at the highest. */
   dying: VitalDying,
-  /** The death track's conditions first (`dying`, `wounded`, `doomed`), then the others, each once. */
-  conditions: z.array(ConditionName).readonly(),
+  /** The death track's conditions first (`dying`, `wounded`, `doomed`), then the others, each once at its highest value. */
+  conditions: z.array(PartyCondition).readonly(),
 });
 export type PartyVitals = z.output<typeof PartyVitals>;
 

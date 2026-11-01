@@ -52,6 +52,11 @@ export class HoverCard {
   protected readonly content = contentChild(HoverCardContent);
   /** Whether a touch tap on the trigger opens the card first; off for a trigger a tap must act on, like a button. */
   public readonly tapOpens = input(true, { transform: booleanAttribute });
+  /**
+   * For a trigger with nothing a keyboard can reach, like an avatar: the card's own trigger takes focus, named by this
+   * label, so focusing it opens the card. Leave unset when the projected trigger is a link or a button.
+   */
+  public readonly focusLabel = input<string | undefined>(undefined);
   /** Fires each time the card opens, so a page can load what the card shows. */
   public readonly opened = output();
 

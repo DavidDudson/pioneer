@@ -33,6 +33,19 @@ class Host {}
 })
 class TapHost {}
 
+@Component({
+  selector: 'fr-hover-card-focusable-host',
+  imports: [HoverCard, HoverCardContent],
+  // oxlint-disable-next-line @angular-eslint/component-max-inline-declarations
+  template: `
+    <fr-hover-card focusLabel="Conditions of Kyra">
+      <span id="trigger">Kyra</span>
+      <ng-template frHoverCardContent>Wounded 2</ng-template>
+    </fr-hover-card>
+  `,
+})
+class FocusableHost {}
+
 function render(): ComponentFixture<Host> {
   TestBed.configureTestingModule({});
   const fixture = TestBed.createComponent(Host);
@@ -143,6 +156,26 @@ describe(HoverCard, () => {
       expect(card()).toBeNull();
     });
     expect(click(element, 'mouse').defaultPrevented).toBe(false);
+  });
+
+  it('takes focus itself, named by the label, when given one for a trigger a keyboard cannot reach', async () => {
+    TestBed.configureTestingModule({});
+    const fixture = TestBed.createComponent(FocusableHost);
+    fixture.detectChanges();
+    const focusable = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('[tabindex="0"]');
+
+    expect(focusable?.getAttribute('aria-label')).toBe('Conditions of Kyra');
+    focusable?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      fixture.detectChanges();
+      expect(card()?.textContent).toContain('Wounded 2');
+    });
+  });
+
+  it('adds no tab stop of its own without a label', () => {
+    const fixture = render();
+
+    expect((fixture.nativeElement as HTMLElement).querySelectorAll('[tabindex]')).toHaveLength(1);
   });
 });
 

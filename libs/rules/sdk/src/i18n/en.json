@@ -360,6 +360,8 @@
     },
     "conditionBadge": {
       "other": "Condition",
+      "bloodied": "Bloodied",
+      "none": "No conditions",
       "name": {
         "dying": "Dying",
         "doomed": "Doomed",

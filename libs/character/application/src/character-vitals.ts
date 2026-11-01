@@ -14,14 +14,20 @@ export interface VitalHitPoints {
   readonly temp: HitPoints;
 }
 
+/** A condition on a character: the name part of its slug, and its value when it is valued. */
+export interface VitalCondition {
+  readonly name: string;
+  readonly value?: number | undefined;
+}
+
 /** How a character stands, for a party panel: Hit Points, how close to death, and the conditions on it. */
 export interface Vitals {
   /** Undefined while no maximum can be worked out: the build has no ancestry or class yet. */
   readonly hp: VitalHitPoints | undefined;
   /** The dying value, 0 when not dying; a dead character is at the highest. */
   readonly dying: Dying;
-  /** The name parts of the slugs of its conditions, the death track's first (`dying`, `wounded`, `doomed`), each once. */
-  readonly conditions: readonly string[];
+  /** Its conditions, the death track's first (`dying`, `wounded`, `doomed`), each once at its highest value. */
+  readonly conditions: readonly VitalCondition[];
 }
 
 const DEAD = Dying.parse(DEATH_VALUE_MAX);
@@ -42,28 +48,47 @@ export class CharacterVitals {
     const registry = await contentOfCharacter(this.#content, character).registry();
     const max = await maxHitPointsOf(this.#content, { character, play, registry });
     const dying = play.dead ? DEAD : play.dying;
-    const track = [
-      dying > 0 ? 'dying' : undefined,
-      play.wounded > 0 ? 'wounded' : undefined,
-      play.doomed > 0 ? 'doomed' : undefined,
+    const track: readonly (VitalCondition | undefined)[] = [
+      dying > 0 ? { name: 'dying', value: dying } : undefined,
+      play.wounded > 0 ? { name: 'wounded', value: play.wounded } : undefined,
+      play.doomed > 0 ? { name: 'doomed', value: play.doomed } : undefined,
     ];
-    const conditions = [...track, ...conditionNames(registry, play.conditions)].filter((name) => name !== undefined);
     return {
       hp: max === undefined ? undefined : { current: currentHitPoints(play.hp, max), max, temp: play.hp.temp },
       dying,
-      conditions: [...new Set(conditions)],
+      conditions: onceEach([...track, ...activeConditions(registry, play.conditions)]),
     };
   }
 }
 
-/** The name parts of the slugs of `active`; none when nothing is active, so the slug map is not built for nothing. */
-function conditionNames(registry: ContentRegistry, active: PlayState['conditions']): readonly (string | undefined)[] {
+/** The conditions in `listed` in the order first seen, each once at its highest value; the unnamed are left out. */
+function onceEach(listed: readonly (VitalCondition | undefined)[]): readonly VitalCondition[] {
+  const byName = new Map<string, VitalCondition>();
+  for (const each of listed) {
+    if (each !== undefined) {
+      const seen = byName.get(each.name);
+      byName.set(each.name, seen === undefined ? each : { name: each.name, value: highest(seen.value, each.value) });
+    }
+  }
+  return [...byName.values()];
+}
+
+/** The higher of two values; none when neither condition is valued. */
+function highest(left: number | undefined, right: number | undefined): number | undefined {
+  return left === undefined || right === undefined ? (left ?? right) : Math.max(left, right);
+}
+
+/** The name part of the slug of each of `active`, with its value; none when nothing is active, so the slug map is not built for nothing. */
+function activeConditions(
+  registry: ContentRegistry,
+  active: PlayState['conditions'],
+): readonly (VitalCondition | undefined)[] {
   if (active.length === 0) {
     return [];
   }
   const slugs = new Map(registry.packs.flatMap((pack) => pack.otherEntries.map((entry) => [entry.id, entry.slug])));
-  return active.map((each) => {
+  return active.map((each): VitalCondition | undefined => {
     const slug = slugs.get(each.condition);
-    return slug === undefined ? undefined : slugName(slug);
+    return slug === undefined ? undefined : { name: slugName(slug), value: each.value };
   });
 }

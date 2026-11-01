@@ -267,4 +267,5 @@ export { injectOptionColumns, injectOptionRows } from './lib/option-picker/injec
 export { optionLabel, optionValue } from './lib/option-picker/option-rows';
 export { PickerRows, shownRows, type RowOrder } from './lib/option-picker/picker-rows';
 export { ConditionBadge } from './lib/condition-badge/condition-badge.component';
+export { type ConditionLine, ConditionList } from './lib/condition-badge/condition-list.component';
 export { bySeriousness, CONDITIONS_BY_SERIOUSNESS, ConditionSlug } from './lib/condition-badge/condition-seriousness';

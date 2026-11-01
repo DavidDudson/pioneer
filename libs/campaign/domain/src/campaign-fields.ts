@@ -76,6 +76,10 @@ export type VitalDying = z.infer<typeof VitalDying>;
 export const ConditionName = z.string().min(1).brand<'ConditionName'>();
 export type ConditionName = z.infer<typeof ConditionName>;
 
+/** The value of a valued condition (`frightened 2`), 1 or more, as the character context reports it. */
+export const ConditionLevel = z.int().min(1).brand<'ConditionLevel'>();
+export type ConditionLevel = z.infer<typeof ConditionLevel>;
+
 /**
  * A content pack, as the rules context names it. Same brand as there, so ids pass between the contexts at the
  * composition root unchanged; the campaign context only refers to packs.

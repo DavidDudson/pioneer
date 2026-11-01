@@ -1,10 +1,12 @@
-<!-- The span only listens: pointer and focus events from the projected trigger (a link or text) bubble to it. -->
-<!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus -->
+<!-- The span only listens, unless given a `focusLabel`, when it is also the tab stop. Pointer and focus events from the projected trigger bubble to it. -->
 <span
   #origin="cdkOverlayOrigin"
   cdkOverlayOrigin
   [class]="triggerClasses"
   [attr.aria-describedby]="open() ? id : null"
+  [attr.tabindex]="focusLabel() === undefined ? null : 0"
+  [attr.role]="focusLabel() === undefined ? null : 'group'"
+  [attr.aria-label]="focusLabel()"
   (mouseenter)="pointer(true)"
   (mouseleave)="pointer(false)"
   (focusin)="focus(true)"

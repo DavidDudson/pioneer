@@ -1,19 +1,24 @@
-<fr-character-avatar
-  size="sm"
-  [name]="name()"
-  [current]="hp()?.current"
-  [max]="hp()?.max"
-  [temp]="hp()?.temp ?? 0"
-  [failedSaves]="failedSaves()"
->
-  <pio-condition-badge frCharacterAvatarStart [conditions]="vitals().conditions" />
-  @if (offers().length > 0) {
-    <fr-gift-badge
-      frCharacterAvatarEnd
-      [count]="offers().length"
-      [expanded]="expanded()"
-      [label]="'campaign.gift.label' | transloco: { count: offers().length }"
-      (opened)="toggle()"
-    />
-  }
-</fr-character-avatar>
+<fr-hover-card [focusLabel]="'campaign.party.conditionsOf' | transloco: { name: name() }">
+  <fr-character-avatar
+    size="sm"
+    [name]="name()"
+    [current]="hp()?.current"
+    [max]="hp()?.max"
+    [temp]="hp()?.temp ?? 0"
+    [failedSaves]="failedSaves()"
+  >
+    <pio-condition-badge frCharacterAvatarStart [conditions]="slugs()" />
+    @if (offers().length > 0) {
+      <fr-gift-badge
+        frCharacterAvatarEnd
+        [count]="offers().length"
+        [expanded]="expanded()"
+        [label]="'campaign.gift.label' | transloco: { count: offers().length }"
+        (opened)="toggle()"
+      />
+    }
+  </fr-character-avatar>
+  <ng-template frHoverCardContent>
+    <pio-condition-list [conditions]="lines()" [bloodied]="bloodied()" />
+  </ng-template>
+</fr-hover-card>
