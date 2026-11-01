@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { FormulaValue } from '@pioneer/rules/formula';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { DamageType, NumericItemProperty, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
+import { DamageType, InventoryItemId, NumericItemProperty, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
 import { adjustStrike } from './item-alterations';
@@ -134,5 +134,40 @@ describe('adjustStrike', () => {
       add.numbers.has(NumericItemProperty.RangeIncrement),
       override.numbers.get(NumericItemProperty.RangeIncrement),
     ]).toEqual([false, FormulaValue.parse(10)]);
+  });
+});
+
+describe('an etched adjustment', () => {
+  const element = {
+    key: 'AdjustStrike',
+    property: 'property-runes',
+    mode: 'add',
+    value: 'ghost-touch',
+    etched: true,
+  };
+  const ITEM = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
+  const OTHER = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
+
+  /** `LONGSWORD` as the inventory line `line` (none when absent), adjusted by `element` coming from `ITEM`. */
+  function etchedOn(line?: InventoryItemId): AlteredItem {
+    const rule = inPlay(element, 'rune', { item: ITEM });
+    return adjustStrike({ rules: [rule], facts }, { ...LONGSWORD, inventoryItem: line });
+  }
+
+  test('reaches the weapon of the inventory item it comes from', () => {
+    expect(etchedOn(ITEM).propertyRunes).toEqual([Slug.parse('ghost-touch')]);
+  });
+
+  test('does not reach another weapon, or one with no inventory line', () => {
+    expect([etchedOn(OTHER).propertyRunes, etchedOn().propertyRunes]).toEqual([[], []]);
+  });
+
+  test('without etched, the adjustment reaches every weapon', () => {
+    const { etched: _etched, ...everywhere } = element;
+    const rule = inPlay(everywhere, 'rune', { item: ITEM });
+
+    const result = adjustStrike({ rules: [rule], facts }, { ...LONGSWORD, inventoryItem: OTHER });
+
+    expect(result.propertyRunes).toEqual([Slug.parse('ghost-touch')]);
   });
 });

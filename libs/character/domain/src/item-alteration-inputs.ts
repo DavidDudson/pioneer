@@ -2,7 +2,7 @@ import { adjustStrike, alterItem } from '@pioneer/rules/engine';
 import type { AlteredItem, ItemNumbers, ModifierInputs } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
 import { ContentKind, NumericItemProperty, RollOptionTail, slugName, Trait, WeaponCategory } from '@pioneer/rules/sdk';
-import type { DamageType, RuleSlug, Slug } from '@pioneer/rules/sdk';
+import type { DamageType, InventoryItemId, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
 
@@ -119,12 +119,14 @@ function rollOptionsOf(entry: ItemEntry, favored: boolean): readonly RollOptionT
 export interface AlteredContext {
   readonly picked?: readonly RuleSlug[] | undefined;
   readonly favored?: boolean;
+  /** The inventory line the item is, which an `etched` adjustment of its Strike is read against. */
+  readonly item?: InventoryItemId | undefined;
 }
 
 export function alteredItem(
   rules: ModifierInputs,
   entry: ItemEntry,
-  { picked = [], favored = false }: AlteredContext = {},
+  { picked = [], favored = false, item }: AlteredContext = {},
 ): AlteredItem {
   const altered = alterItem(rules, {
     rollOptions: [...rollOptionsOf(entry, favored), ...picked.map((flag) => RollOptionTail.parse(`picked:${flag}`))],
@@ -133,6 +135,7 @@ export function alteredItem(
     damageType: damageTypeOf(entry),
     materials: materialsOf(entry),
     propertyRunes: [],
+    inventoryItem: item,
   });
   return entry.kind === ContentKind.Weapon ? adjustStrike(rules, altered) : altered;
 }

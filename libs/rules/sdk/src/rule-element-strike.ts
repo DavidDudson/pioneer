@@ -63,10 +63,14 @@ export type StrikeProperty = ValueOf<typeof StrikeProperty>;
 
 const AddMode = z.literal(NumericAlterationMode.Add);
 
-/** Fields of every adjustment: which Strikes it reaches (their roll options, `item:ranged`); all of them when absent. */
+/**
+ * Fields of every adjustment: which Strikes it reaches (their roll options, `item:ranged`); all of them when absent.
+ * `etched` narrows it to the weapon the element's item is etched on, as a property rune's elements need.
+ */
 const adjustmentBase = {
   key: z.literal(RuleElementKey.AdjustStrike),
   strikes: Predicate.optional(),
+  etched: z.literal(true).optional(),
   ...ruleElementBase,
 };
 

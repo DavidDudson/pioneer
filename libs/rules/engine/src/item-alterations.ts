@@ -13,6 +13,7 @@ import {
 import type {
   AdjustStrikeElement,
   DamageType,
+  InventoryItemId,
   ItemAlterationElement,
   Level,
   Origin,
@@ -23,6 +24,7 @@ import type {
   Trait,
 } from '@pioneer/rules/sdk';
 
+import { inventoryItemOf } from './rule-in-play';
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { changed, truthOf, valueOf } from './rule-value';
 
@@ -38,6 +40,8 @@ export interface AlterableItem {
   readonly damageType: DamageType | undefined;
   readonly materials: readonly Slug[];
   readonly propertyRunes: readonly Slug[];
+  /** The inventory item the weapon is, which an `etched` adjustment reads; absent for an item with no inventory line. */
+  readonly inventoryItem?: InventoryItemId | undefined;
   /** The text the item reads as, when an alteration may replace it; absent for an item whose text is not altered. */
   readonly description?: RichText | undefined;
 }
@@ -200,9 +204,15 @@ function isAdjustment(rule: RuleInPlay): rule is AdjustmentInPlay {
   return rule.element.key === RuleElementKey.AdjustStrike;
 }
 
-/** Whether the adjustment reaches the weapon: its own predicate holds, and so does `strikes` over the weapon's roll options. */
-function reachesStrike({ facts }: ModifierInputs, { element }: AdjustmentInPlay, item: AlterableItem): boolean {
+/**
+ * Whether the adjustment reaches the weapon: its own predicate holds, so does `strikes` over the weapon's roll options,
+ * and an `etched` one comes from the inventory item the weapon is.
+ */
+function reachesStrike({ facts }: ModifierInputs, { element, origin }: AdjustmentInPlay, item: AlterableItem): boolean {
+  const owned =
+    element.etched !== true || (item.inventoryItem !== undefined && item.inventoryItem === inventoryItemOf(origin));
   return (
+    owned &&
     truthOf(element.predicate, facts) === Truth.True &&
     truthOf(element.strikes, facts.withNamespace(ITEM_NAMESPACE, item.rollOptions)) === Truth.True
   );
@@ -238,7 +248,8 @@ function adjustedBy(weapon: AlteredItem, { element, itemLevel }: AdjustmentInPla
 
 /**
  * `weapon` as the `AdjustStrike` elements in play change its Strike, in the order found. An element applies when its
- * predicate holds and its `strikes` predicate holds for the weapon's own roll options (all weapons when absent). Range
+ * predicate holds and its `strikes` predicate holds for the weapon's own roll options (all weapons when absent); an
+ * `etched` element reaches only the weapon of the inventory item it comes from. Range
  * increments follow the numeric rules of `alterItem`; a value that is a formula reads only `@item.level`. `origins`
  * keeps what `weapon` already had and adds each element that changed something.
  */

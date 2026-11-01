@@ -53,3 +53,22 @@ describe('CriticalSpecialization', () => {
     expect(RuleElement.safeParse({ key: 'CriticalSpecialization', alternate: true }).success).toBe(false);
   });
 });
+
+describe('AdjustStrike etched', () => {
+  test('parses on every property', () => {
+    const base = { key: 'AdjustStrike', etched: true };
+    const elements = [
+      { ...base, property: 'traits', mode: 'add', value: 'returning' },
+      { ...base, property: 'property-runes', mode: 'add', value: 'ghost-touch' },
+      { ...base, property: 'range-increment', mode: 'add', value: 10 },
+    ];
+
+    expect(elements.map((element) => RuleElement.safeParse(element).success)).toEqual([true, true, true]);
+  });
+
+  test('is only ever true', () => {
+    const element = { key: 'AdjustStrike', property: 'traits', mode: 'add', value: 'returning', etched: false };
+
+    expect(RuleElement.safeParse(element).success).toBe(false);
+  });
+});

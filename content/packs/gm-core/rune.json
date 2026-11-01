@@ -2431,7 +2431,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "property-runes",
+        "mode": "add",
+        "value": "ghost-touch",
+        "etched": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.JQdwHECogcTzdd8R"
     },

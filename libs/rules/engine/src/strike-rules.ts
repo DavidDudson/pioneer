@@ -6,7 +6,6 @@ import {
   DegreeOfSuccess,
   DiceCount,
   Domain,
-  OriginHopKind,
   RollOptionNamespace,
   RuleElementKey,
   RuleNumber,
@@ -18,7 +17,6 @@ import type {
   DamageDiceElement,
   DamageType,
   DieSize,
-  InventoryItemId,
   ModifierTarget,
   NoteElement,
   Origin,
@@ -30,7 +28,7 @@ import type {
 
 import type { StatisticContent } from './derive-statistics';
 import { proficiencyBonuses } from './proficiency-bonuses';
-import { itemScopeOf } from './rule-in-play';
+import { inventoryItemOf, itemScopeOf } from './rule-in-play';
 import type { ModifierInputs, RuleInPlay } from './rule-in-play';
 import { changed, truthOf, valueOf } from './rule-value';
 import { resolverFor } from './statistic-inputs';
@@ -108,12 +106,6 @@ const ALL = Domain.parse('all');
  * the same inventory item as the Strike's weapon.
  */
 export const ETCHED_DAMAGE = Domain.parse('etched-damage');
-
-/** The inventory item an origin starts at, when it starts at one. */
-function inventoryItemOf(origin: Origin | undefined): InventoryItemId | undefined {
-  const [hop] = origin?.hops ?? [];
-  return hop?.kind === OriginHopKind.Inventory ? hop.item : undefined;
-}
 
 /** Whether the rule comes from the inventory item the Strike's weapon is. */
 function ownsStrike(rule: RuleInPlay, { origin }: StrikeTargets): boolean {
