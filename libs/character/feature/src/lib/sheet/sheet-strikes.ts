@@ -1,11 +1,18 @@
 import { characterStrikeRules, equippedRules, heldShields, itemContent, withPlay } from '@pioneer/character/domain';
 import type { Character, TurnState } from '@pioneer/character/domain';
-import { deriveStrikes } from '@pioneer/rules/engine';
-import type { ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
+import { deriveStrikes, ruleIdOf } from '@pioneer/rules/engine';
+import type {
+  ModifierInputs,
+  RuleId,
+  StatisticResult,
+  Strike,
+  StrikeRulesInput,
+  WeaponInputs,
+} from '@pioneer/rules/engine';
 import { ActionCost, OriginHopKind, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { StatisticsMessage } from '@pioneer/rules/ui';
-import type { NamedStrike, StrikesShield } from '@pioneer/rules/ui';
+import type { NamedStrike, StrikeOffer, StrikeSituations, StrikesShield } from '@pioneer/rules/ui';
 
 import { affordability } from './sheet-actions';
 import { traitNames } from './sheet-build';
@@ -31,6 +38,47 @@ function weaponName(weapon: WeaponInputs, nameOf: (entry: ContentId) => string |
   return weapon.label === undefined ? { name: weapon.slug, nameKey: StatisticsMessage.Fist } : { name: weapon.label };
 }
 
+/** The Strikes with nothing claimed, which say what they offer to claim, and with `claims` counted. */
+interface ClaimedStrikes {
+  readonly offers: readonly Strike[];
+  readonly strikes: readonly Strike[];
+}
+
+/** The weapons to derive Strikes for and the sheet's derivation they are read against. */
+interface StrikeSource {
+  readonly weapons: readonly WeaponInputs[];
+  readonly derived: ReadonlyMap<Selector, StatisticResult>;
+}
+
+function deriveWithClaims(
+  { weapons, derived }: StrikeSource,
+  rules: StrikeRulesInput | undefined,
+  claims: SituationClaims,
+): ClaimedStrikes {
+  const offers = deriveStrikes(weapons, derived, rules);
+  const claimed =
+    claims.size === 0 || rules === undefined
+      ? offers
+      : deriveStrikes(weapons, derived, { ...rules, situations: claims });
+  return { offers, strikes: claimed };
+}
+
+/** The rule elements a Strike offers to claim for its damage, each with the entry it comes from, and which are claimed. */
+function damageSituations(
+  offered: readonly RuleId[],
+  rules: StrikeRulesInput | undefined,
+  claimed: ReadonlySet<RuleId> | undefined,
+): StrikeSituations {
+  const sources = new Map((rules?.inputs.rules ?? []).map((rule) => [ruleIdOf(rule), rule.origin.entry]));
+  return {
+    offered: offered.flatMap((id): StrikeOffer[] => {
+      const entry = sources.get(id);
+      return entry === undefined ? [] : [{ id, entry }];
+    }),
+    claimed: claimed ?? new Set(),
+  };
+}
+
 /**
  * A character's Strikes from the engine (#598, #481), in the order the engine reads its weapons: each held weapon's,
  * then those its features give, a fist or an attack of their own, from the sheet's one derivation
@@ -51,11 +99,15 @@ export function sheetStrikes(
   const slots = sheetSlotContent(registry);
   const nameOf = (entry: ContentId): string | undefined => slots.lookup.entry(entry)?.name;
   const rules = characterStrikeRules(sheetSources(registry, character), character.document);
-  const strikes = deriveStrikes(weapons, sheetDerivation(registry, character), rules);
+  const { offers, strikes } = deriveWithClaims(
+    { weapons, derived: sheetDerivation(registry, character) },
+    rules,
+    claims,
+  );
   const traits = traitNames(registry);
   const selectors = strikes.flatMap(({ attack }) => (attack?.ok === true ? [attack.selector] : []));
   const found = checkSituations(registry, character, { selectors, claims });
-  return strikes.flatMap((strike): NamedStrike[] => {
+  return strikes.flatMap((strike, index): NamedStrike[] => {
     if (strike.attack === undefined) {
       return [];
     }
@@ -66,6 +118,7 @@ export function sheetStrikes(
         traits: strike.weapon.traits.map((trait) => traits.get(trait) ?? trait),
         strike: check === undefined ? strike : { ...strike, attack: check.statistic },
         situations: check?.situations,
+        damageSituations: damageSituations(offers[index]?.conditional ?? [], rules, claims.get(strike.attack.selector)),
       },
     ];
   });

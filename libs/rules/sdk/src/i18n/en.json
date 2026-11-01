@@ -938,6 +938,7 @@
       "shield": "{name}: Hardness {hardness}, HP {hitPoints}, Broken Threshold {brokenThreshold}",
       "shieldUndamageable": "{name}: Hardness {hardness}, can't be damaged",
       "persistent": "{formula} persistent {type}",
+      "damageCondition": "Extra damage when its condition holds ({name})",
       "splash": "{amount} {type} splash",
       "rangeIncrement": "Range increment {range} ft",
       "materials": "Made of {materials}",

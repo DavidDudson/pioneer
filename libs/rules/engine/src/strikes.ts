@@ -86,6 +86,8 @@ export function damageDice(weapon: WeaponInputs): DiceCount | undefined {
 export interface StrikeRulesInput {
   readonly inputs: ModifierInputs;
   readonly scope: StrikeScope;
+  /** The situations claimed for each Strike's next roll, by its attack selector (`strike:<slug>`), counted on top of `inputs.situation`. */
+  readonly situations?: ReadonlyMap<Selector, ReadonlySet<RuleId>> | undefined;
 }
 
 /** The selectors and domains of a weapon's attack roll, as Foundry names them, and `picked:<flag>-attack` for each pick of it. */
@@ -114,7 +116,12 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
     return undefined;
   }
   const { damage } = weapon;
-  return strikeRules(rules.inputs, rules.scope, {
+  const claimed = rules.situations?.get(Selector.parse(`${ATTACK}:${weapon.slug}`));
+  const inputs: ModifierInputs =
+    claimed === undefined
+      ? rules.inputs
+      : { ...rules.inputs, situation: new Set([...(rules.inputs.situation ?? []), ...claimed]) };
+  return strikeRules(inputs, rules.scope, {
     dice: damageDice(weapon) ?? DiceCount.parse(0),
     die: damage?.die,
     damageType: damage?.damageType ?? DamageType.Bludgeoning,
