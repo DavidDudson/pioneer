@@ -51,6 +51,12 @@ describe('parseDiceExpression', () => {
     expect(splash?.tags).toEqual({ category: DamageCategory.Splash, type: 'acid' });
   });
 
+  test('the ignore-resistance tag, in any order with the type', () => {
+    const [first, second] = parsed('1d6[ignore-resistance,fire]+1d4[fire]').terms;
+    expect(first?.tags).toEqual({ type: 'fire', ignoreResistance: true });
+    expect(second?.tags).toEqual({ type: 'fire' });
+  });
+
   test('a leading minus and a bare die', () => {
     expect(parsed('-2+d8')).toEqual(
       DiceExpression.parse({

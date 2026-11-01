@@ -902,7 +902,7 @@
       "propertyRunes": "Property runes: {runes}",
       "quantity": "{count} in stack",
       "suppressed": "Replaced by your form: {names}. The base sheet lists them.",
-      "extraDice": "Plus {dice} {type}{hasCategory, select, yes { {category}} other {}}{critical, select, yes { on a critical hit} other {}}",
+      "extraDice": "Plus {dice} {type}{hasCategory, select, yes { {category}} other {}}{critical, select, yes { on a critical hit} other {}}{ignoresResistance, select, yes {, ignoring resistance} other {}}",
       "category": {
         "precision": "precision",
         "persistent": "persistent",

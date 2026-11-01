@@ -93,6 +93,13 @@ describe('applyDamage', () => {
     expect(result.taken).toBe(amount(4));
   });
 
+  test('a term tagged ignore-resistance skips resistance, and its whole instance with it', () => {
+    const defences = target({ resistances: [adjustment(DamageType.Fire, 5)] });
+    const result = applyDamage(roll('1d6[fire]+1d6[fire,ignore-resistance]', [4, 3]), defences);
+    expect(result.taken).toBe(amount(7));
+    expect(applyDamage(roll('1d6[fire]+1d6[cold,ignore-resistance]', [4, 3]), defences).taken).toBe(amount(3));
+  });
+
   test('untyped damage ignores type immunities, weaknesses and resistances', () => {
     const defences = target({
       immunities: [Immunity.parse('slashing')],

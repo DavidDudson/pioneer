@@ -1,9 +1,11 @@
-import { Sign, TermKind } from './expression';
+import { IGNORE_RESISTANCE, Sign, TermKind } from './expression';
 import type { DamageTags, DiceExpression, Term } from './expression';
 import { DiceExpressionText } from './units';
 
 function formatTags(tags: DamageTags): DiceExpressionText {
-  const names = [tags.category, tags.type].filter((name) => name !== undefined);
+  const names = [tags.category, tags.type, tags.ignoreResistance === true ? IGNORE_RESISTANCE : undefined].filter(
+    (name) => name !== undefined,
+  );
   return DiceExpressionText.parse(names.length === 0 ? '' : `[${names.join(',')}]`);
 }
 

@@ -22,7 +22,7 @@ import type { StatisticSituations } from '../statistics/statistics.component';
 import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
-import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage } from './strikes-messages';
+import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage, yesNo } from './strikes-messages';
 
 /** Slugs as words: `cold-iron` as "cold iron", joined by commas. */
 function wordsOf(slugs: readonly Slug[]): string {
@@ -260,13 +260,13 @@ export class StrikesView {
     return this.#i18n.translate(key, params);
   }
 
-  #extra({ count, die, damageType, category, critical }: ExtraDice): string {
+  #extra({ count, die, damageType, category, critical, ignoresResistance }: ExtraDice): string {
     return this.#say(StrikesMessage.ExtraDice, {
       dice: `${count}${die}`,
       type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]),
       hasCategory: category === undefined ? 'no' : 'yes',
       category: category === undefined ? '' : this.#say(DAMAGE_CATEGORY_MESSAGES[category]),
-      critical: critical ? 'yes' : 'no',
+      ...yesNo({ critical, ignoresResistance }),
     });
   }
 

@@ -19,6 +19,9 @@ export const DamageCategory = { Persistent: 'persistent', Splash: 'splash' } as 
 export type DamageCategory = ValueOf<typeof DamageCategory>;
 export const DamageCategorySchema = z.enum(DamageCategory);
 
+/** The tag that makes a term's damage ignore resistance. */
+export const IGNORE_RESISTANCE = 'ignore-resistance';
+
 export const TermKind = { Dice: 'dice', Flat: 'flat' } as const;
 export type TermKind = ValueOf<typeof TermKind>;
 
@@ -29,6 +32,8 @@ export type Keep = z.infer<typeof Keep>;
 export const DamageTags = z.object({
   type: DamageTypeSchema.optional(),
   category: DamageCategorySchema.optional(),
+  /** The damage of the term's type ignores the target's resistance to it (`[fire,ignore-resistance]`). */
+  ignoreResistance: z.boolean().optional(),
 });
 export type DamageTags = z.infer<typeof DamageTags>;
 

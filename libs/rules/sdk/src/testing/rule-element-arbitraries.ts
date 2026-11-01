@@ -189,7 +189,13 @@ const actorTraits = oneof(
 );
 const strike = element('Strike', { fist: constant(true) });
 const diceNumber = integer({ min: 0, max: LIST_MAX });
-const diceOptional = { slug: slugText, damageType, category: anyOf(DamageDiceCategory), critical: boolean() };
+const diceOptional = {
+  slug: slugText,
+  damageType,
+  category: anyOf(DamageDiceCategory),
+  critical: boolean(),
+  ignoreResistance: boolean(),
+};
 const dice = (required: Readonly<Record<string, Arbitrary<unknown>>>, optional = {}): Arbitrary<object> =>
   element('DamageDice', { selectors: targets, ...required }, { ...diceOptional, ...optional });
 const damageDice = oneof(
