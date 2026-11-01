@@ -133,6 +133,21 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
     expect(await response.json()).toStrictEqual({ packs: [] });
   });
 
+  test('an unchanged manifest answers its ETag with a 304, and a stale one with the manifest', async () => {
+    await seedOfficialContent(database.db, clock, ignore);
+    const first = await api.handle(get('/content/manifest'));
+    const etag = String(first.headers.get('etag'));
+
+    const unchanged = await request('/content/manifest', { 'if-none-match': etag });
+    const stale = await request('/content/manifest', { 'if-none-match': '"old"' });
+
+    expect(etag).toMatch(/^"[\da-f]{16}"$/u);
+    expect(unchanged.status).toBe(304);
+    expect(await unchanged.text()).toBe('');
+    expect(unchanged.headers.get('etag')).toBe(etag);
+    expect(stale.status).toBe(200);
+  });
+
   test('every official pack is served as bundles, each immutable', async () => {
     await seedOfficialContent(database.db, clock, ignore);
 
