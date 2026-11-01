@@ -140,7 +140,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fly-speed"],
+        "type": "item",
+        "value": 10
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.CJtn848AL7Q0Lxf2"
     },

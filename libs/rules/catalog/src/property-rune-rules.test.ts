@@ -123,7 +123,6 @@ const ARMOUR_GAPS: ReadonlySet<string> = new Set([
   'rune:ready',
   'rune:ready-greater',
   'rune:self-sealing',
-  'rune:soaring',
   'rune:spellwatch',
   'rune:swallow-spike',
   'rune:swallow-spike-greater',
@@ -140,8 +139,9 @@ interface BonusRune {
   readonly actions?: readonly string[];
 }
 
-/** The armour runes that give an item bonus to a skill. */
+/** The armour runes that give an item bonus: to a skill, or to a Speed. */
 const BONUS_RUNES: readonly BonusRune[] = [
+  { slug: 'rune:soaring', selector: 'fly-speed', bonus: 10 },
   { slug: 'rune:shadow', selector: 'skill:stealth', bonus: 1 },
   { slug: 'rune:shadow-greater', selector: 'skill:stealth', bonus: 2 },
   { slug: 'rune:shadow-major', selector: 'skill:stealth', bonus: 3 },
