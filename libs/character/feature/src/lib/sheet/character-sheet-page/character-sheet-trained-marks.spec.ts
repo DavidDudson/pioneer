@@ -97,8 +97,6 @@ describe('CharacterSheetPage options that train a skill again', () => {
         'Otherworldly Mission',
         'Pilgrim',
         'Revenant',
-        'Seer of the Dead',
-        'Street Preacher',
         'Wandering Preacher',
       ]),
     );

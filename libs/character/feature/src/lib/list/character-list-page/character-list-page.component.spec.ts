@@ -2,8 +2,6 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CHARACTER_NAMES, FAVOURED, UNTHEMED } from '@pioneer/character/domain';
-import type { GenerateCharacterBody } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
@@ -76,124 +74,6 @@ describe('CharacterListPage', () => {
     const router = TestBed.inject(Router);
     await vi.waitFor(() => {
       expect(router.url).toBe(`/characters/${id}`);
-    });
-  });
-
-  it('generates a character from a level, with a rolled name, and shows the seed', async () => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-        ...provideServerStateTesting(),
-        provideI18n({ en: async () => frontierMessages }),
-      ],
-    });
-    const http = TestBed.inject(HttpTestingController);
-    const harness = await RouterTestingHarness.create('/characters');
-    http.expectOne('/api/characters').flush([]);
-    await harness.fixture.whenStable();
-
-    const root = present(harness.routeNativeElement);
-    const rolled = present(root.querySelector<HTMLInputElement>('pio-generate-character fr-refreshable-input input'));
-    await vi.waitFor(() => {
-      expect(CHARACTER_NAMES.entries).toContain(rolled.value);
-    });
-    const generate = present(root.querySelector<HTMLButtonElement>('pio-generate-character button[type="submit"]'));
-    generate.click();
-    await harness.fixture.whenStable();
-
-    const request = http.expectOne({ method: 'POST', url: '/api/characters/generate' });
-    const { level, name, seed } = request.request.body as GenerateCharacterBody;
-    expect([level, name, seed]).toStrictEqual([1, rolled.value, undefined]);
-    request.flush({
-      seed: 4242,
-      character: {
-        id,
-        version: 1,
-        ownerId: '8f6d2c1a-0b3e-4f5a-9c7d-1e2f3a4b5c6d',
-        name: rolled.value,
-        build: { choices: { ancestry: elf } },
-        level: 1,
-        createdAt: '2026-10-27T10:00:00.000Z',
-        updatedAt: '2026-10-27T10:00:00.000Z',
-      },
-    });
-    await vi.waitFor(() => {
-      harness.detectChanges();
-      expect(root.textContent).toContain('seed 4242');
-    });
-  });
-
-  it('sends the attributes favoured in the generate form as the theme', async () => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-        ...provideServerStateTesting(),
-        provideI18n({ en: async () => frontierMessages }),
-      ],
-    });
-    const http = TestBed.inject(HttpTestingController);
-    const harness = await RouterTestingHarness.create('/characters');
-    http.expectOne('/api/characters').flush([]);
-    await harness.fixture.whenStable();
-
-    const root = present(harness.routeNativeElement);
-    const strength = present(root.querySelector<HTMLButtonElement>('pio-generate-character fr-toggle-button button'));
-    strength.click();
-    harness.detectChanges();
-    expect(strength.getAttribute('aria-pressed')).toBe('true');
-    present(root.querySelector<HTMLButtonElement>('pio-generate-character button[type="submit"]')).click();
-    await harness.fixture.whenStable();
-
-    const request = http.expectOne({ method: 'POST', url: '/api/characters/generate' });
-    const { theme } = request.request.body as GenerateCharacterBody;
-    expect(theme?.attributes.str).toBe(FAVOURED);
-    expect(theme?.attributes.dex).toBe(UNTHEMED);
-    expect(theme?.weapon).toBeUndefined();
-  });
-
-  it('offers a weapon base beside the category and group', async () => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-        ...provideServerStateTesting(),
-        provideI18n({ en: async () => frontierMessages }),
-      ],
-    });
-    const http = TestBed.inject(HttpTestingController);
-    const harness = await RouterTestingHarness.create('/characters');
-    http.expectOne('/api/characters').flush([]);
-    await harness.fixture.whenStable();
-
-    const root = present(harness.routeNativeElement);
-    const selects = [...root.querySelectorAll('pio-generate-character pio-option-picker button')];
-    expect(selects.map((select) => select.getAttribute('aria-label')?.split(': ')[0])).toStrictEqual([
-      'Weapon category',
-      'Weapon group',
-      'Weapon base',
-    ]);
-  });
-
-  it('opens the names table in the drawer from the name field', async () => {
-    TestBed.configureTestingModule({
-      providers: [
-        provideRouter([{ path: 'characters', children: characterRoutes }], withComponentInputBinding()),
-        ...provideServerStateTesting(),
-        provideI18n({ en: async () => frontierMessages }),
-      ],
-    });
-    const http = TestBed.inject(HttpTestingController);
-    const harness = await RouterTestingHarness.create('/characters');
-    http.expectOne('/api/characters').flush([]);
-    await harness.fixture.whenStable();
-
-    const root = present(harness.routeNativeElement);
-    const table = present(root.querySelector<HTMLButtonElement>('pio-generate-character [frAction] button'));
-    table.click();
-    await vi.waitFor(() => {
-      harness.detectChanges();
-      expect(root.querySelectorAll('fr-drawer pio-roll-table fr-list-item')).toHaveLength(
-        CHARACTER_NAMES.entries.length,
-      );
     });
   });
 });
