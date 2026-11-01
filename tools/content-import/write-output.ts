@@ -13,7 +13,8 @@ import { Glob } from 'bun';
 
 import { addOutcomesToText } from './apply-outcomes.ts';
 import type { FreshDescriptions } from './apply-outcomes.ts';
-import { clearAppliedGaps, gappedEntries, mergeRules, withMergedRules } from './apply-rules.ts';
+import { mergeRulesIntoText } from './apply-rules-text.ts';
+import { clearAppliedGaps, gappedEntries, mergeRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
 import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
@@ -79,17 +80,22 @@ export interface AppliedOutput {
   readonly applied: number;
 }
 
-/** The committed entry files of the target pack, with `merge`'s rules in the ones it touches. */
-async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promise<readonly PackWrite[]> {
+/** A committed file and the text to write to it. */
+interface PackText {
+  readonly path: string;
+  readonly text: string;
+}
+
+/** The committed entry files of the target pack that `merge` touches, with its rules laid into their text. */
+async function mergedEntryFiles(targets: PackTargets, merge: RulesMerge): Promise<readonly PackText[]> {
   const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
   const scanned = await scan('*.json', directory);
   const files = scanned.filter((file) => path.posix.basename(file) !== MANIFEST);
   const changed = await Promise.all(
     files.map(async (file) => {
-      const raw: unknown = await Bun.file(path.join(ROOT, file)).json();
-      const entries = ContentEntryFile.parse(raw);
-      const touched = entries.some(({ id }) => merge.has(id));
-      return touched && Array.isArray(raw) ? [{ path: file, json: withMergedRules(raw, merge) }] : [];
+      const text = await Bun.file(path.join(ROOT, file)).text();
+      const merged = mergeRulesIntoText(text, merge);
+      return merged === text ? [] : [{ path: file, text: merged }];
     }),
   );
   return changed.flat();
@@ -101,10 +107,11 @@ function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): Readonly
   return new Set([...gapped].filter((entry) => imported.has(entry)));
 }
 
-/** Writes `writes`, formats them and returns their paths. */
-async function writeAndFormat(writes: readonly PackWrite[]): Promise<readonly string[]> {
+/** Writes `texts` and `writes`, formats them and returns their paths. */
+async function writeAndFormat(texts: readonly PackText[], writes: readonly PackWrite[]): Promise<readonly string[]> {
+  await Promise.all(texts.map(async ({ path: file, text }) => Bun.write(path.join(ROOT, file), text)));
   await Promise.all(writes.map(async (each) => write(each)));
-  const written = writes.map(({ path: file }) => file);
+  const written = [...texts, ...writes].map(({ path: file }) => file);
   await format(written);
   return written;
 }
@@ -126,7 +133,7 @@ export async function applyRules(
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
   const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);
-  const written = await writeAndFormat([...files, cleared]);
+  const written = await writeAndFormat(files, [cleared]);
   return { written, applied: merge.size };
 }
 
