@@ -13,19 +13,18 @@ import {
   Stack,
   ToggleButton,
 } from '@pioneer/frontier';
-import type { ContentId } from '@pioneer/rules/sdk';
 import { ENTRY_PREVIEWS, FeatPicker } from '@pioneer/rules/ui';
-import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
+import type { EntryPreviews } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { FeatDisplayStore } from '../../data/feat-display-store';
-import { sheetEntryPreview } from '../sheet-entry-previews';
 import { SheetFeatGroupList } from '../sheet-feat-group/sheet-feat-group.component';
 import { featFieldsOf } from '../sheet-feat-picks';
 import { FEAT_CONTENT_KINDS } from '../sheet-feats';
 import { injectFilterSources } from '../sheet-filter-sources';
+import { sheetSectionPreviews } from '../sheet-section-previews';
 import {
   FEAT_FILTER_MESSAGES,
   SheetSlotFilterPanel,
@@ -62,10 +61,10 @@ const LOADING_SLOTS = 3;
     TranslocoPipe,
   ],
   templateUrl: './sheet-feats.component.html',
-  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetFeats) }],
+  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetFeats).previews }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SheetFeats implements EntryPreviews {
+export class SheetFeats {
   /** Placeholder pickers while the feats load: a 1st-level character's. */
   protected readonly filterMessages = FEAT_FILTER_MESSAGES;
   protected readonly loadingSlots = Array.from({ length: LOADING_SLOTS }, (_unused, index) => index);
@@ -97,9 +96,7 @@ export class SheetFeats implements EntryPreviews {
   });
 
   /** What a feat row previews on hover, read from the loaded registry. */
-  public preview(id: ContentId): EntryPreview | undefined {
-    return sheetEntryPreview(this.feats.data(), id);
-  }
+  public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.feats.data());
 
   protected showGrantOnly(shown: boolean): void {
     this.#display.show(FeatDisplaySection.Feats, shown);

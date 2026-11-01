@@ -13,9 +13,9 @@ import { PlayStore } from '../../data/play-store';
 import { activeRows } from '../sheet-active-list';
 import { effectOptions, effectViews, steppedView } from '../sheet-effects';
 import type { EffectOption, EffectView } from '../sheet-effects';
-import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { EQUIPMENT_CONTENT_KINDS } from '../sheet-equipment';
 import { describeSaveError } from '../sheet-field';
+import { sheetSectionPreviews } from '../sheet-section-previews';
 import { SheetState } from '../sheet-state';
 import { sheetFormTempHp } from '../sheet-statistics';
 import { SheetEffectAdd } from './sheet-effect-add.component';
@@ -52,7 +52,7 @@ export class SheetEffects {
 
   protected readonly registry = injectContentRegistry(EQUIPMENT_CONTENT_KINDS);
   /** What an effect's name previews: its entry, from the registry the list was built from. */
-  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.registry.data());
+  public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;
   protected readonly allySource = EffectSourceKind.Ally;
   protected readonly gmSource = EffectSourceKind.Gm;
@@ -81,7 +81,10 @@ export class SheetEffects {
     const spells = this.#play.play.data()?.play.activeSpells ?? [];
     return registry === undefined
       ? []
-      : activeRows(registry, { activeSpells: spells, effects: [] }).map(({ id, name }) => ({ value: id, label: name }));
+      : activeRows(registry, { activeSpells: spells, effects: [] }).map(({ id, name }) => ({
+          value: id,
+          label: name,
+        }));
   });
 
   /** Whether an edit is in flight: they share one revision, so a second would meet a conflict nothing caused. */
