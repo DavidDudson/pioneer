@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { Grid, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
-import type { ContentId, Proficiency, Selector } from '@pioneer/rules/sdk';
+import { Grid, Skeleton, Surface } from '@pioneer/frontier';
+import { BaseTermKind } from '@pioneer/rules/engine';
+import { StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId, Selector } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
-import { ProficiencyRankView } from '../proficiency-rank/proficiency-rank.component';
 import { StatisticsView } from '../statistics/statistics.component';
 import type { NamedStatistic } from '../statistics/statistics.component';
 import { VitalBasisKind } from './vital';
@@ -16,39 +17,51 @@ import type { Vital } from './vital';
 /** A save's selector starts so: `save:fortitude`. */
 const SAVE_PREFIX = 'save:';
 
-/** A vital as shown: its statistic as the one-row list `pio-statistics` takes, and what sets it. */
+/** The class DC's selector, and the start of a spell DC's: `spell-dc:oracle`. */
+const CLASS_DC = 'class-dc';
+const SPELL_DC_PREFIX = 'spell-dc:';
+
+/** What a base term reading the proficiency bonus starts with. */
+const PROF_TERM = '@prof.';
+
+/** A vital with no rank as shown: its statistic as the one-row list `pio-statistics` takes. */
 interface VitalTile {
   readonly key: Selector;
   readonly list: readonly NamedStatistic[];
-  readonly rank: Proficiency | undefined;
-  /** What sets Armor Class, worded: the worn armour's name, or unarmored; undefined for any other vital. */
-  readonly caption: string | undefined;
 }
 
-/** One card of the row: a tile for a single statistic, or the saves together, laid out as skills are. */
+/** One card of the row: a tile for a statistic with no rank, or rows laid out as skills are (Armor Class, DCs, saves). */
 interface VitalBlock {
   readonly key: Selector;
   readonly tile?: VitalTile;
-  readonly saves: readonly NamedStatistic[];
+  readonly rows: readonly NamedStatistic[];
 }
 
 /** Placeholder tiles while the vitals load: Armor Class, three saves and Perception. */
 const LOADING_TILES = 5;
 
 /** Message keys the vitals render with, spelled out so the key check sees them. */
-const VitalsMessage = { Unarmored: 'rules.vitals.unarmored' } as const;
+const VitalsMessage = { Unarmored: 'rules.vitals.unarmored', Proficiency: 'rules.vitals.proficiency' } as const;
 
-function isSave({ statistic }: Vital): boolean {
-  return statistic.result.selector.startsWith(SAVE_PREFIX);
+/** Vitals that share one card: the saves, and the class DC with the spell DCs. */
+const VitalGroup = { Saves: 'saves', Dcs: 'dcs' } as const;
+type VitalGroup = (typeof VitalGroup)[keyof typeof VitalGroup];
+
+function groupOf({ statistic }: Vital): VitalGroup | undefined {
+  const selector: string = statistic.result.selector;
+  if (selector.startsWith(SAVE_PREFIX)) {
+    return VitalGroup.Saves;
+  }
+  return selector === CLASS_DC || selector.startsWith(SPELL_DC_PREFIX) ? VitalGroup.Dcs : undefined;
 }
 
-/** A save as a skill-style row: its statistic with the rank the row shows as a badge. */
-function rowOf({ statistic, rank }: Vital): NamedStatistic {
-  return { ...statistic, rank };
+/** A vital as a skill-style row: its statistic with the rank the row shows as a badge, and what sets it as its note. */
+function rowOf({ statistic, rank }: Vital, rankNote?: string): NamedStatistic {
+  return { ...statistic, rank, rankNote };
 }
 
-function tileOf({ statistic, rank }: Vital, caption: string | undefined): VitalTile {
-  return { key: statistic.result.selector, list: [statistic], rank, caption };
+function tileOf({ statistic }: Vital): VitalTile {
+  return { key: statistic.result.selector, list: [statistic] };
 }
 
 /**
@@ -64,7 +77,7 @@ function tileOf({ statistic, rank }: Vital, caption: string | undefined): VitalT
  */
 @Component({
   selector: 'pio-vitals',
-  imports: [Grid, ProficiencyRankView, Skeleton, Stack, StatisticsView, Surface, Text],
+  imports: [Grid, Skeleton, StatisticsView, Surface],
   templateUrl: './vitals.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -89,20 +102,51 @@ export class VitalsView {
     if (vitals === undefined) {
       return undefined;
     }
-    const saves = vitals.filter((vital) => isSave(vital)).map((vital) => rowOf(vital));
-    let savesPlaced = false;
+    const rowsOf = (group: VitalGroup): NamedStatistic[] =>
+      vitals.flatMap((vital) => (groupOf(vital) === group ? [rowOf(vital), ...this.#proficiencyRows(vital)] : []));
+    const placed = new Set<VitalGroup>();
     return vitals.flatMap((vital): VitalBlock[] => {
-      if (!isSave(vital)) {
-        const tile = tileOf(vital, this.#captionOf(vital));
-        return [{ key: tile.key, tile, saves: [] }];
+      const group = groupOf(vital);
+      if (group === undefined) {
+        const caption = this.#captionOf(vital);
+        if (vital.rank !== undefined) {
+          return [{ key: vital.statistic.result.selector, rows: [rowOf(vital, caption)] }];
+        }
+        const tile = tileOf(vital);
+        return [{ key: tile.key, tile, rows: [] }];
       }
-      if (savesPlaced) {
+      if (placed.has(group)) {
         return [];
       }
-      savesPlaced = true;
-      return [{ key: vital.statistic.result.selector, saves }];
+      placed.add(group);
+      return [{ key: vital.statistic.result.selector, rows: rowsOf(group) }];
     });
   });
+
+  /** The class DC's proficiency bonus as a row of its own: the `@prof` term of the DC's base, so a variant rule shows. */
+  #proficiencyRows({ statistic }: Vital): NamedStatistic[] {
+    const { result } = statistic;
+    if (result.selector !== CLASS_DC || !result.ok) {
+      return [];
+    }
+    const term = result.base.find((each) => each.kind === BaseTermKind.Term && each.formula.startsWith(PROF_TERM));
+    if (term === undefined) {
+      return [];
+    }
+    const { value } = term;
+    const shown = {
+      ...result,
+      base: [term],
+      formulaValue: value,
+      baseValue: value,
+      lines: [],
+      computed: value,
+      total: value,
+      overrides: [],
+      pinnedBy: undefined,
+    };
+    return [{ name: this.#i18n.translate(VitalsMessage.Proficiency), kind: StatisticKind.Value, result: shown }];
+  }
 
   /** What sets Armor Class, worded: the worn armour's name, or unarmored. Other vitals have none. */
   #captionOf({ basis }: Vital): string | undefined {

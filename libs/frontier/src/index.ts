@@ -101,6 +101,7 @@ export { Grid, GridAlign, GridColumns, GridMinItem, GridQuery } from './lib/layo
 export { Page } from './lib/layout/page/page.component';
 export { PageAside } from './lib/layout/page-aside/page-aside.component';
 export { Rail } from './lib/layout/rail/rail.component';
+export { Responsive } from './lib/layout/responsive/responsive.component';
 export { PageBody } from './lib/layout/page-body/page-body.component';
 export { Drawer } from './lib/layout/drawer/drawer.component';
 export { DrawerWidth } from './lib/layout/drawer/drawer-width';

@@ -40,14 +40,16 @@ const ROWED = ['Fortitude', 'Reflex', 'Will', 'Perception'] as const;
 
 /** The vitals' headings, AC first and Speed last, with the totals of the saves' and Perception's rows between. */
 function vitalsOf(root: HTMLElement): readonly string[] {
-  const [armor, speed] = [...present(root.querySelector('pio-vitals')).querySelectorAll('summary')].map((summary) =>
-    textOf(summary),
-  );
+  const vitals = present(root.querySelector('pio-vitals'));
+  const armor = present(vitals.querySelector('fr-list-item'));
+  const speed = present(vitals.querySelector('summary'));
   const rows = ROWED.map((name) => {
     const roll = present(root.querySelector(`button[aria-label^="Roll ${name}"]`));
     return `${name} ${textOf(roll)}`;
   });
-  return [present(armor), ...rows, present(speed)];
+  const armorName = textOf(present(armor.querySelector('fr-text')));
+  const armorTotal = textOf(present(armor.querySelector('pio-statistic-total')));
+  return [`${armorName} ${armorTotal}`, ...rows, textOf(speed)];
 }
 
 /** Opens the Plan tab, answering the character's variant rules with `rules`. */

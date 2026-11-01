@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
-import { FIGHTER_VITALS, UNARMORED_VITALS } from '../testing/vitals-fixtures';
+import { FIGHTER_VITALS } from '../testing/vitals-fixtures';
 import type { Vital } from './vital';
 import { VitalsView } from './vitals.component';
 
@@ -27,23 +27,14 @@ function textOf(element: Element | null | undefined): string | undefined {
   return element?.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-/** Each tile's summary, the rank read out, and the caption beside the rank. */
-function tilesOf(host: HTMLElement): (string | undefined)[][] {
-  return [...host.querySelectorAll('fr-surface')].map((tile) => [
-    textOf(tile.querySelector('[frDisclosureSummary]')),
-    textOf(tile.querySelector('pio-proficiency-rank .sr-only')),
-    textOf(
-      [...tile.querySelectorAll('fr-text')].find(
-        (text) => text.closest('pio-statistics, pio-proficiency-rank') === null,
-      ),
-    ),
-  ]);
-}
-
 describe(VitalsView, () => {
-  it('shows each vital with its total, its rank read out by name, and what sets Armor Class', async () => {
+  it('shows Armor Class as a row laid out as a skill, with its total and its rank read out by name', async () => {
     const host = await render(FIGHTER_VITALS);
-    expect(tilesOf(host)[0]).toStrictEqual(['Armor Class 20', 'Trained', 'Breastplate']);
+    const row = present(host.querySelector('fr-surface fr-list-item'));
+    expect(textOf(row)).toContain('Armor Class');
+    expect(textOf(row)).toContain('20');
+    expect(textOf(row.querySelector('pio-proficiency-rank .sr-only'))).toBe('Trained');
+    expect(row.querySelector('[frDisclosureSummary]')).toBeNull();
   });
 
   it('puts the saves together in one card, a row each laid out as a skill, with no card of their own apiece', async () => {
@@ -57,11 +48,6 @@ describe(VitalsView, () => {
     ]);
     expect(card.querySelector('[frDisclosureSummary]')).toBeNull();
     expect(textOf(present(rows[0]).querySelector('pio-proficiency-rank .sr-only'))).toBe('Expert');
-  });
-
-  it('says Armor Class is unarmored when no armour sets it', async () => {
-    const host = await render(UNARMORED_VITALS);
-    expect(tilesOf(host)).toStrictEqual([['Armor Class 20', 'Trained', 'Unarmored']]);
   });
 
   it('shows a placeholder tile per vital while they load', async () => {

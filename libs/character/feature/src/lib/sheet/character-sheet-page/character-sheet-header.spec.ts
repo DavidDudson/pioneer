@@ -103,10 +103,18 @@ describe('CharacterSheetPage header', () => {
         'TTrained',
       ]);
     });
-    // The item fixtures name their entries after their slugs.
-    const vitals = vitalsNow();
-    expect(vitals.textContent).toContain('Leather-armor');
-    expect(vitals.textContent).not.toContain('Unarmored');
+    // The armour is the note of the rank badge on the Armor Class row. The item fixtures name their entries after their slugs.
+    const armorClass = [...vitalsNow().querySelectorAll('fr-list-item')].find((item) =>
+      item.textContent.trim().startsWith('Armor Class'),
+    );
+    armorClass
+      ?.querySelector('pio-proficiency-badge button')
+      ?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    await vi.waitFor(() => {
+      const note = document.querySelector('[role="tooltip"]')?.textContent;
+      expect(note).toContain('Leather-armor');
+      expect(note).not.toContain('Unarmored');
+    });
   });
 
   it('opens Exploration at its own address when no tab is remembered', async () => {

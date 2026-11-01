@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SheetMode } from '@pioneer/character/domain';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
+import { offeredLabels, pickerCount } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import { render, settle, textOf } from '../../testing/sheet-tabs-testing';
@@ -84,5 +85,36 @@ describe('CharacterSheetPage sections', () => {
     await settle();
 
     expect(shownHeadings(root)).toStrictEqual(['Appearance and personality']);
+  });
+
+  it('offers the sections and then the panels in a dropdown, with the open section chosen', async () => {
+    const { harness, root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    const tabs = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-sheet-section-tabs'));
+    await vi.waitFor(() => {
+      expect(pickerCount(harness, tabs())).toBe(1);
+    });
+
+    expect(offeredLabels(harness, tabs())).toStrictEqual([
+      'Defences',
+      'Senses',
+      'Strikes',
+      'Actions',
+      'Spellcasting',
+      'Skills',
+      'Conditions',
+      'Environments',
+    ]);
+  });
+
+  it('opens a panel at its own address, below the dropdown, with no section shown', async () => {
+    const { root } = await openSheet(undefined, { tab: SheetMode.Encounter });
+    await TestBed.inject(Router).navigateByUrl(`/characters/${id}/encounter/conditions`);
+    await settle();
+
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-sheet-section-tabs pio-sheet-panel pio-sheet-conditions')).not.toBeNull();
+    });
+    expect(shownHeadings(root)).toStrictEqual([]);
+    expect(root.querySelector('pio-sheet-section-tabs pio-sheet-panel pio-skills')).toBeNull();
   });
 });

@@ -23,7 +23,11 @@
     <pio-sheet-overrides />
   </fr-section>
 
-  <fr-section [anchor]="sections.customEffects.anchor" [heading]="sections.customEffects.headingKey | transloco">
+  <fr-section
+    [concealed]="shown()?.anchor !== sections.customEffects.anchor"
+    [anchor]="sections.customEffects.anchor"
+    [heading]="sections.customEffects.headingKey | transloco"
+  >
     <pio-sheet-custom-effects />
   </fr-section>
 </fr-stack>
