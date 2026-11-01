@@ -8,6 +8,12 @@ describe('sha256', () => {
 
     expect(digest).toBe(Sha256.parse('ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'));
   });
+
+  test('names an unprefixed tag as it is', () => {
+    expect(archiveUrl(FoundryReleaseTag.parse('5.16.1'))).toBe(
+      'https://github.com/foundryvtt/pf2e/archive/refs/tags/5.16.1.tar.gz',
+    );
+  });
 });
 
 describe('ImportFile', () => {
@@ -15,6 +21,12 @@ describe('ImportFile', () => {
     const file = { pin: { tag: 'pf2e-8.6.0', sha256: 'a'.repeat(64) }, backlog: [] };
 
     expect(ImportFile.parse(file).pin.tag).toBe(FoundryReleaseTag.parse('pf2e-8.6.0'));
+  });
+
+  test('reads the unprefixed tag of a release before 6.0', () => {
+    const file = { pin: { tag: '5.16.1', sha256: 'a'.repeat(64) }, backlog: [] };
+
+    expect(ImportFile.parse(file).pin.tag).toBe(FoundryReleaseTag.parse('5.16.1'));
   });
 
   test.each([
@@ -30,6 +42,12 @@ describe('archiveUrl', () => {
   test('is the tag source archive on GitHub', () => {
     expect(archiveUrl(FoundryReleaseTag.parse('pf2e-8.6.0'))).toBe(
       'https://github.com/foundryvtt/pf2e/archive/refs/tags/pf2e-8.6.0.tar.gz',
+    );
+  });
+
+  test('names an unprefixed tag as it is', () => {
+    expect(archiveUrl(FoundryReleaseTag.parse('5.16.1'))).toBe(
+      'https://github.com/foundryvtt/pf2e/archive/refs/tags/5.16.1.tar.gz',
     );
   });
 });

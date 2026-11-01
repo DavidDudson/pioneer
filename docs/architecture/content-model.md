@@ -784,7 +784,9 @@ flowchart LR
   entries carry no `supersedes`; it stays for homebrew overrides and enrichment.
   `just aon-pages` keeps AoN's `remaster_id` for a legacy entry in `content/aon/supersedes/<book>.json`, and
   `just content-supersedes` sets `supersedes` on the remaster entry when both entries cite their AoN URL (a legacy
-  entry without one stays unlinked). Target books are a CLI argument;
+  entry without one stays unlinked). Legacy entries that a remaster entry replaces are to be imported from a second,
+  pre-remaster pin (`5.16.1`), selected by the `supersedes` files' names, because Foundry 8.6.0 rewrote them in place
+  (ADR-0077). Target books are a CLI argument;
   Foundry's publication title maps to a registered book in `libs/interop/foundry`. Item packs,
   journals and actor packs are read, and only item types with a Pioneer kind (`campaignFeature`, for one, has none);
   journals only for the archetypes Foundry keeps as pages. `selectCreatures` takes the `npc` actors of the target
