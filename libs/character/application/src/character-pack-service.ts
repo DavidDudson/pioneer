@@ -219,13 +219,17 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** The packs in force: the attached campaign's, else the owner's own that they may still read. */
-  async #inForce(character: Character, campaign: AttachedCampaign | undefined): Promise<readonly ContentPackId[]> {
+  async #inForce(
+    character: Character,
+    campaign: AttachedCampaign | undefined,
+    loaded?: readonly CatalogPack[],
+  ): Promise<readonly ContentPackId[]> {
     if (campaign !== undefined) {
       return campaign.packs;
     }
     const [rows, readable] = await Promise.all([
       this.#packs.listForCharacter(character.id),
-      this.#catalog.readableBy(character.ownerId),
+      loaded ?? this.#catalog.readableBy(character.ownerId),
     ]);
     // A pack made private since, or deleted, is not in force; its row comes back with the pack if it is shared again.
     const mayRead = new Set(readable.map((pack) => pack.id));
@@ -236,7 +240,9 @@ export class CharacterPackService extends EffectivePacks {
   async #view(character: Character): Promise<CharacterPacks> {
     const campaign = await this.#campaigns.of(character.id);
     const manageable = campaign === undefined;
-    const [ids, official] = await Promise.all([this.#inForce(character, campaign), this.#catalog.official()]);
+    // The owner's readable packs decide both what is in force and what could be added, so they are read once.
+    const readable = manageable ? await this.#catalog.readableBy(character.ownerId) : [];
+    const [ids, official] = await Promise.all([this.#inForce(character, campaign, readable), this.#catalog.official()]);
     const [known, requiredBy] = await Promise.all([this.#catalog.byIds(ids), this.#extending(ids)]);
     const homebrew = ids.flatMap((id): CatalogPack[] => {
       const pack = known.get(id);
@@ -250,7 +256,7 @@ export class CharacterPackService extends EffectivePacks {
       ...(campaign === undefined ? {} : { campaign: campaign.name }),
       manageable,
       enabled,
-      candidates: manageable ? await this.#candidates(character.ownerId, ids) : [],
+      candidates: manageable ? CharacterPackService.#candidates(readable, ids) : [],
       unsupported: await this.#unsupported(character, ids),
     };
   }
@@ -270,8 +276,7 @@ export class CharacterPackService extends EffectivePacks {
   }
 
   /** The packs the owner may read that the character does not use yet. */
-  async #candidates(owner: UserId, ids: readonly ContentPackId[]): Promise<readonly PackCandidate[]> {
-    const readable = await this.#catalog.readableBy(owner);
+  static #candidates(readable: readonly CatalogPack[], ids: readonly ContentPackId[]): readonly PackCandidate[] {
     const used = new Set(ids);
     return readable.filter((pack) => !pack.official && !used.has(pack.id)).map((pack) => candidateEntry(pack));
   }

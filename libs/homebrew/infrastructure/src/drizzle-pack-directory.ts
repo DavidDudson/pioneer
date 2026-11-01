@@ -5,7 +5,17 @@ import type { ContentPackId } from '@pioneer/rules/sdk';
 import { and, asc, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
-type PackRow = typeof contentPacks.$inferSelect;
+/** The columns a listing reads: not `data`, the pack's whole contents, which no listing uses. */
+const LISTED_COLUMNS = {
+  id: contentPacks.id,
+  ownerId: contentPacks.ownerId,
+  visibility: contentPacks.visibility,
+  slug: contentPacks.slug,
+  title: contentPacks.title,
+  publisher: contentPacks.publisher,
+};
+
+type PackRow = { readonly [Column in keyof typeof LISTED_COLUMNS]: (typeof contentPacks.$inferSelect)[Column] };
 
 /** A pack row as the directory lists it. An official pack has no owner. */
 function toListed(row: PackRow): ListedPack {
@@ -34,7 +44,7 @@ export class DrizzlePackDirectory extends PackDirectory {
 
   public override async findById(id: ContentPackId): Promise<ListedPack | undefined> {
     const [row] = await this.#db
-      .select()
+      .select(LISTED_COLUMNS)
       .from(contentPacks)
       .where(and(eq(contentPacks.id, id), isNull(contentPacks.archivedAt)))
       .limit(1);
@@ -44,7 +54,7 @@ export class DrizzlePackDirectory extends PackDirectory {
   public override async all(): Promise<readonly ListedPack[]> {
     // In primary key order, which the index serves; re-sorted by title here, as there are few packs.
     const rows = await this.#db
-      .select()
+      .select(LISTED_COLUMNS)
       .from(contentPacks)
       .where(isNull(contentPacks.archivedAt))
       .orderBy(asc(contentPacks.id));
