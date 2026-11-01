@@ -1,46 +1,36 @@
 <fr-page width="full">
-  <fr-page-header [title]="title()" />
+  <fr-page-header titleHidden [title]="title()">
+    <fr-grid frPageIdentity gap="sm" [columns]="6">
+      <pio-sheet-character-block />
+      <pio-sheet-armor-class />
+      <pio-vitals
+        bare
+        [vitals]="sheet.vitals()"
+        [entryNames]="sheet.picks.entryNames()"
+        [originNames]="sheet.originNames()"
+      />
+    </fr-grid>
+    <fr-tabs frPageTabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
+      @for (tab of tabs; track tab.mode) {
+        <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+      }
+    </fr-tabs>
+  </fr-page-header>
   <fr-page-body>
     <fr-stack gap="lg">
-      <fr-tabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
-        @for (tab of tabs; track tab.mode) {
-          <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
-        }
-      </fr-tabs>
       <fr-stack horizontalFrom="lg" gap="lg" align="start">
         <pio-sheet-panels />
         <fr-stack gap="lg" grow>
           <fr-stack gap="sm">
-            <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-              <fr-async-region>
-                <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
-                <ng-template [frAsyncData]="sheet.registry">
-                  @if (sheet.identity(); as identity) {
-                    <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-                  } @else {
-                    <fr-skeleton width="md" />
-                  }
-                </ng-template>
-              </fr-async-region>
+            <fr-stack direction="horizontal" justify="end" align="center" gap="sm" wrap>
               <pio-sheet-header-actions />
             </fr-stack>
             <pio-sheet-form />
             <pio-sheet-form-picker />
-            <pio-sheet-hit-points />
             <pio-sheet-death-track />
             <pio-sheet-resources pool="focus-points" />
             <pio-sheet-counted />
             <pio-sheet-last-roll />
-            <fr-async-region>
-              <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
-              <ng-template [frAsyncData]="sheet.engineQuery()">
-                <pio-vitals
-                  [vitals]="sheet.vitals()"
-                  [entryNames]="sheet.picks.entryNames()"
-                  [originNames]="sheet.originNames()"
-                />
-              </ng-template>
-            </fr-async-region>
           </fr-stack>
 
           <router-outlet />

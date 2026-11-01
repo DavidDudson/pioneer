@@ -29,6 +29,8 @@ export const Expanded: VitalsStory = {
   play: async ({ canvasElement, userEvent }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByText('20'));
-    await expect(canvas.getByText('Breastplate counts instead.')).toBeVisible();
+    // The card opens in the overlay container on the body, not in the canvas.
+    const overlay = within(canvasElement.ownerDocument.body);
+    await expect(await overlay.findByText('Breastplate counts instead.')).toBeVisible();
   },
 };

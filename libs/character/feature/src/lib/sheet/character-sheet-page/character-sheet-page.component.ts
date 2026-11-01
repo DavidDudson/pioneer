@@ -2,24 +2,13 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input } f
 import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/character/domain';
-import {
-  AsyncData,
-  AsyncPending,
-  AsyncRegion,
-  DateDisplay,
-  Page,
-  PageBody,
-  PageHeader,
-  Skeleton,
-  Stack,
-  Tab,
-  Tabs,
-  Text,
-} from '@pioneer/frontier';
+import { DateDisplay, Grid, Page, PageBody, PageHeader, Skeleton, Stack, Tab, Tabs, Text } from '@pioneer/frontier';
 import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
+import { SheetArmorClass } from '../sheet-armor-class/sheet-armor-class.component';
+import { SheetCharacterBlock } from '../sheet-character-block/sheet-character-block.component';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
@@ -27,12 +16,11 @@ import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
-import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
-import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
@@ -50,20 +38,19 @@ import { SheetState } from '../sheet-state';
 @Component({
   selector: 'pio-character-sheet-page',
   imports: [
-    AsyncData,
-    AsyncPending,
-    AsyncRegion,
     DateDisplay,
+    Grid,
     Page,
     PageBody,
     PageHeader,
     RouterOutlet,
+    SheetArmorClass,
+    SheetCharacterBlock,
     SheetDeathTrack,
     SheetCounted,
     SheetForm,
     SheetFormPicker,
     SheetHeaderActions,
-    SheetHitPoints,
     SheetLastRoll,
     SheetPanels,
     SheetResources,

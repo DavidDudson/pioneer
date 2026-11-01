@@ -4,52 +4,28 @@
     <fr-async-region>
       <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
       <ng-template [frAsyncData]="engineQuery()">
-        @if (hp(); as hp) {
-          <fr-stack gap="xs">
-            <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-              <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
-              @if (hp.temp > 0) {
-                <fr-text tone="info">{{ 'character.sheet.hp.temp' | transloco: { temp: hp.temp } }}</fr-text>
+        <fr-stack gap="md">
+          @if (hp(); as hp) {
+            <fr-stack gap="xs" align="center">
+              <fr-stack direction="horizontal" align="baseline" gap="xs">
+                <fr-text variant="display" numeric>{{ hp.current }}</fr-text>
+                @if (hp.temp > 0) {
+                  <fr-text tone="info" numeric>{{ 'character.sheet.hp.temp' | transloco: { temp: hp.temp } }}</fr-text>
+                }
+              </fr-stack>
+              <fr-meter
+                [label]="'character.sheet.hp.label' | transloco"
+                [value]="hp.current"
+                [max]="hp.max"
+                [optimum]="hp.max"
+              />
+              @if (state(); as state) {
+                <fr-text tone="muted" variant="caption">{{ state | transloco }}</fr-text>
               }
             </fr-stack>
-            <fr-meter
-              [label]="'character.sheet.hp.label' | transloco"
-              [value]="hp.current"
-              [max]="hp.max"
-              [optimum]="hp.max"
-            />
-            @for (line of granted(); track line) {
-              <fr-text tone="muted">{{ line }}</fr-text>
-            }
-            <fr-stack direction="horizontal" align="center" gap="xs" wrap>
-              <fr-number-input
-                [ariaLabel]="'character.sheet.hp.amount' | transloco"
-                [min]="0"
-                [max]="amountMax"
-                [value]="amount()"
-                (valueChange)="amount.set($event)"
-                (completeChange)="complete.set($event)"
-              />
-              <fr-toggle-button [value]="critical()" (valueChange)="critical.set($event)">{{
-                'character.sheet.hp.critical' | transloco
-              }}</fr-toggle-button>
-              <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
-                {{ 'character.sheet.hp.damage' | transloco }}
-              </fr-async-button>
-              <fr-async-button size="sm" [action]="heal" [disabled]="!ready()" [describeError]="describeError">
-                {{ 'character.sheet.hp.heal' | transloco }}
-              </fr-async-button>
-              <fr-async-button size="sm" [action]="setHp" [disabled]="!ready()" [describeError]="describeError">
-                {{ 'character.sheet.hp.set' | transloco }}
-              </fr-async-button>
-              <fr-async-button size="sm" [action]="setTempHp" [disabled]="!ready()" [describeError]="describeError">
-                {{ 'character.sheet.hp.setTemp' | transloco }}
-              </fr-async-button>
-            </fr-stack>
-          </fr-stack>
-        } @else {
-          <fr-text tone="muted">{{ 'character.sheet.hp.noMax' | transloco }}</fr-text>
-        }
+          }
+          <pio-sheet-hit-point-controls />
+        </fr-stack>
       </ng-template>
     </fr-async-region>
   </ng-template>

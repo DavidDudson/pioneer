@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { Grid, Skeleton, Surface } from '@pioneer/frontier';
@@ -37,8 +38,8 @@ interface VitalBlock {
   readonly rows: readonly NamedStatistic[];
 }
 
-/** Placeholder tiles while the vitals load: Armor Class, three saves and Perception. */
-const LOADING_TILES = 5;
+/** Placeholder tiles while the vitals load: the three saves. */
+const LOADING_TILES = 3;
 
 /** Message keys the vitals render with, spelled out so the key check sees them. */
 const VitalsMessage = { Unarmored: 'rules.vitals.unarmored', Proficiency: 'rules.vitals.proficiency' } as const;
@@ -65,8 +66,8 @@ function tileOf({ statistic }: Vital): VitalTile {
 }
 
 /**
- * The sheet's vitals row: Armor Class with what sets it, the saves and Perception, each with its total, its rank as a
- * letter and its breakdown in place. A tile per statistic, as many to a row as fit.
+ * The sheet's vitals row: the saves and the class DC (and Armor Class with what sets it, where the caller passes it),
+ * each with its total, its rank as a letter and its breakdown in place. A tile per statistic, as many to a row as fit.
  *
  * Read-only and presentational (ADR-0028): the caller passes the vitals in display order, or undefined while they
  * load, and the display names of the entries their breakdown lines come from.
@@ -77,9 +78,10 @@ function tileOf({ statistic }: Vital): VitalTile {
  */
 @Component({
   selector: 'pio-vitals',
-  imports: [Grid, Skeleton, StatisticsView, Surface],
+  imports: [Grid, NgTemplateOutlet, Skeleton, StatisticsView, Surface],
   templateUrl: './vitals.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[class.contents]': 'bare()' },
 })
 export class VitalsView {
   /** Undefined while loading: the row then shows placeholder tiles. */
@@ -87,6 +89,8 @@ export class VitalsView {
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
+  /** Lays the cards out without a grid of their own, as children of the caller's grid. */
+  public readonly bare = input(false, { transform: booleanAttribute });
 
   protected readonly loadingTiles = [...Array.from({ length: LOADING_TILES }).keys()];
 

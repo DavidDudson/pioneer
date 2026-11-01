@@ -1,0 +1,34 @@
+@if (shown(); as armor) {
+  <fr-stack align="center" gap="xs">
+    <fr-stack direction="horizontal" align="center" gap="xs">
+      <pio-proficiency-badge [rank]="armor.rank" [sources]="armor.rankSources" [note]="armor.basis" />
+      <fr-text weight="semibold">{{ armor.name }}</fr-text>
+    </fr-stack>
+    @if (armor.statistic; as statistic) {
+      <fr-hover-card>
+        <fr-button [variant]="inline">
+          <fr-text variant="display" numeric>{{ armor.total }}</fr-text>
+        </fr-button>
+        <ng-template frHoverCardContent>
+          <pio-breakdown
+            [statistic]="statistic"
+            [kind]="armor.kind"
+            [entryNames]="entryNames()"
+            [originNames]="originNames()"
+          />
+        </ng-template>
+      </fr-hover-card>
+      @if (armor.computed; as unpinned) {
+        <fr-stack direction="horizontal" align="center" gap="xs">
+          <fr-badge tone="warning">{{ Pinned | transloco }}</fr-badge>
+          <fr-text tone="muted" numeric>{{ unpinned }}</fr-text>
+        </fr-stack>
+      }
+      @if (armor.adjusted) {
+        <fr-badge tone="info">{{ Adjusted | transloco }}</fr-badge>
+      }
+    } @else {
+      <fr-text tone="danger">{{ armor.error }}</fr-text>
+    }
+  </fr-stack>
+}

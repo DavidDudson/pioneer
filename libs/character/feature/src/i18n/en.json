@@ -535,6 +535,11 @@
     "hp": {
       "label": "Hit Points",
       "temp": "+{temp} temporary",
+      "state": {
+        "bloodied": "Bloodied",
+        "critical": "Near death",
+        "down": "Down"
+      },
       "amount": "Amount",
       "damage": "Damage",
       "critical": "Critical hit",

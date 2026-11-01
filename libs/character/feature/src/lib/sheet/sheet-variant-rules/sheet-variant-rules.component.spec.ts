@@ -38,17 +38,17 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
 /** The statistics whose rows list a total outside the vitals' headings: the three saves, and Perception among the skills. */
 const ROWED = ['Fortitude', 'Reflex', 'Will', 'Perception'] as const;
 
-/** The vitals' headings, AC first and Speed last, with the totals of the saves' and Perception's rows between. */
+/** The Armor Class block's heading, then the vitals' headings with the totals of the saves' and Perception's rows, Speed last. */
 function vitalsOf(root: HTMLElement): readonly string[] {
   const vitals = present(root.querySelector('pio-vitals'));
-  const armor = present(vitals.querySelector('fr-list-item'));
+  const armor = present(root.querySelector('pio-armor-class'));
   const speed = present(vitals.querySelector('summary'));
   const rows = ROWED.map((name) => {
     const roll = present(root.querySelector(`button[aria-label^="Roll ${name}"]`));
     return `${name} ${textOf(roll)}`;
   });
-  const armorName = textOf(present(armor.querySelector('fr-text')));
-  const armorTotal = textOf(present(armor.querySelector('pio-statistic-total')));
+  const armorName = textOf(present(armor.querySelector('pio-proficiency-badge + fr-text')));
+  const armorTotal = textOf(present(armor.querySelector('fr-text[variant="display"]')));
   return [`${armorName} ${armorTotal}`, ...rows, textOf(speed)];
 }
 

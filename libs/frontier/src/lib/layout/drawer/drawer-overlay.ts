@@ -18,6 +18,16 @@ export function showDialog(dialog: HTMLDialogElement, modal: boolean): void {
   dialog.scrollTop = scrollTop;
 }
 
+/** `element`, or the nearest ancestor that takes room when it is a `display: contents` wrapper, which has no width. */
+function roomOf(element: Element): Element {
+  const view = element.ownerDocument.defaultView;
+  let room = element;
+  while (view?.getComputedStyle(room).display === 'contents' && room.parentElement !== null) {
+    room = room.parentElement;
+  }
+  return room;
+}
+
 /**
  * Calls `onChange` with whether `container` is narrower than `lg`, now and on every resize. The container's width is
  * what counts, not the viewport's: the drawer's own width beside the page says nothing about the room the page has.
@@ -30,7 +40,7 @@ export function watchNarrow(container: Element, remPx: number, onChange: (narrow
       onChange(width < LG_REM * remPx);
     }
   });
-  observer.observe(container);
+  observer.observe(roomOf(container));
   return () => {
     observer.disconnect();
   };

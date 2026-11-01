@@ -1,5 +1,5 @@
-import type { ActiveCondition, ConditionInstanceId } from '@pioneer/character/domain';
-import { ContentKind } from '@pioneer/rules/sdk';
+import type { ActiveCondition, ConditionInstanceId, PlayState } from '@pioneer/character/domain';
+import { ContentKind, slugName } from '@pioneer/rules/sdk';
 import type { ConditionValue, ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 
 /** Whether two reads of the conditions hold the same ones, so a play edit that leaves them alone derives nothing again. */
@@ -100,4 +100,25 @@ export function conditionViews(
       },
     ];
   });
+}
+
+/**
+ * The name parts of the slugs of the conditions on the character, the death track's first (`dying`, `wounded`,
+ * `doomed`), each once, as a party avatar takes them. A condition the content lacks is left out.
+ */
+export function conditionSlugs(
+  registry: ContentRegistry,
+  play: Pick<PlayState, 'conditions' | 'dying' | 'wounded' | 'doomed' | 'dead'>,
+): readonly string[] {
+  const slugs = new Map(registry.packs.flatMap((pack) => pack.otherEntries.map((entry) => [entry.id, entry.slug])));
+  const track = [
+    play.dying > 0 || play.dead ? 'dying' : undefined,
+    play.wounded > 0 ? 'wounded' : undefined,
+    play.doomed > 0 ? 'doomed' : undefined,
+  ];
+  const named = play.conditions.map(({ condition }) => {
+    const slug = slugs.get(condition);
+    return slug === undefined ? undefined : slugName(slug);
+  });
+  return [...new Set([...track, ...named].filter((name) => name !== undefined))];
 }

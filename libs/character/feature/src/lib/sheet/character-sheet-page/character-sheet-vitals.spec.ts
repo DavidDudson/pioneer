@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, playOf, present } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { fakeDialog, textOf } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 
 const CHARM = '88888888-8888-4888-8888-888888888888';
@@ -46,8 +46,14 @@ describe('CharacterSheetPage vitals from rule elements', () => {
   it('shows the fast healing, temporary Hit Points and size an invested item gives', async () => {
     const { root } = await openSheet(wearingCharm(true), { play: playOf(0, 0), packs: PACKS });
 
+    // The granted lines are in the controls, which the avatar opens.
+    fakeDialog();
     await vi.waitFor(() => {
-      const text = textOf(hitPointsOf(root));
+      present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
+      expect(root.querySelector('pio-sheet-hit-point-controls')).not.toBeNull();
+    });
+    await vi.waitFor(() => {
+      const text = textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls')));
       expect(text).toContain('Fast healing 2. Stopped by Fire damage.');
       expect(text).toContain('4 temporary Hit Points from effects.');
       expect(text).toContain('Size Large, reach 10 feet.');
@@ -57,8 +63,10 @@ describe('CharacterSheetPage vitals from rule elements', () => {
   it('shows nothing from an item that is not invested', async () => {
     const { root } = await openSheet(wearingCharm(false), { play: playOf(0, 0), packs: PACKS });
 
+    fakeDialog();
     await vi.waitFor(() => {
-      expect(textOf(hitPointsOf(root))).toContain('Hit Points');
+      present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
+      expect(root.querySelector('pio-sheet-hit-point-controls input')).not.toBeNull();
     });
     const text = textOf(hitPointsOf(root));
     expect(text).not.toContain('Fast healing');
@@ -93,7 +101,7 @@ describe('CharacterSheetPage speeds from rule elements', () => {
     });
 
     await vi.waitFor(() => {
-      expect(textOf(vitalsOf(root))).toContain('Armor Class');
+      expect(textOf(vitalsOf(root))).toContain('Fortitude');
     });
     expect(textOf(vitalsOf(root))).not.toMatch(/(?:Fly|Swim|Climb|Burrow) Speed/u);
   });
