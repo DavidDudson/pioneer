@@ -1,20 +1,27 @@
-<fr-stack direction="horizontal" align="center" gap="sm">
-  @if (character(); as character) {
-    <fr-character-avatar
-      [name]="character.name"
-      [current]="hp()?.current"
-      [max]="hp()?.max"
-      [temp]="hp()?.temp ?? 0"
-      [failedSaves]="failedSaves()"
-    >
-      <pio-condition-badge frCharacterAvatarStart [conditions]="conditions()" />
-    </fr-character-avatar>
-  } @else {
-    <fr-skeleton width="md" />
-  }
-  @if (identity(); as identity) {
-    <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-  } @else {
-    <fr-skeleton width="md" />
-  }
-</fr-stack>
+<fr-surface padding="sm">
+  <fr-stack align="center" gap="xs">
+    @if (character(); as character) {
+      <fr-button variant="inline" [ariaLabel]="'character.sheet.hp.label' | transloco" (click)="open.set(true)">
+        <fr-character-avatar
+          [name]="character.name"
+          [current]="hp()?.current"
+          [max]="hp()?.max"
+          [temp]="hp()?.temp ?? 0"
+          [failedSaves]="failedSaves()"
+        >
+          <pio-condition-badge frCharacterAvatarStart [conditions]="conditions()" />
+        </fr-character-avatar>
+      </fr-button>
+      <fr-modal [title]="'character.sheet.hp.label' | transloco" [(open)]="open">
+        <pio-sheet-hit-points />
+      </fr-modal>
+    } @else {
+      <fr-skeleton width="md" />
+    }
+    @if (identity(); as identity) {
+      <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+    } @else {
+      <fr-skeleton width="md" />
+    }
+  </fr-stack>
+</fr-surface>

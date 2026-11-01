@@ -42,7 +42,7 @@ function hitPointControlsOf(root: HTMLElement): string {
 /** Presses the Hit Points block, which opens the controls. */
 function openHitPoints(root: HTMLElement): void {
   fakeDialog();
-  present(root.querySelector<HTMLElement>('pio-sheet-hit-points button')).click();
+  present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
 }
 
 describe('CharacterSheetPage form speed and size', () => {

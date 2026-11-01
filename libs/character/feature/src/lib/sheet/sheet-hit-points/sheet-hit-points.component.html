@@ -4,39 +4,28 @@
     <fr-async-region>
       <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
       <ng-template [frAsyncData]="engineQuery()">
-        @if (hp(); as hp) {
-          <fr-surface padding="sm">
-            <fr-button variant="inline" (click)="open.set(true)">
-              <fr-stack gap="xs" align="center">
-                <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
-                <fr-stack direction="horizontal" align="baseline" gap="xs">
-                  <fr-text variant="display" numeric>{{ hp.current }}</fr-text>
-                  @if (hp.temp > 0) {
-                    <fr-text tone="info" numeric>{{
-                      'character.sheet.hp.temp' | transloco: { temp: hp.temp }
-                    }}</fr-text>
-                  }
-                </fr-stack>
-                <fr-meter
-                  [label]="'character.sheet.hp.label' | transloco"
-                  [value]="hp.current"
-                  [max]="hp.max"
-                  [optimum]="hp.max"
-                />
-                @if (state(); as state) {
-                  <fr-text tone="muted" variant="caption">{{ state | transloco }}</fr-text>
+        <fr-stack gap="md">
+          @if (hp(); as hp) {
+            <fr-stack gap="xs" align="center">
+              <fr-stack direction="horizontal" align="baseline" gap="xs">
+                <fr-text variant="display" numeric>{{ hp.current }}</fr-text>
+                @if (hp.temp > 0) {
+                  <fr-text tone="info" numeric>{{ 'character.sheet.hp.temp' | transloco: { temp: hp.temp } }}</fr-text>
                 }
               </fr-stack>
-            </fr-button>
-            <fr-modal [title]="'character.sheet.hp.label' | transloco" [(open)]="open">
-              <pio-sheet-hit-point-controls />
-            </fr-modal>
-          </fr-surface>
-        } @else {
-          <fr-surface padding="sm">
-            <fr-text tone="muted">{{ 'character.sheet.hp.noMax' | transloco }}</fr-text>
-          </fr-surface>
-        }
+              <fr-meter
+                [label]="'character.sheet.hp.label' | transloco"
+                [value]="hp.current"
+                [max]="hp.max"
+                [optimum]="hp.max"
+              />
+              @if (state(); as state) {
+                <fr-text tone="muted" variant="caption">{{ state | transloco }}</fr-text>
+              }
+            </fr-stack>
+          }
+          <pio-sheet-hit-point-controls />
+        </fr-stack>
       </ng-template>
     </fr-async-region>
   </ng-template>

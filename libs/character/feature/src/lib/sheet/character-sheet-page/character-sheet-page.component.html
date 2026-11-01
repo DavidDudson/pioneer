@@ -1,9 +1,14 @@
 <fr-page width="full">
   <fr-page-header titleHidden [title]="title()">
-    <fr-grid frPageIdentity minItem="md" gap="sm">
+    <fr-grid frPageIdentity gap="sm" [columns]="6">
       <pio-sheet-character-block />
-      <pio-sheet-hit-points />
       <pio-sheet-armor-class />
+      <pio-vitals
+        bare
+        [vitals]="sheet.vitals()"
+        [entryNames]="sheet.picks.entryNames()"
+        [originNames]="sheet.originNames()"
+      />
     </fr-grid>
     <fr-tabs frPageTabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
       @for (tab of tabs; track tab.mode) {
@@ -26,16 +31,6 @@
             <pio-sheet-resources pool="focus-points" />
             <pio-sheet-counted />
             <pio-sheet-last-roll />
-            <fr-async-region>
-              <ng-template frAsyncPending><pio-vitals [vitals]="undefined" /></ng-template>
-              <ng-template [frAsyncData]="sheet.engineQuery()">
-                <pio-vitals
-                  [vitals]="sheet.vitals()"
-                  [entryNames]="sheet.picks.entryNames()"
-                  [originNames]="sheet.originNames()"
-                />
-              </ng-template>
-            </fr-async-region>
           </fr-stack>
 
           <router-outlet />

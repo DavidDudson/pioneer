@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { Grid, Skeleton, Surface } from '@pioneer/frontier';
@@ -77,9 +78,10 @@ function tileOf({ statistic }: Vital): VitalTile {
  */
 @Component({
   selector: 'pio-vitals',
-  imports: [Grid, Skeleton, StatisticsView, Surface],
+  imports: [Grid, NgTemplateOutlet, Skeleton, StatisticsView, Surface],
   templateUrl: './vitals.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '[class.contents]': 'bare()' },
 })
 export class VitalsView {
   /** Undefined while loading: the row then shows placeholder tiles. */
@@ -87,6 +89,8 @@ export class VitalsView {
   /** Display names of the entries the breakdown lines come from. */
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
+  /** Lays the cards out without a grid of their own, as children of the caller's grid. */
+  public readonly bare = input(false, { transform: booleanAttribute });
 
   protected readonly loadingTiles = [...Array.from({ length: LOADING_TILES }).keys()];
 

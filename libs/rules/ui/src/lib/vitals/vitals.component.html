@@ -1,4 +1,4 @@
-<fr-grid minItem="md" gap="sm">
+<ng-template #cards>
   @if (blocks(); as shown) {
     @for (block of shown; track block.key) {
       <fr-surface padding="sm">
@@ -19,4 +19,11 @@
       <fr-surface padding="sm"><fr-skeleton width="md" /></fr-surface>
     }
   }
-</fr-grid>
+</ng-template>
+@if (bare()) {
+  <ng-container [ngTemplateOutlet]="cards" />
+} @else {
+  <fr-grid minItem="md" gap="sm">
+    <ng-container [ngTemplateOutlet]="cards" />
+  </fr-grid>
+}

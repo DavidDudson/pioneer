@@ -13,6 +13,7 @@ import { SheetState } from '../sheet-state';
   imports: [ArmorClass, AsyncData, AsyncPending, AsyncRegion, DefenceIcons, Skeleton, Stack, Surface],
   templateUrl: './sheet-armor-class.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'contents' },
 })
 export class SheetArmorClass {
   protected readonly sheet = inject(SheetState);

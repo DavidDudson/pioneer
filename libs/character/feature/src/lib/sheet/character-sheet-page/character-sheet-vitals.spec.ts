@@ -46,12 +46,12 @@ describe('CharacterSheetPage vitals from rule elements', () => {
   it('shows the fast healing, temporary Hit Points and size an invested item gives', async () => {
     const { root } = await openSheet(wearingCharm(true), { play: playOf(0, 0), packs: PACKS });
 
-    await vi.waitFor(() => {
-      expect(textOf(hitPointsOf(root))).toContain('Hit Points');
-    });
-    // The granted lines are in the controls, which the block opens.
+    // The granted lines are in the controls, which the avatar opens.
     fakeDialog();
-    present(hitPointsOf(root).querySelector('button')).click();
+    await vi.waitFor(() => {
+      present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
+      expect(root.querySelector('pio-sheet-hit-point-controls')).not.toBeNull();
+    });
     await vi.waitFor(() => {
       const text = textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls')));
       expect(text).toContain('Fast healing 2. Stopped by Fire damage.');
@@ -63,8 +63,10 @@ describe('CharacterSheetPage vitals from rule elements', () => {
   it('shows nothing from an item that is not invested', async () => {
     const { root } = await openSheet(wearingCharm(false), { play: playOf(0, 0), packs: PACKS });
 
+    fakeDialog();
     await vi.waitFor(() => {
-      expect(textOf(hitPointsOf(root))).toContain('Hit Points');
+      present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
+      expect(root.querySelector('pio-sheet-hit-point-controls input')).not.toBeNull();
     });
     const text = textOf(hitPointsOf(root));
     expect(text).not.toContain('Fast healing');

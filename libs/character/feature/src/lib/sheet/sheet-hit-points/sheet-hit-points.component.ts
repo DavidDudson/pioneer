@@ -1,17 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import {
-  AsyncData,
-  AsyncPending,
-  AsyncRegion,
-  Button,
-  Meter,
-  Modal,
-  Skeleton,
-  Stack,
-  Surface,
-  Text,
-} from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Meter, Skeleton, Stack, Text } from '@pioneer/frontier';
 
 import { PlayStore } from '../../data/play-store';
 import { SheetState } from '../sheet-state';
@@ -20,36 +9,19 @@ import type { HitPointsView } from './hit-points-view';
 import { SheetHitPointControls } from './sheet-hit-point-controls.component';
 
 /**
- * The Hit Points block at the top of the sheet: the current number large, temporary Hit Points beside it when there are
- * any, the total, the bar, and under it a word for how hurt the character is. No controls and no number input: the
- * block is one button, and pressing it opens the damage, heal and temporary Hit Point controls in a modal. Until the
+ * What the Hit Points modal shows: the current number large, temporary Hit Points beside it when there are any, the
+ * bar, a word for how hurt the character is, and the damage, heal and temporary Hit Point controls. Until the
  * character has an ancestry and a class there is no maximum, so it says so instead.
  */
 @Component({
   selector: 'pio-sheet-hit-points',
-  imports: [
-    AsyncData,
-    AsyncPending,
-    AsyncRegion,
-    Button,
-    Meter,
-    Modal,
-    SheetHitPointControls,
-    Skeleton,
-    Stack,
-    Surface,
-    Text,
-    TranslocoPipe,
-  ],
+  imports: [AsyncData, AsyncPending, AsyncRegion, Meter, SheetHitPointControls, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-hit-points.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetHitPoints {
   readonly #play = inject(PlayStore);
   readonly #sheet = inject(SheetState);
-
-  /** Whether the controls are open in their modal. */
-  protected readonly open = signal(false);
 
   protected readonly hp = computed((): HitPointsView | undefined =>
     hitPointsView(this.#sheet.maxHitPoints(), this.#play.play.data()?.play.hp),
