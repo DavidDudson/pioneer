@@ -34,24 +34,21 @@ describe('CharacterSheetPage modes', () => {
     expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(4);
   });
 
-  it('shows AC and Speed in the vitals with their ranks, and what sets AC', async () => {
+  it('shows AC as a row laid out as a skill and Speed as a tile, each with its rank where it has one', async () => {
     const { root } = await openSheet();
     const vitalsOf = (): HTMLElement => present(root.querySelector('pio-vitals'));
 
     await vi.waitFor(() => {
-      expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual([
-        'Armor Class 12',
-        'Speed 30',
-      ]);
+      expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual(['Speed 30']);
     });
-    // AC's, the three saves' and the class DC's ranks, not the empty ones the rows inside the tiles hold for a skill's, nor Speed's.
+    const [ac] = [...vitalsOf().querySelectorAll('fr-list-item')];
+    expect(textOf(ac)).toContain('Armor Class');
+    expect(textOf(ac)).toContain('12');
+    // AC's and the three saves' ranks: not the empty ones the rows inside the tiles hold for a skill's, nor Speed's, and the class DC has none while the character has no class.
     const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')]
       .filter((rank) => rank.closest('summary') === null)
       .filter((rank) => textOf(rank) !== '');
-    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 5 }, () => 'UUntrained'));
-    expect(vitalsOf().textContent).toContain('Unarmored');
-    const ac = present(vitalsOf().querySelector('pio-breakdown'));
-    expect(ac.textContent).toContain('Base 12');
+    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 4 }, () => 'UUntrained'));
   });
 
   it('switches between the four tabs, each its own address, marking the open one', async () => {
