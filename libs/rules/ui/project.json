@@ -11,7 +11,8 @@
       "options": {
         "buildTarget": "web:build:development",
         "tsConfig": "libs/rules/ui/tsconfig.spec.json",
-        "runner": "vitest"
+        "runner": "vitest",
+        "setupFiles": ["libs/rules/ui/src/test-setup.ts"]
       }
     },
     "storybook": {

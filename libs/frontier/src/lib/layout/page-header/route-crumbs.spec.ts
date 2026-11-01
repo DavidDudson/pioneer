@@ -5,8 +5,10 @@ import { provideRouter, Router } from '@angular/router';
 import type { Routes } from '@angular/router';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import type { LinkTarget } from '../../actions/link/link.component';
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
-import { part, renderProjected } from '../../testing/render-projected';
+import { renderProjected } from '../../testing/render-projected';
+import { HeaderCrumbs } from '../header-crumbs/header-crumbs';
 import { PageHeader } from './page-header.component';
 import { CRUMB } from './route-crumbs';
 
@@ -37,20 +39,19 @@ const routes: Routes = [
   { path: 'plain', children: [] },
 ];
 
-/** One step of the trail as shown: its text (empty while a skeleton stands in) and where it links. */
+/** One step of the trail as the shell's header gets it: its text (`undefined` while loading) and where it links. */
 interface Step {
-  readonly label: string;
-  readonly href: string | undefined;
+  readonly label: string | undefined;
+  readonly href: LinkTarget | undefined;
 }
 
-/** The trail `fr-page-header` shows at `url`. */
+/** The trail `fr-page-header` hands the shell's header at `url`. */
 async function trailAt(url: string): Promise<Step[]> {
   await TestBed.inject(Router).navigateByUrl(url);
-  const root = await renderProjected(PageHeader, { title: 'Fireball' }, []);
-  return [...root.querySelectorAll('nav li')].map((item) => ({
-    label: item.textContent.trim(),
-    href: item.querySelector('a')?.getAttribute('href') ?? undefined,
-  }));
+  await renderProjected(PageHeader, { title: 'Fireball' }, []);
+  return TestBed.inject(HeaderCrumbs)
+    .trail()
+    .map(({ label, to }) => ({ label, href: to }));
 }
 
 describe('route crumbs', () => {
@@ -74,16 +75,16 @@ describe('route crumbs', () => {
     ]);
   });
 
-  it('shows a skeleton for a name that has not loaded yet, and the name once it has', async () => {
+  it('leaves the name empty until it has loaded, then fills it in', async () => {
     name.set(undefined);
     await TestBed.inject(Router).navigateByUrl('/content/spells/fireball');
-    const root = await renderProjected(PageHeader, { title: undefined }, []);
-    expect(root.querySelector('nav li:last-child fr-skeleton')).not.toBeNull();
-    expect(part(root, 'h1').getAttribute('aria-busy')).toBe('true');
+    await renderProjected(PageHeader, { title: undefined }, []);
+    const crumbs = TestBed.inject(HeaderCrumbs);
+    expect(crumbs.trail().at(-1)?.label).toBeUndefined();
 
     name.set('Fireball');
     TestBed.tick();
-    expect(root.querySelector('nav li:last-child')?.textContent.trim()).toBe('Fireball');
+    expect(crumbs.trail().at(-1)?.label).toBe('Fireball');
   });
 
   it('shows no trail on a route without crumbs or with a single one', async () => {
