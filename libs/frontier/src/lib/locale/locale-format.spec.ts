@@ -86,6 +86,14 @@ describe(LocaleFormat, () => {
       'Zwerg',
     ]);
   });
+
+  it('sorts names ignoring case and accents', () => {
+    const format = setup();
+    expect(
+      ['zèbre', 'Étoile', 'abeille', 'Eclair'].toSorted((left, right) => format.compareNames(left, right)),
+    ).toStrictEqual(['abeille', 'Eclair', 'Étoile', 'zèbre']);
+    expect(format.compareNames('Eclair', 'éCLAIR')).toBe(0);
+  });
 });
 
 describe(DateDisplay, () => {

@@ -77,9 +77,9 @@ export class ActionsAll {
     const lines = this.lines();
     return lines === undefined
       ? undefined
-      : filterActions(lines, this.#filters()).map((line) =>
-          this.#words.shown(line, { entries: this.entryNames(), items: this.originNames().items }),
-        );
+      : this.#words
+          .byName(filterActions(lines, this.#filters()))
+          .map((line) => this.#words.shown(line, { entries: this.entryNames(), items: this.originNames().items }));
   });
 
   protected setModes(modes: ReadonlySet<ActionMode>): void {

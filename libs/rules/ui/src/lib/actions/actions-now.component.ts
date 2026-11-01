@@ -51,7 +51,7 @@ export class ActionsNow {
       ? undefined
       : nowGroups(lines, this.mode()).map(({ cost, lines: grouped }): ShownGroup => ({
           heading: this.#words.cost(cost),
-          rows: grouped.map((line) => this.#words.shown(line, this.#names())),
+          rows: this.#words.byName(grouped).map((line) => this.#words.shown(line, this.#names())),
         }));
   });
 }
