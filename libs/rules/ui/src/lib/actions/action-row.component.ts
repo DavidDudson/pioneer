@@ -27,6 +27,8 @@ export interface ShownAction {
   readonly detail: string;
   /** The cost drawn as action icons, with its words; absent for a cost the icons cannot draw, which `detail` words. */
   readonly costIcon?: ActionCostIcon | undefined;
+  /** What an item action spends and has left ("2/3 uses"); absent for any other action. */
+  readonly resource?: string | undefined;
   /** Why it is not plainly available, worded. */
   readonly reasons: readonly string[];
   /** "+2 circumstance when your shield is raised (Steel Shield)": the roll's lines that apply only in some situations. */

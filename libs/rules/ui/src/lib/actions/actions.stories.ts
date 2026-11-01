@@ -7,6 +7,7 @@ import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import type { StatisticRoller } from '../statistics/statistic-roller';
 import {
   GRABBED_ACTIONS,
+  ITEM_ACTIONS,
   PRONE_ACTIONS,
   SHIELD_BLOCK_SUMMARY,
   SHIELD_RAISED_ACTIONS,
@@ -105,4 +106,15 @@ export const AllByName: ActionsStory = {
 /** Hover or focus a name to see its summary: cost, traits, trigger, requirements and the opening of the effect. */
 export const Summary: ActionsStory = {
   args: { lines: [{ ...SHIELD_BLOCK_SUMMARY.line, priority: 0 }, ...STANDING_ACTIONS] },
+};
+
+/** Items among the actions: a stack, the uses of an activation, and a staff's charges, each beside the name. */
+export const Items: ActionsStory = {
+  args: { lines: [...ITEM_ACTIONS, ...STANDING_ACTIONS] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('2 held')).toBeVisible();
+    await expect(canvas.getByText('1/1 uses')).toBeVisible();
+    await expect(canvas.getByText('3/4 charges')).toBeVisible();
+  },
 };

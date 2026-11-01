@@ -63,3 +63,19 @@ describe('spendOf for breath', () => {
     expect(spendOf(registry, useOf(action))).not.toHaveProperty('cast');
   });
 });
+
+describe('spendOf for a staff', () => {
+  const STAFF = '33333333-3333-4333-8333-333333333333';
+  const staffUse: ActionUse = {
+    line: { id: BARRIER, name: 'Barrier', cost: ActionCost.Two, payment: { staff: { item: STAFF, spell: BARRIER } } },
+    actions: undefined,
+  };
+
+  it('records the staff cast, so taking the spend back gives the charges back', () => {
+    expect(spendOf(registry, staffUse)).toMatchObject({ action: BARRIER, staff: { item: STAFF, spell: BARRIER } });
+  });
+
+  it('is not marked as a spell of the character’s own', () => {
+    expect(spendOf(registry, staffUse)).not.toHaveProperty('cast');
+  });
+});

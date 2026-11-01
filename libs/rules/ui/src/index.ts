@@ -82,6 +82,7 @@ export {
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
 export { StaffSpellsView } from './lib/staff-spells/staff-spells.component';
+export { STAFF_SPELL_BLOCK_MESSAGES } from './lib/staff-spells/staff-spells-messages';
 export {
   type WandCheckLine,
   WandBlock,
@@ -255,7 +256,8 @@ export {
   skillPickerColumns,
   slotPickerColumns,
 } from './lib/slot-picker/slot-picker-table';
-export type { ActionLine } from './lib/actions/action-line';
+export { ActionResourceKind } from './lib/actions/action-line';
+export type { ActionLine, ActionResource } from './lib/actions/action-line';
 export { ActionUser } from './lib/actions/action-user';
 export type { ActionUse, UsableLine, UsePayment } from './lib/actions/action-user';
 export { UseButtons } from './lib/actions/use-buttons.component';
