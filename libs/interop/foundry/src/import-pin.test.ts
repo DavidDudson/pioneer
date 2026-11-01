@@ -29,6 +29,16 @@ describe('ImportFile', () => {
     expect(ImportFile.parse(file).pin.tag).toBe(FoundryReleaseTag.parse('5.16.1'));
   });
 
+  test('reads the pin of the pre-remaster release beside the pack own pin', () => {
+    const file = {
+      pin: { tag: 'pf2e-8.6.0', sha256: 'a'.repeat(64) },
+      legacyPin: { tag: '5.16.1', sha256: 'b'.repeat(64) },
+      backlog: [],
+    };
+
+    expect(ImportFile.parse(file).legacyPin?.tag).toBe(FoundryReleaseTag.parse('5.16.1'));
+  });
+
   test.each([
     { tag: 'v8.6.0', sha256: 'a'.repeat(64) },
     { tag: 'pf2e-8.6.0', sha256: 'A'.repeat(64) },
