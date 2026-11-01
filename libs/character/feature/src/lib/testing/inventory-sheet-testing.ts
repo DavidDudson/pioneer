@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CharacterId } from '@pioneer/character/domain';
+import { CharacterId, CORE_RULE_LIMITS } from '@pioneer/character/domain';
 import { ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId, KIT_FIXTURE_FILES } from '@pioneer/character/domain/testing';
 import { frontierMessages } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
@@ -15,7 +15,8 @@ import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
-import { answerPacksRead, answerPlayRead, answerRuleLimitsRead, answerVariantRulesRead } from './sheet-page-harness';
+import { answerItemApprovalsRead, answerSheetBundle } from './sheet-page-harness';
+import { NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
 
 export const id = CharacterId.parse('0d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e10');
 const BACKPACK = '11111111-1111-4111-8111-111111111111';
@@ -71,13 +72,17 @@ interface SheetReads {
   readonly limits?: boolean;
 }
 
-/** Answers the sheet's reads of Valeros's play state, packs and variant rules, none of them changed, and of its rule limits unless `limits` is off (a tab without the table rules never asks). */
-async function answerServerState({ approvals, limits = true }: SheetReads): Promise<void> {
-  await answerPlayRead();
-  await answerPacksRead();
-  await answerVariantRulesRead();
+/** Answers the sheet's read of Valeros with the bundle, nothing changed, and of the approvals unless `limits` is off (a tab without the table rules never asks). */
+async function answerServerState(character: object, { approvals, limits = true }: SheetReads): Promise<void> {
+  await answerSheetBundle({
+    sheet: { character, slots: [], languages: { known: [], open: 0 } },
+    ruleLimits: CORE_RULE_LIMITS,
+    play: playOf(0, 0),
+    packs: NO_CHARACTER_PACKS,
+    variantRules: NO_VARIANT_RULES,
+  });
   if (limits) {
-    await answerRuleLimitsRead(undefined, approvals);
+    await answerItemApprovalsRead(approvals);
   }
 }
 
@@ -101,12 +106,7 @@ async function openSheet(url: string, character: object, reads: SheetReads = {})
   onTestFinished(() => {
     host.remove();
   });
-  await vi.waitFor(() => {
-    TestBed.inject(HttpTestingController)
-      .expectOne(`/api/characters/${id}`)
-      .flush({ character, slots: [], languages: { known: [], open: 0 } });
-  });
-  await answerServerState(reads);
+  await answerServerState(character, reads);
   return present(harness.routeNativeElement);
 }
 

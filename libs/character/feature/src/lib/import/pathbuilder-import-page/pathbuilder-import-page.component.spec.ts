@@ -19,6 +19,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../../testing/provide-server-state-testing';
+import { sheetBundleOf } from '../../testing/sheet-reads-testing';
 
 function present<TValue>(value: TValue | null | undefined): TValue {
   if (value === null || value === undefined) {
@@ -245,10 +246,9 @@ describe('PathbuilderImportPage create', () => {
       { timeout: 3000 },
     );
     // The sheet reads the new character's slots from the server.
+    const sheetBody = sheetBundleOf({ character, slots: [], languages: { known: [], open: 0 } });
     await vi.waitFor(() => {
-      http
-        .expectOne({ method: 'GET', url: `/api/characters/${id}` })
-        .flush({ character, slots: [], languages: { known: [], open: 0 } });
+      http.expectOne({ method: 'GET', url: `/api/characters/${id}/sheet` }).flush(sheetBody);
     });
     const sheet = present(harness.routeNativeElement);
     await vi.waitFor(() => {

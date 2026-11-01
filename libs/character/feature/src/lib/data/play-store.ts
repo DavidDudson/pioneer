@@ -1,22 +1,11 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { CharacterContract } from '@pioneer/character/domain';
-import type {
-  CharacterId,
-  CharacterPlay,
-  PlayCommand,
-  PlayEdit,
-  TurnCommand,
-  TurnEvent,
-} from '@pioneer/character/domain';
+import type { CharacterPlay, PlayCommand, PlayEdit, TurnCommand, TurnEvent } from '@pioneer/character/domain';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
-
-/** TanStack Query key for a character's play state. */
-function playKey(id: CharacterId | undefined): readonly unknown[] {
-  return ['characters', 'play', id];
-}
 
 /**
  * The open character's play state with its revision (#343), cached by TanStack Query apart from the build: a play
@@ -32,7 +21,7 @@ export class PlayStore {
   public readonly play = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: playKey(id),
+      queryKey: characterKeys.play(id),
       queryFn: async (): Promise<CharacterPlay> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -60,18 +49,18 @@ export class PlayStore {
     const id = this.#id();
     // The cache, not the signal: the signal catches up a tick after an edit.
     // A second edit straight after the first must carry the revision the first one saved.
-    const current = this.#client.getQueryData<CharacterPlay>(playKey(id)) ?? this.play.data();
+    const current = this.#client.getQueryData<CharacterPlay>(characterKeys.play(id)) ?? this.play.data();
     if (id === undefined || current === undefined) {
       throw new Error('No play state loaded');
     }
     try {
       const body = { expectedRevision: current.revision, command };
       const { events, ...stored } = await this.#api.call(CharacterContract.patchPlay, { params: { id }, body });
-      this.#client.setQueryData(playKey(id), stored);
+      this.#client.setQueryData(characterKeys.play(id), stored);
       return events;
     } catch (error: unknown) {
       if (ApiError.isConflict(error)) {
-        await this.#client.invalidateQueries({ queryKey: playKey(id) });
+        await this.#client.invalidateQueries({ queryKey: characterKeys.play(id) });
       }
       throw error;
     }

@@ -25,16 +25,12 @@ import type { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
 import { ApiClient, ApiError } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { EditTracker } from './edit-tracker';
 import type { SaveState } from './edit-tracker';
+import { readSheet } from './sheet-bundle-seed';
 
-/** TanStack Query keys for the character feature. */
-export const characterKeys = {
-  all: ['characters'] as const,
-  list: () => [...characterKeys.all, 'list'] as const,
-  detail: (id: CharacterId | undefined) => [...characterKeys.all, 'detail', id] as const,
-  sheetMode: (id: CharacterId | undefined) => [...characterKeys.all, 'sheet-mode', id] as const,
-};
+export { characterKeys } from './character-query-keys';
 
 /** A switch of the character's sheet to another tab. */
 interface SheetModeSwitch {
@@ -69,7 +65,7 @@ export class CharacterStore {
         if (id === undefined) {
           throw new Error('No character selected');
         }
-        return this.#api.call(CharacterContract.get, { params: { id }, body: undefined });
+        return readSheet(this.#api, this.#client, id);
       },
       enabled: id !== undefined,
     };

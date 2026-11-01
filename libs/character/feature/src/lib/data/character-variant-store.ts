@@ -5,12 +5,8 @@ import type { VariantRuleId } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
-
-/** TanStack Query key for the variant rules a character uses. */
-function variantRulesKey(id: CharacterId | undefined): readonly unknown[] {
-  return ['characters', 'variant-rules', id];
-}
 
 /**
  * The variant rules the open character uses, cached by TanStack Query apart from the build: enabling one never changes
@@ -28,7 +24,7 @@ export class CharacterVariantStore {
   public readonly rules = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: variantRulesKey(id),
+      queryKey: characterKeys.variantRules(id),
       queryFn: async (): Promise<CharacterVariantRules> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -43,8 +39,8 @@ export class CharacterVariantStore {
   public async enable(variantId: VariantRuleId): Promise<void> {
     const id = this.#openId();
     const rules = await this.#api.call(CharacterContract.enableVariantRule, { params: { id }, body: { variantId } });
-    await this.#client.cancelQueries({ queryKey: variantRulesKey(id) });
-    this.#client.setQueryData(variantRulesKey(id), rules);
+    await this.#client.cancelQueries({ queryKey: characterKeys.variantRules(id) });
+    this.#client.setQueryData(characterKeys.variantRules(id), rules);
   }
 
   /** Stops the open character using a variant rule. */
@@ -54,8 +50,8 @@ export class CharacterVariantStore {
       params: { id, variantId },
       body: undefined,
     });
-    await this.#client.cancelQueries({ queryKey: variantRulesKey(id) });
-    this.#client.setQueryData(variantRulesKey(id), rules);
+    await this.#client.cancelQueries({ queryKey: characterKeys.variantRules(id) });
+    this.#client.setQueryData(characterKeys.variantRules(id), rules);
   }
 
   #openId(): CharacterId {

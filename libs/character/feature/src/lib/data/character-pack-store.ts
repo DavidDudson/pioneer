@@ -5,12 +5,8 @@ import type { ContentPackId } from '@pioneer/rules/sdk';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
-
-/** TanStack Query key for the packs a character uses. */
-function packsKey(id: CharacterId | undefined): readonly unknown[] {
-  return ['characters', 'packs', id];
-}
 
 /**
  * The packs the open character uses, cached by TanStack Query apart from the build: enabling one never changes the
@@ -28,7 +24,7 @@ export class CharacterPackStore {
   public readonly packs = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: packsKey(id),
+      queryKey: characterKeys.packs(id),
       queryFn: async (): Promise<CharacterPacks> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -43,8 +39,8 @@ export class CharacterPackStore {
   public async enable(packId: ContentPackId): Promise<void> {
     const id = this.#openId();
     const packs = await this.#api.call(CharacterContract.enablePack, { params: { id }, body: { packId } });
-    await this.#client.cancelQueries({ queryKey: packsKey(id) });
-    this.#client.setQueryData(packsKey(id), packs);
+    await this.#client.cancelQueries({ queryKey: characterKeys.packs(id) });
+    this.#client.setQueryData(characterKeys.packs(id), packs);
   }
 
   /**
@@ -54,12 +50,12 @@ export class CharacterPackStore {
   public async disable(packId: ContentPackId): Promise<void> {
     const id = this.#openId();
     const packs = await this.#api.call(CharacterContract.disablePack, { params: { id, packId }, body: undefined });
-    await this.#client.cancelQueries({ queryKey: packsKey(id) });
-    this.#client.setQueryData(packsKey(id), (shown: CharacterPacks | undefined): CharacterPacks => ({
+    await this.#client.cancelQueries({ queryKey: characterKeys.packs(id) });
+    this.#client.setQueryData(characterKeys.packs(id), (shown: CharacterPacks | undefined): CharacterPacks => ({
       ...packs,
       enabled: shown?.enabled ?? packs.enabled,
     }));
-    await this.#client.invalidateQueries({ queryKey: packsKey(id), refetchType: 'none' });
+    await this.#client.invalidateQueries({ queryKey: characterKeys.packs(id), refetchType: 'none' });
   }
 
   #openId(): CharacterId {

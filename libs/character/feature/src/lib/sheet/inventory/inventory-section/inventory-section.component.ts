@@ -65,6 +65,10 @@ export class InventorySection {
 
   readonly #store = inject(CharacterStore);
   readonly #limits = inject(CharacterRuleLimitStore);
+
+  public constructor() {
+    this.#limits.wantApprovals();
+  }
   protected readonly investedMax: Signal<InvestedCount> = computed(() => this.#limits.limits().investedMax);
 
   protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
