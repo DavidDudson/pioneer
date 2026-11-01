@@ -1,7 +1,7 @@
-import { DAMAGE_GROUP_TYPES, DamageContext, DamageGroup, DamageType } from '@pioneer/rules/sdk';
-import type { DamageAdjustment, DamageAdjustmentTarget, DamageException, DamageTarget } from '@pioneer/rules/sdk';
+import { DAMAGE_GROUP_TYPES, DamageAdjustmentTarget, DamageContext, DamageGroup, DamageType } from '@pioneer/rules/sdk';
+import type { DamageAdjustment, DamageAdjustmentSubject, DamageException, DamageTarget } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
-import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 
 import { DiceMessage } from './messages';
 import { DamageTotal } from './units';
@@ -22,28 +22,53 @@ export interface Source {
   readonly counts: readonly DamageException[];
 }
 
+const TARGETS: ReadonlySet<string> = new Set(Object.values(DamageAdjustmentTarget));
+
+/** Whether `subject` is a damage type, group or source, and not a material or property rune the damage counts as. */
+function isTarget(subject: DamageAdjustmentSubject): subject is DamageAdjustmentTarget {
+  return TARGETS.has(subject);
+}
+
+const CONTEXTS: ReadonlySet<string> = new Set(Object.values(DamageContext));
+
+/** Whether `target` is a source (area, splash, spell) and not a damage type or group. */
+function isContext(target: DamageAdjustmentTarget): target is DamageContext {
+  return CONTEXTS.has(target);
+}
+
+/** Whether `target` is a damage group, which covers the types in it. */
+function isGroup(target: DamageAdjustmentTarget): target is DamageGroup {
+  return Object.values<string>(DamageGroup).includes(target);
+}
+
+/** Whether `source` is of the kind `context` names: an area effect, splash damage or a spell. */
+function inContext(context: DamageContext, source: Source): boolean {
+  if (context === DamageContext.AreaDamage) {
+    return source.area;
+  }
+  return context === DamageContext.SplashDamage ? source.splash : source.spell;
+}
+
+/** Whether any of `types` is in `group`; `all` covers every instance. */
+function inGroup(group: DamageGroup, types: readonly DamageType[]): boolean {
+  if (group === DamageGroup.All) {
+    return true;
+  }
+  return types.some((type) => DAMAGE_GROUP_TYPES[group].includes(type));
+}
+
 /**
  * Whether a weakness or resistance naming `target` applies to an instance made of `types` (none: untyped) from
  * `source`. A weakness to splash damage applies to an instance that has any splash, once, as it does for a type.
  */
-function covers(target: DamageAdjustmentTarget, types: readonly DamageType[], source: Source): boolean {
-  if (target === DamageGroup.All) {
-    return true;
+function covers(target: DamageAdjustmentSubject, types: readonly DamageType[], source: Source): boolean {
+  if (!isTarget(target)) {
+    return source.counts.includes(target);
   }
-  if (target === DamageContext.AreaDamage) {
-    return source.area;
+  if (isContext(target)) {
+    return inContext(target, source);
   }
-  if (target === DamageContext.SplashDamage) {
-    return source.splash;
-  }
-  if (target === DamageContext.Spells) {
-    return source.spell;
-  }
-  if (target === DamageGroup.Physical || target === DamageGroup.Energy) {
-    const group = DAMAGE_GROUP_TYPES[target];
-    return types.some((type) => group.includes(type));
-  }
-  return types.includes(target);
+  return isGroup(target) ? inGroup(target, types) : types.includes(target);
 }
 
 /** What a damage message calls a target: the target, or a source in camel case. */
@@ -59,6 +84,34 @@ function nameOf(target: DamageAdjustmentTarget): MessageTarget {
   }
   return target === DamageContext.Spells ? 'spells' : target;
 }
+
+type DiceKey = ValueOf<typeof DiceMessage>;
+
+/** The message keys that say what an adjustment did: one for a target, one for a material it names. */
+interface AdjustmentKeys {
+  readonly target: DiceKey;
+  readonly material: DiceKey;
+}
+
+/** The line for `adjustment` having done something: it names its target, or the material (`cold iron`) it is to. */
+function lineOf(
+  keys: AdjustmentKeys,
+  { type, value }: DamageAdjustment,
+  extra: { readonly prevented?: DamageTotal } = {},
+): MessageDescriptor {
+  return isTarget(type)
+    ? message(keys.target, { value, target: nameOf(type), ...extra })
+    : message(keys.material, { value, material: type.replaceAll('-', ' '), ...extra });
+}
+
+const WEAKNESS_KEYS: AdjustmentKeys = {
+  target: DiceMessage.DamageWeakness,
+  material: DiceMessage.DamageWeaknessMaterial,
+};
+const RESISTANCE_KEYS: AdjustmentKeys = {
+  target: DiceMessage.DamageResistance,
+  material: DiceMessage.DamageResistanceMaterial,
+};
 
 /** Whether the source counts as one of the adjustment's exceptions (`resistance 5 physical except silver`), so it does not apply. */
 function excepted({ exceptions = [] }: DamageAdjustment, { counts }: Source): boolean {
@@ -84,7 +137,7 @@ export function weaken(amount: DamageTotal, { types, source }: Reach, target: Da
   }
   return {
     amount: DamageTotal.parse(amount + weakness.value),
-    lines: [message(DiceMessage.DamageWeakness, { value: weakness.value, target: nameOf(weakness.type) })],
+    lines: [lineOf(WEAKNESS_KEYS, weakness)],
   };
 }
 
@@ -122,8 +175,6 @@ export function resist(amount: DamageTotal, exposure: Exposure, target: DamageTa
   const prevented = preventing(resistance, amount, exposure);
   return {
     amount: DamageTotal.parse(amount - prevented),
-    lines: [
-      message(DiceMessage.DamageResistance, { value: resistance.value, target: nameOf(resistance.type), prevented }),
-    ],
+    lines: [lineOf(RESISTANCE_KEYS, resistance, { prevented })],
   };
 }

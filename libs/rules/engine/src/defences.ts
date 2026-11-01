@@ -2,7 +2,7 @@ import type { ResolveReference } from '@pioneer/rules/formula';
 import { summarisePredicate, Truth } from '@pioneer/rules/predicate';
 import { parentOptions, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
-  DamageAdjustmentTarget,
+  DamageAdjustmentSubject,
   ImmunityElement,
   ProficiencyBonusTable,
   ResistanceElement,
@@ -75,7 +75,7 @@ function inOrder<Line extends ImmunityLine | AdjustmentLine>(lines: readonly Lin
  * conditional one may beat it when it applies.
  */
 function highestPerType(lines: readonly AdjustmentLine[]): readonly AdjustmentLine[] {
-  const winners = new Map<DamageAdjustmentTarget, AdjustmentLine>();
+  const winners = new Map<DamageAdjustmentSubject, AdjustmentLine>();
   for (const line of lines) {
     const best = winners.get(line.type);
     const { value } = line;

@@ -258,6 +258,18 @@ describe('damageTargetOf', () => {
     });
   });
 
+  test('a weakness or resistance can name a material, which the damage pipeline takes as is', () => {
+    const materials = [
+      inPlay(weakness(['silver'], 5), 'silver-weakness'),
+      inPlay(resistance(['ghost-touch'], 2), 'ghost'),
+    ];
+    const target: unknown = damageTargetOf(defences(materials));
+    expect(target).toMatchObject({
+      weaknesses: [{ type: 'silver', value: 5 }],
+      resistances: [{ type: 'ghost-touch', value: 2 }],
+    });
+  });
+
   test('is what the damage pipeline takes', () => {
     const target = damageTargetOf(defences(rules));
     const taken: number = applyDamage(roll('1d8[slashing]+1d6[fire]', [6, 4]), target).taken;

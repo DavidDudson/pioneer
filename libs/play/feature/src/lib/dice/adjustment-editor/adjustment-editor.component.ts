@@ -14,8 +14,8 @@ import {
 } from '@pioneer/frontier';
 import { Picker } from '@pioneer/frontier/data';
 import type { PickerSort } from '@pioneer/frontier/data';
-import { DamageAdjustment, DamageAmount } from '@pioneer/rules/sdk';
-import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
+import { DamageAdjustment, DamageAdjustmentTargetSchema, DamageAmount } from '@pioneer/rules/sdk';
+import type { DamageAdjustmentSubject, DamageAdjustmentTarget } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import { DamageTargetOptions } from '../damage-target-options';
@@ -53,6 +53,9 @@ const STARTING_VALUE = 5;
 interface EntryDisplay {
   readonly adjustment: DamageAdjustment;
   readonly value: string;
+  /** The message key naming its target; undefined for a material, which `words` names. */
+  readonly key: string | undefined;
+  readonly words: string;
 }
 
 interface ValueRangeParams {
@@ -101,8 +104,19 @@ export class AdjustmentEditor {
   protected readonly canAdd = computed((): boolean => this.choice() !== undefined && !this.valueInvalid());
   /** Each entry with its value in the viewer's locale. */
   protected readonly entries = computed((): readonly EntryDisplay[] =>
-    this.adjustments().map((adjustment) => ({ adjustment, value: this.#format.number(adjustment.value) })),
+    this.adjustments().map((adjustment) => ({
+      adjustment,
+      value: this.#format.number(adjustment.value),
+      key: this.#keyOf(adjustment.type),
+      words: adjustment.type.replaceAll('-', ' '),
+    })),
   );
+
+  /** The message key naming a target, when it is one; undefined for a material. */
+  #keyOf(type: DamageAdjustmentSubject): string | undefined {
+    const target = DamageAdjustmentTargetSchema.safeParse(type);
+    return target.success ? this.labels[target.data] : undefined;
+  }
 
   protected add(): void {
     const type = this.choice();
@@ -115,7 +129,7 @@ export class AdjustmentEditor {
     this.choice.set(undefined);
   }
 
-  protected remove(type: DamageAdjustmentTarget): void {
+  protected remove(type: DamageAdjustmentSubject): void {
     this.adjustments.update((list) => list.filter((entry) => entry.type !== type));
   }
 }
