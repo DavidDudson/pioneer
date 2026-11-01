@@ -1328,7 +1328,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:offer-story"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "flickering-stories"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.gPiYj2vgWm0CNoGW"
     },
@@ -1521,7 +1529,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:offer-story"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "illuminating-stories"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.yRT94fGPaS1M9f9I"
     },
@@ -3244,7 +3260,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:action", "item:slug:offer-story"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "raging-stories"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.3GmgFUL2xzt5vhCz"
     },

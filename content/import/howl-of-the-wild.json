@@ -2812,18 +2812,6 @@
             "mode": "add",
             "predicate": ["item:slug:summon-animal", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:summon-animal", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:awakened-animal"
           }
         }
@@ -2835,23 +2823,6 @@
       "slug": "feat:apprentice-sea-witch",
       "foundry": "Compendium.pf2e.feats-srd.Item.ZhXlvowfVIAr8E2x",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:create-water", "item:slug:hydraulic-push"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3086,23 +3057,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:feet-to-fins", "item:slug:water-breathing"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:athamaru"
           }
         }
@@ -3114,18 +3068,6 @@
       "slug": "feat:fearsome-form",
       "foundry": "Compendium.pf2e.feats-srd.Item.WlVPcOUu1GfbRSZy",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:mask-of-terror", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3261,18 +3203,6 @@
             "mode": "add",
             "predicate": ["item:slug:quandary", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:quandary", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:minotaur"
           }
         }
@@ -3309,18 +3239,6 @@
             "mode": "add",
             "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:ventriloquism", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:minotaur"
           }
         }
@@ -3344,18 +3262,6 @@
       "slug": "feat:mentor-of-legends",
       "foundry": "Compendium.pf2e.feats-srd.Item.JBjRGWVtVaxLckfH",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:heroism", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3520,18 +3426,6 @@
             "mode": "add",
             "predicate": ["item:slug:breath-of-life", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:breath-of-life", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:centaur"
           }
         }
@@ -3557,18 +3451,6 @@
       "slug": "feat:nodal-regeneration",
       "foundry": "Compendium.pf2e.feats-srd.Item.qGJ9vZbDpYPdD1UR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:regeneration", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3853,23 +3735,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:aqueous-orb", "item:slug:control-water"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:merfolk"
           }
         }
@@ -3895,18 +3760,6 @@
       "slug": "feat:siphon-torment",
       "foundry": "Compendium.pf2e.feats-srd.Item.XdicxD5jMJ8JSVqk",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:claim-curse", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3956,31 +3809,7 @@
             "mode": "add",
             "predicate": ["item:slug:bless", "spellcasting:innate", "centaur-speaker:faithspeaker"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:bless", "spellcasting:innate", "centaur-speaker:faithspeaker"],
-            "property": "other-tags",
             "value": "ancestral-spell:centaur"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:fleet-step", "spellcasting:innate", "centaur-speaker:greenspeaker"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
           }
         },
         {
@@ -4018,43 +3847,7 @@
               "centaur-speaker:faithspeaker"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:share-life", "item:slug:status"]
-              },
-              "spellcasting:innate",
-              "centaur-speaker:faithspeaker"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:centaur"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:entangling-flora", "item:slug:environmental-endurance"]
-              },
-              "spellcasting:innate",
-              "centaur-speaker:greenspeaker"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
           }
         },
         {
@@ -4842,18 +4635,6 @@
             "mode": "add",
             "predicate": ["item:slug:fly", "spellcasting:innate", "evolution:glowing-wings"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:fly", "spellcasting:innate", "evolution:glowing-wings"],
-            "property": "other-tags",
             "value": "ancestral-spell:surki"
           }
         }
@@ -4865,18 +4646,6 @@
       "slug": "heritage:ghost-bull-minotaur",
       "foundry": "Compendium.pf2e.heritages.Item.bHgGh3vtXL7fkhIy",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:know-the-way", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

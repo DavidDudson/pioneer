@@ -11407,18 +11407,6 @@
             "mode": "add",
             "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dragonblood"
           }
         }

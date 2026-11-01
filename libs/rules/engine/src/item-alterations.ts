@@ -6,6 +6,7 @@ import {
   NumericAlterationMode,
   NumericItemProperty,
   RollOptionNamespace,
+  RollOptionTail,
   RuleElementKey,
   StrikeProperty,
   TraitAlterationMode,
@@ -18,7 +19,6 @@ import type {
   Level,
   Origin,
   RichText,
-  RollOptionTail,
   RuleNumber,
   Slug,
   Trait,
@@ -103,6 +103,11 @@ function isNumeric(element: ItemAlterationElement): element is NumericAlteration
   return NUMERIC_PROPERTIES.has(element.property);
 }
 
+/** The roll option of a weapon tag: `tag:starlit-sentinel-weapon`, which a predicate reads as `item:tag:…`. */
+function tagOption(tag: Slug): RollOptionTail {
+  return RollOptionTail.parse(`tag:${tag}`);
+}
+
 /** `list` with `value` added or removed; the same list when it already is or isn't there. */
 function withValue<Value>(list: readonly Value[], mode: TraitAlterationMode, value: Value): readonly Value[] {
   const present = list.includes(value);
@@ -135,6 +140,36 @@ function numberAltered(
     : { ...item, numbers: new Map(item.numbers).set(element.property, result) };
 }
 
+/** An alteration that adds or removes an entry of one of an item's lists: its materials, property runes or tags. */
+type ListAlteration = Extract<
+  ItemAlterationElement,
+  {
+    readonly property:
+      typeof ItemProperty.Materials | typeof ItemProperty.PropertyRunes | typeof ItemProperty.OtherTags;
+  }
+>;
+
+/** `item` after an alteration of one of its lists; the same object when the element changed nothing. */
+function listAltered(item: AlteredItem, element: ListAlteration): AlteredItem {
+  switch (element.property) {
+    case ItemProperty.Materials: {
+      const materials = withValue(item.materials, element.mode, element.value);
+      return materials === item.materials ? item : { ...item, materials };
+    }
+    case ItemProperty.PropertyRunes: {
+      const propertyRunes = withValue(item.propertyRunes, element.mode, element.value);
+      return propertyRunes === item.propertyRunes ? item : { ...item, propertyRunes };
+    }
+    case ItemProperty.OtherTags: {
+      const rollOptions = withValue(item.rollOptions, element.mode, tagOption(element.value));
+      return rollOptions === item.rollOptions ? item : { ...item, rollOptions };
+    }
+    default: {
+      return element.property satisfies never;
+    }
+  }
+}
+
 /** `item` after one element; the same object when the element changed nothing. */
 function alteredBy(item: AlteredItem, { element, itemLevel }: AlterationInPlay): AlteredItem {
   if (isNumeric(element)) {
@@ -145,19 +180,16 @@ function alteredBy(item: AlteredItem, { element, itemLevel }: AlterationInPlay):
       const traits = withValue(item.traits, element.mode, element.value);
       return traits === item.traits ? item : { ...item, traits };
     }
-    case ItemProperty.Materials: {
-      const materials = withValue(item.materials, element.mode, element.value);
-      return materials === item.materials ? item : { ...item, materials };
-    }
-    case ItemProperty.PropertyRunes: {
-      const propertyRunes = withValue(item.propertyRunes, element.mode, element.value);
-      return propertyRunes === item.propertyRunes ? item : { ...item, propertyRunes };
-    }
     case ItemProperty.Description: {
       return { ...item, description: element.value };
     }
     case ItemProperty.DamageType: {
       return item.damageType === element.value ? item : { ...item, damageType: element.value };
+    }
+    case ItemProperty.Materials:
+    case ItemProperty.PropertyRunes:
+    case ItemProperty.OtherTags: {
+      return listAltered(item, element);
     }
     default: {
       return element satisfies never;

@@ -47,6 +47,14 @@
         "key": "RollOption",
         "option": "option:bright-fetchling",
         "toggleable": true
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:light"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {

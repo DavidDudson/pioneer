@@ -1363,7 +1363,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:vitality-lash"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.ptpK6H1rM4Bu3ry4"
     },
@@ -2979,6 +2988,14 @@
             "or": ["action:impersonate", "action:create-a-diversion"]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:figment"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {

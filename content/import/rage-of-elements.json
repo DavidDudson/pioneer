@@ -712,122 +712,6 @@
       "foundry": "Compendium.pf2e.classfeatures.Item.pUkUC8HHom2DmYzz",
       "gaps": [
         {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "elemental-focus-initial:yes",
-              {
-                "or": [
-                  {
-                    "and": ["item:slug:serrate", "elementalist:elemental-cycle", "feature:bloodline:elemental:metal"]
-                  },
-                  {
-                    "and": [
-                      "item:slug:arms-of-nature",
-                      "elementalist:elemental-cycle",
-                      "feature:bloodline:elemental:wood"
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:updraft",
-                      "elementalist:inner-sea-elementalism",
-                      "feature:bloodline:elemental:air"
-                    ]
-                  },
-                  {
-                    "and": ["item:slug:crushing-ground", "feature:bloodline:elemental:earth"]
-                  },
-                  {
-                    "and": ["item:slug:wildfire", "feature:bloodline:elemental:fire"]
-                  },
-                  {
-                    "and": ["item:slug:rising-surf", "feature:bloodline:elemental:water"]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "remove",
-            "predicate": ["elemental-focus-initial:yes", "item:slug:elemental-toss"],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "elemental-focus-initial:yes",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:repel-metal",
-                      "elementalist:elemental-cycle",
-                      "feature:bloodline:elemental:metal"
-                    ]
-                  },
-                  {
-                    "and": ["item:slug:wood-walk", "elementalist:elemental-cycle", "feature:bloodline:elemental:wood"]
-                  },
-                  {
-                    "and": [
-                      "item:slug:powerful-inhalation",
-                      "elementalist:inner-sea-elementalism",
-                      "feature:bloodline:elemental:air"
-                    ]
-                  },
-                  {
-                    "and": ["item:slug:stone-lance", "feature:bloodline:elemental:earth"]
-                  },
-                  {
-                    "and": ["item:slug:combustion", "feature:bloodline:elemental:fire"]
-                  },
-                  {
-                    "and": ["item:slug:pulverizing-cascade", "feature:bloodline:elemental:water"]
-                  }
-                ]
-              }
-            ],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "remove",
-            "predicate": ["elemental-focus-advanced:yes", "item:slug:elemental-motion"],
-            "priority": 121,
-            "property": "other-tags",
-            "value": "blood-magic-spell"
-          }
-        },
-        {
           "type": "field",
           "reason": "unmapped-field",
           "field": "subfeatures.suppressedFeatures",
@@ -6429,23 +6313,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:enangling-flora", "item:slug:one-with-plants"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:ardande"
           }
         }
@@ -6527,29 +6394,6 @@
       "slug": "feat:natural-magnetism",
       "foundry": "Compendium.pf2e.feats-srd.Item.S6ilPkeroXoGgZXm",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": [
-                  "item:slug:magnetic-attraction",
-                  "item:slug:magnetic-repulsion",
-                  {
-                    "and": ["feat:gildedsoul", "item:slug:enthrall"]
-                  }
-                ]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6896,18 +6740,6 @@
             "mode": "add",
             "predicate": ["item:slug:tangle-vine", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:tangle-vine", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:ardande"
           }
         }
@@ -6944,18 +6776,6 @@
             "mode": "add",
             "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:talos"
           }
         }
@@ -6967,18 +6787,6 @@
       "slug": "feat:summon-wood-elemental",
       "foundry": "Compendium.pf2e.feats-srd.Item.Mjt89h8hvZS4nl0P",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:summon-elemental", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -7415,18 +7223,6 @@
       "slug": "feat:wooden-mantle",
       "foundry": "Compendium.pf2e.feats-srd.Item.9UD7TwyMIjbUun6U",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:mantle-of-the-unwavering-heart", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

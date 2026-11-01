@@ -193,108 +193,6 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "class-feature:aloof-firmament",
-      "foundry": "Compendium.pf2e.classfeatures.Item.9CC5Ek0Mq768Lhgx",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:water-walk",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:wall-of-wind",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:variable-gravity",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
-      "slug": "class-feature:unfurling-brocade",
-      "foundry": "Compendium.pf2e.classfeatures.Item.y0WQzzshwGIymZsr",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:web",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:whirling-scarves",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:planar-tether",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "effect:effect-acupuncturist",
       "foundry": "Compendium.pf2e.feat-effects.Item.fHM9xvCBWrBqcDQY",
       "gaps": [
@@ -1048,18 +946,6 @@
             "mode": "add",
             "predicate": ["item:slug:blessing-of-defiance", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:blessing-of-defiance", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:yaksha"
           }
         }
@@ -1098,18 +984,6 @@
             "mode": "add",
             "predicate": ["item:slug:animal-form", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:lizardfolk"
           }
         }
@@ -1121,23 +995,6 @@
       "slug": "feat:ancestral-healer",
       "foundry": "Compendium.pf2e.feats-srd.Item.PajUTojvRtTTEPPQ",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:clear-mind", "item:slug:sound-body"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1197,18 +1054,6 @@
             "mode": "add",
             "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:gnome"
           }
         }
@@ -1220,18 +1065,6 @@
       "slug": "feat:awaken-the-obake",
       "foundry": "Compendium.pf2e.feats-srd.Item.XECkaKwvc8M8ec9H",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:fear", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1286,23 +1119,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:blood-vendetta", "item:slug:share-life"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:hungerseed"
           }
         }
@@ -1314,18 +1130,6 @@
       "slug": "feat:brilliant-vision",
       "foundry": "Compendium.pf2e.feats-srd.Item.b95x1RNTFtp5TCM3",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:see-the-unseen", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1383,23 +1187,6 @@
       "slug": "feat:colugos-traversal",
       "foundry": "Compendium.pf2e.feats-srd.Item.xlPT1vT8pkgV3iCp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:gentle-landing", "item:slug:jump"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1561,18 +1348,6 @@
             "mode": "add",
             "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:duplicate-foe", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:wayang"
           }
         }
@@ -1612,18 +1387,6 @@
             "slug": "burn-it-persistent",
             "type": "status",
             "value": 1
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:ignition", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
           }
         },
         {
@@ -1763,46 +1526,9 @@
     {
       "type": "entry",
       "pack": "tian-xia-character-guide",
-      "slug": "feat:energy-fortification",
-      "foundry": "Compendium.pf2e.feats-srd.Item.qaiwbAb1PaKrZ2O0",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:prepare-elemental-medicine"],
-            "property": "other-tags",
-            "value": "energy-fortification"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "tian-xia-character-guide",
       "slug": "feat:false-priest-form",
       "foundry": "Compendium.pf2e.feats-srd.Item.UJdKgw8rbpkyoaeR",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:divine-lance", "item:slug:haunting-hymn"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2003,18 +1729,6 @@
             "mode": "add",
             "predicate": ["item:slug:clairvoyance", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:clairvoyance", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:goblin"
           }
         }
@@ -2035,18 +1749,6 @@
             "mode": "add",
             "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:leshy"
           }
         }
@@ -2058,18 +1760,6 @@
       "slug": "feat:form-of-the-beloved-mother",
       "foundry": "Compendium.pf2e.feats-srd.Item.GDyYYA91A3r80Oec",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:animal-form", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2205,23 +1895,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:animal-form", "item:slug:humanoid-form"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:yaksha"
           }
         }
@@ -2279,18 +1952,6 @@
             "mode": "add",
             "predicate": ["item:slug:enlarge", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:enlarge", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:kobold"
           }
         },
@@ -2306,18 +1967,6 @@
       "slug": "feat:kijimuna-whistle",
       "foundry": "Compendium.pf2e.feats-srd.Item.Bekco7lCUkqyLi6S",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:summon-plant-or-fungus", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2381,18 +2030,6 @@
             "mode": "add",
             "predicate": ["item:slug:helpful-wood-spirits", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:helpful-wood-spirits", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:leshy"
           }
         }
@@ -2404,23 +2041,6 @@
       "slug": "feat:light-bending-jewel",
       "foundry": "Compendium.pf2e.feats-srd.Item.sSdlbJYQQD2TwIIb",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:invisibility", "item:slug:translocate"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2509,18 +2129,6 @@
       "slug": "feat:mooneater",
       "foundry": "Compendium.pf2e.feats-srd.Item.FKS9nLz07v9x49sE",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:eclipse-burst", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2622,18 +2230,6 @@
             "mode": "add",
             "predicate": ["item:slug:telekinetic-hand", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:telekinetic-hand", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:poppet"
           }
         }
@@ -2670,18 +2266,6 @@
             "mode": "add",
             "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:illusory-disguise", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:hungerseed"
           }
         }
@@ -2705,23 +2289,6 @@
       "slug": "feat:phantom-orchestra",
       "foundry": "Compendium.pf2e.feats-srd.Item.18B3fL77WgEY25M1",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:figment", "item:slug:ventriloquism"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2771,18 +2338,6 @@
       "slug": "feat:river-adaptation",
       "foundry": "Compendium.pf2e.feats-srd.Item.ruRhslwl9ReaVcY4",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:feet-to-fins", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2946,18 +2501,6 @@
             "mode": "add",
             "predicate": ["item:slug:fly", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:fly", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:fly"
           }
         }
@@ -2969,18 +2512,6 @@
       "slug": "feat:scarlet-strands",
       "foundry": "Compendium.pf2e.feats-srd.Item.n4JiVs3f72XS99f6",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:web", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3021,18 +2552,6 @@
       "slug": "feat:secrets-of-the-past",
       "foundry": "Compendium.pf2e.feats-srd.Item.Wu6refn3bqI1vYvi",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:hypercognition", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3097,18 +2616,6 @@
       "slug": "feat:sheltering-jewel",
       "foundry": "Compendium.pf2e.feats-srd.Item.g9nHhqb8Bl1njopV",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:vital-beacon", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3282,66 +2789,6 @@
             "mode": "add",
             "predicate": ["item:slug:spirit-sense", "spellcasting:innate", "heritage:full-moon-sarangay"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:status", "spellcasting:innate", "heritage:half-moon-sarangay"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:darkness", "spellcasting:innate", "heritage:new-moon-sarangay"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:creation", "spellcasting:innate", "heritage:waning-moon-sarangay"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:blood-vendetta", "spellcasting:innate", "heritage:waxing-moon-sarangay"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:spirit-sense", "spellcasting:innate", "heritage:full-moon-sarangay"],
-            "property": "other-tags",
             "value": "ancestral-spell:sarangay"
           }
         },
@@ -3410,18 +2857,6 @@
             "mode": "add",
             "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:lizardfolk"
           }
         }
@@ -3433,18 +2868,6 @@
       "slug": "feat:splendid-illusion",
       "foundry": "Compendium.pf2e.feats-srd.Item.bft7gWfibx3BY5BK",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:illusory-scene", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3585,18 +3008,6 @@
       "slug": "feat:stem-the-tide",
       "foundry": "Compendium.pf2e.feats-srd.Item.aW6Fg2Nowl4oB3qP",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:protector-tree", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -3805,23 +3216,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:illusory-object", "item:slug:invisible-item"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:sarangay"
           }
         }
@@ -3853,18 +3247,6 @@
       "slug": "feat:transcend-the-azimuth",
       "foundry": "Compendium.pf2e.feats-srd.Item.Ce5xvrkgh9eyOJLL",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:cosmic-form", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -4112,18 +3494,6 @@
             "mode": "add",
             "predicate": ["item:slug:translocate", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:translocate", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:samsaran"
           }
         }
@@ -4169,23 +3539,6 @@
       "slug": "feat:whispers-in-the-night",
       "foundry": "Compendium.pf2e.feats-srd.Item.qYJyzAk8TOWPjaAL",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:darkness", "item:slug:ventriloquism"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -4275,23 +3628,6 @@
       "slug": "feat:world-protectors-hospitality",
       "foundry": "Compendium.pf2e.feats-srd.Item.2sVR3Z1TPZ8pQdQ0",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:create-food", "item:slug:cleanse-cuisine"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -4485,18 +3821,6 @@
             "mode": "add",
             "predicate": ["item:slug:figment", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:figment", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:goblin"
           }
         }
@@ -4508,18 +3832,6 @@
       "slug": "heritage:gandharva",
       "foundry": "Compendium.pf2e.heritages.Item.lBSO9RuEUv2P4rnp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:summon-instrument", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

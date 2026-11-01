@@ -4787,23 +4787,6 @@
               "spellcasting:innate"
             ],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:blur", "item:slug:invisiblity"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
             "value": "ancestral-spell:automaton"
           }
         }
@@ -4893,18 +4876,6 @@
               ],
               "value": "arcane-eye"
             }
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:see-the-unseen", "spellcasting:innate", "enhancement:arcane-eye"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
           }
         },
         {
@@ -5082,18 +5053,6 @@
             "mode": "add",
             "predicate": ["item:slug:translocate", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:translocate", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:automaton"
           }
         }
@@ -5217,18 +5176,6 @@
       "slug": "feat:axial-recall",
       "foundry": "Compendium.pf2e.feats-srd.Item.h9b5CId7S7gV7j2t",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:interplanar-teleport", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -6845,18 +6792,6 @@
       "slug": "feat:persistent-boost",
       "foundry": "Compendium.pf2e.feats-srd.Item.LbMPCAyUrLRHykGA",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "feat",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:offensive-boost"],
-            "property": "other-tags",
-            "value": "persistent-boost"
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",

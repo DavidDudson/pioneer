@@ -429,6 +429,14 @@
         "item": "bb9b6b5d-6218-5519-a140-b2dc44d6197b",
         "allowDuplicate": false,
         "predicate": ["evolution:resonating-membranes"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:fly"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate", "evolution:glowing-wings"]
       }
     ],
     "externalIds": {
@@ -569,6 +577,14 @@
         "type": "circumstance",
         "value": 1,
         "predicate": ["inflicts:confused"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell", "item:slug:know-the-way"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "ancestral-spell",
+        "predicate": ["spellcasting:innate"]
       }
     ],
     "externalIds": {

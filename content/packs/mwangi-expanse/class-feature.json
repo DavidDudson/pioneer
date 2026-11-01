@@ -330,6 +330,46 @@
             "not": "parent:granter:slug:crossblooded-evolution"
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "blood-magic-spell",
+        "predicate": [
+          {
+            "not": "parent:granter:slug:crossblooded-evolution"
+          },
+          {
+            "or": [
+              {
+                "and": ["item:trait:focus", "item:trait:sorcerer"]
+              },
+              {
+                "and": [
+                  "item:spell-slot",
+                  "spellcasting:category:spontaneous",
+                  "spellcasting:tradition:divine",
+                  {
+                    "or": [
+                      "item:slug:mystic-armor",
+                      "item:slug:resist-energy",
+                      "item:slug:haste",
+                      "item:slug:reflective-scales",
+                      "item:slug:cloak-of-colors",
+                      "item:slug:repulsion",
+                      "item:slug:mask-of-terrors",
+                      "item:slug:divine-inspiration",
+                      "item:slug:overwhelming-presence"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "priority": 121
       }
     ],
     "externalIds": {

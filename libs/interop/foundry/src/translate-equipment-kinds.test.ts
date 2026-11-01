@@ -15,6 +15,7 @@ import {
 } from './testing/equipment-fixtures';
 import { idOf, translate } from './testing/import-fixtures';
 import { contentEntry, gapsOf } from './testing/kind-fixtures';
+import type { ImportTranslation } from './translate-import';
 
 const translation = translate(EQUIPMENT);
 
@@ -232,5 +233,29 @@ describe('translateKindData: equipment and treasure', () => {
     expect(gapsOf(translate([odd]))).toEqual([
       { reason: KindDataGapReason.UnmappedValue, field: 'bulk.value', raw: 0.5 },
     ]);
+  });
+});
+
+const taggedBlade = (otherTags: readonly string[]): ImportTranslation =>
+  translate([
+    weapon('sTaRlItB1ade0000', 'Starlit Blade', {
+      ...LONGSWORD.system,
+      traits: { value: [], rarity: 'common', otherTags },
+    }),
+  ]);
+
+describe('translateKindData: weapon tags', () => {
+  test("Foundry's otherTags are the weapon's tags, once each", () => {
+    const tags = ['starlit-sentinel-weapon', 'verdant-weapon', 'verdant-weapon'];
+
+    expect(dataIn(taggedBlade(tags), 'starlit-blade')).toMatchObject({
+      tags: ['starlit-sentinel-weapon', 'verdant-weapon'],
+    });
+  });
+
+  test('a weapon without tags has none, and a tag that is no slug is reported and left off', () => {
+    expect(dataIn(taggedBlade([]), 'starlit-blade')).not.toHaveProperty('tags');
+    expect(dataIn(taggedBlade(['Not A Slug']), 'starlit-blade')).not.toHaveProperty('tags');
+    expect(gapKeys(taggedBlade(['Not A Slug']))).not.toEqual([]);
   });
 });

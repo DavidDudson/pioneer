@@ -1312,18 +1312,6 @@
             "mode": "add",
             "predicate": ["item:slug:acid-splash", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:acid-splash", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:elf"
           }
         },
@@ -1425,23 +1413,6 @@
       "slug": "feat:fade-away",
       "foundry": "Compendium.pf2e.feats-srd.Item.qr1E37Tla555tvIO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:invisibility", "item:slug:disguise-magic"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1634,18 +1605,6 @@
             "mode": "add",
             "predicate": ["item:slug:heroism", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:heroism", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:dwarf"
           }
         },
@@ -1735,18 +1694,6 @@
             "mode": "add",
             "predicate": ["item:slug:wall-of-ice", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:wall-of-ice", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:human"
           }
         }
@@ -1817,23 +1764,6 @@
       "slug": "feat:natural-illusionist",
       "foundry": "Compendium.pf2e.feats-srd.Item.HKGyFj2w5dzkf3SW",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:illusory-disguise", "item:slug:item-facade", "item:slug:ventriloquism"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1928,18 +1858,6 @@
             "mode": "add",
             "predicate": ["item:slug:mind-reading", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:mind-reading", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:elf"
           }
         }
@@ -1951,18 +1869,6 @@
       "slug": "feat:shadow-pact",
       "foundry": "Compendium.pf2e.feats-srd.Item.ACeqRSWr4CEwLZgO",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:creation", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -2225,23 +2131,6 @@
       "slug": "feat:wildborn-adept",
       "foundry": "Compendium.pf2e.feats-srd.Item.3NZSRyoulnzsi3sn",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              {
-                "or": ["item:slug:light", "item:slug:tangle-vine", "item:slug:vitality-lash"]
-              },
-              "spellcasting:innate"
-            ],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

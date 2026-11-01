@@ -478,6 +478,14 @@
       {
         "key": "CriticalSpecialization",
         "predicate": ["item:deity-favored", "target:condition:off-guard"]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:weapon", "item:deity-favored"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "sneak-attack",
+        "predicate": ["target:mark:hunted-prey"]
       }
     ],
     "externalIds": {
@@ -10441,6 +10449,14 @@
             "gte": ["self:level", 2]
           }
         ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:spell"],
+        "property": "other-tags",
+        "mode": "add",
+        "value": "vindicator-masterful-hunter",
+        "predicate": ["spellcasting:tradition:divine", "self:effect:hunt-prey", "feature:masterful-hunter"]
       }
     ],
     "externalIds": {

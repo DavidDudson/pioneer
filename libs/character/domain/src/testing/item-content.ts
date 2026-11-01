@@ -142,6 +142,7 @@ const ITEMS: Readonly<Record<ItemFixture, ItemFixtureFields>> = {
       group: 'sword',
       damage: { dice: 1, die: 'd8', damageType: 'slashing' },
       usage: { type: 'held', hands: 'one' },
+      tags: ['starlit-sentinel-weapon'],
     },
   },
   [ItemFixture.LeatherArmor]: {

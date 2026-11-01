@@ -9,6 +9,7 @@ import { ItemCount, physicalFields, Usage } from './physical-item';
 import { WeaponCategory } from './rule-element-proficiency';
 import { PropertyRuneEnergies, PropertyRunes, RuneGrade } from './rune';
 import { StaffSpells } from './staff';
+import { uniqueItems } from './unique-items';
 import { DamageAmount, Feet } from './units';
 
 /** Remaster weapon groups, Foundry pf2e's less Starfinder's. */
@@ -78,6 +79,9 @@ const WeaponAmmunition = z.strictObject({
 /** The actions it takes to reload: 0 for a bow, 1 for most firearms, 10 for a cannon. */
 const ReloadActions = Pg.smallint().nonnegative().brand<'ReloadActions'>();
 
+/** The most tags one weapon has. */
+const TAGS_MAX = 16;
+
 const ITEM_BONUS_MAX = 4;
 
 /** An item bonus to attack rolls the weapon has without runes: +1 on a moderate bomb. */
@@ -110,6 +114,11 @@ export const WeaponData = z.strictObject({
   ammunition: WeaponAmmunition.optional(),
   usage: Usage,
   runes: WeaponRunes.optional(),
+  /**
+   * The groups it belongs to beyond its traits (Foundry's `otherTags`). Each is the roll option `tag:<tag>`, which a
+   * predicate reads as `item:tag:<tag>`; an `ItemAlteration` of `other-tags` adds or removes one.
+   */
+  tags: z.array(Slug).min(1).max(TAGS_MAX).readonly().check(uniqueItems).optional(),
   /** The spells a staff holds, when the weapon is one. */
   staff: StaffSpells.optional(),
 });

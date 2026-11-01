@@ -5,6 +5,7 @@ import { ENVELOPE_FIELDS, KindDataGapReason, report } from './kind-data-gaps';
 import type { GapLog, KindInput } from './kind-data-gaps';
 import { setFields, systemOf } from './kind-fields';
 import { FoundryPhysicalSystem, PHYSICAL_FIELDS, physicalData, usageField } from './physical-fields';
+import { FoundryTags, tagsOf } from './translate-tags';
 
 /**
  * A weapon's `data` from Foundry's `weapon` item, alchemical bombs included: category, group, base weapon, damage
@@ -70,6 +71,7 @@ const FoundryWeaponSystem = FoundryPhysicalSystem.extend({
   expend: z.number().nullish(),
   grade: z.string().max(FIELD_MAX).nullish(),
   runes: FoundryRunes.nullish(),
+  traits: z.looseObject({ otherTags: FoundryTags.optional() }).optional(),
 });
 type FoundryWeaponSystem = z.infer<typeof FoundryWeaponSystem>;
 
@@ -175,5 +177,6 @@ export function weaponData(input: KindInput): object | undefined {
       ammunition: ammunitionOf(system.ammo),
       runes: system.runes ? itemRunes(system.runes, ['potency', 'striking'], input) : undefined,
     }),
+    ...tagsOf(system.traits?.otherTags, log),
   };
 }

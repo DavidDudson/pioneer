@@ -5764,18 +5764,6 @@
             "mode": "add",
             "predicate": ["item:slug:speak-with-animals", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:speak-with-animals", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:reincarnated"
           }
         }
@@ -5787,18 +5775,6 @@
       "slug": "feat:boneyard-acquaintance",
       "foundry": "Compendium.pf2e.feats-srd.Item.fjzxzlHhiORtV7Ll",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:spiritual-guardian", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5852,18 +5828,6 @@
             "mode": "add",
             "predicate": ["item:slug:spirit-sense", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:spirit-sense", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:reincarnated"
           }
         }
@@ -5875,18 +5839,6 @@
       "slug": "feat:lingering-echoes",
       "foundry": "Compendium.pf2e.feats-srd.Item.ZTIM5YyCiNxIO3Mp",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:talking-corpse", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5920,18 +5872,6 @@
             "mode": "add",
             "predicate": ["item:slug:truespeech", "spellcasting:innate"],
             "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:truespeech", "spellcasting:innate"],
-            "property": "other-tags",
             "value": "ancestral-spell:reincarnated"
           }
         }
@@ -5943,18 +5883,6 @@
       "slug": "feat:plant-soul-siblings",
       "foundry": "Compendium.pf2e.feats-srd.Item.mlFDIQuh84VLj5IC",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:speak-with-plants", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -5993,18 +5921,6 @@
       "slug": "feat:stone-soul-siblings",
       "foundry": "Compendium.pf2e.feats-srd.Item.NPVi1iPfY1GpiC8A",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": ["item:slug:speak-with-stones", "spellcasting:innate"],
-            "property": "other-tags",
-            "value": "ancestral-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",

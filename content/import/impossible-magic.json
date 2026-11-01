@@ -616,57 +616,6 @@
     {
       "type": "entry",
       "pack": "impossible-magic",
-      "slug": "class-feature:inexorable-iron",
-      "foundry": "Compendium.pf2e.classfeatures.Item.ZslXrvYRxHBXc1Ds",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:enlarge",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:earthbind",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:planar-tether",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-magic",
       "slug": "class-feature:instant-manifestation",
       "foundry": "Compendium.pf2e.classfeatures.Item.H0iWhiyP0QqgmAKs",
       "gaps": [
@@ -702,49 +651,6 @@
             "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
             "option": "target:condition:off-guard",
             "toggleable": "totm"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:blur",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:ghostly-weapon",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:translocate",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
           }
         }
       ]
@@ -982,49 +888,6 @@
             "type": "circumstance",
             "value": "@actor.system.attributes.shield.ac"
           }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:resist-energy",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:warding-aggression",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:mountain-resilience",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
         }
       ]
     },
@@ -1051,96 +914,9 @@
     {
       "type": "entry",
       "pack": "impossible-magic",
-      "slug": "class-feature:starlit-span",
-      "foundry": "Compendium.pf2e.classfeatures.Item.Pew7duAozEeAemif",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:telekinetic-maneuver",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:wall-of-wind",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:unfettered-movement",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-magic",
       "slug": "class-feature:studious-spells",
       "foundry": "Compendium.pf2e.classfeatures.Item.6HCI2iHyBZAr7a4P",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  "item:slug:gecko-grip",
-                  {
-                    "and": [
-                      "item:slug:haste",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:fly",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        },
         {
           "type": "rule",
           "key": "ItemAlteration",
@@ -1178,100 +954,6 @@
             "mode": "upgrade",
             "predicate": ["item:base:staff", "item:hands-held:1", "item:damage:die:faces:4"],
             "property": "damage-dice-faces"
-          }
-        },
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:oaken-resilience",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:slow",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:flicker",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "impossible-magic",
-      "slug": "class-feature:twofold-tine",
-      "foundry": "Compendium.pf2e.classfeatures.Item.h6WJ9Se8ahvOG3XB",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:blur",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:gravity-well",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:unfettered-movement",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
           }
         }
       ]
@@ -1334,49 +1016,6 @@
       "slug": "class-feature:volatile-spark",
       "foundry": "Compendium.pf2e.classfeatures.Item.aRDNtB0mh6MMRSKf",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "ItemAlteration",
-          "raw": {
-            "itemType": "spell",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "spellcasting:category:prepared",
-              "spellcasting:tradition:arcane",
-              {
-                "or": [
-                  {
-                    "and": [
-                      "item:slug:entangling-flora",
-                      {
-                        "gte": ["self:level", 7]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:earthbind",
-                      {
-                        "gte": ["self:level", 11]
-                      }
-                    ]
-                  },
-                  {
-                    "and": [
-                      "item:slug:seal-fate",
-                      {
-                        "gte": ["self:level", 13]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "property": "other-tags",
-            "value": "studious-spell"
-          }
-        },
         {
           "type": "enricher",
           "enricher": "@Embed"

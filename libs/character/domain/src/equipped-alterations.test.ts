@@ -188,3 +188,40 @@ describe('equipped weapons: roll options for AdjustStrike', () => {
     expect(weapon?.traits.includes(Trait.parse('agile'))).toBe(false);
   });
 });
+
+const holy = (tag: string): object =>
+  adjusting([`item:tag:${tag}`], { property: 'traits', mode: 'add', value: 'holy' });
+
+/** Whether the weapon a character holds is given the holy trait by `rules`. */
+function isHoly(rules: ModifierInputs, item: ItemFixture): boolean | undefined {
+  const { weapons } = equippedInputs(carrying(item, HELD), content, { rules: () => rules });
+  return weapons[0]?.traits.includes(Trait.parse('holy'));
+}
+
+const tagging = (mode: string, tag: string, slug: string): object =>
+  alteration([`item:slug:${slug}`], { property: 'other-tags', mode, value: tag });
+
+describe('equipped weapons: tags', () => {
+  test('a tag of the weapon content is a roll option an AdjustStrike reads', () => {
+    const rules = altering([holy('starlit-sentinel-weapon'), 'a']);
+
+    expect([isHoly(rules, ItemFixture.Longsword), isHoly(rules, ItemFixture.Shortbow)]).toEqual([true, false]);
+  });
+
+  test('an ItemAlteration of other-tags tags the weapon it reaches, and an AdjustStrike then reaches it', () => {
+    const tagged = altering([tagging('add', 'verdant-weapon', 'shortbow'), 'tagger'], [holy('verdant-weapon'), 'a']);
+
+    const untagged = altering([holy('verdant-weapon'), 'a']);
+
+    expect([isHoly(tagged, ItemFixture.Shortbow), isHoly(untagged, ItemFixture.Shortbow)]).toEqual([true, false]);
+  });
+
+  test('an ItemAlteration of other-tags removes a tag', () => {
+    const untagged = altering(
+      [tagging('remove', 'starlit-sentinel-weapon', 'longsword'), 'x'],
+      [holy('starlit-sentinel-weapon'), 'a'],
+    );
+
+    expect(isHoly(untagged, ItemFixture.Longsword)).toBe(false);
+  });
+});
