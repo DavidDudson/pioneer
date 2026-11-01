@@ -8,10 +8,13 @@ import { BacklogItem } from './import-backlog';
  * PR that changes both together.
  */
 
-/** A pf2e system release tag, `pf2e-<major>.<minor>.<patch>`, as foundryvtt/pf2e tags its releases. */
+/**
+ * A pf2e system release tag, `[pf2e-]<major>.<minor>.<patch>`, as foundryvtt/pf2e tags its releases (before 6.0 they
+ * carry no prefix).
+ */
 export const FoundryReleaseTag = z
   .string()
-  .regex(/^pf2e-\d+\.\d+\.\d+$/u)
+  .regex(/^(?:pf2e-)?\d+\.\d+\.\d+$/u)
   .brand<'FoundryReleaseTag'>();
 export type FoundryReleaseTag = z.infer<typeof FoundryReleaseTag>;
 
