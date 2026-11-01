@@ -25,6 +25,7 @@ import {
   itemTransferService,
   keyItemService,
   packService,
+  partyStashService,
   ruleLimitService,
   variantService,
 } from './testing/campaign-pack-fixtures';
@@ -74,6 +75,7 @@ function app(): Api {
     itemApprovals: itemApprovalService(campaigns, clock),
     keyItems: keyItemService(campaigns, clock),
     itemTransfers: itemTransferService(campaigns, clock),
+    partyStash: partyStashService(campaigns),
   };
   const handler = new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
   return { handler, catalog };

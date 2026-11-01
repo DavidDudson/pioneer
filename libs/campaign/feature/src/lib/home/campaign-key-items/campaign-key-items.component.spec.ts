@@ -140,6 +140,9 @@ async function open(items: object, gm: boolean): Promise<HTMLElement> {
   await vi.waitFor(() => {
     http.expectOne(`/api/campaigns/${id}/key-items`).flush(items);
   });
+  await vi.waitFor(() => {
+    http.expectOne(`/api/campaigns/${id}/party-stash`).flush({ lines: [], characters: [] });
+  });
   const root = present(harness.routeNativeElement);
   await vi.waitFor(() => {
     expect(root.textContent).toContain('Caliburn');

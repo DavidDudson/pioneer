@@ -110,3 +110,13 @@ export {
   KeyItemView,
   KeyPropertyRune,
 } from './campaign-key-items';
+export {
+  DepositBody,
+  PartyStash,
+  PartyStashContents,
+  PartyStashDocument,
+  PartyStashLine,
+  PartyStashQuantity,
+  StashCharacter,
+  TakeBody,
+} from './campaign-party-stash';

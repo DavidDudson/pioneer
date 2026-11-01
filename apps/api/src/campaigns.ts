@@ -5,6 +5,7 @@ import {
   CampaignKeyItemService,
   CampaignPackService,
   CampaignPartyService,
+  CampaignPartyStashService,
   CampaignRuleLimitService,
   CampaignService,
   CampaignVariantService,
@@ -22,6 +23,7 @@ import {
   DrizzleItemTransferRepository,
 } from '@pioneer/campaign/infrastructure';
 import type {
+  CharacterContentSource,
   CharacterFlaggedItems,
   CharacterKeyItemPromotion,
   CharacterKeyItems,
@@ -39,6 +41,7 @@ import { CampaignVariantRuleCatalog } from './campaign-variant-rule-catalog';
 import { CharacterKeyItemHolders } from './character-key-item-holders';
 import { CharacterTransferLinesAdapter } from './character-transfer-lines';
 import type { Database } from './database';
+import { DatabasePartyStash } from './database-party-stash';
 import { DatabaseTransferSettlement } from './database-transfer-settlement';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { OwnedCharacterDirectory } from './owned-character-directory';
@@ -78,6 +81,7 @@ export interface CampaignParts {
   readonly keyItems: CharacterKeyItems;
   readonly keyItemPromotion: CharacterKeyItemPromotion;
   readonly transferLines: CharacterTransferLines;
+  readonly content: CharacterContentSource;
 }
 
 /** The pack service: a homebrew pack is enabled only where its access policy allows. */
@@ -147,6 +151,20 @@ function itemTransferService(
   );
 }
 
+/** The party stash service: a move writes the stash and the character in one transaction through the character context. */
+function partyStashService(
+  db: Database,
+  repository: DrizzleCampaignRepository,
+  { clock, parts }: { readonly clock: Clock; readonly parts: CampaignParts },
+): CampaignPartyStashService {
+  return new CampaignPartyStashService({
+    campaigns: repository,
+    party: new DrizzleCampaignPartyRepository(db),
+    characters: new OwnedCharacterDirectory(db),
+    stash: new DatabasePartyStash(db, parts.content, clock),
+  });
+}
+
 /** The campaign context's part of the composition root: services and routes. */
 export function campaigns(db: Database, clock: Clock, parts: CampaignParts): ContractRouter['app'] {
   const repository = new DrizzleCampaignRepository(db);
@@ -177,6 +195,7 @@ export function campaigns(db: Database, clock: Clock, parts: CampaignParts): Con
       itemApprovals: itemApprovalService(db, repository, { clock, flaggedItems: parts.flaggedItems }),
       keyItems: keyItemService(db, repository, { clock, parts }),
       itemTransfers: itemTransferService(db, repository, { clock, parts }),
+      partyStash: partyStashService(db, repository, { clock, parts }),
     },
     parts.authenticator,
   );

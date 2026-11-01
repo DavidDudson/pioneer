@@ -1,0 +1,29 @@
+<fr-surface>
+  <fr-stack gap="md">
+    <fr-heading variant="subheading" [level]="2">{{ 'campaign.partyStash.heading' | transloco }}</fr-heading>
+    <fr-text tone="subtle" variant="caption">{{ 'campaign.partyStash.hint' | transloco }}</fr-text>
+    <fr-async-region [errorMessage]="'campaign.partyStash.loadError' | transloco">
+      <ng-template frAsyncPending>
+        <fr-stack gap="sm">
+          @for (placeholder of placeholders; track placeholder) {
+            <fr-skeleton width="md" />
+          }
+        </fr-stack>
+      </ng-template>
+      <ng-template let-stash [frAsyncData]="store.stash">
+        @if (stash.lines.length === 0) {
+          <fr-empty-state [icon]="emptyIcon" [title]="'campaign.partyStash.none' | transloco" />
+        }
+        <fr-list gap="sm">
+          @for (line of stash.lines; track line.id) {
+            <pio-campaign-party-stash-line
+              [line]="line"
+              [inside]="containerName(stash, line)"
+              [characters]="stash.characters"
+            />
+          }
+        </fr-list>
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

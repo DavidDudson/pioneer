@@ -31,6 +31,7 @@ import {
   itemTransferService,
   keyItemService,
   packService,
+  partyStashService,
   ruleLimitService,
   variantService,
 } from './testing/campaign-pack-fixtures';
@@ -70,6 +71,7 @@ function table(): Table {
     itemApprovals: itemApprovalService(campaigns, clock, flagged),
     keyItems: keyItemService(campaigns, clock),
     itemTransfers: itemTransferService(campaigns, clock),
+    partyStash: partyStashService(campaigns),
   };
   return { handler: new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator())), flagged };
 }

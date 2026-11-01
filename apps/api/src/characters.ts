@@ -20,6 +20,7 @@ import {
   PlayService,
   SheetModeService,
 } from '@pioneer/character/application';
+import type { CharacterContentSource } from '@pioneer/character/application';
 import {
   characterAllyRoutes,
   characterPackRoutes,
@@ -122,6 +123,8 @@ export interface Characters {
   readonly keyItemPromotion: CharacterKeyItemPromotion;
   /** The lines members offer to each other's characters. */
   readonly transferLines: CharacterTransferLines;
+  /** The content each character is worked out over, for naming the party stash's lines. */
+  readonly content: CharacterContentSource;
 }
 
 /**
@@ -162,6 +165,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     keyItems: new CharacterKeyItems(repository, clock),
     keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
     transferLines: new CharacterTransferLines(repository, characterContent),
+    content: characterContent,
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(pathbuilder, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))

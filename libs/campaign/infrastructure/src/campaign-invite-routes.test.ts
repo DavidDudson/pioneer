@@ -25,6 +25,7 @@ import {
   itemTransferService,
   keyItemService,
   packService,
+  partyStashService,
   ruleLimitService,
   variantService,
 } from './testing/campaign-pack-fixtures';
@@ -60,6 +61,7 @@ function app(clock: Clock = new ManualClock('2026-10-10T10:00:00Z')): AnyElysia 
         itemApprovals: itemApprovalService(campaigns, clock),
         keyItems: keyItemService(campaigns, clock),
         itemTransfers: itemTransferService(campaigns, clock),
+        partyStash: partyStashService(campaigns),
       },
       new FakeAuthenticator(),
     ),

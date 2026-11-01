@@ -31,5 +31,15 @@
         >
       </fr-stack>
     }
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        size="sm"
+        [action]="deposit"
+        [describeError]="describeDepositError"
+        [pendingLabel]="'campaign.partyStash.putting' | transloco"
+        [successLabel]="'campaign.partyStash.putDone' | transloco"
+        >{{ 'campaign.partyStash.putIn' | transloco: { item: name() } }}</fr-async-button
+      >
+    </fr-stack>
   </fr-stack>
 </fr-disclosure>

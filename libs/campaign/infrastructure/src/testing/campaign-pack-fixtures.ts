@@ -3,6 +3,7 @@ import {
   CampaignItemTransferService,
   CampaignKeyItemService,
   CampaignPackService,
+  CampaignPartyStashService,
   CampaignRuleLimitService,
   CampaignVariantService,
   InMemoryCampaignItemApprovalRepository,
@@ -17,6 +18,7 @@ import {
   InMemoryItemTransferRepository,
   InMemoryKeyItemHolders,
   InMemoryPackCatalog,
+  InMemoryPartyStashKeeper,
   InMemoryTransferLines,
   InMemoryTransferSettlement,
   InMemoryVariantRuleCatalog,
@@ -25,6 +27,7 @@ import type {
   CampaignPartyRepository,
   CampaignRepository,
   CharacterDirectory,
+  PartyStashKeeper,
   TransferLines,
 } from '@pioneer/campaign/application';
 import type { Clock } from '@pioneer/shared/kernel';
@@ -82,6 +85,13 @@ export interface ItemTransferWorld extends KeyItemWorld {
   readonly lines?: TransferLines;
 }
 
+/** What a test gives the party stash service; the rest is empty. */
+export interface PartyStashWorld {
+  readonly party?: CampaignPartyRepository;
+  readonly characters?: CharacterDirectory;
+  readonly stash?: PartyStashKeeper;
+}
+
 /** The key items service over in-memory ports; no character is in the party until a test attaches one. */
 export function keyItemService(
   campaigns: CampaignRepository,
@@ -119,4 +129,16 @@ export function itemTransferService(
     { campaigns, transfers, party, characters, lines, settlement: new InMemoryTransferSettlement(transfers) },
     clock,
   );
+}
+
+/** The party stash service over in-memory ports; no character is in the party and the stash holds nothing until a test says. */
+export function partyStashService(
+  campaigns: CampaignRepository,
+  {
+    party = new InMemoryCampaignPartyRepository(campaigns),
+    characters = new InMemoryCharacterDirectory(),
+    stash = new InMemoryPartyStashKeeper(),
+  }: PartyStashWorld = {},
+): CampaignPartyStashService {
+  return new CampaignPartyStashService({ campaigns, party, characters, stash });
 }

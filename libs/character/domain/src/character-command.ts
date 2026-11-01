@@ -102,6 +102,8 @@ export const CharacterCommand = {
   LinkKeyItem: 'linkKeyItem',
   /** A campaign character accepts an item or coins another offered it; both characters are written in one transaction. */
   AcceptTransfer: 'acceptTransfer',
+  /** A member moves a line, with what it holds, between their character and the campaign's party stash. */
+  MoveToPartyStash: 'moveToPartyStash',
 } as const;
 export type CharacterCommand = ValueOf<typeof CharacterCommand>;
 

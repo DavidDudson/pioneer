@@ -295,6 +295,13 @@
       "when": 1793435512551,
       "tag": "0041_user_preference_fonts",
       "breakpoints": true
+    },
+    {
+      "idx": 42,
+      "version": "7",
+      "when": 1793490989065,
+      "tag": "0042_campaign_party_stashes",
+      "breakpoints": true
     }
   ]
 }

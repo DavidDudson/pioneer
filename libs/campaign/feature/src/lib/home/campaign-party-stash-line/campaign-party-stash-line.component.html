@@ -1,0 +1,24 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{ 'campaign.partyStash.line' | transloco: label() }}</fr-text>
+      @if (inside() !== '') {
+        <fr-text tone="subtle" variant="caption">{{
+          'campaign.partyStash.inside' | transloco: { container: inside() }
+        }}</fr-text>
+      }
+    </fr-stack>
+    @if (loose()) {
+      @for (character of characters(); track character.characterId) {
+        <fr-async-button
+          size="sm"
+          [action]="takeWith(character)"
+          [describeError]="describeError"
+          [pendingLabel]="'campaign.partyStash.taking' | transloco"
+          [successLabel]="'campaign.partyStash.taken' | transloco"
+          >{{ 'campaign.partyStash.takeWith' | transloco: { character: character.name } }}</fr-async-button
+        >
+      }
+    }
+  </fr-stack>
+</fr-list-item>
