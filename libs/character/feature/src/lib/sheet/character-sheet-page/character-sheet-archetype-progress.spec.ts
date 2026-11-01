@@ -49,7 +49,7 @@ describe('CharacterSheetPage archetype progress', () => {
     const { root } = await openSheet(fighter(), { packs: MEDIC_PACKS });
 
     await vi.waitFor(() => {
-      expect(root.querySelector('pio-level-timeline')).not.toBeNull();
+      expect(root.querySelector('pio-sheet-archetype-progress')).not.toBeNull();
     });
     expect(root.querySelector('pio-sheet-archetype-progress fr-message')).toBeNull();
   });

@@ -12,7 +12,7 @@ export { StepBody } from './lib/actions/stepper/step-body.directive';
 export { Stepper } from './lib/actions/stepper/stepper.component';
 export { Tab } from './lib/actions/tab/tab.component';
 export { Tabs } from './lib/actions/tabs/tabs.component';
-export { TabsAppearance } from './lib/actions/tabs/tabs-appearance';
+export { TabsAppearance, TabsOrientation } from './lib/actions/tabs/tabs-appearance';
 
 // Async
 export {

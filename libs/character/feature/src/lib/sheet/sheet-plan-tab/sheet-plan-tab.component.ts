@@ -33,6 +33,7 @@ import {
   InlineField,
   Message,
   NumberInput,
+  Responsive,
   Section,
   Stack,
   Surface,
@@ -50,18 +51,37 @@ import {
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
+import { SheetArchetypeProgress } from '../sheet-archetype-progress/sheet-archetype-progress.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
 import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
+import { SheetLevelTabs } from '../sheet-level-tabs/sheet-level-tabs.component';
 import { injectOriginRows } from '../sheet-origin-rows';
+import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
 import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SheetRuleBreaks } from '../sheet-rule-breaks/sheet-rule-breaks.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
-import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
+import {
+  BASE_LEVEL,
+  levelOfPath,
+  sectionPath,
+  SHEET_LEVELS,
+  SHEET_SECTIONS,
+  SHEET_TAB_SECTIONS,
+  shownSection,
+} from '../sheet-sections';
+import type { SheetSection } from '../sheet-sections';
+// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every region of the base character and its levels
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
+
+/** A level 1 to 20 on show, with the section whose heading names it. */
+interface PlannedLevel {
+  readonly level: number;
+  readonly section: SheetSection;
+}
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
 function focusField(field: ElementRef<HTMLElement>): void {
@@ -77,6 +97,10 @@ function focusField(field: ElementRef<HTMLElement>): void {
   selector: 'pio-sheet-plan-tab',
   imports: [
     SheetSectionTabs,
+    Responsive,
+    SheetArchetypeProgress,
+    SheetLevelTabs,
+    SheetPickFields,
     AncestryPicker,
     AsyncData,
     AsyncPending,
@@ -130,6 +154,18 @@ export class SheetPlanTab {
   public readonly section = input<string>();
   protected readonly sectionOrder = SHEET_TAB_SECTIONS[SheetMode.Plan];
   protected readonly shown = shownSection(this.sectionOrder, this.section);
+  /** The level the route names, or undefined while a side panel is open instead. */
+  protected readonly shownLevel = computed((): number | undefined => {
+    const section = this.shown();
+    return section === undefined ? undefined : levelOfPath(sectionPath(section));
+  });
+  /** The level 1 to 20 on show, which has the level plan in place of the base character. */
+  protected readonly plannedLevel = computed((): PlannedLevel | undefined => {
+    const level = this.shownLevel();
+    const section = SHEET_LEVELS.find((candidate) => levelOfPath(sectionPath(candidate)) === level);
+    return level === undefined || level === BASE_LEVEL || section === undefined ? undefined : { level, section };
+  });
+  protected readonly baseLevel = BASE_LEVEL;
 
   protected readonly name = sheetField<string>(this.sheet.character, {
     read: (character) => character.name,

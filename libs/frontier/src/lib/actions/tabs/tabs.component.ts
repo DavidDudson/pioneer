@@ -13,11 +13,20 @@ import type { ElementRef, Signal } from '@angular/core';
 import { cva } from 'class-variance-authority';
 
 import { RovingFocus } from '../../focus/roving-focus.directive';
+import { RovingOrientation } from '../../focus/roving-keys';
 import { Tab } from '../tab/tab.component';
-import { TABS_APPEARANCE, TabsAppearance } from './tabs-appearance';
+import { TABS_APPEARANCE, TabsAppearance, TabsOrientation } from './tabs-appearance';
 
+// A vertical column has nothing to scroll sideways, so it takes the rule at its end edge instead of under it.
 const navVariants = cva('block overflow-x-auto', {
-  variants: { appearance: { underline: 'border-b border-line-subtle', segment: '' } },
+  variants: {
+    appearance: { underline: 'border-line-subtle', segment: '' },
+    orientation: { horizontal: '', vertical: 'overflow-x-visible' },
+  },
+  compoundVariants: [
+    { appearance: 'underline', orientation: 'horizontal', class: 'border-b' },
+    { appearance: 'underline', orientation: 'vertical', class: 'border-e' },
+  ],
 });
 // The padding leaves room for the focus ring, which the scrolling region would otherwise clip.
 // A centred row takes auto margins, not `justify-center`, which would push its first tabs out of reach of the scroll.
@@ -28,6 +37,7 @@ const rowVariants = cva('flex', {
       segment: 'w-fit gap-3xs border border-line-default bg-surface-base p-3xs',
     },
     centered: { true: 'mx-auto w-fit', false: '' },
+    orientation: { horizontal: '', vertical: 'flex-col' },
   },
 });
 
@@ -35,7 +45,8 @@ const rowVariants = cva('flex', {
  * Section tabs: a row of `fr-tab` router links, each section its own route, so the URL says which one is shown.
  * There are no hidden panels; the routed section renders in the `router-outlet` below. The row is a labelled
  * `<nav>` and one Tab stop: arrow keys, Home and End move between tabs, Enter follows one. On a narrow screen the
- * row scrolls sideways, an explicit overflow region, and keeps the current tab in view.
+ * row scrolls sideways, an explicit overflow region, and keeps the current tab in view. `orientation="vertical"`
+ * stacks the tabs in a column, the arrow keys then Up and Down.
  *
  * ```html
  * <fr-tabs [label]="'sheet.sections' | transloco">
@@ -51,7 +62,8 @@ const rowVariants = cva('flex', {
   providers: [{ provide: TABS_APPEARANCE, useFactory: (): Signal<TabsAppearance> => inject(Tabs).appearance }],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
-  hostDirectives: [RovingFocus],
+  // The group's arrow keys follow its orientation: `orientation` is the roving focus's own input.
+  hostDirectives: [{ directive: RovingFocus, inputs: ['frRovingFocus: orientation'] }],
 })
 export class Tabs {
   /** Names the navigation landmark, already translated. */
@@ -62,9 +74,17 @@ export class Tabs {
   /** Puts the row in the middle of the page rather than at its start. */
   public readonly centered = input(false, { transform: booleanAttribute });
 
-  protected readonly navClasses = computed(() => navVariants({ appearance: this.appearance() }));
+  readonly #roving = inject(RovingFocus, { self: true });
+  /** `horizontal` (the default) or `vertical`: a column. */
+  protected readonly orientation = computed(() =>
+    this.#roving.orientation() === RovingOrientation.Vertical ? TabsOrientation.Vertical : TabsOrientation.Horizontal,
+  );
+
+  protected readonly navClasses = computed(() =>
+    navVariants({ appearance: this.appearance(), orientation: this.orientation() }),
+  );
   protected readonly rowClasses = computed(() =>
-    rowVariants({ appearance: this.appearance(), centered: this.centered() }),
+    rowVariants({ appearance: this.appearance(), centered: this.centered(), orientation: this.orientation() }),
   );
 
   private readonly tabs = contentChildren(Tab, { descendants: true });

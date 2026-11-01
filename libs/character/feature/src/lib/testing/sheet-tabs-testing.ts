@@ -90,3 +90,22 @@ export async function openConfiguration(root: HTMLElement): Promise<void> {
     present(document.querySelector('pio-sheet-custom-effects'));
   });
 }
+
+/** Follows the Plan tab's level tab for `level` (0 is the base character) and waits for its section. */
+export async function openLevel(root: HTMLElement, level: number): Promise<void> {
+  const nav = present(root.querySelector('nav[aria-label="Levels"]'));
+  const name = level === 0 ? 'Base character' : `Level ${level}`;
+  // A marked level adds its marker after the name, and Level 1 is no prefix of Level 10 once the space is in.
+  present(
+    [...nav.querySelectorAll('a')].find((link) => textOf(link) === name || textOf(link).startsWith(`${name} `)),
+  ).click();
+  await vi.waitFor(async () => {
+    await settle();
+    const region = present(
+      root.querySelector(
+        level === 0 ? 'section[aria-labelledby="sheet-identity"]' : `section[aria-labelledby="sheet-level-${level}"]`,
+      ),
+    );
+    expect(region.closest('.hidden')).toBeNull();
+  });
+}

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -31,6 +31,8 @@ interface SectionLink {
 })
 export class SheetSectionTabs {
   public readonly sections = input.required<readonly SheetSection[]>();
+  /** Whether the tabs also show from `lg` up; a tab with a side list of its own sets it false and keeps the dropdown. */
+  public readonly wide = input(true, { transform: booleanAttribute });
 
   readonly #route = inject(ActivatedRoute);
   readonly #router = inject(Router);
@@ -46,7 +48,7 @@ export class SheetSectionTabs {
     this.#language();
     return [...this.sections(), ...SHEET_PANELS].map((section) => ({
       value: sectionPath(section),
-      label: this.#i18n.translate(section.headingKey),
+      label: this.#i18n.translate(section.headingKey, section.headingParams),
     }));
   });
   /** The panel the route names, if it names one. */

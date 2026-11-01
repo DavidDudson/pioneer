@@ -10,5 +10,13 @@ export const TabsAppearance = {
 } as const;
 export type TabsAppearance = ValueOf<typeof TabsAppearance>;
 
+export const TabsOrientation = {
+  /** A row of tabs; the row scrolls sideways when they do not fit. */
+  Horizontal: 'horizontal',
+  /** A column of tabs beside the content. */
+  Vertical: 'vertical',
+} as const;
+export type TabsOrientation = ValueOf<typeof TabsOrientation>;
+
 /** How the `fr-tabs` around a tab looks, so its tabs take the same appearance. */
 export const TABS_APPEARANCE = new InjectionToken<Signal<TabsAppearance>>('TABS_APPEARANCE');

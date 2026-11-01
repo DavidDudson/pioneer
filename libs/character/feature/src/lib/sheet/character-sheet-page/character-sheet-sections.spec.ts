@@ -11,7 +11,7 @@ import { SHEET_TAB_SECTIONS } from '../sheet-sections';
 
 /** Each tab's first section, which its own address opens, and the path it opens at. */
 const FIRST_SECTIONS: readonly (readonly [SheetMode, string, string])[] = [
-  [SheetMode.Plan, 'identity', 'Identity'],
+  [SheetMode.Plan, 'level-0', 'Identity'],
   [SheetMode.Encounter, 'defences', 'Defences'],
   [SheetMode.Exploration, 'roleplay', 'Appearance and personality'],
   [SheetMode.Downtime, 'rest', 'Rest and preparations'],
