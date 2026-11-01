@@ -71,6 +71,12 @@ and rule limit rows, the official pack hashes and the packs that define a charac
 around a read that writes nothing. Measured the same way: `/sheet` went from 58 to 13 statements, with the same
 14,635 B body and a 9 to 11 ms median either side. The separate calls are unchanged at 83 statements for the eleven.
 
+`ContractRouter` opens the same scope around every GET handler, and no other method's, since a write handler that read,
+wrote and read again would be served its first answer. That takes the separate calls from 83 to 67 statements for the
+eleven: `GET /characters/:id` from 17 to 9, `/packs` from 10 to 7, `/rule-limits` and `/rule-limit-settings` from 11 to
+9, `/variant-rules` from 9 to 8. `/sheet-mode` stays at 4: it still loads the whole character document to check
+access, which a lighter ownership check would remove.
+
 ### Side finding: session touch on a non-UTC database
 
 On a database whose time zone is not UTC (the dev machine is UTC+10) every authenticated request writes the session
