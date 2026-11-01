@@ -48,6 +48,11 @@ export class ActionWords {
     return this.#i18n.translate(cost === PASSIVE ? ActionsMessage.Passive : ACTION_COST_MESSAGES[cost]);
   }
 
+  /** The lines by name, ignoring case and accents; lines of one name keep their order. */
+  public byName(lines: readonly ActionLine[]): readonly ActionLine[] {
+    return lines.toSorted((left, right) => this.#format.compareNames(left.name, right.name));
+  }
+
   /** "Basic action", or "Granted by Shield Block". */
   public source({ origin, source }: ActionLine): string {
     return origin.kind === ActionOriginKind.Granted && source !== undefined

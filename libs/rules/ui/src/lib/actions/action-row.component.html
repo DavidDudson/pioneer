@@ -1,27 +1,15 @@
-<fr-stack gap="3xs">
-  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-    <fr-stack grow>
-      <pio-entry-name-cell [name]="action().line.name" [entry]="action().line.id" />
-    </fr-stack>
-    @if (showStatus()) {
-      <fr-badge [tone]="statusTone()">{{ statusKey() | transloco }}</fr-badge>
-    }
-    @if (action().line.roll; as roll) {
-      <pio-statistic-roll [name]="action().line.name" [kind]="Check" [statistic]="roll" />
-    }
-    <pio-use-buttons [line]="action().line" />
-  </fr-stack>
-  <fr-stack direction="horizontal" gap="xs" align="center">
+<fr-stack direction="horizontal" gap="xs" align="center">
+  <fr-stack direction="horizontal" gap="xs" align="center" grow>
     @if (action().costIcon; as costIcon) {
       <fr-action-icon [cost]="costIcon.cost" [upTo]="costIcon.upTo" [label]="costIcon.label" />
     }
-    <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
+    <pio-entry-name-cell [name]="action().line.name" [entry]="action().line.id" />
   </fr-stack>
-  <pio-statistic-conditions [conditions]="action().conditions" />
-  @if (chips().length > 0) {
-    <pio-chip-list [chips]="chips()" />
+  @if (showStatus()) {
+    <fr-badge [tone]="statusTone()">{{ statusKey() | transloco }}</fr-badge>
   }
-  @for (reason of action().reasons; track reason) {
-    <fr-text variant="caption" tone="muted">{{ reason }}</fr-text>
+  @if (action().line.roll; as roll) {
+    <pio-statistic-roll [name]="action().line.name" [kind]="Check" [statistic]="roll" />
   }
+  <pio-use-buttons [line]="action().line" />
 </fr-stack>

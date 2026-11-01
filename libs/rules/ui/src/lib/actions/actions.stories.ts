@@ -82,3 +82,16 @@ export const Filtered: ActionsStory = {
     await expect(canvas.getByText('Grapple')).toBeVisible();
   },
 };
+
+/** The All view lists every action as a compact row, sorted by name. */
+export const AllByName: ActionsStory = {
+  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All },
+  play: async ({ canvasElement }) => {
+    const names = [...canvasElement.querySelectorAll('pio-action-row pio-entry-name-cell')].map((cell) =>
+      cell.textContent.trim(),
+    );
+    await expect(names).toStrictEqual(
+      names.toSorted((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' })),
+    );
+  },
+};

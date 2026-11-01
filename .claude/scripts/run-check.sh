@@ -14,12 +14,15 @@
 # Guards against a hung holder, which would block every other workspace:
 #   - The command runs in its own session (setsid) and without the lock's file descriptor, so killing the session
 #     ends it all and no stray child keeps the lock.
-#   - It is killed after MAX_RUN_SECONDS (default 1500) however busy it is.
+#   - It is killed after 180 seconds however busy it is. That is the only limit an agent may rely on. A run that
+#     times out (exit 124) must not be retried longer without a human saying yes: ask the user, and only on their
+#     approval rerun with MAX_RUN_SECONDS=360, the one other value accepted.
 #   - Every waiter watches the holder: if the CPU time of its whole session has not moved for STALL_SECONDS
 #     (default 300), the waiter kills the session (TERM, then KILL) and the queue moves on. The holder's own run-check
 #     reports the kill and exits with the signal's status.
 #
-# Env: MAX_LOAD_PERCENT (default 70), CHECK_WAIT_SECONDS (give up after this long, default 900), MAX_RUN_SECONDS,
+# Env: MAX_LOAD_PERCENT (default 70), CHECK_WAIT_SECONDS (give up after this long, default 900), MAX_RUN_SECONDS
+# (180, or 360 with a human approval),
 # STALL_SECONDS.
 set -euo pipefail
 
@@ -40,7 +43,11 @@ holder="$root/.check-queue.holder" # the holder's session id, workspace, start t
 sample="$root/.check-queue.sample" # the last CPU sample any waiter took: session id, CPU seconds, since when
 max_percent="${MAX_LOAD_PERCENT:-70}"
 give_up="${CHECK_WAIT_SECONDS:-900}"
-max_run="${MAX_RUN_SECONDS:-1500}"
+max_run="${MAX_RUN_SECONDS:-180}"
+if [ "$max_run" != 180 ] && [ "$max_run" != 360 ]; then
+  echo "run-check: MAX_RUN_SECONDS must be 180 (default) or 360 (only with a human approval), not ${max_run}" >&2
+  exit 2
+fi
 stall="${STALL_SECONDS:-300}"
 cores="$(nproc)"
 limit=$((cores * max_percent / 100))
@@ -118,5 +125,8 @@ status=0
 wait "$runner" || status=$?
 if [ "$status" -eq 124 ] || [ "$status" -eq 137 ] || [ "$status" -eq 143 ]; then
   echo "run-check: command was stopped (exit ${status}): it ran over ${max_run}s or a waiting workspace killed it as hung" >&2
+  if [ "$max_run" -eq 180 ]; then
+    echo "run-check: ask the user before retrying; with their approval rerun with MAX_RUN_SECONDS=360" >&2
+  fi
 fi
 exit "$status"

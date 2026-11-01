@@ -68,6 +68,14 @@ export class LocaleFormat {
   /** Built once per locale: a sort compares thousands of pairs (a shop's items). */
   readonly #collator = computed(() => new Intl.Collator(this.locale()));
 
+  /** Built once per locale; base sensitivity makes case and accents no difference to the order. */
+  readonly #nameCollator = computed(() => new Intl.Collator(this.locale(), { sensitivity: 'base' }));
+
+  /** Locale-aware ordering for sorting names, ignoring case and accents ("Éclair" sorts with "Eclair" and "eclair"). */
+  public compareNames(left: string, right: string): number {
+    return this.#nameCollator().compare(left, right);
+  }
+
   /** Locale-aware ordering for sorting labels. */
   public compare(left: string, right: string): number {
     return this.#collator().compare(left, right);

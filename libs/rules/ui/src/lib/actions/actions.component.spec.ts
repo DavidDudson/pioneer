@@ -62,7 +62,7 @@ function headingsOf(fixture: ComponentFixture<ActionsView>): string[] {
 
 function rowText(fixture: ComponentFixture<ActionsView>, name: string): string {
   const row = [...hostOf(fixture).querySelectorAll('pio-action-row')].find((candidate) =>
-    textOf(candidate).startsWith(name),
+    textOf(candidate).includes(name),
   );
   return row === undefined ? '' : textOf(row);
 }
@@ -74,39 +74,38 @@ function press(fixture: ComponentFixture<ActionsView>, label: string): void {
 
 describe(ActionsView, () => {
   describe('the Now view', () => {
-    it('lists the usable actions of the mode grouped by cost, leaving out those that cannot be used', async () => {
+    it('lists the usable actions of the mode grouped by cost, by name in each group, leaving out those that cannot be used', async () => {
       const fixture = await render(STANDING_ACTIONS);
 
       expect(headingsOf(fixture)).toStrictEqual(['1 action', '2 actions']);
       expect(namesOf(fixture)).toStrictEqual([
-        'Stride',
-        'Stand',
-        'Escape',
         'Demoralize',
+        'Escape',
         'Grapple',
+        'Stand',
+        'Stride',
         'Disable a Device',
       ]);
     });
 
-    it('marks an action with requirements it cannot test, and leaves the unusable and dormant ones out', async () => {
+    it('leaves the unusable and dormant ones out', async () => {
       const fixture = await render(STANDING_ACTIONS);
       const text = textOf(hostOf(fixture));
 
-      expect(rowText(fixture, 'Disable a Device')).toContain('Check its requirements before using it.');
       expect(text).not.toContain('Pick a Lock');
       expect(text).not.toContain('Shield Block');
     });
 
-    it('puts Stand and Crawl first when prone, the most pressing first', async () => {
+    it('sorts by name when prone, not by what the situation calls for', async () => {
       const fixture = await render(PRONE_ACTIONS);
 
-      expect(namesOf(fixture).slice(0, 2)).toStrictEqual(['Stand', 'Crawl']);
+      expect(namesOf(fixture)).toStrictEqual(['Crawl', 'Demoralize', 'Stand', 'Stride']);
     });
 
-    it('puts Escape first when grabbed, ahead of the other actions of its cost', async () => {
+    it('sorts by name when grabbed', async () => {
       const fixture = await render(GRABBED_ACTIONS);
 
-      expect(namesOf(fixture)[0]).toBe('Escape');
+      expect(namesOf(fixture)).toStrictEqual(['Demoralize', 'Escape', 'Stride']);
     });
 
     it('enables Shield Block while a shield is raised', async () => {
@@ -137,12 +136,11 @@ describe(ActionsView, () => {
   });
 
   describe('the All view', () => {
-    it('lists every action with its status, and the reason an unusable one is', async () => {
+    it('lists every action with its status', async () => {
       const fixture = await render(STANDING_ACTIONS, { view: ActionsViewKind.All });
 
       expect(namesOf(fixture)).toHaveLength(STANDING_ACTIONS.length);
       expect(rowText(fixture, 'Pick a Lock')).toContain('Unavailable');
-      expect(rowText(fixture, 'Pick a Lock')).toContain('Needs trained proficiency in thievery.');
       expect(rowText(fixture, 'Stride')).toContain('Available');
     });
 

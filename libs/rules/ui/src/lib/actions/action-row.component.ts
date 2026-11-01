@@ -1,14 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { ActionIcon, Badge, Stack, Text } from '@pioneer/frontier';
+import { ActionIcon, Badge, Stack } from '@pioneer/frontier';
 import type { ActionIconCost, BadgeTone } from '@pioneer/frontier';
 import { ActionStatus } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 
-import { ChipList } from '../picker-cells/chip-list/chip-list.component';
-import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import { EntryNameCell } from '../picker-cells/entry-name-cell/entry-name-cell.component';
-import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
 import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
 import type { ActionLine } from './action-line';
 import { ACTION_STATUS_MESSAGES } from './actions-messages';
@@ -41,23 +38,13 @@ const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {
 };
 
 /**
- * One action of the list (`pio-actions`): its name, cost and source, its traits, why it cannot be used plainly, and a
- * button to roll it when it rolls. The status shows only when asked for, as the Now view lists nothing unusable.
+ * One action of the list (`pio-actions`) as a compact row: its cost icon and name on the left, its roll and use buttons
+ * on the right. Source, traits and reasons stay on the `ShownAction`, for the content panel. The status shows only when
+ * asked for, as the Now view lists nothing unusable.
  */
 @Component({
   selector: 'pio-action-row',
-  imports: [
-    ActionIcon,
-    Badge,
-    ChipList,
-    EntryNameCell,
-    Stack,
-    StatisticConditions,
-    StatisticRoll,
-    Text,
-    TranslocoPipe,
-    UseButtons,
-  ],
+  imports: [ActionIcon, Badge, EntryNameCell, Stack, StatisticRoll, TranslocoPipe, UseButtons],
   templateUrl: './action-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -69,7 +56,4 @@ export class ActionRow {
   protected readonly Check = StatisticKind.Check;
   protected readonly statusKey = computed(() => ACTION_STATUS_MESSAGES[this.action().line.status]);
   protected readonly statusTone = computed(() => STATUS_TONES[this.action().line.status]);
-  protected readonly chips = computed((): readonly Chip[] =>
-    this.action().line.traits.map((label): Chip => ({ label })),
-  );
 }
