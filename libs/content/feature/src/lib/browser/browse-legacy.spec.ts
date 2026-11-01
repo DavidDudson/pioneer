@@ -3,7 +3,7 @@ import type { ContentEntry, PackId } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
-import { isLegacyEntry, packLicenses, shownEntries } from './browse-legacy';
+import { isLegacyEntry, packLicenses, replacedBy, replacementsOf, shownEntries } from './browse-legacy';
 
 const PACK = new ContentPackBuilder().withId('legacy-test').withFeat('sudden-charge').build();
 const FIRST = PACK.otherEntries.at(0);
@@ -49,5 +49,37 @@ describe(shownEntries, () => {
   it('shows only the remaster entries while it is off', () => {
     expect(shownEntries(entries, licensed(ContentLicense.Orc), false)).toStrictEqual([ENTRY]);
     expect(shownEntries(entries, licensed(ContentLicense.Ogl), false)).toStrictEqual([]);
+  });
+});
+
+const REMASTER_PACK = new ContentPackBuilder()
+  .withId('replaced-test')
+  .withFeat('sudden-charge')
+  .withFeat('swift-charge')
+  .build();
+const [LEGACY_FEAT, REMASTER_FEAT] = REMASTER_PACK.otherEntries;
+if (LEGACY_FEAT === undefined || REMASTER_FEAT === undefined) {
+  throw new Error('The test pack holds too few entries');
+}
+const REPLACING: ContentEntry = { ...REMASTER_FEAT, supersedes: [LEGACY_FEAT.id] };
+const REPLACEMENTS = replacementsOf([LEGACY_FEAT, REPLACING]);
+
+describe(replacementsOf, () => {
+  it('names the remaster entries that replace a legacy one', () => {
+    expect(REPLACEMENTS.get(LEGACY_FEAT.id)).toStrictEqual([REPLACING]);
+  });
+
+  it('holds nothing for an entry nothing replaces', () => {
+    expect(REPLACEMENTS.has(REPLACING.id)).toBe(false);
+  });
+});
+
+describe(replacedBy, () => {
+  it('gives each replacement by name and where it opens', () => {
+    expect(replacedBy(LEGACY_FEAT, REPLACEMENTS).map(({ name }) => name)).toStrictEqual([REPLACING.name]);
+  });
+
+  it('gives none for an entry nothing replaces', () => {
+    expect(replacedBy(REPLACING, REPLACEMENTS)).toStrictEqual([]);
   });
 });

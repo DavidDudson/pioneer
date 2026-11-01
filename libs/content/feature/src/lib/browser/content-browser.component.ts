@@ -30,12 +30,12 @@ import { ENTRY_PREVIEWS, entryTarget, RARITY_TONES, RICH_TEXT_LINKS, SIZE_MESSAG
 import type { Chip, EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
 
 import { injectEntryDescription } from '../entry/entry-description';
-import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry } from '../entry/entry-lookup';
+import { entryCard, entryIndex, entryLinks, entryPreviews, findEntry, registryEntries } from '../entry/entry-lookup';
 import { browseSources, storeLinks } from '../entry/entry-sources';
 import { ROLE_MESSAGES, SIZE_ORDER } from './browse-creature';
 import { BROWSE_KINDS, facetsOf, isBrowseKind, KIND_MESSAGES } from './browse-kinds';
 import type { BrowseKind } from './browse-kinds';
-import { isLegacyEntry, packLicenses, shownEntries } from './browse-legacy';
+import { isLegacyEntry, packLicenses, replacedBy, replacementsOf, shownEntries } from './browse-legacy';
 import { browseList, entriesOf } from './browse-list';
 import type { BrowseList } from './browse-list';
 import { injectBrowseColumns, injectMessagesChanged } from './browse-messages';
@@ -109,6 +109,12 @@ export class ContentBrowser {
     return registry === undefined
       ? undefined
       : shownEntries(entriesOf(registry, this.#kinds()), packLicenses(registry), this.#scope().legacy);
+  });
+
+  /** The remaster entries that replace each legacy one, from every entry the registry holds. */
+  readonly #replacements = computed(() => {
+    const registry = this.registry.data();
+    return replacementsOf(registry === undefined ? [] : registryEntries(registry));
   });
 
   /** The licence of each pack loaded, which says which entries are legacy. */
@@ -236,6 +242,7 @@ export class ContentBrowser {
       traits,
       sources: browseSources(entry, this.#licenses()),
       legacy: isLegacyEntry(entry, this.#licenses()),
+      replacedBy: replacedBy(entry, this.#replacements()),
     };
   }
 

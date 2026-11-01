@@ -15,6 +15,8 @@ import {
   loaded,
   NO_FACETS,
   PICKED_STATE,
+  REPLACED_LIST,
+  REPLACEMENT_NAME,
   SHIELD_BLOCK,
   SHIELD_BLOCK_CARD,
 } from '../testing/browser-fixtures';
@@ -106,6 +108,12 @@ describe('ContentBrowserView panel tier', () => {
     const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE, LEGACY_LIST);
     expect((fixture.nativeElement as HTMLElement).querySelectorAll('fr-list-item fr-badge')).toHaveLength(1);
     expect(text(fixture)).toContain('Legacy');
+  });
+
+  it('says which entry replaces a legacy one, with a link to it', async () => {
+    const fixture = await render(ContentBrowserTier.Panel, LISTING_STATE, REPLACED_LIST);
+    expect(text(fixture)).toContain('Replaced by');
+    expect(text(fixture)).toContain(REPLACEMENT_NAME);
   });
 
   it('picks an entry in place when its name is pressed', async () => {

@@ -25,7 +25,7 @@
           <fr-list-item>
             <fr-stack direction="horizontal" gap="xs">
               <fr-button [variant]="Variant.Inline" (pressed)="picked.emit(row.ref)">{{ row.name }}</fr-button>
-              <pio-legacy-badge [legacy]="row.legacy" />
+              <pio-legacy-badge [legacy]="row.legacy" [replacedBy]="row.replacedBy" />
             </fr-stack>
           </fr-list-item>
         }

@@ -1,3 +1,11 @@
 @if (legacy()) {
-  <fr-badge [tone]="Tone.Warning">{{ Message.Label | transloco }}</fr-badge>
+  <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-badge [tone]="Tone.Warning">{{ Message.Label | transloco }}</fr-badge>
+    @if (replacedBy().length > 0) {
+      <fr-text variant="caption" tone="subtle">{{ Message.ReplacedBy | transloco }}</fr-text>
+      @for (replacement of replacedBy(); track replacement.to) {
+        <fr-link [to]="replacement.to">{{ replacement.name }}</fr-link>
+      }
+    }
+  </fr-stack>
 }
