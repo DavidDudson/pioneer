@@ -202,7 +202,9 @@
     },
     "spellcastingHeading": "Spellcasting",
     "sections": "Sheet sections",
-    "panels": { "label": "Sheet panels" },
+    "panels": {
+      "label": "Sheet panels"
+    },
     "name": "Name",
     "ancestry": "Ancestry",
     "level": "Level",
@@ -758,6 +760,13 @@
     "actionsMenu": "Sheet actions",
     "configuration": {
       "title": "Character configuration"
+    },
+    "itemActions": {
+      "stowed": "Hold or wear it to use it",
+      "notInvested": "Invest it to use it",
+      "noUses": "No uses left",
+      "noCharges": "Not enough charges",
+      "notPrepared": "Not the staff you prepared for the day"
     }
   },
   "validation": {

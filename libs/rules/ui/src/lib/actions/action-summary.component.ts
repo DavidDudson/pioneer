@@ -36,6 +36,11 @@ export class ActionSummary {
   public readonly action = input.required<ShownAction>();
 
   protected readonly level = HeadingLevel.Four;
+  /** What an item action spends and has left, then the action's traits. */
+  protected readonly badges = computed((): readonly string[] => {
+    const { resource, line } = this.action();
+    return [...(resource === undefined ? [] : [resource]), ...line.traits];
+  });
   /** The trigger and the requirements, for those the action has. */
   protected readonly facts = computed((): readonly Fact[] => {
     const { trigger, requirements } = this.action().line;

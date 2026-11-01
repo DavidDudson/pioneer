@@ -9,6 +9,8 @@ import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
 import { sheetRestrictions } from '../sheet-environments';
+import { statisticInputsOf } from '../sheet-inputs';
+import { sheetItemActions } from '../sheet-item-actions';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -49,10 +51,20 @@ export class SheetActions {
     }
     const engine = this.#sheet.engine();
     const restrictions = sheetRestrictions({ registry, engine, character }, read.play.environments);
-    return sheetActions(registry, character, {
+    const turn = this.#spender.turn();
+    const own = sheetActions(registry, character, {
       resources: read.play.resources,
-      turn: this.#spender.turn(),
+      turn,
       restrictions: restrictionsHolding(restrictions),
     });
+    const items =
+      engine === undefined
+        ? []
+        : sheetItemActions(registry, character, {
+            resources: read.play.resources,
+            turn,
+            inputs: statisticInputsOf(engine, character),
+          });
+    return [...own, ...items];
   });
 }

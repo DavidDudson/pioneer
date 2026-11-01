@@ -5,6 +5,7 @@ import {
   abilityUseKey,
   cantripRank,
   characterPredicateFacts,
+  InventoryItemId,
   PlayCommandField,
   SlotCountKey,
   SpendCount,
@@ -22,19 +23,24 @@ import type {
   SpendRequest,
   TurnState,
 } from '@pioneer/character/domain';
-import { ActionCost } from '@pioneer/rules/sdk';
-import type { ContentId, ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
+import { RANDOM_SOURCE } from '@pioneer/play/ui';
+import { NO_FORTUNE, rollWithFortune } from '@pioneer/rules/dice';
+import { ActionCost, ContentId } from '@pioneer/rules/sdk';
+import type { ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
 
+import { CharacterStore } from '../data/character-store';
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { spellEntries, sustainedCast } from './sheet-active-list';
+import { consumableLines, useCommand } from './sheet-consumables';
 import { activeFormOf } from './sheet-effects';
 import { FORM_CAST_CONTENT_KINDS, formCastOf } from './sheet-form-cast';
 import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
+import { statisticInputsOf } from './sheet-inputs';
 import { raisedEdit, shieldIds } from './sheet-shields';
 import { sheetSources } from './sheet-sources';
 import { SheetState } from './sheet-state';
@@ -46,7 +52,7 @@ const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, 
 const ONE_ACTION: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(1) };
 
 /** The payment a spend records beside its cost, as the spend names it. */
-type SpendPayment = Pick<SpendRequest, 'use' | 'slot' | 'focus'>;
+type SpendPayment = Pick<SpendRequest, 'use' | 'slot' | 'focus' | 'staff'>;
 
 /** What `payment` pays, as the keys and flag a spend records. */
 function paymentOf(payment: UsePayment | undefined): SpendPayment {
@@ -54,6 +60,9 @@ function paymentOf(payment: UsePayment | undefined): SpendPayment {
     ...(payment?.use === undefined ? {} : { use: UseCountKey.parse(payment.use) }),
     ...(payment?.slot === undefined ? {} : { slot: SlotCountKey.parse(payment.slot) }),
     ...(payment?.focus === true ? { focus: true as const } : {}),
+    ...(payment?.staff === undefined
+      ? {}
+      : { staff: { item: InventoryItemId.parse(payment.staff.item), spell: ContentId.parse(payment.staff.spell) } }),
   };
 }
 
@@ -81,7 +90,8 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
   }
   const recorded = pays ? paymentOf(line.payment) : frequencyOf(registry, request);
   const attacks = line.attack === true || makesAttack(registry, line.id);
-  const casts = spellEntries(registry).has(line.id);
+  // A staff's spell is cast from the staff, which records it as a staff cast and not as a spell of the character's own.
+  const casts = line.payment?.staff === undefined && spellEntries(registry).has(line.id);
   const cast = sustainedCast(registry, line.id, recorded.slot);
   return {
     field: PlayCommandField.SpendAction,
@@ -107,6 +117,8 @@ export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
   readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS);
   readonly #sheet = inject(SheetState);
+  readonly #characters = inject(CharacterStore);
+  readonly #random = inject(RANDOM_SOURCE);
 
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
@@ -115,6 +127,11 @@ export class SheetSpender extends ActionUser {
   public readonly pendingForm = signal<FormCast | undefined>(undefined);
 
   public override async use(request: ActionUse): Promise<void> {
+    const consumable = request.line.payment?.consumable;
+    if (consumable !== undefined) {
+      await this.#useConsumable(consumable);
+      return;
+    }
     const registry = this.#registry.data();
     const cast = registry === undefined ? undefined : formCastOf(registry, request, this.#caster(registry));
     if (cast !== undefined) {
@@ -123,6 +140,32 @@ export class SheetSpender extends ActionUser {
       return;
     }
     await this.#spend(request);
+  }
+
+  /**
+   * Uses one of the consumable stack held in the inventory item `key`: the one edit the Consumables section sends, with
+   * the dice it rolls, and the character is read again for the stack that changed.
+   */
+  async #useConsumable(key: string): Promise<void> {
+    const registry = this.#registry.data();
+    const engine = this.#sheet.engine();
+    const character = this.#sheet.character();
+    if (registry === undefined || engine === undefined || character === undefined) {
+      return;
+    }
+    const line = consumableLines(registry, character, {
+      turn: this.turn(),
+      inputs: statisticInputsOf(engine, character),
+    }).find((each) => each.key === key);
+    const fortuned =
+      line?.roll === undefined ? undefined : rollWithFortune(line.roll.expression, NO_FORTUNE, this.#random);
+    const command =
+      line === undefined ? undefined : useCommand(line, fortuned?.rolls.find((entry) => entry.kept)?.result);
+    if (command === undefined) {
+      return;
+    }
+    await this.#play.send(command);
+    await this.#characters.reload();
   }
 
   /** Whether the pending cast is being spent and applied, which can no longer be given up. */
