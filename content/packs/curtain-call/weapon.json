@@ -254,30 +254,66 @@
             "statistic": "save:reflex",
             "dc": 37,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature takes damage as if you successfully hit it with a Strike using a "
                 },
-                { "type": "text", "text": "sinew-song", "marks": ["emphasis"] },
-                { "type": "text", "text": ", but all of the damage is sonic damage." }
+                {
+                  "type": "text",
+                  "text": "sinew-song",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", but all of the damage is sonic damage."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the creature also takes " },
+                {
+                  "type": "text",
+                  "text": "As success, but the creature also takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "2d6", "damageType": "bleed", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "bleed",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As success, but double the damage and the creature takes " },
+                {
+                  "type": "text",
+                  "text": "As success, but double the damage and the creature takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "4d6", "damageType": "bleed", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "bleed",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },
@@ -611,17 +647,45 @@
             "statistic": "save:reflex",
             "dc": 34,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " by paint in its eyes for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " by paint in its eyes for 1 minute."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " by paint in its eyes for 1 round and then dazzled for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " by paint in its eyes for 1 round and then dazzled for 1 minute."
+                }
               ]
             }
           },

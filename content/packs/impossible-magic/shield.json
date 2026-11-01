@@ -1340,15 +1340,30 @@
             "statistic": "save:will",
             "dc": 28,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature takes a –1 status penalty to any check or DC related to the triggering action."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the penalty is –2." }],
-              "criticalFailure": [{ "type": "text", "text": "The action is disrupted." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the penalty is –2."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The action is disrupted."
+                }
+              ]
             }
           },
           {

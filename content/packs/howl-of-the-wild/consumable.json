@@ -230,8 +230,18 @@
                   "text": "The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the attitude increases by two steps." }],
-              "criticalFailure": [{ "type": "text", "text": "As success, but the attitude increases to helpful." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases by two steps."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases to helpful."
+                }
+              ]
             }
           },
           {
@@ -395,8 +405,18 @@
                   "text": "The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the attitude increases by two steps." }],
-              "criticalFailure": [{ "type": "text", "text": "As success, but the attitude increases to helpful." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases by two steps."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases to helpful."
+                }
+              ]
             }
           },
           {
@@ -560,8 +580,18 @@
                   "text": "The animal's attitude toward the affected creature improves by one step. If this improves its attitude to at least indifferent, it can't take hostile actions against the affected creature, though the change in attitude ends as soon as the affected creature takes a hostile action against the animal or its allies."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the attitude increases by two steps." }],
-              "criticalFailure": [{ "type": "text", "text": "As success, but the attitude increases to helpful." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases by two steps."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the attitude increases to helpful."
+                }
+              ]
             }
           },
           {

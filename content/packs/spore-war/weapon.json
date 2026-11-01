@@ -118,31 +118,88 @@
             "statistic": "save:will",
             "dc": 43,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target takes no additional damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target takes no additional damage."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " until the end of their next turn." }
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of their next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "6d6", "damageType": "mental", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "mental",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage and is stupefied 1 with an unlimited duration." }
+                {
+                  "type": "text",
+                  "text": " damage and is stupefied 1 with an unlimited duration."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "12d6", "damageType": "mental", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "12d6",
+                      "damageType": "mental",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage, is stupefied 1 with an unlimited duration, and is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": " damage, is stupefied 1 with an unlimited duration, and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -2969,37 +3026,81 @@
             "statistic": "save:fortitude",
             "dc": 34,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature is surrounded by shimmering lights akin to an aurora, causing it to become "
                 },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 2 rounds. If the creature was " },
-                { "type": "ref", "id": "53cf375b-c3fa-5d92-afde-135a3c001674" },
-                { "type": "text", "text": ", it becomes " },
-                { "type": "ref", "id": "f410da96-b56a-5c7c-857b-7096defec0a1" },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 2 rounds. If the creature was "
+                },
+                {
+                  "type": "ref",
+                  "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+                },
+                {
+                  "type": "text",
+                  "text": ", it becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                },
                 {
                   "type": "text",
                   "text": " instead. If the creature was already concealed for any other reason, it is no longer concealed."
                 }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the creature also takes " },
+                {
+                  "type": "text",
+                  "text": "As success, but the creature also takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "2d6", "damageType": "cold", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "cold",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage, and the light affects the creature for 1 minute." }
+                {
+                  "type": "text",
+                  "text": " damage, and the light affects the creature for 1 minute."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As success, but the creature also takes " },
+                {
+                  "type": "text",
+                  "text": "As success, but the creature also takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "4d6", "damageType": "cold", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "cold",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage, and the light affects the creature for 10 minutes." }
+                {
+                  "type": "text",
+                  "text": " damage, and the light affects the creature for 10 minutes."
+                }
               ]
             }
           },

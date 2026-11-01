@@ -483,23 +483,62 @@
             "statistic": "save:reflex",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes half damage and is " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "b374c4c9-d230-5167-8878-38e08932a071" },
-                { "type": "text", "text": " with an " },
-                { "type": "ref", "id": "2ae74030-e87a-55ee-955c-fb9870392d44" },
-                { "type": "text", "text": " DC of 24." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "b374c4c9-d230-5167-8878-38e08932a071"
+                },
+                {
+                  "type": "text",
+                  "text": " with an "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+                },
+                {
+                  "type": "text",
+                  "text": " DC of 24."
+                }
               ]
             }
           },

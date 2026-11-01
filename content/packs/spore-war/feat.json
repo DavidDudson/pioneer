@@ -48,7 +48,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target avoids any additional effect." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target avoids any additional effect."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -380,17 +385,45 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The demon takes no damage." }],
-              "success": [{ "type": "text", "text": "The demon takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The demon takes no damage."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The demon takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The demon takes full damage and is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The demon takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The demon takes full damage and is permanently " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The demon takes full damage and is permanently "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

@@ -1346,8 +1346,15 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "You generate a " },
-                { "type": "text", "text": "wellspring surge", "marks": ["emphasis"] },
+                {
+                  "type": "text",
+                  "text": "You generate a "
+                },
+                {
+                  "type": "text",
+                  "text": "wellspring surge",
+                  "marks": ["emphasis"]
+                },
                 {
                   "type": "text",
                   "text": ", with a spell rank chosen randomly among your top three ranks of spell slots (or all your ranks if you have fewer than three)."

@@ -515,9 +515,18 @@
             "dc": 20,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The creature takes no damage, but is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature takes no damage, but is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "success": [
                 {
@@ -530,15 +539,39 @@
                   "type": "text",
                   "text": "The creature takes full damage, is off-guard until the end of its next turn, and is "
                 },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": ". When it recovers from being stunned, it is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": ". When it recovers from being stunned, it is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ]
             }
           },

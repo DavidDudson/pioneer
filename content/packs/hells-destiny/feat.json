@@ -550,7 +550,10 @@
             },
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The sigil immediately vanishes, and the creature is unaffected." }
+                {
+                  "type": "text",
+                  "text": "The sigil immediately vanishes, and the creature is unaffected."
+                }
               ],
               "success": [
                 {
@@ -563,30 +566,66 @@
                   "type": "text",
                   "text": "At the start of the creature's next turn, if it doesn't use their first action to obey the command, the sigil ignites as it vanishes, dealing "
                 },
-                { "type": "damage", "instances": [{ "formula": "((@level/2)+2)d6", "damageType": "fire" }] },
-                { "type": "text", "text": " damage and " },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "(floor((@level -12)/2)+2)d6", "damageType": "fire", "category": "persistent" }
+                    {
+                      "formula": "((@level/2)+2)d6",
+                      "damageType": "fire"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage to the creature." }
+                {
+                  "type": "text",
+                  "text": " damage and "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(floor((@level -12)/2)+2)d6",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the creature."
+                }
               ],
               "criticalFailure": [
                 {
                   "type": "text",
                   "text": "The creature must spend the first action of its next turn to obey your command; it can't Delay. The sigil vanishes at the end of its turn; it ignites if the creature didn't use all its remaining actions to continue to obey your command, dealing "
                 },
-                { "type": "damage", "instances": [{ "formula": "((@level/2)+2)d6", "damageType": "fire" }] },
-                { "type": "text", "text": " damage and " },
                 {
                   "type": "damage",
                   "instances": [
-                    { "formula": "(floor((@level -12)/2)+2)d6", "damageType": "fire", "category": "persistent" }
+                    {
+                      "formula": "((@level/2)+2)d6",
+                      "damageType": "fire"
+                    }
                   ]
                 },
-                { "type": "text", "text": " damage to the creature." }
+                {
+                  "type": "text",
+                  "text": " damage and "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "(floor((@level -12)/2)+2)d6",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to the creature."
+                }
               ]
             }
           },
@@ -902,16 +941,41 @@
                   "text": "The creature is unaffected and becomes temporarily immune to the effects of this impulse for 24 hours."
                 }
               ],
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "Moisture seeps into the creature's lungs, making the creature " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "Moisture seeps into the creature's lungs, making the creature "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -1044,13 +1108,36 @@
                   "type": "text",
                   "text": "The target gains one of the following conditions of your choice until the end of your next turn: "
                 },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": ", " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": ", " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": ", or " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": ", or "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
                 {
                   "type": "text",
                   "text": ". The target can end the effect by using either a single action with the concentrate trait to regain their bearings (if your strategy had the auditory trait) or an Interact action to rub their eyes (if your strategy had the visual trait). In addition, the target isn't temporarily immune to further uses of Improvise Strategy."
@@ -1062,7 +1149,12 @@
                   "text": "As critical success, but the target is temporarily immune to further uses of Improvise Strategy."
                 }
               ],
-              "failure": [{ "type": "text", "text": "The target is unaffected." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",

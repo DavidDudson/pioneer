@@ -322,16 +322,50 @@
                 }
               ],
               "success": [
-                { "type": "text", "text": "The demon takes " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "The demon takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The demon takes " },
-                { "type": "damage", "instances": [{ "formula": "4d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the start of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The demon takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of its next turn."
+                }
               ],
               "criticalFailure": [
                 {
@@ -340,9 +374,18 @@
                 },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "2d6", "damageType": "mental", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "mental",
+                      "category": "persistent"
+                    }
+                  ]
                 },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ]
             }
           },

@@ -1522,19 +1522,41 @@
             "statistic": "save:will",
             "options": ["inflicts:stupefied"],
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
                 {
                   "type": "text",
                   "text": " for 1 minute, and you regain 1 Focus Point, up to your normal maximum. You can't use Brain Drain again until after the next time you make your daily preparations."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the creature is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -3388,21 +3410,56 @@
             "statistic": "save:will",
             "options": ["inflicts:frightened"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -3927,9 +3984,18 @@
             "statistic": "skill:intimidation",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " to your attacks until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " to your attacks until the end of your next turn."
+                }
               ],
               "success": [
                 {
@@ -7701,7 +7767,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The dreams mislead you, and you learn an erroneous piece of information." }
+                {
+                  "type": "text",
+                  "text": "The dreams mislead you, and you learn an erroneous piece of information."
+                }
               ]
             }
           },
@@ -7826,7 +7895,12 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -14332,7 +14406,12 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The spell has no effect." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The spell has no effect."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -17122,27 +17201,56 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target resists the effect but its form twists in the process. It's " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 1" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The target resists the effect but its form twists in the process. It's "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "failure": [
                 {
                   "type": "text",
                   "text": "The target's body briefly warps to resemble yours. It's clumsy 1 until the end of its next turn and "
                 },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
                 {
                   "type": "text",
                   "text": "The target's body warps to resemble yours for a significant time. It's clumsy 1 for 1 minute and "
                 },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

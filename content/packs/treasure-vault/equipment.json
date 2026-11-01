@@ -18261,7 +18261,12 @@
             "statistic": "save:will",
             "dc": 42,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature's memories of you are normal." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature's memories of you are normal."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -18275,7 +18280,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature retains no memories of you or this interaction." }
+                {
+                  "type": "text",
+                  "text": "The creature retains no memories of you or this interaction."
+                }
               ]
             }
           },
@@ -28560,7 +28568,12 @@
             "statistic": "save:will",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -28568,18 +28581,38 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": " and " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
                 {
                   "type": "text",
                   "text": " for 1 minute. You know you've been targeted with a divination spell, but the mask gives you no additional information."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
                 {
                   "type": "text",
                   "text": " and dazzled for 10 minutes, and the spell is disrupted. You gain a brief mental glimpse of the triggering creature and learn its approximate distance and direction."
@@ -29225,18 +29258,49 @@
             "type": "check",
             "statistic": "save:fortitude",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " for 1 round and " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
-                { "type": "text", "text": " as the shadows scrape across it." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round and "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 1"
+                },
+                {
+                  "type": "text",
+                  "text": " as the shadows scrape across it."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is blinded for 1 minute and " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 2" },
-                { "type": "text", "text": " as the shadows seize it." }
+                {
+                  "type": "text",
+                  "text": "The creature is blinded for 1 minute and "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 2"
+                },
+                {
+                  "type": "text",
+                  "text": " as the shadows seize it."
+                }
               ],
               "criticalFailure": [
                 {
@@ -34216,9 +34280,18 @@
             "dc": 38,
             "outcomes": {
               "failure": [
-                { "type": "text", "text": "This creature is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " against the Strike." }
+                {
+                  "type": "text",
+                  "text": "This creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " against the Strike."
+                }
               ],
               "criticalFailure": [
                 {
@@ -42390,21 +42463,46 @@
             "statistic": "save:fortitude",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
                 {
                   "type": "text",
                   "text": " for 1 round or until it spends an Interact action to rub its eyes, ending the blinded condition."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The creature is blinded for 1 round." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature is blinded for 1 round."
+                }
+              ]
             }
           },
           {

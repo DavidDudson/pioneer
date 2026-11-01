@@ -707,9 +707,24 @@
             "type": "check",
             "statistic": "skill:diplomacy",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "Reduce the condition's value by 2." }],
-              "success": [{ "type": "text", "text": "Reduce the condition's value by 1." }],
-              "criticalFailure": [{ "type": "text", "text": "Increase the condition's value by 1." }]
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "Reduce the condition's value by 2."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Reduce the condition's value by 1."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "Increase the condition's value by 1."
+                }
+              ]
             }
           },
           {
@@ -1867,24 +1882,56 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
                 {
                   "type": "text",
                   "text": " and can't reduce their frightened value below 1 while they remain within 30 feet of you."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -4671,14 +4718,24 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature takes a –10-foot status penalty to its Speeds until the beginning of your next turn."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the penalty lasts for 1 minute." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the penalty lasts for 1 minute."
+                }
+              ]
             }
           },
           {
@@ -5676,21 +5733,55 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": " and can't use reactions until its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and can't use reactions until its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": " and can't use reactions until its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": " and can't use reactions until its next turn."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature falls " },
-                { "type": "ref", "id": "e1a78dad-4887-518e-9120-e58b7009ebfd" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature falls "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ]
             }
           },
@@ -6326,11 +6417,25 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a" },
-                { "type": "text", "text": " by you until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+                },
+                {
+                  "type": "text",
+                  "text": " by you until the end of your next turn."
+                }
               ],
               "failure": [
                 {

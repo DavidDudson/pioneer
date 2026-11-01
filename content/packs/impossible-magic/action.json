@@ -956,7 +956,12 @@
             "statistic": "save:fortitude",
             "options": ["inflicts:drained"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "No effect." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "No effect."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -968,7 +973,11 @@
                   "type": "text",
                   "text": "Your eidolon drains enough life force to satisfy itself. The enemy takes additional void damage equal to half your level and is "
                 },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 1"
+                },
                 {
                   "type": "text",
                   "text": ". Your eidolon gains temporary Hit Points equal to the enemy's level, which last for 1 minute."
@@ -979,8 +988,15 @@
                   "type": "text",
                   "text": "Your eidolon drains an incredible amount of life force and is thoroughly glutted with energy. As failure, but the enemy is "
                 },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 2" },
-                { "type": "text", "text": " and the temporary Hit Points are equal to double the enemy's level." }
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and the temporary Hit Points are equal to double the enemy's level."
+                }
               ]
             }
           },
@@ -1270,7 +1286,12 @@
             "type": "check",
             "statistic": "save:reflex",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The enemy is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",

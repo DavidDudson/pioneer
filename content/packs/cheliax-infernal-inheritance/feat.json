@@ -1501,7 +1501,12 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -1509,7 +1514,10 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but any creature can trigger the creature's weakness." }
+                {
+                  "type": "text",
+                  "text": "As failure, but any creature can trigger the creature's weakness."
+                }
               ]
             }
           },
@@ -1976,19 +1984,47 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The enemy is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The enemy is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The enemy is unable to use reactions until the start of their next turn." }
+                {
+                  "type": "text",
+                  "text": "The enemy is unable to use reactions until the start of their next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "As success, and they are " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "As success, and they are "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As success, and they are " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "As success, and they are "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ]
             }
           },
@@ -4701,20 +4737,53 @@
                   "type": "text",
                   "text": "The target is wracked by a sense of dread at your approach. The next time the target sees you before your next daily preparations, they become "
                 },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the target becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": " when they see you. They also become " },
-                { "type": "ref", "id": "5e3582c3-701c-5169-9c69-4221096722c2" },
-                { "type": "text", "text": " by the impending terror for 10 minutes after you perform this ritual." }
+                {
+                  "type": "text",
+                  "text": "As success, but the target becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": " when they see you. They also become "
+                },
+                {
+                  "type": "ref",
+                  "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+                },
+                {
+                  "type": "text",
+                  "text": " by the impending terror for 10 minutes after you perform this ritual."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the target is " },
-                { "type": "ref", "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b", "label": "Drained 1" },
-                { "type": "text", "text": " for as long as it is fatigued." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for as long as it is fatigued."
+                }
               ]
             }
           },

@@ -672,7 +672,12 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The enemy takes no damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The enemy takes no damage."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -690,8 +695,15 @@
                   "type": "text",
                   "text": "The creature takes the same amount of bludgeoning damage you took from the fall, is knocked prone, and is "
                 },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -913,21 +925,37 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature is pushed or pulled 5 feet in the direction of your choice. All creatures must be moved in the same direction."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the creature is pushed or pulled 10 feet." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the creature is pushed or pulled 10 feet."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",
                   "text": "As success, but the creature is pushed or pulled 10 feet, and the creature is "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ]
             }
           },
@@ -1742,13 +1770,37 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature is pushed back 5 feet." }],
-              "failure": [{ "type": "text", "text": "The creature is pushed back 10 feet." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 5 feet."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 10 feet."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is pushed back 10 feet and knocked " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is pushed back 10 feet and knocked "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -2730,16 +2782,41 @@
               "against": "class-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is unaffected" }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected"
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -4144,10 +4221,18 @@
             "statistic": "skill:athletics",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target takes bludgeoning damage equal to your " },
+                {
+                  "type": "text",
+                  "text": "The target takes bludgeoning damage equal to your "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "@level +(2*@attr.str)", "damageType": "bludgeoning" }],
+                  "instances": [
+                    {
+                      "formula": "@level +(2*@attr.str)",
+                      "damageType": "bludgeoning"
+                    }
+                  ],
                   "label": "level plus twice your Strength modifier"
                 },
                 {
@@ -4156,18 +4241,43 @@
                 }
               ],
               "success": [
-                { "type": "text", "text": "As critical success, but the damage is equal to your " },
+                {
+                  "type": "text",
+                  "text": "As critical success, but the damage is equal to your "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "@level + @attr.str", "damageType": "bludgeoning" }],
+                  "instances": [
+                    {
+                      "formula": "@level + @attr.str",
+                      "damageType": "bludgeoning"
+                    }
+                  ],
                   "label": "level plus your Strength modifier"
                 },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target takes bludgeoning damage equal to your " },
-                { "type": "damage", "instances": [{ "formula": "@attr.str" }], "label": "Strength modifier" },
-                { "type": "text", "text": " and you end your movement before entering its space." }
+                {
+                  "type": "text",
+                  "text": "The target takes bludgeoning damage equal to your "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "@attr.str"
+                    }
+                  ],
+                  "label": "Strength modifier"
+                },
+                {
+                  "type": "text",
+                  "text": " and you end your movement before entering its space."
+                }
               ],
               "criticalFailure": [
                 {

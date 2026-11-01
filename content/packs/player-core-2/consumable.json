@@ -1686,9 +1686,24 @@
             "statistic": "save:reflex",
             "dc": 21,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
-              "failure": [{ "type": "text", "text": "The creature takes full damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage."
+                }
+              ],
               "criticalFailure": [
                 {
                   "type": "text",
@@ -2505,15 +2520,31 @@
             "statistic": "save:reflex",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage and no other effects." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and no other effects."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
                   "text": "The creature takes full damage. It also takes all other effects of a direct hit from one of the component bombs (such as "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " from bottled lightning or persistent damage from an acid flask)." }
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " from bottled lightning or persistent damage from an acid flask)."
+                }
               ],
               "criticalFailure": [
                 {
@@ -5040,7 +5071,12 @@
             "statistic": "save:reflex",
             "dc": 18,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -6926,26 +6962,54 @@
             "statistic": "save:reflex",
             "dc": 34,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature is knocked aside by the snare's deployment, takes half damage, and is "
                 },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is captured by the cage, taking full damage and falling " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": ". It's " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                {
+                  "type": "text",
+                  "text": "The creature is captured by the cage, taking full damage and falling "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ". It's "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
                 {
                   "type": "text",
                   "text": " while it remains within the cage. It can get free by Escaping or by destroying the cage (AC 30, Fort +18, Ref +24, Hardness 5, HP 30, object immunities)."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "As failure, but the creature takes double damage." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature takes double damage."
+                }
+              ]
             }
           },
           {
@@ -8261,7 +8325,12 @@
             "statistic": "save:reflex",
             "dc": 26,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -8269,15 +8338,24 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
                 {
                   "type": "text",
                   "text": " for 1 round, then takes a –5-foot status penalty to its Speed for 1 minute. Both effects end early if it Escapes (DC 26)."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is immobilized for 1 minute or until it Escapes (DC 26)." }
+                {
+                  "type": "text",
+                  "text": "The creature is immobilized for 1 minute or until it Escapes (DC 26)."
+                }
               ]
             }
           },
@@ -8986,15 +9064,30 @@
             "statistic": "save:reflex",
             "dc": 20,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "The creature takes a –5-foot status penalty to its Speed for 1 minute or until it Escapes."
                 }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the penalty is -10 feet." }],
-              "criticalFailure": [{ "type": "text", "text": "As success, but the penalty is -20 feet." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the penalty is -10 feet."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the penalty is -20 feet."
+                }
+              ]
             }
           },
           {
@@ -10779,12 +10872,31 @@
             "statistic": "save:reflex",
             "dc": 17,
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [{ "type": "text", "text": "The snare marks the creature." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The snare marks the creature."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The snare marks the creature, and the creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The snare marks the creature, and the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ]
             }
           },
@@ -11094,7 +11206,12 @@
             "statistic": "save:fortitude",
             "dc": 29,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -11102,19 +11219,42 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 2"
+                },
                 {
                   "type": "text",
                   "text": ", and it takes a –10-foot circumstance penalty to its Speed for 1 minute or until it Escapes (DC 27)."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": ", and it's " },
-                { "type": "ref", "id": "64278392-4910-5a32-b819-56f6e54952dd" },
-                { "type": "text", "text": " for 1 minute or until it Escapes (DC 27)." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": ", and it's "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute or until it Escapes (DC 27)."
+                }
               ]
             }
           },
@@ -11268,21 +11408,56 @@
             "statistic": "save:fortitude",
             "dc": 24,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -15372,25 +15547,81 @@
             "statistic": "save:reflex",
             "dc": 34,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes half damage and is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage plus " },
-                { "type": "damage", "instances": [{ "formula": "2d6", "damageType": "bleed" }] },
-                { "type": "text", "text": ", and it becomes " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage plus "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": ", and it becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage plus " },
-                { "type": "damage", "instances": [{ "formula": "4d6", "damageType": "bleed" }] },
-                { "type": "text", "text": ", and it becomes " },
-                { "type": "ref", "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8", "label": "Clumsy 2" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage plus "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "bleed"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": ", and it becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+                  "label": "Clumsy 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ]
             }
           },
@@ -17909,34 +18140,69 @@
             "statistic": "save:reflex",
             "dc": 20,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
                   "text": "Powder sticks to the target, causing it to leave behind telltale footprints. Being "
                 },
-                { "type": "ref", "id": "53cf375b-c3fa-5d92-afde-135a3c001674" },
-                { "type": "text", "text": " makes the target " },
-                { "type": "ref", "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa" },
-                { "type": "text", "text": ", rather than " },
-                { "type": "ref", "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b" },
-                { "type": "text", "text": ", to creatures that could see it if it weren't invisible." }
+                {
+                  "type": "ref",
+                  "id": "53cf375b-c3fa-5d92-afde-135a3c001674"
+                },
+                {
+                  "type": "text",
+                  "text": " makes the target "
+                },
+                {
+                  "type": "ref",
+                  "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+                },
+                {
+                  "type": "text",
+                  "text": ", rather than "
+                },
+                {
+                  "type": "ref",
+                  "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+                },
+                {
+                  "type": "text",
+                  "text": ", to creatures that could see it if it weren't invisible."
+                }
               ],
               "failure": [
                 {
                   "type": "text",
                   "text": "Powder clumps on the target, constantly flaking away. Being invisible makes the target "
                 },
-                { "type": "ref", "id": "f410da96-b56a-5c7c-857b-7096defec0a1" },
+                {
+                  "type": "ref",
+                  "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+                },
                 {
                   "type": "text",
                   "text": ", rather than hidden or undetected, to creatures that could see it if it weren't invisible."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, and the creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " until the end of its next turn." }
+                {
+                  "type": "text",
+                  "text": "As failure, and the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
               ]
             }
           },
@@ -18150,15 +18416,30 @@
             "statistic": "save:reflex",
             "dc": 25,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The foe is unaffected." }],
-              "success": [{ "type": "text", "text": "The foe takes half damage and isn't affected by the wind." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The foe is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The foe takes half damage and isn't affected by the wind."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
                   "text": "The foe takes full damage and is buffeted by winds for 1 round, taking a -2 circumstance penalty to ranged attack rolls and a –10-foot circumstance penalty to its fly Speed."
                 }
               ],
-              "criticalFailure": [{ "type": "text", "text": "As failure, but the foe takes double damage." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the foe takes double damage."
+                }
+              ]
             }
           },
           {
@@ -18385,23 +18666,64 @@
             "statistic": "save:reflex",
             "dc": 32,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes half damage and is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " for 1 round and " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is off-guard for 1 round and " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is off-guard for 1 round and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is off-guard for 1 minute and " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 4" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is off-guard for 1 minute and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 4"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -19562,24 +19884,56 @@
             "statistic": "save:will",
             "dc": 20,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
                 {
                   "type": "text",
                   "text": " and can't reduce its frightened value below 1 until it spends an action, which has the concentrate trait, to calm itself down."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

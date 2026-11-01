@@ -481,11 +481,26 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "Your character softlocks and is " },
-                { "type": "ref", "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947" },
-                { "type": "text", "text": " permanently. Only a " },
-                { "type": "ref", "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675" },
-                { "type": "text", "text": " ritual or similar magic can reverse this effect." }
+                {
+                  "type": "text",
+                  "text": "Your character softlocks and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+                },
+                {
+                  "type": "text",
+                  "text": " permanently. Only a "
+                },
+                {
+                  "type": "ref",
+                  "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+                },
+                {
+                  "type": "text",
+                  "text": " ritual or similar magic can reverse this effect."
+                }
               ]
             }
           },

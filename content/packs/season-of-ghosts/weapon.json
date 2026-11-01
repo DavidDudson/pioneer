@@ -463,18 +463,47 @@
             "dc": 18,
             "options": ["inflicts:off-guard", "inflicts:slowed"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature becomes distracted by vengeful spirits and becomes " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
-                { "type": "text", "text": " until the start of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes distracted by vengeful spirits and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the start of your next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the creature is also " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "As success, but the creature is also "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
-              "criticalFailure": [{ "type": "text", "text": "As failure, but the creature is slowed 1 for 1 minute." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is slowed 1 for 1 minute."
+                }
+              ]
             }
           },
           {

@@ -1831,14 +1831,39 @@
             "statistic": "save:will",
             "dc": 31,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is otherwise unaffected." }],
-              "success": [
-                { "type": "text", "text": "Until the beginning of your next turn, the creature must succeed at a " },
-                { "type": "check", "statistic": "flat", "dc": 5 },
-                { "type": "text", "text": " to Cast a Spell." }
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is otherwise unaffected."
+                }
               ],
-              "failure": [{ "type": "text", "text": "As success, but the effect lasts for 1 minute." }],
-              "criticalFailure": [{ "type": "text", "text": "As failure, but the DC of the flat check is 11." }]
+              "success": [
+                {
+                  "type": "text",
+                  "text": "Until the beginning of your next turn, the creature must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "flat",
+                  "dc": 5
+                },
+                {
+                  "type": "text",
+                  "text": " to Cast a Spell."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the effect lasts for 1 minute."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the DC of the flat check is 11."
+                }
+              ]
             }
           },
           {

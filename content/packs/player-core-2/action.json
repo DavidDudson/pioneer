@@ -2018,8 +2018,14 @@
                   "type": "text",
                   "text": "The target must directly answer your question. It doesn't have to answer truthfully, but you gain a +4 circumstance bonus to your Perception DC if the creature attempts to "
                 },
-                { "type": "ref", "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832" },
-                { "type": "text", "text": " to you." }
+                {
+                  "type": "ref",
+                  "id": "1ee7b671-dd18-5950-a4db-fbd4f8dae832"
+                },
+                {
+                  "type": "text",
+                  "text": " to you."
+                }
               ]
             }
           },

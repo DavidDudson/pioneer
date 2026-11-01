@@ -818,25 +818,85 @@
             "statistic": "save:will",
             "dc": 33,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "7d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "7d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "14d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "6f53a234-670f-5b02-a986-7cce57585fc8" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "14d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "21d6", "damageType": "mental" }] },
-                { "type": "text", "text": " damage and is " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 3" },
-                { "type": "text", "text": "; when they recover from being stunned, they're confused for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "21d6",
+                      "damageType": "mental"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 3"
+                },
+                {
+                  "type": "text",
+                  "text": "; when they recover from being stunned, they're confused for 1 minute."
+                }
               ]
             }
           },

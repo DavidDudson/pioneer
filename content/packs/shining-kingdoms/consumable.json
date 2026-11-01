@@ -544,15 +544,37 @@
                   "text": "The foe takes the normal damage from the ammunition, instead of the 10d8 slashing damage."
                 }
               ],
-              "success": [{ "type": "text", "text": "The foe takes half damage." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The foe takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The foe takes full damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The foe takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The foe takes double damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                {
+                  "type": "text",
+                  "text": "The foe takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
                 {
                   "type": "text",
                   "text": ". A creature reduced to 0 HP from this damage is ripped limb from limb, and it instantly dies; its gear remains."
@@ -707,15 +729,37 @@
                   "text": "The foe takes the normal damage from the ammunition, instead of the 15d8 slashing damage."
                 }
               ],
-              "success": [{ "type": "text", "text": "The foe takes half damage." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The foe takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The foe takes full damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The foe takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The foe takes double damage and is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
+                {
+                  "type": "text",
+                  "text": "The foe takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
                 {
                   "type": "text",
                   "text": ". A creature reduced to 0 HP from this damage is ripped limb from limb, and it instantly dies; its gear remains."

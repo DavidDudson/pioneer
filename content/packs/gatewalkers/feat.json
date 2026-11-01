@@ -396,7 +396,12 @@
                   "text": "Your foe pauses momentarily. Their attack fails, but they can attempt further attacks against you."
                 }
               ],
-              "failure": [{ "type": "text", "text": "The target's attack is unaffected." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target's attack is unaffected."
+                }
+              ]
             }
           },
           {

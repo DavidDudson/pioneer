@@ -965,9 +965,19 @@
             "dc": 43,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "success": [
                 {
@@ -976,7 +986,10 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the creature is hurled forward in time 1d4 minutes." }
+                {
+                  "type": "text",
+                  "text": "As success, but the creature is hurled forward in time 1d4 minutes."
+                }
               ],
               "criticalFailure": [
                 {

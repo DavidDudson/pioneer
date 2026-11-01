@@ -92,15 +92,34 @@
                   "type": "text",
                   "text": "The deity blesses the copper coin but also imbues you with additional divine energy and insight. You heal "
                 },
-                { "type": "damage", "instances": [{ "formula": "1d8+8" }], "healing": true },
-                { "type": "text", "text": " Hit Points and can cast " },
-                { "type": "ref", "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6" },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d8+8"
+                    }
+                  ],
+                  "healing": true
+                },
+                {
+                  "type": "text",
+                  "text": " Hit Points and can cast "
+                },
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                },
                 {
                   "type": "text",
                   "text": " once in the next 24 hours as a divine spell. You treat all further critical successes at Invoking Shrine Blessing as regular successes instead."
                 }
               ],
-              "success": [{ "type": "text", "text": "The deity blesses the copper coin." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The deity blesses the copper coin."
+                }
+              ],
               "failure": [
                 {
                   "type": "text",
@@ -112,8 +131,15 @@
                   "type": "text",
                   "text": "You anger the deity. The copper coin vanishes, you can't attempt to invoke a blessing at this shrine again for 1 week, and you become "
                 },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " for 1 hour." }
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 hour."
+                }
               ]
             }
           },

@@ -581,18 +581,38 @@
             "statistic": "skill:deception",
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7" },
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
                 {
                   "type": "text",
                   "text": " (including against the triggering attack) until the end of your ally's turn."
                 }
               ],
-              "success": [{ "type": "text", "text": "The target is off-guard against the triggering attack." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is off-guard against the triggering attack."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "You lose your balance in your attempt to assist your ally and fall " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "You lose your balance in your attempt to assist your ally and fall "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

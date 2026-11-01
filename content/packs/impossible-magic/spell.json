@@ -22724,21 +22724,55 @@
             "type": "check",
             "statistic": "save:will",
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is frightened 3. It's also " },
-                { "type": "ref", "id": "f7fea8f9-c457-5b9f-9283-f567fa557184" },
-                { "type": "text", "text": " for 1 round or until it's no longer frightened, whichever comes first." }
+                {
+                  "type": "text",
+                  "text": "The creature is frightened 3. It's also "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round or until it's no longer frightened, whichever comes first."
+                }
               ]
             }
           },
@@ -22927,17 +22961,45 @@
             "statistic": "save:reflex",
             "options": ["inflicts:grabbed", "inflicts:restrained"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature takes no damage." }],
-              "success": [{ "type": "text", "text": "The creature takes half damage." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature takes no damage."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature takes full damage and is " },
-                { "type": "ref", "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146" },
-                { "type": "text", "text": " by a vine for the duration of the spell or until they Escape." }
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+                },
+                {
+                  "type": "text",
+                  "text": " by a vine for the duration of the spell or until they Escape."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature takes double damage and is " },
-                { "type": "ref", "id": "b374c4c9-d230-5167-8878-38e08932a071" },
-                { "type": "text", "text": " by a vine for the duration of the spell or until they Escape." }
+                {
+                  "type": "text",
+                  "text": "The creature takes double damage and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "b374c4c9-d230-5167-8878-38e08932a071"
+                },
+                {
+                  "type": "text",
+                  "text": " by a vine for the duration of the spell or until they Escape."
+                }
               ]
             }
           },
@@ -23057,17 +23119,47 @@
             "statistic": "save:fortitude",
             "options": ["inflicts:enfeebled"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
-              "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 2" },
-                { "type": "text", "text": " for 1 round." }
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
               ],
-              "failure": [{ "type": "text", "text": "The creature is enfeebled 2 for 1 minute." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is enfeebled 2 for 1 minute."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5aa15fa8-99a7-56a4-8237-f605177275dd", "label": "Enfeebled 3" },
-                { "type": "text", "text": " for 1 minute." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 3"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute."
+                }
               ]
             }
           },

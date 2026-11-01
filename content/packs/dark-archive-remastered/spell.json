@@ -1886,7 +1886,12 @@
                   "text": "As critical success, but the status bonus an ally gets if it forgoes the reaction is +1."
                 }
               ],
-              "failure": [{ "type": "text", "text": "The spell has no effect." }]
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The spell has no effect."
+                }
+              ]
             }
           },
           {

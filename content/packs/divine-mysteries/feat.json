@@ -567,12 +567,26 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "2", "damageType": "spirit", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "2",
+                      "damageType": "spirit",
+                      "category": "persistent"
+                    }
+                  ]
                 },
                 {
                   "type": "text",
@@ -580,10 +594,19 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "4", "damageType": "spirit", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "4",
+                      "damageType": "spirit",
+                      "category": "persistent"
+                    }
+                  ]
                 },
                 {
                   "type": "text",
@@ -591,10 +614,19 @@
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target takes " },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
                 {
                   "type": "damage",
-                  "instances": [{ "formula": "6", "damageType": "spirit", "category": "persistent" }]
+                  "instances": [
+                    {
+                      "formula": "6",
+                      "damageType": "spirit",
+                      "category": "persistent"
+                    }
+                  ]
                 },
                 {
                   "type": "text",

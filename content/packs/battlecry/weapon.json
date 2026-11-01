@@ -3217,19 +3217,46 @@
             "statistic": "save:will",
             "dc": 50,
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is stricken by crushing despair. It becomes " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " as it sobs uncontrollably, and it can't use reactions while it's slowed." }
+                {
+                  "type": "text",
+                  "text": "The creature is stricken by crushing despair. It becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " as it sobs uncontrollably, and it can't use reactions while it's slowed."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "As success, but the creature is also " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "As success, but the creature is also "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the duration of the blinded condition is 1 minute." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the duration of the blinded condition is 1 minute."
+                }
               ]
             }
           },

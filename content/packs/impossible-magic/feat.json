@@ -891,12 +891,32 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
-              "failure": [{ "type": "text", "text": "The creature can't use reactions for 1 round." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature can't use reactions for 1 round."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the creature is also " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature is also "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -1572,21 +1592,56 @@
             },
             "options": ["inflicts:stupefied"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected by the compound invocation." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected by the compound invocation."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 1" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 2" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "9e1dad43-36fe-5629-923f-2df63c12d90f", "label": "Stupefied 3" },
-                { "type": "text", "text": " until the end of your next turn." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 3"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of your next turn."
+                }
               ]
             }
           },
@@ -1743,23 +1798,65 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 2" },
-                { "type": "text", "text": " and " },
-                { "type": "ref", "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f", "label": "Stunned 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "4218b8f3-1756-50cd-a914-6ce750659a62", "label": "Frightened 3" },
-                { "type": "text", "text": " and stunned 1." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 3"
+                },
+                {
+                  "type": "text",
+                  "text": " and stunned 1."
+                }
               ]
             }
           },
@@ -3739,7 +3836,10 @@
                 }
               ],
               "success": [
-                { "type": "text", "text": "As critical success, but the rune doesn't grant a bonus to damage." }
+                {
+                  "type": "text",
+                  "text": "As critical success, but the rune doesn't grant a bonus to damage."
+                }
               ]
             }
           },
@@ -4419,18 +4519,40 @@
             "options": ["inflicts:sickened"],
             "outcomes": {
               "success": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
                 {
                   "type": "text",
                   "text": ", but if it spends a single action attempting to recover, it automatically succeeds."
                 }
               ],
-              "failure": [{ "type": "text", "text": "The target is sickened 1." }],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is sickened 1."
+                }
+              ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 2" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },
@@ -5512,22 +5634,45 @@
               "against": "spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "943dfd55-ad09-5abf-9138-95a6149d3302" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature is " },
-                { "type": "ref", "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7" },
+                {
+                  "type": "text",
+                  "text": "The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+                },
                 {
                   "type": "text",
                   "text": " for 1 round and dazzled for 1 minute. The creature can spend an Interact action rubbing its eyes to end this blinded condition."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is blinded for 1 round and dazzled for 1 hour." }
+                {
+                  "type": "text",
+                  "text": "The creature is blinded for 1 round and dazzled for 1 hour."
+                }
               ]
             }
           },
@@ -5928,10 +6073,30 @@
               "against": "spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target is unaffected." }],
-              "success": [{ "type": "text", "text": "The target takes void damage equal to half its level." }],
-              "failure": [{ "type": "text", "text": "The target takes void damage equal to its level." }],
-              "criticalFailure": [{ "type": "text", "text": "The target takes void damage equal to double its level." }]
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target takes void damage equal to half its level."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target takes void damage equal to its level."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The target takes void damage equal to double its level."
+                }
+              ]
             }
           },
           {
@@ -11518,7 +11683,12 @@
             },
             "options": ["inflicts:slowed"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The target takes no additional effect." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target takes no additional effect."
+                }
+              ],
               "success": [
                 {
                   "type": "text",
@@ -11526,14 +11696,34 @@
                 }
               ],
               "failure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " and takes a –10-foot circumstance penalty to its Speeds for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes a –10-foot circumstance penalty to its Speeds for 1 round."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target is " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 2" },
-                { "type": "text", "text": " and takes a –15-foot circumstance penalty to its Speeds for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes a –15-foot circumstance penalty to its Speeds for 1 round."
+                }
               ]
             }
           },
@@ -11765,18 +11955,44 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The target is otherwise unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is otherwise unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The target takes " },
-                { "type": "damage", "instances": [{ "formula": "10d6", "damageType": "force" }] },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "10d6",
+                      "damageType": "force"
+                    }
+                  ]
+                },
                 {
                   "type": "text",
                   "text": " damage, and the target is affected by a 2nd-rank silence spell for 1 round."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The target takes " },
-                { "type": "damage", "instances": [{ "formula": "15d6" }] },
+                {
+                  "type": "text",
+                  "text": "The target takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "15d6"
+                    }
+                  ]
+                },
                 {
                   "type": "text",
                   "text": " damage, and the target is affected by a 2nd-rank silence spell for 1 minute."
@@ -23540,30 +23756,86 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "3d6", "damageType": "bludgeoning" }] },
-                { "type": "text", "text": " damage." }
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "3d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "bludgeoning" }] },
+                {
+                  "type": "text",
+                  "text": "The creature takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
                 {
                   "type": "text",
                   "text": " damage and is grabbed by the earth. The creature can attempt to Escape against your world rouser DC."
                 }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "The creature is pulled into the earth, which closes above it. It takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "bludgeoning" }] },
+                {
+                  "type": "text",
+                  "text": "The creature is pulled into the earth, which closes above it. It takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
                 {
                   "type": "text",
                   "text": " damage immediately and is devoured. While devoured, it becomes grabbed and "
                 },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": ", and takes " },
-                { "type": "damage", "instances": [{ "formula": "6d6", "damageType": "bludgeoning" }] },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": ", and takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "6d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
                 {
                   "type": "text",
                   "text": " damage at the end of each of its turns, and cannot be targeted by any effect. A creature can attempt to Escape against your world rouser DC; in addition to the normal checks to Escape, it can attempt a Nature check. If it Escapes, it is returned to the area where it was when grabbed. A creature with a burrow Speed can Escape automatically and move up to its burrow Speed as part of that action."
@@ -25281,16 +25553,40 @@
               "against": "class-or-spell-dc"
             },
             "outcomes": {
-              "success": [{ "type": "text", "text": "The creature is unaffected." }],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "failure": [
-                { "type": "text", "text": "The creature falls and lands " },
-                { "type": "ref", "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "The creature falls and lands "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ],
               "criticalFailure": [
-                { "type": "text", "text": "As failure, but the creature also becomes " },
-                { "type": "ref", "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8", "label": "Sickened 1" },
-                { "type": "text", "text": "." }
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature also becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
               ]
             }
           },

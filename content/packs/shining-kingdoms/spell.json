@@ -1126,13 +1126,22 @@
             "dc": 40,
             "outcomes": {
               "criticalSuccess": [
-                { "type": "text", "text": "You and your allies arrive within 1,000 feet of your desired location." }
+                {
+                  "type": "text",
+                  "text": "You and your allies arrive within 1,000 feet of your desired location."
+                }
               ],
               "success": [
-                { "type": "text", "text": "You and your allies arrive within 1 mile of your desired location." }
+                {
+                  "type": "text",
+                  "text": "You and your allies arrive within 1 mile of your desired location."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "You and your allies arrive within 10 miles of your desired location." }
+                {
+                  "type": "text",
+                  "text": "You and your allies arrive within 10 miles of your desired location."
+                }
               ],
               "criticalFailure": [
                 {
