@@ -11,7 +11,7 @@ const ETCHED_DAMAGE = 'etched-damage';
  * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
  * land; a new book's rune must get rules or be listed here.
  */
-const RECORDED_GAPS: ReadonlySet<string> = new Set([
+const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
   'rune:astral',
   'rune:astral-greater',
@@ -97,41 +97,120 @@ async function loadRunes(): Promise<readonly ContentEntry[]> {
   return packs.flat().filter((entry) => entry.kind === ContentKind.Rune);
 }
 
-/** Whether a rune is a weapon property rune with no activation (those belong to the activations story). */
-function isPlainWeaponProperty(entry: ContentEntry): boolean {
+const ARMOUR_GAPS: ReadonlySet<string> = new Set([
+  'rune:advancing',
+  'rune:advancing-greater',
+  'rune:aim-aiding',
+  'rune:assisting',
+  'rune:energy-resistant',
+  'rune:energy-resistant-greater',
+  'rune:fortification',
+  'rune:fortification-greater',
+  'rune:gliding',
+  'rune:malleable',
+  'rune:mobile',
+  'rune:moonweave',
+  'rune:moonweave-greater',
+  'rune:moonweave-major',
+  'rune:mythic-armor-potency',
+  'rune:mythic-resilient',
+  'rune:portable',
+  'rune:quenching',
+  'rune:quenching-greater',
+  'rune:quenching-major',
+  'rune:quenching-true',
+  'rune:raiment',
+  'rune:ready',
+  'rune:ready-greater',
+  'rune:self-sealing',
+  'rune:soaring',
+  'rune:spellwatch',
+  'rune:swallow-spike',
+  'rune:swallow-spike-greater',
+  'rune:swallow-spike-major',
+  'rune:unnerving',
+  'rune:winged-greater',
+]);
+
+interface BonusRune {
+  readonly slug: string;
+  readonly selector: string;
+  readonly bonus: number;
+  /** The actions the bonus is limited to. */
+  readonly actions?: readonly string[];
+}
+
+/** The armour runes that give an item bonus to a skill. */
+const BONUS_RUNES: readonly BonusRune[] = [
+  { slug: 'rune:shadow', selector: 'skill:stealth', bonus: 1 },
+  { slug: 'rune:shadow-greater', selector: 'skill:stealth', bonus: 2 },
+  { slug: 'rune:shadow-major', selector: 'skill:stealth', bonus: 3 },
+  { slug: 'rune:slick', selector: 'skill:acrobatics', bonus: 1, actions: ['action:escape', 'action:squeeze'] },
+  { slug: 'rune:slick-greater', selector: 'skill:acrobatics', bonus: 2, actions: ['action:escape', 'action:squeeze'] },
+  { slug: 'rune:slick-major', selector: 'skill:acrobatics', bonus: 3, actions: ['action:escape', 'action:squeeze'] },
+];
+
+/** The rule an armour bonus rune is expected to carry. */
+function expectedBonus({ selector, bonus, actions }: BonusRune): object {
+  const rule = { key: 'FlatModifier', selectors: [selector], type: 'item', value: bonus };
+  return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
+}
+
+/** Whether a rune is a property rune for `item` with no activation (those belong to the activations stories). */
+function isPlainProperty(entry: ContentEntry, item: string): boolean {
   return (
     entry.kind === ContentKind.Rune &&
     entry.data.type === 'property' &&
-    entry.data.etchedOnto.item === 'weapon' &&
+    entry.data.etchedOnto.item === item &&
     entry.data.activations === undefined
   );
 }
 
 const RUNES = await loadRunes();
 
-/** Plain weapon property runes with neither rules nor a recorded gap. */
-const UNACCOUNTED = RUNES.filter((entry) => isPlainWeaponProperty(entry))
-  .filter((entry) => entry.rules.length === 0 && !RECORDED_GAPS.has(entry.slug))
-  .map((entry) => entry.slug);
+/** Plain property runes for `item` with neither rules nor a recorded gap. */
+function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
+  return RUNES.filter((entry) => isPlainProperty(entry, item))
+    .filter((entry) => entry.rules.length === 0 && !gaps.has(entry.slug))
+    .map((entry) => entry.slug);
+}
 
 /** Recorded gaps whose rune is gone or has since got rules. */
-const STALE_GAPS = [...RECORDED_GAPS].filter((slug) => {
-  const rune = RUNES.find((entry) => entry.slug === slug);
-  return rune === undefined || rune.rules.length > 0;
-});
+function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
+  return [...gaps].filter((slug) => {
+    const rune = RUNES.find((entry) => entry.slug === slug);
+    return rune === undefined || rune.rules.length > 0;
+  });
+}
 
 describe('weapon property rune rules', () => {
   test('every rune without an activation has rules or a recorded gap', () => {
-    expect(UNACCOUNTED).toEqual([]);
+    expect(unaccounted('weapon', WEAPON_GAPS)).toEqual([]);
   });
 
   test('a recorded gap names a rune that still has no rules', () => {
-    expect(STALE_GAPS).toEqual([]);
+    expect(staleGaps(WEAPON_GAPS)).toEqual([]);
   });
 
   test.each(ENERGY_RUNES)('$slug adds its energy damage to the weapon it is etched on', (rune) => {
     const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
     expect(entry?.rules).toMatchObject(expectedRules(rune));
+  });
+});
+
+describe('armour property rune rules', () => {
+  test('every rune without an activation has rules or a recorded gap', () => {
+    expect(unaccounted('armor', ARMOUR_GAPS)).toEqual([]);
+  });
+
+  test('a recorded gap names a rune that still has no rules', () => {
+    expect(staleGaps(ARMOUR_GAPS)).toEqual([]);
+  });
+
+  test.each(BONUS_RUNES)('$slug gives +$bonus to $selector', (rune) => {
+    const entry = RUNES.find(({ slug }) => slug === rune.slug);
+
+    expect(entry?.rules).toMatchObject([expectedBonus(rune)]);
   });
 });

@@ -310,8 +310,10 @@ invested or identified is play state, not content.
   A weapon property rune's damage rules select
   `etched-damage`, which reaches only the Strike of the weapon the rune is etched on, not every Strike the character
   has (`strike-rules.ts`). The energy runes (corrosive, flaming, frost, shock, thundering, and their greater grades)
-  carry their extra damage that way; the rest are recorded gaps in `weapon-rune-rules.test.ts` until the engine
-  can express them, and the runes with an activation belong to the weapon activations story.
+  carry their extra damage that way; the rest are recorded gaps in `property-rune-rules.test.ts` until the engine
+  can express them, and the runes with an activation belong to the weapon activations story. An armour property
+  rune that gives an item bonus (shadow's Stealth, slick's Acrobatics to Escape and Squeeze) is a `FlatModifier`; the
+  rest, among them the resistances that need the crafter's damage type, are recorded gaps in the same test.
 - **Consumables.** `category` is Foundry's (`potion`, `scroll`, `wand`, `talisman`…) plus `ammunition`. `uses` is
   how many times it is used before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a
   day). `damage` is a formula, type and `kind`
