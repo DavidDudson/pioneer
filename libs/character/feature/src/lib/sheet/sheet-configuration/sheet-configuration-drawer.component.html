@@ -1,0 +1,19 @@
+<fr-drawer [param]="param" [title]="'character.sheet.configuration.title' | transloco" [(open)]="state.open">
+  <fr-stack gap="lg">
+    <fr-section [anchor]="sections.packs.anchor" [heading]="sections.packs.headingKey | transloco">
+      <pio-sheet-packs />
+    </fr-section>
+    <fr-section [anchor]="sections.variantRules.anchor" [heading]="sections.variantRules.headingKey | transloco">
+      <pio-sheet-variant-rules />
+    </fr-section>
+    <fr-section [anchor]="sections.ruleLimits.anchor" [heading]="sections.ruleLimits.headingKey | transloco">
+      <pio-sheet-rule-limits />
+    </fr-section>
+    <fr-section [anchor]="sections.overrides.anchor" [heading]="sections.overrides.headingKey | transloco">
+      <pio-sheet-overrides />
+    </fr-section>
+    <fr-section [anchor]="sections.customEffects.anchor" [heading]="sections.customEffects.headingKey | transloco">
+      <pio-sheet-custom-effects />
+    </fr-section>
+  </fr-stack>
+</fr-drawer>

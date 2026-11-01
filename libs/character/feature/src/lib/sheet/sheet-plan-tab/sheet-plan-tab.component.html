@@ -159,14 +159,4 @@
   >
     <pio-class-features [lines]="picks.features()" />
   </fr-section>
-
-  <fr-section
-    [concealed]="shown()?.anchor !== sections.packs.anchor"
-    [anchor]="sections.packs.anchor"
-    [heading]="sections.packs.headingKey | transloco"
-  >
-    <pio-sheet-packs />
-  </fr-section>
-
-  <pio-sheet-table-rules [shown]="shown()" />
 </fr-stack>

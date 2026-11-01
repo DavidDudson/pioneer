@@ -755,7 +755,10 @@
       "cancel": "Cancel"
     },
     "reportBug": "Report a bug",
-    "actionsMenu": "Sheet actions"
+    "actionsMenu": "Sheet actions",
+    "configuration": {
+      "title": "Character configuration"
+    }
   },
   "validation": {
     "unknownAncestry": "That ancestry is not available. Choose another.",

@@ -6,6 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
+import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
 const core = {
   packId: '3a1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01',
@@ -59,9 +60,10 @@ function buttons(root: HTMLElement, label: string): HTMLButtonElement[] {
   return [...root.querySelectorAll('button')].filter((candidate) => candidate.textContent.trim().startsWith(label));
 }
 
-/** Opens the Plan tab, answering the character's packs with `packs`. */
+/** Opens the configuration drawer, answering the character's packs with `packs`. */
 async function open(packs: PacksJson): Promise<OpenSheet> {
   const sheet = await openSheet(undefined, { characterPacks: packs });
+  await openConfiguration(sheet.root);
   await vi.waitFor(() => {
     expect(sheet.root.textContent).toContain('Player Core');
   });

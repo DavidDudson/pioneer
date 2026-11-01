@@ -6,18 +6,19 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 import { ruleLimitSettingsOf } from '../../testing/rule-limit-settings-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { openConfiguration, textOf } from '../../testing/sheet-tabs-testing';
 
 const SETTINGS_URL = `/api/characters/${id}/rule-limit-settings`;
 
-/** The table limits panel of the Plan tab. */
+/** The table limits panel of the configuration drawer. */
 function panelOf({ root }: OpenSheet): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-rule-limits'));
 }
 
-/** Opens the Plan tab, answering the character's own limits with `settings`. */
+/** Opens the configuration drawer, answering the character's own limits with `settings`. */
 async function open(settings: object): Promise<OpenSheet> {
   const sheet = await openSheet(undefined, { ruleLimitSettings: settings });
+  await openConfiguration(sheet.root);
   await vi.waitFor(() => {
     expect(panelOf(sheet).textContent).toContain('Items invested');
   });

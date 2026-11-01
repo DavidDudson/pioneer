@@ -63,11 +63,6 @@ export const SHEET_TAB_SECTIONS: Readonly<Record<SheetMode, readonly SheetSectio
     SHEET_SECTIONS.timeline,
     SHEET_SECTIONS.feats,
     SHEET_SECTIONS.features,
-    SHEET_SECTIONS.packs,
-    SHEET_SECTIONS.variantRules,
-    SHEET_SECTIONS.ruleLimits,
-    SHEET_SECTIONS.overrides,
-    SHEET_SECTIONS.customEffects,
   ],
   [SheetMode.Encounter]: [
     SHEET_SECTIONS.defences,
