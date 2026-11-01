@@ -14,7 +14,6 @@ import {
   PATCH_COMMANDS,
   RepertoireSwap,
   repertoireSwap,
-  slotContent,
   unfitPicks,
 } from '@pioneer/character/domain';
 import type {
@@ -46,6 +45,7 @@ import { InMemoryOverrideAuthorDirectory } from './in-memory-override-author-dir
 import { assertInventoryAllows } from './inventory-guard';
 import type { OverrideAuthorDirectory } from './override-author-directory';
 import { assertOverrideAllowed } from './override-guard';
+import { SlotContentCache } from './slot-content-cache';
 import { assertSlotEditAllowed } from './slot-edit-guard';
 import { assertSpellNeedsAccess } from './spell-access-guard';
 
@@ -65,6 +65,7 @@ export class CharacterService {
   readonly #clock: Clock;
   #authors: OverrideAuthorDirectory = new InMemoryOverrideAuthorDirectory();
   #roles: CharacterCampaignRoles = new InMemoryCharacterCampaignRoles();
+  readonly #slotContents = new SlotContentCache();
 
   public constructor(repository: CharacterRepository, content: CharacterContentSource, clock: Clock) {
     this.#repository = repository;
@@ -255,7 +256,7 @@ export class CharacterService {
 
   /** The slots `character` has over `registry`, with the variant rules in force for it (Dual Class adds a class). */
   async #slotContent(character: Character, registry: ContentRegistry): Promise<SlotContent> {
-    return slotContent(registry, await variantRulesOfCharacter(this.#content, character, registry));
+    return this.#slotContents.of(registry, await variantRulesOfCharacter(this.#content, character, registry));
   }
 
   /** The picks a slot edit left in slots within the edited one that no longer offer them; none for any other edit. */

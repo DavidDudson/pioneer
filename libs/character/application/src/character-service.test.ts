@@ -59,6 +59,13 @@ describe('CharacterService', () => {
     service = new CharacterService(repository, content, fixedClock('2026-10-07T10:00:00Z'));
   });
 
+  test('a sheet read twice over the same content is the same sheet', async () => {
+    const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
+    const first = await service.sheet(created);
+    const second = await service.sheet(created);
+    expect(second).toEqual(first);
+  });
+
   test('create assigns a UUIDv4 row id and the actor as owner; patch bumps the version', async () => {
     const created = await service.create(amiri, { name: kyra, ancestry: humanAncestryId });
     expect(created.id[14]).toBe('4');
