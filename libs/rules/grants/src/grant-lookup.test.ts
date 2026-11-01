@@ -79,6 +79,17 @@ describe('grantLookup', () => {
     expect(grantLookup(registry).ofKind(ContentKind.Feat)[0]?.facts?.unsupported).toBeUndefined();
   });
 
+  test('holds a legacy ancestry back as unsupported until the character has legacy content on', () => {
+    const registry = new ContentRegistry();
+    registry.register(new ContentPackBuilder().withLicense(ContentLicense.Ogl).withAncestry('fleshwarp').build());
+    const ancestry = (legacyContent: boolean): EntryFacts | undefined =>
+      grantLookup(registry, legacyContent).ofKind(ContentKind.Ancestry)[0]?.facts;
+
+    expect(ancestry(false)).toMatchObject({ legacy: true, unsupported: true });
+    expect(ancestry(true)).toMatchObject({ legacy: true });
+    expect(ancestry(true)?.unsupported).toBeUndefined();
+  });
+
   test('lists ancestries by kind, and nothing of a kind the registry lacks', () => {
     const lookup = grantLookup(registryOf('human', 'elf'));
     expect(lookup.ofKind(ContentKind.Ancestry).map((entry) => String(entry.slug))).toEqual(['human', 'elf']);
@@ -130,7 +141,7 @@ describe('grantLookup', () => {
     ]);
   });
 
-  test('exposes the level, rarity, traits and description of an envelope entry, and nothing for an ancestry', () => {
+  test('exposes the level, rarity, traits and description of an envelope entry, and only the standing of an ancestry', () => {
     const registry = new ContentRegistry();
     registry.register(
       new ContentPackBuilder()
@@ -144,7 +155,10 @@ describe('grantLookup', () => {
     expect(feat?.facts?.rarity).toBe('common');
     expect(feat?.facts?.traits.map(String)).toEqual(['fighter']);
     expect(feat?.facts?.description).toBeDefined();
-    expect(lookup.ofKind(ContentKind.Ancestry)[0]?.facts).toBeUndefined();
+    const ancestry = lookup.ofKind(ContentKind.Ancestry)[0]?.facts;
+    expect(ancestry).toBeDefined();
+    expect(ancestry?.legacy).toBeUndefined();
+    expect(ancestry?.unsupported).toBeUndefined();
   });
 
   test('says nothing of the character beyond its kind for any other kind', () => {
