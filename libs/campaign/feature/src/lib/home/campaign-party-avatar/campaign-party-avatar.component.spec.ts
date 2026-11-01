@@ -51,6 +51,7 @@ const toKyra = {
   toName: 'Kyra',
   item: '3b1f0c2e-8d4a-4e7b-9c3f-1a2b3c4d5e01',
   itemName: 'Longsword',
+  contents: [],
   asGiver: false,
   asRecipient: true,
 };
