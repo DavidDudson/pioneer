@@ -219,6 +219,7 @@ const FLAME_DICE: ExtraDice = {
   damageType: 'fire',
   category: 'precision',
   critical: false,
+  ignoresResistance: false,
   origin: origin(GLOOM_WALKER),
 };
 

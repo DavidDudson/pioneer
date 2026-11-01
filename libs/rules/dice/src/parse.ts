@@ -2,7 +2,7 @@ import { DamageTypeSchema } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { DamageCategorySchema, KeepMode, Sign, TermKind } from './expression';
+import { DamageCategorySchema, IGNORE_RESISTANCE, KeepMode, Sign, TermKind } from './expression';
 import type { DamageTags, DiceExpression, Keep, Term } from './expression';
 import { DiceMessage } from './messages';
 import { DiceSyntaxError } from './syntax-error';
@@ -145,7 +145,7 @@ function readTags(stream: TokenStream): DamageTags {
   stream.take();
   let tags: DamageTags = {};
   for (const tag of next.tags) {
-    tags = addTag(tags, tag);
+    tags = tag.name === IGNORE_RESISTANCE ? { ...tags, ignoreResistance: true } : addTag(tags, tag);
   }
   return tags;
 }

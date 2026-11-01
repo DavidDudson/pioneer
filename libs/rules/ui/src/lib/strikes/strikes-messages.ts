@@ -54,3 +54,8 @@ export const NOTE_DEGREE_MESSAGES: Readonly<Record<DegreeOfSuccess, string>> = {
   [DegreeOfSuccess.Failure]: 'rules.strikes.degree.failure',
   [DegreeOfSuccess.CriticalFailure]: 'rules.strikes.degree.criticalFailure',
 };
+
+/** Message parameters for flags, as the `yes`/`no` a `select` reads. */
+export function yesNo(flags: Readonly<Record<string, boolean>>): Readonly<Record<string, string>> {
+  return Object.fromEntries(Object.entries(flags).map(([name, flag]) => [name, flag ? 'yes' : 'no']));
+}

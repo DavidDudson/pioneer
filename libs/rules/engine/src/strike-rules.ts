@@ -45,6 +45,8 @@ export interface ExtraDice {
   readonly category: DamageDiceCategory | undefined;
   /** Rolled only on a critical hit. */
   readonly critical: boolean;
+  /** The damage of its type ignores the target's resistance to it. */
+  readonly ignoresResistance: boolean;
   readonly origin: Origin;
 }
 
@@ -198,6 +200,7 @@ function extraOf(
           damageType: element.damageType ?? damageType,
           category: element.category,
           critical: element.critical === true,
+          ignoresResistance: element.ignoreResistance === true,
           origin: rule.origin,
         },
       ];

@@ -22,7 +22,8 @@ const DamageDiceOverride = z.strictObject({ damageType: DamageTypeSchema });
 /**
  * Extra damage dice on the targeted damage rolls (Elemental Ammunition's energy dice, a rogue's sneak attack), as
  * Foundry pf2e's `DamageDice` does. With a `dieSize` the element adds `diceNumber` dice of it (one by default), typed
- * `damageType` or as the damage it joins, in a `category`, and `critical` ones only on a critical hit. Without one it
+ * `damageType` or as the damage it joins, in a `category`, and `critical` ones only on a critical hit. With
+ * `ignoreResistance` the damage of that type ignores the target's resistance to it. Without a die it
  * changes the dice already there: `diceNumber` more of them, or `override`ing their type.
  */
 export const DamageDiceElement = z
@@ -35,6 +36,7 @@ export const DamageDiceElement = z
     damageType: DamageTypeSchema.optional(),
     category: z.enum(DamageDiceCategory).optional(),
     critical: z.boolean().optional(),
+    ignoreResistance: z.boolean().optional(),
     override: DamageDiceOverride.optional(),
     ...ruleElementBase,
   })

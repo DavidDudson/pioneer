@@ -79,6 +79,8 @@ interface Pooled {
   /** Precision damage added to this instance: it takes the attack's type, so IWR sees one instance. */
   readonly precision: RollTotal;
   readonly splash: RollTotal;
+  /** A term in the instance ignores the target's resistance to its type. */
+  readonly ignoresResistance: boolean;
 }
 
 function isPrecision(term: Term): boolean {
@@ -90,11 +92,19 @@ function addTerm(pools: Pooled[], { term, value }: TermResult): void {
   const { type, category } = term.tags;
   const persistent = category === DamageCategory.Persistent;
   const index = pools.findIndex((entry) => entry.type === type && entry.persistent === persistent);
-  const current = pools[index] ?? { type, persistent, rolled: ZERO, precision: ZERO, splash: ZERO };
+  const current = pools[index] ?? {
+    type,
+    persistent,
+    rolled: ZERO,
+    precision: ZERO,
+    splash: ZERO,
+    ignoresResistance: false,
+  };
+  const ignoresResistance = current.ignoresResistance || term.tags.ignoreResistance === true;
   const next =
     category === DamageCategory.Splash
-      ? { ...current, splash: RollTotal.parse(current.splash + value) }
-      : { ...current, rolled: RollTotal.parse(current.rolled + value) };
+      ? { ...current, ignoresResistance, splash: RollTotal.parse(current.splash + value) }
+      : { ...current, ignoresResistance, rolled: RollTotal.parse(current.rolled + value) };
   pools.splice(index === NOT_FOUND ? pools.length : index, 1, next);
 }
 
@@ -115,7 +125,14 @@ function pool(roll: RollResult): readonly Pooled[] {
   if (base !== undefined) {
     pools.splice(index, 1, { ...base, precision });
   } else if (precisionTerms.length > 0) {
-    pools.push({ type: DamageType.Precision, persistent: false, rolled: precision, precision: ZERO, splash: ZERO });
+    pools.push({
+      type: DamageType.Precision,
+      persistent: false,
+      rolled: precision,
+      precision: ZERO,
+      splash: ZERO,
+      ignoresResistance: false,
+    });
   }
   return pools;
 }
@@ -217,7 +234,9 @@ function deal(pooled: Pooled, target: DamageTarget, { doubling, area, spell, sav
   const weakened = weaken(immune.amount, { types, source }, target);
   // Resistance to precision stops no more than the precision share, unless the instance is all precision.
   const precisionCap = pooled.type === DamageType.Precision ? weakened.amount : precisionLeft;
-  const resisted = resist(weakened.amount, { types, source, precision: precisionCap }, target);
+  const resisted = pooled.ignoresResistance
+    ? { amount: weakened.amount, lines: [] }
+    : resist(weakened.amount, { types, source, precision: precisionCap }, target);
   return {
     ...type,
     rolled: dealtNow.rolled,
