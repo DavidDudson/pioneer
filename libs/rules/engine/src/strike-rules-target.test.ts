@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { RollOption, Selector, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
@@ -48,8 +48,12 @@ describe('rule elements conditioned on the target', () => {
     predicate: ['target:trait:undead'],
   };
 
-  /** The Strike with `element` in play, `options` known about the target, and `claimed` rules claimed for the roll. */
-  function strikeWith(options: readonly string[], claimed: boolean, element: object = VITALIZING): Strike | undefined {
+  /** The Strike with `element` in play, `options` known about the target, and `claimed` rules claimed for the roll, or for the Strike of a selector. */
+  function strikeWith(
+    options: readonly string[],
+    claimed: boolean | Selector,
+    element: object = VITALIZING,
+  ): Strike | undefined {
     const inputs = StatisticInputsJson.parse({
       level: 5,
       attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -64,14 +68,25 @@ describe('rule elements conditioned on the target', () => {
         options.map((option) => RollOption.parse(option)),
         CORE_NAMESPACES,
       ),
-      situation: new Set(claimed ? [ruleIdOf(rule)] : []),
+      situation: new Set(claimed === true ? [ruleIdOf(rule)] : []),
     };
     const results = deriveStatistics(content, inputs, modifiers);
+    const own = new Set([ruleIdOf(rule)]);
+    const situations = typeof claimed === 'boolean' ? undefined : new Map([[claimed, own]]);
     return deriveStrikes(inputs.weapons ?? [], results, {
       inputs: modifiers,
       scope: { statistics: content, character: inputs },
+      situations,
     })[0];
   }
+
+  test('a situation claimed for one Strike applies to that Strike only', () => {
+    const own = strikeWith([], Selector.parse('strike:longsword'));
+    const other = strikeWith([], Selector.parse('strike:dagger'));
+
+    expect(own?.damage?.extra).toHaveLength(1);
+    expect(other?.damage?.extra).toStrictEqual([]);
+  });
 
   test('an unknown target gives nothing, and the Strike offers the element to claim', () => {
     const strike = strikeWith([], false);

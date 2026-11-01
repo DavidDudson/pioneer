@@ -37,7 +37,13 @@ export { KitContents } from './lib/shop/kit-contents/kit-contents.component';
 export { ShopBill } from './lib/shop/shop-bill/shop-bill.component';
 export { ShopOffersView } from './lib/shop/shop-offers.component';
 export { type NamedStatistic, type StatisticSituations, StatisticsView } from './lib/statistics/statistics.component';
-export { type NamedStrike, StrikesView, type StrikesShield } from './lib/strikes/strikes.component';
+export {
+  type NamedStrike,
+  type StrikeOffer,
+  type StrikeSituations,
+  StrikesView,
+  type StrikesShield,
+} from './lib/strikes/strikes.component';
 export { StrikesMessage } from './lib/strikes/strikes-messages';
 export { StatisticsMessage } from './lib/statistics/statistics-messages';
 export { SkillsView } from './lib/skills/skills.component';

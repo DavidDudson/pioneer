@@ -22,6 +22,8 @@ export const StrikesMessage = {
   ShieldUndamageable: 'rules.strikes.shieldUndamageable',
   /** "1d6 persistent fire": a bomb's persistent damage beside its damage. */
   Persistent: 'rules.strikes.persistent',
+  /** "Extra damage when its condition holds (Vitalizing)": a rule element that changes the damage once the roll claims its situation. */
+  DamageCondition: 'rules.strikes.damageCondition',
   /** "1 fire splash": a bomb's splash damage. */
   Splash: 'rules.strikes.splash',
   /** "Range increment 20 ft": how far a ranged or thrown Strike reaches before each penalty. */

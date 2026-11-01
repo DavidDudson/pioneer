@@ -68,6 +68,8 @@ export interface ShownStrike {
   readonly attackToggles: readonly ConditionToggle[];
   /** The same for the flat damage bonus. */
   readonly damageConditions: readonly string[];
+  /** The rule elements that would change the damage, as toggles to claim for its next roll. */
+  readonly damageToggles: readonly ConditionToggle[];
   /** "1d8+4 slashing"; the none message for a weapon that rolls no damage. */
   readonly damage: string;
   /** "Plus 1d6 fire precision": the dice rule elements add to the damage, each as a line. */

@@ -59,7 +59,11 @@
   @for (line of lines(); track line) {
     <fr-text>{{ line }}</fr-text>
   }
-  <pio-statistic-conditions [conditions]="row().damageConditions" />
+  <pio-statistic-conditions
+    [conditions]="row().damageConditions"
+    [toggles]="row().damageToggles"
+    (toggled)="claim($event)"
+  />
   <pio-strike-notes [notes]="row().damageNotes" />
   <fr-text variant="caption" tone="muted">{{ row().penalty }}</fr-text>
 </fr-stack>
