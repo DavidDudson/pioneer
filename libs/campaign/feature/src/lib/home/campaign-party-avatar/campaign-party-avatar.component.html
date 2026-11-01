@@ -1,0 +1,11 @@
+<fr-character-avatar size="sm" [name]="name()" [current]="undefined" [max]="undefined">
+  @if (offers().length > 0) {
+    <fr-gift-badge
+      frCharacterAvatarEnd
+      [count]="offers().length"
+      [expanded]="expanded()"
+      [label]="'campaign.gift.label' | transloco: { count: offers().length }"
+      (opened)="toggle()"
+    />
+  }
+</fr-character-avatar>

@@ -1,0 +1,12 @@
+<fr-button
+  [iconOnly]="!shownCount()"
+  [size]="size"
+  [ariaLabel]="label()"
+  [expanded]="expanded()"
+  (pressed)="opened.emit()"
+>
+  <span [class]="giftClasses"><fr-icon [icon]="icon" /></span>
+  @if (shownCount(); as shown) {
+    {{ shown }}
+  }
+</fr-button>

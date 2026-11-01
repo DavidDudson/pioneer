@@ -138,6 +138,9 @@
       "runeNotAllowed": "Rune not allowed: {rune}"
     }
   },
+  "gift": {
+    "label": "{count, plural, one {A gift is waiting. Show it.} other {# gifts are waiting. Show them.}}"
+  },
   "transfers": {
     "keyItemLine": "A key item cannot be offered; the GM controls it.",
     "alreadyOffered": "That item is already on offer.",

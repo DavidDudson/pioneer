@@ -1,0 +1,7 @@
+@if (open()) {
+  <fr-list gap="sm">
+    @for (offer of offers(); track offer.id) {
+      <pio-campaign-transfer-row [transfer]="offer" />
+    }
+  </fr-list>
+}

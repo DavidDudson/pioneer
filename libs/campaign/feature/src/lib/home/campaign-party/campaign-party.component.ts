@@ -8,7 +8,6 @@ import {
   AsyncData,
   AsyncPending,
   AsyncRegion,
-  Avatar,
   Badge,
   EmptyState,
   Heading,
@@ -23,6 +22,8 @@ import {
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignAttachPicker } from '../campaign-attach-picker/campaign-attach-picker.component';
 import { CampaignGmAvatar } from '../campaign-gm-avatar/campaign-gm-avatar.component';
+import { CampaignPartyAvatar } from '../campaign-party-avatar/campaign-party-avatar.component';
+import { CampaignPartyOffers } from '../campaign-party-offers/campaign-party-offers.component';
 
 /** Skeleton rows shown while the party loads. */
 const PLACEHOLDERS = ['first', 'second'] as const;
@@ -39,10 +40,11 @@ const PLACEHOLDERS = ['first', 'second'] as const;
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    Avatar,
     Badge,
     CampaignAttachPicker,
     CampaignGmAvatar,
+    CampaignPartyAvatar,
+    CampaignPartyOffers,
     EmptyState,
     Heading,
     List,
