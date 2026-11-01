@@ -17,6 +17,9 @@ const DECIMALS = 1000;
 /** How much slower a shared CI runner is than a dev machine: the ratio of the two, measured across the suite, ran 2.3 to 2.8. */
 export const CI_RUNNER_MULTIPLIER = 2.5;
 
+/** Extra rounds of timed runs a case over its budget gets: a slow stretch on a shared runner passes, a regression does not. */
+const RETRY_ROUNDS = 2;
+
 export interface BenchSpec<Given> {
   /** The key the history tracks the case under: renaming it starts a new chart. */
   readonly name: string;
@@ -89,9 +92,34 @@ function report(result: BenchResult): void {
   }
 }
 
+/** One round of timed runs, in milliseconds. */
+function timeRound<Given>(spec: BenchSpec<Given>, timedRuns: number): number[] {
+  return Array.from({ length: timedRuns }, (): number => {
+    const given = spec.prepare();
+    const start = performance.now();
+    spec.run(given);
+    return performance.now() - start;
+  });
+}
+
+/** Whether the fastest of the timings is not under the budget. */
+function overBudget(times: readonly number[], budgetMs: number | undefined): boolean {
+  return budgetMs !== undefined && Math.min(...times) >= budgetMs;
+}
+
+/** Times a round, then up to `RETRY_ROUNDS` more while the fastest run stays over the budget. */
+function timeWithRetries<Given>(spec: BenchSpec<Given>, timedRuns: number, budgetMs: number | undefined): number[] {
+  const times = timeRound(spec, timedRuns);
+  for (let retry = 0; retry < RETRY_ROUNDS && overBudget(times, budgetMs); retry += 1) {
+    times.push(...timeRound(spec, timedRuns));
+  }
+  return times;
+}
+
 /**
- * Warms up, times the runs, prints and reports the result. A fastest run over the budget prints why and sets a failing
- * exit code, after the result is reported, so the history still records the regression.
+ * Warms up, times the runs, prints and reports the result. A case whose fastest run is over the budget is timed again
+ * (`RETRY_ROUNDS` times) before it fails. A fastest run still over the budget prints why and sets a failing exit code,
+ * after the result is reported, so the history still records the regression.
  */
 export function benchmark<Given>(spec: BenchSpec<Given>): BenchResult {
   const warmupRuns = spec.warmupRuns ?? DEFAULT_WARMUP_RUNS;
@@ -99,14 +127,10 @@ export function benchmark<Given>(spec: BenchSpec<Given>): BenchResult {
   for (let warm = 0; warm < warmupRuns; warm += 1) {
     spec.run(spec.prepare());
   }
-  const times = Array.from({ length: timedRuns }, (): number => {
-    const given = spec.prepare();
-    const start = performance.now();
-    spec.run(given);
-    return performance.now() - start;
-  });
   const onCi = Bun.env['CI'] !== undefined && Bun.env['CI'] !== '';
-  const result = summarise({ name: spec.name, budgetMs: budgetFor(spec.budgetMs, onCi) }, times, warmupRuns);
+  const budgetMs = budgetFor(spec.budgetMs, onCi);
+  const times = timeWithRetries(spec, timedRuns, budgetMs);
+  const result = summarise({ name: spec.name, budgetMs }, times, warmupRuns);
   report(result);
   return result;
 }

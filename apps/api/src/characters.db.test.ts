@@ -15,8 +15,8 @@ import type { AnyElysia } from 'elysia';
 import { characters } from './characters';
 import { seedOfficialContent } from './content';
 
-/** Time to seed every official pack, which the default five seconds of a test is too little for on a shared runner. */
-const SEED_TIMEOUT_MS = 30_000;
+/** Time to seed every official pack, which the default five seconds of a test is too little for on a shared runner, where it has taken over 30 s. */
+const SEED_TIMEOUT_MS = 90_000;
 
 /**
  * The character routes as the composition root wires them, against content seeded into a throwaway Postgres database
