@@ -1,6 +1,7 @@
 <fr-surface>
   <fr-stack gap="md">
     <fr-heading variant="subheading" [level]="2">{{ 'campaign.party.heading' | transloco }}</fr-heading>
+    <fr-link [to]="['inventory']">{{ 'campaign.party.inventoryLink' | transloco }}</fr-link>
     <fr-async-region [errorMessage]="'campaign.party.loadError' | transloco">
       <ng-template frAsyncPending>
         <fr-stack gap="md">

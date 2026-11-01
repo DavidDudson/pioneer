@@ -21,9 +21,7 @@
     "detailsHeading": "Campaign",
     "started": "Started",
     "members": "Members",
-    "memberCount": "{count, plural, one {# member} other {# members}}",
-    "inventoryLink": "Open the Party Inventory",
-    "inventoryHeading": "Party Inventory"
+    "memberCount": "{count, plural, one {# member} other {# members}}"
   },
   "roster": {
     "heading": "Members",
@@ -84,6 +82,7 @@
   },
   "party": {
     "heading": "Party",
+    "inventoryLink": "Open the Party Inventory",
     "columns": {
       "name": "Character",
       "ancestry": "Ancestry",
