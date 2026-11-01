@@ -55,15 +55,12 @@ import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
 import { injectOriginRows } from '../sheet-origin-rows';
-import { SheetPacks } from '../sheet-packs/sheet-packs.component';
 import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SheetRuleBreaks } from '../sheet-rule-breaks/sheet-rule-breaks.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import { SHEET_SECTIONS, SHEET_TAB_SECTIONS, shownSection } from '../sheet-sections';
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
-// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every section of who the character is, and the warning and section tabs that go with them
-import { SheetTableRules } from '../sheet-table-rules/sheet-table-rules.component';
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
 
 /** Focuses an inline field by its read view's button, which scrolls it into view. */
@@ -100,8 +97,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     SheetClassFields,
     SheetFeats,
     SheetLevelPlan,
-    SheetPacks,
-    SheetTableRules,
     SheetReroll,
     SheetRuleBreaks,
     SheetUnenabledContent,

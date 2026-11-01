@@ -1,8 +1,9 @@
 <fr-stack direction="horizontal" align="center" gap="sm">
   <pio-sheet-active-count />
   <pio-sheet-save-status />
-  <fr-dropdown align="end" [label]="'character.sheet.actionsMenu' | transloco" [icon]="menuIcon">
+  <fr-dropdown align="end" [label]="'character.sheet.actionsMenu' | transloco" [icon]="menuIcon" [(open)]="menuOpen">
     <fr-stack gap="2xs">
+      <pio-sheet-configuration-button (opened)="menuOpen.set(false)" />
       <pio-sheet-report-bug />
       <pio-sheet-export />
     </fr-stack>

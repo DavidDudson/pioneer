@@ -5,6 +5,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
 const AUTHOR = '00000000-0000-4000-8000-00000000de01';
 const OVERRIDE = '00000000-0000-4000-8000-00000000ff01';
@@ -59,6 +60,7 @@ function fakeDialog(): void {
 async function openWith(overrides: readonly object[]): Promise<HTMLElement> {
   fakeDialog();
   const { root } = await openSheet({ ...FIGHTER, overrides }, { authors: NAMES });
+  await openConfiguration(root);
   return root;
 }
 

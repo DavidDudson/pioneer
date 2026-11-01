@@ -5,6 +5,7 @@ import { playerCoreClassId } from '@pioneer/character/domain/testing';
 import { describe, expect, it, vi } from 'vitest';
 
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { openConfiguration } from '../../testing/sheet-tabs-testing';
 
 const AUTHOR = '00000000-0000-4000-8000-00000000de01';
 const EFFECT = '00000000-0000-4000-8000-00000000fe01';
@@ -33,6 +34,7 @@ const NAMES = [{ userId: AUTHOR, displayName: 'Ada' }];
 
 async function openWith(customEffects: readonly object[]): Promise<HTMLElement> {
   const { root } = await openSheet({ ...FIGHTER, customEffects }, { authors: NAMES });
+  await openConfiguration(root);
   return root;
 }
 

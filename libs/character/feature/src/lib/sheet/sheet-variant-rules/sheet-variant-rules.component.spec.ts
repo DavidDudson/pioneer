@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, openSheet, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { openConfiguration, textOf } from '../../testing/sheet-tabs-testing';
 
 /** The core rules pack's Proficiency Without Level, as the character's list names it. */
 const withoutLevel = {
@@ -52,9 +52,10 @@ function vitalsOf(root: HTMLElement): readonly string[] {
   return [`${armorName} ${armorTotal}`, ...rows, textOf(speed)];
 }
 
-/** Opens the Plan tab, answering the character's variant rules with `rules`. */
+/** Opens the configuration drawer, answering the character's variant rules with `rules`. */
 async function open(rules: VariantRulesJson): Promise<OpenSheet> {
   const sheet = await openSheet(undefined, { characterVariantRules: rules });
+  await openConfiguration(sheet.root);
   await vi.waitFor(() => {
     expect(sheet.root.textContent).toContain('Proficiency Without Level');
   });

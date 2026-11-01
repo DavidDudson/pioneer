@@ -1,7 +1,7 @@
 /** Helpers for the sheet specs that move between tabs. */
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { expect, vi } from 'vitest';
+import { expect, onTestFinished, vi } from 'vitest';
 
 import { present } from './sheet-page-harness';
 
@@ -48,5 +48,45 @@ export async function openSheetActions(root: HTMLElement): Promise<HTMLElement> 
   return vi.waitFor(() => {
     render();
     return present(document.querySelector<HTMLElement>('[role="group"][aria-label="Sheet actions"]'));
+  });
+}
+
+const DIALOG_METHODS = ['show', 'showModal', 'close'];
+
+/** Gives jsdom the dialog methods a drawer opens its panel with, until the test ends. */
+function fakeDialog(): void {
+  for (const name of DIALOG_METHODS) {
+    Object.defineProperty(HTMLDialogElement.prototype, name, {
+      configurable: true,
+      value(this: HTMLDialogElement): void {
+        this.toggleAttribute('open', name !== 'close');
+      },
+    });
+  }
+  vi.stubGlobal(
+    'ResizeObserver',
+    class {
+      public readonly observe = vi.fn<() => void>();
+      public readonly unobserve = vi.fn<() => void>();
+      public readonly disconnect = vi.fn<() => void>();
+    },
+  );
+  onTestFinished(() => {
+    vi.unstubAllGlobals();
+    for (const name of DIALOG_METHODS) {
+      Reflect.deleteProperty(HTMLDialogElement.prototype, name);
+    }
+  });
+}
+
+/** Opens the character configuration drawer from the sheet's actions menu and waits for its sections to render. */
+export async function openConfiguration(root: HTMLElement): Promise<void> {
+  fakeDialog();
+  const menu = await openSheetActions(root);
+  present([...menu.querySelectorAll('button')].find((button) => textOf(button) === 'Character configuration')).click();
+  await settle();
+  await vi.waitFor(() => {
+    render();
+    present(document.querySelector('pio-sheet-custom-effects'));
   });
 }

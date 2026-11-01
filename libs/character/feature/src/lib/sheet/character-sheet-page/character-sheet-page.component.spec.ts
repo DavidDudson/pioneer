@@ -27,11 +27,6 @@ describe('CharacterSheetPage', () => {
       ['Level timeline', true],
       ['Feats', true],
       ['Class features', true],
-      ['Content packs', true],
-      ['Variant rules', true],
-      ['Table limits', true],
-      ['Overrides', true],
-      ['Custom effects', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
     expect(regionsOf(root)).toStrictEqual([
@@ -70,11 +65,6 @@ describe('CharacterSheetPage', () => {
       'Level timeline',
       'Feats',
       'Class features',
-      'Content packs',
-      'Variant rules',
-      'Table limits',
-      'Overrides',
-      'Custom effects',
     ]);
   });
 
