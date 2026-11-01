@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, spyOn, test } from 'bun:test';
 
 import { benchmark, budgetFor, CI_RUNNER_MULTIPLIER, median, summarise } from './bench';
 
@@ -62,5 +62,55 @@ describe('budgetFor', () => {
 
   test('stays absent when there is no budget', () => {
     expect(budgetFor(undefined, true)).toBeUndefined();
+  });
+});
+
+describe('benchmark retries', () => {
+  afterEach(() => {
+    process.exitCode = 0;
+  });
+
+  test('passes a case that is slow in its first round only', () => {
+    const log = spyOn(console, 'log').mockReturnValue(undefined);
+    let calls = 0;
+    const result = benchmark({
+      name: 'slow once',
+      budgetMs: 20,
+      warmupRuns: 0,
+      timedRuns: 2,
+      prepare: () => undefined,
+      run: () => {
+        calls += 1;
+        // Calls 1 and 2 (the first round) take 80 and 40 ms; later calls are instant.
+        const until = performance.now() + Math.max(0, 120 - 40 * calls);
+        while (performance.now() < until) {
+          // Busy wait: the first round is over the budget.
+        }
+      },
+    });
+    log.mockRestore();
+    expect(result.fastestMs).toBeLessThan(20);
+    expect(process.exitCode).not.toBe(1);
+  });
+
+  test('fails a case that stays over its budget in every round', () => {
+    const log = spyOn(console, 'log').mockReturnValue(undefined);
+    const error = spyOn(console, 'error').mockReturnValue(undefined);
+    benchmark({
+      name: 'always slow',
+      budgetMs: 5,
+      warmupRuns: 0,
+      timedRuns: 1,
+      prepare: () => undefined,
+      run: () => {
+        const until = performance.now() + 10;
+        while (performance.now() < until) {
+          // Busy wait: every round is over the budget.
+        }
+      },
+    });
+    log.mockRestore();
+    error.mockRestore();
+    expect(process.exitCode).toBe(1);
   });
 });

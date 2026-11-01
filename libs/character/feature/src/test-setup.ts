@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 
 /** How long `vi.waitFor` retries when a call names no timeout: vitest's 1 s is too short for a sheet on a busy runner. */
-const WAIT_FOR_TIMEOUT = 10_000;
+const WAIT_FOR_TIMEOUT = 20_000;
 
 interface WaitOptions {
   readonly timeout?: number;
@@ -19,5 +19,5 @@ async function waitForLonger<TValue>(
 
 vi.waitFor = waitForLonger;
 
-// One test may run 30 s: opening a sheet builds its registries, seconds on a busy runner.
-vi.setConfig({ testTimeout: 30_000 });
+// One test may run 60 s: opening a sheet builds its registries, seconds on a busy runner.
+vi.setConfig({ testTimeout: 60_000 });

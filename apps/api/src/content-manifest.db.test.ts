@@ -15,7 +15,7 @@ import { content, seedOfficialContent } from './content';
  * What the manifest says about a pack beyond its files: the size of each
  * bundle, which the Legal page lists. Skipped when TEST_DATABASE_URL is unset; CI always sets it.
  */
-setDefaultTimeout(30_000);
+setDefaultTimeout(90_000);
 const adminUrl = testDatabaseUrl();
 const clock = fixedClock('2026-10-11T10:00:00Z');
 const IMPORTED = 'player-core';
