@@ -1,6 +1,7 @@
 /**
  * Takes the rules a re-run of the import gives into the committed pack (`apply-rules.ts`), writes the backlog beside the
- * pin, and formats every file with bun fmt so a re-run is a clean diff. A committed pack is never replaced.
+ * pin, and prints every file in the one canonical layout (`canonical-json.ts`) so a re-run is a clean diff. A committed
+ * pack is never replaced.
  */
 import { mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -16,6 +17,7 @@ import type { FreshDescriptions } from './apply-outcomes.ts';
 import { mergeRulesIntoText } from './apply-rules-text.ts';
 import { clearAppliedGaps, gappedEntries, mergeRules } from './apply-rules.ts';
 import type { RulesMerge } from './apply-rules.ts';
+import { canonicalJson } from './canonical-json.ts';
 import { addReports, NO_REPORT } from './outcomes-report.ts';
 import type { OutcomesReport } from './outcomes-report.ts';
 import { backlogPath, importedDirectory, PACKS_DIRECTORY } from './pack-writes.ts';
@@ -23,7 +25,6 @@ import type { PackTargets, PackWrite } from './pack-writes.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const MANIFEST = 'pack.json';
-const JSON_INDENT = 2;
 
 /** The files below `directory` (relative to the root) matching `pattern`, as root-relative paths; none if it is absent. */
 async function scan(pattern: string, directory: string): Promise<readonly string[]> {
@@ -57,15 +58,12 @@ export async function committedEntries({ pack }: PackTargets): Promise<readonly 
 
 async function write({ path: file, json }: PackWrite): Promise<void> {
   await mkdir(path.dirname(path.join(ROOT, file)), { recursive: true });
-  await Bun.write(path.join(ROOT, file), `${JSON.stringify(json, undefined, JSON_INDENT)}\n`);
+  await Bun.write(path.join(ROOT, file), canonicalJson(json));
 }
 
-async function format(files: readonly string[]): Promise<void> {
-  const formatter = Bun.spawn(['bun', 'fmt', ...files], { cwd: ROOT });
-  const exited = await formatter.exited;
-  if (exited !== 0) {
-    throw new Error(`bun fmt exited with ${exited}`);
-  }
+/** Writes the committed file `text` as its entries print in the canonical layout. */
+async function writeCanonical(file: string, text: string): Promise<void> {
+  await Bun.write(path.join(ROOT, file), canonicalJson(JSON.parse(text)));
 }
 
 /** The pack's committed pin and backlog. */
@@ -107,18 +105,16 @@ function importedGaps(output: PackOutput, gapped: ReadonlySet<string>): Readonly
   return new Set([...gapped].filter((entry) => imported.has(entry)));
 }
 
-/** Writes `texts` and `writes`, formats them and returns their paths. */
-async function writeAndFormat(texts: readonly PackText[], writes: readonly PackWrite[]): Promise<readonly string[]> {
-  await Promise.all(texts.map(async ({ path: file, text }) => Bun.write(path.join(ROOT, file), text)));
+/** Writes `texts` and `writes` in the canonical layout and returns their paths. */
+async function writeAll(texts: readonly PackText[], writes: readonly PackWrite[]): Promise<readonly string[]> {
+  await Promise.all(texts.map(async ({ path: file, text }) => writeCanonical(file, text)));
   await Promise.all(writes.map(async (each) => write(each)));
-  const written = [...texts, ...writes].map(({ path: file }) => file);
-  await format(written);
-  return written;
+  return [...texts, ...writes].map(({ path: file }) => file);
 }
 
 /**
  * Takes the import's rules of `keys` into the committed pack files (`apply-rules.ts`), clears their gaps from the
- * backlog and formats what changed.
+ * backlog.
  */
 export async function applyRules(
   output: PackOutput,
@@ -133,7 +129,7 @@ export async function applyRules(
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
   const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);
-  const written = await writeAndFormat(files, [cleared]);
+  const written = await writeAll(files, [cleared]);
   return { written, applied: merge.size };
 }
 
@@ -178,13 +174,12 @@ function totalReport(merges: readonly FileMerge[]): OutcomesReport {
 
 /**
  * Adds the outcomes the import builds for each check to the committed descriptions (`apply-outcomes.ts`), in the files'
- * own text so nothing else in them moves, and formats the entry files that changed. The backlog stays as it is.
+ * own text, and prints the entry files that changed in the canonical layout. The backlog stays as it is.
  */
 export async function applyOutcomes(output: PackOutput, targets: PackTargets): Promise<OutcomesOutput> {
   const merged = await outcomeMerges(freshDescriptions(output), targets);
   const changed = merged.filter(({ report }) => report.added > 0);
-  await Promise.all(changed.map(async ({ file, text }) => Bun.write(path.join(ROOT, file), text)));
+  await Promise.all(changed.map(async ({ file, text }) => writeCanonical(file, text)));
   const written = changed.map(({ file }) => file);
-  await format(written);
   return { written, report: totalReport(merged) };
 }
