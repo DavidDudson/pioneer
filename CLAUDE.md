@@ -71,7 +71,10 @@ Never run `bun run affected`, `nx affected`, `bun run lint:workspace` or `bun ru
 is often large and they use a lot of CPU. Run every lint, typecheck or test command through
 `.claude/scripts/run-check.sh <command>`: it waits until the machine's load is under 70% of its cores and holds one
 lock shared by all workspaces, so only one workspace runs checks at a time (the others queue). Check `uptime` first if
-you are unsure how busy the machine is. `just db-up` for Postgres only when a db test you run needs it. CI runs
+you are unsure how busy the machine is. A run is killed after 3 minutes (180 s). If one times out, stop and ask the
+user whether to allow 6 minutes; only on their explicit approval rerun with `MAX_RUN_SECONDS=360`, the one other value
+accepted. Never raise it on your own, and never wrap the call in a longer timeout or the background to get round it.
+`just db-up` for Postgres only when a db test you run needs it. CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
 A `plan` job runs first (`tools/ci-plan-run.ts`): it keeps the entries of `.github/ci-jobs.json` that cover a project the
 change affects, and the `ci:*` scripts run `nx affected` against its base, so a change to docs or content runs lint and
