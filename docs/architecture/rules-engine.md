@@ -685,8 +685,10 @@ origin chain:
 - Exceptions travel with the defence: `DamageAdjustment` gains an optional `exceptions` list of damage traits
   (materials such as adamantine or cold iron, `magical`). The engine never filters on them, since it does not know
   the damage; `libs/rules/dice` checks them per instance when it picks the highest weakness or resistance, and
-  skips one whose exception the instance has. `DamageInstance` carries no traits yet, so until Strike damage
-  records them (Epic 4.6) an exception is shown on the sheet but never matches, and the defence applies in full.
+  skips one whose exception the damage counts as. `applyDamage` takes `counts` in its options: the materials and
+  property runes the damage counts as. A Strike's damage carries them (`StrikeDamage.counts`: its materials and
+  property runes after item alterations and `AdjustStrike`), so a silver weapon is not resisted by `physical except
+silver`. Damage with no `counts` matches no exception, and the defence applies in full.
 
 `deriveDefences` in `libs/rules/engine` does this, beside `deriveStatistics` and over the same inputs; `type` is a
 list, as in Foundry, and each type or group it names becomes its own line. A value formula reads the character's
@@ -701,8 +703,8 @@ instance and must fall back to a lower one when the instance has the higher one'
 
 Not read yet, so the schemas reject them rather than apply a defence wrongly:
 
-- Weaknesses and resistances to a material (`weakness 5 cold-iron`), which are not damage types or groups; they
-  arrive with damage traits on `DamageInstance`.
+- Weaknesses and resistances to a material (`weakness 5 cold-iron`), which are not damage types or groups; `counts`
+  is what they will read, but the schemas still reject them.
 - `exceptions` on `Immunity`: `DamageTarget`'s immunities are bare slugs with no room for them.
 - Foundry's `mode` on `Immunity` (removing one), `doubleVs` on `Resistance`, and `override` on weaknesses and
   resistances. The Epic 2.6 translator reports content that uses them as untranslated.
