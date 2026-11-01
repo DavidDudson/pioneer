@@ -125,15 +125,18 @@ export class CharacterAvatar {
 
   public readonly name = input.required<string>();
   public readonly src = input<string | undefined>(undefined);
-  public readonly current = input.required<number>();
-  public readonly max = input.required<number>();
+  /** Current and maximum hit points. Pass `undefined` for someone with none, such as the GM: no bar, no wounds. */
+  public readonly current = input.required<number | undefined>();
+  public readonly max = input.required<number | undefined>();
+  /** Written in the circle instead of the initials, such as "GM". */
+  public readonly text = input<string | undefined>(undefined);
   public readonly temp = input(0);
   public readonly size = input<Size>(Size.Lg);
   /** Failed death saves so far; leave unset while none are being rolled. */
   public readonly failedSaves = input<number | undefined>(undefined);
 
   readonly #wounds = computed(() =>
-    wounds({ current: this.current(), max: this.max(), failedSaves: this.failedSaves() }),
+    wounds({ current: this.current() ?? 0, max: this.max() ?? 0, failedSaves: this.failedSaves() }),
   );
 
   protected readonly overlays = computed(() => {
@@ -160,8 +163,8 @@ export class CharacterAvatar {
 
   /** HP as non-negative amounts: current never past max, temp never negative. */
   readonly #amounts = computed(() => {
-    const max = Math.max(this.max(), 0);
-    return { max, current: Math.min(Math.max(this.current(), 0), max), temp: Math.max(this.temp(), 0) };
+    const max = Math.max(this.max() ?? 0, 0);
+    return { max, current: Math.min(Math.max(this.current() ?? 0, 0), max), temp: Math.max(this.temp(), 0) };
   });
 
   protected readonly hasBar = computed(() => this.#amounts().max > 0);

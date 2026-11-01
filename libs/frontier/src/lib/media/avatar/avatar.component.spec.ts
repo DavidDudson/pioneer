@@ -33,6 +33,13 @@ describe(Avatar, () => {
     expect(host(fixture).querySelector('[role="img"]')).toBeNull();
   });
 
+  it('shows the given text instead of the initials, still named for the person', async () => {
+    const fixture = await render({ text: 'GM' });
+    const circle = host(fixture).querySelector('[role="img"]');
+    expect(circle?.textContent.trim()).toBe('GM');
+    expect(circle?.getAttribute('aria-label')).toBe('Seelah of the Dawn');
+  });
+
   it('shows initials, named for the person, without a picture', async () => {
     const fixture = await render({});
     const initials = host(fixture).querySelector('[role="img"]');

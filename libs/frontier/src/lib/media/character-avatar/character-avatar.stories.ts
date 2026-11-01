@@ -55,6 +55,11 @@ export const TwoFailedSaves: CharacterAvatarStory = { args: { current: 0, failed
 /** The third failed save: the portrait is black. */
 export const ThreeFailedSaves: CharacterAvatarStory = { args: { current: 0, failedSaves: 3 } };
 
+/** No hit points, text in place of initials: the GM. No bar, no wounds. */
+export const GameMaster: CharacterAvatarStory = {
+  args: { name: 'Amiri', src: undefined, current: 0, max: 0, text: 'GM' },
+};
+
 /** No picture yet: the initials. */
 export const Initials: CharacterAvatarStory = { args: { src: undefined } };
 

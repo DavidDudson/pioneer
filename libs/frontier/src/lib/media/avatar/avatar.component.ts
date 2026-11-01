@@ -51,6 +51,8 @@ export class Avatar {
   /** Whose avatar this is: the accessible name and the source of the initials. */
   public readonly name = input.required<string>();
   public readonly src = input<string | undefined>(undefined);
+  /** Written instead of the initials, such as "GM" (pass a translated message). */
+  public readonly text = input<string | undefined>(undefined);
   public readonly size = input<Size>(Size.Md);
   /** The name is written beside the avatar: hide it from screen readers. */
   public readonly decorative = input(false, { transform: booleanAttribute });

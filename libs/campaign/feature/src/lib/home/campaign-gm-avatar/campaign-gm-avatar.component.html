@@ -1,0 +1,15 @@
+@if (name(); as gm) {
+  <fr-stack direction="horizontal" gap="sm" align="center">
+    <fr-character-avatar
+      size="sm"
+      [name]="gm"
+      [current]="undefined"
+      [max]="undefined"
+      [text]="'campaign.party.gm' | transloco"
+    />
+    <fr-stack gap="3xs">
+      <fr-text weight="medium">{{ gm }}</fr-text>
+      <fr-text variant="caption" tone="subtle">{{ 'campaign.party.gmByline' | transloco }}</fr-text>
+    </fr-stack>
+  </fr-stack>
+}
