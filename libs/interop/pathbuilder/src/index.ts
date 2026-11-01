@@ -6,7 +6,14 @@ export {
   matchKey,
   registryLookup,
 } from './content-lookup';
-export { IMPORT_KIND_ORDER, type ImportedName, ImportKind, ImportKindSchema, PathbuilderName } from './import-kind';
+export {
+  IMPORT_KIND_ORDER,
+  type ImportedName,
+  ImportKind,
+  ImportKindSchema,
+  PathbuilderContainerKey,
+  PathbuilderName,
+} from './import-kind';
 export {
   buildImportReport,
   type ImportReport,
@@ -19,7 +26,7 @@ export {
 export { PathbuilderBuild, PathbuilderExport } from './pathbuilder-export';
 export type { ImportedBoosts } from './read-boosts';
 export type { ImportedFeat } from './read-feats';
-export type { ImportedCoins, ImportedItem, ImportedRunes } from './read-items';
+export type { ImportedCoins, ImportedContainer, ImportedItem, ImportedRunes } from './read-items';
 export {
   type ImportedLore,
   type PathbuilderIdentity,

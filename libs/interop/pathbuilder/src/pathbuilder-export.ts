@@ -92,6 +92,7 @@ const Weapon = z.looseObject({
 const EquipmentContainer = z.looseObject({
   containerName: Name,
   backpack: z.boolean().default(false),
+  bagOfHolding: z.boolean().default(false),
 });
 
 const SpellRankList = z.looseObject({

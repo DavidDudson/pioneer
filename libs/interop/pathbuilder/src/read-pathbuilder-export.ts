@@ -11,8 +11,8 @@ import { readBoosts, readFlaws } from './read-boosts';
 import type { ImportedBoosts } from './read-boosts';
 import { importedFeats } from './read-feats';
 import type { ImportedFeat } from './read-feats';
-import { importedCoins, importedItems } from './read-items';
-import type { ImportedCoins, ImportedItem } from './read-items';
+import { importedCoins, importedContainers, importedItems } from './read-items';
+import type { ImportedCoins, ImportedContainer, ImportedItem } from './read-items';
 import { importedCasters } from './read-spells';
 import type { ImportedCaster } from './read-spells';
 
@@ -65,6 +65,8 @@ export interface PathbuilderImport {
   readonly skills: Readonly<Record<string, Proficiency>>;
   /** Equipment, then weapons, then armour, in export order. */
   readonly items: readonly ImportedItem[];
+  /** Pathbuilder's gear containers, which equipment rows in `items` name. */
+  readonly containers: readonly ImportedContainer[];
   /** Every feat row in export order, awarded and heritage feats too. */
   readonly feats: readonly ImportedFeat[];
   readonly coins: ImportedCoins;
@@ -218,6 +220,7 @@ function toImport(build: PathbuilderBuild): PathbuilderReadResult {
     lores: lores(build),
     skills: skillRanks(build),
     items: importedItems(build),
+    containers: importedContainers(build),
     feats: importedFeats(build),
     coins: importedCoins(build),
     casters: importedCasters(build),
