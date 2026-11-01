@@ -5,7 +5,6 @@ import { form, FormField, validateStandardSchema } from '@angular/forms/signals'
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LucideUsers } from '@lucide/angular';
-import { CHARACTER_NAMES } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -14,7 +13,6 @@ import {
   AsyncPending,
   AsyncRegion,
   DateDisplay,
-  Drawer,
   EmptyState,
   Grid,
   Heading,
@@ -43,8 +41,6 @@ import { AncestryOptions } from '../../data/ancestry-options';
 import { CHARACTER_LIST_EXTRAS } from '../../data/character-list-extras';
 import { CharacterStore } from '../../data/character-store';
 import { CreateCharacterForm } from '../../data/create-character-form';
-import { RollTable } from '../../roll-table/roll-table.component';
-import { GenerateCharacter } from '../generate-character/generate-character.component';
 
 interface CreateModel {
   readonly name: string;
@@ -65,10 +61,8 @@ const characterKey = (character: Character): string => character.id;
     AsyncPending,
     AsyncRegion,
     DateDisplay,
-    Drawer,
     EmptyState,
     FormField,
-    GenerateCharacter,
     Grid,
     Heading,
     Link,
@@ -77,7 +71,6 @@ const characterKey = (character: Character): string => character.id;
     PageBody,
     PageHeader,
     PickerField,
-    RollTable,
     Skeleton,
     Stack,
     Surface,
@@ -99,10 +92,6 @@ export class CharacterListPage {
   protected readonly extras = toSignal(from(this.#extrasLoaded), { initialValue: [] });
   readonly #router = inject(Router);
   readonly #route = inject(ActivatedRoute);
-
-  /** Whether the names table is open in the drawer. */
-  protected readonly namesOpen = signal(false);
-  protected readonly names = CHARACTER_NAMES;
 
   protected readonly placeholders = PLACEHOLDERS;
   protected readonly emptyIcon = LucideUsers;

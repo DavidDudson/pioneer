@@ -1,0 +1,134 @@
+<fr-page>
+  <fr-page-header
+    [title]="'character.generate.title' | transloco"
+    [description]="'character.generate.description' | transloco"
+  />
+  <fr-page-body>
+    @if (result(); as made) {
+      <fr-surface>
+        <fr-stack gap="xs">
+          <fr-text>{{ 'character.list.generatedResult' | transloco: { name: made.name, seed: made.seed } }}</fr-text>
+          @if (made.theme) {
+            <fr-text tone="muted">{{ 'character.list.theme.used' | transloco }}</fr-text>
+          }
+          <fr-link [to]="['..', made.id]">{{ 'character.list.openSheet' | transloco }}</fr-link>
+        </fr-stack>
+      </fr-surface>
+    } @else {
+      <fr-stepper [current]="step()" (currentChange)="goTo($event)" (finished)="generate()">
+        <fr-step
+          [label]="'character.generate.steps.archetype' | transloco"
+          [summary]="roleSummary()"
+          [valid]="role() !== undefined"
+        >
+          <ng-template frStepBody>
+            <fr-stack gap="sm">
+              <fr-text tone="muted">{{ 'character.generate.archetypeHint' | transloco }}</fr-text>
+              <fr-stack
+                direction="horizontal"
+                gap="sm"
+                wrap
+                role="group"
+                [attr.aria-label]="'character.generate.steps.archetype' | transloco"
+              >
+                @for (each of roles; track each) {
+                  <fr-toggle-button [value]="isRole(each)" (valueChange)="chooseRole(each)">
+                    {{ roleMessages[each] | transloco }}
+                  </fr-toggle-button>
+                }
+              </fr-stack>
+            </fr-stack>
+          </ng-template>
+        </fr-step>
+        <fr-step [label]="'character.generate.steps.class' | transloco" [summary]="classSummary()">
+          <ng-template frStepBody>
+            <fr-stack gap="sm">
+              <fr-text tone="muted">{{ 'character.generate.classHint' | transloco }}</fr-text>
+              <pio-option-picker
+                [ariaLabel]="'character.generate.steps.class' | transloco"
+                [options]="classOptions()"
+                [placeholder]="'character.generate.anyClass' | transloco"
+                [value]="classId()"
+                (valueChange)="classId.set($event ?? '')"
+              />
+            </fr-stack>
+          </ng-template>
+        </fr-step>
+        <fr-step [label]="'character.generate.steps.style' | transloco" [summary]="styleSummary()">
+          <ng-template frStepBody>
+            <fr-stack gap="md">
+              <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.attributesLabel' | transloco">
+                <fr-text tone="muted">{{ 'character.list.theme.attributesHint' | transloco }}</fr-text>
+                <fr-stack direction="horizontal" gap="sm" wrap>
+                  @for (entry of themeAttributes; track entry.attribute) {
+                    <fr-toggle-button
+                      [value]="isFavoured(entry.attribute)"
+                      (valueChange)="favour(entry.attribute, $event)"
+                    >
+                      {{ entry.label | transloco }}
+                    </fr-toggle-button>
+                  }
+                </fr-stack>
+              </fr-stack>
+              <fr-stack gap="sm" role="group" [attr.aria-label]="'character.list.theme.weaponLabel' | transloco">
+                <fr-text tone="muted">{{ 'character.list.theme.weaponHint' | transloco }}</fr-text>
+                <fr-stack direction="horizontal" gap="sm" wrap>
+                  <pio-option-picker
+                    [ariaLabel]="'character.list.theme.categoryLabel' | transloco"
+                    [options]="categoryOptions()"
+                    [placeholder]="noChoice()"
+                    [value]="themeChoice().category"
+                    (valueChange)="chooseCategory($event)"
+                  />
+                  <pio-option-picker
+                    [ariaLabel]="'character.list.theme.groupLabel' | transloco"
+                    [options]="groupOptions()"
+                    [placeholder]="noChoice()"
+                    [value]="themeChoice().group"
+                    (valueChange)="chooseGroup($event)"
+                  />
+                  <pio-option-picker
+                    [ariaLabel]="'character.list.theme.baseLabel' | transloco"
+                    [options]="baseOptions()"
+                    [placeholder]="noChoice()"
+                    [value]="themeChoice().base"
+                    (valueChange)="chooseBase($event)"
+                  />
+                </fr-stack>
+              </fr-stack>
+            </fr-stack>
+          </ng-template>
+        </fr-step>
+        <fr-step
+          [label]="'character.generate.steps.details' | transloco"
+          [summary]="details().name"
+          [valid]="form().valid() && !pending()"
+        >
+          <ng-template frStepBody>
+            <fr-stack gap="md">
+              <pio-roll-table-input
+                [label]="'character.list.nameLabel' | transloco"
+                [title]="'character.rollTable.names' | transloco"
+                [table]="names"
+                [formField]="form.name"
+                [(tableOpen)]="namesOpen"
+              />
+              <fr-text-field
+                [label]="'character.list.seedLabel' | transloco"
+                [placeholder]="'character.list.seedPlaceholder' | transloco"
+                [hint]="'character.list.seedHint' | transloco"
+                [formField]="form.seed"
+              />
+              @if (failed()) {
+                <fr-text tone="danger" role="alert">{{ 'character.list.generateFailed' | transloco }}</fr-text>
+              }
+            </fr-stack>
+          </ng-template>
+        </fr-step>
+      </fr-stepper>
+    }
+  </fr-page-body>
+  <fr-drawer param="names" [title]="'character.rollTable.names' | transloco" [(open)]="namesOpen">
+    <pio-roll-table [table]="names" />
+  </fr-drawer>
+</fr-page>

@@ -44,6 +44,15 @@ export const characterRoutes: Routes = [
         }),
       },
       {
+        path: 'new/generate',
+        data: { [CRUMB]: 'character.generate.title' },
+        loadComponent: loadWithMessages(async () => {
+          const { GenerateCharacterPage } =
+            await import('./generate/generate-character-page/generate-character-page.component');
+          return GenerateCharacterPage;
+        }),
+      },
+      {
         path: 'import/pathbuilder',
         data: { [CRUMB]: 'character.import.title' },
         loadComponent: loadWithMessages(async () => {

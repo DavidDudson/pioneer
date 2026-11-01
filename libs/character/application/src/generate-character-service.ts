@@ -1,9 +1,14 @@
 import {
   ANCESTRY_SLOT,
   Character,
+  CHARACTER_LEVEL_MIN,
   CharacterCommand,
   CharacterId,
+  CharacterLevel,
   CharacterPatchField,
+  CLASS_SLOT,
+  classForRole,
+  classPickerContent,
   generateCharacter,
   itemContent,
   rollPersona,
@@ -19,12 +24,15 @@ import type {
   Persona,
   SlotContent,
 } from '@pioneer/character/domain';
-import { AncestryId, ContentKind } from '@pioneer/rules/sdk';
-import type { ContentSource, SlotKey } from '@pioneer/rules/sdk';
+import { AncestryId, ChoiceValue, ContentKind } from '@pioneer/rules/sdk';
+import type { ClassRole, ContentRegistry, ContentSource, SlotKey } from '@pioneer/rules/sdk';
 import { message, newId, ValidationError } from '@pioneer/shared/kernel';
 import type { Clock, FieldIssue, Temporal, UserId } from '@pioneer/shared/kernel';
 
 import type { CharacterRepository } from './character-repository';
+
+/** The level a character is made at when none is asked for. */
+const FIRST_LEVEL = CharacterLevel.parse(CHARACTER_LEVEL_MIN);
 
 /** How many seeds a draw can give: every `Seed` below the largest. */
 const SEED_COUNT = Seed.parse(2_147_483_647);
@@ -52,6 +60,28 @@ function assertKept(locks: readonly GenerateLock[], unmet: readonly SlotKey[]): 
   if (issues.length > 0) {
     throw new ValidationError(issues);
   }
+}
+
+/** The lock that fixes the class to one that plays `role`, drawn by `seed`; a 422 when no loaded class plays it. */
+function roleLock(registry: ContentRegistry, role: ClassRole, seed: Seed): GenerateLock {
+  const drawn = classForRole(classPickerContent(registry).classes, role, seed);
+  if (drawn === undefined) {
+    throw new ValidationError([{ path: ['role'], message: message('character.validation.roleHasNoClass') }]);
+  }
+  return { slot: CLASS_SLOT, selection: ChoiceValue.parse(drawn.id) };
+}
+
+/** `locks`, and the class `role` draws unless a lock already picks the class. */
+function withRoleLock(
+  locks: readonly GenerateLock[],
+  {
+    registry,
+    role,
+    seed,
+  }: { readonly registry: ContentRegistry; readonly role: ClassRole | undefined; readonly seed: Seed },
+): readonly GenerateLock[] {
+  const classGiven = locks.some((lock) => lock.slot === CLASS_SLOT);
+  return role === undefined || classGiven ? locks : [...locks, roleLock(registry, role, seed)];
 }
 
 /** What `startingCharacter` needs. */
@@ -104,11 +134,12 @@ export class GenerateCharacterService {
       persona,
       now,
     });
-    const locks = body.locks ?? [];
+    const given = body.locks ?? [];
+    const locks = withRoleLock(given, { registry, role: body.role, seed });
     const { character, unmet } = generateCharacter({
       start,
       seed,
-      level: body.level,
+      level: body.level ?? FIRST_LEVEL,
       content,
       items: itemContent(registry),
       runes: runeContent(registry),
@@ -116,7 +147,7 @@ export class GenerateCharacterService {
       locks,
       now,
     });
-    assertKept(locks, unmet);
+    assertKept(given, unmet);
     const saved = await this.#repository.insert(character, { actor, command: CharacterCommand.GenerateCharacter });
     return { character: saved, seed };
   }

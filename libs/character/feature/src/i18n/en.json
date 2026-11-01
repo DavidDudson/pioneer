@@ -20,15 +20,10 @@
     "ancestryLabel": "Ancestry",
     "ancestryPlaceholder": "Search ancestries by name",
     "create": "Create character",
-    "generateHeading": "Generate a character",
-    "generateHint": "Roll a whole character: pick a level, and a seed to make the same one again.",
-    "levelLabel": "Level",
     "seedLabel": "Seed",
     "seedPlaceholder": "Random",
     "seedHint": "Leave empty for a random seed. The same seed, level and packs give the same character.",
     "generate": "Generate",
-    "generating": "Generating…",
-    "generated": "Generated",
     "generateFailed": "Could not generate a character. Try again.",
     "generatedResult": "{name} was generated from seed {seed}. Note the seed to make the same character again.",
     "openSheet": "Open the sheet",
@@ -81,6 +76,27 @@
     "importMordred": "Import Mordred",
     "importBriarRose": "Import Briar Rose",
     "importSampleFailed": "Could not import the sample character. Try again."
+  },
+  "generate": {
+    "title": "Generate a character",
+    "description": "Answer a few questions and get a level 1 character. Level it up in the planner.",
+    "steps": {
+      "archetype": "Archetype",
+      "class": "Class",
+      "style": "Style",
+      "details": "Details"
+    },
+    "archetypeHint": "What do you want to play?",
+    "classHint": "Pick a class that plays it, or leave it to chance.",
+    "anyClass": "Any class",
+    "noStyle": "No preference",
+    "role": {
+      "spellcaster": "Spellcaster",
+      "melee": "Melee",
+      "ranged": "Ranged",
+      "tank": "Tank",
+      "healer": "Healer"
+    }
   },
   "sheet": {
     "reroll": {
@@ -782,6 +798,7 @@
     "runeNotForItem": "That rune doesn't go on this item.",
     "runeNotHigher": "This item comes with that rune at grade {grade}. Etch a higher grade.",
     "lockNotKept": "That pick can't be kept: its slot only opens under a pick that is not locked. Lock the picks it depends on, or unlock it.",
+    "roleHasNoClass": "No class plays that role.",
     "unknownRune": "No loaded pack has that property rune.",
     "specificRunes": "A specific magic item's property runes are part of it. They can't be etched, erased or moved, and runes can't be moved onto or off it.",
     "runeEtched": "This item already has that rune.",
