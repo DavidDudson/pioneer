@@ -920,6 +920,23 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "acid"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Corrosive",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target's armor (if any) takes 3d6 acid damage (before applying Hardness); if the target has a shield raised, the shield takes this damage instead."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -983,6 +1000,23 @@
         "dieSize": "d6",
         "damageType": "acid",
         "ignoreResistance": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Corrosive",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target's armor (if any) takes 6d6 acid damage (before applying Hardness); if the target has a shield raised, the shield takes this damage instead."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -2191,6 +2225,32 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "cold"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Frost",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is also Slowed 1 until the end of your next turn unless it succeeds at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 24
+              },
+              {
+                "type": "text",
+                "text": " save."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -2263,6 +2323,32 @@
         "dieSize": "d6",
         "damageType": "cold",
         "ignoreResistance": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Frost",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target is also Slowed 1 until the end of your next turn unless it succeeds at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 34
+              },
+              {
+                "type": "text",
+                "text": " save."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4276,6 +4362,23 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "electricity"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Shock",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Electricity arcs out to deal an equal amount of electricity damage to up to two other creatures of your choice within 10 feet of the target."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -4348,6 +4451,23 @@
         "dieSize": "d6",
         "damageType": "electricity",
         "ignoreResistance": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Shock",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Electricity arcs out to deal an equal amount of electricity damage, ignoring resistance, to up to two other creatures of your choice within 10 feet of the target."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -5190,6 +5310,32 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "sonic"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Thundering",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 24
+              },
+              {
+                "type": "text",
+                "text": " save or be Deafened for 1 minute (1 hour on a critical failure)."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -5271,6 +5417,32 @@
         "dieSize": "d6",
         "damageType": "sonic",
         "ignoreResistance": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Thundering",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target must succeed at a "
+              },
+              {
+                "type": "check",
+                "statistic": "save:fortitude",
+                "dc": 34
+              },
+              {
+                "type": "text",
+                "text": " save or be Deafened permanently."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -6154,7 +6326,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "bleed",
+        "category": "persistent"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.fo6Yhq5mbQXsnZs0"
     },

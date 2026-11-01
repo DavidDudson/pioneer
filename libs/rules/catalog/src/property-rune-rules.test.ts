@@ -51,7 +51,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:vitalizing',
   'rune:vitalizing-greater',
   'rune:vorpal',
-  'rune:wounding',
 ]);
 
 interface EnergyRune {
@@ -83,7 +82,10 @@ function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[
     persistent === undefined
       ? []
       : [{ ...extra, diceNumber: persistent, dieSize: 'd10', category: 'persistent', critical: true }];
-  return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice];
+  const critical = slug.startsWith('rune:flaming')
+    ? []
+    : [{ key: 'Note', selectors: [ETCHED_DAMAGE], outcome: ['criticalSuccess'] }];
+  return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
 }
 
 /** Every rune in the committed packs. */
@@ -197,6 +199,20 @@ describe('weapon property rune rules', () => {
     const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
     expect(entry?.rules).toMatchObject(expectedRules(rune));
+  });
+  test('wounding adds persistent bleed damage on a hit', () => {
+    const entry = RUNES.find(({ slug }) => slug === 'rune:wounding');
+
+    expect(entry?.rules).toMatchObject([
+      {
+        key: 'DamageDice',
+        selectors: [ETCHED_DAMAGE],
+        diceNumber: 1,
+        dieSize: 'd6',
+        damageType: 'bleed',
+        category: 'persistent',
+      },
+    ]);
   });
 });
 
