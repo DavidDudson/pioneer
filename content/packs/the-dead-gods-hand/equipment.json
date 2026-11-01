@@ -233,7 +233,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["70e40df5-b4f1-58c2-a312-068896d75f5f"]
   },
   {
     "id": "85834e2a-8034-56ab-8240-08aab611bc19",

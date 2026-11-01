@@ -15,8 +15,10 @@ const Source = z.object({
   name: z.string().optional(),
   type: z.string().optional(),
   source_markdown: z.string().optional(),
+  remaster_id: z.array(z.string()).optional(),
 });
-const Hits = z.object({ total: z.object({ value: z.number() }), hits: z.array(z.object({ _source: Source })) });
+const Hit = z.object({ _id: z.string().optional(), _source: Source });
+const Hits = z.object({ total: z.object({ value: z.number() }), hits: z.array(Hit) });
 const Answer = z.object({ hits: Hits });
 
 /** What one answer held. */
@@ -26,6 +28,8 @@ export interface PageHits {
   readonly pages: ReadonlyMap<AonUrl, PageNumber>;
   /** Every hit that is one named entry, with or without a page. */
   readonly entries: readonly AonListedEntry[];
+  /** Legacy entry URL to the URLs of the remaster entries AoN says replace it. */
+  readonly replacedBy: ReadonlyMap<AonUrl, readonly AonUrl[]>;
   readonly skipped: number;
 }
 
@@ -40,6 +44,27 @@ export function pageIn(markdown: string, sourceId: string): PageNumber | undefin
   return undefined;
 }
 
+/** The id of an AoN document is `<category>-<number>`, as in `feat-1704`. */
+const DOCUMENT_ID = /^(?<category>[a-z-]+)-(?<number>\d+)$/u;
+
+/**
+ * The URLs of the entries that replace the one at `url` (document `id`): its `remaster_id`s, in the same category,
+ * so the page is the legacy entry's own. A replacement in another category is left out.
+ */
+export function replacements(id: string | undefined, url: AonUrl, remasterIds: readonly string[]): readonly AonUrl[] {
+  const category = DOCUMENT_ID.exec(id ?? '')?.groups?.['category'];
+  const urls = remasterIds.flatMap((remasterId) => {
+    const { category: other, number } = DOCUMENT_ID.exec(remasterId)?.groups ?? {};
+    if (category === undefined || other !== category || number === undefined) {
+      return [];
+    }
+    const target = new URL(url);
+    target.searchParams.set('ID', number);
+    return [AonUrl.parse(target.href)];
+  });
+  return [...new Set(urls)].filter((target) => target !== url);
+}
+
 /** What one hit gives: its URL if it is one entry's, the entry if it is named, and its page in the asked book. */
 interface ReadHit {
   readonly url: AonUrl | undefined;
@@ -51,6 +76,19 @@ function readHit(source: z.infer<typeof Source>, sourceId: string): ReadHit {
   const { data: url } = AonUrl.safeParse(`${ORIGIN}${source.url}`);
   const { data: entry } = AonListedEntry.safeParse({ type: source.type, name: source.name, url });
   return { url, entry, page: pageIn(source.source_markdown ?? '', sourceId) };
+}
+
+/** Each hit's legacy URL with the URLs AoN says replace it. */
+function replacedByIn(hits: readonly z.infer<typeof Hit>[]): ReadonlyMap<AonUrl, readonly AonUrl[]> {
+  const replacedBy = new Map<AonUrl, readonly AonUrl[]>();
+  for (const { _id: id, _source: source } of hits) {
+    const { data: url } = AonUrl.safeParse(`${ORIGIN}${source.url}`);
+    const targets = url === undefined ? [] : replacements(id, url, source.remaster_id ?? []);
+    if (url !== undefined && targets.length > 0) {
+      replacedBy.set(url, targets);
+    }
+  }
+  return replacedBy;
 }
 
 export function parseHits(json: unknown, sourceId: string): PageHits {
@@ -67,5 +105,12 @@ export function parseHits(json: unknown, sourceId: string): PageHits {
       skipped += 1;
     }
   }
-  return { total: hits.total.value, count: hits.hits.length, pages, entries, skipped };
+  return {
+    total: hits.total.value,
+    count: hits.hits.length,
+    pages,
+    entries,
+    replacedBy: replacedByIn(hits.hits),
+    skipped,
+  };
 }

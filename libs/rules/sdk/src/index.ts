@@ -369,6 +369,7 @@ export { NamespaceKind, NamespaceKindSchema, RollOptionNamespace, RollOptionName
 export { Domain, Selector, SkillSelector, SlotKey, ToggleKey } from './selector';
 export { AonListedEntry, AonListingFile } from './aon-listing';
 export { AonPagesFile } from './aon-pages';
+export { AonSupersedesFile } from './aon-supersedes';
 export { EnrichmentMapping, EnrichmentMappingFile } from './enrichment-mapping';
 export { AonUrl, BookId, PageNumber, SourceKind, SourceRef, SourceTitle, WebUrl } from './source-ref';
 export { default as rulesMessages } from './i18n/en.json';

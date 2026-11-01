@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { AonUrl, PageNumber } from '@pioneer/rules/sdk';
 
-import { pageIn, parseHits } from './parse.ts';
+import { pageIn, parseHits, replacements } from './parse.ts';
 
 const hit = (url: string, markdown?: string, name?: string): unknown => ({
   _source: { url, name, type: 'Action', source_markdown: markdown },
@@ -56,5 +56,38 @@ describe('parseHits', () => {
 
   test('rejects an answer of another shape', () => {
     expect(() => parseHits({ hits: {} }, '216')).toThrow();
+  });
+});
+
+describe('replacements', () => {
+  const legacy = AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1704');
+
+  test('turns a remaster id of the same category into the legacy entry URL with that number', () => {
+    expect(replacements('feat-1704', legacy, ['feat-4679'])).toEqual([
+      AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=4679'),
+    ]);
+  });
+
+  test('leaves out another category, itself and a malformed id', () => {
+    expect(replacements('feat-1704', legacy, ['spell-9', 'feat-1704', 'nonsense'])).toEqual([]);
+  });
+
+  test('has none without a document id', () => {
+    expect(replacements(undefined, legacy, ['feat-4679'])).toEqual([]);
+  });
+});
+
+describe('parseHits replacedBy', () => {
+  test('keeps the replacements of a hit by its URL', () => {
+    const json = answer({
+      _id: 'feat-1704',
+      _source: { url: '/Feats.aspx?ID=1704', name: 'Shield of Faith', type: 'Feat', remaster_id: ['feat-4679'] },
+    });
+    expect([...parseHits(json, '39').replacedBy]).toEqual([
+      [
+        AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=1704'),
+        [AonUrl.parse('https://2e.aonprd.com/Feats.aspx?ID=4679')],
+      ],
+    ]);
   });
 });
