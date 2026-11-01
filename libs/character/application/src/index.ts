@@ -45,6 +45,7 @@ export { VariantLimits } from './variant-limits';
 export { CharacterVariantLimits, type CharacterVariantLimitPorts } from './character-variant-limits';
 export { InMemoryVariantLimits } from './in-memory-variant-limits';
 export { CharacterFlaggedItems, type FlaggedLine } from './character-flagged-items';
+export { CharacterVitals, type Vitals, type VitalHitPoints } from './character-vitals';
 export { CharacterKeyItems } from './character-key-items';
 export { CharacterKeyItemPromotion, type KeyLink, type PromotableLine } from './character-key-item-promotion';
 export { CharacterTransferLines, type TransferLine, type TransferPurse } from './character-transfer-lines';

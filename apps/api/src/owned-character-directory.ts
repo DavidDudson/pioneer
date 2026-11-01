@@ -1,7 +1,14 @@
 import { CharacterDirectory } from '@pioneer/campaign/application';
 import type { CharacterSummary } from '@pioneer/campaign/application';
-import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
-import { characters } from '@pioneer/character/infrastructure';
+import {
+  CharacterId,
+  PartyCharacterLevel,
+  PartyCharacterName,
+  PartyCharacterOrigin,
+  PartyVitals,
+} from '@pioneer/campaign/domain';
+import type { CharacterVitals } from '@pioneer/character/application';
+import { characters, DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import type { UserId } from '@pioneer/shared/kernel';
 import { and, asc, eq, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -54,10 +61,14 @@ function toSummary(row: SummaryRow): CharacterSummary {
  */
 export class OwnedCharacterDirectory extends CharacterDirectory {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #repository: DrizzleCharacterRepository;
+  readonly #vitals: CharacterVitals;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase<Record<string, unknown>>, vitals: CharacterVitals) {
     super();
     this.#db = db;
+    this.#repository = new DrizzleCharacterRepository(db);
+    this.#vitals = vitals;
   }
 
   public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
@@ -78,5 +89,18 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
       .from(characters)
       .where(inArray(characters.id, [...ids]));
     return new Map(rows.map((row) => [CharacterId.parse(row.id), toSummary(row)]));
+  }
+
+  public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
+    const found = await Promise.all(ids.map(async (id) => this.#repository.findById(id)));
+    const seen = await Promise.all(
+      found.map(async (character) => (character === undefined ? undefined : this.#vitals.of(character))),
+    );
+    return new Map(
+      ids.flatMap((id, index): [CharacterId, PartyVitals][] => {
+        const vitals = seen[index];
+        return vitals === undefined ? [] : [[id, PartyVitals.parse(vitals)]];
+      }),
+    );
   }
 }

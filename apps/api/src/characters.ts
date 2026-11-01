@@ -11,6 +11,7 @@ import {
   CharacterUnenabledService,
   CharacterVariantLimits,
   CharacterVariantService,
+  CharacterVitals,
   FeatDisplayService,
   GenerateCharacterService,
   HeldContentPacks,
@@ -116,6 +117,8 @@ export interface Characters {
   readonly pioneerFiles: PioneerFileService;
   /** The rules each character's inventory breaks, for the campaign's review of its party. */
   readonly flaggedItems: CharacterFlaggedItems;
+  /** How each character stands, for the campaign's party panel. */
+  readonly vitals: CharacterVitals;
   /** The lines a campaign's GM writes into inventories for its key items. */
   readonly keyItems: CharacterKeyItems;
   /** Turns a line a character already has into a key item's holder copy. */
@@ -159,6 +162,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
   return {
     pioneerFiles,
     flaggedItems: new CharacterFlaggedItems(characterContent),
+    vitals: new CharacterVitals(characterContent),
     keyItems: new CharacterKeyItems(repository, clock),
     keyItemPromotion: new CharacterKeyItemPromotion(repository, characterContent, clock),
     transferLines: new CharacterTransferLines(repository, characterContent),

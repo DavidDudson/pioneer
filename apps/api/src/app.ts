@@ -38,6 +38,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
       campaigns(db, clock, {
         authenticator: identityParts.authenticator,
         flaggedItems: character.flaggedItems,
+        vitals: character.vitals,
         keyItems: character.keyItems,
         keyItemPromotion: character.keyItemPromotion,
         transferLines: character.transferLines,

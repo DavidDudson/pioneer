@@ -1,6 +1,7 @@
 import type { EnvironmentProviders, Provider } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { CRUMB } from '@pioneer/frontier';
+import { rulesMessages } from '@pioneer/rules/sdk';
 import { Locale } from '@pioneer/shared/kernel';
 import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pioneer/shared/web';
 
@@ -20,6 +21,7 @@ function campaignProviders(): (Provider | EnvironmentProviders)[] {
     CampaignRuleLimitStore,
     CampaignTransferStore,
     provideMessageScope('campaign', { [Locale.English]: async () => import('../i18n/en.json') }),
+    provideMessageScope('rules', { [Locale.English]: async () => rulesMessages.rules }),
   ];
 }
 

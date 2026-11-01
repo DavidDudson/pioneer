@@ -3,6 +3,7 @@ import type {
   PartyCharacterLevel,
   PartyCharacterName,
   PartyCharacterOrigin,
+  PartyVitals,
 } from '@pioneer/campaign/domain';
 import type { UserId } from '@pioneer/shared/kernel';
 
@@ -29,4 +30,10 @@ export abstract class CharacterDirectory {
 
   /** Each character that exists, whoever owns it, archived ones flagged; unknown ids are left out. */
   public abstract byIds(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, CharacterSummary>>;
+
+  /**
+   * How each character stands, worked out from its play state on every read: Hit Points, dying and conditions. Unknown
+   * ids are left out. The caller leaves archived characters out of `ids`; none of this is shown for them.
+   */
+  public abstract vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>>;
 }

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 
-import { CampaignCharacterId, CharacterId } from '@pioneer/campaign/domain';
+import { CampaignCharacterId, CharacterId, NO_VITALS, PartyVitals } from '@pioneer/campaign/domain';
 import type { Campaign, CampaignMember, CampaignParty } from '@pioneer/campaign/domain';
 import { CampaignBuilder } from '@pioneer/campaign/domain/testing';
 import { ConflictError, ForbiddenError, newId, NotFoundError, Temporal, UserId } from '@pioneer/shared/kernel';
@@ -119,6 +119,60 @@ describe('CampaignPartyService', () => {
     const seen = await archivedService.party(ezren, vaults.id);
     expect(seen.characters.map((character) => character.archived)).toStrictEqual([true]);
     expect(attachable(seen)).toStrictEqual(['Merisiel']);
+  });
+
+  test('every member sees how a party character stands, and one with nothing to show has none', async () => {
+    const hurt = PartyVitals.parse({
+      hp: { current: 3, max: 18, temp: 0 },
+      dying: 1,
+      conditions: ['dying', 'frightened'],
+    });
+    const directory = new InMemoryCharacterDirectory()
+      .character({ id: valeros, ownerId: ezren, name: 'Valeros' })
+      .character({ id: kyra, ownerId: seelah, name: 'Kyra' })
+      .vitals(valeros, hurt);
+    const party = new InMemoryCampaignPartyRepository(campaigns);
+    const seeing = new CampaignPartyService(
+      {
+        campaigns,
+        party,
+        characters: directory,
+        directory: new InMemoryMemberDirectory().name(ezren, 'Ezren').name(seelah, 'Seelah'),
+      },
+      ticking('2026-10-10T10:00:00Z'),
+    );
+    await seeing.attach(ezren, vaults.id, { characterId: valeros });
+    await seeing.attach(seelah, vaults.id, { characterId: kyra });
+    const seen = await Promise.all([ezren, seelah, amiri].map(async (viewer) => seeing.party(viewer, vaults.id)));
+    expect(seen.map((viewed) => viewed.characters.map((character) => character.vitals))).toStrictEqual([
+      [hurt, NO_VITALS],
+      [hurt, NO_VITALS],
+      [hurt, NO_VITALS],
+    ]);
+  });
+
+  test('an archived character shows no vitals even when the directory has them', async () => {
+    const directory = new InMemoryCharacterDirectory()
+      .character({ id: valeros, ownerId: ezren, name: 'Valeros', archived: true })
+      .vitals(valeros, PartyVitals.parse({ hp: { current: 3, max: 18, temp: 0 }, dying: 0, conditions: [] }));
+    const party = new InMemoryCampaignPartyRepository(campaigns);
+    const seeing = new CampaignPartyService(
+      {
+        campaigns,
+        party,
+        characters: directory,
+        directory: new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren'),
+      },
+      ticking('2026-10-10T10:00:00Z'),
+    );
+    await party.attach(vaults.id, {
+      id: CampaignCharacterId.parse(newId()),
+      characterId: valeros,
+      memberId: memberOf(vaults, ezren).id,
+      attachedAt: Temporal.Instant.from('2026-10-09T10:00:00Z'),
+    });
+    const seen = await seeing.party(ezren, vaults.id);
+    expect(seen.characters.map((character) => character.vitals)).toStrictEqual([NO_VITALS]);
   });
 
   test('an archived character cannot be attached: 404', async () => {

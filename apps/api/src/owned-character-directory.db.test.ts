@@ -1,12 +1,17 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 
 import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
+import { CharacterVitals } from '@pioneer/character/application';
+import { ContentPackBuilder, fixedContent } from '@pioneer/rules/sdk/testing';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import { createTestDatabase, QueryRecorder, testDatabaseUrl, unindexedQueries } from '@pioneer/shared/server/testing';
 import type { TestDatabase } from '@pioneer/shared/server/testing';
 import { sql } from 'drizzle-orm';
 
 import { OwnedCharacterDirectory } from './owned-character-directory';
+
+/** Content with no Hit Points statistic, so no character has a maximum. */
+const vitals = new CharacterVitals(fixedContent(new ContentPackBuilder().withId('player-core').build()));
 
 /** Uses the disposable TEST_DATABASE_URL (see AGENTS.md). */
 const adminUrl = testDatabaseUrl();
@@ -51,7 +56,7 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
   });
 
   test('lists a user’s characters by name', async () => {
-    const directory = new OwnedCharacterDirectory(database.db);
+    const directory = new OwnedCharacterDirectory(database.db, vitals);
     const owned = await directory.ownedBy(ezren);
     expect(owned).toStrictEqual([
       {
@@ -95,7 +100,7 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
       level: 1,
       choices: { ancestry: human },
     });
-    const owned = await new OwnedCharacterDirectory(database.db).ownedBy(owner);
+    const owned = await new OwnedCharacterDirectory(database.db, vitals).ownedBy(owner);
     expect(
       owned.map((character) => ({ name: character.name, ancestry: character.ancestry, class: character.class })),
     ).toStrictEqual([
@@ -107,7 +112,7 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
     const archived = CharacterId.parse(newId());
     await insertCharacter({ id: archived, ownerId: seelah, name: 'Old Kyra', level: 5 });
     await database.db.execute(sql`update characters set archived_at = ${at} where id = ${archived}`);
-    const directory = new OwnedCharacterDirectory(database.db);
+    const directory = new OwnedCharacterDirectory(database.db, vitals);
     const owned = await directory.ownedBy(seelah);
     expect(owned.map((character) => character.id)).not.toContain(archived);
     const found = await directory.byIds([archived, kyra]);
@@ -116,12 +121,21 @@ describe.skipIf(adminUrl === undefined)('OwnedCharacterDirectory (postgres)', ()
   });
 
   test('finds characters by id whoever owns them and leaves out the rest', async () => {
-    const directory = new OwnedCharacterDirectory(database.db);
+    const directory = new OwnedCharacterDirectory(database.db, vitals);
     const found = await directory.byIds([kyra, valeros, CharacterId.parse(newId())]);
     const ids = [...found.keys()];
     expect(ids.toSorted()).toStrictEqual([kyra, valeros].toSorted());
     expect(found.get(kyra)?.ownerId).toBe(seelah);
     expect(await directory.byIds([])).toStrictEqual(new Map());
     expect(await unindexedQueries(database.db, recorder)).toStrictEqual([]);
+  });
+
+  test('works out how a character stands from its stored play state and leaves out the rest', async () => {
+    const directory = new OwnedCharacterDirectory(database.db, vitals);
+    const seen = await directory.vitalsOf([kyra, CharacterId.parse(newId())]);
+    expect([...seen.keys()]).toStrictEqual([kyra]);
+    expect(seen.get(kyra)).toMatchObject({ dying: 0, conditions: [] });
+    expect(seen.get(kyra)?.hp).toBeUndefined();
+    expect(await directory.vitalsOf([])).toStrictEqual(new Map());
   });
 });

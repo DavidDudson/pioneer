@@ -4,10 +4,13 @@ import * as z from 'zod';
 
 import {
   CharacterId,
+  ConditionName,
   MemberName,
   PartyCharacterLevel,
   PartyCharacterName,
   PartyCharacterOrigin,
+  VitalDying,
+  VitalHitPoints,
 } from './campaign-fields';
 import type { CampaignCharacterId, CampaignMemberId } from './campaign-fields';
 
@@ -34,6 +37,26 @@ export const OwnedCharacter = z.object({
 });
 export type OwnedCharacter = z.output<typeof OwnedCharacter>;
 
+/** A character's Hit Points as the table has them. */
+export const PartyHitPoints = z.object({ current: VitalHitPoints, max: VitalHitPoints, temp: VitalHitPoints });
+export type PartyHitPoints = z.output<typeof PartyHitPoints>;
+
+/**
+ * How a character stands, as every member of the campaign sees it: worked out from its play state on every read,
+ * never stored. A character with no maximum yet, and an archived one, have no Hit Points.
+ */
+export const PartyVitals = z.object({
+  hp: PartyHitPoints.optional(),
+  /** The dying value, 0 when not dying; a dead character is at the highest. */
+  dying: VitalDying,
+  /** The death track's conditions first (`dying`, `wounded`, `doomed`), then the others, each once. */
+  conditions: z.array(ConditionName).readonly(),
+});
+export type PartyVitals = z.output<typeof PartyVitals>;
+
+/** A character with nothing to show: not dying, no conditions and no Hit Points. */
+export const NO_VITALS: PartyVitals = PartyVitals.parse({ dying: 0, conditions: [] });
+
 /** One character in the party, with the name its owner goes by. */
 export const PartyCharacter = OwnedCharacter.extend({
   ownerId: UserId,
@@ -43,6 +66,7 @@ export const PartyCharacter = OwnedCharacter.extend({
   detachable: z.boolean(),
   /** Whether its owner has archived it (ADR-0062). It stays in the party, shown as a placeholder, and comes back when restored. */
   archived: z.boolean(),
+  vitals: PartyVitals,
 });
 export type PartyCharacter = z.output<typeof PartyCharacter>;
 

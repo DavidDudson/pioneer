@@ -26,6 +26,7 @@ import type {
   CharacterKeyItemPromotion,
   CharacterKeyItems,
   CharacterTransferLines,
+  CharacterVitals,
 } from '@pioneer/character/application';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
@@ -75,6 +76,8 @@ function ruleLimitService(db: Database, repository: DrizzleCampaignRepository, c
 export interface CampaignParts {
   readonly authenticator: RequestAuthenticator;
   readonly flaggedItems: CharacterFlaggedItems;
+  /** How each character stands, for the party panel. */
+  readonly vitals: CharacterVitals;
   readonly keyItems: CharacterKeyItems;
   readonly keyItemPromotion: CharacterKeyItemPromotion;
   readonly transferLines: CharacterTransferLines;
@@ -120,7 +123,7 @@ function keyItemService(
       campaigns: repository,
       keyItems: new DrizzleCampaignKeyItemRepository(db),
       party: new DrizzleCampaignPartyRepository(db),
-      characters: new OwnedCharacterDirectory(db),
+      characters: new OwnedCharacterDirectory(db, parts.vitals),
       holders: new CharacterKeyItemHolders(parts.keyItems, parts.keyItemPromotion),
       flagged: new PartyFlaggedItems(db, parts.flaggedItems),
     },
@@ -139,7 +142,7 @@ function itemTransferService(
       campaigns: repository,
       transfers: new DrizzleItemTransferRepository(db),
       party: new DrizzleCampaignPartyRepository(db),
-      characters: new OwnedCharacterDirectory(db),
+      characters: new OwnedCharacterDirectory(db, parts.vitals),
       lines: new CharacterTransferLinesAdapter(parts.transferLines),
       settlement: new DatabaseTransferSettlement(db, clock),
     },
@@ -158,7 +161,7 @@ export function campaigns(db: Database, clock: Clock, parts: CampaignParts): Con
     {
       campaigns: repository,
       party: new DrizzleCampaignPartyRepository(db),
-      characters: new OwnedCharacterDirectory(db),
+      characters: new OwnedCharacterDirectory(db, parts.vitals),
       directory,
     },
     clock,
