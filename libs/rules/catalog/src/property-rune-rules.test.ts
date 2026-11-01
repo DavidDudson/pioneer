@@ -1,9 +1,10 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentEntryFile, ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 
-const PACKS_DIR = `${import.meta.dir}/../../../../content/packs`;
+import { loadRunes } from './rune-fixtures';
+
 const ETCHED_DAMAGE = 'etched-damage';
 
 /**
@@ -16,8 +17,7 @@ const ETCHED_DAMAGE = 'etched-damage';
  * rooting family is a critical-hit effect on the target (a condition it can't yet apply).
  *
  * Why the target-dependent runes stay here: bane and energy vulnerability name a creature type or energy the crafter
- * or wielder picks; astral, decaying, fearsome, impactful, merciful and pacifying give a save, a push, a condition or
- * a lethality rule the Strike cannot apply to a target; spell reservoir, coating, conducting, animated and authorized
+ * or wielder picks; astral and pacifying give a save or a rule about the target the Strike cannot apply; spell reservoir, coating, conducting, animated and authorized
  * are activations or item state; underwater changes a penalty no roll here reads; the mythic runes need the mythic
  * rules.
  */
@@ -29,19 +29,12 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:bane',
   'rune:coating',
   'rune:conducting',
-  'rune:decaying',
-  'rune:decaying-greater',
   'rune:energy-vulnerability',
   'rune:energy-vulnerability-greater',
   'rune:extending',
   'rune:extending-greater',
-  'rune:fearsome',
-  'rune:fearsome-greater',
   'rune:grievous',
-  'rune:impactful',
-  'rune:impactful-greater',
   'rune:keen',
-  'rune:merciful',
   'rune:mythic-striking',
   'rune:mythic-weapon-potency',
   'rune:pacifying',
@@ -91,18 +84,6 @@ function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[
     ? []
     : [{ key: 'Note', selectors: [ETCHED_DAMAGE], outcome: ['criticalSuccess'] }];
   return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
-}
-
-/** Every rune in the committed packs. */
-async function loadRunes(): Promise<readonly ContentEntry[]> {
-  const files = await Array.fromAsync(new Bun.Glob('*/rune.json').scan(PACKS_DIR));
-  const packs = await Promise.all(
-    files.map(async (file): Promise<readonly ContentEntry[]> => {
-      const json: unknown = await Bun.file(`${PACKS_DIR}/${file}`).json();
-      return ContentEntryFile.parse(json);
-    }),
-  );
-  return packs.flat().filter((entry) => entry.kind === ContentKind.Rune);
 }
 
 const ARMOUR_GAPS: ReadonlySet<string> = new Set([
@@ -204,46 +185,6 @@ describe('weapon property rune rules', () => {
     const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
     expect(entry?.rules).toMatchObject(expectedRules(rune));
-  });
-
-  test('ghost touch makes the weapon it is etched on count as having the rune', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:ghost-touch');
-
-    expect(entry?.rules).toMatchObject([
-      { key: 'AdjustStrike', property: 'property-runes', mode: 'add', value: 'ghost-touch', etched: true },
-    ]);
-  });
-
-  test.each([
-    { slug: 'rune:brilliant', ignoring: {} },
-    { slug: 'rune:brilliant-greater', ignoring: { ignoreResistance: true } },
-  ])('$slug adds fire damage, and spirit to fiends and vitality to undead', ({ slug, ignoring }) => {
-    const entry = RUNES.find((rune) => rune.slug === slug);
-
-    expect(entry?.rules).toMatchObject([
-      { key: 'DamageDice', damageType: 'fire', diceNumber: 1, dieSize: 'd4', ...ignoring },
-      { damageType: 'spirit', predicate: ['target:trait:fiend'], ...ignoring },
-      { damageType: 'vitality', predicate: ['target:trait:undead'], ...ignoring },
-    ]);
-  });
-
-  test.each([
-    { slug: 'rune:vitalizing', dice: 1 },
-    { slug: 'rune:vitalizing-greater', dice: 2 },
-  ])('$slug adds persistent vitality damage to undead, with a critical hit note', ({ slug, dice }) => {
-    const entry = RUNES.find((rune) => rune.slug === slug);
-
-    expect(entry?.rules).toMatchObject([
-      {
-        key: 'DamageDice',
-        diceNumber: dice,
-        dieSize: 'd6',
-        damageType: 'vitality',
-        category: 'persistent',
-        predicate: ['target:trait:undead'],
-      },
-      { key: 'Note', outcome: ['criticalSuccess'], predicate: ['target:trait:undead'] },
-    ]);
   });
 
   test('wounding adds persistent bleed damage on a hit', () => {

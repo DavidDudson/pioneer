@@ -1411,7 +1411,32 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "nonlethal",
+        "etched": true
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Merciful",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Friendly with the weapon’s wielder for 1 minute, a mental effect."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.r28DjJEjF6jvCcfb"
     },

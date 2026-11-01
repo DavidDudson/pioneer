@@ -1123,7 +1123,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "void"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 2,
+        "dieSize": "d4",
+        "damageType": "void",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.fyiW23MFe8p06KL5"
     },
@@ -1186,7 +1203,26 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "void",
+        "ignoreResistance": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 4,
+        "dieSize": "d4",
+        "damageType": "void",
+        "ignoreResistance": true,
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.HGsA5gXtaAA65n9e"
     },
@@ -1551,7 +1587,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Fearsome",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 1."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.P6v2AtJw7AUwaDzf"
     },
@@ -1596,7 +1650,25 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Fearsome",
+        "outcome": ["criticalSuccess"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The target becomes Frightened 2."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.uz3JCjRvkE44jxMd"
     },
