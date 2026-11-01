@@ -105,7 +105,11 @@ describe('planGaps', () => {
 
   test('flags a changed spec with no test job', () => {
     expect(planGaps(['libs/a/src/a.spec.ts'], [lint, build], [])).toHaveLength(1);
-    expect(planGaps(['tools/ci-plan.test.ts'], [lint], [])).toHaveLength(1);
+  });
+
+  test('leaves a changed tools spec to the lint job, which runs it', () => {
+    expect(planGaps(['tools/ci-plan.test.ts'], [lint], [])).toStrictEqual([]);
+    expect(planGaps(['tools/ci-plan.test.ts'], [build], [])).toHaveLength(1);
   });
 
   test('lets a change to docs, content or workflows plan little', () => {

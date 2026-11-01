@@ -73,6 +73,9 @@ export function touches(changed: readonly string[], prefixes: readonly string[])
 const BUILD_JOB = 'build';
 const PROJECT_SOURCE = /^(?:apps|libs)\/.*\.(?:ts|html)$/v;
 const SPEC_FILE = /\.(?:spec|test)\.ts$/v;
+/** The job that also runs the specs under `tools/` (`bun run test:tools`), which no Nx project owns. */
+const LINT_JOB = 'lint';
+const TOOLS_DIRECTORY = 'tools/';
 
 /**
  * What the plan skipped that the change needs: a plan that selects nothing for changed code is a broken plan, not a
@@ -87,8 +90,12 @@ export function planGaps(
   if (changed.some((file) => PROJECT_SOURCE.test(file)) && !check.some(({ id }) => id === BUILD_JOB)) {
     gaps.push(`project source changed but the "${BUILD_JOB}" job (typecheck and build) is not planned`);
   }
-  if (changed.some((file) => SPEC_FILE.test(file)) && test.length === 0) {
+  const specs = changed.filter((file) => SPEC_FILE.test(file));
+  if (specs.some((file) => !file.startsWith(TOOLS_DIRECTORY)) && test.length === 0) {
     gaps.push('a spec or test changed but no test job is planned');
+  }
+  if (specs.some((file) => file.startsWith(TOOLS_DIRECTORY)) && !check.some(({ id }) => id === LINT_JOB)) {
+    gaps.push(`a spec under tools/ changed but the "${LINT_JOB}" job (which runs them) is not planned`);
   }
   return gaps;
 }
