@@ -6,6 +6,7 @@ export { DrizzleCharacterRepository } from './drizzle-character-repository';
 export { characterSheetModes } from './character.table';
 export { DrizzleSheetModeRepository } from './drizzle-sheet-mode-repository';
 export { sheetModeRoutes } from './sheet-mode-routes';
+export { characterSheetBundleRoutes } from './character-sheet-bundle-routes';
 export { generateCharacterRoutes } from './generate-character-routes';
 export { playRoutes } from './play-routes';
 export { characterFeatDisplays } from './character.table';

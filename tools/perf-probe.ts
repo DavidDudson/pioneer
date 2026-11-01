@@ -42,6 +42,9 @@ const SHEET_ENDPOINTS: readonly string[] = [
   '/unenabled-content',
 ];
 
+/** The one request that answers for the eleven above, measured beside them but not part of the whole load. */
+const BUNDLE_ENDPOINT = '/sheet';
+
 const { values } = parseArgs({
   options: {
     api: { type: 'string', default: `http://localhost:${Bun.env['API_PORT'] ?? '3000'}` },
@@ -193,7 +196,7 @@ await db`select pg_reload_conf()`;
 const cookie = await signIn();
 const characterId = values.character ?? (await createCharacter(cookie));
 const endpoints: Measure[] = [];
-for (const suffix of SHEET_ENDPOINTS) {
+for (const suffix of [...SHEET_ENDPOINTS, BUNDLE_ENDPOINT]) {
   // oxlint-disable-next-line eslint/no-await-in-loop
   endpoints.push(await measure(cookie, characterId, suffix));
 }

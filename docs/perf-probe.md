@@ -12,7 +12,8 @@ bun run perf:probe             # --api, --character <id>, --runs 20, --out tmp/p
 ```
 
 It signs in as the dev player, creates a throwaway level 1 character (pass `--character <id>` for a big build), calls
-the 11 endpoints a sheet loads 20 times each, one at a time, and then all at once. It turns `log_statement` on for the
+the 11 endpoints a sheet loads, and the `/sheet` bundle that answers for them in one request, 20 times each, one at a
+time, and then the 11 all at once. It turns `log_statement` on for the
 run and counts statements in the Postgres log, so nothing else may use the database meanwhile. Output is a table, and
 JSON in `tmp/perf-probe.json`.
 
