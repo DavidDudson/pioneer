@@ -67,7 +67,7 @@ function armorInputs(
     return {};
   }
   const { item, entry } = active;
-  const { numbers } = alteredItem(rules, entry, picked);
+  const { numbers } = alteredItem(rules, entry, { picked });
   const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
   const dexCap = numbers.get(NumericItemProperty.DexCap);
   const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
@@ -97,6 +97,11 @@ interface WeaponContext {
   readonly picked: PickedItems;
 }
 
+/** Whether the deity favours the weapon whose base is `base`. */
+function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefined): boolean {
+  return base !== undefined && favored.has(base);
+}
+
 /**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
@@ -117,7 +122,7 @@ function weaponInputs(
     const flags = picked.get(slug);
     const runes = itemRunes(each.item, entry);
     const potency = runes.potency ?? entry.data.itemBonus;
-    const altered = alteredItem(rules, entry, flags);
+    const altered = alteredItem(rules, entry, { picked: flags, favored: favoredBy(favored, entry.data.baseItem) });
     const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
     return [
       {
@@ -135,7 +140,7 @@ function weaponInputs(
             : { ...entry.data.damage, damageType: altered.damageType },
         splash: entry.data.splash,
         quantity: entry.traits.includes(CONSUMABLE) ? ItemCount.parse(each.item.quantity) : undefined,
-        favored: entry.data.baseItem !== undefined && favored.has(entry.data.baseItem),
+        favored: favoredBy(favored, entry.data.baseItem),
         picked: flags,
         origin: originOf(each),
       },

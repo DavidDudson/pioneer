@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { AttributeModifier, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
+import { AttributeModifier, BaseWeapon, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { equippedInputs } from './equipped';
@@ -164,5 +164,27 @@ describe('equipped weapons with AdjustStrike elements', () => {
     const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
 
     expect(weapon?.materials).toEqual([]);
+  });
+});
+
+describe('equipped weapons: roll options for AdjustStrike', () => {
+  test('an unarmed Strike and a deity-favoured weapon are reached by their own roll options', () => {
+    const rules = altering(
+      [adjusting(['item:deity-favored'], { property: 'traits', mode: 'add', value: 'holy' }), 'favour'],
+      [adjusting(['item:category:unarmed'], { property: 'traits', mode: 'add', value: 'agile' }), 'fist'],
+    );
+    const favored = new Set([BaseWeapon.parse('longsword')]);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, {
+      rules: () => rules,
+      favored,
+    }).weapons;
+    const [unfavored] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+
+    expect([weapon?.traits.includes(Trait.parse('holy')), unfavored?.traits.includes(Trait.parse('holy'))]).toEqual([
+      true,
+      false,
+    ]);
+    expect(weapon?.traits.includes(Trait.parse('agile'))).toBe(false);
   });
 });
