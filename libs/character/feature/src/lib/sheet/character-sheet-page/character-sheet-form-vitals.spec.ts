@@ -34,7 +34,7 @@ function vitalsOf(root: HTMLElement): string {
   return textOf(present(root.querySelector<HTMLElement>('pio-vitals')));
 }
 
-/** The Hit Points controls, in the drawer the block opens. */
+/** The Hit Points controls, in the modal the block opens. */
 function hitPointControlsOf(root: HTMLElement): string {
   return textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls')));
 }

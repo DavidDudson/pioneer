@@ -30,11 +30,10 @@ import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
-import { HitPointsDrawerState } from '../sheet-hit-points/hit-points-drawer-state';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
+// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
@@ -87,7 +86,6 @@ import { SheetState } from '../sheet-state';
   templateUrl: './character-sheet-page.component.html',
   providers: [
     SheetConfigurationState,
-    HitPointsDrawerState,
     SheetSidePanelState,
     SheetState,
     ...SHEET_PLAY_PROVIDERS,

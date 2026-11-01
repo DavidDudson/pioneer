@@ -24,7 +24,7 @@ function meterOf(root: HTMLElement): HTMLMeterElement {
   return present(hitPointsOf(root).querySelector('meter'));
 }
 
-/** The controls, in the drawer the block opens. */
+/** The controls, in the modal the block opens. */
 function controlsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls'));
 }
@@ -66,7 +66,7 @@ describe('CharacterSheetPage Hit Points', () => {
     });
   });
 
-  it('has no number input in the block, and opens the controls when it is pressed', async () => {
+  it('has no number input on the block, and opens the controls in a modal when it is pressed', async () => {
     const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(0, 0) });
     await vi.waitFor(() => {
       expect(meterOf(root).value).toBe(MAX_HP);
@@ -75,7 +75,7 @@ describe('CharacterSheetPage Hit Points', () => {
 
     await openControls(root);
 
-    expect(hitPointsOf(root).querySelector('input')).toBeNull();
+    expect(hitPointsOf(root).querySelector('pio-sheet-hit-point-controls input')).not.toBeNull();
   });
 
   it.each([

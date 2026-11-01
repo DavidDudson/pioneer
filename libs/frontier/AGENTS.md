@@ -114,8 +114,9 @@ Pioneer never interrupts the user. Lint enforces each rule
    error under the field, a save's tick beside the value (`InlineEdit<T>`), a
    region's load failure in place of that region. No snackbars, no toast
    libraries, no `role="status"` popups floating over the page.
-2. **No modals**, with one exception: `fr-drawer` below the `lg` container size is a full-screen `<dialog>`
-   (ADR-0065). Everywhere else, no `<dialog>`, `role="dialog|alertdialog"`, CDK or
+2. **No modals**, with two exceptions: `fr-drawer` below the `lg` container size is a full-screen `<dialog>`
+   (ADR-0065), and `fr-modal` is a small `<dialog>` for a short task a page asks for by name (the
+   sheet's Hit Point controls). Everywhere else, no `<dialog>`, `role="dialog|alertdialog"`, CDK or
    Material dialogs, bottom sheets, or `alert`/`confirm`/`prompt`. Show the
    content inline (expand in place with `fr-disclosure`, inline edit), in the docked `fr-drawer`, or give it
    its own route. Secondary content prefers the drawer: it sits beside the page and pushes the content

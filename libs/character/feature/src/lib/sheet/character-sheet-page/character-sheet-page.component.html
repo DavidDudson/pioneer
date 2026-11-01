@@ -1,12 +1,18 @@
 <fr-page width="full">
-  <fr-page-header [title]="title()" />
+  <fr-page-header titleHidden [title]="title()">
+    <fr-grid frPageIdentity minItem="md" gap="sm">
+      <pio-sheet-character-block />
+      <pio-sheet-hit-points />
+      <pio-sheet-armor-class />
+    </fr-grid>
+    <fr-tabs frPageTabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
+      @for (tab of tabs; track tab.mode) {
+        <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
+      }
+    </fr-tabs>
+  </fr-page-header>
   <fr-page-body>
     <fr-stack gap="lg">
-      <fr-tabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
-        @for (tab of tabs; track tab.mode) {
-          <fr-tab [to]="tab.mode">{{ tab.labelKey | transloco }}</fr-tab>
-        }
-      </fr-tabs>
       <fr-stack horizontalFrom="lg" gap="lg" align="start">
         <pio-sheet-panels />
         <fr-stack gap="lg" grow>
@@ -14,11 +20,6 @@
             <fr-stack direction="horizontal" justify="end" align="center" gap="sm" wrap>
               <pio-sheet-header-actions />
             </fr-stack>
-            <fr-grid minItem="md" gap="sm">
-              <pio-sheet-character-block />
-              <pio-sheet-hit-points />
-              <pio-sheet-armor-class />
-            </fr-grid>
             <pio-sheet-form />
             <pio-sheet-form-picker />
             <pio-sheet-death-track />

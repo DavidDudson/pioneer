@@ -6,7 +6,7 @@
       <ng-template [frAsyncData]="engineQuery()">
         @if (hp(); as hp) {
           <fr-surface padding="sm">
-            <fr-button variant="inline" (click)="drawer.open.set(true)">
+            <fr-button variant="inline" (click)="open.set(true)">
               <fr-stack gap="xs" align="center">
                 <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
                 <fr-stack direction="horizontal" align="baseline" gap="xs">
@@ -28,6 +28,9 @@
                 }
               </fr-stack>
             </fr-button>
+            <fr-modal [title]="'character.sheet.hp.label' | transloco" [(open)]="open">
+              <pio-sheet-hit-point-controls />
+            </fr-modal>
           </fr-surface>
         } @else {
           <fr-surface padding="sm">

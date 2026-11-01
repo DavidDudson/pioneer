@@ -1,21 +1,49 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Avatar, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
+import { DEATH_VALUE_MAX } from '@pioneer/character/domain';
+import { CharacterAvatar, Skeleton, Stack, Text } from '@pioneer/frontier';
+import { ConditionBadge } from '@pioneer/rules/ui';
 
+import { injectContentRegistry } from '../../data/content-registry-query';
+import { PlayStore } from '../../data/play-store';
+import { CONDITION_CONTENT_KINDS, conditionSlugs } from '../sheet-conditions';
+import { hitPointsView } from '../sheet-hit-points/hit-points-view';
 import { SheetState } from '../sheet-state';
 
 /**
- * The character at the top of the sheet: an empty circular portrait (the upload is its own story), the name, and the
- * "Level 11 Goloma Animist" line under it. The portrait carries no Hit Point arc: the Hit Points block shows those.
+ * The character at the left of the sheet's header: the same avatar the party shows (#1743), with its Hit Point arc,
+ * wounds, death track and the worst of its conditions, and the "Level 11 Goloma Animist" line beside it. The name is
+ * the avatar's own; the page header keeps it as the page's heading for screen readers.
  */
 @Component({
   selector: 'pio-sheet-character-block',
-  imports: [Avatar, Skeleton, Stack, Surface, Text, TranslocoPipe],
+  imports: [CharacterAvatar, ConditionBadge, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-character-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetCharacterBlock {
+  readonly #play = inject(PlayStore);
+  readonly #registry = injectContentRegistry(CONDITION_CONTENT_KINDS);
+
   protected readonly sheet = inject(SheetState);
   protected readonly character = this.sheet.character;
   protected readonly identity = this.sheet.identity;
+
+  protected readonly hp = computed(() => hitPointsView(this.sheet.maxHitPoints(), this.#play.play.data()?.play.hp));
+  /** The dying value, a dead character at the highest; undefined while not dying. */
+  protected readonly failedSaves = computed(() => {
+    const play = this.#play.play.data()?.play;
+    if (play === undefined) {
+      return undefined;
+    }
+    if (play.dead) {
+      return DEATH_VALUE_MAX;
+    }
+    return play.dying > 0 ? play.dying : undefined;
+  });
+  protected readonly conditions = computed((): readonly string[] => {
+    const registry = this.#registry.data();
+    const play = this.#play.play.data()?.play;
+    return registry === undefined || play === undefined ? [] : conditionSlugs(registry, play);
+  });
 }

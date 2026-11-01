@@ -1,15 +1,20 @@
-<fr-surface padding="sm">
-  <fr-stack align="center" gap="xs">
-    @if (character(); as character) {
-      <fr-avatar decorative size="lg" [name]="character.name" />
-      <fr-text variant="heading">{{ character.name }}</fr-text>
-    } @else {
-      <fr-skeleton width="md" />
-    }
-    @if (identity(); as identity) {
-      <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-    } @else {
-      <fr-skeleton width="md" />
-    }
-  </fr-stack>
-</fr-surface>
+<fr-stack direction="horizontal" align="center" gap="sm">
+  @if (character(); as character) {
+    <fr-character-avatar
+      [name]="character.name"
+      [current]="hp()?.current"
+      [max]="hp()?.max"
+      [temp]="hp()?.temp ?? 0"
+      [failedSaves]="failedSaves()"
+    >
+      <pio-condition-badge frCharacterAvatarStart [conditions]="conditions()" />
+    </fr-character-avatar>
+  } @else {
+    <fr-skeleton width="md" />
+  }
+  @if (identity(); as identity) {
+    <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+  } @else {
+    <fr-skeleton width="md" />
+  }
+</fr-stack>
