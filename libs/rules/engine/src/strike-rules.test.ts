@@ -219,3 +219,44 @@ describe('Strikes of a weapon that a ChoiceSet over owned items picked', () => {
     expect(totalOf(attack?.damage?.bonus)).toBe(totalOf(plain?.damage?.bonus));
   });
 });
+
+describe('Strike rules aimed at the weapon they are etched on', () => {
+  const LONGSWORD_ITEM = '00000000-0000-4000-8000-00000000000a';
+  const SHORTSWORD_ITEM = '00000000-0000-4000-8000-00000000000b';
+  const SHORTSWORD = { ...LONGSWORD, slug: 'shortsword' };
+  const FLAMING = { key: 'DamageDice', selectors: ['etched-damage'], dieSize: 'd6', damageType: 'fire' };
+
+  /** Both weapons' Strikes, with `FLAMING` in play from `item`. */
+  function strikes(item: string | undefined): readonly Strike[] {
+    const weapons = [wielded(LONGSWORD, LONGSWORD_ITEM), wielded(SHORTSWORD, SHORTSWORD_ITEM)];
+    const inputs = StatisticInputsJson.parse({
+      level: 5,
+      attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
+      ranks: { 'attack:martial': 'trained' },
+      weapons,
+    });
+    const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
+    const modifiers = {
+      rules: [inPlay(FLAMING, 'flaming', item === undefined ? {} : { item })],
+      facts: new PredicateFacts([], CORE_NAMESPACES),
+    };
+    const results = deriveStatistics(content, inputs, modifiers);
+    return deriveStrikes(inputs.weapons ?? [], results, {
+      inputs: modifiers,
+      scope: { statistics: content, character: inputs },
+    });
+  }
+
+  test('add their dice to the weapon of the item they come from and to no other', () => {
+    const [longsword, shortsword] = strikes(LONGSWORD_ITEM);
+
+    expect(longsword?.damage?.extra).toMatchObject([{ count: 1, die: 'd6', damageType: 'fire' }]);
+    expect(shortsword?.damage?.extra).toStrictEqual([]);
+  });
+
+  test('add nothing when they come from no item', () => {
+    for (const strike of strikes(undefined)) {
+      expect(strike.damage?.extra).toStrictEqual([]);
+    }
+  });
+});
