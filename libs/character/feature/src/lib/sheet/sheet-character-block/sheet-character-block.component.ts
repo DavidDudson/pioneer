@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { CharacterAvatar, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
+import { Avatar, Skeleton, Stack, Surface, Text } from '@pioneer/frontier';
 
 import { SheetState } from '../sheet-state';
 
@@ -10,7 +10,7 @@ import { SheetState } from '../sheet-state';
  */
 @Component({
   selector: 'pio-sheet-character-block',
-  imports: [CharacterAvatar, Skeleton, Stack, Surface, Text, TranslocoPipe],
+  imports: [Avatar, Skeleton, Stack, Surface, Text, TranslocoPipe],
   templateUrl: './sheet-character-block.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

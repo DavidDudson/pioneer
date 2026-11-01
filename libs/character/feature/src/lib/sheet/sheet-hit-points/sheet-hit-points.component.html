@@ -6,7 +6,7 @@
       <ng-template [frAsyncData]="engineQuery()">
         @if (hp(); as hp) {
           <fr-surface padding="sm">
-            <fr-button variant="ghost" (click)="drawer.open.set(true)">
+            <fr-button variant="inline" (click)="drawer.open.set(true)">
               <fr-stack gap="xs" align="center">
                 <fr-text weight="semibold">{{ 'character.sheet.hp.label' | transloco }}</fr-text>
                 <fr-stack direction="horizontal" align="baseline" gap="xs">
@@ -17,9 +17,6 @@
                     }}</fr-text>
                   }
                 </fr-stack>
-                <fr-text tone="muted" numeric>{{
-                  'character.sheet.hp.total' | transloco: { current: hp.current, max: hp.max }
-                }}</fr-text>
                 <fr-meter
                   [label]="'character.sheet.hp.label' | transloco"
                   [value]="hp.current"

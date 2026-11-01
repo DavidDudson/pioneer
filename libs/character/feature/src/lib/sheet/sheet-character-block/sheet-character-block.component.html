@@ -1,7 +1,7 @@
 <fr-surface padding="sm">
   <fr-stack align="center" gap="xs">
     @if (character(); as character) {
-      <fr-character-avatar [name]="character.name" [current]="undefined" [max]="undefined" />
+      <fr-avatar decorative size="lg" [name]="character.name" />
       <fr-text variant="heading">{{ character.name }}</fr-text>
     } @else {
       <fr-skeleton width="md" />

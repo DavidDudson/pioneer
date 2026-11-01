@@ -62,7 +62,7 @@ describe('CharacterSheetPage Hit Points', () => {
       const meter = meterOf(root);
       expect([meter.value, meter.max]).toStrictEqual([MAX_HP - 3, MAX_HP]);
       expect(textOf(hitPointsOf(root))).toContain('+2 temporary');
-      expect(textOf(hitPointsOf(root))).toContain(`${MAX_HP - 3} / ${MAX_HP}`);
+      expect(textOf(hitPointsOf(root))).toContain(`${MAX_HP - 3}/${MAX_HP}`);
     });
   });
 

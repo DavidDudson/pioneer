@@ -81,7 +81,7 @@ describe('CharacterSheetPage header', () => {
       const block = present(root.querySelector('pio-sheet-character-block'));
       expect(textOf(block)).toContain('Merisiel');
       expect(textOf(block)).toContain('Level 1 Elf Cleric, Warpriest');
-      expect(block.querySelector('fr-character-avatar')).not.toBeNull();
+      expect(block.querySelector('fr-avatar')).not.toBeNull();
     });
   });
 
