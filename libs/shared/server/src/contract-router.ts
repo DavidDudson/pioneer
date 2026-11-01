@@ -1,10 +1,11 @@
-import { UnauthorizedError } from '@pioneer/shared/kernel';
+import { HttpMethod, UnauthorizedError } from '@pioneer/shared/kernel';
 import type { Endpoint, UserId } from '@pioneer/shared/kernel';
 import { Elysia } from 'elysia';
 import type { Context } from 'elysia';
 import * as z from 'zod';
 
 import type { RequestAuthenticator, RequestExchange } from './request-authenticator';
+import { inRequestScope } from './request-memo';
 
 interface HandlerInput<
   TParams extends z.ZodObject,
@@ -56,7 +57,7 @@ export class ContractRouter {
     handler: (input: HandlerInput<TParams, TBody, TQuery>) => Promise<z.output<TResponse>>,
   ): this {
     this.app.route(endpoint.method, endpoint.path, async (context) => {
-      const output = await handler(decode(endpoint, context));
+      const output = await readScoped(endpoint, async () => handler(decode(endpoint, context)));
       return z.encode(endpoint.response, output);
     });
     return this;
@@ -78,7 +79,7 @@ export class ContractRouter {
   ): this {
     this.app.route(endpoint.method, endpoint.path, async (context) => {
       const actor = await auth.actingUser({ request: context.request, responseHeaders: context.set.headers });
-      const output = await handler({ ...decode(endpoint, context), actor });
+      const output = await readScoped(endpoint, async () => handler({ ...decode(endpoint, context), actor }));
       return z.encode(endpoint.response, output);
     });
     return this;
@@ -103,11 +104,19 @@ export class ContractRouter {
         request: context.request,
         responseHeaders: context.set.headers,
       });
-      const output = await handler({ ...decode(endpoint, context), actor });
+      const output = await readScoped(endpoint, async () => handler({ ...decode(endpoint, context), actor }));
       return z.encode(endpoint.response, output);
     });
     return this;
   }
+}
+
+/**
+ * Runs a handler, in a request scope when the endpoint is a GET, so an adapter's `RequestMemo` reads answer once per
+ * request. Only reads get one: a write handler that read, wrote and read again would be served the first answer.
+ */
+async function readScoped<Result>(endpoint: Endpoint, run: () => Promise<Result>): Promise<Result> {
+  return endpoint.method === HttpMethod.Get ? inRequestScope(run) : run();
 }
 
 /** The signed-in user behind `exchange`, or undefined when the request carries no valid sign-in. */

@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { ContractRouter } from './contract-router';
 import { RequestAuthenticator } from './request-authenticator';
+import { RequestMemo } from './request-memo';
 import { actingAs, FakeAuthenticator } from './testing/fake-authenticator';
 
 const amiri = UserId.parse('4f1e6c1a-5d9b-4a3e-8c55-0a2f7d1b9e11');
@@ -53,5 +54,64 @@ describe('ContractRouter.handleMaybeSignedIn', () => {
     const response = await app(new BrokenAuthenticator()).handle(new Request('http://localhost/whoami'));
 
     expect(response.status).toBe(500);
+  });
+});
+
+const Reads = new Endpoint({
+  method: HttpMethod.Get,
+  path: '/reads',
+  params: NoParams,
+  query: NoQuery,
+  body: NoBody,
+  response: z.strictObject({ runs: z.number() }),
+});
+
+const Writes = new Endpoint({
+  method: HttpMethod.Post,
+  path: '/writes',
+  params: NoParams,
+  query: NoQuery,
+  body: NoBody,
+  response: z.strictObject({ runs: z.number() }),
+});
+
+/** A handler that asks the same memoised question twice and answers how often it was really asked. */
+interface Asked {
+  readonly runs: number;
+}
+
+function askingTwice(): () => Promise<Asked> {
+  const memo = new RequestMemo<string, number>();
+  let runs = 0;
+  const read = async (): Promise<number> => {
+    runs += 1;
+    return runs;
+  };
+  return async () => {
+    await memo.of('question', read);
+    await memo.of('question', read);
+    return { runs };
+  };
+}
+
+describe('ContractRouter request scope', () => {
+  test('answers a memoised read once within a GET', async () => {
+    const ask = askingTwice();
+    const router = new ContractRouter('test').handleSignedIn(Reads, new FakeAuthenticator(), ask).app;
+
+    const response = await router.handle(new Request('http://localhost/reads', { headers: actingAs(amiri) }));
+
+    expect(await response.json()).toStrictEqual({ runs: 1 });
+  });
+
+  test('reads every time within a POST, which may write between reads', async () => {
+    const ask = askingTwice();
+    const router = new ContractRouter('test').handleSignedIn(Writes, new FakeAuthenticator(), ask).app;
+
+    const response = await router.handle(
+      new Request('http://localhost/writes', { method: 'POST', headers: actingAs(amiri) }),
+    );
+
+    expect(await response.json()).toStrictEqual({ runs: 2 });
   });
 });
