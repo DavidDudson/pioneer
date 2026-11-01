@@ -1,11 +1,10 @@
 /** Merisiel's sheet in a routed page, for the sheet page specs. */
-import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import type { Provider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { CharacterId, SheetMode } from '@pioneer/character/domain';
+import { CharacterId, CORE_RULE_LIMITS, SheetMode } from '@pioneer/character/domain';
 import { frontierMessages } from '@pioneer/frontier';
 import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import type { PackContentsLoader } from '@pioneer/rules/sdk';
@@ -19,9 +18,9 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from './provide-server-state-testing';
-import { answerRuleLimitsRead } from './rule-limit-reads-testing';
+import { answerItemApprovalsRead } from './rule-limit-reads-testing';
 import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
-import { answerPacksRead, answerPlayRead, answerVariantRulesRead } from './sheet-reads-testing';
+import { answerSheetBundle, NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
 
 /**
  * Loads the sheet page's chunk (the page, the engine and the tabs under it) before the first test of each spec file.
@@ -142,8 +141,8 @@ export interface SheetOptions {
 /** What a character in no campaign uses that no campaign has enabled: nothing. */
 const NO_UNENABLED = { variantRules: [], packs: [], items: [] };
 
-export { answerRuleLimitsRead } from './rule-limit-reads-testing';
-export { answerPacksRead, answerPlayRead, answerVariantRulesRead, deathOf, playOf } from './sheet-reads-testing';
+export { answerItemApprovalsRead } from './rule-limit-reads-testing';
+export { answerSheetBundle, deathOf, playOf } from './sheet-reads-testing';
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {
@@ -169,21 +168,27 @@ export interface OpenSheet {
   readonly root: HTMLElement;
 }
 
-/** Answers the sheet's reads of the character, its play state, its packs and its variant rules. */
+/** The sheet bundle the server answers a character's owner with: the sheet, and every read the stores would make. */
+function bundleOf(character: object, options: SheetOptions): object {
+  return {
+    sheet: sheetOf(character, options),
+    ruleLimits: CORE_RULE_LIMITS,
+    play: options.play ?? playOf(0, 0),
+    featDisplay: options.featDisplay ?? { showGrantOnly: [] },
+    // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
+    packs: options.characterPacks ?? NO_CHARACTER_PACKS,
+    variantRules: options.characterVariantRules ?? NO_VARIANT_RULES,
+    ruleLimitSettings: options.ruleLimitSettings ?? ruleLimitSettingsOf(),
+    unenabled: options.unenabledContent ?? NO_UNENABLED,
+  };
+}
+
+/** Answers the sheet's read of its character with the bundle, and the panels' reads of what the bundle leaves out. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
-  await vi.waitFor(
-    () => {
-      TestBed.inject(HttpTestingController).expectOne(`/api/characters/${id}`).flush(sheetOf(character, options));
-    },
-    { interval: POLL_INTERVAL },
-  );
-  await answerPlayRead(options.play);
-  // Every tab reads the character's packs: the content registry waits for them to build over the right ones.
-  await answerPacksRead(options.characterPacks);
-  await answerVariantRulesRead(options.characterVariantRules);
-  // Plan (the rule-breaking warning) and Exploration (the inventory) read what the table decides; Encounter and Downtime don't.
+  await answerSheetBundle(bundleOf(character, options));
+  // Plan (the rule-breaking warning) and Exploration (the inventory) read what the campaign approved; Encounter and Downtime don't.
   if (options.tab === undefined || options.tab === SheetMode.Plan || options.tab === SheetMode.Exploration) {
-    await answerRuleLimitsRead();
+    await answerItemApprovalsRead();
   }
 }
 
@@ -214,17 +219,6 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
   const root = present(harness.routeNativeElement);
   await vi.waitFor(
     async () => {
-      // The feats section reads the user''s feat filter once it renders; other tabs never ask.
-      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/feat-display`)) {
-        read.flush(options.featDisplay ?? { showGrantOnly: [] });
-      }
-      // The Plan tab's warning reads what its campaign has not enabled once it renders; other tabs never ask.
-      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/unenabled-content`)) {
-        read.flush(options.unenabledContent ?? NO_UNENABLED);
-      }
-      for (const read of TestBed.inject(HttpTestingController).match(`/api/characters/${id}/rule-limit-settings`)) {
-        read.flush(options.ruleLimitSettings ?? ruleLimitSettingsOf());
-      }
       // Through the application, not `harness.detectChanges()`, so render hooks (roving focus) run as in the app.
       await TestBed.inject(ApplicationRef).whenStable();
       expect(root.textContent).toContain('Merisiel');

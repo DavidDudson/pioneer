@@ -7,8 +7,11 @@ import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-exper
 
 import { TEST_PACKS } from './test-packs';
 
+/** How long a read stays fresh, as in the app: a store the sheet bundle seeded does not read again on mount. */
+const STALE_TIME = 30_000;
+
 /**
- * HTTP backed by `HttpTestingController`, a fresh TanStack Query cache that never retries, and the official packs'
+ * HTTP backed by `HttpTestingController`, a fresh TanStack Query cache that never retries and holds reads fresh, and the official packs'
  * content bundles served from memory (`base`, `TEST_PACKS` unless given), with `extraPacks` beside them.
  */
 export function provideServerStateTesting(
@@ -18,7 +21,7 @@ export function provideServerStateTesting(
   return [
     provideHttpClient(),
     provideHttpClientTesting(),
-    provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false } } })),
+    provideTanStackQuery(new QueryClient({ defaultOptions: { queries: { retry: false, staleTime: STALE_TIME } } })),
     ...provideContentTesting(new TestContentDelivery([...base, ...extraPacks])),
   ];
 }

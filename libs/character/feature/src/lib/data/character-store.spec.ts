@@ -1,7 +1,14 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ANCESTRY_SLOT, Character, CharacterId, CharacterLevel, CharacterPatchField } from '@pioneer/character/domain';
+import {
+  ANCESTRY_SLOT,
+  Character,
+  CharacterId,
+  CharacterLevel,
+  CharacterPatchField,
+  CORE_RULE_LIMITS,
+} from '@pioneer/character/domain';
 import { ChoiceValue, contentId, EntrySlug, PackId, SlotKey } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -73,7 +80,7 @@ describe(CharacterStore, () => {
   async function loadSelected(): Promise<void> {
     store.select(id);
     TestBed.tick();
-    http.expectOne(`/api/characters/${id}`).flush(sheet(1, 1));
+    http.expectOne(`/api/characters/${id}/sheet`).flush({ sheet: sheet(1, 1), ruleLimits: CORE_RULE_LIMITS });
     await settle();
   }
 

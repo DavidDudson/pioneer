@@ -9,12 +9,8 @@ import type {
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
-
-/** TanStack Query key for the table limits a character sets, and who decides them. */
-function settingsKey(id: CharacterId | undefined): readonly unknown[] {
-  return ['characters', 'rule-limit-settings', id];
-}
 
 /**
  * The table limits of the open character: each with the number in force, and whether its owner or its campaign decides.
@@ -33,7 +29,7 @@ export class CharacterRuleLimitSettingStore {
   public readonly settings = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: settingsKey(id),
+      queryKey: characterKeys.ruleLimitSettings(id),
       queryFn: async (): Promise<CharacterRuleLimitSettings> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -65,9 +61,9 @@ export class CharacterRuleLimitSettingStore {
   }
 
   async #store(id: CharacterId, settings: CharacterRuleLimitSettings): Promise<void> {
-    await this.#client.cancelQueries({ queryKey: settingsKey(id) });
-    this.#client.setQueryData(settingsKey(id), settings);
-    await this.#client.invalidateQueries({ queryKey: ['characters', 'rule-limits', id] });
+    await this.#client.cancelQueries({ queryKey: characterKeys.ruleLimitSettings(id) });
+    this.#client.setQueryData(characterKeys.ruleLimitSettings(id), settings);
+    await this.#client.invalidateQueries({ queryKey: characterKeys.ruleLimits(id) });
   }
 
   #openId(): CharacterId {

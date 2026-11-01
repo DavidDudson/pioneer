@@ -32,6 +32,10 @@ export class SheetRuleBreaks {
   readonly #store = inject(CharacterStore);
   readonly #items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   readonly #limits = inject(CharacterRuleLimitStore);
+
+  public constructor() {
+    this.#limits.wantApprovals();
+  }
   protected readonly Tone = BadgeTone;
   /** The items past a limit that no approval covers (none while the item kinds load), and the feats, heritage and languages no slot holds. */
   protected readonly count: Signal<number> = computed(() => {

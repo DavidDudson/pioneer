@@ -5,12 +5,8 @@ import type { CharacterId, FeatDisplayChoice, FeatDisplaySection } from '@pionee
 import { ApiClient } from '@pioneer/shared/web';
 import { injectMutation, injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
-
-/** TanStack Query key for the sections where the user shows a character's grant-only feats. */
-function featDisplayKey(id: CharacterId | undefined): readonly unknown[] {
-  return ['characters', 'feat-display', id];
-}
 
 /** A choice to show or hide the grant-only feats of one section of a character's sheet. */
 interface FeatDisplaySwitch {
@@ -33,7 +29,7 @@ export class FeatDisplayStore {
   readonly #choice = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: featDisplayKey(id),
+      queryKey: characterKeys.featDisplay(id),
       queryFn: async (): Promise<FeatDisplayChoice> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -55,17 +51,17 @@ export class FeatDisplayStore {
     mutationFn: async ({ id, section, showGrantOnly }: FeatDisplaySwitch): Promise<FeatDisplayChoice> =>
       this.#api.call(CharacterContract.setFeatDisplay, { params: { id }, body: { section, showGrantOnly } }),
     onMutate: ({ id, section, showGrantOnly }: FeatDisplaySwitch): void => {
-      const shown = new Set(this.#client.getQueryData<FeatDisplayChoice>(featDisplayKey(id))?.showGrantOnly);
+      const shown = new Set(this.#client.getQueryData<FeatDisplayChoice>(characterKeys.featDisplay(id))?.showGrantOnly);
       if (showGrantOnly) {
         shown.add(section);
       } else {
         shown.delete(section);
       }
-      this.#client.setQueryData<FeatDisplayChoice>(featDisplayKey(id), { showGrantOnly: [...shown] });
+      this.#client.setQueryData<FeatDisplayChoice>(characterKeys.featDisplay(id), { showGrantOnly: [...shown] });
     },
     // The filter is a display preference: a failed save is dropped, and the next choice tries again.
     onError: async (_error: unknown, { id }: FeatDisplaySwitch): Promise<void> =>
-      this.#client.invalidateQueries({ queryKey: featDisplayKey(id), refetchType: 'none' }),
+      this.#client.invalidateQueries({ queryKey: characterKeys.featDisplay(id), refetchType: 'none' }),
   }));
 
   /** Shows or hides the open character's grant-only feats in `section`; the page doesn't wait for it. */
