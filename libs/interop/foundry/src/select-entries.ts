@@ -1,7 +1,8 @@
-import { BookId, ContentLicense, CreatureRole } from '@pioneer/rules/sdk';
-import type { Book } from '@pioneer/rules/sdk';
+import { ContentLicense, CreatureRole } from '@pioneer/rules/sdk';
+import type { Book, BookId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
+import { FOUNDRY_BOOK_TITLES } from './foundry-book-titles';
 import { FoundryActorType, isFoundryItemType } from './foundry-document';
 import type { FoundryItemType, FoundryPublication } from './foundry-document';
 import type { ActorDocument, FoundryPack, FoundryRelease, PackDocument } from './foundry-release';
@@ -10,92 +11,8 @@ import { legacyBooks } from './legacy-books';
 import type { LegacyBooks } from './legacy-books';
 import { isOglEntry } from './ogl-entries';
 import type { LicenseField } from './ogl-entries';
-
-/** Foundry's `publication.title` for each registered book; a title not here is an unknown book and is skipped. */
-export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
-  ['Pathfinder Player Core', BookId.parse('player-core')],
-  ['Pathfinder Player Core 2', BookId.parse('player-core-2')],
-  ['Pathfinder GM Core', BookId.parse('gm-core')],
-  ['Pathfinder Monster Core', BookId.parse('monster-core')],
-  ['Pathfinder Monster Core 2', BookId.parse('monster-core-2')],
-  ['Pathfinder NPC Core', BookId.parse('npc-core')],
-  ['Pathfinder Lost Omens Divine Mysteries', BookId.parse('divine-mysteries')],
-  // The book's free online supplement, filed under the book.
-  ['Pathfinder Lost Omens Divine Mysteries Web Supplement', BookId.parse('divine-mysteries')],
-  ['Pathfinder Treasure Vault (Remastered)', BookId.parse('treasure-vault')],
-  // Two entries carry the title with a leading space, and 42 the pre-remaster title while flagged remaster.
-  [' Pathfinder Treasure Vault (Remastered)', BookId.parse('treasure-vault')],
-  ['Pathfinder Treasure Vault', BookId.parse('treasure-vault')],
-  ['Pathfinder Howl of the Wild', BookId.parse('howl-of-the-wild')],
-  ['Pathfinder War of Immortals', BookId.parse('war-of-immortals')],
-  ['Pathfinder Lost Omens The Mwangi Expanse', BookId.parse('mwangi-expanse')],
-  ['Pathfinder Secrets of Magic', BookId.parse('secrets-of-magic')],
-  ['Pathfinder Rage of Elements', BookId.parse('rage-of-elements')],
-  ['Pathfinder Lost Omens Impossible Lands', BookId.parse('impossible-lands')],
-  ['Pathfinder Lost Omens Ancestry Guide', BookId.parse('ancestry-guide')],
-  ['Pathfinder Lost Omens Character Guide', BookId.parse('character-guide')],
-  ['Pathfinder Core Rulebook', BookId.parse('core-rulebook')],
-  ["Pathfinder Advanced Player's Guide", BookId.parse('advanced-players-guide')],
-  ['Pathfinder #151: The Show Must Go On', BookId.parse('the-show-must-go-on')],
-  ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
-  ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],
-  ['Pathfinder Impossible Magic', BookId.parse('impossible-magic')],
-  ['Pathfinder Guns & Gears', BookId.parse('guns-and-gears')],
-  ['Pathfinder Battlecry!', BookId.parse('battlecry')],
-  ['Pathfinder Lost Omens Cheliax, Infernal Inheritance', BookId.parse('cheliax-infernal-inheritance')],
-  ['Pathfinder Lost Omens Rival Academies', BookId.parse('rival-academies')],
-  ['Pathfinder Lost Omens Shining Kingdoms', BookId.parse('shining-kingdoms')],
-  ['Pathfinder Lost Omens Draconic Codex', BookId.parse('draconic-codex')],
-  ['Pathfinder Lost Omens Hellfire Dispatches', BookId.parse('hellfire-dispatches')],
-  ['Pathfinder Lost Omens High Seas', BookId.parse('high-seas')],
-  ['Pathfinder Season of Ghosts Hardcover Compilation', BookId.parse('season-of-ghosts')],
-  ['Pathfinder Adventure Path: Hellbreakers', BookId.parse('hellbreakers')],
-  ['Pathfinder Adventure Path: Gatewalkers', BookId.parse('gatewalkers')],
-  ["Gatewalkers Player's Guide (Remastered)", BookId.parse('gatewalkers')],
-  ["Pathfinder Gatewalkers Player's Guide", BookId.parse('gatewalkers')],
-  ['Pathfinder #216: The Acropolis Pyre', BookId.parse('myth-speakers')],
-  ['Pathfinder #217: Death Sails a Wine-Dark Sea', BookId.parse('myth-speakers')],
-  ['Pathfinder #218: Titanbane', BookId.parse('myth-speakers')],
-  ["Pathfinder Myth-Speaker Player's Guide", BookId.parse('myth-speakers')],
-  ['Pathfinder #219: Lord of the Trinity Star', BookId.parse('revenge-of-the-runelords')],
-  ['Pathfinder #220: Crypt of Runes', BookId.parse('revenge-of-the-runelords')],
-  ['Pathfinder #221: Into the Apocalypse Archive', BookId.parse('revenge-of-the-runelords')],
-  ["Pathfinder Revenge of the Runelords Player's Guide", BookId.parse('revenge-of-the-runelords')],
-  ['Pathfinder Beginner Box: Secrets of the Unlit Star', BookId.parse('secrets-of-the-unlit-star')],
-  ['Pathfinder Adventures: Troubles in Grayce', BookId.parse('troubles-in-grayce')],
-  ["Pathfinder Adventure Path: Hell's Destiny", BookId.parse('hells-destiny')],
-  ["Pathfinder #223: Hell's Destiny", BookId.parse('hells-destiny')],
-  ["Pathfinder Hell's Destiny Player's Guide", BookId.parse('hells-destiny')],
-  ['Pathfinder Adventure Path: Bastion of Blasphemies', BookId.parse('bastion-of-blasphemies')],
-  ["Pathfinder Bastion of Blasphemies Player's Guide", BookId.parse('bastion-of-blasphemies')],
-  ["The Dead God's Hand", BookId.parse('the-dead-gods-hand')],
-  ["Pathfinder Hellbreakers Player's Guide", BookId.parse('hellbreakers')],
-  ['Pathfinder #201: Pactbreaker', BookId.parse('wardens-of-wildwood')],
-  ['Pathfinder #202: Severed at the Root', BookId.parse('wardens-of-wildwood')],
-  ['Pathfinder #203: Shepherd of Decay', BookId.parse('wardens-of-wildwood')],
-  ["Pathfinder Wardens of Wildwood Player's Guide", BookId.parse('wardens-of-wildwood')],
-  ['Pathfinder #204: Stage Fright', BookId.parse('curtain-call')],
-  ['Pathfinder #205: Singer, Stalker, Skinsaw Man', BookId.parse('curtain-call')],
-  ['Pathfinder #206: Bring the House Down', BookId.parse('curtain-call')],
-  ["Pathfinder Curtain Call Player's Guide", BookId.parse('curtain-call')],
-  ['Pathfinder #207: The Resurrection Flood', BookId.parse('triumph-of-the-tusk')],
-  ['Pathfinder #208: Hoof, Cinder, and Storm', BookId.parse('triumph-of-the-tusk')],
-  ["Pathfinder #209: Destroyer's Doom", BookId.parse('triumph-of-the-tusk')],
-  ["Pathfinder Triumph of The Tusk Player's Guide", BookId.parse('triumph-of-the-tusk')],
-  ['Pathfinder #210: Whispers in the Dirt', BookId.parse('spore-war')],
-  ['Pathfinder #211: The Secret of Deathstalk Tower', BookId.parse('spore-war')],
-  ['Pathfinder #212: A Voice in the Blight', BookId.parse('spore-war')],
-  ["Pathfinder Spore War Player's Guide", BookId.parse('spore-war')],
-  ['Pathfinder #213: Thirst for Blood', BookId.parse('shades-of-blood')],
-  ['Pathfinder #214: The Broken Palace', BookId.parse('shades-of-blood')],
-  ['Pathfinder #215: To Blot Out the Sun', BookId.parse('shades-of-blood')],
-  ["Pathfinder Shades of Blood Player's Guide", BookId.parse('shades-of-blood')],
-  ['Pathfinder Adventure: Prey for Death', BookId.parse('prey-for-death')],
-  ['Pathfinder Claws of the Tyrant', BookId.parse('claws-of-the-tyrant')],
-  ["Pathfinder Society Clockwork Mystery Player's Guide", BookId.parse('clockwork-mystery')],
-  ['Pathfinder Lost Omens Tian Xia World Guide', BookId.parse('tian-xia-world-guide')],
-  ['Paizo Blog: Foolish Housekeeping and Other Articles', BookId.parse('foolish-housekeeping')],
-]);
+import { isReplacedLegacy, NO_REPLACED } from './replaced-legacy';
+import type { ReplacedLegacy } from './replaced-legacy';
 
 /**
  * Foundry slugs of documents Pioneer replaces with an entry of its own: `effect-aquatic-combat` is the underwater
@@ -148,6 +65,8 @@ export interface Selection {
 interface Scope {
   readonly targets: ReadonlySet<BookId>;
   readonly legacy: LegacyBooks;
+  /** The legacy entries a remaster entry replaces, which are taken from a legacy book (ADR-0077). */
+  readonly replaced: ReplacedLegacy;
 }
 
 interface Printed {
@@ -177,14 +96,19 @@ function entryLicense(
 /** The target book an entry's publication names, or why it has none; `slug` is the Foundry slug of an item. */
 function targetBook(
   publication: FoundryPublication | undefined,
-  { targets, legacy }: Scope,
+  { targets, legacy, replaced }: Scope,
   slug?: string,
 ): BookId | Skip {
   if (publication === undefined) {
     return { reason: SkipReason.UnknownBook, detail: '' };
   }
   const book = FOUNDRY_BOOK_TITLES.get(publication.title);
-  const ogl = (book !== undefined && legacy.whole.has(book)) || isOglEntry(publication, book, slug);
+  const ogl =
+    (book !== undefined && legacy.whole.has(book)) ||
+    isOglEntry(publication, book, slug) ||
+    (book !== undefined &&
+      (legacy.listed.has(book) || legacy.whole.has(book)) &&
+      isReplacedLegacy(replaced, publication, { book, slug }));
   if (!ogl && !publication.remaster) {
     return { reason: SkipReason.Legacy, detail: publication.title };
   }
@@ -220,7 +144,25 @@ export function selectEntries(
   targets: ReadonlySet<BookId>,
   books: readonly Book[],
 ): Selection {
-  const scope: Scope = { targets, legacy: legacyBooks(books) };
+  return selectIn(release, { targets, legacy: legacyBooks(books), replaced: NO_REPLACED });
+}
+
+/** What `selectReplacedLegacy` reads besides the release. */
+export interface ReplacedScope {
+  readonly targets: ReadonlySet<BookId>;
+  readonly books: readonly Book[];
+  readonly replaced: ReplacedLegacy;
+}
+
+/**
+ * As `selectEntries`, and also keeps the pre-remaster documents that `replaced` names, from the target books the
+ * registry flags legacy (ADR-0077). A release that predates the remaster is read this way.
+ */
+export function selectReplacedLegacy(release: FoundryRelease, { targets, books, replaced }: ReplacedScope): Selection {
+  return selectIn(release, { targets, legacy: legacyBooks(books), replaced });
+}
+
+function selectIn(release: FoundryRelease, scope: Scope): Selection {
   const selected: SelectedEntry[] = [];
   const skipped: SkippedEntry[] = release.unreadable.map(({ pack, path, error }) => ({
     pack,
@@ -283,7 +225,7 @@ export function selectCreatures(
   targets: ReadonlySet<BookId>,
   books: readonly Book[],
 ): CreatureSelection {
-  const scope: Scope = { targets, legacy: legacyBooks(books) };
+  const scope: Scope = { targets, legacy: legacyBooks(books), replaced: NO_REPLACED };
   const selected: SelectedCreature[] = [];
   const skipped: SkippedEntry[] = [];
   for (const entry of release.actors) {

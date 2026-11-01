@@ -34,16 +34,25 @@ export {
 } from './foundry-release';
 export { archiveUrl, FoundryReleaseTag, ImportFile, ImportPin, Sha256, sha256 } from './import-pin';
 export {
-  FOUNDRY_BOOK_TITLES,
   type CreatureSelection,
   type SelectedCreature,
   type SelectedEntry,
   type Selection,
   selectCreatures,
+  type ReplacedScope,
   selectEntries,
+  selectReplacedLegacy,
   SkipReason,
   type SkippedEntry,
 } from './select-entries';
+export { FOUNDRY_BOOK_TITLES } from './foundry-book-titles';
+export {
+  isReplacedLegacy,
+  NO_REPLACED,
+  type BookReplacements,
+  type ReplacedLegacy,
+  replacedLegacy,
+} from './replaced-legacy';
 export { fromFoundryFormula } from './foundry-formula';
 export { documentKind, entrySlugOf, entrySlugs, FOUNDRY_TYPE_KINDS } from './entry-slugs';
 export { asciiSlug, foundrySlug, slugify } from './foundry-slug';
