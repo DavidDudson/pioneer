@@ -7,6 +7,7 @@ import { loadWithMessages, PREFETCH_WHEN_IDLE, provideMessageScope } from '@pion
 import { campaignCrumb } from './crumbs';
 import { CampaignItemReviewStore } from './data/campaign-item-review-store';
 import { CampaignKeyItemStore } from './data/campaign-key-item-store';
+import { CampaignPartyStashStore } from './data/campaign-party-stash-store';
 import { CampaignRuleLimitStore } from './data/campaign-rule-limit-store';
 import { CampaignStore } from './data/campaign-store';
 import { CampaignTransferStore } from './data/campaign-transfer-store';
@@ -17,6 +18,7 @@ function campaignProviders(): (Provider | EnvironmentProviders)[] {
     CampaignStore,
     CampaignItemReviewStore,
     CampaignKeyItemStore,
+    CampaignPartyStashStore,
     CampaignRuleLimitStore,
     CampaignTransferStore,
     provideMessageScope('campaign', { [Locale.English]: async () => import('../i18n/en.json') }),

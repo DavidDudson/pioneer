@@ -678,6 +678,15 @@ campaign_links        id, campaign_id, token_hash (unique), created_at, last_use
   update lets exactly one win. A giver's sheet edit after the offer makes it unacceptable (a 409 on the stored giver
   version), so withdrawing is the giver's way out.
   Inventory is build data, so transfers work in every sync mode.
+- **Party stash.** The party holds things in common in one flat inventory per campaign
+  ([ADR-0076](../adr/0076-the-party-inventory-is-one-flat-container-that-adds-no-bulk.md)). A member puts one of their
+  campaign characters' lines in (`POST /campaigns/:id/party-stash/deposit`) or takes a line out to one
+  (`POST /campaigns/:id/party-stash/take`); `GET /campaigns/:id/party-stash` lists it. The line moves with what it holds
+  in one transaction that checks the character's version and the stash's, so a conflict on either is a 409 and
+  nothing moves. What the stash holds adds Bulk to no one, any member can take (no lock), and a key item's line is
+  refused. A deposit that fills the stash and a take that fills the character are separate 409 messages; a line that is
+  gone is a 404. Moves are audited under the character's `MoveToPartyStash` command and the stash's
+  `save-campaign-party-stash`.
 - **Permissions.** Policies live in the campaign context's application layer, with the acting user from identity's
   `RequestAuthenticator` (ADR-0007), or the campaign from a link token for module routes. Owners edit builds;
   members see the party overview.

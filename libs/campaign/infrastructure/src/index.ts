@@ -19,5 +19,11 @@ export { DrizzleCampaignRuleLimitRepository } from './drizzle-campaign-rule-limi
 export { DrizzleCampaignItemApprovalRepository } from './drizzle-campaign-item-approval-repository';
 export { DrizzleCampaignKeyItemRepository } from './drizzle-campaign-key-item-repository';
 export { DrizzleItemTransferRepository } from './drizzle-item-transfer-repository';
+export {
+  DrizzlePartyStashRepository,
+  type PartyStashWrite,
+  type StoredPartyStash,
+} from './drizzle-party-stash-repository';
 export { campaignItemTransferRoutes } from './campaign-item-transfer-routes';
 export { campaignItemTransfers } from './campaign-item-transfer.table';
+export { campaignPartyStashes } from './campaign-party-stash.table';

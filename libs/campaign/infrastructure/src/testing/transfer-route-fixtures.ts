@@ -23,6 +23,7 @@ import {
   itemTransferService,
   keyItemService,
   packService,
+  partyStashService,
   ruleLimitService,
   variantService,
 } from './campaign-pack-fixtures';
@@ -57,6 +58,7 @@ export function table(): AnyElysia {
     itemApprovals: itemApprovalService(campaigns, clock),
     keyItems: keyItemService(campaigns, clock),
     itemTransfers: itemTransferService(campaigns, clock, { party, characters, lines }),
+    partyStash: partyStashService(campaigns),
   };
   return new Elysia().use(problemHandler).use(campaignRoutes(services, new FakeAuthenticator()));
 }

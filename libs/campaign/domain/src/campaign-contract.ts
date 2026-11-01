@@ -18,6 +18,7 @@ import { CampaignItemTransferContract } from './campaign-item-transfer-contract'
 import { CampaignKeyItemContract } from './campaign-key-item-contract';
 import { CampaignPacks } from './campaign-packs';
 import { CampaignParty } from './campaign-party';
+import { CampaignPartyStashContract } from './campaign-party-stash-contract';
 import { CampaignRoster } from './campaign-roster';
 import { CampaignRuleLimitContract } from './campaign-rule-limit-contract';
 import { CampaignVariantRules, EnableVariantRuleBody } from './campaign-variant-rules';
@@ -243,6 +244,7 @@ export const CampaignContract = {
   ...CampaignItemApprovalContract,
   ...CampaignItemTransferContract,
   ...CampaignKeyItemContract,
+  ...CampaignPartyStashContract,
   ...CampaignRuleLimitContract,
   /** GM only: invites that still work, newest first. */
   invites: new Endpoint({

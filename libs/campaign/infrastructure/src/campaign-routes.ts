@@ -5,6 +5,7 @@ import type {
   CampaignKeyItemService,
   CampaignPackService,
   CampaignPartyService,
+  CampaignPartyStashService,
   CampaignRuleLimitService,
   CampaignService,
   CampaignVariantService,
@@ -16,6 +17,7 @@ import type { RequestAuthenticator } from '@pioneer/shared/server';
 import { campaignItemApprovalRoutes } from './campaign-item-approval-routes';
 import { campaignItemTransferRoutes } from './campaign-item-transfer-routes';
 import { campaignKeyItemRoutes } from './campaign-key-item-routes';
+import { campaignPartyStashRoutes } from './campaign-party-stash-routes';
 import { campaignRuleLimitRoutes } from './campaign-rule-limit-routes';
 import { campaignVariantRoutes } from './campaign-variant-routes';
 
@@ -24,6 +26,7 @@ interface ItemServices {
   readonly itemApprovals: CampaignItemApprovalService;
   readonly keyItems: CampaignKeyItemService;
   readonly itemTransfers: CampaignItemTransferService;
+  readonly partyStash: CampaignPartyStashService;
 }
 
 /** The application services the campaign routes call. */
@@ -36,14 +39,15 @@ export interface CampaignServices extends ItemServices {
   readonly ruleLimits: CampaignRuleLimitService;
 }
 
-/** The routes for approving rule-breaking items, key items and item transfers. */
+/** The routes for approving rule-breaking items, key items, item transfers and the party stash. */
 function campaignItemRoutes(
-  { itemApprovals, keyItems, itemTransfers }: ItemServices,
+  { itemApprovals, keyItems, itemTransfers, partyStash }: ItemServices,
   auth: RequestAuthenticator,
 ): ContractRouter['app'] {
   return campaignItemApprovalRoutes(itemApprovals, auth)
     .use(campaignKeyItemRoutes(keyItems, auth))
-    .use(campaignItemTransferRoutes(itemTransfers, auth));
+    .use(campaignItemTransferRoutes(itemTransfers, auth))
+    .use(campaignPartyStashRoutes(partyStash, auth));
 }
 
 /**

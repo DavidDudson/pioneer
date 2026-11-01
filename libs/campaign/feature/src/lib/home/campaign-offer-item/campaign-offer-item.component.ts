@@ -8,6 +8,7 @@ import type { PickerSort } from '@pioneer/frontier/data';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
+import { partyStashKey } from '../../data/campaign-party-stash-store';
 import { transferFailure } from '../../data/transfer-error';
 import { otherRecipients, recipientColumns, recipientLabel, recipientValue } from '../recipient-picker';
 
@@ -15,7 +16,8 @@ import { otherRecipients, recipientColumns, recipientLabel, recipientValue } fro
  * Beside an inventory line of a character in a campaign (ADR-0064): offers the line to another character of the party,
  * picked from a table (ADR-0054). The sheet's page provides it through `INVENTORY_LINE_OFFER`, outside the campaign
  * routes, so it reads the party and makes the offer itself. The line stays with the giver until the recipient's owner
- * accepts.
+ * accepts. It also puts the line, and what it holds, in the party stash, which any member may take from and which adds
+ * Bulk to no one.
  */
 @Component({
   selector: 'pio-campaign-offer-item',
@@ -80,6 +82,18 @@ export class CampaignOfferItem {
     await this.#api.call(CampaignContract.offerItem, { params: { id }, body });
     this.chosen.set(undefined);
     await this.#client.invalidateQueries({ queryKey: ['campaigns', 'transfers', id] });
+  };
+
+  protected readonly deposit = async (): Promise<void> => {
+    const id = CampaignId.parse(this.campaign());
+    const body = { from: CharacterId.parse(this.character()), item: ReviewedItemId.parse(this.line()) };
+    await this.#api.call(CampaignContract.depositToPartyStash, { params: { id }, body });
+    await this.#client.invalidateQueries({ queryKey: partyStashKey(id) });
+  };
+
+  protected readonly describeDepositError = (error: unknown): string => {
+    const { key, params } = transferFailure(error, 'campaign.partyStash.putFailed');
+    return this.#i18n.translate(key, params);
   };
 
   protected readonly describeError = (error: unknown): string => {

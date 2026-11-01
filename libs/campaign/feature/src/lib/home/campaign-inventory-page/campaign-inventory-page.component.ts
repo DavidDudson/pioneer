@@ -4,6 +4,7 @@ import { Link, Page, PageBody, PageHeader, Stack } from '@pioneer/frontier';
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignKeyItemsPanel } from '../campaign-key-items/campaign-key-items.component';
+import { CampaignPartyStashPanel } from '../campaign-party-stash/campaign-party-stash.component';
 import { CampaignTransfersPanel } from '../campaign-transfers/campaign-transfers.component';
 
 /**
@@ -12,7 +13,17 @@ import { CampaignTransfersPanel } from '../campaign-transfers/campaign-transfers
  */
 @Component({
   selector: 'pio-campaign-inventory-page',
-  imports: [CampaignKeyItemsPanel, CampaignTransfersPanel, Link, Page, PageBody, PageHeader, Stack, TranslocoPipe],
+  imports: [
+    CampaignKeyItemsPanel,
+    CampaignPartyStashPanel,
+    CampaignTransfersPanel,
+    Link,
+    Page,
+    PageBody,
+    PageHeader,
+    Stack,
+    TranslocoPipe,
+  ],
   templateUrl: './campaign-inventory-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

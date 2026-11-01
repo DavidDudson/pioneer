@@ -50,3 +50,7 @@ export { TransferSettlement } from './transfer-settlement';
 export { InMemoryTransferSettlement } from './in-memory-transfer-settlement';
 export { InMemoryItemTransferRepository } from './in-memory-item-transfer-repository';
 export { InMemoryTransferLines } from './in-memory-transfer-lines';
+export { CampaignPartyStashService, type CampaignPartyStashPorts } from './campaign-party-stash-service';
+export { PartyStashKeeper, type StashLineMove } from './party-stash-keeper';
+export { PartyStashMessage } from './party-stash-message';
+export { InMemoryPartyStashKeeper } from './in-memory-party-stash-keeper';

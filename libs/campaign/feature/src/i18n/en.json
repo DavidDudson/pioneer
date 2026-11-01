@@ -188,6 +188,25 @@
     "offerFailed": "Could not make the offer. Try again.",
     "partyLoadError": "Could not load the party."
   },
+  "partyStash": {
+    "keyItemLine": "A key item cannot go in the party stash; the GM controls it.",
+    "stashFull": "The party stash has no room for that item.",
+    "characterFull": "That character has no room for that item.",
+    "heading": "Party stash",
+    "hint": "Anyone in the party can take from it. It adds no Bulk to anyone while it holds an item.",
+    "loadError": "Could not load the party stash.",
+    "none": "The party stash is empty.",
+    "line": "{item} × {count}",
+    "inside": "In {container}",
+    "takeWith": "Take with {character}",
+    "taking": "Taking",
+    "taken": "Taken",
+    "takeFailed": "Could not take it. Try again.",
+    "putting": "Putting in",
+    "putDone": "In the stash",
+    "putIn": "Put {item} in the party stash",
+    "putFailed": "Could not put it in the party stash. Try again."
+  },
   "keyItems": {
     "heading": "Key items",
     "loadError": "Could not load the key items.",

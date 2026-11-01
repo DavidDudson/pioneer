@@ -115,6 +115,9 @@ async function open(transfers: readonly object[]): Promise<Opened> {
     http.expectOne(`/api/campaigns/${id}/key-items`).flush({ manageable: false, keyItems: [] });
   });
   await vi.waitFor(() => {
+    http.expectOne(`/api/campaigns/${id}/party-stash`).flush({ lines: [], characters: [] });
+  });
+  await vi.waitFor(() => {
     http.expectOne(`/api/campaigns/${id}/transfers`).flush(transfers);
   });
   const root = present(harness.routeNativeElement);
