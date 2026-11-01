@@ -1,0 +1,15 @@
+<fr-surface padding="sm">
+  <fr-stack align="center" gap="xs">
+    @if (character(); as character) {
+      <fr-character-avatar [name]="character.name" [current]="undefined" [max]="undefined" />
+      <fr-text variant="heading">{{ character.name }}</fr-text>
+    } @else {
+      <fr-skeleton width="md" />
+    }
+    @if (identity(); as identity) {
+      <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
+    } @else {
+      <fr-skeleton width="md" />
+    }
+  </fr-stack>
+</fr-surface>

@@ -1,0 +1,24 @@
+<fr-surface padding="sm">
+  <fr-stack align="center" gap="xs">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
+      <ng-template [frAsyncData]="sheet.engineQuery()">
+        <pio-armor-class
+          [vital]="sheet.armorClass()"
+          [entryNames]="picks.entryNames()"
+          [originNames]="sheet.originNames()"
+        />
+      </ng-template>
+    </fr-async-region>
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="sm" /></ng-template>
+      <ng-template [frAsyncData]="sheet.registry">
+        <pio-defence-icons
+          [defences]="picks.defences()"
+          [entryNames]="picks.entryNames()"
+          [originNames]="sheet.originNames()"
+        />
+      </ng-template>
+    </fr-async-region>
+  </fr-stack>
+</fr-surface>

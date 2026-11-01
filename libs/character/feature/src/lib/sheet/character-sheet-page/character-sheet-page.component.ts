@@ -7,6 +7,7 @@ import {
   AsyncPending,
   AsyncRegion,
   DateDisplay,
+  Grid,
   Page,
   PageBody,
   PageHeader,
@@ -20,6 +21,8 @@ import { VitalsView } from '@pioneer/rules/ui';
 
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
+import { SheetArmorClass } from '../sheet-armor-class/sheet-armor-class.component';
+import { SheetCharacterBlock } from '../sheet-character-block/sheet-character-block.component';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
 import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
@@ -27,12 +30,13 @@ import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
+import { HitPointsDrawerState } from '../sheet-hit-points/hit-points-drawer-state';
 import { SheetHitPoints } from '../sheet-hit-points/sheet-hit-points.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
+// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 import { SheetPanels } from '../sheet-panels/sheet-panels.component';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
@@ -54,10 +58,13 @@ import { SheetState } from '../sheet-state';
     AsyncPending,
     AsyncRegion,
     DateDisplay,
+    Grid,
     Page,
     PageBody,
     PageHeader,
     RouterOutlet,
+    SheetArmorClass,
+    SheetCharacterBlock,
     SheetDeathTrack,
     SheetCounted,
     SheetForm,
@@ -80,6 +87,7 @@ import { SheetState } from '../sheet-state';
   templateUrl: './character-sheet-page.component.html',
   providers: [
     SheetConfigurationState,
+    HitPointsDrawerState,
     SheetSidePanelState,
     SheetState,
     ...SHEET_PLAY_PROVIDERS,

@@ -1,0 +1,21 @@
+@if (active().length > 0) {
+  <fr-stack direction="horizontal" gap="xs" align="center" justify="center">
+    @for (entry of active(); track entry.kind) {
+      <fr-hover-card>
+        <fr-button variant="ghost" size="sm" iconOnly [ariaLabel]="entry.label | transloco">
+          <fr-icon [icon]="entry.icon" />
+        </fr-button>
+        <ng-template frHoverCardContent>
+          <pio-defences
+            [defences]="defences()"
+            [kinds]="entry.kinds"
+            [entryNames]="entryNames()"
+            [immunityNames]="immunityNames()"
+            [exceptionNames]="exceptionNames()"
+            [originNames]="originNames()"
+          />
+        </ng-template>
+      </fr-hover-card>
+    }
+  </fr-stack>
+}

@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, playOf, present } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { fakeDialog, textOf } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 
 const CHARM = '88888888-8888-4888-8888-888888888888';
@@ -47,7 +47,13 @@ describe('CharacterSheetPage vitals from rule elements', () => {
     const { root } = await openSheet(wearingCharm(true), { play: playOf(0, 0), packs: PACKS });
 
     await vi.waitFor(() => {
-      const text = textOf(hitPointsOf(root));
+      expect(textOf(hitPointsOf(root))).toContain('Hit Points');
+    });
+    // The granted lines are in the controls, which the block opens.
+    fakeDialog();
+    present(hitPointsOf(root).querySelector('button')).click();
+    await vi.waitFor(() => {
+      const text = textOf(present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls')));
       expect(text).toContain('Fast healing 2. Stopped by Fire damage.');
       expect(text).toContain('4 temporary Hit Points from effects.');
       expect(text).toContain('Size Large, reach 10 feet.');
@@ -93,7 +99,7 @@ describe('CharacterSheetPage speeds from rule elements', () => {
     });
 
     await vi.waitFor(() => {
-      expect(textOf(vitalsOf(root))).toContain('Armor Class');
+      expect(textOf(vitalsOf(root))).toContain('Fortitude');
     });
     expect(textOf(vitalsOf(root))).not.toMatch(/(?:Fly|Swim|Climb|Burrow) Speed/u);
   });

@@ -11,22 +11,16 @@
         <pio-sheet-panels />
         <fr-stack gap="lg" grow>
           <fr-stack gap="sm">
-            <fr-stack direction="horizontal" justify="between" align="center" gap="sm" wrap>
-              <fr-async-region>
-                <ng-template frAsyncPending><fr-skeleton width="md" /></ng-template>
-                <ng-template [frAsyncData]="sheet.registry">
-                  @if (sheet.identity(); as identity) {
-                    <fr-text tone="muted">{{ 'character.sheet.header.identity' | transloco: identity }}</fr-text>
-                  } @else {
-                    <fr-skeleton width="md" />
-                  }
-                </ng-template>
-              </fr-async-region>
+            <fr-stack direction="horizontal" justify="end" align="center" gap="sm" wrap>
               <pio-sheet-header-actions />
             </fr-stack>
+            <fr-grid minItem="md" gap="sm">
+              <pio-sheet-character-block />
+              <pio-sheet-hit-points />
+              <pio-sheet-armor-class />
+            </fr-grid>
             <pio-sheet-form />
             <pio-sheet-form-picker />
-            <pio-sheet-hit-points />
             <pio-sheet-death-track />
             <pio-sheet-resources pool="focus-points" />
             <pio-sheet-counted />

@@ -37,8 +37,8 @@ interface VitalBlock {
   readonly rows: readonly NamedStatistic[];
 }
 
-/** Placeholder tiles while the vitals load: Armor Class, three saves and Perception. */
-const LOADING_TILES = 5;
+/** Placeholder tiles while the vitals load: the three saves. */
+const LOADING_TILES = 3;
 
 /** Message keys the vitals render with, spelled out so the key check sees them. */
 const VitalsMessage = { Unarmored: 'rules.vitals.unarmored', Proficiency: 'rules.vitals.proficiency' } as const;
@@ -65,8 +65,8 @@ function tileOf({ statistic }: Vital): VitalTile {
 }
 
 /**
- * The sheet's vitals row: Armor Class with what sets it, the saves and Perception, each with its total, its rank as a
- * letter and its breakdown in place. A tile per statistic, as many to a row as fit.
+ * The sheet's vitals row: the saves and the class DC (and Armor Class with what sets it, where the caller passes it),
+ * each with its total, its rank as a letter and its breakdown in place. A tile per statistic, as many to a row as fit.
  *
  * Read-only and presentational (ADR-0028): the caller passes the vitals in display order, or undefined while they
  * load, and the display names of the entries their breakdown lines come from.

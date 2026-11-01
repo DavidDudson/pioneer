@@ -53,8 +53,8 @@ export async function openSheetActions(root: HTMLElement): Promise<HTMLElement> 
 
 const DIALOG_METHODS = ['show', 'showModal', 'close'];
 
-/** Gives jsdom the dialog methods a drawer opens its panel with, until the test ends. */
-function fakeDialog(): void {
+/** Gives jsdom the dialog methods and the `ResizeObserver` a drawer opens its panel with, until the test ends. */
+export function fakeDialog(): void {
   for (const name of DIALOG_METHODS) {
     Object.defineProperty(HTMLDialogElement.prototype, name, {
       configurable: true,
