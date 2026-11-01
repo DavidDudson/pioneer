@@ -465,6 +465,14 @@
       }
     },
     {
+      // The request scope follows an async call chain through adapters that take no request argument, which only
+      // AsyncLocalStorage can do. The file is server-only: the kernel, which the web app shares, stays free of it.
+      "files": ["libs/shared/server/src/request-memo.ts"],
+      "rules": {
+        "import/no-nodejs-modules": "off"
+      }
+    },
+    {
       // Storybook stories: Component Story Format requires the meta as the default export,
       // and story args are sample data (levels, counts) by nature. A story composes the component with
       // the primitives around it, so it imports more than a component does. Chart marks take `x`/`y` channels.

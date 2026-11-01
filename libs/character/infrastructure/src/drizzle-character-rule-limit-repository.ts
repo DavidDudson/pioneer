@@ -2,7 +2,7 @@ import { CharacterRuleLimitRepository } from '@pioneer/character/application';
 import type { CharacterId, CharacterRuleLimit, RuleLimitField } from '@pioneer/character/domain';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { RequestMemo, stampAudit } from '@pioneer/shared/server';
 import { and, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -26,6 +26,7 @@ function toCharacterRuleLimit(row: CharacterRuleLimitRow): CharacterRuleLimit {
 
 export class DrizzleCharacterRuleLimitRepository extends CharacterRuleLimitRepository {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #listed = new RequestMemo<CharacterId, readonly CharacterRuleLimit[]>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -33,11 +34,13 @@ export class DrizzleCharacterRuleLimitRepository extends CharacterRuleLimitRepos
   }
 
   public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterRuleLimit[]> {
-    const rows = await this.#db
-      .select()
-      .from(characterRuleLimits)
-      .where(eq(characterRuleLimits.characterId, characterId));
-    return rows.map((row) => toCharacterRuleLimit(row));
+    return this.#listed.of(characterId, async () => {
+      const rows = await this.#db
+        .select()
+        .from(characterRuleLimits)
+        .where(eq(characterRuleLimits.characterId, characterId));
+      return rows.map((row) => toCharacterRuleLimit(row));
+    });
   }
 
   public override async set(actor: UserId, characterId: CharacterId, limit: CharacterRuleLimit): Promise<void> {
