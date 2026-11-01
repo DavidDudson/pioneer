@@ -31,12 +31,23 @@ export {
   PackTitle,
   VariantRuleName,
   PartyCharacterLevel,
+  VitalDying,
+  VitalHitPoints,
+  ConditionName,
   PartyCharacterOrigin,
   PartyCharacterName,
 } from './campaign-fields';
 export { CampaignInvite, INVITE_LIFETIME, InviteStatus, InviteSummary } from './campaign-invite';
 export { type CampaignPack, CampaignPacks, EnabledPack, PackCandidate, PackListing } from './campaign-packs';
-export { type CampaignCharacter, CampaignParty, OwnedCharacter, PartyCharacter } from './campaign-party';
+export {
+  type CampaignCharacter,
+  CampaignParty,
+  NO_VITALS,
+  OwnedCharacter,
+  PartyCharacter,
+  PartyHitPoints,
+  PartyVitals,
+} from './campaign-party';
 export { CampaignRoster, NamedMember } from './campaign-roster';
 export {
   type CampaignVariantRule,

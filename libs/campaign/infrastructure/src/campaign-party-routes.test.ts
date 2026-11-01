@@ -10,6 +10,7 @@ import {
   InMemoryCharacterDirectory,
   InMemoryMemberDirectory,
 } from '@pioneer/campaign/application';
+import { PartyVitals } from '@pioneer/campaign/domain';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 import type { Problem } from '@pioneer/shared/kernel';
 import { problemHandler } from '@pioneer/shared/server';
@@ -43,6 +44,10 @@ function app(): AnyElysia {
   const directory = new InMemoryMemberDirectory().name(amiri, 'Amiri').name(ezren, 'Ezren').name(seelah, 'Seelah');
   const characters = new InMemoryCharacterDirectory()
     .character({ id: valeros, ownerId: ezren, name: 'Valeros', level: 3 })
+    .vitals(
+      valeros,
+      PartyVitals.parse({ hp: { current: 5, max: 20, temp: 2 }, dying: 1, conditions: ['dying', 'frightened'] }),
+    )
     .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' })
     .character({ id: kyra, ownerId: seelah, name: 'Kyra' });
   const inviteRepository = new InMemoryCampaignInviteRepository();
@@ -96,6 +101,11 @@ interface PartyCharacterJson extends CharacterJson {
   readonly attachedAt: string;
   readonly detachable: boolean;
   readonly archived: boolean;
+  readonly vitals: {
+    readonly hp?: { readonly current: number; readonly max: number; readonly temp: number };
+    readonly dying: number;
+    readonly conditions: readonly string[];
+  };
 }
 
 interface PartyJson {
@@ -150,6 +160,7 @@ describe('party routes', () => {
           attachedAt: '2026-10-10T10:00:00.000Z',
           detachable: true,
           archived: false,
+          vitals: { hp: { current: 5, max: 20, temp: 2 }, dying: 1, conditions: ['dying', 'frightened'] },
         },
       ],
       attachable: [{ characterId: merisiel, name: 'Merisiel', level: 1 }],

@@ -33,6 +33,7 @@
                       <pio-campaign-party-avatar
                         #gift
                         [characterId]="character.characterId"
+                        [vitals]="character.vitals"
                         [name]="character.archived ? ('campaign.party.archivedName' | transloco) : character.name"
                       />
                       <fr-stack gap="3xs" grow>

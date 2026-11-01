@@ -1,7 +1,14 @@
 import { CharacterDirectory } from '@pioneer/campaign/application';
 import type { CharacterSummary } from '@pioneer/campaign/application';
-import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
-import { characters } from '@pioneer/character/infrastructure';
+import {
+  CharacterId,
+  PartyCharacterLevel,
+  PartyCharacterName,
+  PartyCharacterOrigin,
+  PartyVitals,
+} from '@pioneer/campaign/domain';
+import type { CharacterVitals } from '@pioneer/character/application';
+import { characters, DrizzleCharacterRepository } from '@pioneer/character/infrastructure';
 import type { UserId } from '@pioneer/shared/kernel';
 import { and, asc, eq, inArray, isNull, sql } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -50,14 +57,19 @@ function toSummary(row: SummaryRow): CharacterSummary {
 
 /**
  * Campaign's `CharacterDirectory` over the character context's table. It lives in the composition
- * root because neither context may import the other.
+ * root because neither context may import the other. `vitals` is for the party directory alone: without it `vitalsOf`
+ * answers for no one.
  */
 export class OwnedCharacterDirectory extends CharacterDirectory {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #repository: DrizzleCharacterRepository;
+  readonly #vitals: CharacterVitals | undefined;
 
-  public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
+  public constructor(db: BunSQLDatabase<Record<string, unknown>>, vitals?: CharacterVitals) {
     super();
     this.#db = db;
+    this.#repository = new DrizzleCharacterRepository(db);
+    this.#vitals = vitals;
   }
 
   public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
@@ -78,5 +90,24 @@ export class OwnedCharacterDirectory extends CharacterDirectory {
       .from(characters)
       .where(inArray(characters.id, [...ids]));
     return new Map(rows.map((row) => [CharacterId.parse(row.id), toSummary(row)]));
+  }
+
+  public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
+    if (this.#vitals === undefined) {
+      return new Map();
+    }
+    const vitals = this.#vitals;
+    const found = await this.#repository.findByIds(ids);
+    const worked = await Promise.all(
+      found.map(async (character): Promise<readonly [CharacterId, PartyVitals] | undefined> => {
+        try {
+          return [CharacterId.parse(character.id), PartyVitals.parse(await vitals.of(character))];
+        } catch {
+          // The party read is not worth failing for one character's vitals: it shows none, as for an archived one.
+          return undefined;
+        }
+      }),
+    );
+    return new Map(worked.filter((entry) => entry !== undefined));
   }
 }

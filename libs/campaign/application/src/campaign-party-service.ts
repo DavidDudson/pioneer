@@ -1,4 +1,4 @@
-import { CampaignCharacterId } from '@pioneer/campaign/domain';
+import { CampaignCharacterId, NO_VITALS } from '@pioneer/campaign/domain';
 import type {
   AttachCharacterBody,
   Campaign,
@@ -140,11 +140,14 @@ export class CampaignPartyService {
       this.#party.listForCampaign(campaign.id),
       this.#characters.ownedBy(actor),
     ]);
+    const attachedIds = attachments.map((attachment) => attachment.characterId);
     const [summaries, placed, names] = await Promise.all([
-      this.#characters.byIds(attachments.map((attachment) => attachment.characterId)),
+      this.#characters.byIds(attachedIds),
       this.#party.campaignsOf(mine.map((character) => character.id)),
       this.#directory.displayNames(campaign.members.map((member) => member.userId)),
     ]);
+    const live = attachedIds.filter((characterId) => summaries.get(characterId)?.archived === false);
+    const vitals = await this.#characters.vitalsOf(live);
     // A character goes with its member and its owner's account, so a gap is a change since the campaign loaded.
     const characters = attachments.flatMap((attachment): PartyCharacter[] => {
       const owner = campaign.memberById(attachment.memberId);
@@ -161,6 +164,7 @@ export class CampaignPartyService {
           attachedAt: attachment.attachedAt,
           detachable: mayDetachCharacter(actor, campaign, owner.userId),
           archived: character.archived,
+          vitals: vitals.get(attachment.characterId) ?? NO_VITALS,
         },
       ];
     });

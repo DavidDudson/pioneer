@@ -50,6 +50,7 @@ function inParty(character: typeof valeros, detachable: boolean): object {
     ownerId: playerId,
     ownerName: 'Ezren',
     attachedAt: '2026-10-12T10:00:00.000Z',
+    vitals: { dying: 0, conditions: [] },
     detachable,
     archived: false,
   };

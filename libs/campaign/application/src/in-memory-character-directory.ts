@@ -1,4 +1,5 @@
 import { CharacterId, PartyCharacterLevel, PartyCharacterName, PartyCharacterOrigin } from '@pioneer/campaign/domain';
+import type { PartyVitals } from '@pioneer/campaign/domain';
 import type { UserId } from '@pioneer/shared/kernel';
 
 import { CharacterDirectory } from './character-directory';
@@ -18,6 +19,7 @@ interface CharacterFixture {
 /** Directory adapter for tests: characters given up front. */
 export class InMemoryCharacterDirectory extends CharacterDirectory {
   readonly #characters = new Map<CharacterId, CharacterSummary>();
+  readonly #vitals = new Map<CharacterId, PartyVitals>();
 
   /** Adds a character, at level 1 unless given. */
   public character({
@@ -42,6 +44,12 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
     return this;
   }
 
+  /** How a character stands: what `vitalsOf` answers for it. */
+  public vitals(id: string, vitals: PartyVitals): this {
+    this.#vitals.set(CharacterId.parse(id), vitals);
+    return this;
+  }
+
   public override async ownedBy(userId: UserId): Promise<readonly CharacterSummary[]> {
     return [...this.#characters.values()]
       .filter((character) => character.ownerId === userId && !character.archived)
@@ -53,6 +61,15 @@ export class InMemoryCharacterDirectory extends CharacterDirectory {
       ids.flatMap((id): [CharacterId, CharacterSummary][] => {
         const character = this.#characters.get(id);
         return character === undefined ? [] : [[id, character]];
+      }),
+    );
+  }
+
+  public override async vitalsOf(ids: readonly CharacterId[]): Promise<ReadonlyMap<CharacterId, PartyVitals>> {
+    return new Map(
+      ids.flatMap((id): [CharacterId, PartyVitals][] => {
+        const vitals = this.#vitals.get(id);
+        return vitals === undefined ? [] : [[id, vitals]];
       }),
     );
   }

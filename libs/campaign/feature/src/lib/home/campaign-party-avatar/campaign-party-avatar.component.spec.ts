@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { frontierMessages } from '@pioneer/frontier';
+import { rulesMessages } from '@pioneer/rules/sdk';
 import { provideI18n } from '@pioneer/shared/web';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -36,6 +37,10 @@ const party = {
     ownerId: ezrenId,
     ownerName: 'Ezren',
     attachedAt: '2026-10-12T10:00:00.000Z',
+    vitals:
+      index === 0
+        ? { hp: { current: 3, max: 18, temp: 0 }, dying: 0, conditions: ['frightened', 'wounded'] }
+        : { dying: 0, conditions: [] },
     detachable: false,
     archived: false,
   })),
@@ -89,7 +94,7 @@ async function open(transfers: readonly object[], badges: number): Promise<HTMLE
     providers: [
       provideRouter([{ path: 'campaigns', children: campaignRoutes }], withComponentInputBinding()),
       ...provideServerStateTesting(),
-      provideI18n({ en: async () => frontierMessages }),
+      provideI18n({ en: async () => ({ ...frontierMessages, ...rulesMessages }) }),
     ],
   });
   const harness = await RouterTestingHarness.create(`/campaigns/${id}`);
@@ -117,6 +122,16 @@ function gifts(root: HTMLElement): HTMLButtonElement[] {
 }
 
 describe('CampaignPartyAvatar', () => {
+  it('shows how a hurt character stands: its health, the Bloodied cue and its worst condition', async () => {
+    const root = await open([], 0);
+    const [hurt, well] = [...root.querySelectorAll('fr-character-avatar')];
+    expect(present(hurt).querySelector('svg[role="img"]')).not.toBeNull();
+    expect(present(hurt).textContent).toContain('Bloodied');
+    expect(present(hurt).querySelector('pio-condition-badge')?.textContent.trim()).toBe('Wounded 2');
+    expect(present(well).querySelector('svg[role="img"]')).toBeNull();
+    expect(present(well).querySelector('pio-condition-badge fr-badge')).toBeNull();
+  });
+
   it('shows no badge while no offer is open', async () => {
     const root = await open([], 0);
     expect(gifts(root)).toHaveLength(0);

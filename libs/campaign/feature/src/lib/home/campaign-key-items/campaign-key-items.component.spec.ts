@@ -42,6 +42,7 @@ function partyCharacter(characterId: string, name: string): object {
     ownerId: gmId,
     ownerName: 'Ezren',
     attachedAt: '2026-10-11T10:00:00.000Z',
+    vitals: { dying: 0, conditions: [] },
     detachable: false,
     archived: false,
   };

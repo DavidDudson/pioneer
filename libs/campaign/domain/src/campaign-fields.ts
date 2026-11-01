@@ -62,6 +62,20 @@ const LEVEL_MAX = 20;
 export const PartyCharacterLevel = z.int().min(LEVEL_MIN).max(LEVEL_MAX).brand<'Level'>();
 export type PartyCharacterLevel = z.infer<typeof PartyCharacterLevel>;
 
+/** Hit Points, current, maximum or temporary, as the character context reports them. */
+export const VitalHitPoints = z.int().min(0).brand<'HitPoints'>();
+export type VitalHitPoints = z.infer<typeof VitalHitPoints>;
+
+const DYING_MAX = 4;
+
+/** A character's dying value, 0 when not dying, up to the 4 at which it dies. */
+export const VitalDying = z.int().min(0).max(DYING_MAX).brand<'Dying'>();
+export type VitalDying = z.infer<typeof VitalDying>;
+
+/** The name part of a condition's slug (`frightened`), as the character context reports it; the web app words it. */
+export const ConditionName = z.string().min(1).brand<'ConditionName'>();
+export type ConditionName = z.infer<typeof ConditionName>;
+
 /**
  * A content pack, as the rules context names it. Same brand as there, so ids pass between the contexts at the
  * composition root unchanged; the campaign context only refers to packs.

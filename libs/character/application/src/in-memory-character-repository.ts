@@ -44,6 +44,13 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return character === undefined || this.#archived.has(id) ? undefined : this.#withPlay(character);
   }
 
+  public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
+    return [...new Set(ids)].flatMap((id): Character[] => {
+      const character = this.#rows.get(id);
+      return character === undefined || this.#archived.has(id) ? [] : [this.#withPlay(character)];
+    });
+  }
+
   public override async findArchivedById(id: CharacterId): Promise<Character | undefined> {
     const character = this.#rows.get(id);
     return character === undefined || !this.#archived.has(id) ? undefined : this.#withPlay(character);

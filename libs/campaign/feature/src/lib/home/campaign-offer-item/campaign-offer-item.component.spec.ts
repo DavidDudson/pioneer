@@ -25,6 +25,7 @@ function member(characterId: string, name: string, archived = false): object {
     ownerId: '1d9f7c1e-3b7a-4c55-9d1f-2a8f2b9c6e11',
     ownerName: 'Ezren',
     attachedAt: '2026-10-12T10:00:00.000Z',
+    vitals: { dying: 0, conditions: [] },
     detachable: false,
     archived,
   };
