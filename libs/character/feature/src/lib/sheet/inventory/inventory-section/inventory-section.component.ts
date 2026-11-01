@@ -15,13 +15,13 @@ import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
 import { sheetEntryPreviews } from '../../sheet-entry-previews';
 import { sheetSlotContent } from '../../sheet-slot-content';
-import { CoinOffer } from '../coin-offer/coin-offer.component';
-import { CoinsEdit } from '../coins-edit/coins-edit.component';
+import { CoinsSection } from '../coins-section/coins-section.component';
 import { CustomItems } from '../custom-items/custom-items.component';
 import { ItemEdits } from '../item-edits/item-edits.component';
 import { injectItemNames } from '../item-names';
 import { ItemOffer } from '../item-offer/item-offer.component';
 import { ItemRuneEdits } from '../item-rune-edits/item-rune-edits.component';
+import { PartyInventory } from '../party-inventory/party-inventory.component';
 import { sheetBulk } from '../sheet-bulk';
 import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
 
@@ -39,8 +39,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     AsyncPending,
     AsyncRegion,
     BulkView,
-    CoinOffer,
-    CoinsEdit,
+    CoinsSection,
     CustomItems,
     Heading,
     InventoryView,
@@ -48,6 +47,7 @@ import { INVENTORY_CONTENT_KINDS, sheetInventory } from '../sheet-inventory';
     ItemEdits,
     ItemOffer,
     ItemRuneEdits,
+    PartyInventory,
     Stack,
     TranslocoPipe,
   ],

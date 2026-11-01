@@ -1,0 +1,51 @@
+<fr-stack gap="sm">
+  <fr-heading variant="subheading" [level]="3">{{ 'campaign.partyStash.sheetHeading' | transloco }}</fr-heading>
+  <fr-text tone="subtle" variant="caption">{{ 'campaign.partyStash.hint' | transloco }}</fr-text>
+  <fr-async-region [errorMessage]="'campaign.partyStash.loadError' | transloco">
+    <ng-template frAsyncPending>
+      <fr-stack gap="sm">
+        @for (placeholder of placeholders; track placeholder) {
+          <fr-skeleton width="md" />
+        }
+      </fr-stack>
+    </ng-template>
+    <ng-template let-stash [frAsyncData]="stash">
+      @if (stash.lines.length === 0) {
+        <fr-text tone="subtle">{{ 'campaign.partyStash.none' | transloco }}</fr-text>
+      }
+      <fr-list gap="sm">
+        @for (line of stash.lines; track line.id) {
+          <pio-campaign-sheet-stash-line
+            [campaign]="campaign()"
+            [character]="character()"
+            [line]="line"
+            [inside]="containerName(stash, line)"
+          />
+        }
+      </fr-list>
+    </ng-template>
+  </fr-async-region>
+  @if (lines().length > 0) {
+    <fr-picker
+      [rows]="rows()"
+      [columns]="columns()"
+      [rowValue]="rowValue"
+      [rowLabel]="rowLabel"
+      [placeholder]="'campaign.partyStash.linePlaceholder' | transloco"
+      [(value)]="chosen"
+      (searched)="query.set($event)"
+    />
+    <fr-stack direction="horizontal" justify="start">
+      <fr-async-button
+        size="sm"
+        variant="primary"
+        [action]="deposit"
+        [disabled]="idle()"
+        [describeError]="describeDepositError"
+        [pendingLabel]="'campaign.partyStash.putting' | transloco"
+        [successLabel]="'campaign.partyStash.putDone' | transloco"
+        >{{ 'campaign.partyStash.putChosen' | transloco }}</fr-async-button
+      >
+    </fr-stack>
+  }
+</fr-stack>

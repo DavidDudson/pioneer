@@ -1,11 +1,43 @@
 import { inject } from '@angular/core';
 import type { Routes } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
-import type { InventoryLineOfferLoader, PurseOfferLoader, SheetSidePanelLoader } from '@pioneer/character/feature';
+import type {
+  InventoryLineOfferLoader,
+  PartyInventoryLoader,
+  PurseOfferLoader,
+  SheetSidePanelLoader,
+} from '@pioneer/character/feature';
 import { signInRequired } from '@pioneer/identity/data-access';
 import { PREFETCH_WHEN_IDLE } from '@pioneer/shared/web';
 
 import { environment } from './environment';
+
+/** Offering a line is the campaign context's; the sheet loads its control when a line can be offered. */
+function lineOfferLoader(): InventoryLineOfferLoader {
+  const i18n = inject(TranslocoService);
+  return async () => {
+    const { loadLineOffer } = await import('@pioneer/campaign/feature');
+    return loadLineOffer(i18n);
+  };
+}
+
+/** Offering coins is the campaign context's; the sheet loads its control when the purse holds some. */
+function purseOfferLoader(): PurseOfferLoader {
+  const i18n = inject(TranslocoService);
+  return async () => {
+    const { loadPurseOffer } = await import('@pioneer/campaign/feature');
+    return loadPurseOffer(i18n);
+  };
+}
+
+/** The Party Inventory is the campaign context's; the sheet loads it for a character in a campaign. */
+function partyInventoryLoader(): PartyInventoryLoader {
+  const i18n = inject(TranslocoService);
+  return async () => {
+    const { loadPartyInventory } = await import('@pioneer/campaign/feature');
+    return loadPartyInventory(i18n);
+  };
+}
 
 /** Each bounded context contributes one lazily loaded route tree. */
 export const appRoutes: Routes = [
@@ -19,35 +51,22 @@ export const appRoutes: Routes = [
     data: PREFETCH_WHEN_IDLE,
     // The sheet's side panel searches the rules content, which the character feature may not import.
     loadChildren: async () => {
-      const { characterRoutes, CHARACTER_LIST_EXTRAS, INVENTORY_LINE_OFFER, PURSE_OFFER, SHEET_SIDE_PANEL } =
-        await import('@pioneer/character/feature');
+      const {
+        characterRoutes,
+        CHARACTER_LIST_EXTRAS,
+        INVENTORY_LINE_OFFER,
+        PARTY_INVENTORY,
+        PURSE_OFFER,
+        SHEET_SIDE_PANEL,
+      } = await import('@pioneer/character/feature');
       return [
         {
           path: '',
           providers: [
             { provide: CHARACTER_LIST_EXTRAS, useValue: environment.characterListExtras },
-            {
-              provide: INVENTORY_LINE_OFFER,
-              useFactory: (): InventoryLineOfferLoader => {
-                const i18n = inject(TranslocoService);
-                // Offering a line is the campaign context's; the sheet loads its control when a line can be offered.
-                return async () => {
-                  const { loadLineOffer } = await import('@pioneer/campaign/feature');
-                  return loadLineOffer(i18n);
-                };
-              },
-            },
-            {
-              provide: PURSE_OFFER,
-              useFactory: (): PurseOfferLoader => {
-                const i18n = inject(TranslocoService);
-                // Offering coins is the campaign context's; the sheet loads its control when the purse holds some.
-                return async () => {
-                  const { loadPurseOffer } = await import('@pioneer/campaign/feature');
-                  return loadPurseOffer(i18n);
-                };
-              },
-            },
+            { provide: INVENTORY_LINE_OFFER, useFactory: lineOfferLoader },
+            { provide: PURSE_OFFER, useFactory: purseOfferLoader },
+            { provide: PARTY_INVENTORY, useFactory: partyInventoryLoader },
             {
               provide: SHEET_SIDE_PANEL,
               useFactory: (): SheetSidePanelLoader => {

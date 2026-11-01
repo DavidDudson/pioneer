@@ -1,0 +1,24 @@
+<fr-list-item>
+  <fr-stack direction="horizontal" gap="sm" align="center" wrap>
+    <fr-stack gap="3xs" grow>
+      <fr-text weight="medium">{{
+        'campaign.partyStash.line' | transloco: { item: line().name, count: line().quantity }
+      }}</fr-text>
+      @if (inside() !== '') {
+        <fr-text tone="subtle" variant="caption">{{
+          'campaign.partyStash.inside' | transloco: { container: inside() }
+        }}</fr-text>
+      }
+    </fr-stack>
+    @if (loose()) {
+      <fr-async-button
+        size="sm"
+        [action]="take"
+        [describeError]="describeError"
+        [pendingLabel]="'campaign.partyStash.taking' | transloco"
+        [successLabel]="'campaign.partyStash.taken' | transloco"
+        >{{ 'campaign.partyStash.take' | transloco: { item: line().name } }}</fr-async-button
+      >
+    }
+  </fr-stack>
+</fr-list-item>

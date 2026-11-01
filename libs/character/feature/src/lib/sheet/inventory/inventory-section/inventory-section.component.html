@@ -30,6 +30,7 @@
     </ng-template>
   </fr-async-region>
   <pio-custom-items />
+  <pio-party-inventory [names]="names()" />
   <fr-stack gap="sm">
     <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.inventory.bulkHeading' | transloco }}</fr-heading>
     <fr-async-region [errorMessage]="'character.sheet.inventory.loadError' | transloco">
@@ -48,9 +49,5 @@
       /></ng-template>
     </fr-async-region>
   </fr-stack>
-  <fr-stack gap="sm">
-    <fr-heading variant="subheading" [level]="3">{{ 'character.sheet.inventory.coinsHeading' | transloco }}</fr-heading>
-    <pio-coins-edit />
-    <pio-coin-offer />
-  </fr-stack>
+  <pio-coins-section />
 </fr-stack>
