@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
 import { entry, idOf, lookupOf } from '@pioneer/rules/grants/testing';
-import { Hardness, HitPoints, Level, SpellRank } from '@pioneer/rules/sdk';
+import { FundamentalRune, Hardness, HitPoints, Level, SpellRank } from '@pioneer/rules/sdk';
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { ActiveEffectSchema, EffectInstanceId, effectRoots } from './effects';
@@ -14,7 +14,8 @@ import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } fr
 import type { Inventory } from './inventory';
 import { CarryState, ONE_HAND } from './item-carry';
 import type { Carry } from './item-carry';
-import { ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
+import { eraseRune, etchRune } from './rune-edits';
+import { fundamental, fundamentalRef, ItemFixture, itemFixtureContent, itemFixtureId } from './testing';
 
 installRulesFakes();
 const content = itemFixtureContent();
@@ -44,6 +45,20 @@ describe('heldShields', () => {
         brokenThreshold: HitPoints.parse(10),
       },
     ]);
+  });
+
+  test('a reinforcing rune raises its Hardness, Hit Points and Broken Threshold by its grade, and erasing it moves them back', () => {
+    const held = carrying(ItemFixture.SteelShield, { state: CarryState.Held, hands: ONE_HAND });
+    const reinforced = etchRune(held, ID, fundamental(FundamentalRune.Reinforcing, 4));
+    const [shield] = heldShields(reinforced, content);
+    expect(shield).toMatchObject({
+      hardness: Hardness.parse(10),
+      hitPoints: HitPoints.parse(100),
+      brokenThreshold: HitPoints.parse(50),
+    });
+
+    const erased = eraseRune(reinforced, ID, fundamentalRef(FundamentalRune.Reinforcing));
+    expect(heldShields(erased, content)).toStrictEqual(heldShields(held, content));
   });
 
   test('a stowed shield gives none', () => {
