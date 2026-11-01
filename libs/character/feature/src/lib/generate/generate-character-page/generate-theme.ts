@@ -1,4 +1,4 @@
-import { Attribute, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
+import { Attribute, ClassRole, WeaponCategory, WeaponGroup } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
 
 /** The attributes the theme can favour, in sheet order, each with the message that names it. */
@@ -32,4 +32,13 @@ export const WEAPON_GROUP_MESSAGES: Readonly<Record<WeaponGroup, string>> = {
   [WeaponGroup.Sling]: 'character.list.theme.group.sling',
   [WeaponGroup.Spear]: 'character.list.theme.group.spear',
   [WeaponGroup.Sword]: 'character.list.theme.group.sword',
+};
+
+/** Message keys for the archetypes (class roles), spelled out so the key check sees them. */
+export const ROLE_MESSAGES: Readonly<Record<ClassRole, string>> = {
+  [ClassRole.Spellcaster]: 'character.generate.role.spellcaster',
+  [ClassRole.Melee]: 'character.generate.role.melee',
+  [ClassRole.Ranged]: 'character.generate.role.ranged',
+  [ClassRole.Tank]: 'character.generate.role.tank',
+  [ClassRole.Healer]: 'character.generate.role.healer',
 };
