@@ -204,7 +204,7 @@ export {
 } from './entry-fields';
 export { AdditionalFeat, ArchetypeData, DEDICATION_LOCK_DEFAULT, DedicationLock } from './archetype';
 export { KIND_DATA, REGISTERED_KINDS, type RegisteredKind } from './kind-data';
-export { SkillCount } from './character-class';
+export { ClassRole, ClassRoleSchema, SkillCount } from './character-class';
 export {
   COMMON_FACETS,
   CommonFacet,

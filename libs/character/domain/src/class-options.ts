@@ -1,6 +1,7 @@
 import { ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
   AttributeBoost,
+  ClassRole,
   ContentId,
   ContentRegistry,
   ContentText,
@@ -34,6 +35,8 @@ export interface ClassOption {
   readonly traditions: readonly MagicTradition[];
   /** The ranks it starts with, skills aside. */
   readonly proficiencies: readonly ClassProficiency[];
+  /** The roles it plays, for filtering classes by play style; none for a class that sets no role. */
+  readonly roles: readonly ClassRole[];
   readonly sources: readonly SourceRef[];
 }
 
@@ -53,6 +56,11 @@ export interface ClassPickerContent {
   readonly features: ReadonlyMap<ContentId, SubclassOption>;
   /** The traditions of a class feature's spellcasting, by feature id. */
   readonly traditions: ReadonlyMap<ContentId, readonly MagicTradition[]>;
+}
+
+/** The classes that play `role`, in the order given. */
+export function classesForRole(classes: readonly ClassOption[], role: ClassRole): readonly ClassOption[] {
+  return classes.filter((option) => option.roles.includes(role));
 }
 
 /** Class content already read, by registry: a registry's packs never change once loaded. */
@@ -129,6 +137,7 @@ function readClasses(registry: ContentRegistry): ClassPickerContent {
         additionalSkills: entry.data.additionalSkills,
         traditions: [...new Set(granted)],
         proficiencies: ranks.filter((each) => !each.selector.startsWith(SKILL_PREFIX)),
+        roles: entry.data.roles ?? [],
         sources: entry.sources,
       },
     ];

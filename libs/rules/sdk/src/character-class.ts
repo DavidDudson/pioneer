@@ -1,4 +1,5 @@
 import { Pg } from '@pioneer/shared/kernel';
+import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { AttributeBoost } from './attribute';
@@ -9,6 +10,21 @@ import { HitPoints } from './units';
 /** How many skills a class trains beyond its fixed ones; the Intelligence modifier adds to it. */
 export const SkillCount = Pg.smallint().nonnegative().brand<'SkillCount'>();
 export type SkillCount = z.infer<typeof SkillCount>;
+
+/**
+ * What a class does at the table, for choosing one by play style: the five archetypes of the character generator.
+ * Named `role` in data to keep `archetype` for the Pathfinder kind (a dedication's archetype).
+ */
+export const ClassRole = {
+  Spellcaster: 'spellcaster',
+  Melee: 'melee',
+  Ranged: 'ranged',
+  Tank: 'tank',
+  Healer: 'healer',
+} as const;
+export type ClassRole = ValueOf<typeof ClassRole>;
+export const ClassRoleSchema = z.enum(ClassRole);
+const CLASS_ROLE_COUNT = Object.keys(ClassRole).length;
 
 const CLASS_LEVEL_MIN = 1;
 const CLASS_LEVEL_MAX = 20;
@@ -39,5 +55,10 @@ export const ClassData = z.strictObject({
    * features that queries that tag is its subclass (doctrine, school, order). Absent for a class without one (fighter).
    */
   subclass: Slug.optional(),
+  /**
+   * The roles it plays, for the generator and pickers that filter classes by play style. Official classes all have at
+   * least one (a coverage test); absent for a homebrew class that sets none, which no role filter offers.
+   */
+  roles: z.array(ClassRoleSchema).max(CLASS_ROLE_COUNT).readonly().check(uniqueItems).optional(),
 });
 export type ClassData = z.infer<typeof ClassData>;
