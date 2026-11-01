@@ -13,8 +13,8 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { sheetConditionPreviews } from './sheet-condition-previews';
-import { sheetFetchingPreviews } from './sheet-entry-previews';
+import { sheetConditionPreviews, withHeldConditions } from './sheet-condition-previews';
+import { sheetEntryPreviews, sheetFetchingPreviews } from './sheet-entry-previews';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 
 const INSTANCE = ConditionInstanceId.parse('00000000-0000-4000-8000-000000000001');
@@ -31,7 +31,12 @@ function clumsyCharacter(clumsy: boolean): Character {
     ? withPlay(built, {
         ...built.document.play,
         conditions: [
-          { id: INSTANCE, condition: clumsyFixtureId(), value: ConditionValue.parse(2), duration: UNLIMITED },
+          {
+            id: INSTANCE,
+            condition: clumsyFixtureId(),
+            value: ConditionValue.parse(2),
+            duration: UNLIMITED,
+          },
         ],
       })
     : built;
@@ -83,5 +88,37 @@ describe(sheetConditionPreviews, () => {
     const preview = previews.preview(clumsyFixtureId());
 
     expect(preview?.effects?.map(({ statistic }) => statistic)).toContain('Armor Class');
+  });
+
+  describe(withHeldConditions, () => {
+    it('previews a held condition a section does not hold with its value and effects', async () => {
+      const held = await registry();
+      const character = clumsyCharacter(true);
+      const layered = withHeldConditions(
+        sheetEntryPreviews(() => undefined),
+        { registry: () => held, character: () => character },
+      );
+      const preview = layered.preview(clumsyFixtureId());
+
+      expect(preview?.value).toBe(2);
+      expect(preview?.effects?.map(({ statistic }) => statistic)).toContain('Armor Class');
+    });
+
+    it("keeps the section's own preview for a condition the character lacks", async () => {
+      const held = await registry();
+      const character = clumsyCharacter(false);
+      const layered = withHeldConditions(
+        sheetEntryPreviews(() => held),
+        {
+          registry: () => held,
+          character: () => character,
+        },
+      );
+      const preview = layered.preview(clumsyFixtureId());
+
+      expect(preview?.name).toBeDefined();
+      expect(preview?.value).toBeUndefined();
+      expect(preview?.effects).toBeUndefined();
+    });
   });
 });
