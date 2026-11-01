@@ -5,12 +5,14 @@ import {
   contentPackId,
   effectiveLicense,
   isLegacyLicense,
+  Rarity,
   RollOption,
   slugName,
   unsupportedPacksOf,
 } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
+  ContentLicense,
   ContentPack,
   ContentPackId,
   ContentRegistry,
@@ -161,28 +163,39 @@ function levelOptions(entry: ContentEntry): RollOption[] {
  * legacy, and whether its pack is unsupported for the character.
  */
 function factsOf(entry: ContentEntry, pack: ContentPack, state: LookupState): EntryFacts {
-  const unsupported = isHeldBack(entry, pack, state);
-  const replacedBy = state.replacements.get(entry.id) ?? [];
   const level = 'level' in entry ? entry.level : undefined;
   return {
     ...(level === undefined ? {} : { level }),
     rarity: entry.rarity,
     traits: entry.traits,
     description: entry.description,
+    ...standingOf(entry, pack, state),
+  };
+}
+
+/** Whether an entry is legacy, held back, and replaced: what its facts say of where it stands for the character. */
+function standingOf(
+  entry: { readonly id: ContentId; readonly license?: ContentLicense | undefined },
+  pack: ContentPack,
+  state: LookupState,
+): Pick<EntryFacts, 'legacy' | 'replacedBy' | 'unsupported'> {
+  const replacedBy = state.replacements.get(entry.id) ?? [];
+  return {
     ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
-    ...(unsupported ? { unsupported: true as const } : {}),
+    ...(isHeldBack(entry, pack, state) ? { unsupported: true as const } : {}),
     ...(replacedBy.length > 0 ? { replacedBy } : {}),
   };
 }
 
 /** An ancestry as grants read it, with its rule elements: the ancestry features and feat slots it grants. */
-function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | undefined {
+function ancestryEntry(pack: ContentPack, ancestry: PackAncestry, state: LookupState): GrantEntry | undefined {
   const [source, ...sources] = ancestry.sources;
   if (source === undefined) {
     return undefined;
   }
+  const id = ContentId.parse(contentId(pack.id, ancestry.slug));
   return {
-    id: ContentId.parse(contentId(pack.id, ancestry.slug)),
+    id,
     kind: ContentKind.Ancestry,
     slug: slugName(ancestry.slug),
     name: ancestry.name,
@@ -190,6 +203,7 @@ function ancestryEntry(pack: ContentPack, ancestry: PackAncestry): GrantEntry | 
     sources: [source, ...sources],
     rollOptions: traitOptions(ancestry.traits),
     actorTraits: ancestry.traits,
+    facts: { rarity: Rarity.Common, traits: ancestry.traits, description: [], ...standingOf({ id }, pack, state) },
   };
 }
 
@@ -249,14 +263,18 @@ interface LookupState {
 }
 
 /** Whether the entry is held back: its pack is unsupported, or it is legacy content and the character has none on. */
-function isHeldBack(entry: ContentEntry, pack: ContentPack, state: LookupState): boolean {
+function isHeldBack(
+  entry: { readonly license?: ContentLicense | undefined },
+  pack: ContentPack,
+  state: LookupState,
+): boolean {
   const legacy = isLegacyLicense(effectiveLicense(entry, pack.manifest));
   return state.unsupported.has(contentPackId(pack.id)) || (legacy && !state.legacyContent);
 }
 
 function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
   return [
-    ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each) ?? []),
+    ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each, state) ?? []),
     ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
     ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, state) ?? []),
   ];
