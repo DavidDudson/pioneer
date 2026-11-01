@@ -12,6 +12,9 @@
       <ng-template frHoverCardContent><pio-action-summary [action]="action()" /></ng-template>
     </fr-hover-card>
   </fr-stack>
+  @if (action().resource; as resource) {
+    <fr-badge>{{ resource }}</fr-badge>
+  }
   @if (showStatus()) {
     <fr-badge [tone]="statusTone()">{{ statusKey() | transloco }}</fr-badge>
   }

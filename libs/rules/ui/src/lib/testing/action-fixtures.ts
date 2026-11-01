@@ -11,6 +11,7 @@ import {
 } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
+import { ActionResourceKind } from '../actions/action-line';
 import type { ActionLine } from '../actions/action-line';
 import type { ShownAction } from '../actions/action-row.component';
 import { GLOOM_WALKER, IN_DARKNESS, line as modifierLine, statistic, term } from './breakdown-fixtures';
@@ -110,6 +111,26 @@ export const STANDING_ACTIONS: readonly ActionLine[] = [
 ];
 
 /** The same character prone: Stand and Crawl are called for. */
+const ITEM_ORIGIN = { kind: ActionOriginKind.Item } as const;
+
+/** The actions a character's items give: a stack of potions, an activation with a daily use, and a staff's spell. */
+export const ITEM_ACTIONS: readonly ActionLine[] = [
+  line('healing-potion', 'Healing Potion', {
+    origin: ITEM_ORIGIN,
+    resource: { kind: ActionResourceKind.Quantity, current: 2 },
+  }),
+  line('take-to-the-skies', 'Winged Boots: Take to the Skies', {
+    origin: ITEM_ORIGIN,
+    cost: ActionCost.Two,
+    resource: { kind: ActionResourceKind.Uses, current: 1, max: 1 },
+  }),
+  line('fireball', 'Fireball (Staff of Fire)', {
+    origin: ITEM_ORIGIN,
+    cost: ActionCost.Two,
+    resource: { kind: ActionResourceKind.Charges, current: 3, max: 4 },
+  }),
+];
+
 export const PRONE_ACTIONS: readonly ActionLine[] = [
   STRIDE,
   { ...CRAWL, priority: 1 },

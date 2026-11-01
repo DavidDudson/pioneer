@@ -1,6 +1,8 @@
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import { ActionCost, ActionMode } from '@pioneer/rules/sdk';
 
+import { ActionResourceKind } from './action-line';
+
 /** Message keys the actions list renders with, spelled out so the key check sees them. */
 export const ActionsMessage = {
   /** The label of the Now and All switch. */
@@ -56,6 +58,14 @@ export const ACTION_SOURCE_MESSAGES: Readonly<Record<ActionOriginKind, string>> 
   [ActionOriginKind.Basic]: 'rules.actions.source.basic',
   [ActionOriginKind.Skill]: 'rules.actions.source.skill',
   [ActionOriginKind.Granted]: 'rules.actions.source.granted',
+  [ActionOriginKind.Item]: 'rules.actions.source.item',
+};
+
+/** What an item action shows of the resource it spends, by the kind of resource. */
+export const ACTION_RESOURCE_MESSAGES: Readonly<Record<ActionResourceKind, string>> = {
+  [ActionResourceKind.Quantity]: 'rules.actions.resource.quantity',
+  [ActionResourceKind.Charges]: 'rules.actions.resource.charges',
+  [ActionResourceKind.Uses]: 'rules.actions.resource.uses',
 };
 
 /** How each status is worded. */

@@ -17,6 +17,7 @@ import {
   ACTION_COST_MESSAGES,
   ACTION_COUNT_COSTS,
   ACTION_RANGE_MESSAGES,
+  ACTION_RESOURCE_MESSAGES,
   ACTION_SOURCE_MESSAGES,
   ActionsMessage,
 } from './actions-messages';
@@ -78,6 +79,16 @@ export class ActionWords {
       : { cost, upTo: end, label: this.#i18n.translate(label) };
   }
 
+  /** "2/3 uses", "3 charges", "4 held": what an item action spends; absent for any other action. */
+  public resource({ resource }: ActionLine): string | undefined {
+    return resource === undefined
+      ? undefined
+      : this.#i18n.translate(ACTION_RESOURCE_MESSAGES[resource.kind], {
+          current: resource.current,
+          max: resource.max ?? resource.current,
+        });
+  }
+
   /** The line with its cost icon and source worded, and the reasons it is not plainly available worded. */
   public shown(line: ActionLine, names: LabelNames = NO_NAMES): ShownAction {
     const costIcon = this.costIcon(line);
@@ -88,6 +99,7 @@ export class ActionWords {
           ? this.#format.list([this.cost(line.cost ?? PASSIVE), this.source(line)], 'unit')
           : this.source(line),
       costIcon,
+      resource: this.resource(line),
       reasons: line.reasons.map(({ key, params }) => this.#i18n.translate(key, params)),
       conditions:
         line.roll === undefined ? [] : conditionalLines(line.roll, { i18n: this.#i18n, format: this.#format, names }),

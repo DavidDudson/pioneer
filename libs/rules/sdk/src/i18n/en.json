@@ -326,6 +326,11 @@
       "use": "Use",
       "useForOne": "Use for 1 action",
       "useForMany": "Use for {count} actions",
+      "resource": {
+        "quantity": "{current} held",
+        "charges": "{current}/{max} charges",
+        "uses": "{current}/{max} uses"
+      },
       "summary": {
         "trigger": "Trigger",
         "requirements": "Requirements"
@@ -351,7 +356,8 @@
       "source": {
         "basic": "Basic action",
         "skill": "Skill action",
-        "granted": "Granted"
+        "granted": "Granted",
+        "item": "Item"
       },
       "status": {
         "available": "Available",

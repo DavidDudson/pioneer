@@ -25,19 +25,27 @@ import type { ActionLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { offTurnWithoutTrigger, turnReason } from './sheet-action-turn';
 import { traitNames } from './sheet-build';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 import { sheetSlotContent } from './sheet-slot-content';
 import { sheetSources } from './sheet-sources';
 
-/** What the actions list reads beside the equipment: the actions themselves, and the feats that grant some. */
+/**
+ * What the actions list reads beside the equipment: the actions themselves, the feats that grant some, and the spells
+ * a staff casts.
+ */
 export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
-  ...EQUIPMENT_CONTENT_KINDS,
-  ContentKind.Action,
-  ContentKind.Feat,
-  ContentKind.Effect,
-  ContentKind.Environment,
+  ...new Set([
+    ...EQUIPMENT_CONTENT_KINDS,
+    ...CHARACTER_CONTENT_KINDS,
+    ContentKind.Spell,
+    ContentKind.Action,
+    ContentKind.Feat,
+    ContentKind.Effect,
+    ContentKind.Environment,
+  ]),
 ];
 
 const ATTACK = Trait.parse('attack');
@@ -129,7 +137,7 @@ export function sheetActions(
 }
 
 /** What the turn leaves of an action, with the reason it can't be used when it can't. */
-interface TurnFit extends Affordability {
+export interface TurnFit extends Affordability {
   readonly reasons: readonly MessageDescriptor[];
 }
 
@@ -137,7 +145,7 @@ interface TurnFit extends Affordability {
  * Whether the turn can pay for an action of `cost`, and why not: off turn a free action needs a trigger, so one without
  * is out of reach there as an action is when the turn has too few left.
  */
-function turnFit(
+export function turnFit(
   turn: TurnState | undefined,
   cost: ActionCost | undefined,
   range: ActionCostRange | undefined,
