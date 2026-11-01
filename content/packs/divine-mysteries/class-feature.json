@@ -2792,6 +2792,10 @@
         "key": "Proficiency",
         "selector": "attack:favored-weapon",
         "rank": "expert"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:deity-favored"]
       }
     ],
     "externalIds": {

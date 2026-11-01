@@ -12072,29 +12072,6 @@
     {
       "type": "entry",
       "pack": "draconic-codex",
-      "slug": "feat:my-claws-are-daggers",
-      "foundry": "Compendium.pf2e.feats-srd.Item.djQPfxfGXJL7i04C",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:base:claw", "item:base:jaws"]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "draconic-codex",
       "slug": "feat:reflexive-devotion",
       "foundry": "Compendium.pf2e.feats-srd.Item.eAcMHQgfsOePtYgp",
       "gaps": [

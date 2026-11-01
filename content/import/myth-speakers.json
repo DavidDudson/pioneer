@@ -287,14 +287,6 @@
           "type": "rule",
           "key": "CriticalSpecialization",
           "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
             "alternate": true,
             "key": "CriticalSpecialization",
             "predicate": ["epithet-critical-specialization"],
@@ -372,14 +364,6 @@
                 "text": "PF2E.SpecificRule.Exemplar.Epithet.TrespasserInDeathsRealm.Description"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
           }
         },
         {

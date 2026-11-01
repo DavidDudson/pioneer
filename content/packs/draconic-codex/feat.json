@@ -4366,6 +4366,17 @@
         "property": "materials",
         "mode": "add",
         "value": "silver"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:base:claw", "item:base:jaws"]
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -17704,6 +17704,17 @@
         "display": {
           "label": "Advanced Dwarven Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:dwarf", "item:base:battle-axe", "item:base:pick", "item:base:warhammer"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -18842,6 +18853,17 @@
         "display": {
           "label": "Advanced Elven Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:elf", "item:base:longbow", "item:base:rapier", "item:base:shortbow"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -24218,6 +24240,17 @@
         "display": {
           "label": "Advanced Gnome Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:gnome", "item:base:glaive", "item:base:kukri"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -24536,6 +24569,15 @@
         "display": {
           "label": "Advanced Goblin Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          "item:trait:goblin"
+        ]
       }
     ],
     "externalIds": {
@@ -26034,6 +26076,17 @@
         "display": {
           "label": "Advanced Halfling Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:halfling", "item:base:sling", "item:base:shortsword"]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -38452,6 +38505,17 @@
         "display": {
           "label": "Advanced Orc Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:trait:orc", "item:base:falchion", "item:base:greataxe"]
+          }
+        ]
       }
     ],
     "externalIds": {

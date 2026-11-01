@@ -42,7 +42,11 @@ const ELEMENT = { key: 'CriticalSpecialization' };
 const only = (option: string): object => ({ ...ELEMENT, predicate: [option] });
 
 /** The first Strike of a level 5 character wielding `weapon`, with `CriticalSpecialization` elements in play. */
-function strikeOf(elements: readonly object[], weapon: object): Strike | undefined {
+function strikeOf(
+  elements: readonly object[],
+  weapon: object,
+  options: readonly string[] = ['self:effect:rage'],
+): Strike | undefined {
   const inputs = StatisticInputsJson.parse({
     level: 5,
     attributes: { str: 4, dex: 3, con: 0, int: 0, wis: 0, cha: 0 },
@@ -50,7 +54,10 @@ function strikeOf(elements: readonly object[], weapon: object): Strike | undefin
     weapons: [wielded(weapon as { slug: string })],
   });
   const content = { definitions: DEFINITIONS, proficiencyBonus: PLAYER_CORE_PROFICIENCY_BONUS };
-  const facts = new PredicateFacts([RollOption.parse('self:effect:rage')], CORE_NAMESPACES);
+  const facts = new PredicateFacts(
+    options.map((option) => RollOption.parse(option)),
+    CORE_NAMESPACES,
+  );
   const rules = elements.map((element, rule) => inPlay(element, `entry-${rule}`, { rule }));
   const modifiers = { rules, facts };
   const results = deriveStatistics(content, inputs, modifiers);
@@ -75,6 +82,18 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([only('item:group:sword')], SWORD)?.notes).toHaveLength(1);
     expect(strikeOf([only('item:group:axe')], SWORD)?.notes).toEqual([]);
     expect(strikeOf([only('self:effect:rage')], SWORD)?.notes).toHaveLength(1);
+  });
+
+  test('a weapon listed by base gets it from the level the element gates on', () => {
+    const gated = {
+      ...ELEMENT,
+      predicate: [{ gte: ['self:level', 5] }, { or: ['item:base:longsword', 'item:base:katana'] }],
+    };
+    const listed = { ...SWORD, rollOptions: ['base:longsword'] };
+
+    expect(strikeOf([gated], listed, ['self:level:5'])?.notes).toHaveLength(1);
+    expect(strikeOf([gated], listed, ['self:level:4'])?.notes).toEqual([]);
+    expect(strikeOf([gated], SWORD, ['self:level:5'])?.notes).toEqual([]);
   });
 
   test('is given once when two elements reach the same group', () => {

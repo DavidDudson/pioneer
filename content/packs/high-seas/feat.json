@@ -158,6 +158,24 @@
         "display": {
           "label": "Aquatic Elf Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:crossbow",
+              "item:base:heavy-crossbow",
+              "item:base:dagger",
+              "item:base:longspear",
+              "item:base:spear",
+              "item:base:trident"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -2353,6 +2371,17 @@
         "display": {
           "label": "Marine Combat"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:base:harpoon", "item:base:trident"]
+          }
+        ]
       }
     ],
     "externalIds": {

@@ -1299,6 +1299,15 @@
         "property": "traits",
         "mode": "add",
         "value": "arcane"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "item:group:brawling",
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -22298,6 +22307,10 @@
         "mode": "add",
         "value": "deadly-d6",
         "predicate": ["self:effect:arcane-cascade"]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": ["item:base:staff"]
       }
     ],
     "externalIds": {

@@ -325,6 +325,97 @@
       {
         "key": "GrantItem",
         "item": "77ee559c-1e51-5101-8c0e-b408f1b265d3"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:charthagnion",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:trait:disarm", "item:trait:parry"]
+          }
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:elliendo",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:group:brawling", "item:group:knife"]
+          }
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:henderthane",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:group:hammer", "item:group:pick"]
+          }
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:jeggare",
+          "item:group:sword",
+          "item:usage:hands:1",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:leroung",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:group:club", "item:type:shield"]
+          }
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:narikopolus",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          "item:group:bow"
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:sarini",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          "item:group:flail"
+        ]
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          "chelaxian-noble-house:thrune",
+          {
+            "gte": ["item:proficiency:rank", 2]
+          },
+          {
+            "or": ["item:group:club", "item:group:crossbow"]
+          }
+        ]
       }
     ],
     "externalIds": {

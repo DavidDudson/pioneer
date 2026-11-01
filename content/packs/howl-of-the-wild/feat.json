@@ -773,6 +773,24 @@
         "display": {
           "label": "Advanced Athamaru Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:athamaru",
+              "item:base:crossbow",
+              "item:base:heavy-crossbow",
+              "item:base:longspear",
+              "item:base:spear",
+              "item:base:trident"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -1990,6 +2008,24 @@
         "display": {
           "label": "Martial Centaur Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:centaur",
+              "item:base:lance",
+              "item:base:longbow",
+              "item:base:longspear",
+              "item:base:spear",
+              "item:base:shortbow"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -8268,6 +8304,24 @@
         "display": {
           "label": "Advanced Merfolk Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:trait:merfolk",
+              "item:base:crossbow",
+              "item:base:heavy-crossbow",
+              "item:base:longspear",
+              "item:base:spear",
+              "item:base:trident"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -8434,6 +8488,17 @@
         "display": {
           "label": "Minotaur Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": ["item:base:battle-axe", "item:base:falchion", "item:base:glaive", "item:base:greataxe"]
+          }
+        ]
       }
     ],
     "externalIds": {

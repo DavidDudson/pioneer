@@ -893,26 +893,6 @@
     {
       "type": "entry",
       "pack": "battlecry",
-      "slug": "class-feature:military-expertise",
-      "foundry": "Compendium.pf2e.classfeatures.Item.VCJVuqByBxnUxQoH",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 2]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "battlecry",
       "slug": "class-feature:shield",
       "foundry": "Compendium.pf2e.classfeatures.Item.84GDSAXaMKMTg2IT",
       "gaps": [
@@ -8177,21 +8157,6 @@
           }
         },
         {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["item:proficiency:rank", 2]
-              },
-              {
-                "or": ["item:base:hand-crossbow", "item:base:gauntlet-bow", "item:base:repeating-hand-crossbow"]
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[journals]"
         }
@@ -9448,14 +9413,6 @@
       "slug": "feat:secrets-of-steel",
       "foundry": "Compendium.pf2e.feats-srd.Item.76MJ4dyEFim6dfoa",
       "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:tag:bespell-strikes"]
-          }
-        },
         {
           "type": "rule",
           "key": "DamageDice",

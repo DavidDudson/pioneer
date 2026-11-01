@@ -949,6 +949,24 @@
         "slug": "advanced-bugbear-weapons",
         "definition": ["item:base:capturing-spetum"],
         "sameAs": "martial"
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:bastard-sword",
+              "item:base:capturing-spetum",
+              "item:base:falchion",
+              "item:base:scourge",
+              "item:base:scythe",
+              "item:base:whip"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {

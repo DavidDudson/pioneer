@@ -1465,18 +1465,6 @@
             "path": "system.proficiencies.attacks.martial-firearms-crossbows.rank",
             "value": 3
           }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": ["item:group:firearm", "item:group:crossbow"]
-              }
-            ]
-          }
         }
       ]
     },

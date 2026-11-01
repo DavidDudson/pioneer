@@ -1445,25 +1445,6 @@
       "foundry": "Compendium.pf2e.feats-srd.Item.NPATYCDg2cryH0Ya",
       "gaps": [
         {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "or": [
-                  "item:trait:conrasu",
-                  "item:base:glaive",
-                  "item:base:longspear",
-                  "item:base:longsword",
-                  "item:base:shortbow",
-                  "item:base:spear"
-                ]
-              }
-            ]
-          }
-        },
-        {
           "type": "enricher",
           "enricher": "@UUID[equipment-srd] Pathfinder Lost Omens Ancestry Guide"
         }
@@ -1558,22 +1539,6 @@
         {
           "type": "enricher",
           "enricher": "@Check[traits]"
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "mwangi-expanse",
-      "slug": "feat:hunters-fangs",
-      "foundry": "Compendium.pf2e.feats-srd.Item.PWKFdaNghx1YMKlA",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:tag:anadi-fangs"]
-          }
         }
       ]
     },

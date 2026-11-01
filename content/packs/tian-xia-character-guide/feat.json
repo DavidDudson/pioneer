@@ -13660,6 +13660,23 @@
         "display": {
           "label": "Martial Oni Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:khakkhara",
+              "item:base:nodachi",
+              "item:base:ogre-hook",
+              "item:base:tetsubo",
+              "item:tag:hungerseed-horns"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -23768,6 +23785,24 @@
         "display": {
           "label": "Martial Wayang Weapons"
         }
+      },
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          },
+          {
+            "or": [
+              "item:base:blowgun",
+              "item:base:fighting-fan",
+              "item:base:longspear",
+              "item:base:machete",
+              "item:base:sai",
+              "item:base:trident"
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {

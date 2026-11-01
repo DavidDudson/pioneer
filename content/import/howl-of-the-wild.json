@@ -2896,36 +2896,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:athamaru-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.gtUU8CmyUMzsU5eX",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:athamaru",
-                  "item:base:crossbow",
-                  "item:base:heavy-crossbow",
-                  "item:base:longspear",
-                  "item:base:spear",
-                  "item:base:trident"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:awakened-animal-lore",
       "foundry": "Compendium.pf2e.feats-srd.Item.0faPAjBozoKxMAo3",
       "gaps": [
@@ -3039,36 +3009,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:centaur-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.dz3z1DLxV6GYH45Y",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:centaur",
-                  "item:base:lance",
-                  "item:base:longbow",
-                  "item:base:longspear",
-                  "item:base:spear",
-                  "item:base:shortbow"
-                ]
-              }
-            ]
           }
         }
       ]
@@ -3475,36 +3415,6 @@
     {
       "type": "entry",
       "pack": "howl-of-the-wild",
-      "slug": "feat:merfolk-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.nmmN8AXhIGSj4GGL",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": [
-                  "item:trait:merfolk",
-                  "item:base:crossbow",
-                  "item:base:heavy-crossbow",
-                  "item:base:longspear",
-                  "item:base:spear",
-                  "item:base:trident"
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
       "slug": "feat:merge-with-the-source",
       "foundry": "Compendium.pf2e.feats-srd.Item.Ekk2iEYMAXYT3EK2",
       "gaps": [
@@ -3591,29 +3501,6 @@
               "label": "{item|name}",
               "rank": "match(when(gte(@actor.level, 15), 4), when(gte(@actor.level, 7), 3),when(gte(@actor.level, 3), 2),1)"
             }
-          }
-        }
-      ]
-    },
-    {
-      "type": "entry",
-      "pack": "howl-of-the-wild",
-      "slug": "feat:minotaur-weapon-familiarity",
-      "foundry": "Compendium.pf2e.feats-srd.Item.gMWDVkLZMZz7Zy8F",
-      "gaps": [
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": [
-              {
-                "gte": ["self:level", 5]
-              },
-              {
-                "or": ["item:base:battle-axe", "item:base:falchion", "item:base:glaive", "item:base:greataxe"]
-              }
-            ]
           }
         }
       ]
