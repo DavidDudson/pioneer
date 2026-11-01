@@ -41,19 +41,34 @@ interface Placement {
   readonly conditionValue?: number;
   /** An override: its origin gets an `override` hop. */
   readonly override?: boolean;
+  /** The inventory item it comes from: its origin starts at a hop for it. */
+  readonly item?: string;
+}
+
+/** The hop of an inventory item, held. */
+function inventoryHop(item: string): object {
+  return { kind: 'inventory', item, state: 'held' };
+}
+
+/** The origin hops of a placement: the override hop, the inventory item it comes from, or none. */
+function hopsOf(override: boolean | undefined, item: string | undefined): readonly object[] {
+  if (override === true) {
+    return [OVERRIDE_HOP];
+  }
+  return item === undefined ? [] : [inventoryHop(item)];
 }
 
 /** A rule element on the test pack's entry named `entry`; ids are opaque to the engine, so every one is an effect. */
 export function inPlay(
   element: unknown,
   entry: string,
-  { rule = 0, itemLevel, conditionValue, override }: Placement = {},
+  { rule = 0, itemLevel, conditionValue, override, item }: Placement = {},
 ): RuleInPlay {
   const slug = entrySlug(ContentKind.Effect, Slug.parse(entry));
   return RuleInPlay.parse({
     element,
     origin: {
-      hops: override === true ? [OVERRIDE_HOP] : [],
+      hops: hopsOf(override, item),
       entry: contentId(TEST_PACK, slug),
       sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     },
@@ -77,11 +92,11 @@ export function change(selector: string, mode: string, value: number | string): 
 type Wielded<Weapon> = Weapon & { readonly origin: object };
 
 /** A weapon's inputs as JSON: `weapon` with an origin on the test pack's entry of the same slug. */
-export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon): Wielded<Weapon> {
+export function wielded<Weapon extends { readonly slug: string }>(weapon: Weapon, item?: string): Wielded<Weapon> {
   return {
     ...weapon,
     origin: {
-      hops: [],
+      hops: item === undefined ? [] : [inventoryHop(item)],
       entry: contentId(TEST_PACK, EntrySlug.parse(`weapon:${weapon.slug}`)),
       sources: [{ kind: 'book', book: 'player-core', page: 1 }],
     },

@@ -113,6 +113,7 @@ function rulesOf(weapon: WeaponInputs, rules: StrikeRulesInput | undefined): Str
     damageType: damage?.damageType ?? DamageType.Bludgeoning,
     attack: attackTargets(weapon),
     damage: damageTargets(weapon),
+    origin: weapon.origin,
   });
 }
 

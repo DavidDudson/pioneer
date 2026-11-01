@@ -1,6 +1,6 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
-import { DamageProperty, DiceCount, Domain, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
+import { DamageProperty, DiceCount, Domain, OriginHopKind, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
 import type {
   ContentText,
   DamageAlterationElement,
@@ -9,6 +9,7 @@ import type {
   DamageType,
   DegreeOfSuccess,
   DieSize,
+  InventoryItemId,
   ModifierTarget,
   NoteElement,
   Origin,
@@ -71,6 +72,8 @@ export interface StrikeTargets {
   readonly dice: DiceCount;
   readonly die: DieSize | undefined;
   readonly damageType: DamageType;
+  /** The weapon's origin, which says what inventory item it is (`ETCHED_DAMAGE`). */
+  readonly origin?: Origin | undefined;
   /** The selectors and domains of the Strike's attack roll. */
   readonly attack: ReadonlySet<ModifierTarget>;
   /** The selectors and domains of the Strike's damage roll. */
@@ -80,8 +83,28 @@ export interface StrikeTargets {
 /** The domain every roll belongs to. */
 const ALL = Domain.parse('all');
 
-function reaches(targets: readonly ModifierTarget[], reached: ReadonlySet<ModifierTarget>): boolean {
-  return reached.has(ALL) || targets.some((target) => reached.has(target));
+/**
+ * The damage roll of the weapon an element's item is etched on: a property rune's elements aim at the weapon it is
+ * etched on, not at every Strike the character has. An element that names it reaches a Strike only when it comes from
+ * the same inventory item as the Strike's weapon.
+ */
+export const ETCHED_DAMAGE = Domain.parse('etched-damage');
+
+/** The inventory item an origin starts at, when it starts at one. */
+function inventoryItemOf(origin: Origin | undefined): InventoryItemId | undefined {
+  const [hop] = origin?.hops ?? [];
+  return hop?.kind === OriginHopKind.Inventory ? hop.item : undefined;
+}
+
+/** Whether the rule comes from the inventory item the Strike's weapon is. */
+function ownsStrike(rule: RuleInPlay, { origin }: StrikeTargets): boolean {
+  const item = inventoryItemOf(rule.origin);
+  return item !== undefined && item === inventoryItemOf(origin);
+}
+
+/** Whether `targets` reach one of `reached`; `etched` says whether the element comes from the Strike's own item. */
+function reaches(targets: readonly ModifierTarget[], reached: ReadonlySet<ModifierTarget>, etched: boolean): boolean {
+  return reached.has(ALL) || targets.some((target) => (target === ETCHED_DAMAGE ? etched : reached.has(target)));
 }
 
 /** What a number of dice or an amount of change is read as: its value, or why it has none. */
@@ -134,8 +157,8 @@ function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets)
   const { selectors, title, text, outcome } = element;
   const note = { title, text, outcome, origin: rule.origin };
   return [
-    ...(reaches(selectors, targets.attack) ? [{ ...note, roll: NoteRoll.Attack }] : []),
-    ...(reaches(selectors, targets.damage) ? [{ ...note, roll: NoteRoll.Damage }] : []),
+    ...(reaches(selectors, targets.attack, false) ? [{ ...note, roll: NoteRoll.Attack }] : []),
+    ...(reaches(selectors, targets.damage, ownsStrike(rule, targets)) ? [{ ...note, roll: NoteRoll.Damage }] : []),
   ];
 }
 
@@ -178,7 +201,10 @@ function applied(
   const { element } = rule;
   const { targets } = using;
   const rolls = targets.die !== undefined;
-  if (element.key === RuleElementKey.DamageDice && reaches(element.selectors, targets.damage)) {
+  if (
+    element.key === RuleElementKey.DamageDice &&
+    reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
+  ) {
     const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
     const changes = rolls && element.dieSize === undefined;
     return {
@@ -188,7 +214,11 @@ function applied(
       extra: [...reading.extra, ...extraOf({ rule, element }, reading.damageType, using.read)],
     };
   }
-  if (element.key === RuleElementKey.DamageAlteration && rolls && reaches(element.selectors, targets.damage)) {
+  if (
+    element.key === RuleElementKey.DamageAlteration &&
+    rolls &&
+    reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
+  ) {
     return { ...reading, ...altered(reading, { element, rule }, using.read) };
   }
   if (element.key === RuleElementKey.Note) {
