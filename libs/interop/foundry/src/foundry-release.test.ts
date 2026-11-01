@@ -64,6 +64,24 @@ describe('readFoundryRelease', () => {
     expect(read.unreadable).toEqual([]);
   });
 
+  test('reads a release before 6.0, whose manifest is static/system.json and whose packs sit below packs/', () => {
+    const read = readFoundryRelease(
+      new Map([
+        ['5.16.1/static/system.json', MANIFEST],
+        ['5.16.1/static/lang/en.json', JSON.stringify(LANG_FILES['static/lang/en.json'])],
+        ['5.16.1/static/lang/re-en.json', JSON.stringify(LANG_FILES['static/lang/re-en.json'])],
+        ['5.16.1/static/lang/kingmaker-en.json', JSON.stringify(LANG_FILES['static/lang/kingmaker-en.json'])],
+        [
+          '5.16.1/packs/feats/sudden-charge.json',
+          JSON.stringify({ _id: 'fEaT000000000002', name: 'Sudden Charge', type: 'feat', system: {} }),
+        ],
+      ]),
+    );
+
+    expect(read.documents.map(({ document }) => document.name)).toEqual(['Sudden Charge']);
+    expect(read.unreadable).toEqual([]);
+  });
+
   test("merges the manifest's English lang files in order, a later string winning, dotted keys nested", () => {
     expect(release({}).lang).toEqual({
       PF2E: {
