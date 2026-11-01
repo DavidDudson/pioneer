@@ -14,6 +14,12 @@ const ETCHED_DAMAGE = 'etched-damage';
  * Why the weapon-changing runes stay here: keen needs a critical range the Strike has no concept of; quickstrike grants
  * a conditional action; returning, extending and shifting are activations or movement the sheet does not model; the
  * rooting family is a critical-hit effect on the target (a condition it can't yet apply).
+ *
+ * Why the target-dependent runes stay here: bane and energy vulnerability name a creature type or energy the crafter
+ * or wielder picks; astral, decaying, fearsome, impactful, merciful and pacifying give a save, a push, a condition or
+ * a lethality rule the Strike cannot apply to a target; spell reservoir, coating, conducting, animated and authorized
+ * are activations or item state; underwater changes a penalty no roll here reads; the mythic runes need the mythic
+ * rules.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
@@ -21,8 +27,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:astral-greater',
   'rune:authorized',
   'rune:bane',
-  'rune:brilliant',
-  'rune:brilliant-greater',
   'rune:coating',
   'rune:conducting',
   'rune:decaying',
@@ -51,8 +55,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:shockwave',
   'rune:spell-reservoir',
   'rune:underwater',
-  'rune:vitalizing',
-  'rune:vitalizing-greater',
   'rune:vorpal',
 ]);
 
@@ -209,6 +211,38 @@ describe('weapon property rune rules', () => {
 
     expect(entry?.rules).toMatchObject([
       { key: 'AdjustStrike', property: 'property-runes', mode: 'add', value: 'ghost-touch', etched: true },
+    ]);
+  });
+
+  test.each([
+    { slug: 'rune:brilliant', ignoring: {} },
+    { slug: 'rune:brilliant-greater', ignoring: { ignoreResistance: true } },
+  ])('$slug adds fire damage, and spirit to fiends and vitality to undead', ({ slug, ignoring }) => {
+    const entry = RUNES.find((rune) => rune.slug === slug);
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'DamageDice', damageType: 'fire', diceNumber: 1, dieSize: 'd4', ...ignoring },
+      { damageType: 'spirit', predicate: ['target:trait:fiend'], ...ignoring },
+      { damageType: 'vitality', predicate: ['target:trait:undead'], ...ignoring },
+    ]);
+  });
+
+  test.each([
+    { slug: 'rune:vitalizing', dice: 1 },
+    { slug: 'rune:vitalizing-greater', dice: 2 },
+  ])('$slug adds persistent vitality damage to undead, with a critical hit note', ({ slug, dice }) => {
+    const entry = RUNES.find((rune) => rune.slug === slug);
+
+    expect(entry?.rules).toMatchObject([
+      {
+        key: 'DamageDice',
+        diceNumber: dice,
+        dieSize: 'd6',
+        damageType: 'vitality',
+        category: 'persistent',
+        predicate: ['target:trait:undead'],
+      },
+      { key: 'Note', outcome: ['criticalSuccess'], predicate: ['target:trait:undead'] },
     ]);
   });
 

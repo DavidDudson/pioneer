@@ -2,7 +2,7 @@ import { DamageType, DiceCount, Modifier, ModifierTarget, Selector, Trait } from
 import type { DamageAmount, DieSize, PersistentDamage } from '@pioneer/rules/sdk';
 
 import { strikesUnderForm } from './battle-form-strikes';
-import type { ModifierInputs } from './rule-in-play';
+import type { ModifierInputs, RuleId } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
 import { strikeRules } from './strike-rules';
@@ -48,6 +48,8 @@ export interface Strike {
   readonly damage: StrikeDamage | undefined;
   /** The `Note` elements that reach the attack or damage roll. */
   readonly notes: readonly StrikeNote[];
+  /** The rule elements that would change this Strike if a roll claimed their situation (`StrikeRules.conditional`). */
+  readonly conditional: readonly RuleId[];
   readonly map: MultipleAttackPenalty;
 }
 
@@ -161,6 +163,7 @@ export function deriveStrikes(
       attack: results.get(Selector.parse(`${ATTACK}:${weapon.slug}`)),
       damage: damageOf(weapon, results, changes),
       notes: changes?.notes ?? [],
+      conditional: changes?.conditional ?? [],
       map: multipleAttackPenalty(weapon),
     };
   });

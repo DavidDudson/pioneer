@@ -754,7 +754,31 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit",
+        "predicate": ["target:trait:fiend"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "vitality",
+        "predicate": ["target:trait:undead"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.LbdnZFlyLFdAE617"
     },
@@ -868,7 +892,34 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "fire",
+        "ignoreResistance": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "spirit",
+        "ignoreResistance": true,
+        "predicate": ["target:trait:fiend"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "vitality",
+        "ignoreResistance": true,
+        "predicate": ["target:trait:undead"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.n8MonEa4ZBdvEovc"
     },
@@ -5652,7 +5703,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "vitality",
+        "category": "persistent",
+        "predicate": ["target:trait:undead"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Vitalizing",
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:trait:undead"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The undead is also Enfeebled 1 until the end of your next turn."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.LwQb7ryTC8FlOXgX"
     },
@@ -5715,7 +5794,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "vitality",
+        "category": "persistent",
+        "predicate": ["target:trait:undead"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Vitalizing (greater)",
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:trait:undead"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The undead creature is Enfeebled 1 and Stupefied 1 as long as it has the persistent damage from this rune."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.oVrVzML63VFvVfKk"
     },
