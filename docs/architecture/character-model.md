@@ -645,9 +645,13 @@ syncs with Foundry per the campaign's mode (see [play-and-campaigns.md](play-and
 
 ## Content a campaign has not enabled
 
-A character in a campaign uses the campaign's homebrew packs and variant rules and ignores its own rows
-([ADR-0060](../adr/0060-a-character-uses-its-own-packs-until-a-campaign-decides.md),
-[ADR-0061](../adr/0061-variant-rules-are-enabled-per-campaign-and-character.md)). What the character would use on its
+A character in a campaign picks and browses from the campaign's homebrew packs and variant rules while its own rows
+wait ([ADR-0060](../adr/0060-a-character-uses-its-own-packs-until-a-campaign-decides.md),
+[ADR-0061](../adr/0061-variant-rules-are-enabled-per-campaign-and-character.md)). It does not lose what it already
+holds: its registry is the effective set plus every homebrew pack its document refers to, and the packs outside the
+effective set are flagged unsupported. Pickers use the effective set only, so nothing new comes from an unsupported
+pack, and a held pack the owner can no longer read is left out. A variant rule defined by an unsupported pack is
+dropped. What the character would use on its
 own and the campaign has not enabled is never banned, only warned about: the Plan page names it so the player can raise
 it with the GM, and the sheet derives as before. `GET /characters/:id/unenabled-content` answers it, for the owner only;
 it is empty while the character is in no campaign. What a character "uses" of each kind:

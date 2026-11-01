@@ -595,7 +595,8 @@ campaign_invites      id, campaign_id, token_hash (unique), created_by, created_
 campaign_characters   id, campaign_id, member_id, character_id (unique), attached_at
                       (a character is in one campaign at most and leaves with its member)
 character_packs       id, character_id, pack_id, enabled_by, enabled_at
-                      (the packs a character outside campaigns uses; in a campaign it uses the campaign's, ADR-0060)
+                      (the packs a character outside campaigns uses; in a campaign it picks from the campaign's, and content it holds from
+                      its own packs stays in its registry, flagged unsupported, ADR-0060)
 campaign_variant_rules   id, campaign_id, variant_id, enabled_by, enabled_at
                       (the variant rules a GM turned on; variant_id has no foreign key, ADR-0061)
 character_variant_rules  id, character_id, variant_id, enabled_by, enabled_at
