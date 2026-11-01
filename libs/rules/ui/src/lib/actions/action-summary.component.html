@@ -1,0 +1,26 @@
+<fr-stack gap="xs">
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    @if (action().costIcon; as costIcon) {
+      <fr-action-icon [cost]="costIcon.cost" [upTo]="costIcon.upTo" [label]="costIcon.label" />
+    }
+    <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
+  </fr-stack>
+  @if (action().line.traits.length > 0) {
+    <fr-stack gap="2xs" direction="horizontal" wrap>
+      @for (trait of action().line.traits; track trait) {
+        <fr-badge>{{ trait }}</fr-badge>
+      }
+    </fr-stack>
+  }
+  @for (fact of facts(); track fact.label) {
+    <fr-stack gap="3xs">
+      <fr-text variant="caption" tone="muted">{{ fact.label | transloco }}</fr-text>
+      <pio-rich-text [text]="fact.text" [headingLevel]="level" />
+    </fr-stack>
+  }
+  <pio-rich-text [text]="effect()" [headingLevel]="level" />
+  <pio-statistic-conditions [conditions]="action().conditions" />
+  @for (reason of action().reasons; track reason) {
+    <fr-text variant="caption" tone="muted">{{ reason }}</fr-text>
+  }
+</fr-stack>

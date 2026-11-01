@@ -92,19 +92,18 @@ export function sheetActions(
   const traits = traitNames(registry);
   const costs = actionCosts(registry);
   const rules = equippedRules(character.document, itemContent(registry), sheetSlotContent(registry));
-  const alteredTraits = (id: ContentId): readonly string[] => {
-    const entry = entries.get(id);
-    return entry === undefined ? [] : alterAction(rules, entry).traits.map((trait) => traits.get(trait) ?? trait);
-  };
   const priorities = new Map(context.first.map((id, place): [ContentId, number] => [id, place]));
   return actions.map((action: AvailableAction): ActionLine => {
     const range = costs.get(action.action);
     const fit = turnFit(play.turn, action.cost, range);
-    const blocked = restrictionBlocking(play.restrictions ?? [], traitSlugs(entries.get(action.action)));
+    const entry = entries.get(action.action);
+    const altered = entry === undefined ? undefined : alterAction(rules, entry);
+    const data = entry?.kind === ContentKind.Action ? entry.data : undefined;
+    const blocked = restrictionBlocking(play.restrictions ?? [], traitSlugs(entry));
     return {
       id: action.action,
-      name: entries.get(action.action)?.name ?? action.action,
-      traits: alteredTraits(action.action),
+      name: entry?.name ?? action.action,
+      traits: (altered?.traits ?? []).map((trait) => traits.get(trait) ?? trait),
       cost: action.cost,
       modes: action.modes,
       origin: action.origin,
@@ -116,6 +115,9 @@ export function sheetActions(
         ...fit.reasons,
         ...(blocked === undefined ? [] : [message(EnvironmentReasonMessage.Blocked, { reason: blocked.reason })]),
       ],
+      trigger: data?.trigger,
+      requirements: data?.requirementsText,
+      effect: altered?.description,
       roll: action.roll,
       priority: priorities.get(action.action),
       dormant: context.dormant.has(action.action),

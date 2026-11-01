@@ -28,6 +28,11 @@ and the character feature may not import the content one. Two things follow:
    parent route.
 4. While the panel is mounted the shell's own search is hidden (`ShellSearch`), since the panel has the shortcut. The
    host releases it when the sheet is left, and never takes it after that.
+5. A row opens an entry in the panel through the address, not through the token. The panel keeps the drawer, the words
+   and the entry in query parameters (`drawer`, `sq`, `se`), so opening an entry is navigating to the sheet's own page with
+   `drawer=open` and `se=<entry slug>`. The parameter names are `SidePanelParam` in `rules/ui`, which both contexts may
+   import; the character feature builds the link (`EntryPreviews.panel`) and offers it only once `SheetSidePanelState`
+   holds the loaded panel, so a sheet without a panel opens nothing. The reload and share behaviour comes for free.
 
 ## Consequences
 
@@ -35,5 +40,7 @@ and the character feature may not import the content one. Two things follow:
 - A second host for the panel needs only the token and no copy of its message list.
 - A scope the panel starts to read must be added to `loadSidePanel`, or it renders raw keys. `side-panel-messages.spec.ts`
   checks that the scopes the panel reads resolve once it is loaded.
+- Alternative not taken: an `open(entry)` function on the token. It would keep the open entry outside the address, so a
+  reload would lose it and two places would hold it.
 - Alternative not taken: provide the scopes on the wrapper route and rely on idle preloading. It fails whenever a
   child route provides scopes of its own, which the character routes do.

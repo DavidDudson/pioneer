@@ -326,6 +326,10 @@
       "use": "Use",
       "useForOne": "Use for 1 action",
       "useForMany": "Use for {count} actions",
+      "summary": {
+        "trigger": "Trigger",
+        "requirements": "Requirements"
+      },
       "emptyAll": "No action matches the filters.",
       "filters": "Filters",
       "filterMode": "Mode",
