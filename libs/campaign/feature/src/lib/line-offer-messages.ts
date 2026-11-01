@@ -28,3 +28,14 @@ export async function loadPurseOffer(i18n: TranslocoService): Promise<Type<unkno
   const { CampaignOfferCoins } = await import('./home/campaign-offer-coins/campaign-offer-coins.component');
   return CampaignOfferCoins;
 }
+
+/**
+ * Loads the container that shows the campaign's Party Inventory on a character's sheet, with the messages it reads. The
+ * sheet may not import the campaign feature, so the app hands this to it as `PARTY_INVENTORY`.
+ */
+export async function loadPartyInventory(i18n: TranslocoService): Promise<Type<unknown>> {
+  await loadMessageScopes(i18n, OFFER_SCOPES);
+  const { CampaignSheetPartyInventory } =
+    await import('./home/campaign-sheet-party-inventory/campaign-sheet-party-inventory.component');
+  return CampaignSheetPartyInventory;
+}

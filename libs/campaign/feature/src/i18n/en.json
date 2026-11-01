@@ -209,6 +209,11 @@
     "putting": "Putting in",
     "putDone": "In the stash",
     "putIn": "Put {item} in the party stash",
+    "sheetHeading": "Party Inventory",
+    "take": "Take {item}",
+    "lineName": "Item",
+    "linePlaceholder": "Pick an item to put in the party stash",
+    "putChosen": "Put in the party stash",
     "putFailed": "Could not put it in the party stash. Try again."
   },
   "keyItems": {

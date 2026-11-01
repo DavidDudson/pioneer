@@ -4,4 +4,4 @@ export {
   KEY_ITEM_CONTENT_SEARCH,
   type KeyItemContentSearch,
 } from './lib/data/key-item-content-search';
-export { loadLineOffer, loadPurseOffer } from './lib/line-offer-messages';
+export { loadLineOffer, loadPartyInventory, loadPurseOffer } from './lib/line-offer-messages';
