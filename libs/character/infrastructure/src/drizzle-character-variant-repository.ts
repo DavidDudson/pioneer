@@ -3,7 +3,7 @@ import type { CharacterId, CharacterVariantRule } from '@pioneer/character/domai
 import type { VariantRuleId } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { RequestMemo, stampAudit } from '@pioneer/shared/server';
 import { and, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -26,6 +26,7 @@ function toCharacterVariantRule(row: CharacterVariantRuleRow): CharacterVariantR
 
 export class DrizzleCharacterVariantRepository extends CharacterVariantRepository {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #listed = new RequestMemo<CharacterId, readonly CharacterVariantRule[]>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -33,16 +34,18 @@ export class DrizzleCharacterVariantRepository extends CharacterVariantRepositor
   }
 
   public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterVariantRule[]> {
-    const rows = await this.#db
-      .select()
-      .from(characterVariantRules)
-      .where(eq(characterVariantRules.characterId, characterId));
-    // Sorted here so no query needs an index for it; a character enables few variant rules.
-    return rows
-      .map((row) => toCharacterVariantRule(row))
-      .toSorted(
-        (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
-      );
+    return this.#listed.of(characterId, async () => {
+      const rows = await this.#db
+        .select()
+        .from(characterVariantRules)
+        .where(eq(characterVariantRules.characterId, characterId));
+      // Sorted here so no query needs an index for it; a character enables few variant rules.
+      return rows
+        .map((row) => toCharacterVariantRule(row))
+        .toSorted(
+          (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
+        );
+    });
   }
 
   public override async enable(actor: UserId, characterId: CharacterId, rule: CharacterVariantRule): Promise<void> {

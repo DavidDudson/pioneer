@@ -18,6 +18,7 @@ import {
 import type { CharacterId } from '@pioneer/character/domain';
 import { characters } from '@pioneer/character/infrastructure';
 import { VariantRuleId } from '@pioneer/rules/sdk';
+import { RequestMemo } from '@pioneer/shared/server';
 import { and, eq, isNull, ne } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -30,6 +31,7 @@ const NO_RUNE = '00000000-0000-0000-0000-000000000000';
  */
 export class CampaignPackDirectory extends AttachedCampaignPacks {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #attached = new RequestMemo<CharacterId, AttachedCampaign | undefined>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -37,6 +39,10 @@ export class CampaignPackDirectory extends AttachedCampaignPacks {
   }
 
   public override async of(characterId: CharacterId): Promise<AttachedCampaign | undefined> {
+    return this.#attached.of(characterId, async () => this.#load(characterId));
+  }
+
+  async #load(characterId: CharacterId): Promise<AttachedCampaign | undefined> {
     const [attached] = await this.#db
       .select({ id: campaigns.id, name: campaigns.name })
       .from(campaignCharacters)

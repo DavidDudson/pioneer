@@ -63,6 +63,14 @@ Measured with the probe's `/sheet` row (level 1 character, 20 runs): 1 request, 
 median, against 11 requests, 14,545 B and 84 statements for the separate calls. The web stores make the separate calls
 until they are seeded from it.
 
+The bundle reads each thing once. `characterSheetBundleRoutes` opens a request scope (`inRequestScope`,
+`libs/shared/server/src/request-memo.ts`), and the adapters that were read several times per request answer once inside
+it through a `RequestMemo`: the character row, the attached campaign, the pack directory, a character's pack, variant
+and rule limit rows, the official pack hashes and the packs that define a character's entries. Outside a scope a
+`RequestMemo` reads every time, so writes and every route that opens no scope behave as before; open a scope only
+around a read that writes nothing. Measured the same way: `/sheet` went from 58 to 13 statements, with the same
+14,635 B body and a 9 to 11 ms median either side. The separate calls are unchanged at 83 statements for the eleven.
+
 ### Side finding: session touch on a non-UTC database
 
 On a database whose time zone is not UTC (the dev machine is UTC+10) every authenticated request writes the session

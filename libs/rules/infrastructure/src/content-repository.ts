@@ -1,5 +1,6 @@
 import { loadOrder, packContentsFromFiles } from '@pioneer/rules/sdk';
 import type { ContentId, ContentPackId, PackContents, PackId } from '@pioneer/rules/sdk';
+import { RequestMemo } from '@pioneer/shared/server';
 import { and, asc, eq, inArray, isNotNull, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -41,6 +42,8 @@ export interface StoredPackHash {
 /** Reads the content tables (content-model.md, "Packs and storage"); the seed writes them. */
 export class ContentRepository {
   readonly #db: Database;
+  readonly #official = new RequestMemo<'hashes', readonly StoredPackHash[]>();
+  readonly #definingPacks = new RequestMemo<string, readonly ContentPackId[]>();
 
   public constructor(db: Database) {
     this.#db = db;
@@ -48,11 +51,13 @@ export class ContentRepository {
 
   /** Every official pack's hash, by slug: one small query, cheap enough to ask before every use of content. */
   public async officialHashes(): Promise<readonly StoredPackHash[]> {
-    return this.#db
-      .select({ pack: contentPacks.slug, hash: contentPacks.contentHash })
-      .from(contentPacks)
-      .where(isNull(contentPacks.ownerId))
-      .orderBy(asc(contentPacks.slug));
+    return this.#official.of('hashes', async () =>
+      this.#db
+        .select({ pack: contentPacks.slug, hash: contentPacks.contentHash })
+        .from(contentPacks)
+        .where(isNull(contentPacks.ownerId))
+        .orderBy(asc(contentPacks.slug)),
+    );
   }
 
   /**
@@ -125,18 +130,20 @@ export class ContentRepository {
     if (entryIds.length === 0) {
       return [];
     }
-    const rows = await this.#db
-      .selectDistinct({ id: contentPacks.id })
-      .from(contentEntries)
-      .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
-      .where(
-        and(
-          inArray(contentEntries.id, [...entryIds]),
-          isNotNull(contentPacks.ownerId),
-          isNull(contentPacks.archivedAt),
-        ),
-      );
-    return rows.map((row) => row.id);
+    return this.#definingPacks.of(entryIds.join(','), async () => {
+      const rows = await this.#db
+        .selectDistinct({ id: contentPacks.id })
+        .from(contentEntries)
+        .innerJoin(contentPacks, eq(contentPacks.id, contentEntries.packId))
+        .where(
+          and(
+            inArray(contentEntries.id, [...entryIds]),
+            isNotNull(contentPacks.ownerId),
+            isNull(contentPacks.archivedAt),
+          ),
+        );
+      return rows.map((row) => row.id);
+    });
   }
 
   /** The hashes of the homebrew packs `homebrewOrder` gives for `roots`, by slug: what a registry of them is cached under. */

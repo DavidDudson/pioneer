@@ -3,7 +3,7 @@ import type { CharacterId, CharacterPack } from '@pioneer/character/domain';
 import type { ContentPackId } from '@pioneer/rules/sdk';
 import { Temporal } from '@pioneer/shared/kernel';
 import type { UserId } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { RequestMemo, stampAudit } from '@pioneer/shared/server';
 import { and, eq } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -26,6 +26,7 @@ function toCharacterPack(row: CharacterPackRow): CharacterPack {
 
 export class DrizzleCharacterPackRepository extends CharacterPackRepository {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #listed = new RequestMemo<CharacterId, readonly CharacterPack[]>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -33,13 +34,15 @@ export class DrizzleCharacterPackRepository extends CharacterPackRepository {
   }
 
   public override async listForCharacter(characterId: CharacterId): Promise<readonly CharacterPack[]> {
-    const rows = await this.#db.select().from(characterPacks).where(eq(characterPacks.characterId, characterId));
-    // Sorted here so no query needs an index for it; a character enables few packs.
-    return rows
-      .map((row) => toCharacterPack(row))
-      .toSorted(
-        (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
-      );
+    return this.#listed.of(characterId, async () => {
+      const rows = await this.#db.select().from(characterPacks).where(eq(characterPacks.characterId, characterId));
+      // Sorted here so no query needs an index for it; a character enables few packs.
+      return rows
+        .map((row) => toCharacterPack(row))
+        .toSorted(
+          (left, right) => Temporal.Instant.compare(left.enabledAt, right.enabledAt) || left.id.localeCompare(right.id),
+        );
+    });
   }
 
   public override async enable(

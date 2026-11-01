@@ -2,6 +2,7 @@ import { PackDirectory } from '@pioneer/homebrew/application';
 import type { ListedPack } from '@pioneer/homebrew/application';
 import { contentPacks } from '@pioneer/rules/infrastructure';
 import type { ContentPackId } from '@pioneer/rules/sdk';
+import { RequestMemo } from '@pioneer/shared/server';
 import { and, asc, eq, isNull } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 
@@ -36,6 +37,7 @@ function toListed(row: PackRow): ListedPack {
 
 export class DrizzlePackDirectory extends PackDirectory {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #everyPack = new RequestMemo<'all', readonly ListedPack[]>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -52,16 +54,18 @@ export class DrizzlePackDirectory extends PackDirectory {
   }
 
   public override async all(): Promise<readonly ListedPack[]> {
-    // In primary key order, which the index serves; re-sorted by title here, as there are few packs.
-    const rows = await this.#db
-      .select(LISTED_COLUMNS)
-      .from(contentPacks)
-      .where(isNull(contentPacks.archivedAt))
-      .orderBy(asc(contentPacks.id));
-    return rows
-      .map((row) => toListed(row))
-      .toSorted(
-        (left, right) => left.summary.title.localeCompare(right.summary.title) || left.id.localeCompare(right.id),
-      );
+    return this.#everyPack.of('all', async () => {
+      // In primary key order, which the index serves; re-sorted by title here, as there are few packs.
+      const rows = await this.#db
+        .select(LISTED_COLUMNS)
+        .from(contentPacks)
+        .where(isNull(contentPacks.archivedAt))
+        .orderBy(asc(contentPacks.id));
+      return rows
+        .map((row) => toListed(row))
+        .toSorted(
+          (left, right) => left.summary.title.localeCompare(right.summary.title) || left.id.localeCompare(right.id),
+        );
+    });
   }
 }

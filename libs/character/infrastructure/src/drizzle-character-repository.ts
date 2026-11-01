@@ -17,7 +17,7 @@ import {
   VersionConflictError,
 } from '@pioneer/shared/kernel';
 import type { UserId, Version } from '@pioneer/shared/kernel';
-import { stampAudit } from '@pioneer/shared/server';
+import { RequestMemo, stampAudit } from '@pioneer/shared/server';
 import { and, asc, desc, eq, inArray, isNotNull, isNull, sql } from 'drizzle-orm';
 import type { SQL } from 'drizzle-orm';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
@@ -90,6 +90,7 @@ function toPlay(row: Pick<PlayRow, 'playRevision' | 'state'>): CharacterPlay {
 
 export class DrizzleCharacterRepository extends CharacterRepository {
   readonly #db: BunSQLDatabase<Record<string, unknown>>;
+  readonly #found = new RequestMemo<CharacterId, Character | undefined>();
 
   public constructor(db: BunSQLDatabase<Record<string, unknown>>) {
     super();
@@ -119,7 +120,7 @@ export class DrizzleCharacterRepository extends CharacterRepository {
   }
 
   public override async findById(id: CharacterId): Promise<Character | undefined> {
-    return this.#findOne(and(eq(characters.id, id), isNull(characters.archivedAt)));
+    return this.#found.of(id, async () => this.#findOne(and(eq(characters.id, id), isNull(characters.archivedAt))));
   }
 
   public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
