@@ -56,6 +56,13 @@ max-age=10` and no `ETag`, so a warm session re-downloads it every ten seconds o
 - [#1721](https://github.com/DavidDudson/pioneer/issues/1721): give the manifest an `ETag` and a longer
   `stale-while-revalidate`, since it changes only on a content seed.
 
+`GET /characters/:id/sheet` is the API half of [#1716](https://github.com/DavidDudson/pioneer/issues/1716): the sheet,
+rule limits and, for the owner, play state, sheet mode, feat display, packs, variant rules, rule limit settings and
+unenabled content. Only the owner may read all but the sheet and its rule limits, so a campaign's GM gets those two.
+Measured with the probe's `/sheet` row (level 1 character, 20 runs): 1 request, 14,635 B, 59 statements and a 15 ms
+median, against 11 requests, 14,545 B and 84 statements for the separate calls. The web stores make the separate calls
+until they are seeded from it.
+
 ### Side finding: session touch on a non-UTC database
 
 On a database whose time zone is not UTC (the dev machine is UTC+10) every authenticated request writes the session

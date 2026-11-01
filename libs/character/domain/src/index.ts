@@ -261,6 +261,7 @@ export {
 export { ownedItems } from './owned-items';
 export { CharacterContract, CharacterListQuery, CharacterSort, CreateCharacterBody } from './character-contract';
 export { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
+export { CharacterSheetBundle } from './character-sheet-bundle';
 export { GenerateCharacterBody, GeneratedCharacter, GenerateLock } from './generate-character-contract';
 export {
   FeatDisplayChoice,

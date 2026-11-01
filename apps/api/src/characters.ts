@@ -12,36 +12,23 @@ import {
   CharacterVariantLimits,
   CharacterVariantService,
   CharacterVitals,
-  FeatDisplayService,
   GenerateCharacterService,
   HeldContentPacks,
   PathbuilderExportService,
   PathbuilderImportService,
   PioneerFileService,
-  PlayService,
-  SheetModeService,
 } from '@pioneer/character/application';
 import type { CharacterContentSource } from '@pioneer/character/application';
 import {
-  characterAllyRoutes,
-  characterPackRoutes,
   characterRoutes,
-  characterRuleLimitRoutes,
-  characterUnenabledRoutes,
-  characterVariantRoutes,
   DrizzleCharacterPackRepository,
   DrizzleCharacterRepository,
   DrizzleCharacterRuleLimitRepository,
   DrizzleCharacterVariantRepository,
-  DrizzleFeatDisplayRepository,
-  DrizzleSheetModeRepository,
-  featDisplayRoutes,
   generateCharacterRoutes,
   HttpPathbuilderExportFetcher,
   pathbuilderImportRoutes,
   pioneerFileRoutes,
-  playRoutes,
-  sheetModeRoutes,
 } from '@pioneer/character/infrastructure';
 import { PackAccessPolicy } from '@pioneer/homebrew/application';
 import { DrizzlePackDependencyRepository, DrizzlePackDirectory } from '@pioneer/homebrew/infrastructure';
@@ -52,6 +39,7 @@ import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/serve
 import { CampaignPackDirectory } from './attached-campaign-pack-directory';
 import { CampaignCharacterRoles } from './campaign-character-roles';
 import { CampaignPackEnablementDirectory } from './campaign-pack-enablement-directory';
+import { characterSheetRoutes } from './character-sheet-routes';
 import type { Database } from './database';
 import { HomebrewPackCatalog } from './homebrew-pack-catalog';
 import { PioneerEmbeddedHomebrew } from './pioneer-embedded-homebrew';
@@ -159,9 +147,6 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
   );
   const pioneerFiles = new PioneerFileService({ repository, content: characterContent, clock, homebrew });
-  const sheetModes = new SheetModeService(repository, new DrizzleSheetModeRepository(db), clock);
-  const featDisplay = new FeatDisplayService(repository, new DrizzleFeatDisplayRepository(db), clock);
-  const play = new PlayService(repository, characterContent, clock);
   return {
     pioneerFiles,
     flaggedItems: new CharacterFlaggedItems(characterContent),
@@ -173,14 +158,17 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     routes: characterRoutes(service, authenticator)
       .use(pathbuilderImportRoutes(pathbuilder, authenticator))
       .use(pioneerFileRoutes(pioneerFiles, authenticator))
-      .use(sheetModeRoutes(sheetModes, authenticator))
       .use(generateCharacterRoutes(new GenerateCharacterService(repository, characterContent, clock), authenticator))
-      .use(featDisplayRoutes(featDisplay, authenticator))
-      .use(characterAllyRoutes(allies, authenticator))
-      .use(characterPackRoutes(packs, authenticator))
-      .use(characterVariantRoutes(variants, authenticator))
-      .use(characterRuleLimitRoutes(ruleLimits, authenticator))
-      .use(characterUnenabledRoutes(unenabled, authenticator))
-      .use(playRoutes(play, authenticator)),
+      .use(
+        characterSheetRoutes({
+          db,
+          clock,
+          authenticator,
+          repository,
+          content: characterContent,
+          characters: service,
+          services: { packs, allies, variants, ruleLimits, unenabled },
+        }),
+      ),
   };
 }

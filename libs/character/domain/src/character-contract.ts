@@ -10,6 +10,7 @@ import { CharacterPacks, EnablePackBody } from './character-packs';
 import { PatchCharacterBody } from './character-patch';
 import { CharacterRuleLimitContract } from './character-rule-limit-contract';
 import { CharacterSheet, PatchedCharacterSheet } from './character-sheet';
+import { CharacterSheetBundle } from './character-sheet-bundle';
 import { CharacterVariantRules, EnableVariantRuleBody } from './character-variant-rules';
 import { FeatDisplayChoice, SetFeatDisplayBody } from './feat-display';
 import { GenerateCharacterBody, GeneratedCharacter } from './generate-character-contract';
@@ -49,6 +50,19 @@ export const CharacterContract = {
     query: NoQuery,
     body: NoBody,
     response: CharacterSheet,
+  }),
+  /**
+   * The sheet and everything it always needs on opening, in one request: its rule limits and, for the owner alone, play
+   * state, the viewer's tab and feat display, packs, variant rules, rule limit settings and unenabled content. A
+   * campaign's GM gets the sheet and its rule limits.
+   */
+  sheetBundle: new Endpoint({
+    method: HttpMethod.Get,
+    path: '/characters/:id/sheet',
+    params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterSheetBundle,
   }),
   create: new Endpoint({
     method: HttpMethod.Post,
