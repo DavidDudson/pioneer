@@ -4781,7 +4781,8 @@
         "striking": 1,
         "property": ["55822cf6-140a-55d9-9015-60f75cd52e5a"]
       }
-    }
+    },
+    "supersedes": ["5df53e66-891d-5cf8-a7c9-31b1fe9bfdd0"]
   },
   {
     "id": "b6b43547-882d-5370-99d7-369f7d95a418",

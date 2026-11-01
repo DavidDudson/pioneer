@@ -384,7 +384,8 @@
         "type": "worn",
         "slot": "garment"
       }
-    }
+    },
+    "supersedes": ["0af91051-72d3-5285-bf06-7032ac818bdf"]
   },
   {
     "id": "a937d247-7ab0-54ed-b944-ee54eed90b0e",
@@ -28253,7 +28254,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["6bc98712-c4ba-5047-9546-bca8fa650005"]
   },
   {
     "id": "2192f394-9af8-5734-8714-6ff00842d3ed",

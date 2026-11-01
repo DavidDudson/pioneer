@@ -59,6 +59,10 @@ aon-pages *args:
 content-enrich *args:
     bun tools/enrich-content.ts {{args}}
 
+# Set `supersedes` on remaster entries from AoN's `remaster_id` pairs (content/aon/supersedes), never repeating an id
+content-supersedes:
+    bun tools/enrich-supersedes.ts
+
 # Everything CI runs
 check:
     bun run check
