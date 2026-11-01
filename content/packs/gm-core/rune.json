@@ -913,7 +913,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "acid"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Wm0X7Pfd1bfocPSv"
     },
@@ -967,7 +975,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "acid"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.vQUIUAFOTOWj3ohh"
     },
@@ -1539,7 +1555,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d10",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.XszNvxnymWYRaoTp"
     },
@@ -1593,7 +1626,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 2,
+        "dieSize": "d10",
+        "damageType": "fire",
+        "category": "persistent",
+        "critical": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.RSZwUlCzUX7Nb4UA"
     },
@@ -2131,7 +2181,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "cold"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.M5M1WJ5KzbYfRGsY"
     },
@@ -2194,7 +2252,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "cold"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Sexud7FdxIrg50vU"
     },
@@ -4178,7 +4244,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.NVst7e69agGG9Qwd"
     },
@@ -4241,7 +4315,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "electricity"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.TEa1oKZbwsOvC6TZ"
     },
@@ -5039,7 +5121,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "sonic"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.dTxbaa7HSiJbIuNN"
     },
@@ -5111,7 +5201,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "sonic"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.Lb7F2BR9X9TF1vjX"
     },

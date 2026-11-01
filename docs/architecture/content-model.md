@@ -307,6 +307,11 @@ invested or identified is play state, not content.
   and a `restriction` slug from Foundry's usage (`melee`, `metal`).
   A `property` rune with no `rules` and no `activations`, or with `unapplied: true` (the engine applies only part of it),
   shows as "not applied" on the sheet, so the player applies it by hand; the mark goes as the rune's content lands.
+  A weapon property rune's damage rules select
+  `etched-damage`, which reaches only the Strike of the weapon the rune is etched on, not every Strike the character
+  has (`strike-rules.ts`). The energy runes (corrosive, flaming, frost, shock, thundering, and their greater grades)
+  carry their extra damage that way; the rest are recorded gaps in `weapon-rune-rules.test.ts` until the engine
+  can express them, and the runes with an activation belong to the weapon activations story.
 - **Consumables.** `category` is Foundry's (`potion`, `scroll`, `wand`, `talisman`…) plus `ammunition`. `uses` is
   how many times it is used before it is spent, once when absent; a `kept` one stays when spent (a wand, cast once a
   day). `damage` is a formula, type and `kind`
