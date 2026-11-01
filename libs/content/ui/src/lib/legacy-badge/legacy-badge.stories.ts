@@ -26,3 +26,13 @@ export const Remaster: LegacyBadgeStory = {
     await expect(within(canvasElement).queryByText('Legacy')).toBeNull();
   },
 };
+
+/** A legacy entry a remaster one replaces: "Replaced by" and a link to it. */
+export const Replaced: LegacyBadgeStory = {
+  args: { legacy: true, replacedBy: [{ name: 'Sudden Charge', to: ['/content', 'feat', 'sudden-charge'] }] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Replaced by')).toBeVisible();
+    await expect(canvas.getByRole('link', { name: 'Sudden Charge' })).toBeVisible();
+  },
+};

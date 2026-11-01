@@ -15,6 +15,12 @@ export interface BrowseCreature {
   readonly armorClass: number;
 }
 
+/** A remaster entry that replaces a legacy one: its name and where it opens. */
+export interface BrowseReplacement {
+  readonly name: string;
+  readonly to: LinkTarget;
+}
+
 /** An entry as the list shows it: the level and kind already in the UI locale. */
 export interface BrowseRow {
   readonly id: string;
@@ -35,4 +41,6 @@ export interface BrowseRow {
   readonly sources: readonly BrowseSource[];
   /** The entry is legacy content: under the Open Game License, from before the remaster. */
   readonly legacy: boolean;
+  /** The remaster entries that replace this one, when it is legacy. */
+  readonly replacedBy: readonly BrowseReplacement[];
 }

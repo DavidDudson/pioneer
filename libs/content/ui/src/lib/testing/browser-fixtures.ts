@@ -15,7 +15,7 @@ import type { FacetCounts, FilterState } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import type { EntryPreview } from '@pioneer/rules/ui';
 
-import type { BrowseRow } from '../browse-row';
+import type { BrowseReplacement, BrowseRow } from '../browse-row';
 import type { ContentBrowserList } from '../browser-list';
 import { EMPTY_BROWSER_STATE } from '../browser-state';
 import type { ContentBrowserState, ContentEntryRef } from '../browser-state';
@@ -46,6 +46,7 @@ export const BROWSER_ROWS: readonly BrowseRow[] = PACK.otherEntries.map((entry) 
     traits: entry.traits.map((trait) => ({ label: trait, tone: 'neutral' as const })),
     sources: [{ source: BOOK, book: undefined, license: ContentLicense.Orc }],
     legacy: false,
+    replacedBy: [],
   };
 });
 
@@ -105,13 +106,23 @@ export function loaded<TData>(data: TData): AsyncQuery<TData> {
   return { data: signal(data), error: signal(undefined), isPending: () => false, isError: () => false };
 }
 
-/** `row` with its legacy flag set. */
-function legacyRow(row: BrowseRow, legacy: boolean): BrowseRow {
-  return { ...row, legacy };
+/** `row` with its legacy flag set, and the entries that replace it. */
+function legacyRow(row: BrowseRow, legacy: boolean, replacedBy: readonly BrowseReplacement[] = []): BrowseRow {
+  return { ...row, legacy, replacedBy };
 }
 
 /** The feats again, the first of them from a pre-remaster book. */
 export const LEGACY_LIST: ContentBrowserList = {
   ...BROWSER_LIST,
   rows: BROWSER_ROWS.map((row, index) => legacyRow(row, index === 0)),
+};
+
+/** The second feat as the first one's replacement. */
+const REPLACEMENT: BrowseReplacement = { name: BROWSER_ROWS[1]?.name ?? '', to: BROWSER_ROWS[1]?.to ?? [] };
+export const REPLACEMENT_NAME = REPLACEMENT.name;
+
+/** The feats again, the first of them legacy and replaced by the second. */
+export const REPLACED_LIST: ContentBrowserList = {
+  ...BROWSER_LIST,
+  rows: BROWSER_ROWS.map((row, index) => legacyRow(row, index === 0, index === 0 ? [REPLACEMENT] : [])),
 };

@@ -17,7 +17,8 @@
       "searchEmptyDescription": "No entry matches those words and filters. Try fewer words, or clear a filter."
     },
     "legacy": {
-      "label": "Legacy"
+      "label": "Legacy",
+      "replacedBy": "Replaced by"
     },
     "entry": {
       "back": "Back to the list",

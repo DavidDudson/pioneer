@@ -1,5 +1,5 @@
 export { default as contentBrowserMessages } from './i18n/en.json';
-export type { BrowseCreature, BrowseRow } from './lib/browse-row';
+export type { BrowseCreature, BrowseReplacement, BrowseRow } from './lib/browse-row';
 export type { BrowseSource, StoreLink } from './lib/browse-source';
 export { BrowseSources } from './lib/browse-sources/browse-sources.component';
 export type { ContentBrowserEntry, ContentBrowserList } from './lib/browser-list';

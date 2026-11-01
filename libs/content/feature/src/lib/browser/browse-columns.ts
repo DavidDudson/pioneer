@@ -89,7 +89,7 @@ function withClosingColumns(
       header: say(ColumnMessage.Legacy),
       sortValue: (row) => (row.legacy ? 1 : 0),
       component: LegacyBadge,
-      inputs: (row) => ({ legacy: row.legacy }),
+      inputs: (row) => ({ legacy: row.legacy, replacedBy: row.replacedBy }),
       hideable: true,
     });
 }
