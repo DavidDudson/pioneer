@@ -28,12 +28,14 @@ function skillsSection(root: HTMLElement): HTMLElement {
 }
 
 function timelineSection(root: HTMLElement): HTMLElement {
-  return present(root.querySelector('section[aria-labelledby="sheet-timeline"]'));
+  return present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
 }
 
 /** The labels of the Plan tab's skill pickers. */
 function pickerLabels(root: HTMLElement): string[] {
-  return [...timelineSection(root).querySelectorAll('pio-sheet-pick-fields fr-inline-field')].map((field) =>
+  // The choices' own pickers come first; the skill pickers are the last block.
+  const skillFields = [...timelineSection(root).querySelectorAll('pio-sheet-pick-fields')].at(-1);
+  return [...(skillFields?.querySelectorAll('fr-inline-field') ?? [])].map((field) =>
     present(field.querySelector('fr-text')).textContent.trim(),
   );
 }
