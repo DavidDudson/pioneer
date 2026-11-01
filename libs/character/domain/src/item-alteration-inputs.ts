@@ -1,13 +1,19 @@
-import { alterItem } from '@pioneer/rules/engine';
+import { adjustStrike, alterItem } from '@pioneer/rules/engine';
 import type { AlteredItem, ItemNumbers, ModifierInputs } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
-import { ContentKind, NumericItemProperty, RollOptionTail, slugName } from '@pioneer/rules/sdk';
+import { ContentKind, NumericItemProperty, RollOptionTail, slugName, Trait } from '@pioneer/rules/sdk';
 import type { DamageType, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
 
 /** Every item `ItemAlteration` elements reach is equipped: `item:equipped` holds. */
 const EQUIPPED = RollOptionTail.parse('equipped');
+
+/** The trait of a weapon made to be thrown. */
+const THROWN = Trait.parse('thrown');
+
+/** The trait of a magical item. */
+const MAGICAL = Trait.parse('magical');
 
 /** A number of an item that may be missing, by the property an alteration names it by. */
 type Candidates = readonly (readonly [NumericItemProperty, number | undefined])[];
@@ -73,12 +79,29 @@ function materialsOf(entry: ItemEntry): readonly Slug[] {
   return material === undefined ? [] : [material.type];
 }
 
-/** The roll options of an equipped item that a predicate over `item:` reads: `type:armor`, `trait:shield`, `slug:…`. */
+/** The roll options a weapon adds to an item's: its category, group and base, and how it is used. */
+function weaponRollOptions(
+  entry: Extract<ItemEntry, { readonly kind: typeof ContentKind.Weapon }>,
+): readonly RollOptionTail[] {
+  const { category, group, baseItem, range } = entry.data;
+  const thrown = entry.traits.includes(THROWN);
+  return [
+    `category:${category}`,
+    ...(group === undefined ? [] : [`group:${group}`]),
+    ...(baseItem === undefined ? [] : [`base:${baseItem}`]),
+    ...(range === undefined ? ['melee'] : ['ranged']),
+    ...(thrown ? ['thrown'] : []),
+    ...(entry.traits.includes(MAGICAL) ? ['magical'] : []),
+  ].map((option) => RollOptionTail.parse(option));
+}
+
+/** The roll options of an equipped item that a predicate over `item:` reads: `type:armor`, `trait:shield`, `slug:…`; a weapon's too. */
 function rollOptionsOf(entry: ItemEntry): readonly RollOptionTail[] {
   return [
     RollOptionTail.parse(`type:${entry.kind}`),
     RollOptionTail.parse(`slug:${slugName(entry.slug)}`),
     ...entry.traits.map((trait) => RollOptionTail.parse(`trait:${trait}`)),
+    ...(entry.kind === ContentKind.Weapon ? weaponRollOptions(entry) : []),
     EQUIPPED,
   ];
 }
@@ -86,10 +109,11 @@ function rollOptionsOf(entry: ItemEntry): readonly RollOptionTail[] {
 /**
  * An equipped item's content as the `ItemAlteration` elements in play change it (`alterItem`): its numbers (armour's
  * bonus, Dexterity cap, check penalty and Strength, a shield's Hardness and Hit Points, a weapon's range increment),
- * its traits and damage type, and the materials and property runes the elements add to what its content names.
+ * its traits and damage type, and the materials and property runes the elements add to what its content names. A
+ * weapon's Strike is then adjusted by the `AdjustStrike` elements in play (`adjustStrike`).
  */
 export function alteredItem(rules: ModifierInputs, entry: ItemEntry, picked: readonly RuleSlug[] = []): AlteredItem {
-  return alterItem(rules, {
+  const altered = alterItem(rules, {
     rollOptions: [...rollOptionsOf(entry), ...picked.map((flag) => RollOptionTail.parse(`picked:${flag}`))],
     numbers: numbersOf(entry),
     traits: entry.traits,
@@ -97,4 +121,5 @@ export function alteredItem(rules: ModifierInputs, entry: ItemEntry, picked: rea
     materials: materialsOf(entry),
     propertyRunes: [],
   });
+  return entry.kind === ContentKind.Weapon ? adjustStrike(rules, altered) : altered;
 }
