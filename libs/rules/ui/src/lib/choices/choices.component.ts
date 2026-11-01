@@ -4,11 +4,17 @@ import { EmptyState, List, ListItem, Skeleton } from '@pioneer/frontier';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import type { ChoiceLine } from './choice-line';
+import type { ChoiceLine, ChoiceReplacement } from './choice-line';
 import { ChoiceRow } from './choice-row/choice-row.component';
 import { ChoicesMessage } from './choices-messages';
 
 const LOADING_ROWS = 3;
+
+/** A pick the viewer asked to change to a newer entry. */
+export interface ChoiceReplace {
+  readonly slot: SlotKey;
+  readonly replacement: ChoiceReplacement;
+}
 
 /** A choice the viewer kept or let go of. */
 export interface ChoiceLockChange {
@@ -45,6 +51,8 @@ export class ChoicesView {
   public readonly problems = input<ReadonlyMap<SlotKey, MessageDescriptor>>(new Map());
   /** A keep toggle was pressed. */
   public readonly lockChange = output<ChoiceLockChange>();
+  /** A replacement was pressed on a legacy pick. */
+  public readonly replace = output<ChoiceReplace>();
 
   protected readonly Message = ChoicesMessage;
   protected readonly loadingRows = Array.from({ length: LOADING_ROWS }, (_unused, index) => index);

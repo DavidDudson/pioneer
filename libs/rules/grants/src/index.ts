@@ -2,7 +2,7 @@ export { type AnsweredSlot, type ChoicePicks, type ChoiceSlot } from './choices'
 export { FIRST_TAKE, slotKeyOf } from './takes';
 export type { OfferedOption } from './offers';
 export type { OwnedItem } from './owned-items';
-export type { ContentLookup, EntryFacts, GrantEntry, GrantError, GrantRoot } from './grant-entry';
+export type { ContentLookup, EntryFacts, GrantEntry, GrantError, GrantRoot, Replacement } from './grant-entry';
 export type { ConditionalGrant, GrantedItem } from './grant-walk';
 export { GrantsMessage } from './messages';
 export { kindOption } from './character-facts';

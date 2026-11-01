@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AsyncButton, Stack } from '@pioneer/frontier';
+import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { ChoicesView } from '@pioneer/rules/ui';
-import type { ChoiceLockChange } from '@pioneer/rules/ui';
+import type { ChoiceLockChange, ChoiceReplace } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
 
@@ -43,6 +44,16 @@ export class SheetReroll {
   protected keep({ slot, locked }: ChoiceLockChange): void {
     this.locked.update((kept) => new Set(locked ? [...kept, slot] : [...kept].filter((key) => key !== slot)));
     this.problems.update((problems) => new Map([...problems].filter(([key]) => key !== slot)));
+  }
+
+  /** Changes a legacy pick to the newer entry that replaces it; a refusal shows beneath the pick. */
+  protected async replace({ slot, replacement }: ChoiceReplace): Promise<void> {
+    this.problems.update((problems) => new Map([...problems].filter(([key]) => key !== slot)));
+    try {
+      await this.#sheet.store.selectSlot(slot, ChoiceValue.parse(replacement.id));
+    } catch (error) {
+      this.problems.update((problems) => new Map([...problems, [slot, describeSaveError(error)]]));
+    }
   }
 
   protected readonly reroll = async (): Promise<void> => {

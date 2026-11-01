@@ -15,6 +15,7 @@ import {
 } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
+import type { EntryFacts } from './grant-entry';
 import { grantLookup } from './grant-lookup';
 
 /** The `legacy` fact of the one feat in a pack published under `license`. */
@@ -224,5 +225,42 @@ describe('grantLookup', () => {
       ['encumbered', false],
       ['clumsy', true],
     ]);
+  });
+});
+
+/** The facts of the feat with `id`, the character having legacy content on. */
+const factsOfId = (registry: ContentRegistry, id: string): EntryFacts | undefined =>
+  grantLookup(registry, true)
+    .ofKind(ContentKind.Feat)
+    .find((entry) => entry.id === id)?.facts;
+
+describe('grantLookup replacements', () => {
+  const legacyBuilder = new ContentPackBuilder().withId('legacy-book').withLicense(ContentLicense.Ogl);
+  const legacyId = legacyBuilder.idOf(ContentKind.Feat, 'old-charge');
+  const legacyPack = legacyBuilder.withFeat('old-charge').build();
+  const remasterBuilder = new ContentPackBuilder().withId('remaster-book').withLicense(ContentLicense.Orc);
+  const remasterId = remasterBuilder.idOf(ContentKind.Feat, 'charge');
+  const remasterPack = remasterBuilder.withFeat('charge', { supersedes: [legacyId] }).build();
+
+  function registryOfBoth(): ContentRegistry {
+    const registry = new ContentRegistry();
+    registry.register(legacyPack);
+    registry.register(remasterPack);
+    return registry;
+  }
+
+  test('names the remaster entry that replaces a legacy one in its facts', () => {
+    const replacedBy = factsOfId(registryOfBoth(), legacyId)?.replacedBy;
+    expect(replacedBy?.map(({ id }) => id)).toEqual([ContentId.parse(remasterId)]);
+  });
+
+  test('says nothing of the remaster entry itself', () => {
+    expect(factsOfId(registryOfBoth(), remasterId)?.replacedBy).toBeUndefined();
+  });
+
+  test('offers no replacement from a pack no longer in force', () => {
+    const registry = registryOfBoth();
+    putUnsupportedPacks(registry, [contentPackId(remasterPack.id)]);
+    expect(factsOfId(registry, legacyId)?.replacedBy).toBeUndefined();
   });
 });

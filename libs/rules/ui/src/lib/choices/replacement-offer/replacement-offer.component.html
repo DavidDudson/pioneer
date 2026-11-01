@@ -1,0 +1,14 @@
+@if (open()) {
+  <fr-stack gap="3xs">
+    @for (replacement of replacements(); track replacement.id) {
+      <fr-text variant="caption">{{
+        Message.ReplacedExplained | transloco: { name: name(), replacement: replacement.name }
+      }}</fr-text>
+      <fr-stack direction="horizontal">
+        <fr-button size="sm" (pressed)="replace.emit(replacement)">{{
+          Message.ReplaceWith | transloco: { name: replacement.name }
+        }}</fr-button>
+      </fr-stack>
+    }
+  </fr-stack>
+}

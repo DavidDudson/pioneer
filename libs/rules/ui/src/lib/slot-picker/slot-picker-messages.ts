@@ -19,6 +19,8 @@ export const SlotPickerMessage = {
   KnownNo: 'rules.slotPicker.knownNo',
   AddLore: 'rules.slotPicker.addLore',
   Legacy: 'rules.slotPicker.legacy',
+  /** Marks a legacy option a newer entry replaces: "Replaced by Sudden Charge". */
+  ReplacedBy: 'rules.slotPicker.replacedBy',
   Unsupported: 'rules.slotPicker.unsupported',
 } as const;
 

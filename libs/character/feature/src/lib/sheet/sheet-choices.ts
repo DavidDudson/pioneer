@@ -6,7 +6,7 @@ import type { ContentLookup, EntryFacts } from '@pioneer/rules/grants';
 import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
 import type { ChoiceValue, ContentRegistry, ContentText, SlotKey } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
-import type { ChoiceLine, ChoiceSelection, SlotPickerFacts, SlotPickerRow } from '@pioneer/rules/ui';
+import type { ChoiceLine, ChoiceReplacement, ChoiceSelection, SlotPickerFacts, SlotPickerRow } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -110,6 +110,7 @@ function labelOf(subject: SlotSubject | undefined): MessageDescriptor {
 interface PickFlags {
   readonly legacy?: true;
   readonly unsupported?: true;
+  readonly replacedBy?: readonly ChoiceReplacement[];
 }
 
 /** The flags of the pick's entry: from a pre-remaster book, from a pack no longer in force. */
@@ -119,6 +120,7 @@ function flagsOfPick(selection: ChoiceValue, lookup: ContentLookup | undefined):
   return {
     ...(facts?.legacy === true ? { legacy: true as const } : {}),
     ...(facts?.unsupported === true ? { unsupported: true as const } : {}),
+    ...(facts?.replacedBy === undefined ? {} : { replacedBy: facts.replacedBy.map(({ id, name }) => ({ id, name })) }),
   };
 }
 
@@ -175,7 +177,7 @@ export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLo
 }
 
 /** What an option's entry says of itself, as the slot picker's table shows it. */
-function factsOf({ level, rarity, traits, description, legacy, unsupported }: EntryFacts): SlotPickerFacts {
+function factsOf({ level, rarity, traits, description, legacy, unsupported, replacedBy }: EntryFacts): SlotPickerFacts {
   return {
     level,
     rarity,
@@ -183,6 +185,7 @@ function factsOf({ level, rarity, traits, description, legacy, unsupported }: En
     summary: description,
     ...(legacy === true ? { legacy } : {}),
     ...(unsupported === true ? { unsupported } : {}),
+    ...(replacedBy === undefined ? {} : { replacedBy: replacedBy.map(({ name }) => name) }),
   };
 }
 

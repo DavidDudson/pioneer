@@ -2,6 +2,7 @@ import { SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
 import type { CharacterSlot } from '@pioneer/character/domain';
 import { grantLookup } from '@pioneer/rules/grants';
 import {
+  ChoiceValue,
   ContentId,
   contentId,
   ContentKind,
@@ -60,7 +61,7 @@ describe(lineOf, () => {
   });
 });
 
-/** The line of a filled choice that picked the one feat of a pack published under `license`. */
+/** The line of a filled choice that picked the one feat of a pack published under `license`, legacy content on. */
 function pickedFrom(license: ContentLicense, unsupported = false): ChoiceLine {
   const registry = new ContentRegistry();
   const pack = new ContentPackBuilder().withLicense(license).withFeat('sudden-charge').build();
@@ -68,7 +69,7 @@ function pickedFrom(license: ContentLicense, unsupported = false): ChoiceLine {
   if (unsupported) {
     putUnsupportedPacks(registry, [contentPackId(pack.id)]);
   }
-  const lookup = grantLookup(registry);
+  const lookup = grantLookup(registry, true);
   const [feat] = lookup.ofKind(ContentKind.Feat);
   if (feat === undefined) {
     throw new Error('The test pack holds no feat');
@@ -102,5 +103,34 @@ describe('the pick of a filled choice', () => {
 
   it('is not flagged when its entry is remaster', () => {
     expect(pickedFrom(ContentLicense.Orc).selection).toStrictEqual({ name: 'Sudden-charge' });
+  });
+});
+
+describe('the pick of a legacy entry a remaster entry replaces', () => {
+  const legacyBuilder = new ContentPackBuilder().withId('legacy-book').withLicense(ContentLicense.Ogl);
+  const legacyId = legacyBuilder.idOf(ContentKind.Feat, 'old-charge');
+  const remasterBuilder = new ContentPackBuilder().withId('remaster-book').withLicense(ContentLicense.Orc);
+  const remasterId = remasterBuilder.idOf(ContentKind.Feat, 'charge');
+
+  function pickOfLegacy(): ChoiceLine {
+    const registry = new ContentRegistry();
+    registry.register(legacyBuilder.withFeat('old-charge').build());
+    registry.register(remasterBuilder.withFeat('charge', { supersedes: [legacyId] }).build());
+    const slot: CharacterSlot = {
+      status: SlotStatus.Filled,
+      key: SlotKey.parse('slot'),
+      subject: { kind: SlotSubjectKind.Choice, entry: ENTRY, entryName: NAME, prompt: PROMPT },
+      selection: ChoiceValue.parse(legacyId),
+      selectionName: ContentText.parse('Old-charge'),
+    };
+    return lineOf(slot, grantLookup(registry, true));
+  }
+
+  it('names the entries that replace it', () => {
+    expect(pickOfLegacy().selection).toStrictEqual({
+      name: 'Old-charge',
+      legacy: true,
+      replacedBy: [{ id: remasterId, name: 'Charge' }],
+    });
   });
 });

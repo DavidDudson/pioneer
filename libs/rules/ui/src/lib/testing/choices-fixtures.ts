@@ -66,3 +66,13 @@ export const ELF_CHOICES: readonly ChoiceLine[] = [
     selection: { name: 'Cavern' },
   },
 ];
+
+/** A filled choice whose legacy pick a newer entry replaces. */
+export const REPLACED_CHOICE: ChoiceLine = {
+  key: SlotKey.parse('replaced'),
+  label: message('rules.choices.slot.ancestry'),
+  state: ChoiceState.Filled,
+  selection: { name: 'Old Charge', legacy: true, replacedBy: [{ id: 'charge-id', name: 'Charge' }] },
+  level: undefined,
+  reason: undefined,
+};

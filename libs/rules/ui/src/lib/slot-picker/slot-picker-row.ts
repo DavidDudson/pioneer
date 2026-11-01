@@ -24,6 +24,8 @@ export interface SlotPickerFacts {
   readonly legacy?: true;
   /** From a pack the character no longer has in force, so the table says so beside its traits. */
   readonly unsupported?: true;
+  /** The names of the entries that replace it, so the table says so beside its traits. */
+  readonly replacedBy?: readonly string[];
 }
 
 /** One option of a slot that lists its options: its name, and the source of its content entry when it has one. */

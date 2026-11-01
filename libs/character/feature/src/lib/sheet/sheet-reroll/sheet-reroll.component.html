@@ -6,6 +6,7 @@
     [locked]="locked()"
     [problems]="problems()"
     (lockChange)="keep($event)"
+    (replace)="replace($event)"
   />
   <fr-stack direction="horizontal" justify="end">
     <fr-async-button

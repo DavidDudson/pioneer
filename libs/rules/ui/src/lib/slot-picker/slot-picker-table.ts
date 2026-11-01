@@ -53,6 +53,10 @@ function traitChips(facts: SlotPickerFacts | undefined, say: Say): readonly Chip
   }
   const flags: Chip[] = [
     ...(facts.legacy === true ? [{ label: say(SlotPickerMessage.Legacy), tone: BadgeTone.Warning }] : []),
+    ...(facts.replacedBy ?? []).map((name): Chip => ({
+      label: say(SlotPickerMessage.ReplacedBy, { name }),
+      tone: BadgeTone.Warning,
+    })),
     ...(facts.unsupported === true ? [{ label: say(SlotPickerMessage.Unsupported), tone: BadgeTone.Warning }] : []),
   ];
   const traits = facts.traits.map((label): Chip => ({ label }));

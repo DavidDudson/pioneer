@@ -33,6 +33,14 @@ export interface EntryFacts {
    * from it. Absent for any other entry.
    */
   readonly unsupported?: true;
+  /** The remaster entries that replace it, held back or not in force excepted. Absent when none does. */
+  readonly replacedBy?: readonly Replacement[];
+}
+
+/** A remaster entry that replaces a legacy one: what a pick can be changed to. */
+export interface Replacement {
+  readonly id: ContentId;
+  readonly name: ContentText;
 }
 
 /**

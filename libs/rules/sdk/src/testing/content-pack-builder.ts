@@ -48,6 +48,8 @@ interface EnvelopeFields {
   readonly rarity?: string;
   /** Rich text as JSON; none when absent. */
   readonly description?: readonly object[];
+  /** The ids of the legacy entries it replaces; none when absent. */
+  readonly supersedes?: readonly string[];
 }
 
 /** A test feat's level, traits, `data` beyond its category and `rules`, as JSON. */
@@ -58,6 +60,8 @@ interface FeatFields {
   readonly rules?: readonly object[];
   /** Rich text as JSON; none when absent. */
   readonly description?: readonly object[];
+  /** The ids of the legacy entries it replaces; none when absent. */
+  readonly supersedes?: readonly string[];
 }
 
 /** A test ancestry: its definition, with `rules` as JSON (the ancestry features it grants). */
@@ -359,7 +363,17 @@ export class ContentPackBuilder {
       variantRules: this.#variantRules.map((variant) => ({ sources, ...variant })),
       ...(this.#proficiencyBonus === undefined ? {} : { proficiencyBonus: this.#proficiencyBonus }),
       otherEntries: this.#entries.map(
-        ({ kind, name, data, rules = [], level, traits = [], rarity = 'common', description = [] }) => ({
+        ({
+          kind,
+          name,
+          data,
+          rules = [],
+          level,
+          traits = [],
+          rarity = 'common',
+          description = [],
+          supersedes = [],
+        }) => ({
           id: this.idOf(kind, name),
           pack: this.#id,
           kind,
@@ -372,6 +386,7 @@ export class ContentPackBuilder {
           rules,
           data,
           ...(level === undefined ? {} : { level }),
+          ...(supersedes.length === 0 ? {} : { supersedes }),
         }),
       ),
     });
