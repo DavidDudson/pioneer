@@ -837,14 +837,6 @@
         },
         {
           "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["item:deity-favored", "target:condition:off-guard"]
-          }
-        },
-        {
-          "type": "rule",
           "key": "ItemAlteration",
           "raw": {
             "itemType": "weapon",
@@ -1311,14 +1303,6 @@
           "type": "rule",
           "key": "CriticalSpecialization",
           "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
             "alternate": true,
             "key": "CriticalSpecialization",
             "predicate": ["epithet-critical-specialization"],
@@ -1407,14 +1391,6 @@
                 "text": "@UUID[Compendium.pf2e.feat-effects.Item.Effect: Dancer in the Seasons]"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
           }
         },
         {
@@ -3031,14 +3007,6 @@
           "type": "rule",
           "key": "CriticalSpecialization",
           "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
             "alternate": true,
             "key": "CriticalSpecialization",
             "predicate": ["epithet-critical-specialization"],
@@ -3086,13 +3054,6 @@
                 "text": "PF2E.SpecificRule.Exemplar.Epithet.PeerlessUnderHeaven.Description"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization"
           }
         },
         {
@@ -3351,14 +3312,6 @@
                 "text": "PF2E.SpecificRule.Exemplar.Epithet.RestlessAsTheTide.Description"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
           }
         },
         {
@@ -5444,14 +5397,6 @@
                 "text": "PF2E.SpecificRule.Exemplar.Epithet.WhoseCryIsThunder.Description"
               }
             ]
-          }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization",
-            "predicate": ["epithet-critical-specialization"]
           }
         },
         {

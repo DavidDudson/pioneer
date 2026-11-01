@@ -713,13 +713,6 @@
             "property": "name",
             "value": "PF2E.NPCAbility.Graveknight.WeaponMaster.Name"
           }
-        },
-        {
-          "type": "rule",
-          "key": "CriticalSpecialization",
-          "raw": {
-            "key": "CriticalSpecialization"
-          }
         }
       ]
     },

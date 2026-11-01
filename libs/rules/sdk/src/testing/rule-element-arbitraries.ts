@@ -204,6 +204,7 @@ const damageAlteration = oneof(
   alteration(DamageProperty.DamageType, constant('override'), damageType),
 );
 const outcomes = uniqueArray(anyOf(DegreeOfSuccess), { minLength: 1, maxLength: LIST_MAX });
+const criticalSpecialization = element('CriticalSpecialization', {});
 const note = element('Note', { selectors: targets, text: richTextJson }, { title: contentText, outcome: outcomes });
 const signatureSpells = element('SignatureSpells', { entry: slugText });
 const focusSpells = element('FocusSpells', {
@@ -283,6 +284,7 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   damageDice,
   damageAlteration,
   note,
+  criticalSpecialization,
   fastHealing,
   tempHp,
   creatureSize,

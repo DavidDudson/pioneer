@@ -1,20 +1,31 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
-import { DamageProperty, DiceCount, Domain, OriginHopKind, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
+import {
+  criticalSpecializationOf,
+  DamageProperty,
+  DegreeOfSuccess,
+  DiceCount,
+  Domain,
+  OriginHopKind,
+  RollOptionNamespace,
+  RuleElementKey,
+  RuleNumber,
+} from '@pioneer/rules/sdk';
 import type {
   ContentText,
   DamageAlterationElement,
   DamageDiceCategory,
   DamageDiceElement,
   DamageType,
-  DegreeOfSuccess,
   DieSize,
   InventoryItemId,
   ModifierTarget,
   NoteElement,
   Origin,
   RichText,
+  RollOptionTail,
   RuleValue,
+  WeaponGroup,
 } from '@pioneer/rules/sdk';
 
 import type { StatisticContent } from './derive-statistics';
@@ -74,11 +85,17 @@ export interface StrikeTargets {
   readonly damageType: DamageType;
   /** The weapon's origin, which says what inventory item it is (`ETCHED_DAMAGE`). */
   readonly origin?: Origin | undefined;
+  /** The weapon's group and its own roll options, which a `CriticalSpecialization` element reads. */
+  readonly group?: WeaponGroup | undefined;
+  readonly rollOptions?: readonly RollOptionTail[] | undefined;
   /** The selectors and domains of the Strike's attack roll. */
   readonly attack: ReadonlySet<ModifierTarget>;
   /** The selectors and domains of the Strike's damage roll. */
   readonly damage: ReadonlySet<ModifierTarget>;
 }
+
+/** Where a predicate reads a weapon's own roll options (`item:group:sword`). */
+const ITEM_NAMESPACE = RollOptionNamespace.parse('item');
 
 /** The domain every roll belongs to. */
 const ALL = Domain.parse('all');
@@ -186,6 +203,41 @@ function extraOf(
       ];
 }
 
+/** `notes` with the critical specialization of the Strike's weapon group, unless it has a group without one or already has it. */
+function withCriticalSpecialization(
+  notes: readonly StrikeNote[],
+  rule: RuleInPlay,
+  { group }: StrikeTargets,
+): readonly StrikeNote[] {
+  if (group === undefined) {
+    return notes;
+  }
+  const text = criticalSpecializationOf(group);
+  return notes.some((note) => note.outcome !== undefined && JSON.stringify(note.text) === JSON.stringify(text))
+    ? notes
+    : [
+        ...notes,
+        {
+          roll: NoteRoll.Damage,
+          title: undefined,
+          text,
+          outcome: [DegreeOfSuccess.CriticalSuccess],
+          origin: rule.origin,
+        },
+      ];
+}
+
+/** `notes` with what `rule` adds to them: the notes of a `Note` element, or a group's critical specialization. */
+function notedBy(notes: readonly StrikeNote[], rule: RuleInPlay, targets: StrikeTargets): readonly StrikeNote[] {
+  const { element } = rule;
+  if (element.key === RuleElementKey.Note) {
+    return [...notes, ...notesOf(rule, element, targets)];
+  }
+  return element.key === RuleElementKey.CriticalSpecialization
+    ? withCriticalSpecialization(notes, rule, targets)
+    : notes;
+}
+
 /** A Strike's rules as far as read: its dice and type so far, the extra dice and the notes found. */
 interface Reading extends DiceAndType {
   readonly extra: readonly ExtraDice[];
@@ -221,10 +273,7 @@ function applied(
   ) {
     return { ...reading, ...altered(reading, { element, rule }, using.read) };
   }
-  if (element.key === RuleElementKey.Note) {
-    return { ...reading, notes: [...reading.notes, ...notesOf(rule, element, targets)] };
-  }
-  return reading;
+  return { ...reading, notes: notedBy(reading.notes, rule, targets) };
 }
 
 /**
@@ -232,14 +281,18 @@ function applied(
  * depends on the situation (the target is undead) gives nothing here. `DamageDice` with a `dieSize` adds dice of its
  * own; without one it adds to the weapon's dice, or overrides their type. `DamageAlteration` changes the weapon's dice
  * number or type. Elements apply in the order found. A weapon with no die rolls flat damage, which neither changes. A
- * `Note` that reaches the attack or damage roll comes back with the roll it is for.
+ * `Note` that reaches a roll comes back with it; a `CriticalSpecialization` gives the critical hit note of the group.
  */
 export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets: StrikeTargets): StrikeRules {
   const using = { targets, read: readerFor(inputs, scope) };
   const start: Reading = { dice: targets.dice, damageType: targets.damageType, extra: [], notes: [] };
   let reading = start;
   for (const rule of inputs.rules) {
-    if (truthOf(rule.element.predicate, inputs.facts) === Truth.True) {
+    const facts =
+      rule.element.key === RuleElementKey.CriticalSpecialization
+        ? inputs.facts.withNamespace(ITEM_NAMESPACE, targets.rollOptions ?? [])
+        : inputs.facts;
+    if (truthOf(rule.element.predicate, facts) === Truth.True) {
       reading = applied(reading, rule, using);
     }
   }

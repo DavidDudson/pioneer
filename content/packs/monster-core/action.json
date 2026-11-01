@@ -262,18 +262,47 @@
             "dc": 34,
             "options": ["inflicts:slowed", "inflicts:petrified"],
             "outcomes": {
-              "criticalSuccess": [{ "type": "text", "text": "The creature is unaffected." }],
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
               "success": [
-                { "type": "text", "text": "The creature's body hardens, causing it to become " },
-                { "type": "ref", "id": "13584c6a-a624-511c-a5de-0c36a9136b9e", "label": "Slowed 1" },
-                { "type": "text", "text": " for 1 round." }
+                {
+                  "type": "text",
+                  "text": "The creature's body hardens, causing it to become "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 round."
+                }
               ],
               "failure": [
-                { "type": "text", "text": "The creature becomes " },
-                { "type": "ref", "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f" },
-                { "type": "text", "text": " for 1 minute. It can attempt a new save at the end of each of its turns." }
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute. It can attempt a new save at the end of each of its turns."
+                }
               ],
-              "criticalFailure": [{ "type": "text", "text": "The creature becomes petrified permanently." }]
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature becomes petrified permanently."
+                }
+              ]
             }
           },
           {
@@ -2750,7 +2779,11 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalSpecialization"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6isn9nqnvfRrC1wW"
     },

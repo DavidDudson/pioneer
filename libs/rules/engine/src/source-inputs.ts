@@ -10,6 +10,7 @@ import {
   MagicTraditionSchema,
   Origin,
   ReferenceKind,
+  RollOptionTail,
   RuleSlug,
   RuneGrade,
   Selector,
@@ -19,6 +20,7 @@ import {
   Trait,
   WeaponCategory,
   WeaponDamage,
+  WeaponGroup,
 } from '@pioneer/rules/sdk';
 import type { AttributeModifiers, MagicTradition, SourceReference } from '@pioneer/rules/sdk';
 import { issueParams, message } from '@pioneer/shared/kernel';
@@ -32,6 +34,10 @@ export interface WeaponInputs {
   /** Unique among the character's weapons; its Strike is `strike:<slug>`. */
   readonly slug: Slug;
   readonly category: WeaponCategory;
+  /** Its weapon group, whose critical specialization effect a `CriticalSpecialization` element gives its Strike. */
+  readonly group?: WeaponGroup | undefined;
+  /** Its own roll options without their namespace (`group:sword`, `picked:f`), which a `CriticalSpecialization` predicate reads as `item:`. */
+  readonly rollOptions?: readonly RollOptionTail[] | undefined;
   /** Its traits; `finesse` lets it attack with Dexterity. */
   readonly traits: readonly Trait[];
   /** The precious materials it is made of, as its content names them and `ItemAlteration` elements add them. */
@@ -113,6 +119,8 @@ const WeaponInputsJson = z.strictObject({
   slug: SourceSlug,
   category: z.enum(WeaponCategory),
   traits: z.array(Trait).readonly(),
+  group: z.enum(WeaponGroup).optional(),
+  rollOptions: z.array(RollOptionTail).readonly().optional(),
   range: Feet.optional(),
   potency: RuneGrade.optional(),
   striking: RuneGrade.optional(),
