@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { AttributeModifier, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
+import { AttributeModifier, BaseWeapon, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { equippedInputs } from './equipped';
@@ -116,5 +116,75 @@ describe('equipped items with ItemAlteration elements', () => {
 
     expect(weapon?.range).toBeUndefined();
     expect(weapon?.damage?.damageType).toBe('slashing');
+  });
+});
+
+/** An `AdjustStrike` of `property`, reaching the Strikes whose roll options satisfy `strikes`. */
+function adjusting(strikes: readonly string[], { property, mode, value }: Change): object {
+  return { key: 'AdjustStrike', strikes, property, mode, value };
+}
+
+describe('equipped weapons with AdjustStrike elements', () => {
+  test.each([
+    ['item:category:martial', true],
+    ['item:group:sword', true],
+    ['item:base:longsword', true],
+    ['item:melee', true],
+    ['item:ranged', false],
+    ['item:thrown', false],
+    ['item:magical', false],
+    ['item:group:bow', false],
+  ])('a longsword Strike is reached by strikes %s: %s', (strikes, reached) => {
+    const rules = altering([adjusting([strikes], { property: 'traits', mode: 'add', value: 'holy' }), 'blessing']);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+
+    expect(weapon?.traits.includes(Trait.parse('holy'))).toBe(reached);
+  });
+
+  test('an adjustment changes the Strike with a material, a property rune and a range increment', () => {
+    const rules = altering(
+      [adjusting(['item:ranged'], { property: 'materials', mode: 'add', value: 'silver' }), 'a'],
+      [adjusting(['item:ranged'], { property: 'property-runes', mode: 'add', value: 'ghost-touch' }), 'b'],
+      [adjusting(['item:ranged'], { property: 'range-increment', mode: 'multiply', value: 2 }), 'c'],
+    );
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Shortbow, HELD), content, { rules: () => rules }).weapons;
+
+    expect(weapon).toMatchObject({
+      materials: [Slug.parse('silver')],
+      propertyRunes: [Slug.parse('ghost-touch')],
+      range: 120,
+    });
+  });
+
+  test('an adjustment that does not reach the weapon leaves it as its content has it', () => {
+    const rules = altering([adjusting(['item:ranged'], { property: 'materials', mode: 'add', value: 'silver' }), 'a']);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+
+    expect(weapon?.materials).toEqual([]);
+  });
+});
+
+describe('equipped weapons: roll options for AdjustStrike', () => {
+  test('an unarmed Strike and a deity-favoured weapon are reached by their own roll options', () => {
+    const rules = altering(
+      [adjusting(['item:deity-favored'], { property: 'traits', mode: 'add', value: 'holy' }), 'favour'],
+      [adjusting(['item:category:unarmed'], { property: 'traits', mode: 'add', value: 'agile' }), 'fist'],
+    );
+    const favored = new Set([BaseWeapon.parse('longsword')]);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, {
+      rules: () => rules,
+      favored,
+    }).weapons;
+    const [unfavored] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+
+    expect([weapon?.traits.includes(Trait.parse('holy')), unfavored?.traits.includes(Trait.parse('holy'))]).toEqual([
+      true,
+      false,
+    ]);
+    expect(weapon?.traits.includes(Trait.parse('agile'))).toBe(false);
   });
 });
