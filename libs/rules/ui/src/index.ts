@@ -14,10 +14,13 @@ export {
   entryTarget,
   type EntryPreview,
   type EntryPreviews,
+  type PanelLink,
   type PreviewEffect,
   type PreviewRanks,
   type StatisticLink,
+  panelQuery,
   provideEntryPreviews,
+  SidePanelParam,
 } from './lib/entry-preview/entry-preview';
 export {
   INLINE_ROLLER,

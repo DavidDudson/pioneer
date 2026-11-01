@@ -5,7 +5,13 @@ import { expect, within } from 'storybook/test';
 
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import type { StatisticRoller } from '../statistics/statistic-roller';
-import { GRABBED_ACTIONS, PRONE_ACTIONS, SHIELD_RAISED_ACTIONS, STANDING_ACTIONS } from '../testing/action-fixtures';
+import {
+  GRABBED_ACTIONS,
+  PRONE_ACTIONS,
+  SHIELD_BLOCK_SUMMARY,
+  SHIELD_RAISED_ACTIONS,
+  STANDING_ACTIONS,
+} from '../testing/action-fixtures';
 import { ActionsViewKind } from './actions-list';
 import { ActionsView } from './actions.component';
 
@@ -94,4 +100,9 @@ export const AllByName: ActionsStory = {
       names.toSorted((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' })),
     );
   },
+};
+
+/** Hover or focus a name to see its summary: cost, traits, trigger, requirements and the opening of the effect. */
+export const Summary: ActionsStory = {
+  args: { lines: [{ ...SHIELD_BLOCK_SUMMARY.line, priority: 0 }, ...STANDING_ACTIONS] },
 };
