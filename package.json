@@ -5,6 +5,7 @@
   "description": "Pathfinder 2e character manager",
   "license": "MIT",
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "dev": "nx serve web --port=${WEB_PORT:-4200}",
     "check": "nx run-many -t lint lint-templates typecheck test test-storybook build verify-styles verify-dev-free && bun run lint:workspace && bun run typecheck:tools && bun run test:tools",
