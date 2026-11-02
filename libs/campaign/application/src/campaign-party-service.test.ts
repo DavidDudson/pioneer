@@ -125,7 +125,10 @@ describe('CampaignPartyService', () => {
     const hurt = PartyVitals.parse({
       hp: { current: 3, max: 18, temp: 0 },
       dying: 1,
-      conditions: ['dying', 'frightened'],
+      conditions: [
+        { name: 'dying', value: 1 },
+        { name: 'frightened', value: 2 },
+      ],
     });
     const directory = new InMemoryCharacterDirectory()
       .character({ id: valeros, ownerId: ezren, name: 'Valeros' })

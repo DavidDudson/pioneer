@@ -92,7 +92,8 @@ const RANK: ReadonlyMap<string, number> = new Map(CONDITIONS_BY_SERIOUSNESS.map(
 /** A slug the list does not know (homebrew) ranks after every known one. */
 const UNKNOWN_RANK = CONDITIONS_BY_SERIOUSNESS.length;
 
-function rankOf(slug: string): number {
+/** How serious a slug is: lower is worse, and a slug the list does not know ranks last. */
+export function rankOf(slug: string): number {
   return RANK.get(slug) ?? UNKNOWN_RANK;
 }
 

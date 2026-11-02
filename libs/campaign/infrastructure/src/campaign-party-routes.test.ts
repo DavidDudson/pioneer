@@ -46,7 +46,14 @@ function app(): AnyElysia {
     .character({ id: valeros, ownerId: ezren, name: 'Valeros', level: 3 })
     .vitals(
       valeros,
-      PartyVitals.parse({ hp: { current: 5, max: 20, temp: 2 }, dying: 1, conditions: ['dying', 'frightened'] }),
+      PartyVitals.parse({
+        hp: { current: 5, max: 20, temp: 2 },
+        dying: 1,
+        conditions: [
+          { name: 'dying', value: 1 },
+          { name: 'frightened', value: 2 },
+        ],
+      }),
     )
     .character({ id: merisiel, ownerId: ezren, name: 'Merisiel' })
     .character({ id: kyra, ownerId: seelah, name: 'Kyra' });
@@ -104,7 +111,7 @@ interface PartyCharacterJson extends CharacterJson {
   readonly vitals: {
     readonly hp?: { readonly current: number; readonly max: number; readonly temp: number };
     readonly dying: number;
-    readonly conditions: readonly string[];
+    readonly conditions: readonly { readonly name: string; readonly value?: number }[];
   };
 }
 
@@ -160,7 +167,14 @@ describe('party routes', () => {
           attachedAt: '2026-10-10T10:00:00.000Z',
           detachable: true,
           archived: false,
-          vitals: { hp: { current: 5, max: 20, temp: 2 }, dying: 1, conditions: ['dying', 'frightened'] },
+          vitals: {
+            hp: { current: 5, max: 20, temp: 2 },
+            dying: 1,
+            conditions: [
+              { name: 'dying', value: 1 },
+              { name: 'frightened', value: 2 },
+            ],
+          },
         },
       ],
       attachable: [{ characterId: merisiel, name: 'Merisiel', level: 1 }],

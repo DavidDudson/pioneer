@@ -4,6 +4,10 @@ import { ConditionSlug } from './condition-seriousness';
 export const ConditionBadgeMessage = {
   /** A condition with no name here (homebrew): "Condition". */
   Other: 'rules.conditionBadge.other',
+  /** The line for a character at or below half its Hit Points. */
+  Bloodied: 'rules.conditionBadge.bloodied',
+  /** What the conditions popover says when there is nothing to list. */
+  None: 'rules.conditionBadge.none',
 } as const;
 
 /** The name of each remaster condition, for the badge's text alternative. */

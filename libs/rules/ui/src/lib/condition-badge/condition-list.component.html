@@ -1,0 +1,17 @@
+<fr-stack gap="xs">
+  @if (bloodied()) {
+    <fr-text weight="medium">{{ bloodiedName | transloco }}</fr-text>
+  }
+  @for (row of rows(); track row.slug) {
+    <fr-stack direction="horizontal" gap="xs" align="center">
+      <fr-icon [icon]="row.icon" />
+      <fr-text>{{ row.name | transloco }}</fr-text>
+      @if (row.value; as value) {
+        <fr-text weight="medium">{{ value }}</fr-text>
+      }
+    </fr-stack>
+  }
+  @if (empty()) {
+    <fr-text tone="subtle">{{ noneName | transloco }}</fr-text>
+  }
+</fr-stack>

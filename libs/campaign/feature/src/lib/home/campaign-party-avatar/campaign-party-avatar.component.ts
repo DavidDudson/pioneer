@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import type { CharacterId, PartyVitals } from '@pioneer/campaign/domain';
-import { CharacterAvatar, GiftBadge } from '@pioneer/frontier';
-import { ConditionBadge } from '@pioneer/rules/ui';
+import { CharacterAvatar, GiftBadge, HoverCard, HoverCardContent } from '@pioneer/frontier';
+import { ConditionBadge, ConditionList } from '@pioneer/rules/ui';
+import type { ConditionLine } from '@pioneer/rules/ui';
 
 import { CampaignTransferStore } from '../../data/campaign-transfer-store';
 
@@ -13,11 +14,12 @@ import { CampaignTransferStore } from '../../data/campaign-transfer-store';
  * It only tracks whether the offers are showing: the party row reads `offers` and `expanded` through a template
  * reference and lists each offer below the whole row, with the same accept, decline and withdraw buttons as the
  * offers panel, so only the recipient's owner can accept. Accepted, declined and withdrawn offers leave the list,
- * and the badge with them.
+ * and the badge with them. Hovering or focusing the avatar opens a popover that lists its conditions with their
+ * values, most serious first, and says whether it is bloodied.
  */
 @Component({
   selector: 'pio-campaign-party-avatar',
-  imports: [CharacterAvatar, ConditionBadge, GiftBadge, TranslocoPipe],
+  imports: [CharacterAvatar, ConditionBadge, ConditionList, GiftBadge, HoverCard, HoverCardContent, TranslocoPipe],
   templateUrl: './campaign-party-avatar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -37,6 +39,20 @@ export class CampaignPartyAvatar {
 
   /** The avatar's Hit Points; none while the character has no maximum. */
   protected readonly hp = computed(() => this.vitals().hp);
+
+  /** The names of its conditions, for the badge. */
+  protected readonly slugs = computed(() => this.vitals().conditions.map(({ name }) => name));
+
+  /** Its conditions with their values, for the popover. */
+  protected readonly lines = computed((): readonly ConditionLine[] =>
+    this.vitals().conditions.map(({ name, value }): ConditionLine => ({ slug: name, value })),
+  );
+
+  /** Whether it is at or below half its Hit Points. */
+  protected readonly bloodied = computed((): boolean => {
+    const points = this.hp();
+    return points !== undefined && points.max > 0 && points.current * 2 <= points.max;
+  });
 
   /** The avatar's death-save darkening, one step per point of the dying value (not failed saves as such); undefined while not dying. */
   protected readonly failedSaves = computed(() => {

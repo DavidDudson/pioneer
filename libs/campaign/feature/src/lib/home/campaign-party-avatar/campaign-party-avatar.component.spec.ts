@@ -39,7 +39,14 @@ const party = {
     attachedAt: '2026-10-12T10:00:00.000Z',
     vitals:
       index === 0
-        ? { hp: { current: 3, max: 18, temp: 0 }, dying: 0, conditions: ['frightened', 'wounded'] }
+        ? {
+            hp: { current: 3, max: 18, temp: 0 },
+            dying: 0,
+            conditions: [
+              { name: 'frightened', value: 2 },
+              { name: 'wounded', value: 2 },
+            ],
+          }
         : { dying: 0, conditions: [] },
     detachable: false,
     archived: false,
@@ -130,6 +137,27 @@ describe('CampaignPartyAvatar', () => {
     expect(present(hurt).querySelector('pio-condition-badge')?.textContent.trim()).toBe('Wounded 2');
     expect(present(well).querySelector('svg[role="img"]')).toBeNull();
     expect(present(well).querySelector('pio-condition-badge fr-badge')).toBeNull();
+  });
+
+  it('opens a popover of its conditions and values on focus, bloodied first, then the most serious', async () => {
+    const root = await open([], 0);
+    const [hurt] = [...root.querySelectorAll<HTMLElement>('fr-hover-card > span[tabindex="0"]')];
+    present(hurt).dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+
+    await vi.waitFor(() => {
+      const card = document.body.querySelector('[role="tooltip"]');
+      expect(card?.textContent.replaceAll(/\s+/gu, '')).toBe('BloodiedWounded2Frightened2');
+    });
+  });
+
+  it('opens a popover that says there are no conditions for a character with none', async () => {
+    const root = await open([], 0);
+    const [, well] = [...root.querySelectorAll<HTMLElement>('fr-hover-card > span[tabindex="0"]')];
+    present(well).dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+
+    await vi.waitFor(() => {
+      expect(document.body.querySelector('[role="tooltip"]')?.textContent.trim()).toBe('No conditions');
+    });
   });
 
   it('shows no badge while no offer is open', async () => {
