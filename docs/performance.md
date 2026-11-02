@@ -34,13 +34,14 @@ eleven answers are under 100 bytes, so the per-request overhead is the cost, not
 
 ### Content registry
 
-- `GET /api/content/manifest` is 585 KB uncompressed (51 packs, 522 kind entries) with `Cache-Control: public,
-max-age=10` and no `ETag`, so a warm session re-downloads it every ten seconds of use.
+- `GET /api/content/manifest` is 585 KB raw (51 packs, 522 kind entries). It has an `ETag` and `Cache-Control: public,
+max-age=10, stale-while-revalidate=60`, so an unchanged manifest costs a 304.
 - The character kinds (`CHARACTER_CONTENT_KINDS`) cover 104 kind entries: up to 208 bundle files (mechanics and names)
   on a cold load, plus description shards on demand. Bundles are `immutable` for a year and also kept in IndexedDB, so
   warm loads fetch none of them.
-- No compression (gzip, brotli, zstd) is configured in the API, edge app, `Dockerfile` or `infra/`; if the CDN does not
-  add it, the manifest and bundles go out raw.
+- The API gzips JSON bodies of 1 KiB or more for clients that accept it (`apps/api/src/compression.ts`). Nothing else
+  in the edge app, `Dockerfile` or `infra/` compresses. The CDN in front is likely to add its own, but its behaviour
+  could not be checked before production has a hostname.
 
 ### Findings, by story
 
@@ -51,10 +52,9 @@ max-age=10` and no `ETag`, so a warm session re-downloads it every ten seconds o
 - [#1717](https://github.com/DavidDudson/pioneer/issues/1717): sub-resource routes only need an ownership check, not
   the character document; memoise `readableBy`/`official`/`byIds` per request in the pack catalog; look up the attached
   campaign once per request.
-- [#1718](https://github.com/DavidDudson/pioneer/issues/1718): enable compression, and measure `z.encode` and
-  `parse` on the character and manifest bodies.
-- [#1721](https://github.com/DavidDudson/pioneer/issues/1721): give the manifest an `ETag` and a longer
-  `stale-while-revalidate`, since it changes only on a content seed.
+- [#1718](https://github.com/DavidDudson/pioneer/issues/1718): done; see "Response size and zod cost" below.
+- [#1721](https://github.com/DavidDudson/pioneer/issues/1721): done by the manifest `ETag` and `stale-while-revalidate`;
+  see "Response size and zod cost" for why the window stays short.
 
 `GET /characters/:id/sheet` is the API half of [#1716](https://github.com/DavidDudson/pioneer/issues/1716): the sheet,
 rule limits and, for the owner, play state, sheet mode, feat display, packs, variant rules, rule limit settings and
@@ -83,3 +83,32 @@ On a database whose time zone is not UTC (the dev machine is UTC+10) every authe
 row and `expires_at` moves back ten hours each time, so the hourly `LAST_SEEN_RESOLUTION` throttle never holds. A
 production database in UTC is not affected. Setting the connection time zone to UTC in `connect` would remove the
 dependence. Tracked in [#1717](https://github.com/DavidDudson/pioneer/issues/1717).
+
+### Response size and zod cost
+
+Sizes are the probe's, level 1 character. gzip and brotli are what `node:zlib` makes of the raw body (brotli at its
+default quality), not what the API sends: the API sends gzip.
+
+| Body                    | Raw       | gzip      | brotli   |
+| ----------------------- | --------- | --------- | -------- |
+| `/content/manifest`     | 585,296 B | 116,182 B | 78,096 B |
+| `/characters/:id/sheet` | 14,635 B  | 3,459 B   | 2,996 B  |
+| `/characters/:id`       | 4,852 B   | 968 B     | 813 B    |
+| `/characters/:id/packs` | 8,032 B   | 2,005 B   | 1,782 B  |
+
+Median time of 50 runs in one process, on this machine:
+
+| Body                    | `z.decode` | `z.encode` | `JSON.stringify` | gzip    |
+| ----------------------- | ---------- | ---------- | ---------------- | ------- |
+| `/content/manifest`     | 2.94 ms    | 3.23 ms    | 0.26 ms          | 3.55 ms |
+| `/characters/:id`       | 0.09 ms    | 0.10 ms    | under 0.01 ms    | 0.02 ms |
+| `/characters/:id/sheet` | 0.13 ms    | 0.13 ms    | 0.01 ms          | 0.05 ms |
+
+`ContractRouter` runs `z.encode` on every response. It costs about 3 ms on the 585 KB manifest and 0.1 ms on a
+character, against 3 to 25 ms of request time, so caching the encoded body is not worth the code.
+
+Gzip adds about 3.5 ms to an uncached manifest response and cuts it 80%. The manifest is public and revalidated by
+`ETag`, so the edge answers most requests without reaching the API.
+
+The manifest keeps `max-age=10`. A 304 is already cheap, and the short window is what lets a re-seed reach browsers in
+seconds, so lengthening it trades that for few saved requests. That is a product call; nothing here argues for it.

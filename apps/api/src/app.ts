@@ -5,6 +5,7 @@ import type { AnyElysia } from 'elysia';
 
 import { campaigns } from './campaigns';
 import { characters } from './characters';
+import { compression } from './compression';
 import { content } from './content';
 import type { Database } from './database';
 import type { Env } from './env';
@@ -30,6 +31,7 @@ export function createApp(db: Database, env: Env, extensions: readonly AppExtens
 
   let app: AnyElysia = new Elysia({ prefix: API_PREFIX })
     .use(problemHandler)
+    .use(compression)
     .use(csrf(env))
     .get('/health', () => ({ status: 'ok' }))
     .use(identityParts.routes)
