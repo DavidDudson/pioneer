@@ -26,29 +26,30 @@ describe('CharacterSheetPage modes', () => {
     });
     expect(textOf(root.querySelector('pio-sheet-save-status'))).toBe('All changes saved');
     await vi.waitFor(() => {
-      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(4);
+      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(3);
     });
 
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
-    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(4);
+    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(3);
   });
 
-  it('shows AC as a row laid out as a skill and Speed as a tile, each with its rank where it has one', async () => {
+  it('shows AC as a block of its own and Speed as a tile, each with its rank where it has one', async () => {
     const { root } = await openSheet();
     const vitalsOf = (): HTMLElement => present(root.querySelector('pio-vitals'));
 
     await vi.waitFor(() => {
       expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual(['Speed 30']);
     });
-    const [ac] = [...vitalsOf().querySelectorAll('fr-list-item')];
+    const ac = present(root.querySelector('pio-sheet-armor-class pio-armor-class'));
     expect(textOf(ac)).toContain('Armor Class');
     expect(textOf(ac)).toContain('12');
-    // AC's and the three saves' ranks: not the empty ones the rows inside the tiles hold for a skill's, nor Speed's, and the class DC has none while the character has no class.
+    expect(vitalsOf().textContent).not.toContain('Armor Class');
+    // The three saves' ranks: not the empty ones the rows inside the tiles hold for a skill's, nor Speed's, and the class DC has none while the character has no class.
     const tileRanks = [...vitalsOf().querySelectorAll('pio-proficiency-rank')]
       .filter((rank) => rank.closest('summary') === null)
       .filter((rank) => textOf(rank) !== '');
-    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 4 }, () => 'UUntrained'));
+    expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(Array.from({ length: 3 }, () => 'UUntrained'));
   });
 
   it('switches between the four tabs, each its own address, marking the open one', async () => {

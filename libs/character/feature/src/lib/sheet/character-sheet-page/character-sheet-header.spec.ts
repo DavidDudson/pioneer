@@ -74,6 +74,17 @@ describe('CharacterSheetPage header', () => {
     });
   });
 
+  it('shows the name and identity in the character block, under an empty portrait', async () => {
+    const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
+
+    await vi.waitFor(() => {
+      const block = present(root.querySelector('pio-sheet-character-block'));
+      expect(textOf(block)).toContain('Merisiel');
+      expect(textOf(block)).toContain('Level 1 Elf Cleric, Warpriest');
+      expect(block.querySelector('fr-avatar')).not.toBeNull();
+    });
+  });
+
   it('offers to report a bug with this character attached', async () => {
     const { root } = await openSheet(WARPRIEST_MERISIEL, { slots: WARPRIEST_SLOTS, packs: HEADER_PACKS });
 
@@ -91,25 +102,17 @@ describe('CharacterSheetPage header', () => {
     const vitalsNow = (): HTMLElement => present(root.querySelector<HTMLElement>('pio-vitals'));
 
     await vi.waitFor(() => {
-      // AC's, the three saves' and the class DC's ranks (Perception is a row of the Skills panel), not the empty ones the rows inside the tiles hold for a skill's, nor a tile's with no rank (Speed).
+      // The three saves' and the class DC's ranks (Perception is a row of the Skills panel, AC a block of its own), not the empty ones the rows inside the tiles hold for a skill's, nor a tile's with no rank (Speed).
       const tileRanks = [...vitalsNow().querySelectorAll('pio-proficiency-rank')]
         .filter((rank) => rank.closest('summary') === null)
         .filter((rank) => textOf(rank) !== '');
-      expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual([
-        'TTrained',
-        'EExpert',
-        'TTrained',
-        'EExpert',
-        'TTrained',
-      ]);
+      expect(tileRanks.map((rank) => textOf(rank))).toStrictEqual(['EExpert', 'TTrained', 'EExpert', 'TTrained']);
     });
-    // The armour is the note of the rank badge on the Armor Class row. The item fixtures name their entries after their slugs.
-    const armorClass = [...vitalsNow().querySelectorAll('fr-list-item')].find((item) =>
-      item.textContent.trim().startsWith('Armor Class'),
-    );
-    armorClass
-      ?.querySelector('pio-proficiency-badge button')
-      ?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    // The armour is the note of the rank badge on the Armor Class block. The item fixtures name their entries after their slugs.
+    await vi.waitFor(() => {
+      const badge = present(root.querySelector('pio-armor-class pio-proficiency-badge button'));
+      badge.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+    });
     await vi.waitFor(() => {
       const note = document.querySelector('[role="tooltip"]')?.textContent;
       expect(note).toContain('Leather-armor');

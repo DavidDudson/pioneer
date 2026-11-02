@@ -26,6 +26,16 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
   return name === undefined ? { kind: VitalBasisKind.Unarmored } : { kind: VitalBasisKind.Armor, name };
 }
 
+/** Armor Class with the rank its proficiency bonus reads and the armour that sets it; undefined while it is not derived. */
+export function sheetArmorClass(registry: ContentRegistry, character: Character, reads: VitalReads): Vital | undefined {
+  const statistic = reads.statistics.find(({ result }) => result.selector === AC);
+  if (statistic === undefined) {
+    return undefined;
+  }
+  const { ranks } = statisticInputsOf(registry, character);
+  return { statistic, rank: ranks.get(AC) ?? Proficiency.Untrained, basis: armorBasis(registry, character, reads) };
+}
+
 /**
  * The vitals row: the sheet's statistics (AC, saves, Perception, class DC) each with the rank its proficiency bonus reads, and
  * for Armor Class the armour that sets it. A statistic the character has no rank in is untrained; a plain value, as a
@@ -34,8 +44,8 @@ function armorBasis(registry: ContentRegistry, character: Character, reads: Vita
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
   const own = reads.statistics
-    // Perception is a row of the Skills panel, not a vital.
-    .filter(({ result }) => result.selector !== PERCEPTION)
+    // Perception is a row of the Skills panel, and Armor Class a block of its own, not vitals.
+    .filter(({ result }) => result.selector !== PERCEPTION && result.selector !== AC)
     .map((statistic): Vital => {
       const { selector } = statistic.result;
       if (statistic.kind === StatisticKind.Value) {

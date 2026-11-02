@@ -136,8 +136,8 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
   // Interactive
   ['details', ['layout/disclosure/']],
   ['summary', ['layout/disclosure/']],
-  // The one modal (ADR-0065): `fr-drawer` on narrow screens.
-  ['dialog', ['layout/drawer/']],
+  // The modals: `fr-drawer` on narrow screens (ADR-0065) and `fr-modal`.
+  ['dialog', ['layout/drawer/', 'layout/modal/']],
 ]);
 
 /** Elements no primitive may ever render → why, and what to use instead. */

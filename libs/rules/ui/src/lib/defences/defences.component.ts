@@ -20,6 +20,7 @@ import { labelName, summaryFormat } from '../breakdown/line-words';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
+import { DefenceKind } from './defence-kind';
 import { DefenceList } from './defence-list/defence-list.component';
 import { DAMAGE_CONTEXT_MESSAGES, DAMAGE_GROUP_MESSAGES, DefencesMessage } from './defences-messages';
 import type { ShownDefence, ShownList, Standing } from './shown-defences';
@@ -38,6 +39,9 @@ interface ListContext {
 }
 
 const LOADING_LISTS = ['immunities', 'weaknesses', 'resistances'] as const;
+
+/** Every list, in the order the panel shows them. */
+const ALL_KINDS: readonly DefenceKind[] = [DefenceKind.Immunities, DefenceKind.Weaknesses, DefenceKind.Resistances];
 
 /**
  * A character's immunities, weaknesses and resistances (play-and-campaigns.md, "Defences panel"), each list under
@@ -72,6 +76,9 @@ export class DefencesView {
   /** Names for what the lines' origin chains refer to beyond entries: users, slots, items, events and packs. */
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
+  /** Which lists to show, in the panel's order; all three by default. */
+  public readonly kinds = input<readonly DefenceKind[]>(ALL_KINDS);
+
   /** One loading placeholder per list. */
   protected readonly loadingLists = LOADING_LISTS;
 
@@ -94,13 +101,15 @@ export class DefencesView {
       immunities: this.immunityNames(),
       exceptions: this.exceptionNames(),
     };
-    return [
+    const all: readonly (ShownList & { readonly kind: DefenceKind })[] = [
       {
+        kind: DefenceKind.Immunities,
         heading: this.#i18n.translate(DefencesMessage.Immunities),
         empty: this.#i18n.translate(DefencesMessage.NoImmunities),
         defences: immunities.map((line) => this.#immunity(line, { lines: immunities, names })),
       },
       {
+        kind: DefenceKind.Weaknesses,
         heading: this.#i18n.translate(DefencesMessage.Weaknesses),
         empty: this.#i18n.translate(DefencesMessage.NoWeaknesses),
         defences: weaknesses.map((line) =>
@@ -108,6 +117,7 @@ export class DefencesView {
         ),
       },
       {
+        kind: DefenceKind.Resistances,
         heading: this.#i18n.translate(DefencesMessage.Resistances),
         empty: this.#i18n.translate(DefencesMessage.NoResistances),
         defences: resistances.map((line) =>
@@ -115,6 +125,8 @@ export class DefencesView {
         ),
       },
     ];
+    const shown = this.kinds();
+    return all.filter(({ kind }) => shown.includes(kind));
   });
 
   #immunity(line: ImmunityLine, context: ListContext): ShownDefence {

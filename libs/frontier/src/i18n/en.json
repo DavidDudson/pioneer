@@ -16,6 +16,9 @@
       "saved": "Saved",
       "revert": "Revert"
     },
+    "modal": {
+      "close": "Close {title}"
+    },
     "drawer": {
       "close": "Close {title}",
       "resize": "Resize {title}",

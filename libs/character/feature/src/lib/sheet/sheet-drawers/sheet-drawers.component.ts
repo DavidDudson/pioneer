@@ -9,7 +9,7 @@ import { SheetOverrideDrawer } from '../sheet-override/sheet-override-drawer.com
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 
 /**
- * The drawers docked beside the sheet: the content search once it has loaded, the breakdown a stat link opens, the override form, and the character's configuration. Project it into
+ * The drawers docked beside the sheet: the content search once it has loaded, the breakdown a stat link opens, the override form, and the character’s configuration. Project it into
  * `fr-page` as a drawer (`ngProjectAs="fr-drawer"`); its host takes no room, so each drawer lays out as the page's own.
  */
 @Component({

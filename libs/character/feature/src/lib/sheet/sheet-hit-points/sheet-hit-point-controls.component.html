@@ -1,0 +1,34 @@
+@if (hp()) {
+  <fr-stack gap="xs">
+    @for (line of granted(); track line) {
+      <fr-text tone="muted">{{ line }}</fr-text>
+    }
+    <fr-stack direction="horizontal" align="center" gap="xs" wrap>
+      <fr-number-input
+        [ariaLabel]="'character.sheet.hp.amount' | transloco"
+        [min]="0"
+        [max]="amountMax"
+        [value]="amount()"
+        (valueChange)="amount.set($event)"
+        (completeChange)="complete.set($event)"
+      />
+      <fr-toggle-button [value]="critical()" (valueChange)="critical.set($event)">{{
+        'character.sheet.hp.critical' | transloco
+      }}</fr-toggle-button>
+      <fr-async-button size="sm" [action]="damage" [disabled]="!ready()" [describeError]="describeError">
+        {{ 'character.sheet.hp.damage' | transloco }}
+      </fr-async-button>
+      <fr-async-button size="sm" [action]="heal" [disabled]="!ready()" [describeError]="describeError">
+        {{ 'character.sheet.hp.heal' | transloco }}
+      </fr-async-button>
+      <fr-async-button size="sm" [action]="setHp" [disabled]="!ready()" [describeError]="describeError">
+        {{ 'character.sheet.hp.set' | transloco }}
+      </fr-async-button>
+      <fr-async-button size="sm" [action]="setTempHp" [disabled]="!ready()" [describeError]="describeError">
+        {{ 'character.sheet.hp.setTemp' | transloco }}
+      </fr-async-button>
+    </fr-stack>
+  </fr-stack>
+} @else {
+  <fr-text tone="muted">{{ 'character.sheet.hp.noMax' | transloco }}</fr-text>
+}

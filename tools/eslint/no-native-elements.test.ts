@@ -21,6 +21,7 @@ tester.run('no-native-elements', noNativeElements, {
     { filename: frontier('layout/box/box.component.html'), code: `<div><span><ng-content /></span></div>` },
     { filename: frontier('media/image/image.component.html'), code: `<img />` },
     { filename: frontier('layout/drawer/drawer.component.html'), code: `<dialog></dialog>` },
+    { filename: frontier('layout/modal/modal.component.html'), code: `<dialog></dialog>` },
     { filename: frontier('feedback/meter/meter.component.html'), code: `<meter></meter>` },
     {
       filename: frontier('shell/shell.component.html'),

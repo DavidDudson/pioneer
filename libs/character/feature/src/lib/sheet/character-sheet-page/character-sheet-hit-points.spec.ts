@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, playOf, present } from '../../testing/sheet-page-harness';
-import { render, textOf } from '../../testing/sheet-tabs-testing';
+import { fakeDialog, render, textOf } from '../../testing/sheet-tabs-testing';
 
 const PLAY_URL = `/api/characters/${id}/play`;
 
@@ -24,12 +24,26 @@ function meterOf(root: HTMLElement): HTMLMeterElement {
   return present(hitPointsOf(root).querySelector('meter'));
 }
 
+/** The controls, in the modal the block opens. */
+function controlsOf(root: HTMLElement): HTMLElement {
+  return present(root.querySelector<HTMLElement>('pio-sheet-hit-point-controls'));
+}
+
 function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
-  return present([...hitPointsOf(root).querySelectorAll('button')].find((button) => textOf(button) === name));
+  return present([...controlsOf(root).querySelectorAll('button')].find((button) => textOf(button) === name));
+}
+
+/** Presses the avatar, which opens the modal with the Hit Points and their controls. */
+async function openControls(root: HTMLElement): Promise<void> {
+  fakeDialog();
+  present(root.querySelector<HTMLElement>('pio-sheet-character-block button')).click();
+  await vi.waitFor(() => {
+    expect(controlsOf(root).querySelector('input[aria-label="Amount"]')).not.toBeNull();
+  });
 }
 
 function typeAmount(root: HTMLElement, amount: number): void {
-  const input = present(hitPointsOf(root).querySelector<HTMLInputElement>('input[aria-label="Amount"]'));
+  const input = present(controlsOf(root).querySelector<HTMLInputElement>('input[aria-label="Amount"]'));
   input.value = String(amount);
   input.dispatchEvent(new Event('input'));
   render();
@@ -43,24 +57,48 @@ describe('CharacterSheetPage Hit Points', () => {
 
   it('shows current Hit Points against the maximum the engine derives, and temporary Hit Points', async () => {
     const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(3, 2) });
+    await openControls(root);
 
     await vi.waitFor(() => {
       const meter = meterOf(root);
       expect([meter.value, meter.max]).toStrictEqual([MAX_HP - 3, MAX_HP]);
       expect(textOf(hitPointsOf(root))).toContain('+2 temporary');
+      expect(textOf(hitPointsOf(root))).toContain(`${MAX_HP - 3}/${MAX_HP}`);
     });
   });
 
-  it('says Hit Points wait for a class while there is no maximum', async () => {
-    const { root } = await openSheet(MERISIEL);
+  it('keeps the Hit Points out of the page until the avatar is pressed, then shows them in a modal', async () => {
+    const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(0, 0) });
+    await vi.waitFor(() => {
+      expect(root.querySelector('pio-sheet-character-block button')).not.toBeNull();
+    });
+    expect(root.querySelector('pio-sheet-hit-points')).toBeNull();
+
+    await openControls(root);
 
     await vi.waitFor(() => {
-      expect(textOf(hitPointsOf(root))).toBe('Hit Points show once the character has an ancestry and a class.');
+      expect(meterOf(root).value).toBe(MAX_HP);
     });
+  });
+
+  it.each([
+    [8, ['Bloodied']],
+    [12, ['Near death']],
+    [0, []],
+  ])('words how hurt the character is: %s damage taken reads %j', async (taken, words) => {
+    const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(taken, 0) });
+    await openControls(root);
+
+    await vi.waitFor(() => {
+      expect(meterOf(root).value).toBe(MAX_HP - taken);
+    });
+    const shown = ['Bloodied', 'Near death', 'Down'].filter((each) => textOf(hitPointsOf(root)).includes(each));
+    expect(shown).toStrictEqual(words);
   });
 
   it('sends damage of the amount typed at the revision read, and shows the answer', async () => {
     const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(0, 0) });
+    await openControls(root);
     await vi.waitFor(() => {
       expect(meterOf(root).value).toBe(MAX_HP);
     });
@@ -83,6 +121,7 @@ describe('CharacterSheetPage Hit Points', () => {
 
   it('heals by the amount typed', async () => {
     const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(6, 0) });
+    await openControls(root);
     await vi.waitFor(() => {
       expect(meterOf(root).value).toBe(MAX_HP - 6);
     });
@@ -99,6 +138,7 @@ describe('CharacterSheetPage Hit Points', () => {
 
   it('sets temporary Hit Points to the amount typed', async () => {
     const { root } = await openSheet(CLERIC_MERISIEL, { play: playOf(0, 0) });
+    await openControls(root);
     await vi.waitFor(() => {
       expect(meterOf(root).value).toBe(MAX_HP);
     });

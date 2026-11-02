@@ -1,0 +1,22 @@
+@if (open()) {
+  <!-- eslint-disable-next-line pioneer/no-interruptions -- a modal a page asks for by name; see the component's docs. -->
+  <dialog #panel [attr.aria-label]="title()" [class]="panelClasses" (cancel)="cancelFromDialog($event)">
+    <div [class]="contentClasses">
+      <div [class]="headerClasses">
+        <div #heading tabindex="-1" [class]="headingClasses">
+          <fr-heading variant="subheading" [level]="2">{{ title() }}</fr-heading>
+        </div>
+        <fr-button
+          iconOnly
+          size="sm"
+          [ariaLabel]="'frontier.modal.close' | transloco: { title: title() }"
+          [variant]="ButtonVariant.Ghost"
+          (pressed)="close()"
+        >
+          <fr-icon [icon]="closeIcon" />
+        </fr-button>
+      </div>
+      <ng-content />
+    </div>
+  </dialog>
+}

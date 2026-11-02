@@ -80,7 +80,13 @@ export function heritageRows(
   const slot = offered(registry, character, HERITAGE_SLOT);
   const ancestryNames = new Map<ContentId, string>(content.ancestries.map((ancestry) => [ancestry.id, ancestry.name]));
   const picked = character.ancestry;
-  return content.heritages.map((heritage): HeritagePickerRow => {
+  const pickedIds: ReadonlySet<string> = new Set(picked === undefined ? [] : [picked]);
+  /** Heritages of another ancestry stay, disabled; one the character's own could take but the slot holds back (legacy) goes. */
+  const offeredHeritages = content.heritages.filter(({ id, ancestry }) => {
+    const theirs = ancestry !== undefined && !pickedIds.has(ancestry);
+    return picked === undefined || theirs || (slot?.has(id) ?? true);
+  });
+  return offeredHeritages.map((heritage): HeritagePickerRow => {
     const ancestry =
       heritage.ancestry === undefined ? undefined : (ancestryNames.get(heritage.ancestry) ?? heritage.ancestry);
     const open = slot?.has(heritage.id) ?? true;

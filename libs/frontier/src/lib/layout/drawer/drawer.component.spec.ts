@@ -38,7 +38,10 @@ const step = (root: HTMLElement): string | null => handle(root).getAttribute('ar
 
 /** Neither `<dialog>` methods nor `ResizeObserver` exist in jsdom: record the first and let a test drive the second. */
 const dialog = { calls: [] as string[] };
-const observed: { resize: (width: number) => void } = { resize: () => undefined };
+const observed: { resize: (width: number) => void; target: Element | undefined } = {
+  resize: () => undefined,
+  target: undefined,
+};
 
 function fakeBrowser(): void {
   dialog.calls = [];
@@ -57,7 +60,9 @@ function fakeBrowser(): void {
   vi.stubGlobal(
     'ResizeObserver',
     class {
-      public readonly observe = vi.fn<() => void>();
+      public readonly observe = vi.fn<(target: Element) => void>((target) => {
+        observed.target = target;
+      });
       public readonly disconnect = vi.fn<() => void>();
       public constructor(notify: (entries: unknown[]) => void) {
         observed.resize = (width: number): void => {
@@ -114,6 +119,17 @@ describe(Drawer, () => {
     await render('/spells', { open: true });
     expect(TestBed.inject(Router).url).toBe('/spells?drawer=open');
     expect(dialog.calls).toStrictEqual(['show']);
+  });
+
+  it('measures the row it sits in, past a wrapper that takes no room', async () => {
+    const root = await render('/spells');
+    const wrapper = document.createElement('div');
+    wrapper.style.display = 'contents';
+    root.replaceWith(wrapper);
+    wrapper.append(root);
+    await TestBed.inject(Router).navigateByUrl('/spells?drawer=open');
+    await settle();
+    expect(observed.target).toBe(wrapper.parentElement);
   });
 
   it('moves focus to the title on open', async () => {

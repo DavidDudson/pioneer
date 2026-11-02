@@ -105,6 +105,7 @@ export { Rail } from './lib/layout/rail/rail.component';
 export { Responsive } from './lib/layout/responsive/responsive.component';
 export { PageBody } from './lib/layout/page-body/page-body.component';
 export { Drawer } from './lib/layout/drawer/drawer.component';
+export { Modal } from './lib/layout/modal/modal.component';
 export { DrawerWidth } from './lib/layout/drawer/drawer-width';
 export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 export { PageHeader } from './lib/layout/page-header/page-header.component';

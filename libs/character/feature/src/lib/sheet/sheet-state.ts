@@ -28,7 +28,7 @@ import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
 import { namedStatistics, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 // oxlint-disable-next-line import/max-dependencies -- the state every region of the sheet reads: the character, its forms and what the engine derives
-import { sheetVitals } from './sheet-vitals';
+import { sheetArmorClass, sheetVitals } from './sheet-vitals';
 
 /**
  * What every tab of one character's sheet reads: the character, the content registries the engine reads, and the build
@@ -178,6 +178,16 @@ export class SheetState {
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetVitals(registry, character, { statistics, entryNames: this.picks.entryNames() });
+  });
+
+  /** Armor Class with its rank and what sets it, for its block; undefined while it loads. */
+  public readonly armorClass = computed((): Vital | undefined => {
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    const statistics = this.picks.statistics();
+    return registry === undefined || character === undefined || statistics === undefined
+      ? undefined
+      : sheetArmorClass(registry, character, { statistics, entryNames: this.picks.entryNames() });
   });
 
   /**

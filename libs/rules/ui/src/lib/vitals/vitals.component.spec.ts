@@ -52,6 +52,6 @@ describe(VitalsView, () => {
 
   it('shows a placeholder tile per vital while they load', async () => {
     const host = await render(undefined);
-    expect(host.querySelectorAll('fr-surface fr-skeleton')).toHaveLength(5);
+    expect(host.querySelectorAll('fr-surface fr-skeleton')).toHaveLength(3);
   });
 });
