@@ -2,7 +2,7 @@ import type { TextPosition } from '@pioneer/rules/formula';
 import type { PredicateSummary } from '@pioneer/rules/predicate';
 import { DamageAmount } from '@pioneer/rules/sdk';
 import type {
-  DamageAdjustmentTarget,
+  DamageAdjustmentSubject,
   DamageException,
   Immunity,
   Origin,
@@ -61,7 +61,7 @@ export interface AdjustmentLine {
   readonly id: RuleId;
   readonly label: ModifierLabel;
   readonly origin: Origin;
-  readonly type: DamageAdjustmentTarget;
+  readonly type: DamageAdjustmentSubject;
   /** Undefined only when the line failed. */
   readonly value: DamageAmount | undefined;
   readonly exceptions: readonly DamageException[];

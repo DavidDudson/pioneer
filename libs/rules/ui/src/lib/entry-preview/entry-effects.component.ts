@@ -5,7 +5,7 @@ import { Link, List, ListItem, LocaleFormat, Stack, Text } from '@pioneer/fronti
 import { EffectChange, EffectStatusKind } from '@pioneer/rules/engine';
 import type { DamageAdjustmentEffect, EffectStatus, ImmunityEffect } from '@pioneer/rules/engine';
 import { DamageContextSchema, DamageGroupSchema, DamageTypeSchema } from '@pioneer/rules/sdk';
-import type { DamageAdjustmentTarget } from '@pioneer/rules/sdk';
+import type { DamageAdjustmentSubject } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { modifierValue } from '../breakdown/line-words';
@@ -134,7 +134,7 @@ export class EntryEffectsView {
   }
 
   /** A damage type's name, or a group's; `all` reads as "all damage". */
-  #target(target: DamageAdjustmentTarget): string {
+  #target(target: DamageAdjustmentSubject): string {
     const context = DamageContextSchema.safeParse(target);
     if (context.success) {
       return this.#i18n.translate(DAMAGE_CONTEXT_MESSAGES[context.data]);
@@ -143,6 +143,9 @@ export class EntryEffectsView {
     if (group.success) {
       return this.#i18n.translate(DAMAGE_GROUP_MESSAGES[group.data]);
     }
-    return this.#i18n.translate(DAMAGE_TYPE_MESSAGES[DamageTypeSchema.parse(target)]);
+    const damageType = DamageTypeSchema.safeParse(target);
+    return damageType.success
+      ? this.#i18n.translate(DAMAGE_TYPE_MESSAGES[damageType.data])
+      : target.replaceAll('-', ' ');
   }
 }

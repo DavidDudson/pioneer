@@ -78,3 +78,45 @@ describe('damage that counts as a material or property rune', () => {
     expect(result.taken).toBe(amount(5));
   });
 });
+
+describe('a weakness or resistance to a material', () => {
+  const silver = DamageException.parse('silver');
+  const coldIron = DamageException.parse('cold-iron');
+  const weakToSilver = DamageAdjustment.parse({ type: 'silver', value: 5 });
+
+  test('adds its value to damage that counts as the material, and says so', () => {
+    const result = applyDamage(roll('1d8[slashing]', [3]), target({ weaknesses: [weakToSilver] }), {
+      critical: false,
+      counts: [silver],
+    });
+
+    expect(result.taken).toBe(amount(8));
+    expect(result.immediate[0]?.lines).toEqual([
+      message(DiceMessage.DamageWeaknessMaterial, { value: 5, material: 'silver' }),
+    ]);
+  });
+
+  test('does nothing to damage that does not count as it', () => {
+    const plain = applyDamage(roll('1d8[slashing]', [3]), target({ weaknesses: [weakToSilver] }));
+    const other = applyDamage(roll('1d8[slashing]', [3]), target({ weaknesses: [weakToSilver] }), {
+      critical: false,
+      counts: [coldIron],
+    });
+
+    expect([plain.taken, other.taken]).toEqual([amount(3), amount(3)]);
+  });
+
+  test('a resistance to a material stops damage that counts as it, naming a hyphenated one in words', () => {
+    const resistant = DamageAdjustment.parse({ type: 'cold-iron', value: 2 });
+
+    const result = applyDamage(roll('1d8[slashing]', [7]), target({ resistances: [resistant] }), {
+      critical: false,
+      counts: [coldIron],
+    });
+
+    expect(result.taken).toBe(amount(5));
+    expect(result.immediate[0]?.lines).toEqual([
+      message(DiceMessage.DamageResistanceMaterial, { value: 2, material: 'cold iron', prevented: 2 }),
+    ]);
+  });
+});

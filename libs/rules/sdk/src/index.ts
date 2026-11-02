@@ -143,6 +143,7 @@ export {
   DAMAGE_GROUP_TYPES,
   DamageAdjustment,
   DamageAdjustmentTarget,
+  DamageAdjustmentSubject,
   DamageAdjustmentTargetSchema,
   DamageContext,
   DamageContextSchema,

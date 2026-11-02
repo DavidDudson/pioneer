@@ -2,7 +2,7 @@
 <fr-stack gap="sm">
   <fr-heading [level]="3">{{ kindKeys.heading | transloco }}</fr-heading>
   @for (entry of entries(); track entry.adjustment.type) {
-    @let target = labels[entry.adjustment.type] | transloco;
+    @let target = entry.key === undefined ? entry.words : (entry.key | transloco);
     <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
       <fr-text>{{ 'play.dice.adjustmentEntry' | transloco: { target, value: entry.value } }}</fr-text>
       <fr-button

@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { DamageAdjustmentTargetSchema, DamageExceptions } from './damage';
+import { DamageAdjustmentSubject, DamageExceptions } from './damage';
 import { FormulaSource } from './formula-source';
 import { ruleElementBase, RuleElementKey } from './rule-element-base';
 import { Immunity } from './trait';
@@ -24,8 +24,8 @@ export const ImmunityElement = z.strictObject({
 export type ImmunityElement = z.infer<typeof ImmunityElement>;
 
 const adjustmentFields = {
-  /** Damage types or groups (`fire`, `physical`); each gets its own weakness or resistance. */
-  type: z.array(DamageAdjustmentTargetSchema).min(1).max(TYPES_MAX).readonly(),
+  /** Damage types, groups or materials (`fire`, `physical`, `silver`); each gets its own weakness or resistance. */
+  type: z.array(DamageAdjustmentSubject).min(1).max(TYPES_MAX).readonly(),
   value: DefenceValue,
   exceptions: DamageExceptions.optional(),
   ...ruleElementBase,

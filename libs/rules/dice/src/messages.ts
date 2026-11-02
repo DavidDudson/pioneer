@@ -29,4 +29,6 @@ export const DiceMessage = {
   DamageImmune: 'dice.damage.immune',
   DamageWeakness: 'dice.damage.weakness',
   DamageResistance: 'dice.damage.resistance',
+  DamageWeaknessMaterial: 'dice.damage.weaknessMaterial',
+  DamageResistanceMaterial: 'dice.damage.resistanceMaterial',
 } as const;
