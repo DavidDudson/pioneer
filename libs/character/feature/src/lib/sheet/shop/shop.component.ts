@@ -24,7 +24,7 @@ import type { EntryPreviews } from '@pioneer/rules/ui';
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { INVENTORY_CONTENT_KINDS } from '../inventory/sheet-inventory';
-import { sheetEntryPreviews } from '../sheet-entry-previews';
+import { sheetSectionPreviews } from '../sheet-section-previews';
 import { ShopKits } from './shop-kits.component';
 import { SHOP_FACETS, shopList } from './shop-list';
 import type { ShopList } from './shop-list';
@@ -74,7 +74,7 @@ export class Shop {
   /** The same query the inventory loads, so the item kinds load once. */
   protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   /** What an offer and a kit's items preview on hover, read from the loaded items. */
-  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.items.data());
+  public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.items.data());
   protected readonly content: Signal<ItemContent | undefined> = computed(() => {
     const registry = this.items.data();
     return registry === undefined ? undefined : itemContent(registry);

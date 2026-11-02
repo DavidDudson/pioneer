@@ -12,13 +12,13 @@ import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { sheetCounted } from '../sheet-counted';
-import { sheetEntryPreviews } from '../sheet-entry-previews';
 import { injectFilterSources } from '../sheet-filter-sources';
 import { sheetFocus, sheetInnate } from '../sheet-focus-spells';
 import { SheetFormLimits } from '../sheet-form-limits/sheet-form-limits.component';
 import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
+import { sheetSectionPreviews } from '../sheet-section-previews';
 import { preparedFieldsOf } from '../sheet-spell-picks';
 import {
   filterFocus,
@@ -77,7 +77,7 @@ export class SheetSpells {
   /** The registry with the spells; loads once the character casts. */
   protected readonly spells = injectContentRegistry(SPELL_CONTENT_KINDS, () => this.casts());
   /** What a spell row previews on hover, read from the loaded spells. */
-  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.spells.data());
+  public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.spells.data());
   /** What casting is checked against: the turn, the slots left under each key and the Focus Points left. */
   protected readonly spend = computed((): SpellSpend | undefined => {
     const registry = this.spells.data();

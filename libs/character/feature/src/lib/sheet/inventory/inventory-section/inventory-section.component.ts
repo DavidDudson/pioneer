@@ -13,7 +13,7 @@ import type { CarriedBulk, EntryPreviews, InventoryGroup, Investment } from '@pi
 import { CharacterRuleLimitStore } from '../../../data/character-rule-limit-store';
 import { CharacterStore } from '../../../data/character-store';
 import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../../../data/content-registry-query';
-import { sheetEntryPreviews } from '../../sheet-entry-previews';
+import { sheetSectionPreviews } from '../../sheet-section-previews';
 import { sheetSlotContent } from '../../sheet-slot-content';
 import { CoinsSection } from '../coins-section/coins-section.component';
 import { CustomItems } from '../custom-items/custom-items.component';
@@ -73,7 +73,7 @@ export class InventorySection {
 
   protected readonly items = injectContentRegistry(INVENTORY_CONTENT_KINDS);
   /** What an item row previews on hover, read from the loaded items. */
-  public readonly previews: EntryPreviews = sheetEntryPreviews(() => this.items.data());
+  public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.items.data());
   /** The character's own kinds, for the Strength the Bulk limits read; the Bulk region follows this query. */
   protected readonly attributes = injectContentRegistry(CHARACTER_CONTENT_KINDS);
   readonly #strength = computed((): AttributeModifier | undefined => {
@@ -108,6 +108,9 @@ export class InventorySection {
     const character = this.#store.selected();
     return runed === undefined || character === undefined
       ? undefined
-      : sheetInventory(character.document.inventory, runed, { ...this.#limits.rules(), melded: this.melded() });
+      : sheetInventory(character.document.inventory, runed, {
+          ...this.#limits.rules(),
+          melded: this.melded(),
+        });
   });
 }

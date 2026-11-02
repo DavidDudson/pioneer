@@ -13,7 +13,7 @@ import { CHARACTER_CONTENT_KINDS, injectContentRegistry } from '../data/content-
 import { PlayStore } from '../data/play-store';
 import { sheetBuildPicks } from './sheet-build-picks';
 import type { BuildPicks } from './sheet-build-picks';
-import { sheetConditionPreviews } from './sheet-condition-previews';
+import { sheetConditionPreviews, withHeldConditions } from './sheet-condition-previews';
 import { activeFormOf, withoutForms } from './sheet-effects';
 import type { EffectView } from './sheet-effects';
 import { sheetFetchingPreviews } from './sheet-entry-previews';
@@ -100,7 +100,10 @@ export class SheetState {
     const registry = this.equipment.data();
     return full === undefined || registry === undefined || !this.#baseView()
       ? full
-      : withPlay(full, { ...full.document.play, effects: [...withoutForms(registry, full.document.play.effects)] });
+      : withPlay(full, {
+          ...full.document.play,
+          effects: [...withoutForms(registry, full.document.play.effects)],
+        });
   });
 
   /** The registry the engine reads, shared with the ancestry options, so it loads once. */
@@ -126,8 +129,21 @@ export class SheetState {
    */
   public readonly conditionPreviews: EntryPreviews = sheetConditionPreviews(this.#engineRegistry, this.character);
 
-  /** The previews for the names of the character's actions, Strikes and effects, fetched when the registry lacks one. */
-  public readonly previews: EntryPreviews = sheetFetchingPreviews(this.#engineRegistry, this.character);
+  /**
+   * The previews for the names of the character's actions, Strikes and effects, fetched when the registry lacks one,
+   * and for a condition the character has, its value and effects.
+   */
+  public readonly previews: EntryPreviews = withHeldConditions(
+    sheetFetchingPreviews(this.#engineRegistry, this.character),
+    { registry: this.#engineRegistry, character: this.character },
+  );
+
+  /**
+   * `own`, the previews a section builds for its rows, with the conditions the character has previewing as they apply
+   * to it, so a reference to frightened 2 in a feat or spell description says what frightened 2 does.
+   */
+  public readonly withConditions = (own: EntryPreviews): EntryPreviews =>
+    withHeldConditions(own, { registry: this.#engineRegistry, character: this.character });
 
   readonly #claims = signal<SituationClaims>(NO_CLAIMS);
 
