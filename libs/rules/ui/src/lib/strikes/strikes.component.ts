@@ -8,7 +8,6 @@ import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Slug } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
-import type { UsableLine } from '../actions/action-user';
 import { numberStyle, SIGNED } from '../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
@@ -18,38 +17,17 @@ import { conditionalLines, conditionalLineText } from '../statistics/conditional
 import type { ConditionToggle } from '../statistics/statistic-conditions/statistic-conditions.component';
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
-import type { StatisticSituations } from '../statistics/statistics.component';
+import type { NamedStrike, StrikeSituations, StrikesShield } from './named-strike';
 import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
 import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage, yesNo } from './strikes-messages';
 
+export type { NamedStrike, StrikeOffer, StrikeSituations, StrikesShield } from './named-strike';
+
 /** Slugs as words: `cold-iron` as "cold iron", joined by commas. */
 function wordsOf(slugs: readonly Slug[]): string {
   return slugs.map((slug) => slug.replaceAll('-', ' ')).join(', ');
-}
-
-/** A Strike to list: what to call it, and what the engine derived for it. */
-export interface NamedStrike {
-  readonly name: string;
-  /** A message key naming it instead, for one no content names (a fist's Strike). */
-  readonly nameKey?: string | undefined;
-  /** Its traits by name. */
-  readonly traits: readonly string[];
-  readonly strike: Strike;
-  /** The situations a roll of its attack can claim, when the page lets the player claim them. */
-  readonly situations?: StatisticSituations | undefined;
-  /** What using the Strike spends, when the page lets it be used: its weapon, one action, and what the turn can pay. */
-  readonly use?: UsableLine | undefined;
-}
-
-/** A shield held beside the Strikes: its name and the numbers that matter when it blocks; a form's has no Hit Points. */
-export interface StrikesShield {
-  readonly name: string;
-  readonly hardness: number;
-  readonly hitPoints: number;
-  readonly brokenThreshold: number;
-  readonly undamageable?: boolean;
 }
 
 /** Rows of placeholders while the Strikes load. */
@@ -107,7 +85,7 @@ export class StrikesView {
       names: { entries: this.entryNames(), items: this.originNames().items },
     };
     const claims = this.#roller?.claim !== undefined;
-    return this.strikes()?.map(({ name, nameKey, traits, strike, situations, use }): ShownStrike => {
+    return this.strikes()?.map(({ name, nameKey, traits, strike, situations, damageSituations, use }): ShownStrike => {
       const bonus = strike.damage?.bonus;
       const offered = claims ? (situations?.offered ?? []) : [];
       return {
@@ -135,6 +113,7 @@ export class StrikesView {
           on: situations?.claimed.has(line.modifier.id) === true,
         })),
         damageConditions: bonus?.ok === true ? conditionalLines(bonus, words) : [],
+        damageToggles: claims ? this.#damageToggles(damageSituations) : [],
         penalty: this.#i18n.translate(StrikesMessage.MultipleAttackPenalty, {
           second: this.#format.number(strike.map.second, SIGNED),
           third: this.#format.number(strike.map.third, SIGNED),
@@ -142,6 +121,15 @@ export class StrikesView {
       };
     });
   });
+
+  /** The rule elements that would change a Strike's damage, worded as toggles to claim for its next roll. */
+  #damageToggles(situations: StrikeSituations | undefined): readonly ConditionToggle[] {
+    return (situations?.offered ?? []).map(({ id, entry }): ConditionToggle => ({
+      id,
+      text: this.#i18n.translate(StrikesMessage.DamageCondition, { name: this.entryNames().get(entry) ?? entry }),
+      on: situations?.claimed.has(id) === true,
+    }));
+  }
 
   /** "Attack +9 / +4 / -1": the attack modifier at each step of the multiple attack penalty; none without a total. */
   #attacks({ attack, map }: Strike): string | undefined {
