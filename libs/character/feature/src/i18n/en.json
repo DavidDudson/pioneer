@@ -180,6 +180,11 @@
       "removeReasonHint": "Required. The override stays on the record, marked removed."
     },
     "identityHeading": "Identity",
+    "identityGroup": {
+      "character": "Character",
+      "origin": "Origin",
+      "class": "Class"
+    },
     "attributesHeading": "Attributes",
     "defencesHeading": "Defences",
     "sensesHeading": "Senses",
