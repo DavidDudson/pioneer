@@ -26,13 +26,19 @@ describe('weapon property rune effects', () => {
     ]);
   });
 
-  test.each(['rune:astral', 'rune:astral-greater'])('%s counts as ghost touch and adds spirit damage', (slug) => {
+  test.each([
+    { slug: 'rune:astral', dc: 26 },
+    { slug: 'rune:astral-greater', dc: 36 },
+  ])('$slug counts as ghost touch, adds spirit damage and has notes for a possessing target', ({ slug, dc }) => {
     const entry = RUNES.find((rune) => rune.slug === slug);
 
     expect(entry?.rules).toMatchObject([
       { key: 'AdjustStrike', property: 'property-runes', mode: 'add', value: 'ghost-touch', etched: true },
       { key: 'DamageDice', diceNumber: 1, dieSize: 'd6', damageType: 'spirit' },
+      { key: 'Note', predicate: ['target:possessing'] },
+      { key: 'Note', predicate: ['target:possessing'], outcome: ['criticalSuccess'] },
     ]);
+    expect(JSON.stringify(entry?.rules)).toContain(`DC ${dc} Will save`);
   });
 
   test('shockwave deals bludgeoning splash equal to the number of weapon damage dice', () => {

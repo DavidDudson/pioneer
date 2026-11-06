@@ -20,7 +20,6 @@ const ETCHED_DAMAGE = 'etched-damage';
  * or wielder picks; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
  * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic runes
  * need the mythic rules.
- * Astral has rules for its ghost touch and spirit damage; its rules about a possessed creature stay out.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
