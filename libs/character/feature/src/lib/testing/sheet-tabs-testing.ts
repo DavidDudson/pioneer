@@ -109,3 +109,27 @@ export async function openLevel(root: HTMLElement, level: number): Promise<void>
     expect(region.closest('.hidden')).toBeNull();
   });
 }
+
+/** Opens the Actions subtab named `kind` ("Basic actions", "Features and feats"), waiting for it to render. */
+export async function openActionKind(root: HTMLElement, kind: string): Promise<void> {
+  const tab = await vi.waitFor(() =>
+    present([...root.querySelectorAll<HTMLElement>('[role="tab"]')].find((candidate) => textOf(candidate) === kind)),
+  );
+  tab.click();
+  await settle();
+  render();
+}
+
+/** The hover summary of the action row named `name`, which the row opens when its name takes focus. */
+export async function summaryOf(root: HTMLElement, name: string): Promise<string> {
+  const row = await vi.waitFor(() =>
+    present([...root.querySelectorAll('pio-action-row')].find((candidate) => textOf(candidate).includes(name))),
+  );
+  present(row.querySelector('fr-hover-card a, fr-hover-card fr-text')).dispatchEvent(
+    new FocusEvent('focusin', { bubbles: true }),
+  );
+  return vi.waitFor(() => {
+    render();
+    return textOf(present(document.querySelector('pio-action-summary')));
+  });
+}

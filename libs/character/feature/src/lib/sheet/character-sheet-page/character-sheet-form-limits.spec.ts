@@ -6,7 +6,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { summaryOf, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
 /** Player Core's character kinds, its actions and the effects of Divine Mysteries. */
@@ -90,9 +90,9 @@ describe('CharacterSheetPage form limits', () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
 
     await vi.waitFor(
-      () => {
+      async () => {
         allFilter(root).click();
-        expect(textOf(section(root, 'sheet-actions'))).toContain("Can't cast spells in");
+        await expect(summaryOf(root, 'Cast a Spell')).resolves.toContain("Can't cast spells in");
       },
       { timeout: SLOW_RENDER },
     );

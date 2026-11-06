@@ -9,7 +9,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
-import { render, settle, textOf } from '../../testing/sheet-tabs-testing';
+import { openActionKind, render, settle, summaryOf, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { ACTION_CONTENT_KINDS } from '../sheet-actions';
 
@@ -32,20 +32,6 @@ function rowNames(root: HTMLElement): string[] {
   );
 }
 
-/** Opens the Basic actions subtab, where Stride and the other actions every character has are listed. */
-async function openBasic(root: HTMLElement): Promise<void> {
-  const tab = await vi.waitFor(() =>
-    present(
-      [...actionsSection(root).querySelectorAll<HTMLElement>('[role="tab"]')].find(
-        (candidate) => textOf(candidate) === 'Basic actions',
-      ),
-    ),
-  );
-  tab.click();
-  await settle();
-  render();
-}
-
 async function press(root: HTMLElement, label: string): Promise<void> {
   const button = [...actionsSection(root).querySelectorAll('button')].find((candidate) => textOf(candidate) === label);
   present(button).click();
@@ -61,7 +47,7 @@ describe('CharacterSheetPage actions', () => {
 
   it('lists on the Encounter tab what the character can do now, grouped by cost', async () => {
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
-    await openBasic(root);
+    await openActionKind(root, 'Basic actions');
 
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');
@@ -76,7 +62,7 @@ describe('CharacterSheetPage actions', () => {
 
   it('lists the downtime actions on the Downtime tab', async () => {
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Downtime, packs: PACKS });
-    await openBasic(root);
+    await openActionKind(root, 'Basic actions');
 
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Earn Income');
@@ -86,7 +72,7 @@ describe('CharacterSheetPage actions', () => {
 
   it('lists every action in the All view, with why the ones that cannot be used cannot', async () => {
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
-    await openBasic(root);
+    await openActionKind(root, 'Basic actions');
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');
     });
@@ -96,7 +82,7 @@ describe('CharacterSheetPage actions', () => {
     await vi.waitFor(() => {
       expect(textOf(actionsSection(root))).toContain('Earn Income');
     });
-    expect(textOf(actionsSection(root))).toMatch(/Needs trained proficiency in/u);
+    await expect(summaryOf(root, 'Decipher Writing')).resolves.toMatch(/Needs trained proficiency in/u);
   });
 
   it('rolls an action that rolls on the roll card, in one click', async () => {
@@ -104,7 +90,7 @@ describe('CharacterSheetPage actions', () => {
       providers: [{ provide: RANDOM_SOURCE, useValue: scriptedRandom([DieFace.parse(12)]) }],
     });
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
-    await openBasic(root);
+    await openActionKind(root, 'Basic actions');
     const button = await vi.waitFor(() =>
       present(actionsSection(root).querySelector<HTMLButtonElement>('button[aria-label^="Roll "]')),
     );
@@ -120,7 +106,7 @@ describe('CharacterSheetPage actions', () => {
     const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
     const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog: [] } };
     const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS, play });
-    await openBasic(root);
+    await openActionKind(root, 'Basic actions');
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');
     });
