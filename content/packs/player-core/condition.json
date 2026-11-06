@@ -1365,7 +1365,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "override",
+        "value": 0
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.eIcWbB5o3pP6OIMe"
     },
@@ -1672,6 +1703,36 @@
       {
         "key": "GrantItem",
         "item": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "override",
+        "value": 0
       }
     ],
     "externalIds": {
@@ -1758,7 +1819,38 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "override",
+        "value": 0
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.conditionitems.Item.dTwPJuKgBQCMxixg"
     },
@@ -2414,6 +2506,36 @@
         "type": "status",
         "value": -4,
         "slug": "unconscious"
+      },
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:swim",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "override",
+        "value": 0
+      },
+      {
+        "key": "Change",
+        "selector": "speed:burrow",
+        "mode": "override",
+        "value": 0
       }
     ],
     "externalIds": {
