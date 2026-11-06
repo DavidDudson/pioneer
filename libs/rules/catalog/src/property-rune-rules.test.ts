@@ -17,14 +17,13 @@ const ETCHED_DAMAGE = 'etched-damage';
  * rooting family is a critical-hit effect on the target (a condition it can't yet apply).
  *
  * Why the target-dependent runes stay here: bane and energy vulnerability name a creature type or energy the crafter
- * or wielder picks; astral and pacifying give a save or a rule about the target the Strike cannot apply; spell reservoir, coating, conducting, animated and authorized
- * are activations or item state; underwater changes a penalty no roll here reads; the mythic runes need the mythic
- * rules.
+ * or wielder picks; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
+ * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic runes
+ * need the mythic rules; shockwave needs splash damage equal to the weapon's dice, which no rule element yields.
+ * Astral has rules for its ghost touch and spirit damage; its rules about a possessed creature stay out.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
-  'rune:astral',
-  'rune:astral-greater',
   'rune:authorized',
   'rune:bane',
   'rune:coating',
