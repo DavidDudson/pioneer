@@ -1,9 +1,10 @@
 import { ApplicationInitStatus } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { TranslocoService } from '@jsverse/transloco';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { provideI18n } from './i18n';
+import type { CountsLoadedKeys } from './remember-loaded-languages';
 
 const messages = {
   greeting: "Hello {name}, welcome to Paizo's world",
@@ -34,5 +35,19 @@ describe(provideI18n, () => {
   it('flattens nested messages into dotted keys', async () => {
     const i18n = await setup();
     expect(i18n.translate('nested.label')).toBe('Nested');
+  });
+
+  it('knows a language with messages is loaded without counting them again', async () => {
+    const i18n = await setup();
+    const counting = i18n as unknown as CountsLoadedKeys;
+    expect(counting.isLoadedTranslation('en')).toBeGreaterThan(0);
+    const counted = vi.spyOn(i18n, 'getTranslation');
+    expect(counting.isLoadedTranslation('en')).toBeGreaterThan(0);
+    expect(counted).not.toHaveBeenCalled();
+  });
+
+  it('does not take a language with no messages for loaded', async () => {
+    const i18n = await setup();
+    expect((i18n as unknown as CountsLoadedKeys).isLoadedTranslation('es')).toBe(0);
   });
 });
