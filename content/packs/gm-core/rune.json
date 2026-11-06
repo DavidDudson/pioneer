@@ -587,6 +587,41 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "spirit"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Astral",
+        "predicate": ["target:possessing"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The weapon deals no damage to a creature that is possessing another creature."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Astral",
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:possessing"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The possessing creature must succeed at a DC 26 Will save or be expelled and unable to possess a creature for 1d4 rounds."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
@@ -678,6 +713,41 @@
         "diceNumber": 1,
         "dieSize": "d6",
         "damageType": "spirit"
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Astral",
+        "predicate": ["target:possessing"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The weapon deals no damage to a creature that is possessing another creature."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Note",
+        "selectors": ["etched-damage"],
+        "title": "Astral",
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:possessing"],
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The possessing creature must succeed at a DC 36 Will save or be expelled and unable to possess a creature for 1d4 rounds."
+              }
+            ]
+          }
+        ]
       }
     ],
     "externalIds": {
