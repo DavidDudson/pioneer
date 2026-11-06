@@ -221,6 +221,14 @@ describe('contentPackFromBundles', () => {
     expect(fromBundles.otherEntries.map((entry) => String(entry.name))).toStrictEqual(['Common', 'Draconic']);
   });
 
+  test('entries come back as the checked files give them, without being checked again', () => {
+    const checked = contentPackFromFiles(packFile, [
+      [ancestry, { ...common, description: [] }, { ...draconic, description: [] }],
+    ]);
+    const fromBundles = fetched(bundles(), ['ancestry', 'language']);
+    expect(fromBundles.otherEntries).toStrictEqual(checked.otherEntries);
+  });
+
   test('holds only the kinds fetched', () => {
     const pack = fetched(bundles(), ['ancestry']);
     expect(pack.ancestries).toHaveLength(1);

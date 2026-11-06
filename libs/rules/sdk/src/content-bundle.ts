@@ -1,10 +1,11 @@
 import { Endpoint, HttpMethod, NoBody, NoParams, NoQuery } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
+import type { ContentEntry } from './content-entry';
 import { ContentId, ContentPackId, PackId } from './content-id';
 import { ContentKindSchema } from './content-kind';
 import type { ContentPack } from './content-pack';
-import { contentPackFromContents, packContentsFromFiles } from './content-pack-file';
+import { ContentPackFile, contentPackFromTrustedContents } from './content-pack-file';
 import { ContentText } from './content-text';
 import { RichText } from './rich-text';
 
@@ -62,8 +63,12 @@ export function bundlePath(pack: PackId, file: BundleFile): BundlePath {
   return BundlePath.parse(`${pack}/${file}`);
 }
 
-/** A bundle's contents as served: plain JSON, read by the schema its file name calls for. */
-export const BundleBody = z.json();
+/**
+ * A bundle's contents as served: plain JSON, read by the schema its file name calls for. Not checked on the way in:
+ * the server built it from checked entries and a bundle is immutable, so walking a megabyte of JSON to confirm it
+ * would only cost the main thread time.
+ */
+export const BundleBody = z.custom<z.core.util.JSONType>(() => true);
 export type BundleBody = z.infer<typeof BundleBody>;
 
 /**
@@ -183,6 +188,20 @@ export interface FetchedKind {
   readonly names: unknown;
 }
 
+/**
+ * A kind's entries from its fetched bundles, put back together and read as the `ContentEntry`s the server checked
+ * when it built them. A bundle is immutable and public, so it is not checked again here: that was most of the time
+ * a sheet spent opening. An entry with no name is still an error, since the files no longer agree.
+ */
+function entriesFromBundles(kind: FetchedKind): readonly ContentEntry[] {
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
+  const names = kind.names as NamesBundle;
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
+  const mechanics = kind.mechanics as z.output<typeof MechanicsBundle>;
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion -- server-checked, immutable bundle (see above)
+  return mechanics.map((entry) => entryFromBundles(entry, names) as ContentEntry);
+}
+
 /** An entry put back together from its kind's bundles. Descriptions come with their own bundles (`descriptionFromBundle`). */
 function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames: NamesBundle): unknown {
   const named = entryNames[mechanicsEntry.id];
@@ -197,11 +216,8 @@ function entryFromBundles(mechanicsEntry: { readonly id: ContentId }, entryNames
  * `ContentEntry` once its name is added back, then filed as `contentPackFromFiles` does. An entry has no description.
  */
 export function contentPackFromBundles(packFile: unknown, kinds: readonly FetchedKind[]): ContentPack {
-  const entries = kinds.flatMap((kind) => {
-    const kindNames = NamesBundle.parse(kind.names);
-    return MechanicsBundle.parse(kind.mechanics).map((entry) => entryFromBundles(entry, kindNames));
-  });
-  return contentPackFromContents(packContentsFromFiles(packFile, [entries]));
+  const entries = kinds.flatMap((kind) => entriesFromBundles(kind));
+  return contentPackFromTrustedContents({ file: ContentPackFile.parse(packFile), entries });
 }
 
 /** `id`'s description in a fetched description shard, or undefined when the entry has none. */

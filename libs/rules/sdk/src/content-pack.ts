@@ -93,6 +93,11 @@ export const ContentPackSchema = z.object({
   otherEntries: z.array(ContentEntry).readonly().default([]),
 });
 
+/** `ContentPackSchema` with the entries taken as they come, for `ContentPack.trusted`. */
+const TrustedPackSchema = ContentPackSchema.extend({
+  otherEntries: z.custom<readonly ContentEntry[]>(() => true).default([]),
+});
+
 /**
  * A book (or homebrew set) of rules content, as `ContentRegistry` holds it. Official packs are JSON under
  * `content/packs`, read with `contentPackFromFiles`; tests build packs with `ContentPack.define`, which validates
@@ -121,6 +126,15 @@ export class ContentPack {
 
   public static define(data: z.input<typeof ContentPackSchema>): ContentPack {
     return new ContentPack(ContentPackSchema.parse(data));
+  }
+
+  /**
+   * `define` for a pack whose `otherEntries` were checked already, as the server did when it built the bundles the
+   * browser keeps unchanged: they are the bulk of a pack, and `define` parses each a second time. The definitions
+   * (ancestries, creatures and the rest) are few, and still go through the schema, which drops what it does not keep.
+   */
+  public static trusted(data: z.input<typeof ContentPackSchema>): ContentPack {
+    return new ContentPack(TrustedPackSchema.parse(data));
   }
 
   public get id(): PackId {
