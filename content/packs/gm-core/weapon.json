@@ -3818,7 +3818,8 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["4933f860-22c5-552b-9575-7702f262fe75"]
   },
   {
     "id": "d71cda2f-4740-51ab-83a4-19cf2db42b37",
@@ -4047,7 +4048,8 @@
         "striking": 2,
         "property": ["c9077442-2c05-5df9-b213-d3fad04dc2c8"]
       }
-    }
+    },
+    "supersedes": ["e897fbdf-b0b6-56d5-afce-94b4c3b6dd8a"]
   },
   {
     "id": "5d3c5372-69e2-5c1d-aeac-b2d29efb369c",
@@ -7450,7 +7452,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["b96e9566-a27e-522c-af70-39800dee0995"]
   },
   {
     "id": "b7aa5390-0439-50e9-95d7-1b31e029cbb3",

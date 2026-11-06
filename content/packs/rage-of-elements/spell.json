@@ -87,6 +87,124 @@
     }
   },
   {
+    "id": "c095cf51-c80a-5aaf-9706-0640c2626cd1",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:arms-of-nature",
+    "name": "Arms of Nature",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1418"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All wood, dead or alive, is your armory. When you cast this spell, you draw forth a "
+          },
+          {
+            "type": "text",
+            "text": "+1 weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of your choice from the target. The weapon must be 2 Bulk or less. This weapon is of the same material as the target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (3rd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon is a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking weapon.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon is a"
+          },
+          {
+            "type": "text",
+            "text": " +2 striking weapon.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weapon is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking weapon.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.aHu20NHj7YIqxr80"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
     "id": "e5e87724-011c-5872-99d7-0b9e343c82e6",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -3037,6 +3155,144 @@
     }
   },
   {
+    "id": "688a46ac-f656-52fe-a604-8ada4d9689d3",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:draw-the-lightning",
+    "name": "Draw the Lightning",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "electricity", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Calling out to the skies, you summon a bolt of lightning to strike through a foe above you and down into your weapon or your body, charging it with electrical power. You must hold your weapon or an empty hand aloft as part of this spell's somatic component. When you do, a bolt of lightning descends from a storm cloud in the air above your and through the target, dealing 3d12 electricity damage with a basic Reflex save. For the rest of the spell's duration, your first Strike each round with the weapon you held aloft (or with your unarmed attacks if you held an empty hand aloft) deals an additional 1d12 electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spell creates its own storm cloud if necessary, so you can cast "
+          },
+          {
+            "type": "text",
+            "text": "draw the lightning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " anywhere, even underground. If "
+          },
+          {
+            "type": "text",
+            "text": "draw the lightning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is cast outside under a cloudy or stormy sky, increase the bolt's damage by "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d12",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "bfc54dc4-c250-5095-ae32-c66ae290bf52"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage dealt to the initial target increases by 4d12, and the additional damage dealt on the first Strike each turn increases by 1d12."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.n7OgbKme4hNwxVwQ"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d12",
+          "damageType": "electricity",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 4,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "4d12"
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "516a20cc-79f5-583c-ac5f-c798cbc660ed",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -3169,6 +3425,931 @@
         "until": "next-turn-end"
       },
       "traditions": ["arcane", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3070770d-aadb-56f1-a35f-5a3a2a115967",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:element-embodied",
+    "name": "Element Embodied",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing upon the deepest wells of magic in an elemental plane, you transform into a spectacular elemental. You can choose between an air elemental, earth elemental, fire elemental, or water elemental. Your battle form is Gargantuan, and you must have enough space to expand into or the spell is lost. While in this form, you gain the elemental trait and the trait for the element you choose. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 25 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more attacks specific to the battle form you choose, which are the only attacks you can use. You're trained with them. Your attack modifier is +34, and you use the listed damage. These attacks are Dexterity based if you choose an air or fire elemental, or Strength based if you choose an earth or water elemental. (This distinction doesn't change the statistics, but matters for the enfeebled and clumsy conditions, for example). If your unarmed attack modifier is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Acrobatics modifier of +36 for air or fire elemental or Athletics modifier of +36 for earth or water elemental, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of elemental you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "70a91c0d-7658-5735-a887-b3d25402917e",
+                  "label": "Air Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " fly Speed 80 feet;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "High Winds",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (air, aura) 30 feet. Air within the emanation is difficult terrain for flying creatures that don't have the air trait;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Swiftness",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Your movement doesn't trigger reactions;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " gust (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+11 bludgeoning plus Push 10 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " lightning lash (range increment 80 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+4 electricity."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "7606d61e-9616-5df4-8bc8-c3fffeab0df1",
+                  "label": "Earth Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " 30 feet, burrow 20 feet; resistance 5 to physical;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Spike Stones",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, earth) 30 feet. The area is difficult terrain and hazardous terrain. A creature without the earth trait that moves on the ground in the area takes 5 piercing damage for every square of that area it moves into;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Rocky Toughness",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " You gain 40 temporary Hit Points when you choose this form instead of 30;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " fist (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+15 bludgeoning;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " rock (range increment 40 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 bludgeoning."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "78e25c2c-4e7b-5959-96ed-b3f21ff29a97",
+                  "label": "Fire Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " 50 feet; immunity to fire; weakness to cold 10;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Intense Heat",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, fire) 30 feet. A creature that enters the aura or starts its turn in the aura takes 5d6 fire damage with a basic Reflex save against your spell DC. A creature can take damage from the aura only once per round;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " tendril (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d10+12 fire plus 2d6 persistent fire;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " fire mote (range increment 60 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 bludgeoning."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "bd512f70-1d38-59e2-a18d-04628306be42",
+                  "label": "Metal Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " 40 feet, fly 40 feet; resistance 10 to electricity;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arcing Electricity",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, electricity, metal) 30 feet. A creature that enters the aura or starts its turn in the aura takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d12",
+                            "damageType": "electricity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage with a basic Reflex save against your spell DC; a creature made of metal, with the metal trait, or wearing metal armor takes a –1 circumstance penalty on this save. A creature can take damage from the aura only once per round;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " blade (reach 25 feet, versatile slashing), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+15 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " metal shard (range increment 40 feet, versatile slashing), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 piercing."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "3d21b6d4-908a-5cbf-8d72-3b12c121fdaa",
+                  "label": "Water Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " 40 feet, swim 80 feet; resistance 10 to fire;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Vortex",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, water) 30 feet. Water within the aura that is part of the same body of water you occupy is difficult terrain for Swimming creatures that don't have the water trait;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " wave (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+18 bludgeoning plus Push or Pull 10 feet;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " water spout (range increment 60 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 bludgeoning."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "b5785524-498b-521a-ba32-5fac59eb4f3e",
+                  "label": "Wood Elemental"
+                },
+                {
+                  "type": "text",
+                  "text": " 30 feet, climb 35 feet; resistance 5 to physical; weakness to axes 10;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Lush Growth",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, wood) 30 feet. Ground in the area is difficult terrain, and any time a creature in the area regains HP from a healing vitality effect, the aura grants a +5 status bonus to the healing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Woody Toughness",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " You gain 40 temporary Hit Points when you choose this form instead of 30;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " branch (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d10+18 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " seed (range increment 40 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 bludgeoning."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vQMAdnIwnV9prPiG"
+    },
+    "data": {
+      "rank": 10,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "ffea1a9e-dfd7-54c8-aaa8-642598428717",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:elemental-absorption",
+    "name": "Elemental Absorption",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You absorb elemental energy, which you can release as a powerful counterattack. Choose air, earth, fire, metal, water, or wood. You gain resistance 5 to damage dealt by effects with the chosen elemental trait; if you choose water, you also gain resistance to cold damage. As usual, if a spell has a multiple effects, such as a spell that deals both fire damage and bludgeoning damage with superheated rocks, you gain resistance to only the effects associated with the element you chose. Keep track of how much damage you have prevented with this spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a 2-action activity, which has the concentrate trait and the trait matching the element you chose, you can release the stored energy. This deals damage equal to the amount you've stored (maximum 30 damage) to one enemy within 60 feet, with a basic Reflex save. The damage type depends on the element you chose: fire damage for fire; bludgeoning or cold damage for water; bludgeoning or slashing damage for air; bludgeoning, piercing, or slashing damage for earth;bludgeoning or vitality for wood; or electricity or slashing for metal. After releasing the energy, the spell ends. If you do not use the stored energy before the spell ends, the energy is lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5fa47faf-3a70-5cfe-ae5d-de8c7027c083"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 5 and the maximum damage increases by 30."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.9TauMFkIsmvKJNzZ"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
       "damage": []
     }
   },
@@ -3815,6 +4996,229 @@
     }
   },
   {
+    "id": "523fe624-7056-560f-848c-db8383fc9fcf",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:elemental-confluence",
+    "name": "Elemental Confluence",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "earth", "fire", "manipulate", "metal", "water", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure four types of elementals who combine forces to form into a chaotic storm. The confluence has AC 28 and 120 Hit Points, weakness 10 to area effects, and immunity to bleed and poison. Creatures can move through the confluence; creatures within the confluence are concealed, and all creatures outside the confluence are concealed to creatures within it. When you Cast or Sustain this Spell, you choose up to two different types of elementals to act."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Air",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (air, electricity) The elemental looses a bolt of electricity from the confluence, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d4",
+                      "damageType": "electricity"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to creatures within 20 feet of the confluence, with a basic Reflex save. This doesn't affect creatures that are completely inside of the confluence."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (earth) The confluence gains a +2 circumstance bonus to AC and resistance 10 to all physical damage (except adamantine) for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (fire) Flames roar through the confluence, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "fire",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to those partially or entirely inside the confluence."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (metal) The elemental flings shards of metal through the confluence, dealing "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "2d6",
+                      "damageType": "slashing"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to those partially or entirely inside the confluence with a basic Reflex save. A creature that critically fails also takes "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "1d6",
+                      "damageType": "bleed",
+                      "category": "persistent"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (attack, water) The elemental expels a powerful jet of water. Attempt a ranged spell attack against a target within 60 feet of the confluence, using your spell attack roll modifier. This attack ignores concealment granted by the confluence, and the elemental gets a +2 circumstance bonus on the spell attack roll against a target inside the confluence. The water deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "4d6",
+                      "damageType": "bludgeoning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage on a hit (doubled on a critical hit). This attack doesn't count toward your multiple attack penalty."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " (wood) Roots and stumps grow, making ground in the area difficult terrain."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Cpj05laa7ogqGwS3"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
     "id": "5981c0af-b273-519a-8d1a-08b43c400d51",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -3885,6 +5289,233 @@
       },
       "traditions": ["arcane", "primal"],
       "damage": []
+    }
+  },
+  {
+    "id": "7da61e61-857f-5d15-9727-0318625af660",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:elemental-gift",
+    "name": "Elemental Gift",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An elemental force fills your target, granting the target the swiftness of air, the ruggedness of earth, the sting of fire, or the flexibility of water, depending on which element you choose. Choose an element when you Cast the Spell. The target gains the benefit of that element as described below, and this spell gains that trait's element."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Air",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a +30-foot status bonus to its land Speed and gains a fly Speed equal to its land Speed without the status bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " While on the ground, the target gets a +2 status bonus to Fortitude and Reflex saves against effects that would "
+                },
+                {
+                  "type": "ref",
+                  "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "ref",
+                  "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+                },
+                {
+                  "type": "text",
+                  "text": " it, and to saves against effects that would attempt to knock it "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ". In addition, the ground adjacent to the target is difficult terrain, and the difficult terrain moves with the target, though the target ignores this difficult terrain with its own movement."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target's melee unarmed Strikes and melee weapon Strikes deal 1d6 persistent fire damage on a hit."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target's Strikes using a metal weapon or an unarmed attack deal an additional 1d4 electricity damage on a hit and get a +1 status bonus to the attack roll if the target is made of metal or wearing metal armor."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target takes on a watery sheen, gaining resistance 5 to fire and a swim Speed equal to its land Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a number of temporary Hit Points equal to the spell's rank, then gains half that number of temporary HP at the start of each of its turns."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d581729f-3410-5c75-a06a-3e307f67c52b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to 5 willing creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.e36Z2t6tLdW3RUzZ"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 8,
+            "targets": {
+              "any": [
+                {
+                  "count": 5,
+                  "of": "creature",
+                  "qualifiers": ["willing"]
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -4063,6 +5694,94 @@
       "duration": {
         "type": "time",
         "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3e470890-2c8b-5fd7-a95f-db00d7acf114",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:elemental-zone",
+    "name": "Elemental Zone",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Select an elemental trait: air, earth, fire, metal, water, or wood. "
+          },
+          {
+            "type": "text",
+            "text": "Elemental zone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gains the trait you chose. You imbue the area with the raw energy of that element, creating a zone that emits and amplifies magic of that type. The temperature might suddenly rise or fall, a storm cloud might form, and so on. Spells with the chosen elemental trait cast against creatures in the zone get a +2 status bonus to one damage type the spell deals based on the chosen trait: bludgeoning or electricity for air, bludgeoning for earth, fire for fire, electricity or slashing damage for metal, bludgeoning or cold for water, and bludgeoning or vitality damage for wood. The caster chooses one type to add the bonus to if the spell deals more than one eligible type. This bonus is halved if the spell didn't use a spell slot (such as a cantrip, focus spell, or innate spell)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The zone has no effect on the spell if the spell doesn't deal any damage of an eligible type."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The status bonus increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.kMffb6SvhCBMMI4k"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
         "unit": "minute"
       },
       "traditions": ["arcane", "primal"],
@@ -8542,6 +10261,124 @@
     }
   },
   {
+    "id": "e456c78b-f9be-5f28-bb71-dec099a2baee",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:murderous-vine",
+    "name": "Murderous Vine",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["attack", "concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You summon a slithering, thorny vine that attempts to constrict and crush a foe against a wall or other surface. Make a spell attack roll against the target's Fortitude DC. On a success, the creature is grabbed and takes 3d6 bludgeoning damage and 2d8 piercing damage. At the end of that creature's turn, if it's still grabbed by the vine, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(floor(@item.level/2))d6",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vine's Escape DC is equal to your spell DC. A creature can attack the vine in an attempt to break its grip. The vine's AC is equal to your spell DC, and the vine is destroyed if it takes 20 or more damage. Destroying or escaping from the vines ends the spell. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The initial bludgeoning damage increases by 1d6, the initial piercing damage increases by 1d8, and the damage a creature takes for ending its turn grabbed by the vine increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.kCgkreCT6g0dipMd"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "against": "save:fortitude"
+      },
+      "traditions": ["primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d6",
+          "damageType": "bludgeoning",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "1",
+          "formula": "2d8",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          },
+          {
+            "key": "1",
+            "formula": "1d8"
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "ddb17c70-63fb-50e6-a176-cba80f6a95d8",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -9191,6 +11028,99 @@
       "traditions": ["arcane", "primal"],
       "damage": [],
       "dismiss": true
+    }
+  },
+  {
+    "id": "d825f5de-60c6-5820-a6d9-e7230455b9dd",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:petal-storm",
+    "name": "Petal Storm",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring forth a cloud of razor-sharp flower petals that thrash violently in the wind. A creature that enters the storm or starts its turn in the storm is sliced by the razor-sharp edges of the petals. It takes 2d10 slashing damage with a basic Reflex save. A creature can take damage from the petals only once per round. At the end of the duration, the storm calms and the petals fall harmlessly to the ground."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.D31YX7zvRBvenTAz"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 15
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": ["primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "2d10",
+          "damageType": "slashing",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d10"
+          }
+        ]
+      }
     }
   },
   {
@@ -10041,6 +11971,72 @@
     }
   },
   {
+    "id": "25fe372e-06e2-554b-9642-0a73ebb681d0",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:protector-tree",
+    "name": "Protector Tree",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Medium tree suddenly grows in an unoccupied square within range. The tree has AC 10 and 10 Hit Points. Whenever an ally adjacent to the tree is hit by a Strike, the tree interposes its branches and takes the damage first. Any additional damage beyond what it takes to reduce the tree to 0 Hit Points is dealt to the original target. The tree isn't large enough to impede movement through its square. If the tree is in soil and survives to the end of the spell's duration, it remains as an ordinary, non-magical tree, and continues to grow and thrive. The GM might determine that the tree disappears immediately in certain inhospitable situations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The tree has an additional 10 Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
     "id": "f2147cf0-aa2c-5c21-bf3e-5469c31a67b6",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -10540,6 +12536,77 @@
         }
       },
       "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "3cf2daaf-1164-529a-afde-f38aa46f85e3",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:repel-metal",
+    "name": "Repel Metal",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["focus", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1381"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A Strike with a metallic weapon or projectile would hit you or an ally within range."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth a repelling field. The target gains a +2 circumstance bonus to AC against the triggering attack. If the attack then misses, you direct the Strike back at the attacker, who compares the attack roll to their own AC. The target then becomes immune to this spell for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4b2f38e2-5de8-5ed5-bf62-203ae357d718"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pZBovpzdBNLQQQmE"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": [],
       "damage": []
     }
   },
@@ -11228,6 +13295,76 @@
     }
   },
   {
+    "id": "0c4e568e-0f89-548d-bb86-a0f0b6080f59",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:serrate",
+    "name": "Serrate",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["focus", "manipulate", "metal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1380"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With a pinch, the metal of a weapon twists, adding numerous jagged blades along its surface. Strikes with the target weapon deal an additional 1d4 slashing damage until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "38e8f186-a1ce-5c7b-a393-da5a3cd4ddda"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The extra damage increased by 1d4."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.YKexU7BkwNq4ESCc"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
     "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc",
     "pack": "rage-of-elements",
     "kind": "spell",
@@ -11861,6 +13998,68 @@
         "sustained": true
       },
       "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "4c6c07a2-bebe-551a-aae6-2b8eb731011a",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:soothing-blossoms",
+    "name": "Soothing Blossoms",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "plant", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blossoms grow from the ground in a small area, soothing away afflictions and persistent pains and harm. When any creature in that area rolls a successful save against a poison or disease effect, it gets a critical success instead. The blossoms grant assisted recovery to everyone in the area to end their persistent damage, both when the spell is cast and at the start of each of your turns. Once the duration ends, the flowers lose their magical effect, but a few of them might survive in the area as long as they can naturally. This spell doesn't give a benefit on a save against an affliction unless the stage lasts 10 minutes or less."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "55cb10c6-7f67-505e-927e-b6bf5283f557"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5XUn9NADr05IyiVw"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "primal"],
       "damage": []
     }
   },
@@ -14804,6 +17003,70 @@
         "type": "varies"
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "5c35afbc-960c-5d4e-bf0d-94e611657e72",
+    "pack": "rage-of-elements",
+    "kind": "spell",
+    "slug": "spell:wood-walk",
+    "name": "Wood Walk",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "wood"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=1419"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Wood shapes itself according to your will readily, making staircases appear as you climb up the side of a tree, automatically weaving vines into ladders, or lowering branches to lift you up to the top. Move up to your Speed in any direction or along any surface, so long as there are living plants or trees of size Large or larger within 15 feet of you. The wood allows you to move but doesn't protect you from hazardous terrain or other dangers. Each time you Sustain this spell, you can move again in the same way."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration of this spell becomes 10 minutes. You no longer need to Sustain the spell to extend its duration, but you can Sustain it to move as described."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Up4zLmZDgciUDpIv"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": [],
       "damage": []
     }
   },

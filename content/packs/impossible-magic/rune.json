@@ -51,7 +51,8 @@
       "etchedOnto": {
         "item": "weapon"
       }
-    }
+    },
+    "supersedes": ["b8352471-7edf-5437-81eb-f66d111262f1"]
   },
   {
     "id": "2db3be9c-1a5b-54a2-aaf7-275f8d6d55bc",
@@ -603,7 +604,8 @@
       "etchedOnto": {
         "item": "weapon"
       }
-    }
+    },
+    "supersedes": ["fdabde55-c55e-5875-ba15-9c435fab2462"]
   },
   {
     "id": "f2a9ef15-7651-5cf1-8406-ab3c20498510",

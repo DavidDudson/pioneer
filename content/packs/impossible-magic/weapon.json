@@ -277,7 +277,8 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["ab9496d6-1b16-52bb-845d-55b24ae3ad7d"]
   },
   {
     "id": "289cf4f8-ecca-560d-84db-3084f5ab708e",
@@ -1728,7 +1729,8 @@
         "striking": 2,
         "property": ["ef5cd06c-2a43-5c3b-bb92-137af16e574e"]
       }
-    }
+    },
+    "supersedes": ["fb64c221-0635-51e2-a107-e02a2e242c34"]
   },
   {
     "id": "f9bebbb1-e730-5476-b3fe-e504801a83fd",
@@ -2131,7 +2133,8 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["4231b5a6-7e06-5bdb-b905-c0c43669a6ca"]
   },
   {
     "id": "3d539273-c9e6-552e-bc71-089c10e39a8c",
@@ -2349,7 +2352,8 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["56b0702e-ec56-5061-a80b-28927b75451a"]
   },
   {
     "id": "aa445531-32aa-5f8a-b3b3-62a129c01c62",
@@ -4611,7 +4615,8 @@
         "striking": 1,
         "property": ["55822cf6-140a-55d9-9015-60f75cd52e5a"]
       }
-    }
+    },
+    "supersedes": ["9b60e851-f4f9-5682-89db-f16162724b7c"]
   },
   {
     "id": "b4875c24-0d79-54d5-adc7-04dc5b712abb",
@@ -4941,7 +4946,8 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["b22bcfd8-a9ca-5324-87c7-979e378c5145"]
   },
   {
     "id": "19519303-8463-5a24-a848-8061f2522145",
@@ -5660,7 +5666,8 @@
         "striking": 1,
         "property": ["b1439a9d-7374-5ad3-9cf7-9dfe7936e106"]
       }
-    }
+    },
+    "supersedes": ["8d1576fe-ee9a-5357-9d99-5a68e88ce52a"]
   },
   {
     "id": "1e2f64e3-0675-5d54-8404-fff57c894adf",
@@ -6260,7 +6267,8 @@
         "striking": 3,
         "property": ["01b073eb-173b-5771-ae0a-5e97028d99ce"]
       }
-    }
+    },
+    "supersedes": ["35856ede-9001-58e6-8f22-77cfcbf63e04"]
   },
   {
     "id": "9d276189-78ba-54d0-9717-49f10213fc52",
@@ -7626,7 +7634,8 @@
         "striking": 2,
         "property": ["c664b0a6-72e7-5dd0-ae00-7c7bd0fa933f"]
       }
-    }
+    },
+    "supersedes": ["15bbefe3-f3fa-5455-804b-da921d54e505"]
   },
   {
     "id": "9b72dfb0-9b71-5cba-93a4-cba9e912dc21",
@@ -7902,7 +7911,8 @@
         "striking": 2,
         "property": ["20d890d1-7dff-59ce-98c5-9c009eb6a398"]
       }
-    }
+    },
+    "supersedes": ["e723715b-40b8-52e8-93cf-7ec41146e56a"]
   },
   {
     "id": "64fd610c-05f9-52e7-b1e4-20d275897a50",
@@ -8064,7 +8074,8 @@
         "striking": 1,
         "property": ["161a6329-9809-57d5-9b34-c150d2bfe235"]
       }
-    }
+    },
+    "supersedes": ["7a2b1f0c-78ea-5ce4-8c05-55ea3cd00700"]
   },
   {
     "id": "fd766914-068a-5eb9-9d1f-d58416d09fe0",
@@ -9506,7 +9517,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["cddbf7d6-d966-5473-82c2-8aec2fac922f"]
   },
   {
     "id": "88190d4a-9785-5dc3-b7c3-5d1eefe443c7",
@@ -10658,7 +10670,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["80fb555d-e294-5b28-a8a2-9d1d4c5efa98"]
   },
   {
     "id": "617fb3f2-3e7a-5ceb-b93a-a2c2e557275c",

@@ -189,6 +189,97 @@
     }
   },
   {
+    "id": "6db2c738-bb58-5c45-991a-9bcb769e9ce5",
+    "pack": "secrets-of-magic",
+    "kind": "background",
+    "slug": "background:astrologer",
+    "name": "Astrologer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=229"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Astrologers look to the stars for signs and portents, using their positions to chart courses for those living beneath them. As the celestial spheres move, so does fate itself. You studied the stars and learned to divine your path based on their guidance. Whether the stars directly called you to a life of adventure or you use the stars to guide your wanderlust, you're living out the stars' guidance in a life of adventure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Occultism and Astrology Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occ",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "777e0aa6-b6ce-5ea2-959d-6f2331e44907"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.3YQ1Wcjzk8ftoyo7"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
     "id": "64178ba4-3b87-5497-94c5-ca94d8d32044",
     "pack": "secrets-of-magic",
     "kind": "background",

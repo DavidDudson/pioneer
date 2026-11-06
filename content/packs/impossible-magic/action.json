@@ -192,7 +192,8 @@
         "max": 1,
         "per": "round"
       }
-    }
+    },
+    "supersedes": ["5f5f3ba8-3d8c-5192-a097-d005f7deed9d"]
   },
   {
     "id": "60059b8f-c2c8-5740-9ad7-cf72ea02c5ca",
@@ -288,7 +289,8 @@
       "cost": "one",
       "category": "offensive",
       "selfEffect": "ea08ae3e-9a17-5aa1-b588-35c887c34925"
-    }
+    },
+    "supersedes": ["c37a3b0e-49e0-5ac4-a746-da1dfcb3852e"]
   },
   {
     "id": "9d00a8e8-7025-50a1-a568-99ab93044399",
@@ -387,7 +389,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["8fd196f1-3f5f-5e44-82da-16f57f461989"]
   },
   {
     "id": "850122d8-cacd-5d29-8bc9-afcf8cf2a6ef",
@@ -1854,7 +1857,8 @@
     "data": {
       "cost": "three",
       "category": "interaction"
-    }
+    },
+    "supersedes": ["655b420d-b55f-5eef-b14c-c4e3a257ac7c"]
   },
   {
     "id": "338ad80e-d5d3-509d-aa07-452d2475ef93",
@@ -2506,7 +2510,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["a1590210-2f4e-51fe-9e44-f96d8f964c4d"]
   },
   {
     "id": "c1f1e123-88c2-57b8-9311-da81d19d6200",
@@ -2673,7 +2678,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["3ed95565-78ac-5824-9bfd-2bdb6073b247"]
   },
   {
     "id": "cbf4adc5-edaf-5ba9-b0ef-f8b6cbf6fa24",

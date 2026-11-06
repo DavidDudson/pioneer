@@ -1,5 +1,3609 @@
 [
   {
+    "id": "93ecbfac-cc34-56c7-9575-e95c351b9ba6",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:apotropaic-fulu",
+    "name": "Apotropaic Fulu",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=971"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed over an entrance"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unassuming yellow paper, affixed above a door or gate, flickers in the light. Pick an alignment trait: chaotic, good, lawful, or evil. When a creature with the opposing alignment trait of the fulu (good for an evil fulu, and so on) passes through the entrance, it must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "; regardless of whether they succeed, the creature becomes temporarily immune for 1 day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UuNVe6SDNztreNEN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f10ae158-0fa0-5c3c-a9df-4a21a2f3f781",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:binding-coil",
+    "name": "Binding Coil",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strike with the affixed weapon damages a creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in Athletics."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This talisman, a bright red coil that's warm to the touch and faintly resembles a serpent, wraps entirely around your weapon. When you activate this talisman's effect, attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " the creature you hit. On a success, rather than the normal Grapple effects, the coil instead wraps itself around the target with one end remaining attached to your weapon. Your opponent must succeed at a DC 20 Escape check to break free. The coil breaks if you move any further away from the bound opponent, but not if you move any closer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mBwtPr9SGyuq0vPW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "d2ec2ac1-f7fa-5dcc-9940-7c2db58ed543",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:binding-coil-greater",
+    "name": "Binding Coil (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1018"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your Strike with the affixed weapon damages a creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in Athletics."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This talisman, a bright red coil that's warm to the touch and faintly resembles a serpent, wraps entirely around your weapon. When you activate this talisman's effect, attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": " the creature you hit. On a success, rather than the normal Grapple effects, the coil instead wraps itself around the target with one end remaining attached to your weapon. Your opponent must succeed at a DC 30 Escape check to break free. The coil breaks if you move any further away from the bound opponent, but not if you move any closer."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ah9jxSBerznPowW7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "fab5fcab-acab-5349-87a1-1e4fb05e3644",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:cantrip-deck-5-pack",
+    "name": "Cantrip Deck (5-pack)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In an effort to spread the knowledge of magic as widely as possible, worshippers of Nethys discovered a way to bind cantrips into cards accessible even to non-spellcasters. The deck contains thick parchment cards, each roughly half the size of a playing card. In precise, no-nonsense script, each card simply states the name of its cantrip, color-coded based on its school."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pack contains 5 cards of a single common cantrip."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or more (envision, Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You envision your desired cantrip, causing its card to rise to the top of the deck, and draw the card. The deck casts that cantrip as a 1st-rank spell, with a DC of 15 and a spell attack modifier of +5. The card crumbles into dust as the cantrip takes effect. The activation takes the same number of actions as the cantrip you chose takes to cast."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tLa4bewBhyqzi6Ow"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "uses": 5,
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "86b0b89b-2eb7-500b-bed8-c03d5ebbb8ca",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:cantrip-deck-full-pack",
+    "name": "Cantrip Deck (Full Pack)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1046"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In an effort to spread the knowledge of magic as widely as possible, worshippers of Nethys discovered a way to bind cantrips into cards accessible even to non-spellcasters. The deck contains thick parchment cards, each roughly half the size of a playing card. In precise, no-nonsense script, each card simply states the name of its cantrip, color-coded based on its school."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pack contains 24 cards-one of each cantrip in the Core Rulebook."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or more (envision, Interact)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You envision your desired cantrip, causing its card to rise to the top of the deck, and draw the card. The deck casts that cantrip as a 1st-rank spell, with a DC of 15 and a spell attack modifier of +5. The card crumbles into dust as the cantrip takes effect. The activation takes the same number of actions as the cantrip you chose takes to cast."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f00e0d44-5acf-5394-b486-db9e3d2a7ed2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "bb65f478-400b-518d-a697-75f634f6dbc1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "a593a292-4fca-5280-9857-56a2178b1618"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "87cbc7c8-756e-521d-baaf-9c09d1ddfb3c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "8ad0ebfc-593b-5631-b93e-122a74cb8574"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "2837d0b2-7110-5a34-9ce2-be5c9f49cb8e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "bb73ff19-7c70-5f9f-8c0e-dbd71c099926"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "7b03f972-02bc-5893-a09b-e77b8d99010d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "878c0832-e6d9-53e9-a88e-217178a7a46a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "161eed43-e585-5c4f-a01f-3a11431b5e75"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xTdrhiLqFYUllrpK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "uses": 24,
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "27795f67-b76b-509e-97c3-58bfd690c7ee",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:dazzling-rosary",
+    "name": "Dazzling Rosary",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When energy courses through these lustrous beads, they glow brightly in the sacred colors of the spellcaster's faith. A "
+          },
+          {
+            "type": "ref",
+            "id": "f0caf35f-ac1a-5948-8e6c-b2fafb2e6cf9"
+          },
+          {
+            "type": "text",
+            "text": " empowered with this catalyst flashes with bright light when it critically Strikes a target, causing the target to be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn. The rosary can be used with a "
+          },
+          {
+            "type": "text",
+            "text": "spiritual weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of 4th level or below."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xcH5IW7ahE3q8cPq"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fb161308-e6ea-5010-a50a-3ef72e8e1f72",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:dazzling-rosary-greater",
+    "name": "Dazzling Rosary (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1003"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When energy courses through these lustrous beads, they glow brightly in the sacred colors of the spellcaster's faith. A "
+          },
+          {
+            "type": "ref",
+            "id": "f0caf35f-ac1a-5948-8e6c-b2fafb2e6cf9"
+          },
+          {
+            "type": "text",
+            "text": " empowered with this catalyst flashes with bright light when it critically Strikes a target, causing the target to be "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " until the beginning of your next turn. The rosary can be used with a "
+          },
+          {
+            "type": "text",
+            "text": "spiritual weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of any level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xnIEWJYmJh6j58Wd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c0b6c81b-33f8-504f-9ea3-ecdb8df1c7cd",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:detect-anathema-fulu",
+    "name": "Detect Anathema Fulu",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=972"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Given to undisciplined acolytes at risk of breaking their vows, this fulu activates on its own if its wearer begins to perform an act anathema to a specific deity or cause, decided at the time of crafting. The fulu heats up when activated, giving you enough warning to correct your actions; if you proceed, the fulu immolates in a burst of flame. This deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and brands your skin until you receive an appropriate "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual. Either way, activating the fulu consumes it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0Wxiz4hJPERJPDAF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "bd6f5a2c-3856-539c-abca-cfb15a96b242",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:dimensional-knot",
+    "name": "Dimensional Knot",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1004"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shelynites originally crafted this complex knot of vibrant string for bracelets meant to tie the destinies of two people together. Now, however, spellcasters of all religions use them to enhance their capacity with teleportation magic. Adding this catalyst to a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "type": "text",
+            "text": " spell allows you to bring a single willing adjacent creature along with you; however, the teleportation is somewhat disorienting for them, causing them to become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ydsXPuDjG2hPspw6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e01bf10f-2924-5784-bbe4-8daca179cd3c",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:dragonbone-arrowhead",
+    "name": "Dragonbone Arrowhead",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1020"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a melee weapon or a ranged weapon with the thrown trait"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert with the affixed weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This arrowhead, carved from dragon bone, hangs off the shaft of your weapon. When you activate this talisman, until the end of the current turn, the affixed weapon gains the thrown 20 feet weapon trait, and when you make a thrown Strike with it, it flies back to your hand after the Strike completes. If your hands are full when the weapon returns, it falls to the ground in your space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.y8x66ougD79IuhI3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "e9aaaa50-4c96-54c8-94c9-0fce68b1e451",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:eye-of-enlightenment",
+    "name": "Eye of Enlightenment",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1021"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You succeed at a Strike with the affixed weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in Arcana, Occult, Nature, Religion, Society, or a Lore skill."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dried eye was plucked from a magical creature. You combine your observation about your enemy's reaction to your Strike with the stores of magical wisdom within the talisman to try to glean more information about the foe's true nature. When you activate this talisman, you attempt to Recall Knowledge about the creature you hit. If you roll a critical failure, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vNxKM5J5TqrbJKYk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "b57666c0-626b-5c40-82d9-7c003ea18521",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:firestarter-pellets",
+    "name": "Firestarter Pellets",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These compacted pellets of bat guano, sulfur, and magical accelerants have long been a staple for spellcasters on the battlefield. Adding a firestarter pellet to a fireball spell produces clinging flames that deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all who fail the saving throw against the effect ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VmMSP1EbMVnj2pZ2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "aed600fe-cff6-5405-819f-9bc19bf5e193",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:firestarter-pellets-greater",
+    "name": "Firestarter Pellets (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These compacted pellets of bat guano, sulfur, and magical accelerants have long been a staple for spellcasters on the battlefield. Adding a firestarter pellet to a fireball spell produces clinging flames that deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all who fail the saving throw against the effect ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SsWxgxols1Q1qPVf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 175
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2563a559-e74e-5732-b214-16a3b1eacffb",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:firestarter-pellets-major",
+    "name": "Firestarter Pellets (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1005"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These compacted pellets of bat guano, sulfur, and magical accelerants have long been a staple for spellcasters on the battlefield. Adding a firestarter pellet to a fireball spell produces clinging flames that deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all who fail the saving throw against the effect ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kFqPDnz0dYvK0mIG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1200
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8d93c061-2626-5f69-aca9-3b7c433fb02c",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:force-tiles",
+    "name": "Force Tiles",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1006"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Light refracts in strange ways through these precisely ground glass tiles, lengthening the refracted force and causing it to push back. Adding this catalyst to a "
+          },
+          {
+            "type": "ref",
+            "id": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+          },
+          {
+            "type": "text",
+            "text": " spell increases the wall's maximum length to 80 feet and maximum height to 40 feet and causes creatures that try to move into the wall's space (or are Shoved into the wall) to take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TBuLxrVXa4UGHzb9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 525
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "30bdcc22-a5c8-5271-9362-9571e3bbec49",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fu-water",
+    "name": "Fu Water",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "divine", "good", "potion", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=987"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Burnt fulu ashes float in this liquid, lending a distinctive red color and imparting it with a variety of purifying effects. Unlike many fulu items, fu water must be created using divine magic."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This potion functions as a bottle of holy water. Like holy water, you throw it as a Strike. It's a simple thrown weapon with a range increment of 20 feet. Unlike an alchemical bomb, it doesn't add the manipulate trait to the attack made with it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You drink the fu water to counteract ailments within yourself. Attempt a counteract check with a +9 counteract modifier and a counteract rank of 3 against one effect that imposes the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition. You are then "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xDWUGwLpKLm8WdQP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21
+        }
+      },
+      "bulk": "negligible",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dc3468fa-f456-5264-8261-89704dfd1283",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fulu-of-concealment",
+    "name": "Fulu of Concealment",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to the ground in four spaces along a 10-foot radius circle"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu comes in four pieces, one placed in each cardinal direction. Choose one of the following traits when Activating the fulus: animal, beast, celestial, fey, fiend, humanoid, monitor, plant, or undead. Those within the fulus' circle upon activation (including the fulus themselves) gain the effect of "
+          },
+          {
+            "type": "ref",
+            "id": "d6ed5640-5807-53d1-b64c-91d73e089557"
+          },
+          {
+            "type": "text",
+            "text": ", but only against creatures with the chosen trait. If any of the fulus are moved or destroyed after activation, the effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yYkxdzogiH7FPWVP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "affixed",
+        "to": "ground-in-10-foot-radius"
+      }
+    }
+  },
+  {
+    "id": "0e8b848f-d1d3-5b8a-bf05-c472afe3ad36",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fulu-of-fire-suppression",
+    "name": "Fulu of Fire Suppression",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=975"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The silver ink on this black paper charm ebbs in and out of sight, especially when caught out of the corner of your eye. Usually placed in the kitchen, this fulu slows the spread of fire in a 30-foot radius by half."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the fulu itself catches fire, as it burns, it releases a shower of water in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", automatically putting out non-magical fires in this area and attempting to counteract any magical fire effects with a +7 counteract modifier and a counteract rank of 2; when this happens, the fulu's duration ends early"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.89uak2oyHnEuIn0b"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "81a7bfcf-cfb9-5307-a117-75c68641999d",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fulu-of-flood-suppression",
+    "name": "Fulu of Flood Suppression",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=976"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blue fulu bears dark ink that slowly swirls and twists about itself, expanding and contracting on the paper over the course of the day in time with the tides. This fulu is most effective in the lowest area of a building, or near the most valuable or least-waterproof items. They're often seen as the rainy season approaches, with demand spiking just before a particularly large storm hits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fulu slows the spread of flooding water in a 30-foot radius by half, repelling the remaining water away. If the fulu becomes submersed, as the ink dissolves in the water, it releases a rush of heat in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", harmlessly vaporizing non-magical water in this area into steam and attempting to counteract any magical water effects with a +7 counteract modifier and a counteract rank of 2; when this happens, the fulu's duration ends early."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZvOaZLwTT4kDbrF7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c6cb111e-5dff-5fd7-9a2d-98d00dcf88d4",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fulu-of-the-drunken-monkey",
+    "name": "Fulu of the Drunken Monkey",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=974"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Fortitude save against an ingested poison."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The monkey on this fulu sits on the point of the armor just over the bearer's stomach, happily drinking any intoxicants that come flowing down. When you activate the fulu, you gain a +2 status bonus on the triggering Fortitude save and on Fortitude saves against the same poison for the next minute. If the triggering poison was normal Alcohol, you instead automatically succeed at the triggering save and gain a +4 status bonus on saves against alcohol for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NJOOeJc7bpE7gkUn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "175f3603-a4df-585b-a09c-19065d9f829b",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:fulu-of-the-stoic-ox",
+    "name": "Fulu of the Stoic Ox",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=977"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Fortitude save against a disease."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ox on this fulu rests vigilantly on the point of the armor right over the bearer's heart, protecting the bearer against diseases and safeguarding their health. When you activate the fulu, you gain a +2 status bonus on the triggering Fortitude save and on all Fortitude saves against the same disease for the next minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.G8h3vA0bSewbdrDS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "89e995bf-55a6-5e70-bdfc-95938a8a8919",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:ghostbane-fulu",
+    "name": "Ghostbane Fulu",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=978"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully Strike an incorporeal creature with the weapon to which the fulu is affixed, but you haven't rolled damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This white paper fulu bears red ink and attunes a weapon to the spiritual essence of an incorporeal creature. Upon activation, the weapon gains the benefit of the "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " property rune against the triggering incorporeal creature for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b57454f2-a9b6-5842-a75e-f8727f5909a6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Uzf9hqwec8fY2j4G"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "b57454f2-a9b6-5842-a75e-f8727f5909a6",
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "c1fabcff-1371-5d93-bb3c-4b792e43abb5",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:ghostly-portal-paint",
+    "name": "Ghostly Portal Paint",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1022"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Translucent and nearly weightless, this opalescent paint seems to resolve into occult symbols if stared at too long. When used to cover a 5-foot-wide, 10-foot-tall section of a wall, the paint turns that section of wall ghostly and incorporeal to a depth of 10 feet, allowing corporeal creatures and objects to pass through it. The portal persists for 10 minutes. When this effect wears off, anything remaining within the portal is shunted to the nearest exit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Force effects, other incorporeal objects and creatures, and "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " weapons can't cross through the wall, as is normal for incorporeality. An incorporeal creature that's inside the wall when the paint is used is shunted to the nearest exit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.F4WcgJ3NB1kiF7OL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 120
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "activation": {
+        "cost": "three"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "619d6d21-1398-59d5-a5f2-7151a318c1ce",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:healers-gel-greater",
+    "name": "Healer's Gel (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An astringent aroma from rare succulent plants wafts off these soothing cloth patches. Adding this material component to a heal spell bestows an additional 15 temporary Hit Points to one target healed by the spell. These temporary Hit Points last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9982630b-beeb-564e-8f6d-452098a55a12"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3M7iB9tfrsWTccZ0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "9982630b-beeb-564e-8f6d-452098a55a12",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "82b2a2b3-e9f7-53e3-839b-928173607bb5",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:healers-gel-lesser",
+    "name": "Healer's Gel (Lesser)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An astringent aroma from rare succulent plants wafts off these soothing cloth patches. Adding this material component to a heal spell bestows an additional 5 temporary Hit Points to one target healed by the spell. These temporary Hit Points last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "68dbbb76-2845-5b4f-995b-4c0562ef5f35"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.q8aRbsKX93R5AXNb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "68dbbb76-2845-5b4f-995b-4c0562ef5f35",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3407842c-d79d-52ce-a006-bd1283f0385f",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:healers-gel-moderate",
+    "name": "Healer's Gel (Moderate)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1007"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An astringent aroma from rare succulent plants wafts off these soothing cloth patches. Adding this material component to a heal spell bestows an additional 10 temporary Hit Points to one target healed by the spell. These temporary Hit Points last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4009c500-d749-579d-a0be-252b20c063db"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZxkTbyq61JTQ7Zkt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "4009c500-d749-579d-a0be-252b20c063db",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b97f747e-4e43-5700-8942-eb94153758db",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:lion-claw",
+    "name": "Lion Claw",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1024"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're undetected by a creature and are a master in Stealth."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This dried claw from a mighty beast bestows upon you the ability of a predator. When you activate the claw, you learn to pounce on your prey in one fluid motion. You Stride and then Strike with the affixed weapon against one creature you were "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": " by. You remain undetected by the creature until after you Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4upzgnkxdGn2Fy9c"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "ee3c49c1-675b-585d-a9d0-6cb0381b28c9",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:magical-lock-fulu",
+    "name": "Magical Lock Fulu",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=979"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a door, window, or container"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The symbols on this fulu depict a lock and winding chains. Affixing this fulu over the seam or frame of the target locks it, even if it has no latch or existing lock. As many as nine fulus can be applied to the same target. One fulu equates a "
+          },
+          {
+            "type": "ref",
+            "id": "ad4ba3c7-6847-5406-b254-9ac5043de26a",
+            "label": "Poor Lock"
+          },
+          {
+            "type": "text",
+            "text": " (DC 15), three a "
+          },
+          {
+            "type": "ref",
+            "id": "9b6a8835-65f7-51df-a05b-22c74d97d8a3",
+            "label": "Simple Lock"
+          },
+          {
+            "type": "text",
+            "text": " (DC 20), and nine an "
+          },
+          {
+            "type": "ref",
+            "id": "b9b5613f-34f2-5e99-9ba1-001bf91b8605",
+            "label": "Average Lock"
+          },
+          {
+            "type": "text",
+            "text": " (DC 25)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.I2FmQuFJiJYmsTUd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d995831e-cb7f-5ff6-b297-0b16c2b5bf5a",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:matchmaker-fulu",
+    "name": "Matchmaker Fulu",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fortune", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=980"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Diplomacy check to Make an Impression."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This red fulu contains blessings for one's relationship from Shelyn, goddess of beauty and love. You get a +2 status bonus to the Diplomacy check, and if you roll a critical failure on the check, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jIlFuZaIgMPEzoyP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "e83fbb68-486f-59df-968c-568cd9e672bf",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:noxious-incense",
+    "name": "Noxious Incense",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sold only in single sticks, this foul incense comes coated with a bevy of alchemical smoke that activates in the presence of intense heat, releasing its namesake pungent odor. Adding this catalyst to a "
+          },
+          {
+            "type": "ref",
+            "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+          },
+          {
+            "type": "text",
+            "text": " spell fills all squares adjacent to the wall with thick, foul smoke. Creatures in this area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and other creatures are concealed to creatures in the area. The smoke lasts for the duration of the spell. The incense can be used with a "
+          },
+          {
+            "type": "text",
+            "text": "wall of fire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of 6th level or below."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0GY1BYECGqz6YJ88"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "83b6c663-3418-5a07-a587-9609aa99aee5",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:noxious-incense-greater",
+    "name": "Noxious Incense (Greater)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1008"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sold only in single sticks, this foul incense comes coated with a bevy of alchemical smoke that activates in the presence of intense heat, releasing its namesake pungent odor. Adding this catalyst to a "
+          },
+          {
+            "type": "ref",
+            "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+          },
+          {
+            "type": "text",
+            "text": " spell fills all squares adjacent to the wall with thick, foul smoke. Creatures in this area are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": ", and other creatures are concealed to creatures in the area. The smoke lasts for the duration of the spell. The incense can be used with a "
+          },
+          {
+            "type": "text",
+            "text": "wall of fire",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of any level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EDjJy68ZFLu57ldN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 750
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "74a3bfcf-4739-50d6-8cc1-3f87d784fd4d",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:orchestral-brooch",
+    "name": "Orchestral Brooch",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["auditory", "consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1025"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a Performance check, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're a master in Performance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This silver brooch reverberates lightly with the sound of music every time anyone touches it. You can transform it into the shape of any chosen instrument when you Affix it. When you activate this talisman, your performance is accompanied by a grand procession of music that complements your own work, subject to your direction and intent. You receive a +1 status bonus to your Performance check. If you roll a success, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After being used, the talisman remains a mundane silver brooch with the appearance of the chosen instrument, though it possesses no remaining power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9b49dd93-b5d8-5506-af20-3ec5b1edadeb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gM1ZYvJacCdZsWo0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "9b49dd93-b5d8-5506-af20-3ec5b1edadeb",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "5575765b-a5c5-5e29-9fb4-13ac32f73d11",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:phoenix-flask",
+    "name": "Phoenix Flask",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1026"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once you ingest this strongly spiced, glowing red potion, blazing wings of a phoenix sprout from your back and carry you through the air. For 1 minute, you gain a Fly speed of 40 feet. The first time each round that you Fly (including to hover in place), you shed burning feathers that deal "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d4",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " at the end of your movement ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3e73c835-1ec6-534c-966a-cde923e1ddd1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xAoRfG7uxFFjOHoT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "3e73c835-1ec6-534c-966a-cde923e1ddd1",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1a2113c4-6c42-571b-982f-5085fdede1f9",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-grounding",
+    "name": "Potion of Grounding",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "electricity", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1027"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sparks flash within this amber syrup. Drinking this potion turns you into a living lightning rod for 1 minute, drawing nearby electricity to strike you instead of allies. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "38084582-0474-57d2-be8b-1e9008b80219"
+          },
+          {
+            "type": "text",
+            "text": " reaction while the effect lasts."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.27aqRraefLK7x7m3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 185
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ad6582f9-b997-53ec-9134-0c338d77c731",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-minute-echoes",
+    "name": "Potion of Minute Echoes",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1028"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No matter how carefully you open this bottle, it always lets out an audible, echoing pop. For 1 minute after drinking this potion, you gain a +2 status bonus to Perception checks to hear. In addition, each time you Seek, your hearing becomes a precise sense until the beginning of your next turn, allowing you to pinpoint creatures' locations and otherwise perceive the world in detail by listening to the sound of echoes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b6341ddd-e4e5-5b44-b67f-25cf0ead3956"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PTSdJqjiybZDxi4r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b6341ddd-e4e5-5b44-b67f-25cf0ead3956",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "a39f09be-d851-5909-b632-3bfcd87c5939",
     "pack": "secrets-of-magic",
     "kind": "consumable",
@@ -82,6 +3686,633 @@
     }
   },
   {
+    "id": "13136fa2-533d-5fd7-b658-d665ba291db4",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-stable-form",
+    "name": "Potion of Stable Form",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This aromatic potion is brewed from the white flowers and black roots of the magical herb moly. When you drink this potion, it immediately attempts to counteract all hostile transmutation effects affecting you (counteract rank 5, counteract check modifier +17). For the next hour, you gain a +2 item bonus against transmutation effects, which is +3 against polymorph effects. If you roll a success against a polymorph effect during that time, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "81d6feb6-f302-5d35-ad47-0651b4f11844"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cEfqMV1lFaT7s0QC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "effect": "81d6feb6-f302-5d35-ad47-0651b4f11844",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "10f76d6e-05de-557a-b1cc-953742e0a52e",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-stable-form-greater",
+    "name": "Potion of Stable Form (Greater)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1029"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This aromatic potion is brewed from the white flowers and black roots of the magical herb moly. When you drink this potion, it immediately attempts to counteract all hostile transmutation effects affecting you (counteract rank 8, counteract check modifier +25). For the next hour, you gain a +3 item bonus against transmutation effects, which is +4 against polymorph effects. If you roll a success against a polymorph effect during that time, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "3fbfd692-9a55-5c74-b88c-3d3ae2a884f6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KOWn72lufGfszQXr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1800
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "effect": "3fbfd692-9a55-5c74-b88c-3d3ae2a884f6",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f69c6eb0-01e4-5bb2-ab5c-7c1422111ac5",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:rebound-fulu",
+    "name": "Rebound Fulu",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=981"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a shield"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the Shield Block reaction with the shield to which this fulu is affixed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bronze-colored ink on this pale, silvery talisman sharply reflects light, enough that it seems to glow. When you activate the fulu, it reflects your foe's violence back against them. The foe that triggered the Shield Block reaction takes damage equal to your shield's Hardness or the damage they would have dealt before the Shield Block reaction, whichever is less."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tEI0hGZyPWYwVhJU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "a-shield"
+      }
+    }
+  },
+  {
+    "id": "1e616910-8195-5ae2-9350-60bccc6b13cc",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:restful-sleep-fulu",
+    "name": "Restful Sleep Fulu",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=982"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fulu depicts the five-spoke wheel of Qi Zhong, god of magic and medicine, and burns away slowly, like incense. If you fall asleep within the fulu's duration, you regain double the amount of Hit Points you usually gain from resting. You also gain a +2 status bonus to saves against mental effects that occur in your dreams, such as the "
+          },
+          {
+            "type": "ref",
+            "id": "2b65b470-1daa-53ca-ab03-e8816b93c235"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.UtT7TVT7M6uJTlJH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 32
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7e3fd7d5-fdb0-5895-b6cc-7584af82abe0",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:retrieval-prism",
+    "name": "Retrieval Prism",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This triangular prism showing swirling black patterns inside constantly moves around on your armor, no matter where you affix it. As part of the process of Affixing this Talisman, you attune it to a single item of 1 Bulk or less. When you activate this talisman, the attuned item immediately teleports into your hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The retrieval prism can't retrieve an item that's not on your plane, including one that's in an extradimensional space like a bag of holding. If you haven't expended the talisman, you can attune it to a different item by Affixing the Talisman again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HVPbv5n2e1vcT9Ug"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "3401693a-28a1-5ce3-88f3-508cc6bcc970",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:retrieval-prism-greater",
+    "name": "Retrieval Prism (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1032"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a free hand."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This triangular prism showing swirling black patterns inside constantly moves around on your armor, no matter where you affix it. When you activate this talisman, any item in your possession of 1 bulk or less, chosen when you activate the prism, immediately teleports into your hand."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The retrieval prism can't retrieve an item that's not on your plane, including one that's in an extradimensional space like a bag of holding. If you haven't expended the talisman, you can attune it to a different item by Affixing the Talisman again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You don't need to attune the prism. It can retrieve any item in your possession of 1 Bulk or less, chosen when you activate the prism."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xK3rWA6HtaJvKSuC"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "db603890-6bf3-5382-a010-5feaa7027280",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:shimmering-dust",
+    "name": "Shimmering Dust",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1009"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This luminous mica dust fluoresces for a short time after being exposed to significant amounts of magical energy. When a creature fails its save against a cloud of "
+          },
+          {
+            "type": "ref",
+            "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+          },
+          {
+            "type": "text",
+            "text": " created using this catalyst, glowing grains stick to them, causing them to shed dim light in a 20-foot radius for as long as their invisibility is negated by the spell as well as causing them to take a -2 circumstance penalty to Stealth for that duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "168b192b-ba37-5d5f-af8c-eac0c363e45c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZiD7kDxU4KEkO6XH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "effect": "168b192b-ba37-5d5f-af8c-eac0c363e45c",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "fb3df6df-ba62-5fb6-8368-8c2c392ed20a",
     "pack": "secrets-of-magic",
     "kind": "consumable",
@@ -150,6 +4381,1372 @@
       "usage": {
         "type": "held",
         "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "03910f75-5cba-5616-8fd7-6531beb7792a",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:soothing-scents",
+    "name": "Soothing Scents",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1010"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Performers popularized these bundles of aromatic herbs to calm the mind and ward off misfortune before a big show, though soldier bards have found them especially useful for clearing fear during particularly tumultuous battles. Adding this catalyst to a "
+          },
+          {
+            "type": "ref",
+            "id": "272d555d-f777-5439-b02b-cc5325c0a648"
+          },
+          {
+            "type": "text",
+            "text": " spell also causes the spell to reduce the target's "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " condition value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uCt7Kc2MXzRMc0GD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "30372f1d-6678-5be0-bb7a-db35453b2a6d",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:spirit-sealing-fulu",
+    "name": "Spirit-Sealing Fulu",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "incapacitation", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to one undead creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This classic fulu seals the void energy within an undead, freezing it in its tracks. Upon affixing, the target undead must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9FiSGqe8s8531Tyh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "85749179-a87b-5a43-a714-47094589b20c",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:spirit-sealing-fulu-greater",
+    "name": "Spirit-Sealing Fulu (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "incapacitation", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=983"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to one undead creature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round or 4 rounds"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This classic fulu seals the void energy within an undead, freezing it in its tracks. Upon affixing, the target undead must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. On a critical failure, the undead is paralyzed for 4 rounds. At the end of each of its turns, it can attempt a new Will save to reduce the remaining duration by 1 round, or end it entirely on a critical success."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NQvLv4qcTfK21y3H"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 155
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "42d0c1d3-3929-5f5b-8c4e-56d29855977f",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:stormbreaker-fulu",
+    "name": "Stormbreaker Fulu",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=984"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You would be forced to move, you would be teleported, or you would take cold, electricity, or sonic damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This unassuming paper tag is inscribed with magical symbols. When you activate the fulu, it vanishes in a wisp of cloud, and you gain resistance 15 to cold, electricity, and sonic damage until the end of your next turn. For that duration, you ignore difficult terrain from wind and weather, and you can't be forcibly moved or teleported unless the effect counteracts the fulu (DC 40). These protections apply against the triggering effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a1d45f94-bb30-53ea-b3ae-0d5a2866bd4c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NQuE19X1YMWjiWHl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "effect": "a1d45f94-bb30-53ea-b3ae-0d5a2866bd4c",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "a3c2699d-c6fe-5eb3-8707-32d418d3d99d",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:stormfeather",
+    "name": "Stormfeather",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1034"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in Acrobatics."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even while affixed, this electric blue feather sways lightly in the air, as if always accompanied by a breeze. When activated, the talisman casts fly on you, though the duration is 1 minute. You can Dismiss this activation. If you do, you're affected by "
+          },
+          {
+            "type": "ref",
+            "id": "9d83db58-4a62-5f49-b04a-55d6b4f18e7b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OCAwJ6CAqS0YkHCU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "be40beb5-a937-5b8f-80c7-729fce80df62",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:thunderbird-tuft-greater",
+    "name": "Thunderbird Tuft (Greater)",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This carved chunk of amber contains a single tuft of gray feathers, which spark with electricity to create an odd jittery sensation in anyone holding the amber for long. When used as part of a "
+          },
+          {
+            "type": "ref",
+            "id": "b86ba851-9122-5c41-a00d-ba6296af3a20"
+          },
+          {
+            "type": "text",
+            "text": " spell, "
+          },
+          {
+            "type": "text",
+            "text": "thunderbird tuft",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " funnels electricity back into the spellcaster in a defensive nimbus. For 1 minute, any creature that touches you or that hits you with a melee unarmed attack or non-reach melee weapon attack takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if the creature is using a metal weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sYTvRLIlhfUd1Dm5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 125
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "37348353-c4a5-5563-99df-e13cd1e6f614",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:thunderbird-tuft-lesser",
+    "name": "Thunderbird Tuft (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This carved chunk of amber contains a single tuft of gray feathers, which spark with electricity to create an odd jittery sensation in anyone holding the amber for long. When used as part of a "
+          },
+          {
+            "type": "ref",
+            "id": "b86ba851-9122-5c41-a00d-ba6296af3a20"
+          },
+          {
+            "type": "text",
+            "text": " spell, "
+          },
+          {
+            "type": "text",
+            "text": "thunderbird tuft",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " funnels electricity back into the spellcaster in a defensive nimbus. For 1 round, any creature that touches you or that hits you with a melee unarmed attack or non-reach melee weapon attack takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if the creature is using a metal weapon, but the nimbus only lasts 1 round, rather than the full minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Led9ciHzpF8uPN6Y"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a301b41b-0a96-56c9-8acf-023a21b8e29e",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:thunderbird-tuft-major",
+    "name": "Thunderbird Tuft (Major)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This carved chunk of amber contains a single tuft of gray feathers, which spark with electricity to create an odd jittery sensation in anyone holding the amber for long. When used as part of a "
+          },
+          {
+            "type": "ref",
+            "id": "b86ba851-9122-5c41-a00d-ba6296af3a20"
+          },
+          {
+            "type": "text",
+            "text": " spell, "
+          },
+          {
+            "type": "text",
+            "text": "thunderbird tuft",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " funnels electricity back into the spellcaster in a defensive nimbus. For 1 minute, any creature that touches you or that hits you with a melee unarmed attack or non-reach melee weapon attack takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if the creature is using a metal weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xYJwgmn2Nmthztb7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7a7bfe5f-4c28-5135-b520-4af8ee32798c",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:thunderbird-tuft-moderate",
+    "name": "Thunderbird Tuft (Moderate)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1011"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell (add 1 action)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This carved chunk of amber contains a single tuft of gray feathers, which spark with electricity to create an odd jittery sensation in anyone holding the amber for long. When used as part of a "
+          },
+          {
+            "type": "ref",
+            "id": "b86ba851-9122-5c41-a00d-ba6296af3a20"
+          },
+          {
+            "type": "text",
+            "text": " spell, "
+          },
+          {
+            "type": "text",
+            "text": "thunderbird tuft",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " funnels electricity back into the spellcaster in a defensive nimbus. For 1 minute, any creature that touches you or that hits you with a melee unarmed attack or non-reach melee weapon attack takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage if the creature is using a metal weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ik15k2r6znOdguXo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ae9b693b-c5d2-5245-97ca-136bc1d1c6ee",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:topology-protoplasm",
+    "name": "Topology Protoplasm",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1035"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slimy gel wriggles to the touch, as if covered by a multitude of imperceptible cilia. If applied to a creature or object no larger than 7 feet in any dimension, the protoplasm shifts it into an ooze-like state for 1 minute, allowing the subject to squash and stretch harmlessly. In this state, a creature that attempts a check to Squeeze uses the outcome one degree of success better than it rolls and can move its full Speed while Squeezing, and an object can fit through a space 2 feet across. One vial can cover a creature or object of up to Large size, but as each vial is made from a specific ooze, multiple vials can't be combined together to cover a larger object, as the two gels simply negate each other."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "45c02563-6c60-5f45-8a14-6ae0bf763aeb"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PblDdXHm98XWs9ba"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "45c02563-6c60-5f45-8a14-6ae0bf763aeb",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "99c471ea-03ac-551d-95bb-b9192bcb0471",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:tracking-fulu",
+    "name": "Tracking Fulu",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=985"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to creature or object"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Used covertly by assassins and spies, this pair of fulus stick to one another when created but can be easily separated. Affix one fulu to a target before activating its pair. When activated, the unaffixed fulu flutters toward the affixed one at a speed of 30 feet per round, traveling for up to 1 hour and fluttering more rapidly the closer it comes to its pair. The unaffixed fulu always moves in a straight line towards the affixed fulu; it can't solve mazes or find its way through winding paths"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qSmhcV5NLzlBjfAz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4dc1551b-73cf-5067-b88a-5c0f687acfdb",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:vapor-sphere",
+    "name": "Vapor Sphere",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1036"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You trigger a trap's reaction or an enemy that was undetected by you makes an attack against you"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're an expert in the affixed armor and an expert in Reflex saves."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Within this strange glass sphere swirls a cloud of smoke that occasionally appears as if it's trying to escape. You react to a surprise encounter with haste, activating this talisman and causing your body to momentarily become like vapor. Against the trap's reaction or the attack, you gain resistance 25 to physical damage and are immune to precision damage. This effect also prevents the reaction or attack from physically moving you (such as falling down a pit or being knocked prone), and after the reaction or attack, you can Fly 5 feet. When you end this flight, you leave your vaporous state and are exposed to any danger still at your location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "06dbad0f-55a1-5338-8f8d-04c500d95e8d"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.HBlUlkSlIQ0NQA9N"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "reaction"
+      },
+      "effect": "06dbad0f-55a1-5338-8f8d-04c500d95e8d",
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "4b30592a-7416-58be-9700-8c82af973012",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:venomous-cure-fulu",
+    "name": "Venomous Cure Fulu",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "fulu", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=986"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to armor"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against an injected poison."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This green fulu depicts venomous creatures and vermin. When activated, the venom from the fulu fights against the venom in your system, granting you a +2 status bonus to the triggering saving throw."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.097NJos0T8o7AMLi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "negligible",
+      "category": "fulu",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "4f03e5ca-9261-5f15-ba8e-0c1de17c62c5",
+    "pack": "secrets-of-magic",
+    "kind": "consumable",
+    "slug": "consumable:waterproofing-wax",
+    "name": "Waterproofing Wax",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["catalyst", "consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1012"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Many books and spellbooks are treated in this wax formula to protect them from the elements, but waterproofing wax's liquid-repellent properties can be further applied to split up a "
+          },
+          {
+            "type": "ref",
+            "id": "18394b0b-f757-59b4-8366-dfd2f7d4e033"
+          },
+          {
+            "type": "text",
+            "text": " spell into useful smaller sections. When the spell is cast in an area while using this catalyst, the conjured grease fills three 5-foot squares within 30 feet instead of its normal area; these squares don't need to be contiguous."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZVaiCVMdkakXagIU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "catalyst",
+      "usage": {
+        "type": "held",
+        "hands": "one"
       }
     }
   }

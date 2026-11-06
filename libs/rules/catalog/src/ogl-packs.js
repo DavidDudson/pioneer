@@ -54,13 +54,40 @@ export async function impossibleLandsPack() {
 
 export async function coreRulebookPack() {
   return pack(import('@pioneer/content/packs/core-rulebook/pack.json'), [
+    import('@pioneer/content/packs/core-rulebook/action.json'),
+    import('@pioneer/content/packs/core-rulebook/ancestry-feature.json'),
+    import('@pioneer/content/packs/core-rulebook/ancestry.json'),
+    import('@pioneer/content/packs/core-rulebook/archetype.json'),
+    import('@pioneer/content/packs/core-rulebook/armor.json'),
+    import('@pioneer/content/packs/core-rulebook/class-feature.json'),
+    import('@pioneer/content/packs/core-rulebook/class.json'),
+    import('@pioneer/content/packs/core-rulebook/consumable.json'),
+    import('@pioneer/content/packs/core-rulebook/deity.json'),
+    import('@pioneer/content/packs/core-rulebook/equipment.json'),
+    import('@pioneer/content/packs/core-rulebook/feat.json'),
+    import('@pioneer/content/packs/core-rulebook/ritual.json'),
+    import('@pioneer/content/packs/core-rulebook/rune.json'),
     import('@pioneer/content/packs/core-rulebook/spell.json'),
+    import('@pioneer/content/packs/core-rulebook/weapon.json'),
   ]);
 }
 
 export async function advancedPlayersGuidePack() {
   return pack(import('@pioneer/content/packs/advanced-players-guide/pack.json'), [
+    import('@pioneer/content/packs/advanced-players-guide/action.json'),
+    import('@pioneer/content/packs/advanced-players-guide/ancestry.json'),
+    import('@pioneer/content/packs/advanced-players-guide/archetype.json'),
+    import('@pioneer/content/packs/advanced-players-guide/background.json'),
+    import('@pioneer/content/packs/advanced-players-guide/class-feature.json'),
+    import('@pioneer/content/packs/advanced-players-guide/class.json'),
+    import('@pioneer/content/packs/advanced-players-guide/consumable.json'),
+    import('@pioneer/content/packs/advanced-players-guide/equipment.json'),
     import('@pioneer/content/packs/advanced-players-guide/feat.json'),
+    import('@pioneer/content/packs/advanced-players-guide/heritage.json'),
+    import('@pioneer/content/packs/advanced-players-guide/ritual.json'),
+    import('@pioneer/content/packs/advanced-players-guide/shield.json'),
+    import('@pioneer/content/packs/advanced-players-guide/spell.json'),
+    import('@pioneer/content/packs/advanced-players-guide/weapon.json'),
   ]);
 }
 

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "6f7d88c4-634a-5086-ba0e-c00fc75b736c",
+    "pack": "core-rulebook",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:clan-dagger",
+    "name": "Clan Dagger",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["dwarf"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=13"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You get one "
+          },
+          {
+            "type": "ref",
+            "id": "a303cd49-4675-5408-920e-00889455fb25",
+            "label": "clan dagger"
+          },
+          {
+            "type": "text",
+            "text": " of your clan for free, as it was given to you at birth. Selling this dagger is a terrible taboo and earns you the disdain of other dwarves."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.Eyuqu6eIaoGCjnMv"
+    },
+    "data": {}
+  }
+]

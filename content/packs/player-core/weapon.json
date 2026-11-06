@@ -380,7 +380,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["6f7d88c4-634a-5086-ba0e-c00fc75b736c"]
   },
   {
     "id": "08215153-1f81-5cde-bae9-392affe48173",

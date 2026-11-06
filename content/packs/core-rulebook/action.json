@@ -1,0 +1,257 @@
+[
+  {
+    "id": "cfd62ee1-6e6a-5669-b1aa-2795f399d3d4",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:detect-magic",
+    "name": "Detect Magic",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=66"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You cast detect magic at regular intervals. You move at half your travel speed or slower. You have no chance of accidentally overlooking a magic aura at a travel speed up to 300 feet per minute, but must be traveling no more than 150 feet per minute to detect magic auras before the party moves into them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Yb0C1uLzeHrVLl7a"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "b554220e-8fdb-5b6c-9768-454168d27f4c",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:foresight",
+    "name": "Foresight",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=127"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target of "
+          },
+          {
+            "type": "ref",
+            "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+          },
+          {
+            "type": "text",
+            "text": " defends against a hostile creature or other danger."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If the hostile creature or danger forces the target to roll dice (a saving throw, for example), the target rolls twice and uses the higher result, and this spell gains the fortune trait. But if the hostile creature or danger is rolling against the target (an attack roll or skill check, for example), that hostile creature or danger rolls twice and uses the lower result, and this spell gains the misfortune trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VOEWhPQfN3lvHivK"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target of Foresight defends against a hostile creature or other danger."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f550c578-ea0f-5806-ae9e-253d886116fb",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:nimble-dodge",
+    "name": "Nimble Dodge",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=550"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature targets you with an attack and you can see the attacker."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are not encumbered"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You deftly dodge out of the way, gaining a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "ac",
+        "option": "option:nimble-dodge",
+        "toggleable": true
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:nimble-dodge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.wCnsRCHvtZkZTmO0"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are not encumbered"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature targets you with an attack and you can see the attacker."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b648d491-cda2-5e3f-a269-27323d7e97a5",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:scout",
+    "name": "Scout",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=32"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You scout ahead and behind the group to watch danger, moving at half speed. At the start of the next encounter, every creature in your party gains a +1 circumstance bonus to their initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "454f2a32-dc05-54ca-808e-fbca302c824c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kV3XM0YJeS2KCSOb"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  }
+]

@@ -192,7 +192,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["9904326c-3a2b-5f8e-a4b1-fc16699ec2c3"]
   },
   {
     "id": "286ae5ae-35c5-530a-b8ca-0ecf8113aeac",
@@ -369,7 +370,8 @@
         ],
         "casters": 3
       }
-    }
+    },
+    "supersedes": ["d60044bb-cb50-5105-9ec6-49377d34df97"]
   },
   {
     "id": "4839a6c9-2b2f-5bb6-8699-22e70d09ebbe",
@@ -553,7 +555,8 @@
         ],
         "casters": 3
       }
-    }
+    },
+    "supersedes": ["8c2926d6-707c-5407-af5d-1509ab66b5c0"]
   },
   {
     "id": "15215e04-e308-5ac1-b000-c5151d882d02",
@@ -739,7 +742,8 @@
         ],
         "casters": 1
       }
-    }
+    },
+    "supersedes": ["de7234c6-cb61-5e5a-a4a6-8d97424d4e5b"]
   },
   {
     "id": "d4be39b2-febf-5093-b978-249ab32181a4",
@@ -876,7 +880,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["8fb5df84-b6e4-5b8a-86ea-48c5224f3e99"]
   },
   {
     "id": "b6be88a1-ab7e-508c-ac01-e5a5591acdf5",
@@ -1050,7 +1055,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["148b0317-f730-57d6-801e-c0d5e37d060a"]
   },
   {
     "id": "bcef6803-75fd-5608-9227-b66710a2ec17",
@@ -1199,7 +1205,8 @@
         "checks": [],
         "casters": 0
       }
-    }
+    },
+    "supersedes": ["4a4f7abc-61b7-5c66-888b-14c0ef791e19"]
   },
   {
     "id": "d44dfcac-ec6e-5dc5-aa80-b91e472f4a57",
@@ -1409,7 +1416,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["9a361e2b-0d40-57b3-837a-ec144b0c79ee"]
   },
   {
     "id": "2538cc40-43fa-5583-994b-db2735d6d75c",
@@ -1662,7 +1670,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["afc3f538-c521-55c4-b891-8dd40ed879d4"]
   },
   {
     "id": "549bd343-78c0-53a8-8c1c-8e04b2bcc5b6",
@@ -1810,7 +1819,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["bdfe3506-61bc-55bd-adeb-9b16f5fc82f2"]
   },
   {
     "id": "7b06de3d-1bd2-55d5-8141-1d4901adab71",
@@ -1943,7 +1953,8 @@
         ],
         "casters": 3
       }
-    }
+    },
+    "supersedes": ["05edd706-b8b7-512c-b2c2-b30883bf131c"]
   },
   {
     "id": "89ffadba-b3fa-55a1-a9e5-1ff5f5963722",
@@ -2136,7 +2147,8 @@
         ],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["9c40b3e1-3b95-5626-9e90-2366eb8a45bf"]
   },
   {
     "id": "dddb61ee-e613-5895-b7d2-bb9fcb00f89e",
@@ -2322,6 +2334,7 @@
         ],
         "casters": 3
       }
-    }
+    },
+    "supersedes": ["7d9a9ab9-44a3-5cab-84fd-36a4ed0caedd"]
   }
 ]

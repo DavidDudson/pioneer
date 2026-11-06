@@ -1,0 +1,1827 @@
+[
+  {
+    "id": "33d63132-844e-5bb6-8523-709941eb7bb0",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:amnesiac",
+    "name": "Amnesiac",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=182"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your background is… well… honestly, you can't remember! You might have inklings deep within your mind, undercurrents of unusual emotions or unexpected responses to certain people or situations, but ultimately you don't know who you once were. You might be adventuring specifically to help discover yourself. It's up to you and the GM how to handle the truth of your character's backstory. You could leave it to the GM so it's a secret, work together with the GM, or even choose to leave it undecided until later. In any case, you and your GM should determine a few noteworthy details about your character or their belongings to get the first clues to your past."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain three free ability boosts. You choose two, and the GM chooses the third based on their first inklings of your character's possible history."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.0ZfBP7Tp2P3WN7Dp"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con", "dex", "int", "str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "cacdd5ba-ab09-51d1-87ac-cd22858ef1d7",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:barber",
+    "name": "Barber",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=166"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Haircuts, dentistry, bloodletting, and surgery-if it takes a steady hand and a razor, you do it. You may have taken to the road to expand your skills, or to test yourself against a world that leaves your patients so battered and bruised."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Surgery Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "c57bfdb0-a1ea-5c7d-a6d8-5904ceaff5fd"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:med",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "c57bfdb0-a1ea-5c7d-a6d8-5904ceaff5fd"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.wudDO9OEsRjJsqhU"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "da6cab7a-a2d9-5cef-ae8a-5b0dedc92bcf",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:blessed",
+    "name": "Blessed",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=183"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have been blessed by a divinity. For an unknown reason, and irrespective of your actual beliefs, a deity has granted you a boon to use for good or ill. Your blessing grants wisdom and insight to aid you in your struggles. You may or may not even know the identity of the being who blessed you, and the blessing might come with a cost you discover later on."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in a Lore skill associated with the deity who blessed you (such as Shelyn Lore) if you know their identity, or else in a Lore skill of the GM's choice if you don't. Either you can cast "
+          },
+          {
+            "type": "ref",
+            "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate spell at will, or you gain a similar blessing determined by the GM."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.9pK15dQJVypSCjzO"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "17aa0333-ae67-5c81-a46e-8d69217fdbaa",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:bookkeeper",
+    "name": "Bookkeeper",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=167"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ran the numbers on a large farm, for a merchant's endeavors, or with a major guild in the city. You kept track of expenses, payroll, profits, and anything else that had to do with money, for better or worse. If better, you might be adventuring to learn how others ply this trade. If worse, you may be fleeing from impending consequences, in the hope that no one finds you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Accounting Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "2fa66be9-a3d7-5278-8983-c082d3d340ca"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:soc",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "2fa66be9-a3d7-5278-8983-c082d3d340ca"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.o1lhSKOpKPamTITI"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "3527272e-2b23-518b-a64e-4bb3950feda8",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:courier",
+    "name": "Courier",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=169"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your youth, you earned coin running messages for persons of wealth and influence, darting through crowded cobblestone streets. Your dogged commitment to deliver your message was good training for the life of an adventurer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Lore skill for the city in which you were raised. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4729fcf6-234d-5eda-bdef-f92871c1fff8"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:soc",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "4729fcf6-234d-5eda-bdef-f92871c1fff8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.DBxOUwM7qhGH8MrF"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "5cafe7f7-cc46-5f83-bc8a-c0b2060557dc",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:cursed",
+    "name": "Cursed",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=184"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are the victim of a personal or hereditary curse. Through great effort and occult study, you have learned to fend off the curse's worst effects and, by extension, you can protect yourself against other harmful magic. However, the curse still hangs over you and sometimes manifests in dangerous ways."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Occultism and Curse Lore. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "564e1a2c-c9c6-5a2b-a786-64b6d2131f31"
+          },
+          {
+            "type": "text",
+            "text": " reaction. You and the GM should determine the full effects of the curse, though you've staved most of them off for now. The GM determines the curse's lingering manifestations on you, which usually include at least a constant or very frequent thematic effect and occasional more dangerous effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "564e1a2c-c9c6-5a2b-a786-64b6d2131f31"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:occ",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.j2G71vQahw1DiWpO"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "be839e98-46cf-5013-8a3e-848a42cf2e76",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:feral-child",
+    "name": "Feral Child",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=185"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spent your youth in the wilderness, living close to or perhaps raised by animals. You have a close, mystical connection with these animals and gained certain abilities from them, though this limited your well-roundedness in mental pursuits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one ability boost. It must be "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Nature and Survival. You gain low-light vision (or darkvision if you already had low-light vision), imprecise scent with a range of 30 feet, and the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+        "predicate": ["self:low-light-vision:from-ancestry"]
+      },
+      {
+        "key": "Sense",
+        "sense": "16b42c38-9373-58ec-a7ac-2221bb17a71c"
+      },
+      {
+        "key": "Sense",
+        "sense": "279973df-e7b9-5fa1-9bb6-1cfdc54b82b6",
+        "acuity": "imprecise",
+        "range": 30
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:nat",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:sure",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Q2brdDtEoI3cmpuD"
+    },
+    "data": {
+      "boosts": [["con", "dex", "str"]]
+    }
+  },
+  {
+    "id": "96e00044-6e92-5e1d-a0cf-4cd25f9909f5",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:feybound",
+    "name": "Feybound",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=186"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have spent time in the First World or another realm of the fey and aren't entirely the same person you were before. Perhaps you made a purchase at the legendary Witchmarket or partook deeply of fey food and wine. Whatever the case, willingly or inadvertently, you made a bargain with the fey, the benefits of which come at a price."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Fey Lore and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "a111860c-feda-5a59-9675-2ab66f0e0072"
+          },
+          {
+            "type": "text",
+            "text": " free action. You must follow some rule or limitation as part of your pact with the fey. If you violate the rule, you lose Fey's Fortune until you receive the effects of a successful "
+          },
+          {
+            "type": "ref",
+            "id": "8d8afdc8-d8bb-52eb-8ebb-74bd066eb8eb"
+          },
+          {
+            "type": "text",
+            "text": " ritual using the Nature skill. The exact limitation is up to you and the GM, but the most common requirement is that you must fulfill a single request from any fey who knows your name."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "a111860c-feda-5a59-9675-2ab66f0e0072"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ppBGlWl0UkBKkJgE"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "ba93a4d9-75d7-5422-98a5-f8303e48416c",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:haunted",
+    "name": "Haunted",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=187"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are followed by a spirit or entity, either from childhood or since a traumatic or momentous event. You may have seen this entity. Others may have seen it as well. You have studied esoteric subjects trying to understand your situation, but this presence in your life remains a mystery. Whatever this entity is or wants, it influences your life in subtle ways, not always good. Sometimes the entity helps you, but at other times, its influence is malevolent or harmful. The entity is most likely to surface in stressful situations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Occultism and an additional skill in which the haunting entity is well-versed, determined by the GM. Any time you attempt a skill check for the entity's skill, the GM can offer you a +1 circumstance bonus to the check, as though the entity were "
+          },
+          {
+            "type": "ref",
+            "id": "75d39cda-442b-5171-bf18-4645b8813fd3",
+            "label": "Aiding"
+          },
+          {
+            "type": "text",
+            "text": " you. If you accept but fail the check, you are "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": " on a critical failure). The initial Frightened value can't be reduced by effects that would reduce or prevent the condition (such as a fighter's bravery)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occ",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.pGOlKz4Krnh7MyUM"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "bc30626e-8eeb-5119-8991-9cb4128709d7",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:insurgent",
+    "name": "Insurgent",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=171"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were more than a rebel; you were a revolutionary, fighting for the promise of a new or better country. You may or may not still believe in the cause, or perhaps victory or exile has led you on this new journey to trumpet your glory... or to escape the consequences of your defeat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Deception skill and the Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "01050454-6c64-5943-a636-4934e12b479d"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:dec",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "01050454-6c64-5943-a636-4934e12b479d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.HdnmIaLadhRfZq8X"
+    },
+    "data": {
+      "boosts": [
+        ["str", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "8ef1c3ae-7e75-554c-9647-7e069625d5af",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:outrider",
+    "name": "Outrider",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=172"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your youth, you galloped on horseback over vast prairies, serving as a vanguard for your settlement, an army, or another group. Seeing so many different lands built a thirst in you to adventure and explore the world instead of just racing past it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Nature skill and the Plains Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "343652d4-c61d-59e9-a7e2-3713a6e41634"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:nat",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "343652d4-c61d-59e9-a7e2-3713a6e41634"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.dAvFZ5QmbAHgXcNp"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "957e6434-cff2-5f26-b4fd-8e366b24b700",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:pilgrim",
+    "name": "Pilgrim",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=173"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In your youth, you made several pilgrimages to important shrines and holy sites. You might have been a mendicant friar, a seller of holy relics (real or fraudulent), or just a simple farmer following the dictates of your faith. Whatever the aims of your wanderings now, your faith still protects you on the road."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Religion skill and the Lore skill for your patron deity. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "7049e802-66ba-5a75-8c0a-b4abd2412b65"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:rel",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "7049e802-66ba-5a75-8c0a-b4abd2412b65"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.r9fzNQEz33HyKTxm"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "3dda455e-867f-5bfa-af03-fe315806ca13",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:returned",
+    "name": "Returned",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=188"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You died and miraculously returned with knowledge of the realms beyond death and a stronger link to life. Some dead and undead souls might feel a strange, instinctual kinship with you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " feat and the "
+          },
+          {
+            "type": "ref",
+            "id": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+          },
+          {
+            "type": "text",
+            "text": " feat for Boneyard Lore."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "50ac17a9-a644-58e8-8ee0-ce4c6cfbf17b"
+      },
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.rzyRtasSTfHS3e0y"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "c7c910c4-ee3e-5e4c-8cc2-2515b74aa6a3",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:root-worker",
+    "name": "Root Worker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=175"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some ailments can't be cured by herbs alone. You learned ritual remedies as well, calling on nature spirits to soothe aches and ward off the evil eye. Taking up with adventurers has given you company on the road, as well as protection from those who would brand you a fake-or worse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Occultism skill and the Herbalism Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "76403935-0ce3-5a68-9b39-63d438ab7460"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:occ",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "76403935-0ce3-5a68-9b39-63d438ab7460"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ns9BOvCyjdapYhI0"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "9614ec2c-5ec6-54e5-bff7-edb1b9237841",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:royalty",
+    "name": "Royalty",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=189"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are a prominent member of a royal family. You have taken up the life of an adventurer-perhaps you're a deposed queen hoping to regain her throne, a prince seeking a more exciting life, or a princess on a secret mission."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Society. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "6da557f7-550b-5b33-890f-47f75d6e5650"
+          },
+          {
+            "type": "text",
+            "text": " skill feat and can influence commoners in your family's territory, as well as nobility anywhere. If you later gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5f9f9d0c-774a-5467-887e-3d3893fa2e50"
+          },
+          {
+            "type": "text",
+            "text": " skill feat, you automatically have common and noble connections within any community in your royal family's territory and have noble connections in large communities outside your territory."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:soc",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "6da557f7-550b-5b33-890f-47f75d6e5650"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.uC6D2nmDTATxXrV6"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "17fd9bb5-66ba-500f-9fa3-eabe4f7b08d2",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:scavenger",
+    "name": "Scavenger",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=176"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've made a living sorting through the things society throws away. You might have scavenged simply to survive, or plied a trade as a ragpicker, dung carter, or the like. While you've left that life behind, you still keep one eye on the ground out of habit."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Survival skill and the Lore skill for the settlement you grew up scavenging in. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:sure",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "5e597080-193c-5a28-a1ed-901ee2ebba74"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.vHeP960qjhfob4Je"
+    },
+    "data": {
+      "boosts": [
+        ["int", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "78feeca9-d8c1-5524-afbc-40eb8f401375",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:servant",
+    "name": "Servant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=177"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You held a role of servitude, waiting on nobles and engendering their trust as one of the confidantes of the household. You might have walked away on good terms, or perhaps you know dangerous secrets about your former masters. Regardless, you're adventuring for a change and finding that in this new role, the skills you've learned now serve you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Society skill and the Labor Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1494b28e-a28c-5cc5-a1c1-28be70933d49"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:soc",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "1494b28e-a28c-5cc5-a1c1-28be70933d49"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.UdOUj7i8XGTI72Zc"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1d0894be-ce6f-5dbc-bb88-c5d019887fca",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:squire",
+    "name": "Squire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=178"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You trained at the feet of a knight, maintaining their gear and supporting them at tourneys and in battle. Now you search for a challenge that will prove you worthy of full knighthood, or you've spurned pomp and ceremony to test yourself in honest, albeit less formal, combat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and your choice of the Heraldry Lore or Warfare Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "406ca6b1-f500-511b-a118-ef01da3ed954"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:ath",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "406ca6b1-f500-511b-a118-ef01da3ed954"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.qbvzNG8hMjb8f66D"
+    },
+    "data": {
+      "boosts": [
+        ["con", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "da9c6909-a0e0-55e3-97a0-3261c1325dab",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:tax-collector",
+    "name": "Tax Collector",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=179"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reviled but required, you were sent when taxes were due. Performing your job might have required travel and persuasion, or perhaps you were responsible for collecting taxes on trade. Either way, it sometimes meant dirty hands, and adventuring seemed the next logical step to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and the Lore skill for the settlement that employed you. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "40ae47a1-73c4-58dd-9e66-1d9fc97ace5d"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:itm",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "40ae47a1-73c4-58dd-9e66-1d9fc97ace5d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ixluAGUDZciLEHtb"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "74258918-f408-5d72-b854-2cb17fc7892c",
+    "pack": "advanced-players-guide",
+    "kind": "background",
+    "slug": "background:ward",
+    "name": "Ward",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Backgrounds.aspx?ID=181"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you were young, you became the ward of another house-boarded, fed, and educated, but never quite a part of the family. Perhaps you had to tend to their needs in return for feeding and raising you, or perhaps you were provided for but disregarded. Now, adventuring is your chance to grow and roam free."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Performance skill and the Genealogy Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:prf",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.IXxdCzBS0xP20ckw"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "con"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]

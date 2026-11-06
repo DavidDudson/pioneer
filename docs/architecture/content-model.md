@@ -246,7 +246,8 @@ its damage is its description, and the effects it applies are `effect` entries.
   `Spell Effect: X` (or `Spell Effect: X (variant)`) the trait of a `polymorph` spell `X`, and an `Effect: X` that of a
   `polymorph` feat or action `X`, among the import's own entries. A catalog test fails when a committed effect lacks
   it. A pack is never re-imported (ADR-0031), so the committed packs got the trait in a one-off content pass; the
-  werecreature's `Effect: Change Shape (Werecreature)` got it by hand, as its action is not in the packs.
+  werecreature's `Effect: Change Shape (Werecreature)` got it by hand, as its action is not in the packs. The
+  legacy import does not give the trait yet: the catalog test lists the 12 Secrets of Magic effects that lack it.
   Humanoid Form shows the shape such a form takes: a `ChoiceSet` for the form
   (`humanoid-form:small|medium|large`), a `CreatureSize` for each, `ActorTraits`, and `RollOption` toggles for what
   the player turns on while it lasts (`option:pass-as-humanoid`, and `option:humanoid-form-sense` with a suboption per
@@ -549,8 +550,11 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; the registry flags the
 books the importer takes that way (`Book.legacy` of `whole`); `core-rulebook`,
-`advanced-players-guide` and `the-show-must-go-on` hold only the items `OGL_ENTRIES` lists, and every entry
-under the OGL, in an OGL pack or beside an ORC one, is legacy).
+`advanced-players-guide` and `the-show-must-go-on` hold the items `OGL_ENTRIES` lists and, since ADR-0077, every
+legacy entry a remaster entry replaces: `--replaced-legacy` reads them from the pre-6.0 pf2e release in `legacyPin` of
+`content/import/<pack>.json`, taking a legacy OGL document whose book and slug match a name behind
+`content/aon/supersedes/*.json`; the other legacy packs get their replaced entries the same way. Every entry under the
+OGL, in an OGL pack or beside an ORC one, is legacy).
 `libs/rules/catalog` loads them lazily and checks every entry against its
 schema and the book registry, so a malformed or wrongly sourced entry fails `bun run affected`. Ids are stored on
 characters, so changing an entry's slug, its kind included, is a data

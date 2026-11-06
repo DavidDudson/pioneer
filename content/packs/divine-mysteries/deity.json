@@ -17868,7 +17868,8 @@
       "skills": ["skill:athletics"],
       "weapons": ["pick"],
       "spells": []
-    }
+    },
+    "supersedes": ["008fa9bf-65af-58c0-8d93-dc9a2038627b"]
   },
   {
     "id": "5e66a72b-43c9-52e0-ba0a-bf5e32fd2557",
@@ -27753,7 +27754,8 @@
           "spell": "f0b4d595-f619-5a11-973d-a30a7c9523ad"
         }
       ]
-    }
+    },
+    "supersedes": ["b4f41283-d00c-5f22-a86a-ef2d350ce58e"]
   },
   {
     "id": "71b00cda-580b-585d-8c34-f78cf82e65fe",
@@ -30549,7 +30551,8 @@
           "spell": "efcbeb7d-28bc-5644-abad-cbccad85de79"
         }
       ]
-    }
+    },
+    "supersedes": ["5daeeca6-9bb0-5330-b484-6b6cb4688c1e"]
   },
   {
     "id": "d59185f2-e115-5d9a-9234-6118d92f177c",
@@ -47559,7 +47562,8 @@
           "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
         }
       ]
-    }
+    },
+    "supersedes": ["dee607f2-cd70-53a0-ab5e-d547f559e4ca"]
   },
   {
     "id": "9d2c20a7-f8de-52b3-9f6a-24bfc387e14b",
@@ -57625,7 +57629,8 @@
           "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
         }
       ]
-    }
+    },
+    "supersedes": ["0ced0da2-b5ac-5fda-ac69-764a6db9c7c9"]
   },
   {
     "id": "957534f6-2677-5733-96d4-7a6ec230f7ee",
@@ -59533,7 +59538,8 @@
       "skills": ["skill:arcana"],
       "weapons": [],
       "spells": []
-    }
+    },
+    "supersedes": ["0acab85f-1ba8-5dae-bfed-a9a64bdfadaf"]
   },
   {
     "id": "154fcd40-a406-5696-8f5d-3198ec010ad2",

@@ -168,7 +168,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["b818d629-3b2f-5972-9028-d4b3fa1a2018"]
   },
   {
     "id": "2a6fa0af-fee4-5103-ac4c-460c30e51918",
@@ -2908,7 +2909,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["ef449e90-36b2-53f4-97e8-5252b5cb00d0"]
   },
   {
     "id": "c4a96aef-cf63-5a34-875d-64e4daf24ecc",
@@ -5874,7 +5876,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["a79beae4-375b-5e77-a7b3-99b34014bc8d"]
   },
   {
     "id": "4dd829e2-04f0-5cff-ab8f-bb762c3586cf",
@@ -7323,7 +7326,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["f00e0d44-5acf-5394-b486-db9e3d2a7ed2"]
   },
   {
     "id": "088c1f48-de0f-5b8a-83b3-24ce61a928bc",
@@ -8295,7 +8299,8 @@
       },
       "traditions": ["divine", "primal"],
       "damage": []
-    }
+    },
+    "supersedes": ["654b9d88-26ad-596b-b305-5abcf7873ed7"]
   },
   {
     "id": "c441df15-0219-514f-a5f5-00da93a3e391",
@@ -10955,7 +10960,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["e99367b1-f2e3-5a9a-b6f2-05f35cd69808"]
   },
   {
     "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9",
@@ -12053,7 +12059,8 @@
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
       "damage": []
-    }
+    },
+    "supersedes": ["cfd62ee1-6e6a-5669-b1aa-2795f399d3d4"]
   },
   {
     "id": "a926ae03-6272-520c-8d97-5244677ee213",
@@ -12272,7 +12279,8 @@
           "kinds": ["damage"]
         }
       ]
-    }
+    },
+    "supersedes": ["70380388-6da9-56ef-973e-497dc55fbf7a"]
   },
   {
     "id": "e018ff32-7d6a-5cc0-aa29-8b165aa40663",
@@ -13978,7 +13986,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["ec86e8bc-b424-5986-b497-8706ceaad978"]
   },
   {
     "id": "35abf662-f81d-5277-8d0b-c80d65dc8538",
@@ -18830,7 +18839,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["f8451b35-574e-51f1-a3f2-047b372cfd90"]
   },
   {
     "id": "72db3961-ed8d-5546-8104-1f7aad2fb3e9",
@@ -20785,7 +20795,8 @@
       },
       "traditions": ["arcane", "occult"],
       "damage": []
-    }
+    },
+    "supersedes": ["8ad0ebfc-593b-5631-b93e-122a74cb8574"]
   },
   {
     "id": "fb3fad1b-a26d-5cfe-8ec3-d5d8889176cc",
@@ -21856,7 +21867,8 @@
       },
       "traditions": ["arcane", "divine", "occult"],
       "damage": []
-    }
+    },
+    "supersedes": ["b554220e-8fdb-5b6c-9768-454168d27f4c"]
   },
   {
     "id": "ab47e30a-7406-57da-aa0c-925ee0310ad0",
@@ -22231,7 +22243,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["878c0832-e6d9-53e9-a88e-217178a7a46a"]
   },
   {
     "id": "96ec5d2e-0681-5fd4-a2e2-4b4c8304011f",
@@ -24691,7 +24704,8 @@
           }
         }
       ]
-    }
+    },
+    "supersedes": ["ff477abf-dac0-50bd-aef9-6f3989e57739"]
   },
   {
     "id": "281b0528-38d8-5b12-a99d-64bf1af504f5",
@@ -25255,7 +25269,8 @@
           }
         }
       ]
-    }
+    },
+    "supersedes": ["094faa33-6827-59be-afc0-36661ab12e46"]
   },
   {
     "id": "6a92fc43-23d9-559f-a7fd-f25a6735ef9a",
@@ -26403,7 +26418,8 @@
           }
         }
       ]
-    }
+    },
+    "supersedes": ["7b03f972-02bc-5893-a09b-e77b8d99010d"]
   },
   {
     "id": "4f616729-3f27-5aee-a02e-426f121c6fa3",
@@ -29675,7 +29691,8 @@
       },
       "traditions": ["arcane", "occult"],
       "damage": []
-    }
+    },
+    "supersedes": ["60263a82-53af-5f12-aef4-d84dff3d5427"]
   },
   {
     "id": "92c4fd7a-25c6-5508-a3d8-53f3c64254b3",
@@ -30500,7 +30517,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["4d8557ab-0ac2-5fe5-aeae-2baf9cb2c8da"]
   },
   {
     "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef",
@@ -30937,7 +30955,12 @@
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
       "damage": []
-    }
+    },
+    "supersedes": [
+      "65a4ac99-ec7a-5be0-b8ad-a6685eed2fc3",
+      "45121f33-c303-55a3-931a-2ab6af19fb0d",
+      "03c6ee91-ca84-55b1-b5a3-ee3ad46d144a"
+    ]
   },
   {
     "id": "ccc96547-bee7-50d8-8de8-ce0748ee961d",
@@ -36342,7 +36365,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["afbac968-a7bd-5829-9461-17d2acda1fb4"]
   },
   {
     "id": "0a1d1434-f6fc-5f1f-9000-fb57d6edd8b2",
@@ -37088,7 +37112,8 @@
           "kinds": ["damage"]
         }
       ]
-    }
+    },
+    "supersedes": ["19c18d60-371e-50c2-9b3d-6c0d827bcd55"]
   },
   {
     "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f",
@@ -40293,7 +40318,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["0e83ee99-a3df-59fd-9e48-e12127d8c77b"]
   },
   {
     "id": "02c769dd-dba8-5437-8189-28b9800afaac",
@@ -41481,7 +41507,8 @@
       },
       "traditions": ["arcane", "divine", "occult", "primal"],
       "damage": []
-    }
+    },
+    "supersedes": ["a81c0bae-92ab-514d-9e57-7cde66334921"]
   },
   {
     "id": "2f0ce68b-8df0-5dce-8d05-7668c7b9b70a",
@@ -42955,7 +42982,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["bc7fe140-f3bd-519a-ac00-b7de052375f6"]
   },
   {
     "id": "d86cf275-4547-59c7-87b4-41d84f69e524",
@@ -44889,7 +44917,8 @@
         ]
       },
       "dismiss": true
-    }
+    },
+    "supersedes": ["d6db4bbf-c383-5f24-90cc-1a12bc2e86a1"]
   },
   {
     "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219",
@@ -46864,7 +46893,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["f0caf35f-ac1a-5948-8e6c-b2fafb2e6cf9"]
   },
   {
     "id": "2b8c44ad-bc75-5547-91d6-75b0f174e910",
@@ -51432,7 +51462,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["b86ba851-9122-5c41-a00d-ba6296af3a20"]
   },
   {
     "id": "f6191882-e6ce-5212-a3ef-e9e1d3007d75",
@@ -52428,7 +52459,8 @@
       },
       "traditions": ["primal"],
       "damage": []
-    }
+    },
+    "supersedes": ["d5bca3af-ed29-5413-98f4-df345f8177e3"]
   },
   {
     "id": "3b05a034-dae4-53d7-8b6e-78db78a9e9cb",
@@ -55351,7 +55383,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["ab148981-4470-56fa-905a-2038bb7de2d3"]
   },
   {
     "id": "2a87a0a6-8eff-5154-a5fe-3cec9be56199",
@@ -57513,7 +57546,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["5186f402-12f8-5c80-81fc-1d0a9cb6d430"]
   },
   {
     "id": "d075969b-7fbe-5aa6-8992-b5b09681f388",
@@ -58037,7 +58071,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["6bafc12e-8792-5da4-9612-f9ed27bfb297"]
   },
   {
     "id": "48abeee9-4024-50a3-957e-b5209f4ff629",

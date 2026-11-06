@@ -78,7 +78,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["93ecbfac-cc34-56c7-9575-e95c351b9ba6"]
   },
   {
     "id": "ce6911f9-9525-561b-93c3-40584a00a402",
@@ -501,7 +502,8 @@
         "type": "affixed",
         "to": "weapon"
       }
-    }
+    },
+    "supersedes": ["d2ec2ac1-f7fa-5dcc-9940-7c2db58ed543"]
   },
   {
     "id": "e7887d8f-47c6-5fdc-a2bb-3f832fb17bed",
@@ -850,7 +852,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["86b0b89b-2eb7-500b-bed8-c03d5ebbb8ca"]
   },
   {
     "id": "f32afd5c-167d-5a92-89db-6ea66b3383f6",
@@ -1390,7 +1393,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["fb161308-e6ea-5010-a50a-3ef72e8e1f72"]
   },
   {
     "id": "f0495804-a02c-5b8f-8189-da4585261a58",
@@ -1449,7 +1453,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["c0b6c81b-33f8-504f-9ea3-ecdb8df1c7cd"]
   },
   {
     "id": "442b365f-866c-5d42-8c70-883d794e0893",
@@ -1529,7 +1534,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["bd6f5a2c-3856-539c-abca-cfb15a96b242"]
   },
   {
     "id": "4b5052bf-7005-5aaf-a381-85321468c1d9",
@@ -1991,7 +1997,8 @@
         "type": "affixed",
         "to": "weapon"
       }
-    }
+    },
+    "supersedes": ["e01bf10f-2924-5784-bbe4-8daca179cd3c"]
   },
   {
     "id": "481858d1-4bbc-5bc8-94f3-6b4537f28fc2",
@@ -2284,7 +2291,8 @@
         "type": "affixed",
         "to": "weapon"
       }
-    }
+    },
+    "supersedes": ["e9aaaa50-4c96-54c8-94c9-0fce68b1e451"]
   },
   {
     "id": "ab8406b0-0b85-5df1-9e50-707099f9ad24",
@@ -2581,7 +2589,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["2563a559-e74e-5732-b214-16a3b1eacffb"]
   },
   {
     "id": "ede2b64e-9ef5-542d-a939-7622ecc7ccde",
@@ -2747,7 +2756,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["8d93c061-2626-5f69-aca9-3b7c433fb02c"]
   },
   {
     "id": "6d312bad-584b-585b-a0d2-8bcab59e995f",
@@ -2975,7 +2985,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["30bdcc22-a5c8-5271-9362-9571e3bbec49"]
   },
   {
     "id": "217dfaab-c7bd-5d62-ac8b-66857c541672",
@@ -3155,7 +3166,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["0e8b848f-d1d3-5b8a-bf05-c472afe3ad36"]
   },
   {
     "id": "464e5f62-7960-5c3b-9a9b-55c4c02c55eb",
@@ -3250,7 +3262,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["81a7bfcf-cfb9-5307-a117-75c68641999d"]
   },
   {
     "id": "5b2576ec-a5be-5d29-80e9-cac02f94635c",
@@ -3352,7 +3365,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["c6cb111e-5dff-5fd7-9a2d-98d00dcf88d4"]
   },
   {
     "id": "3b93f8fd-39a6-5d7d-8da4-4e8c23e81146",
@@ -3454,7 +3468,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["175f3603-a4df-585b-a09c-19065d9f829b"]
   },
   {
     "id": "c03cda1b-5333-5804-a274-2104f99da8ce",
@@ -3575,7 +3590,8 @@
         "type": "affixed",
         "to": "armor-or-travelers-clothing"
       }
-    }
+    },
+    "supersedes": ["89e995bf-55a6-5e70-bdfc-95938a8a8919"]
   },
   {
     "id": "0bf17772-d349-5316-8ced-8c69a5a61e28",
@@ -3738,7 +3754,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["c1fabcff-1371-5d93-bb3c-4b792e43abb5"]
   },
   {
     "id": "e96ebf8d-dd33-5501-a809-567213067909",
@@ -4445,7 +4462,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["3407842c-d79d-52ce-a006-bd1283f0385f"]
   },
   {
     "id": "ec50595a-3ed2-58f5-b7b2-fb3bae3c6517",
@@ -4700,7 +4718,8 @@
         "type": "affixed",
         "to": "weapon"
       }
-    }
+    },
+    "supersedes": ["b97f747e-4e43-5700-8942-eb94153758db"]
   },
   {
     "id": "355b76c7-e77a-51d4-b675-4df6227c9768",
@@ -5408,7 +5427,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["ee3c49c1-675b-585d-a9d0-6cb0381b28c9"]
   },
   {
     "id": "185619c2-7648-5809-8dcd-3f7e3d945240",
@@ -5518,7 +5538,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["d995831e-cb7f-5ff6-b297-0b16c2b5bf5a"]
   },
   {
     "id": "807bdd0b-e081-5c9d-857d-7c63ff3d5394",
@@ -5765,7 +5786,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["83b6c663-3418-5a07-a587-9609aa99aee5"]
   },
   {
     "id": "099cc822-7391-55a0-b853-b410b61249d0",
@@ -5971,7 +5993,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["74a3bfcf-4739-50d6-8cc1-3f87d784fd4d"]
   },
   {
     "id": "16674a72-818a-5430-a932-a7b23b3f1bab",
@@ -6087,7 +6110,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["5575765b-a5c5-5e29-9fb4-13ac32f73d11"]
   },
   {
     "id": "97abc5ec-7214-5506-8b46-a74ba781b163",
@@ -6457,7 +6481,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["1a2113c4-6c42-571b-982f-5085fdede1f9"]
   },
   {
     "id": "0b51f675-eb4a-56ba-a1d4-a5535e4fb23a",
@@ -6541,7 +6566,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["ad6582f9-b997-53ec-9134-0c338d77c731"]
   },
   {
     "id": "006e2a9f-51ab-5fc7-940e-ed15999699b7",
@@ -6653,7 +6679,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["10f76d6e-05de-557a-b1cc-953742e0a52e"]
   },
   {
     "id": "1c8d14c9-db28-5e22-bb48-c56ae2b2093d",
@@ -6826,7 +6853,8 @@
         "type": "affixed",
         "to": "a-shield"
       }
-    }
+    },
+    "supersedes": ["f69c6eb0-01e4-5bb2-ab5c-7c1422111ac5"]
   },
   {
     "id": "5efd0beb-f002-5d99-80ab-ff84c89a1c85",
@@ -7041,7 +7069,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["1e616910-8195-5ae2-9350-60bccc6b13cc"]
   },
   {
     "id": "7fcd26bb-796f-5416-8a89-f34eabefb1ab",
@@ -7281,7 +7310,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["3401693a-28a1-5ce3-88f3-508cc6bcc970"]
   },
   {
     "id": "9eccdffa-da89-5c6c-aee5-87e482409670",
@@ -7821,7 +7851,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["db603890-6bf3-5382-a010-5feaa7027280"]
   },
   {
     "id": "6fcb257e-2c37-5071-8dc9-09f22b69b118",
@@ -7900,7 +7931,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["03910f75-5cba-5616-8fd7-6531beb7792a"]
   },
   {
     "id": "ed2b2dfa-c65c-5d06-9808-087fe96a5636",
@@ -8186,7 +8218,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["85749179-a87b-5a43-a714-47094589b20c"]
   },
   {
     "id": "f06f38e9-7a21-523c-968b-a029486e734a",
@@ -8440,7 +8473,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["42d0c1d3-3929-5f5b-8c4e-56d29855977f"]
   },
   {
     "id": "fc10a1db-ab7b-5b68-98ce-aa488e1f7664",
@@ -8558,7 +8592,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["a3c2699d-c6fe-5eb3-8707-32d418d3d99d"]
   },
   {
     "id": "876de735-39e8-52cd-80db-66b4d79ca145",
@@ -9056,7 +9091,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["7a7bfe5f-4c28-5135-b520-4af8ee32798c"]
   },
   {
     "id": "98503bc2-5125-5eae-8b6e-c9db048d4aec",
@@ -9140,7 +9176,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["ae9b693b-c5d2-5245-97ca-136bc1d1c6ee"]
   },
   {
     "id": "d12ee18f-9062-5cad-bc0c-ee296c313f7b",
@@ -9228,7 +9265,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["99c471ea-03ac-551d-95bb-b9192bcb0471"]
   },
   {
     "id": "465093cd-a085-5974-95f6-69b4278b5e37",
@@ -9441,7 +9479,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["4dc1551b-73cf-5067-b88a-5c0f687acfdb"]
   },
   {
     "id": "41f6dd93-07fb-5a8a-b115-2bd7d1b374ee",
@@ -9543,7 +9582,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["4b30592a-7416-58be-9700-8c82af973012"]
   },
   {
     "id": "e3ef6a92-f3cb-5f12-aa15-a56d3e40363e",
@@ -9685,7 +9725,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["4f03e5ca-9261-5f15-ba8e-0c1de17c62c5"]
   },
   {
     "id": "fe16afdd-d46d-58c9-9c4c-7da69e7bce9b",

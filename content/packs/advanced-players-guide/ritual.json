@@ -1,0 +1,2577 @@
+[
+  {
+    "id": "9904326c-3a2b-5f8e-a4b1-fc16699ec2c3",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:astral-projection",
+    "name": "Astral Projection",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=29"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You project the targets' spiritual essences into the Astral Plane, leaving their inanimate physical forms behind. These astral forms can be used to explore the Astral Plane indefinitely, while the targets' bodies remain safely in stasis on the plane where the ritual was cast (where they remain unconscious and can't be awoken normally). The casters must be in physical contact with one another in a circle for the duration of the casting, and all targets must be selected from these casters."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A target's astral form is a duplicate of the target and everything they're carrying; anything that happens to a duplicate item happens to the original as well. For instance, if you use, spend, destroy, lose, or give away an item's duplicate, the original vanishes from your possession. For the duration of the ritual, any of the targets can spend a single action to "
+          },
+          {
+            "type": "ref",
+            "id": "9d0e5c47-3a1c-5d1a-bfc9-36eb6ed9b3ef"
+          },
+          {
+            "type": "text",
+            "text": " their astral form and immediately return to their physical body. As the primary caster, when you Dismiss your astral form, you can also Dismiss all the other targets' astral forms as part of the same action, returning all targets to their physical forms simultaneously. While in the Astral Plane, the other targets are unable to navigate without you, and if they become separated from you, they must wait for your return or Dismiss their own astral forms. When the ritual ends, the targets' astral forms vanish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A target's astral form and corresponding physical form are linked by an incorporeal silver cord, which is visible only in the Astral Plane. This nearly unbreakable cord serves as a conduit and safety line; if it is severed, the target's astral and physical forms are both immediately slain. If the ritual is interrupted by an external force, such as "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " being cast on a target's physical or astral form, the target is immediately and harmlessly returned to their physical body. If a target's astral form is slain, the silver cord immediately rips them back to their physical body; the strain requires them to attempt a Fortitude save with the same DC as the ritual's primary check. On a failure, the creature dies; on a success, they become "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week; these conditions can't be removed or reduced by any means until the week has passed. A target's physical body remains in suspended animation for the duration of the ritual, but if it is destroyed, they die and their astral form also vanishes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual only projects a portion of the targets' consciousnesses onto the Astral Plane. To travel physically to the Astral Plane (to reach the Outer Planes, for example) requires spells such as "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " All targets are able to navigate independently in the Astral Plane. Each target's silver cord is stronger than usual, providing them a +4 circumstance bonus to their Fortitude save to avoid dying if their astral form dies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You successfully project the targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to project the targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The process of separating the targets' spirits from their bodies is complicated, and something goes catastrophically wrong. All casters become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ", are immediately reduced to 0 Hit Points, and begin "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4Cntq9odgW6xMpAs"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "one jacinth worth a total value of the target's level (minimum 1) × 5 gp, for each target"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:occultism"],
+            "pick": "primary-unused"
+          },
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "d60044bb-cb50-5105-9ec6-49377d34df97",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:clone",
+    "name": "Clone",
+    "level": 9,
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=30"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You remove 1 cubic inch of flesh from the target, who must be present throughout the ritual and can be one of the casters. You then use that flesh to grow a duplicate of the target's physical form that will house the target's soul upon death. This duplicate is physically identical to the original creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In order to perform the ritual, you need an "
+          },
+          {
+            "type": "ref",
+            "id": "a4b0c4c6-ea50-5b87-be2d-18191ba43e83",
+            "label": "Expanded Alchemist's Lab"
+          },
+          {
+            "type": "text",
+            "text": " or a superior set of equipment. Once the ritual is successfully completed, the duplicate grows within the laboratory equipment for 2d4 months. While direct involvement isn't required during this period of growth, you must prevent any interference or interruption or the ritual fails. When the duplicate is complete, the original creature's soul enters it as soon as their original body dies, or immediately if the creature died during theintervening months, as long as the soul is free and willing. If Pharasma has decided that the target's time has come or the target's soul is trapped or doesn't wish to return, the duplicate remains empty until the impediment is removed. While unoccupied, the inert duplicate must be preserved in suitable alchemical equipment to prevent it from rotting."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cloning process is successful. When the soul occupies the completed clone, it is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week; these conditions can't be removed or reduced by any means until the week has passed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but each condition value is 2."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to form the clone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The clone appears to be successful, but something went horribly wrong. Once it grows to its full size, it can't hold the target's soul and instead houses a malevolent intelligence or an invasive creature such as an Invidiak Demon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.pZr1xrCpaSu6qrXU"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 7,
+        "unit": "day"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare laboratory supplies and reagents worth the target's level (minimum 1) × 100 gp;"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:crafting"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana"]
+          },
+          {
+            "skills": ["skill:occultism"]
+          },
+          {
+            "skills": ["skill:medicine"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "addafe23-8626-5617-8d69-2e9b2e1bf6b6",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:create-demiplane",
+    "name": "Create Demiplane",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=31"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Few incantations are as renowned as the power to create worlds. To cast this ritual, you must be on the Astral Plane, the Ethereal Plane, or a plane that connects to one of the two."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A demiplane created with this ritual exists on the Astral or Ethereal Plane. It can have the appearance of any mundane environment or structure, such as a glorious cathedral, a clearing in a forest, a comfortably furnished cavern, or anything else one can imagine. All demiplanes have finite, unbreachable boundaries, which might resemble stone, wood, or something more unnatural, such as a wall of mist or unceasing void."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Demiplanes have environmental conditions as appropriate for the Material Plane, though the primary caster can dictate a general climate or light level, as well as whether the demiplane experiences seasons or a day-night cycle. The demiplane has no native plants or animals, but they can be introduced, and plants will grow in a demiplane's light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you first cast create demiplane, the casters are teleported to the demiplane. The demiplane has no direct access to other worlds, so "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " or similar abilities are necessary to access it. As part of casting the ritual to create a new demiplane, you create a key to the demiplane which serves as a plane shift tuning fork for that demiplane. Most resemble ornate keys, but some take the forms of maps, compasses, or dowsing rods."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the original key to an existing demiplane and are on that demiplane, you can instead use this ritual to either expand the demiplane or add special traits or features."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Alignment",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The demiplane gains one alignment trait, such as lawful or good."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Bounteous",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The demiplane has a functional ecosystem, with plants and animals appropriate to the environment. This ecosystem doesn't require any additional effort on your part to maintain."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Elemental",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The demiplane gains the air, earth, fire, or water planar essence trait."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gravity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The demiplane gains a gravity trait of your choice."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Key",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You create an additional key that can be used to access the demiplane with plane shift and improve it with create demiplane."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Portal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You create a permanent gateway between the demiplane and a single other location. You must spend the ritual's casting time constructing the gateway on the external side, which typically resembles an arch or doorway of some sort. The gate is always active, but it can be secured as you would any door."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Scope",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The demiplane can be unbounded instead of finite, though still with the same size."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a new demiplane whose area consists of two contiguous squares, each 100 feet on a side. The ceiling is 20 feet high. If modifying an existing demiplane, you can instead either add this area to the demiplane's size or add two special traits or features."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the demiplane's area is a single square, 100 feet on a side and a ceiling 20 feet high. If modifying an existing demiplane, you can add one special trait or feature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Something goes horribly wrong, and all casters are teleported to an unknown but likely hostile plane."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual creates a square area 1,000 feet on a side, with a ceiling 20 feet high (two contiguous areas of this size on a critical success). The cost of the ritual increases to 20,000 gp"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ZwwIUavMbEwcZz35"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 9,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "precious materials worth a total value of 800 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism", "skill:religion"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana, Nature, Occultism,  Religion (whichever three aren't used for the primary check)"
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "8c2926d6-707c-5407-af5d-1509ab66b5c0",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:fantastic-facade",
+    "name": "Fantastic Facade",
+    "level": 9,
+    "rarity": "rare",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=32"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw a permanent series of complex illusions over the target settlement, choosing the look, sound, feel, and smell of the structures, terrain, and creatures within at the time the ritual is cast. You can alter the appearance of existing structures and creatures, and you can add illusory structures or creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, you could cause everything and everyone in the target area to appear green, create an illusory forest with a thick canopy that obscures the settlement from outside view, or make empty ruins seem inhabited and pristine. When you create the facade, you determine which illusory elements remain static (limited to basic natural movement, such as flags blowing in the breeze) and which follow a basic program (for example, a daily parade in the town square, complete with marching band). You're unable to alter the programs after you create the facade."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can disguise creatures as you please, with the same effects as a 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": ". If a creature affected by the facade leaves the area, any illusions affecting it fade after 1 day. You decide when casting the ritual whether newcomers are disguised by the illusions, and whether the disguise appears immediately or after a set period, up to 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature that interacts with the target settlement in a way that would suggest or reveal the illusory nature of the facade, such as by trying to paint a building affected by the facade or climbing an illusory structure, can attempt to disbelieve the illusion. The illusions created by the spell are harmless, so an illusory river of lava wouldn't cause damage, nor could thorns on an illusory rose bush prick someone."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the facade as described, and you can alter the programs within your facade by spending 1 day to reprogram them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the facade as described."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your illusions fail and the ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your ritual produces unexpected and uncontrolled illusions different from what you had planned, such as unexpected and slowly shifting colors across the buildings, unpleasant smells, and creatures appearing as skeletons. These effects fade after 1 month."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cost increases to 100,000 gp and the radius can be up to 5 miles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nA0XlPsnMNrQMpio"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "mystical paint, elaborate veils, and powdered minerals worth 20,000 gp total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:society", "skill:survival"]
+          },
+          {
+            "skills": ["skill:deception"]
+          },
+          {
+            "skills": ["skill:stealth"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "148b0317-f730-57d6-801e-c0d5e37d060a",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:heartbond",
+    "name": "Heartbond",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=33"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a magical bond between two willing creatures, who are secondary casters of the ritual and must share genuine affection for one another. As part of the ritual, both members of the bond receive a ring, amulet, or similar token to symbolize their shared connection. They lose the effects of the ritual when not wearing the token, and the bond is broken if either token is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures benefiting from a successful heartbond ritual can later participate in a heightened version of the ritual without requiring new checks by spending the required time and paying the difference of the two costs. A creature can be under the effects of multiple heartbond rituals at once."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, each bonded creature can use a 2-action activity, which has the concentrate trait, to learn the present state of the other bonded creature. The creature knows the other creature's direction and distance and any conditions affecting them. Both of the participants can cast "
+          },
+          {
+            "type": "ref",
+            "id": "c319a7b8-ee8e-5f50-97c7-16151916ad80"
+          },
+          {
+            "type": "text",
+            "text": " as a divine innate spell at will, but can only target the other participant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a critical success, except the bonded creatures can't cast message as a divine innate spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Magical backlash creates discordant energy among the participants. For 1 week, each ritual participant is "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " whenever they are within 30 feet of another ritual participant."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the cost to a total value of 600 gp. On a success, secondary casters in the ritual permanently gain the effects of a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b9c6ff5d-7757-5750-8536-1486fd82c8a7"
+          },
+          {
+            "type": "text",
+            "text": " spell, but only with each other."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.dZV8nZUKRhGIr6g9"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "fine wine and a set of matching rings or other tokens worth 40 gp total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "de7234c6-cb61-5e5a-a4a6-8d97424d4e5b",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:heroes-feast",
+    "name": "Heroes' Feast",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=34"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure otherworldly beings to serve you and your companions a feast with restorative properties. These mysterious beings may be fey, divine, or other supernatural servitors, as appropriate for the primary check. After the first hour of the ritual, these servants appear and serve a massive feast, complete with an exquisite table and up to 10 place settings. The bounteous spread consists of all manner of dishes, including the guests' childhood comfort foods, modern delicacies, and preferred drinks. The summoned servants spend the next 3 hours waiting on you and the other guests, fetching additional food, pouring drinks, and so forth. During this time, you and the other guests must strive to be as polite and gracious as possible to avoid offending your mysterious hosts. At the feast's end, the ritual is completed and you and the secondary caster attempt your checks as normal. If the feast is interrupted at any point, the servants immediately vanish with their provisions and the ritual is disrupted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The feast is nourishing and revitalizing. The magical food casts "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "c441df15-0219-514f-a5f5-00da93a3e391"
+          },
+          {
+            "type": "text",
+            "text": " on each guest for each relevant affliction, using your modifier for the primary skill check as the counteract modifier. Each guest also recovers "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@item.level*20"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points and gains 20 temporary Hit Points for the next 12 hours. Guests also gain a +2 status bonus to saves against disease, fear, and poison effects for the next 12 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except guests recover only "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@item.level*10"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points, gain only 10 temporary Hit Points, and don't gain the status bonus to saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You and the other guests taste ash in your mouths and realize that the feast contained nothing of sustenance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The otherworldly servants were offended by your behavior or the hubris you demonstrated in summoning them and poisoned the feast. You and your guests become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": " and can't reduce the condition for 12 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "35d7892b-17a3-5aaf-834c-5c0e713194b1"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase the Hit Points recovered by 10 and the temporary Hit Points by 2 (or twice each amount on a critical success)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.yRf59eFtZ50cGlem"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 40
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "25 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature", "skill:religion", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:diplomacy", "skill:society"]
+          }
+        ],
+        "casters": 1
+      }
+    }
+  },
+  {
+    "id": "afc3f538-c521-55c4-b891-8dd40ed879d4",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:reincarnate",
+    "name": "Reincarnate",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=35"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call forth the target's soul and attempt to incarnate it into a brand-new body. As the soul won't be returning to the original body, only a small portion of the creature's remains are required."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These remains must have been part of the original body at the time of death, and the target must have died within the past week. If Pharasma has decided that the target's time has come or the target's soul is trapped or doesn't wish to return, this ritual automatically fails, but you discover this after you succeed at the Religion check and can end the ritual without paying the cost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the ritual is successful, the target's new body has a random ancestry. First roll 1d20. On a result of 1 through 14, the new body is one of a common ancestry, while on a 15 through 20 they become a member of an uncommon or rare ancestry. The GM chooses possible ancestries based on those found in the region and then rolls randomly between them. For instance, the GM could roll 1d6 to choose a common ancestry from the Core Rulebook. The target replaces their ancestry Hit Points, size, Speeds, ability boosts, ability flaws, traits, and special abilities with those of their new ancestry. The target loses their heritage and ancestry feats, selecting replacements from their new ancestry. The target's background, class features, and known languages remain unaltered."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You reincarnate the target into a new adult body. This new body has full HP and has the same spells prepared and points in their pools as the original did when it died."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, except the new body has 1 HP and no spells prepared or points in any pools. The soul takes some time to adjust to their new body, leaving them "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week; these conditions can't be removed or reduced by any means until the week has passed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to reincarnate the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's soul becomes trapped in an unintelligent animal creature of the GM's choosing, with a level no greater than half the target's level. While trapped, the target has an Intelligence score of 1 (-5 modifier) and can't use any of their own abilities."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 10. The cost is the target's level (minimum 1) × 40 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 12. The cost is the target's level (minimum 1) × 75 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 14. The cost is the target's level (minimum 1) × 125 gp. The target must have died within the past month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 16. The cost is the target's level (minimum 1) × 200 gp. The target must have died within the past month."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (8th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 18. The cost is the target's level (minimum 1) × 300 gp. The target must have died within the past year."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The maximum level of the target increases to 20. The cost is the target's level (minimum 1) × 600 gp. The target must have died within the past decade."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.gIVaSCrLhhBzGHQY"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 4,
+        "unit": "hour"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare herbs worth a total value of the target's level (minimum 1) × 25 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:nature"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:occultism"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "bdfe3506-61bc-55bd-adeb-9b16f5fc82f2",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:rest-eternal",
+    "name": "Rest Eternal",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=36"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon gods, spirits, and stranger beings to bar a creature's spirit from ever returning. A spirit that doesn't wish to be so constrained can attempt a Will save to resist this ritual; on a critical success, it fools you into believing the ritual succeeded. This ritual has no effect on a target who is undead or whose soul is otherwise not in the afterlife."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You sequester the subject's spirit to the afterlife. Attempts to communicate with the dead creature, return it to life, turn it into an undead, or otherwise disturb its afterlife fail unless the effect's counteract rank is at least 2 higher than that of rest eternal or originates from an artifact or a deity. Successfully returning the creature to life ends the restrictions placed by rest eternal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but effects to interact with the spirit fail unless the effect's counteract rank is higher than that of rest eternal or originates from an artifact or a deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails, and the spirits you appealed to are angered by your meddling. All casters become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 week."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.MTNlvZ0A9xY5sOg1"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["dead"]
+          }
+        ]
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils to anoint the body worth a total value of the target's level (minimum 1) × 25 gp;"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:occultism"]
+          },
+          {
+            "skills": ["skill:religion"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "05edd706-b8b7-512c-b2c2-b30883bf131c",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:simulacrum",
+    "name": "Simulacrum",
+    "level": 4,
+    "rarity": "rare",
+    "traits": ["illusion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=37"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an illusory duplicate of the target creature by animating ice or snow sculpted in its shape. The simulacrum is a 4th-level creature with no special abilities. If it needs to attempt a roll or use a DC, use the moderate number for a monster, except as noted below. It doesn't have any specific memories from the target, but it can use information about the creature gained from any of the casters to Impersonate the target. It looks exactly like the target and has a Deception modifier to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " that creature equal to the modifier of the secondary spellcaster who rolled the Deception check, with a +4 status bonus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While it doesn't have any of the original's special abilities, like a dragon's breath weapon, the illusions that make up the simulacrum allow it to appear to use those abilities; they just never seem to have an effect. For instance, against a simulacrum dragon's breath weapon, all creatures in the area seem to critically succeed at their saving throws and take no damage. Creatures can attempt to disbelieve the illusion by attempting a Perception check against the Deception DC of the secondary spellcaster who rolled the Deception check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bring the simulacrum to life. It has the minion trait and is under your absolute control. You gain a direct mental link with the simulacrum and can spend an action to command the simulacrum via this link, even at a distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a critical success, but there is no special link between you and the simulacrum. You must spend an action to command it verbally or by some other means."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails and has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The simulacrum awakens, but it isn't your minion and is hostile to all the casters. It does everything it can to destroy them, but if it can't immediately slay them, the simulacrum tries to escape and plots their demise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.h5UqEdeqK8iTcU0J"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a piece of hair, drop of blood, or other part of the creature to be duplicated, plus rare oils, minerals, and pigments with a total value of 300 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "master",
+        "note": "the check has the secret trait"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana, Nature, Occultism, Religion, or Society (whichever is required to Recall Knowledge about the creature being duplicated); Crafting; Deception"
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "9c40b3e1-3b95-5626-9e90-2366eb8a45bf",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:teleportation-circle",
+    "name": "Teleportation Circle",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=38"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a 10-foot-diameter circle on the ground, which acts as a portal to a destination determined at the time of the ritual. You designate the destination of the teleportation as part of the ritual. This destination can't be changed. The destination must be a location within 1,000 miles and be on the same plane as the teleportation circle. You must be able to identify the location precisely both by its position relative to the location where you create the teleportation circle and by the destination's appearance (or other identifying features). The destination must also be a 10-foot-diameter circle that doesn't overlap with any solid structures, but it can be a place that is harmful or dangerous."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A secondary caster attempting a Survival check for this ritual can be located at the exact site of the destination, instead of with you at the point of origin. If the secondary succeeds at their check at the destination and you roll a success, the ritual is a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the circle is active, any creature that moves to be fully within the circle is instantly teleported to the destination. A creature that is unwilling to be teleported can attempt a Will save to resist the effect. If it remains in the circle, the creature must attempt this save again at the end of each of its turns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The teleportation circle normally goes only in one direction, though you can double the Cost to make the teleportation work in both directions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the teleportation circle, and it's extremely precise, regardless of the distance traveled. Travelers arrive exactly at the designated point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a critical success, but the destination of the teleportation circle is slightly inaccurate, and is off target by roughly 1 percent of the distance traveled, to a maximum of 10 miles off target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The teleportation circle doesn't function."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The teleportation circle is wildly inaccurate. It leads to a random destination roughly the same distance from the origin point, and the chances of some other unusual mishap are much greater."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cost increases to 2,000 gp, the duration increases to 1 month, and the destination can be anywhere on the same planet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cost increases to 10,000 gp, the duration is unlimited, and the destination can be anywhere on the same planet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5ZW1w9f4gWlSIuWA"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incense, precious metals, and purified chalk worth 500 gp;"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:survival"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "9a361e2b-0d40-57b3-837a-ec144b0c79ee",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:unseen-custodians",
+    "name": "Unseen Custodians",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=39"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a site-bound, long-lasting "
+          },
+          {
+            "type": "ref",
+            "id": "52547c94-24db-549b-961f-07a2350befdc"
+          },
+          {
+            "type": "text",
+            "text": " spell effect, forming entities of pure force to carry out basic tasks at a fixed location."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual creates six unseen servants. You don't need to concentrate on them, and they aren't summoned minions. You can spend an action, which has the concentrate trait, to command one to perform a basic task; it continues to perform the task until commanded again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As critical success, but the ritual creates three unseen servants."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails to create any servants."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual creates six unseen servants, but these creatures are hostile and capable of making fist "
+          },
+          {
+            "type": "ref",
+            "id": "b70e1acb-3d61-50f7-92b1-231839a6b427",
+            "label": "Strikes"
+          },
+          {
+            "type": "text",
+            "text": " with an attack bonus equal to your skill modifier for the primary skill check, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. They attack you and your allies and attempt to break objects belonging to you and your allies within the area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If destroyed, the unseen servants reform the next morning. The cost increases to 30 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.uuoPmbjEtqzWZs0v"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils, salts, and herbs worth a total value of 15 gp"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:arcana", "skill:occultism"],
+            "pick": "primary-unused"
+          },
+          {
+            "skills": ["skill:diplomacy"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "7d9a9ab9-44a3-5cab-84fd-36a4ed0caedd",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:ward-domain",
+    "name": "Ward Domain",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=40"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ritual has long been used to guard the private sanctums of powerful rulers, spellcasters, and other figures of import. You and the other casters spend the casting time burning incense, anointing doorframes, and drawing lines of powered silver across entryways. The ritual creates the following magical effects within the area; these effects are heightened to the rank of ward domain and remain throughout the duration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All gates, doors, windows, and similar apertures in the area (if any) are locked, with the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "73a25cc8-4e2a-537a-8f15-3198afb7578c"
+          },
+          {
+            "type": "text",
+            "text": ". In addition, you can obscure up to six doors, doorways, or similar entrances within the area with the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "abc8341d-d437-58de-9cd6-8c2611ad591f"
+          },
+          {
+            "type": "text",
+            "text": " to appear as plain walls. "
+          },
+          {
+            "type": "ref",
+            "id": "d86cf275-4547-59c7-87b4-41d84f69e524"
+          },
+          {
+            "type": "text",
+            "text": " spells can't perceive any stimuli from the area, and ward domain attempts to counteract "
+          },
+          {
+            "type": "ref",
+            "id": "fdafb7f2-fde7-571a-89b5-7c2aba17e259"
+          },
+          {
+            "type": "text",
+            "text": " effects into or out of the area, including attempts to summon creatures into the area, using a modifier equal to the ritual's save DC - 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A successful "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " used on a specific effect removes only that effect (such as the lock effect on one window). A successful "
+          },
+          {
+            "type": "ref",
+            "id": "70380388-6da9-56ef-973e-497dc55fbf7a"
+          },
+          {
+            "type": "text",
+            "text": " ends the entire ritual."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects described above, and you protect an area twice as large."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create the effects described above."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual has no effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The area becomes trapped and hostile to you and your allies in a way you didn't anticipate."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ward covers an additional area 100 feet × 100 feet, up to 50 feet high, which must be contiguous with the original area."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Er9XNUlL0wB0PM36"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "week"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare incenses, oils, and powdered silver, worth 150 gp total"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:nature", "skill:occultism"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:lore"]
+          },
+          {
+            "skills": ["skill:survival"]
+          },
+          {
+            "skills": ["skill:thievery"]
+          }
+        ],
+        "casters": 3
+      }
+    }
+  },
+  {
+    "id": "8fb5df84-b6e4-5b8a-86ea-48c5224f3e99",
+    "pack": "advanced-players-guide",
+    "kind": "ritual",
+    "slug": "ritual:word-of-recall",
+    "name": "Word of Recall",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=41"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bind yourself and your allies to the specific safe location where you perform the ritual. This allows the participants to return later by simply speaking a word."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You form the connection with the designated sanctuary. Any participant in the ritual can spend a single action, which has the concentrate trait, to utter a word of power you choose when you cast the spell. When they do, all the participants can immediately return to the sanctuary from any distance, as long as they are on the same plane as the sanctuary. Each participant arrives in the position in which they were standing during the casting of the ritual. When the word is spoken, all other participants know it, and each can choose whether or not to return to the sanctuary at that time. The ritual then immediately ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to form the connection between the participants and the sanctuary and are aware that the ritual has failed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual inadvertently forms a connection with a location on another plane. The casters are unaware of this misalignment. When the word is invoked, all ritual participants are shifted to this extraplanar location."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The cost increases by 5,000 gp, the ritual can target one more creature, and the maximum level of creature it can target increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nzbnTqHgNKiGZkrZ"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 7,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "year"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils and powdered minerals worth 5,000 gp;"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "expert",
+        "note": "the check has the secret trait"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "text": "Arcana or Occultism  (whichever isn't used for the primary check), Society"
+          }
+        ],
+        "casters": 2
+      }
+    }
+  }
+]

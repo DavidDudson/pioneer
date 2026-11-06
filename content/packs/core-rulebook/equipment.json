@@ -1,0 +1,1823 @@
+[
+  {
+    "id": "9e4552af-36c9-5d9b-b161-121a15956337",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:anklets-of-alacrity",
+    "name": "Anklets of Alacrity",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["apex", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=397"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These gem-studded golden anklets give you a +3 item bonus to Acrobatics checks. When you invest the anklets, you either increase your Dexterity score by 2 or increase it to 18, whichever would give you a higher score."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You click the anklets together, gaining a +20-foot status bonus to all your Speeds and the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+          },
+          {
+            "type": "text",
+            "text": " for the next 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Anklets of Alacrity"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9IwSktj0Xj7A2Ruh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "anklets-of-alacrity",
+          "name": "Anklets of Alacrity",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "anklets"
+      },
+      "apex": "dex"
+    }
+  },
+  {
+    "id": "7344aac6-d509-5b37-aee3-2a03ebf8c31d",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:belt-of-giant-strength",
+    "name": "Belt of Giant Strength",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["apex", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=398"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This thick leather belt is decorated with a buckle carved from glittering quartz in the shape of a fist. You gain a +3 item bonus to Athletics checks and a +2 circumstance bonus to Athletics checks to lift a heavy object, Escape, and Force Open."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest the belt, you either increase your Strength score by 2 or increase it to 18, whichever would give you a higher score."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are targeted by a thrown rock attack, or a rock would fall on you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Attempt an Athletics check to grab the triggering rock. Use the Athletics DC of the creature throwing the rock, the DC of the hazard or other effect, or DC 35 if no other DC is applicable. You must have a free hand to catch the rock, but you can Release anything you're holding in a hand as part of this reaction."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You safely catch the rock, take no damage, and are now holding the rock."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take full damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:lift-heavy-object", "action:escape", "action:force-open"]
+          }
+        ],
+        "display": {
+          "label": "Belt of Giant Strength (lift heavy objects, Escape, Force Open)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7utuH8VJjKEzKtNw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      },
+      "apex": "str"
+    }
+  },
+  {
+    "id": "979ad733-73ba-5c8d-9da9-fbde807d1406",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:berserkers-cloak-greater",
+    "name": "Berserker's Cloak (Greater)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=411"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bearskin includes the head and bared teeth of the mighty creature from which it was taken. When worn, the cloak drapes over your head and around your shoulders, imbuing you with a bear's ferocity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Rage action, while raging you grow jaws that deal 1d10 piercing damage and claws that deal 1d6 slashing damage and have the agile trait. This transformation is a morph effect, and both the jaws and claws are unarmed attacks in the brawling weapon group. You gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a greater "
+          },
+          {
+            "type": "text",
+            "text": "striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune with these attacks (gaining a +2 item bonus to attack rolls and increasing the weapon damage dice by two)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have an animal instinct and the bestial rage instinct ability, instead of gaining these unarmed attacks, your unarmed attacks from the bestial rage instinct ability gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+3 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "greater striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (granting a +3 item bonus to attack rolls and increasing the weapon damage dice by three)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a barbarian with the animal instinct."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OGKI8NS8Er3qumJS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "79070e82-a64f-58c4-98a8-72a7604f162e",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:boots-of-elvenkind-greater",
+    "name": "Boots of Elvenkind (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=413"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These tall, pointed boots are made from soft, supple black or green leather and are decorated with trim and buckles of gold. When worn, the boots allow you to move more nimbly, granting you a +2 item bonus to Acrobatics checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your turn, you ignore difficult terrain when moving on the ground. If you're wearing a Cloak of Elvenkind, you also gain a +5-foot status bonus to your land Speed until the end of your turn, and greater boots of elvenkind constantly grant the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "2e8fa114-9eeb-5deb-850d-60eded1b2255"
+          },
+          {
+            "type": "text",
+            "text": " (DC 30) in forest environments."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Boots of Elvenkind"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8NgA4PFFXZPZ9SSg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "boots-of-elvenkind-greater",
+          "name": "Boots of Elvenkind (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "3909d9ea-f7a7-5f33-a7b2-b376b76e0316",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:cassock-of-devotion",
+    "name": "Cassock of Devotion",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["divine", "focused", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=420"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "cassock of devotion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " depicts scenes related to the domains of a certain deity. It serves as a religious symbol of that deity, and it doesn't need to be wielded to provide that benefit. You gain a +2 item bonus to Religion checks and a +1 item bonus to the divine skill of the deity to whom the cassock is dedicated."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Focus Point, which you can spend only to cast a cleric domain spell for a domain belonging to the deity the cassock is dedicated to. If you don't spend this Focus Point by the end of this turn, it is lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a cleric who worships the deity tied to the cassock."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.62vH66XLehPiRwwo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1150
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cassock-of-devotion",
+          "name": "Cassock of Devotion",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "dfd3897a-b945-5910-891d-e86a014a1be0",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:circlet-of-persuasion",
+    "name": "Circlet of Persuasion",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["apex", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=400"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant silver band often resembles curling fig leaves and fits around your brow. You gain a +2 item bonus to Deception and Diplomacy checks. When you invest the circlet, you either increase your Charisma score by 2 or increase it to 18, whichever would give you a higher score."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": " spell (DC 38)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception", "skill:diplomacy"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.0yeM77XLNrB0a0LF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "circlet-of-persuasion",
+          "name": "Circlet of Persuasion",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "circlet"
+      },
+      "apex": "cha"
+    }
+  },
+  {
+    "id": "a4888e83-a05d-5ee5-b6d4-765b3c2089e6",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-elvenkind-greater",
+    "name": "Cloak of Elvenkind (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=424"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloak is deep green with a voluminous hood, embroidered with gold trim and symbols significant in elven culture. The cloak allows you to cast the "
+          },
+          {
+            "type": "ref",
+            "id": "8ad0ebfc-593b-5631-b93e-122a74cb8574"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you adjust the cloak's clasp (an Interact action), the cloak transforms to match the environment around you and muffles your sounds, granting you a +2 item bonus to Stealth checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Cloak of Elvenkind (Greater)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw the hood up and gain the effects of a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": ", with the spell's normal duration or until you pull the hood back down, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're also wearing Boots of Elvenkind, you can activate this ability twice per day, and it allows you to Sneak in forest environments even when creatures are currently observing you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZelCRLDI6M5IfjAI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1750
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cloak-of-elvenkind-greater",
+          "name": "Cloak of Elvenkind (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "ae7303a2-ed1f-5023-a324-ce270260e1ba",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:hand-of-the-mage",
+    "name": "Hand of the Mage",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=440"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mummified elf hand hangs on a golden chain, its gnarled fingers locked in a peculiar pattern."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r1hgg2rweqGL1LBl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "fae23b19-4efc-570a-9a12-896caec7538c",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-vii",
+    "name": "Necklace of Fireballs VII",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=449"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "18d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, three "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and five "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 39,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mOY0STwY5hx4UPCN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9600
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c969e4b1-cbdf-5673-9019-19dde7e74997",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-maniacal-devices-greater",
+    "name": "Ring of Maniacal Devices (Greater)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=457"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use an Interact action to pull a set of thieves' tools from the ring. These tools appear in your hand and fold back into the ring if they would leave your possession."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "They grant you a +3 item bonus to Thievery checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f"
+          },
+          {
+            "type": "text",
+            "text": " and to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6"
+          },
+          {
+            "type": "text",
+            "text": ", and the ring's insights grant you the same bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " snares and traps."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9049d7-9366-5a37-807f-cd01013db359"
+          },
+          {
+            "type": "text",
+            "text": " containing your choice of either Prismatic Spray or 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "glyph of warding",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from a "
+          },
+          {
+            "type": "text",
+            "text": "ring of maniacal devices",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " active at a time, even if you have multiple rings, and the spell ends if you lose your investiture in the ring."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["action:disable-a-device", "action:pick-a-lock"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Disable Devices and Pick a Lock)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          "action:craft",
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Craft snares and traps)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": [
+          "action:repair",
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Repair snares and traps)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wkm2VYPsfGjWBtQe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ring-of-maniacal-devices-greater",
+          "name": "Ring of Maniacal Devices (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b138ba55-bdf9-599a-9b61-d5380776a4fa",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:rod-of-wonder",
+    "name": "Rod of Wonder",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["chaotic", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=265"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This peculiar rod is strange and unpredictable. Each time it is activated, it produces one of a variety of effects at random."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose a creature within 60 feet and roll d% on the table below to determine the rod's effect. If an entry lists only a spell name, the rod casts that spell at its lowest level. You make any decisions for a spell cast by the rod unless otherwise indicated, except that it must target the creature you chose, or the creature you chose must be the center of the spell's area, if it has an area but no targets. If the spell's range is less than 60 feet, increase the range to 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any spell DC required is DC 27, and any spell attack roll required is 1d20+17. If the rod casts a spell on you, you don't get a saving throw or other defense against it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once activated, the rod can't be activated again for 1d4 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll on the Rod of Wonder table to determine the outcome."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6wVWwpL9pYr3yQtt"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 465
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8aa38d45-9d93-589a-aa21-6dc99035237a",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:slippers-of-spider-climbing",
+    "name": "Slippers of Spider Climbing",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=465"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These soft slippers are made of fine gray silk. If the slippers are left unattended for a while, they tend to attract spiders that nest inside."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Tiny, hairlike tendrils extend from the slippers' soles, allowing you to walk on vertical surfaces or even to move upside down along ceilings."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute, you gain a 20-foot climb Speed and you don't need to use your hands to Climb. However, the slippers require decent traction for you to walk on a wall, so they provide no benefit when you're moving across greased, icy, or oiled surfaces."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Slippers of Spider Climbing"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.skBa6D1uxb0b2USn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 325
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "slippers-of-spider-climbing",
+          "name": "Slippers of Spider Climbing",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "50fa99a1-ad36-503d-8187-336e959d869b",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-smoldering-fireballs-9th-level-spell",
+    "name": "Wand of Smoldering Fireballs (9th-Level Spell)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["fire", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=372"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blackened, heavily burned stick smells faintly of bat guano."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " at 9th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature that fails its save takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of fireball of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tBwMPimZ6A93XpHf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-smoldering-fireballs-9th-level-spell",
+          "name": "Wand of Smoldering Fireballs (9th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

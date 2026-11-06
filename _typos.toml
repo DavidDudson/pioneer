@@ -58,6 +58,8 @@ vyre = "vyre"
 # Deity names (Divine Mysteries).
 brigh = "brigh"
 nin = "nin"
+# Thievery skill key in a legacy feat prerequisite predicate: `skill:thi:rank:0` (Advanced Player's Guide).
+thi = "thi"
 sherif = "sherif"
 # Slugs drop apostrophes: `feat:youre-next` is You're Next.
 youre = "youre"

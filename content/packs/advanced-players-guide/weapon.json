@@ -1,0 +1,1821 @@
+[
+  {
+    "id": "1385bdfc-68a0-5be7-9546-8f4073ea1057",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:blight-bomb-moderate",
+    "name": "Blight Bomb (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "poison", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=684"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " held in 1 hand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blight bombs contain volatile toxic chemicals that rot flesh. A blight bomb deals 2d6 poison damage, 2d4 persistent poison damage, and 2 poison splash damage. You gain a +1 item bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.158vwM1andv8DbRI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "poison",
+        "persistent": {
+          "formula": "2d4",
+          "damageType": "poison"
+        }
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1cbec14c-55be-5f48-b186-6564786a5c3c",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:claw-blade",
+    "name": "Claw Blade",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "catfolk", "deadly-d8", "disarm", "finesse", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=124"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The three parallel blades of this handheld weapon extend between the fingers to resemble the natural claws of the amurruns who created them, providing a way for those catfolk without suitable natural claws to share the fighting customs of their kin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fvvfZxfGV9i3urkd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "claw-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a72d4fb6-deae-5e1f-9d2e-916e0a54a2b8",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:crystal-shards-moderate",
+    "name": "Crystal Shards (Moderate)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "earth", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=685"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " held in 1 hand"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flask holds a pressurized red-brown gas flecked with bits of sublimated crystal. You gain a +1 item bonus to attack rolls. When the bomb explodes, it deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4",
+                "damageType": "piercing",
+                "category": "splash"
+              }
+            ],
+            "label": "4 piercing splash damage"
+          },
+          {
+            "type": "text",
+            "text": " as the mixture suddenly turns into solid crystals flying at high speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Surfaces in the splash area grow brittle, gleaming red crystals that crumble to dust after 1 minute. The crystals on level surfaces are "
+          },
+          {
+            "type": "ref",
+            "id": "474c405c-c7e4-5468-9a5d-db9761113555"
+          },
+          {
+            "type": "text",
+            "text": ". The crystals on vertical surfaces can be used briefly as handholds, granting the listed item bonus to the next Athletics check to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": " each space. The crystals in each space crumble after the creature leaves, whether Climbing or moving through the caltrops."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.V4wgOWYmHlbSZsVG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "splash": 4,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5d2ac07f-7f77-59e5-880a-c12ad2152db6",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:daikyu",
+    "name": "Daikyu",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["propulsive"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=125"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This asymmetrical bow, made of laminated bamboo, wood, and leather, stands 6 feet or more in height. Using a daikyu while mounted limits its firing range to your left side."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RN3m5Hb5LPbdZGoO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": 2,
+      "category": "advanced",
+      "group": "bow",
+      "baseItem": "daikyu",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 80,
+      "reload": 0,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a74249a7-e445-512b-a5f5-f63fafb0f408",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:four-ways-dogslicer",
+    "name": "Four-Ways Dogslicer",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["agile", "backstabber", "cold", "electricity", "finesse", "fire", "goblin", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=733"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking dogslicer",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is obviously the work of a brilliant but scrappy artisan who valued versatility over safety. Four toothy gems line the blade's cutting edge, three of which glow-one with fiery red light, one with a chill blue, and one that gives off sparks-while the last is a glistening black. Each of these gems embodies a weapon property rune, but only one rune can be active at a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You twist the gem along the blade corresponding with the desired weapon rune: red for "
+          },
+          {
+            "type": "text",
+            "text": "flaming",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", blue for "
+          },
+          {
+            "type": "text",
+            "text": "frost",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or yellow for "
+          },
+          {
+            "type": "text",
+            "text": "shock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You take 1d6 damage of the type the chosen rune deals. You can instead twist the black gem to disable the active property rune, taking no damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3oexArva2aEm69WV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1700
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "dogslicer",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "36279b41-ab31-5a3c-b3c5-d0655202fadc",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:ghost-charge-moderate",
+    "name": "Ghost Charge (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "splash", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=687"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These spring-loaded metal canisters contain a mixture of chemicals and salts that drain and disintegrate nearby undead creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "ghost charge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " gives a +1 item bonus to attack rolls, deals 2d8 vitality damage and 2 vitality splash damage, though as usual for vitality damage, this damage harms only undead and creatures with void healing. A primary target that takes damage from a "
+          },
+          {
+            "type": "text",
+            "text": "ghost charge",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ghost charges",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are designed to explode even on contact with a spiritual substance, making them ideal for damaging incorporeal undead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wf94e8YNhZdIvWc9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d8",
+        "damageType": "vitality"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "191eb051-ada4-514c-a84f-4677712fc304",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:infiltrators-accessory",
+    "name": "Infiltrator's Accessory",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["agile", "concealable", "finesse", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=736"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elegant +1 striking sword cane serves equally well as a fashionable accessory and hidden weapon suitable for high-society events where weapons aren't typically permitted."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You twist the sword cane's hilt, magically merging the blade into the cane. While the blade is merged, it can't be drawn and gains the benefits of a 3rd-rank magic aura spell to appear non-magical. Passive observers can't attempt a check to notice the cane is anything more than a mundane, if superb, fashion accessory. Those carefully examining it can discern the cane is more than it appears, but doing so is extremely difficult ("
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": "). Activating the sword cane again releases the blade, allowing it to be drawn normally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AYdpUABAZeZnSA7s"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 150
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "sword-cane",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "3fde10c4-876f-5d1a-ab33-9eab3395f002",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:spellguard-blade",
+    "name": "Spellguard Blade",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["agile", "disarm", "finesse", "parry", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=746"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The guard of this +1 striking main-gauche is inscribed with eldritch glyphs that guard against magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you are benefiting from the +1 circumstance bonus to AC from this weapon's parry trait, you also apply that circumstance bonus to your saving throws against spells that target you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Spellguard Blade"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.v6LpzpIA0BmKvEtK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "knife",
+      "baseItem": "main-gauche",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "d92538ff-86a4-547b-a291-a28fc335ab3c",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:spiritsight-crossbow",
+    "name": "Spiritsight Crossbow",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["magical", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=747"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This +1 striking "
+          },
+          {
+            "type": "ref",
+            "id": "3e294082-c3ff-58be-ab80-1608b9c6229a"
+          },
+          {
+            "type": "text",
+            "text": " crossbow has an array of crystalline lenses and silver fittings along the stock and feels strangely light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aim through the crossbow's crystalline lenses, gaining imprecise vision onto the "
+          },
+          {
+            "type": "text",
+            "text": "Ethereal Plane",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with a range of 60 feet in addition to your normal senses for the rest of your turn. While this effect lasts, your next Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "spiritsight crossbow",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can also affect targets on the Ethereal Plane during the first 60 feet of its flight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2UX3tlC5vKeQjG7t"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 450
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "spiritsight-crossbow",
+          "name": "Spiritsight Crossbow",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "simple",
+      "group": "crossbow",
+      "baseItem": "crossbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 120,
+      "reload": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": ["3e294082-c3ff-58be-ab80-1608b9c6229a"]
+      }
+    }
+  },
+  {
+    "id": "6428da32-f7da-5ff2-a58d-8f0b12eab151",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-impossible-visions-true",
+    "name": "Staff of Impossible Visions (True)",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["illusion", "magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=748"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bizarre staff is made from oak, capped with a cluster of eye-shaped gemstones that seem to move and undulate at the corner of your vision. While wielding the staff, you can peer through the eyes, using your normal visual senses (including any benefits of spells affecting your vision, like "
+          },
+          {
+            "type": "text",
+            "text": "see invisibility",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "). You can maneuver the staff to see things around corners, at higher elevations, or in places where the staff can fit but your head can't. This doesn't provide sufficient line of effect to target creatures around corners. The eyes are as vulnerable as your eyes and can be affected by anything that alters your vision, such as a blinding flash of light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5e8a7fe1-ca39-5254-b771-596bafa8dcd2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bd03779f-21b9-55bd-8656-887b25c8f8dd"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e2594f4d-2f11-588b-a4b3-5a9afe11dd4f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "70951633-10b0-5f25-b084-f14f69a6a64a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ab148981-4470-56fa-905a-2038bb7de2d3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "d319486e-3c1b-5b4d-9d1a-ef306a929907"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fc1dc92e-720d-5fe5-ac59-bf04727e0756"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "8863d56b-38f3-5724-80df-c0c7f9a8652f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f4c60cc4-312a-5055-869c-c1ce58037241"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "1748638c-efed-5899-a084-68570d86b128"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "09cce8d0-efd8-5ba8-aafb-5461e7f29658"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "2044ae9b-f82e-5da7-9208-fef06297ca5a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "3997d8f7-14a9-5f54-869a-920fa859cd44"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "19c18d60-371e-50c2-9b3d-6c0d827bcd55"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1glQQ63AeQOfQNvc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "51a1a79f-646f-5e21-8ccc-7d7b15b83330",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-providence-true",
+    "name": "Staff of Providence (True)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["magical", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=750"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A large, stylized symbol of an eye adorns the top of this wooden staff, representing the watchful eye of the divine powers. The bearer of the staff can guide and protect, seeing bounties and tragedies that could befall them in the future."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When wielding this staff, you gain a +1 item bonus on Survival checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d0498569-a787-5708-8a5f-39c521dd3df4"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "897dec4f-1321-59a1-bb19-085290e409f0"
+          },
+          {
+            "type": "text",
+            "text": ", and to Religion checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6b5f6ce5-ac5a-52f3-ba0a-ca65c2e0d167"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35b74c87-60dd-5bfe-8ede-6996b9af8bd9"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b75bc402-e325-58e4-9a6e-380c4d221d73"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "30234e3f-a8be-5813-adf9-a56c58ee261c"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "04702cde-7d0f-5cc8-8fbc-b1f148b75f70"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+                },
+                {
+                  "type": "text",
+                  "text": ", Spell Immunity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "b75bc402-e325-58e4-9a6e-380c4d221d73"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "2897020f-b34e-5315-9369-d501cd903968"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+                },
+                {
+                  "type": "text",
+                  "text": ", Spell Immunity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Spell Immunity, "
+                },
+                {
+                  "type": "ref",
+                  "id": "5751731f-2552-5eb5-a6ed-b8960bfcbadd"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c9cae9d-6b33-5c97-91e7-787d78e8ec45"
+                },
+                {
+                  "type": "text",
+                  "text": ", Spell Immunity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "35abf662-f81d-5277-8d0b-c80d65dc8538"
+                },
+                {
+                  "type": "text",
+                  "text": ", Spell Immunity"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "fb2cc36e-8e1c-5149-a202-43938814f46a"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+                },
+                {
+                  "type": "text",
+                  "text": ", Spell Immunity"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:sense-direction", "option:subsist"],
+        "display": {
+          "label": "Staff of Providence (sense direction & subsist)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["action:recall-knowledge"],
+        "display": {
+          "label": "Staff of Providence (recall knowledge)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pIagOwW8EFBaKW3k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 64000
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b4e2d5fe-ee83-5b0e-b769-02d7a4877218",
+    "pack": "advanced-players-guide",
+    "kind": "weapon",
+    "slug": "weapon:tengu-gale-blade",
+    "name": "Tengu Gale Blade",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["agile", "disarm", "finesse", "tengu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=128"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fan-shaped sword, designed by members of the tengu ancestry, has five broad blades that join at its hilt. Tengu sailors also use gale blades as makeshift weather vanes, as the sword spins to show the wind's direction when loosely held aloft."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6qJkA6fnHHiF4CEV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "tengu-gale-blade",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]
