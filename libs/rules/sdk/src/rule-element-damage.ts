@@ -24,7 +24,9 @@ const DamageDiceOverride = z.strictObject({ damageType: DamageTypeSchema });
  * Foundry pf2e's `DamageDice` does. With a `dieSize` the element adds `diceNumber` dice of it (one by default), typed
  * `damageType` or as the damage it joins, in a `category`, and `critical` ones only on a critical hit. With
  * `ignoreResistance` the damage of that type ignores the target's resistance to it. Without a die it
- * changes the dice already there: `diceNumber` more of them, or `override`ing their type.
+ * changes the dice already there: `diceNumber` more of them, or `override`ing their type. With category `splash` and no
+ * die the element is flat splash damage of `diceNumber` (one by default), once for each damage die the weapon rolls
+ * when `perWeaponDie` (Shockwave: splash equal to the number of weapon damage dice).
  */
 export const DamageDiceElement = z
   .strictObject({
@@ -37,11 +39,13 @@ export const DamageDiceElement = z
     category: z.enum(DamageDiceCategory).optional(),
     critical: z.boolean().optional(),
     ignoreResistance: z.boolean().optional(),
+    perWeaponDie: z.boolean().optional(),
     override: DamageDiceOverride.optional(),
     ...ruleElementBase,
   })
   .refine(
-    ({ diceNumber, dieSize, override }) => diceNumber !== undefined || dieSize !== undefined || override !== undefined,
+    ({ diceNumber, dieSize, override, perWeaponDie }) =>
+      diceNumber !== undefined || dieSize !== undefined || override !== undefined || perWeaponDie === true,
     issueParams(message(RulesMessage.DamageDiceNeedsDice)),
   );
 export type DamageDiceElement = z.infer<typeof DamageDiceElement>;

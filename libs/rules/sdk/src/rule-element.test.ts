@@ -250,8 +250,8 @@ describe('RuleElement', () => {
     ]);
   });
 
-  test('a weakness or resistance names damage types, groups or sources, never a material', () => {
-    expect(issues({ key: 'Weakness', type: ['cold-iron'], value: 5 })).toMatchObject([{ path: ['type', 0] }]);
+  test('a weakness or resistance may name a material or rune as well as a damage type', () => {
+    expect(issues({ key: 'Weakness', type: ['cold-iron', 'ghost-touch', 'fire'], value: 5 })).toStrictEqual([]);
   });
 
   test('a weakness or resistance is at least 1', () => {

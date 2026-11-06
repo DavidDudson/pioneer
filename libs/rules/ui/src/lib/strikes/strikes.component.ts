@@ -239,9 +239,16 @@ export class StrikesView {
     return lines.filter((line): line is string => line !== undefined);
   }
 
-  /** "Plus 1d6 fire precision": one line per die a rule element adds to the damage. */
+  /** "Plus 1d6 fire precision" for each die a rule element adds to the damage, and "3 bludgeoning splash" for splash it adds. */
   #extras({ damage }: Strike): readonly string[] {
-    return (damage?.extra ?? []).map((extra) => this.#extra(extra));
+    const dice = (damage?.extra ?? []).map((extra) => this.#extra(extra));
+    const splash = (damage?.ruleSplash ?? []).map(({ amount, damageType }) =>
+      this.#say(StrikesMessage.Splash, {
+        amount: this.#format.number(amount),
+        type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]),
+      }),
+    );
+    return [...dice, ...splash];
   }
 
   #say(key: string, params?: Readonly<Record<string, string | number>>): string {
