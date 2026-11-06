@@ -2,8 +2,10 @@ import { computed, inject } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
-import { FundamentalRune } from '@pioneer/rules/sdk';
+import { DamageType, FundamentalRune } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
+
+import { DAMAGE_TYPE_MESSAGES } from '../rich-text/rich-text-messages';
 
 /** The fundamental runes besides potency, which an item's name gives by grade ("Greater Striking"). */
 export type GradedRune = Exclude<FundamentalRune, typeof FundamentalRune.Potency>;
@@ -31,6 +33,7 @@ export const RuneMessage = {
   NotApplied: 'rules.runes.notApplied',
   NoEffect: 'rules.runes.noEffect',
   Described: 'rules.runes.described',
+  Chosen: 'rules.runes.chosen',
   RunedName: 'rules.inventory.runedName',
 } as const;
 
@@ -40,6 +43,24 @@ export const GRADED_RUNE_MESSAGES: Readonly<Record<GradedRune, string>> = {
   [FundamentalRune.Resilient]: 'rules.runes.resilient',
   [FundamentalRune.Reinforcing]: 'rules.runes.reinforcing',
 };
+
+/** The damage type a rune's choice names, when it is one. */
+function damageTypeOf(choice: string): DamageType | undefined {
+  return Object.values(DamageType).find((type) => type === choice);
+}
+
+/** What a rune's crafter chose, in words: the damage type's name, else the choice as it was written. */
+export function runeChoiceLabel(i18n: TranslocoService, choice: string): string {
+  const type = damageTypeOf(choice);
+  return type === undefined ? choice : i18n.translate(DAMAGE_TYPE_MESSAGES[type]);
+}
+
+/** A rune's name with the choice its crafter made after it: "Energy Resistant (fire)"; the name alone with none. */
+export function chosenRuneName(i18n: TranslocoService, name: string, choice: string | undefined): string {
+  return choice === undefined
+    ? name
+    : i18n.translate(RuneMessage.Chosen, { name, choice: runeChoiceLabel(i18n, choice) });
+}
 
 /** Writes a name with its runes before it, as the rules write it. */
 export type RunedNamer = (name: string, runes: LineRunes | undefined) => string;

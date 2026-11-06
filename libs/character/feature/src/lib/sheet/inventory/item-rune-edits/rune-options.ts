@@ -4,6 +4,7 @@ import {
   itemRunes,
   printedRunes,
   propertyRoom,
+  runeChoices,
   runedItemOf,
 } from '@pioneer/character/domain';
 import type {
@@ -11,6 +12,7 @@ import type {
   InventoryItem,
   InventoryItemId,
   ItemEntry,
+  RuneChoice,
   RunedContent,
   RuneEntry,
   RuneRef,
@@ -51,8 +53,8 @@ export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefine
 }
 
 /**
- * The property runes `item` can take, by name: those for its kind of item it hasn't already. None for a specific
- * item, whose property runes are as printed.
+ * The property runes `item` can take, by name: those for its kind of item it hasn't already, bar those made for a
+ * choice, which it can take again for another. None for a specific item, whose property runes are as printed.
  */
 export function propertyRuneEntries(
   { runes }: RunedContent,
@@ -66,8 +68,10 @@ export function propertyRuneEntries(
   const etched = itemRunes(item, entry).property;
   return [...runes.values()]
     .filter(
-      ({ id, data }) =>
-        data.type === RuneType.Property && data.etchedOnto.item === runed && !etched.some((each) => each.rune === id),
+      (rune) =>
+        rune.data.type === RuneType.Property &&
+        rune.data.etchedOnto.item === runed &&
+        (!etched.some((each) => each.rune === rune.id) || runeChoices(rune).length > 0),
     )
     .toSorted((left, right) => compare(left.name, right.name));
 }
@@ -81,14 +85,20 @@ export function propertyRuneOptions(
   return propertyRuneEntries(content, slot, compare).map(({ id, name }) => ({ value: id, label: name }));
 }
 
-/** A rune etched onto an item, as the move form names it: `fundamental:potency`, or `property:<id>`. */
+/** A rune etched onto an item, as the move form names it: `fundamental:potency`, or `property:<id>` with `:<choice>`. */
 export function runeKey(rune: RuneRef): string {
-  return `${rune.type}:${rune.rune}`;
+  const choice = rune.type === RuneType.Property && rune.choice !== undefined ? `:${rune.choice}` : '';
+  return `${rune.type}:${rune.rune}${choice}`;
 }
 
 /** The rune a key names. */
 export function runeOfKey(key: string, etched: readonly RuneRef[]): RuneRef | undefined {
   return etched.find((rune) => runeKey(rune) === key);
+}
+
+/** A property rune as a reference, with its choice when it has one. */
+function propertyRef(rune: ContentId, choice: RuneChoice | undefined): RuneRef {
+  return choice === undefined ? { type: RuneType.Property, rune } : { type: RuneType.Property, rune, choice };
 }
 
 /**
@@ -105,7 +115,7 @@ export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): 
       type: RuneType.Fundamental,
       rune,
     })),
-    ...runes.property.map(({ rune, choice }): RuneRef => ({ type: RuneType.Property, rune, choice })),
+    ...runes.property.map(({ rune, choice }): RuneRef => propertyRef(rune, choice)),
   ];
 }
 

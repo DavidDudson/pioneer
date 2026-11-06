@@ -3,18 +3,25 @@ import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { CharacterPatchField, InventoryItemId, runedItemOf, RuneEtchingSchema } from '@pioneer/character/domain';
+import {
+  CharacterPatchField,
+  InventoryItemId,
+  runeChoices,
+  runedItemOf,
+  RuneEtchingSchema,
+} from '@pioneer/character/domain';
 import type { Character, InventoryItem, ItemEntry, RunedContent, RuneRef } from '@pioneer/character/domain';
 import { AsyncButton, AsyncForm, Grid, InlineField, LocaleFormat, Stack, Text } from '@pioneer/frontier';
-import type { InlineEdit } from '@pioneer/frontier';
+import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import { Picker, PickerField } from '@pioneer/frontier/data';
 import { ContentId, FundamentalRune, RuneType } from '@pioneer/rules/sdk';
-import { PickerRows } from '@pioneer/rules/ui';
+import { PickerRows, runeChoiceLabel } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
 import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
+import { RuneChoicePicker } from './rune-choice.component';
 import { RuneMove } from './rune-move.component';
 import {
   etchedRunes,
@@ -23,10 +30,11 @@ import {
   printedGrade,
   propertyRuneEntries,
   propertyRuneOptions,
+  runeKey,
 } from './rune-options';
 import { gradeRows, propertyRows, RUNE_ORDER, runeColumns, runeRowLabel, runeValue } from './rune-picker';
 import type { RuneRow, RuneWords } from './rune-picker';
-import { describeRuneError, gradeLabel } from './rune-text';
+import { describeRuneError, gradeLabel, runeLabel } from './rune-text';
 
 /** No grade etched: the select's value for none, or for what a specific item comes with. */
 const NONE = '';
@@ -58,7 +66,9 @@ interface GradeRow {
 /** A property rune etched onto the item, to erase. */
 interface PropertyRow {
   readonly rune: RuneRef;
+  /** The rune's name, with what it was etched for; also what tells it from the same rune etched for another. */
   readonly name: string;
+  readonly key: string;
 }
 
 /**
@@ -77,6 +87,7 @@ interface PropertyRow {
     InlineField,
     Picker,
     PickerField,
+    RuneChoicePicker,
     RuneMove,
     Stack,
     Text,
@@ -167,7 +178,9 @@ export class ItemRuneEdits {
     const item = this.#item();
     const etched = item === undefined ? [] : etchedRunes(item, this.#entry());
     return etched.flatMap((rune): PropertyRow[] =>
-      rune.type === RuneType.Property ? [{ rune, name: this.#runeName(rune.rune) }] : [],
+      rune.type === RuneType.Property
+        ? [{ rune, name: runeLabel(this.#i18n, this.content(), { rune, grade: undefined }), key: runeKey(rune) }]
+        : [],
     );
   });
 
@@ -202,14 +215,26 @@ export class ItemRuneEdits {
     validateStandardSchema(path, AddRuneForm);
   });
 
+  /** What the rune to etch is made for, when it asks. */
+  protected readonly choice = signal<string | undefined>(undefined);
+
+  /** What the chosen rune can be made for, as a select offers it; none for a rune that takes no choice. */
+  protected readonly choiceOptions: Signal<readonly SelectOption<string>[]> = computed(() => {
+    this.#messages();
+    const rune = ContentId.safeParse(this.model().rune);
+    const entry = rune.success ? this.content().runes.get(rune.data) : undefined;
+    return entry === undefined
+      ? []
+      : runeChoices(entry).map((choice) => ({ value: choice, label: runeChoiceLabel(this.#i18n, choice) }));
+  });
+
   protected readonly add = async (value: AddRuneModel): Promise<void> => {
     const { rune } = AddRuneForm.parse(value);
-    await this.#store.patch({
-      field: CharacterPatchField.EtchRune,
-      id: this.id(),
-      rune: { type: RuneType.Property, rune },
-    });
+    const choice = this.choiceOptions().length === 0 ? undefined : this.choice();
+    const etching = RuneEtchingSchema.parse({ type: RuneType.Property, rune, choice });
+    await this.#store.patch({ field: CharacterPatchField.EtchRune, id: this.id(), rune: etching });
     this.model.set(EMPTY_ADD);
+    this.choice.set(undefined);
   };
 
   protected readonly erase =
@@ -218,11 +243,6 @@ export class ItemRuneEdits {
       this.#store.patch({ field: CharacterPatchField.EraseRune, id: this.id(), rune });
 
   protected readonly describeError = (error: unknown): string => describeRuneError(this.#i18n, error);
-
-  /** A property rune's name, or that no loaded content has it. */
-  #runeName(id: ContentId): string {
-    return this.content().runes.get(id)?.name ?? this.#i18n.translate('character.sheet.runes.unknownRune');
-  }
 
   /** A fundamental rune's select: its grade etched, or none (a specific item's: as it comes). */
   #gradeField(rune: FundamentalRune): InlineEdit<string | undefined> {

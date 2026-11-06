@@ -11,6 +11,7 @@ import {
   itemRunes,
   partitionApproved,
   propertyRoom,
+  resistsChosenType,
   runeApplied,
   runedItemOf,
   workingPropertyRunes,
@@ -106,7 +107,7 @@ function runeNote(rune: RuneEntry, working: boolean): RuneNote | undefined {
   if (!working) {
     return RuneNote.NoEffect;
   }
-  return runeApplied(rune) ? undefined : RuneNote.NotApplied;
+  return runeApplied(rune) || resistsChosenType(rune) ? undefined : RuneNote.NotApplied;
 }
 
 /** A fundamental rune's badge, or a hole when the item has none and its runes can still be etched. */
@@ -137,13 +138,14 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   const etched = itemRunes(item, entry);
   const etchable = !isSpecific(entry);
   const working = new Set(workingPropertyRunes(item, entry));
-  const named = etched.property.flatMap(({ rune: id }): RuneBadgeData[] => {
+  const named = etched.property.flatMap(({ rune: id, choice }): RuneBadgeData[] => {
     const rune = runes.get(id);
     if (rune === undefined) {
       return [];
     }
     const note = runeNote(rune, working.has(id));
-    return [{ kind: RuneBadgeKind.Property, id, name: rune.name, ...(note === undefined ? {} : { note }) }];
+    const badge: RuneBadgeData = { kind: RuneBadgeKind.Property, id, name: rune.name };
+    return [{ ...badge, ...(choice === undefined ? {} : { choice }), ...(note === undefined ? {} : { note }) }];
   });
   const room = kind === RunedItem.Shield ? 0 : propertyRoom(etched) - etched.property.length;
   const free = etchable ? Math.max(0, room) : 0;

@@ -8,12 +8,15 @@ import {
   RuleElementKey,
   RuleIndex,
   Slug,
+  slugName,
 } from '@pioneer/rules/sdk';
 
 import { activeItems, inventoryHop } from './active-items';
 import type { Inventory } from './inventory';
 import type { ItemContent } from './inventory-content';
 import { workingEtchedRunes } from './item-runes';
+import type { RuneEntry } from './item-runes';
+import { RuneChoice } from './rune-etching';
 
 const LESSER_RESISTANCE = 5;
 const GREATER_RESISTANCE = 10;
@@ -59,4 +62,14 @@ export function chosenRuneRules(inventory: Inventory, content: ItemContent, look
         : [];
     }),
   );
+}
+
+/** Whether `rune` is made for one damage type, which its crafter chooses when etching it. */
+export function resistsChosenType(rune: RuneEntry): boolean {
+  return CHOSEN_RESISTANCE.has(slugName(rune.slug));
+}
+
+/** The choices `rune` asks its crafter for when it is etched: the four energies for an energy-resistant rune. */
+export function runeChoices(rune: RuneEntry): readonly RuneChoice[] {
+  return resistsChosenType(rune) ? [...RUNE_ENERGIES].map((energy) => RuneChoice.parse(energy)) : [];
 }

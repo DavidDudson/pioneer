@@ -1,7 +1,7 @@
 import type { TranslocoService } from '@jsverse/transloco';
 import type { RunedContent, RuneRef } from '@pioneer/character/domain';
 import { FundamentalRune, RuneType } from '@pioneer/rules/sdk';
-import { GRADED_RUNE_MESSAGES, RuneMessage } from '@pioneer/rules/ui';
+import { chosenRuneName, GRADED_RUNE_MESSAGES, RuneMessage } from '@pioneer/rules/ui';
 import { ApiError } from '@pioneer/shared/web';
 
 /** A grade as the rules name it: "+2" for potency, "Greater Striking" for the rest. */
@@ -18,7 +18,9 @@ export function runeLabel(
   { rune, grade }: { readonly rune: RuneRef; readonly grade: number | undefined },
 ): string {
   if (rune.type === RuneType.Property) {
-    return runes.get(rune.rune)?.name ?? i18n.translate('character.sheet.runes.unknownRune');
+    const unknown = i18n.translate('character.sheet.runes.unknownRune');
+    const name = runes.get(rune.rune)?.name ?? unknown;
+    return chosenRuneName(i18n, name, rune.choice);
   }
   return grade === undefined ? rune.rune : gradeLabel(i18n, rune.rune, grade);
 }

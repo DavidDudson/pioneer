@@ -1,0 +1,8 @@
+@if (options().length > 0) {
+  <pio-option-picker
+    [ariaLabel]="'character.sheet.runes.choice' | transloco"
+    [placeholder]="'character.sheet.runes.choice' | transloco"
+    [options]="options()"
+    [(value)]="value"
+  />
+}

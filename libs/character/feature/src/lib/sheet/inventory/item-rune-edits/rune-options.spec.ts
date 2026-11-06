@@ -1,5 +1,5 @@
-import { etchRune } from '@pioneer/character/domain';
-import type { Inventory, InventoryItemId, ItemEntry } from '@pioneer/character/domain';
+import { etchRune, RuneChoice } from '@pioneer/character/domain';
+import type { Inventory, InventoryItemId, ItemEntry, RuneEtching } from '@pioneer/character/domain';
 import {
   Armoury,
   armoury,
@@ -77,6 +77,36 @@ describe(propertyRuneOptions, () => {
     const item = lineOf(armoury(), Armoury.Tongue);
     const offered = propertyRuneOptions(content, { item, entry: TONGUE }, compare);
     expect(offered).toStrictEqual([]);
+  });
+});
+
+/** The energy-resistant rune etched for `choice`. */
+function resisting(choice: string): RuneEtching {
+  return {
+    type: RuneType.Property,
+    rune: runeFixtureId(RuneFixture.EnergyResistant),
+    choice: RuneChoice.parse(choice),
+  };
+}
+
+/** The armoury with its armour at +2 energy-resistant for fire. */
+function fireproofArmor(): Inventory {
+  const potent = etchRune(armoury(), Armoury.Armor, fundamental(FundamentalRune.Potency, 2));
+  return etchRune(potent, Armoury.Armor, resisting('fire'));
+}
+
+describe('a rune made for a choice', () => {
+  it('is offered again once etched, while a rune that takes no choice is not', () => {
+    const inventory = etchRune(fireproofArmor(), Armoury.Armor, propertyRune(RuneFixture.Shadow));
+    const item = lineOf(inventory, Armoury.Armor);
+    const offered = propertyRuneOptions(content, { item, entry: entryOf(inventory, Armoury.Armor) }, compare);
+    expect(offered.map(({ label }) => label)).toContain('Energy-resistant');
+    expect(offered.map(({ label }) => label)).not.toContain('Shadow');
+  });
+
+  it('is keyed by its choice, so the same rune etched for two types is two keys', () => {
+    expect(runeKey(resisting('fire'))).not.toBe(runeKey(resisting('cold')));
+    expect(runeKey(propertyRune(RuneFixture.Flaming))).toBe(`property:${runeFixtureId(RuneFixture.Flaming)}`);
   });
 });
 

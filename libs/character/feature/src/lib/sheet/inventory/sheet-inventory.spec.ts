@@ -9,6 +9,7 @@ import {
   investItem,
   ItemQuantity,
   ONE_HAND,
+  RuneChoice,
 } from '@pioneer/character/domain';
 import type { Inventory } from '@pioneer/character/domain';
 import {
@@ -21,7 +22,7 @@ import {
   runeFixtureContent,
   runeFixtureId,
 } from '@pioneer/character/domain/testing';
-import { FundamentalRune } from '@pioneer/rules/sdk';
+import { FundamentalRune, RuneType } from '@pioneer/rules/sdk';
 import { LoadEffect, RuneNote } from '@pioneer/rules/ui';
 import type { RuneBadgeData } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
@@ -163,6 +164,15 @@ describe(sheetInventory, () => {
       { kind: 'property', id: runeFixtureId(RuneFixture.Flaming), name: 'Flaming' },
       { kind: 'hole' },
     ]);
+  });
+
+  it('badges an energy-resistant rune with what it was etched for', () => {
+    let etched = stock([[sword, ItemFixture.LeatherArmor, undefined]]);
+    etched = etchRune(etched, sword, fundamental(FundamentalRune.Potency, 1));
+    const rune = runeFixtureId(RuneFixture.EnergyResistant);
+    etched = etchRune(etched, sword, { type: RuneType.Property, rune, choice: RuneChoice.parse('fire') });
+    const badges = present(sheetInventory(etched, runed)[0]).lines[0]?.runeBadges;
+    expect(badges).toContainEqual({ kind: 'property', id: rune, name: 'Energy-resistant', choice: 'fire' });
   });
 
   it('notes a property rune the engine does not apply, and one the potency rune leaves without effect', () => {
