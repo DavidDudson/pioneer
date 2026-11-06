@@ -1,16 +1,26 @@
 <fr-stack gap="md">
-  @if (shown(); as modifiers) {
-    <fr-description-list>
-      @for (item of modifiers; track item.attribute) {
-        <fr-description-item [term]="item.labelKey | transloco">
-          <fr-text numeric>{{ item.modifier }}</fr-text>
-        </fr-description-item>
+  <ng-template #value let-modifier>
+    @if (modifier === undefined) {
+      <fr-skeleton width="xs" />
+    } @else {
+      <fr-text numeric>{{ modifier }}</fr-text>
+    }
+  </ng-template>
+  @if (compact()) {
+    <fr-grid gap="sm" [columns]="6">
+      @for (item of shown(); track item.attribute) {
+        <fr-stack gap="2xs">
+          <fr-text variant="label" tone="muted">{{ item.labelKey | transloco }}</fr-text>
+          <ng-container [ngTemplateOutlet]="value" [ngTemplateOutletContext]="{ $implicit: item.modifier }" />
+        </fr-stack>
       }
-    </fr-description-list>
+    </fr-grid>
   } @else {
     <fr-description-list>
-      @for (labelKey of loadingTerms; track labelKey) {
-        <fr-description-item [term]="labelKey | transloco"><fr-skeleton width="xs" /></fr-description-item>
+      @for (item of shown(); track item.attribute) {
+        <fr-description-item [term]="item.labelKey | transloco">
+          <ng-container [ngTemplateOutlet]="value" [ngTemplateOutletContext]="{ $implicit: item.modifier }" />
+        </fr-description-item>
       }
     </fr-description-list>
   }
@@ -18,6 +28,7 @@
     <fr-stack gap="xs">
       <fr-text tone="muted">{{ Message.OpenBoosts | transloco }}</fr-text>
       <fr-list>
+        <!-- eslint-disable-next-line @angular-eslint/template/cyclomatic-complexity -- the layout switch and its shared value template; the open-boost list is the one branch more -->
         @for (line of open(); track line.key) {
           <fr-list-item>
             <fr-text>{{ line.label.key | transloco: line.label.params }}</fr-text>

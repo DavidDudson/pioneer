@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { booleanAttribute, ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import {
   DescriptionItem,
   DescriptionList,
+  Grid,
   List,
   ListItem,
   LocaleFormat,
@@ -22,11 +24,11 @@ export interface OpenBoostLine {
   readonly label: MessageDescriptor;
 }
 
-/** One attribute as shown: its name and its signed modifier. */
+/** One attribute as shown: its name and its signed modifier, undefined while they load. */
 interface ShownModifier {
   readonly attribute: Attribute;
   readonly labelKey: string;
-  readonly modifier: string;
+  readonly modifier: string | undefined;
 }
 
 /** A modifier always shows its sign, `+0` included. */
@@ -45,7 +47,18 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
  */
 @Component({
   selector: 'pio-attributes',
-  imports: [DescriptionItem, DescriptionList, List, ListItem, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [
+    DescriptionItem,
+    DescriptionList,
+    Grid,
+    List,
+    NgTemplateOutlet,
+    ListItem,
+    Skeleton,
+    Stack,
+    Text,
+    TranslocoPipe,
+  ],
   templateUrl: './attributes.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -54,19 +67,18 @@ export class AttributesView {
   public readonly modifiers = input<AttributeModifiers | undefined>();
   /** The boost slots still to fill, in level order. */
   public readonly open = input<readonly OpenBoostLine[]>([]);
+  /** Lay the six out in a grid, label over value, instead of one row each: for a narrow card. */
+  public readonly compact = input(false, { transform: booleanAttribute });
 
   readonly #format = inject(LocaleFormat);
   protected readonly Message = AttributesMessage;
-  /** The six names, shown with a placeholder each while the modifiers load. */
-  protected readonly loadingTerms = Object.values(ATTRIBUTE_MESSAGES);
-  protected readonly shown = computed((): readonly ShownModifier[] | undefined => {
+  /** The six names, each with its modifier, or none while the modifiers load. */
+  protected readonly shown = computed((): readonly ShownModifier[] => {
     const modifiers = this.modifiers();
-    return modifiers === undefined
-      ? undefined
-      : Object.values(Attribute).map((attribute) => ({
-          attribute,
-          labelKey: ATTRIBUTE_MESSAGES[attribute],
-          modifier: this.#format.number(modifiers.get(attribute), SIGNED),
-        }));
+    return Object.values(Attribute).map((attribute) => ({
+      attribute,
+      labelKey: ATTRIBUTE_MESSAGES[attribute],
+      modifier: modifiers === undefined ? undefined : this.#format.number(modifiers.get(attribute), SIGNED),
+    }));
   });
 }

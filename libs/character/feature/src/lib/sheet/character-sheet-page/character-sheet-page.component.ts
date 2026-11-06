@@ -8,6 +8,7 @@ import { VitalsView } from '@pioneer/rules/ui';
 import { FeatDisplayStore } from '../../data/feat-display-store';
 import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
 import { SheetArmorClass } from '../sheet-armor-class/sheet-armor-class.component';
+import { SheetAttributesBlock } from '../sheet-attributes-block/sheet-attributes-block.component';
 import { SheetCharacterBlock } from '../sheet-character-block/sheet-character-block.component';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SheetCounted } from '../sheet-counted/sheet-counted.component';
@@ -18,8 +19,8 @@ import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
-import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
+import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
@@ -45,6 +46,7 @@ import { SheetState } from '../sheet-state';
     PageHeader,
     RouterOutlet,
     SheetArmorClass,
+    SheetAttributesBlock,
     SheetCharacterBlock,
     SheetDeathTrack,
     SheetCounted,

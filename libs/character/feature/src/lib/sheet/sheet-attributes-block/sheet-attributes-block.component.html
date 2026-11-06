@@ -1,0 +1,8 @@
+<fr-surface padding="sm">
+  <fr-async-region>
+    <ng-template frAsyncPending><pio-attributes compact [modifiers]="undefined" /></ng-template>
+    <ng-template [frAsyncData]="sheet.registry">
+      <pio-attributes compact [modifiers]="picks.attributes()?.modifiers" />
+    </ng-template>
+  </fr-async-region>
+</fr-surface>
