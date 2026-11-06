@@ -1,18 +1,32 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal, untracked } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router } from '@angular/router';
 import { restrictionsHolding } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion } from '@pioneer/frontier';
 import type { ActionMode } from '@pioneer/rules/sdk';
-import { ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
+import { ActionCategory, ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
+import { map } from 'rxjs';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
 import { sheetRestrictions } from '../sheet-environments';
+import { sheetInnateActions } from '../sheet-innate-actions';
 import { statisticInputsOf } from '../sheet-inputs';
 import { sheetItemActions } from '../sheet-item-actions';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
+import { sheetStrikeActions } from '../sheet-strike-actions';
+import { RememberedActionKind } from './remembered-action-kind';
+
+/** The query parameter that names the open subtab: the kind of action it lists. */
+const KIND_PARAM = 'actions';
+
+/** The kind `text` names, or undefined for none or an unknown one. */
+function kindFrom(text: string | null): ActionCategory | undefined {
+  return Object.values(ActionCategory).find((kind) => kind === text);
+}
 
 /**
  * A sheet tab's Actions section (#353): the character's actions in the tab's mode, as Now (what it can do at this
@@ -31,6 +45,10 @@ export class SheetActions {
   readonly #sheet = inject(SheetState);
   readonly #play = inject(PlayStore);
   readonly #spender = inject(SheetSpender);
+  readonly #route = inject(ActivatedRoute);
+  readonly #router = inject(Router);
+  readonly #remembered = inject(RememberedActionKind);
+  readonly #urlKind = toSignal(this.#route.queryParamMap.pipe(map((params) => kindFrom(params.get(KIND_PARAM)))));
 
   /** The tab's mode: the Now view lists the actions used in it. */
   public readonly mode = input.required<ActionMode>();
@@ -40,6 +58,35 @@ export class SheetActions {
   protected readonly playQuery = this.#play.play;
   protected readonly view = signal<ActionsViewKind>(ActionsViewKind.Now);
   protected readonly entryNames = this.#sheet.picks.entryNames;
+  /** The open subtab: the address's, else the one last open on any sheet tab. */
+  protected readonly kind = computed((): ActionCategory | undefined => this.#urlKind() ?? this.#remembered.kind());
+
+  public constructor() {
+    // A tab opened without a subtab in its address takes the remembered one into it, so the address says what is shown.
+    effect(() => {
+      const remembered = this.#remembered.kind();
+      if (remembered !== undefined && this.#urlKind() === undefined) {
+        untracked(() => {
+          this.#write(remembered);
+        });
+      }
+    });
+  }
+
+  protected open(kind: ActionCategory | undefined): void {
+    this.#remembered.kind.set(kind);
+    this.#write(kind);
+  }
+
+  #write(kind: ActionCategory | undefined): void {
+    // oxlint-disable-next-line typescript/no-floating-promises -- the router reports a failed navigation itself
+    this.#router.navigate([], {
+      relativeTo: this.#route,
+      queryParams: { [KIND_PARAM]: kind },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
+  }
 
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */
   protected readonly lines = computed((): readonly ActionLine[] | undefined => {
@@ -65,6 +112,11 @@ export class SheetActions {
             turn,
             inputs: statisticInputsOf(engine, character),
           });
-    return [...own, ...items];
+    return [
+      ...sheetStrikeActions(registry, character, turn),
+      ...sheetInnateActions(registry, character, turn),
+      ...own,
+      ...items,
+    ];
   });
 }

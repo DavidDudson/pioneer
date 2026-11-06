@@ -11,6 +11,7 @@ export { Step } from './lib/actions/stepper/step.component';
 export { StepBody } from './lib/actions/stepper/step-body.directive';
 export { Stepper } from './lib/actions/stepper/stepper.component';
 export { Tab } from './lib/actions/tab/tab.component';
+export { TabList } from './lib/actions/tab-list/tab-list.component';
 export { Tabs } from './lib/actions/tabs/tabs.component';
 export { TabsAppearance, TabsOrientation } from './lib/actions/tabs/tabs-appearance';
 

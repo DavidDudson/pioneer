@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest';
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import type { RollableStatistic, StatisticRoller } from '../statistics/statistic-roller';
 import { GRABBED_ACTIONS, PRONE_ACTIONS, SHIELD_RAISED_ACTIONS, STANDING_ACTIONS } from '../testing/action-fixtures';
+import { inOneKind } from '../testing/action-kinds';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import type { ActionLine } from './action-line';
 import { ActionUser } from './action-user';
@@ -38,7 +39,7 @@ async function render(
     ],
   });
   const fixture = TestBed.createComponent(ActionsView);
-  fixture.componentRef.setInput('lines', lines);
+  fixture.componentRef.setInput('lines', lines === undefined ? undefined : inOneKind(lines));
   fixture.componentRef.setInput('mode', mode);
   fixture.componentRef.setInput('view', view);
   await fixture.whenStable();

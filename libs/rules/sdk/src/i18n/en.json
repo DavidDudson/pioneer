@@ -320,6 +320,15 @@
     },
     "actions": {
       "viewLabel": "Actions view",
+      "categoriesLabel": "Kinds of action",
+      "category": {
+        "strikes": "Strikes",
+        "spells": "Spells",
+        "innate": "Innate",
+        "items": "Items",
+        "granted": "Features and feats",
+        "basic": "Basic actions"
+      },
       "nowView": "Now",
       "allView": "All",
       "emptyNow": "Nothing to do right now.",

@@ -10,7 +10,7 @@ import { pickRow } from '../../testing/option-picker-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import type { OpenSheet } from '../../testing/sheet-page-harness';
-import { textOf } from '../../testing/sheet-tabs-testing';
+import { openActionKind, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { ACTION_CONTENT_KINDS } from '../sheet-actions';
 
@@ -65,9 +65,10 @@ function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
 /** Presses Use on the Change Shape row and waits for the form picker to open. */
 async function openPicker(): Promise<Opened> {
   const { harness, root } = await openSheet(WEREFIGHTER, { packs: PACKS, play: PLAY });
+  await openActionKind(root, 'Features and feats');
   const use = await vi.waitFor(() => {
     const row = [...root.querySelectorAll('pio-action-row')].find((candidate) =>
-      textOf(candidate).startsWith('Change Shape'),
+      textOf(candidate).includes('Change Shape'),
     );
     return present([...present(row).querySelectorAll('button')].find((button) => textOf(button) === 'Use'));
   });

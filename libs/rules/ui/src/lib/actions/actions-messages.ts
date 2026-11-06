@@ -1,12 +1,14 @@
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import { ActionCost, ActionMode } from '@pioneer/rules/sdk';
 
-import { ActionResourceKind } from './action-line';
+import { ActionCategory, ActionResourceKind } from './action-line';
 
 /** Message keys the actions list renders with, spelled out so the key check sees them. */
 export const ActionsMessage = {
   /** The label of the Now and All switch. */
   ViewLabel: 'rules.actions.viewLabel',
+  /** The label of the row of subtabs that split the actions by kind. */
+  CategoriesLabel: 'rules.actions.categoriesLabel',
   /** "Now": what the character can do at this moment. */
   NowView: 'rules.actions.nowView',
   /** "All": everything the character can ever do. */
@@ -85,4 +87,14 @@ export const ACTION_RANGE_MESSAGES: Readonly<Partial<Record<ActionCost, Readonly
 export const ACTION_COUNT_COSTS: Readonly<Partial<Record<number, ActionCost>>> = {
   2: ActionCost.Two,
   3: ActionCost.Three,
+};
+
+/** How each kind of action, a subtab of the Actions tab, is worded. */
+export const ACTION_CATEGORY_MESSAGES: Readonly<Record<ActionCategory, string>> = {
+  [ActionCategory.Strikes]: 'rules.actions.category.strikes',
+  [ActionCategory.Spells]: 'rules.actions.category.spells',
+  [ActionCategory.Innate]: 'rules.actions.category.innate',
+  [ActionCategory.Items]: 'rules.actions.category.items',
+  [ActionCategory.Granted]: 'rules.actions.category.granted',
+  [ActionCategory.Basic]: 'rules.actions.category.basic',
 };
