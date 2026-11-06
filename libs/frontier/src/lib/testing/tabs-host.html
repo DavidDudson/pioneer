@@ -1,4 +1,4 @@
-<fr-tabs [label]="label()" [appearance]="appearance()" [centered]="centered()">
+<fr-tabs [label]="label()" [appearance]="appearance()" [centered]="centered()" [orientation]="orientation()">
   @for (tab of tabs(); track tab.to) {
   <fr-tab [to]="tab.to" [exact]="tab.exact ?? false">{{ tab.label }}</fr-tab>
   }

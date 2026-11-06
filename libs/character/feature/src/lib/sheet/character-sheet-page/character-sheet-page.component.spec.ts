@@ -8,7 +8,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { pickAncestry, pickRow, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
-import { openTab, regionsOf, settle } from '../../testing/sheet-tabs-testing';
+import { openLevel, openTab, regionsOf, settle, textOf } from '../../testing/sheet-tabs-testing';
 
 describe('CharacterSheetPage', () => {
   // Loads and bundles the packs once, outside every test's timeout.
@@ -24,7 +24,6 @@ describe('CharacterSheetPage', () => {
       ['Build', true],
       ['Attributes', true],
       ['Choices', true],
-      ['Level timeline', true],
       ['Feats', true],
       ['Class features', true],
     ]);
@@ -53,39 +52,33 @@ describe('CharacterSheetPage', () => {
     ]);
   });
 
-  it("lists the open tab's sections as tabs", async () => {
+  it('lists the levels as tabs, level 0 first, and marks the base character as having choices to make', async () => {
     const { root } = await openSheet();
-    const nav = present(root.querySelector('nav[aria-label="Sheet sections"]'));
-    const links = [...nav.querySelectorAll('a')];
-    expect(links.map((link) => link.textContent.trim())).toStrictEqual([
-      'Identity',
-      'Build',
-      'Attributes',
-      'Choices',
-      'Level timeline',
-      'Feats',
-      'Class features',
+    const nav = present(root.querySelector('nav[aria-label="Levels"]'));
+    const links = [...nav.querySelectorAll('a')].map((link) => textOf(link));
+
+    expect(links.map((link) => link.replace(/ To do$/u, ''))).toStrictEqual([
+      'Base character',
+      ...Array.from({ length: 20 }, (_unused, index) => `Level ${index + 1}`),
     ]);
+    expect(links[0]).toBe('Base character To do');
+    expect(root.querySelector('nav[aria-label="Sheet sections"]')).toBeNull();
   });
 
-  it('lists a row for each level from 1 to 20 on the Plan tab, marking the current one in text', async () => {
+  it('shows only the level its tab names, marking the character’s level in text', async () => {
     const { root } = await openSheet();
-    const timeline = present(root.querySelector('section[aria-labelledby="sheet-timeline"]'));
-    const levelHeadings = (): string[] =>
-      [...timeline.querySelectorAll('pio-level-timeline-level fr-heading')].map((heading) =>
-        heading.textContent.trim(),
-      );
-    await vi.waitFor(() => {
-      expect(levelHeadings()).toHaveLength(20);
-    });
-    const headings = levelHeadings();
+    await openLevel(root, 1);
+    const section = present(root.querySelector('section[aria-labelledby="sheet-level-1"]'));
 
-    expect(headings).toHaveLength(20);
-    expect(headings.at(0)).toBe('Level 1');
-    expect(headings.at(-1)).toBe('Level 20');
-    expect(
-      [...timeline.querySelectorAll('fr-badge')].filter((badge) => badge.textContent.trim() === 'Current level'),
-    ).toHaveLength(1);
+    await vi.waitFor(() => {
+      expect(
+        [...section.querySelectorAll('pio-level-timeline-level fr-heading')].map((heading) => textOf(heading)),
+      ).toStrictEqual(['Level 1']);
+    });
+    expect(root.querySelector('section[aria-labelledby="sheet-level-2"]')).toBeNull();
+    expect([...section.querySelectorAll('fr-badge')].filter((badge) => textOf(badge) === 'Current level')).toHaveLength(
+      1,
+    );
   });
 
   it('lists every choice with its status, flagging a planned pick and an invalid one with its reason', async () => {
@@ -161,6 +154,7 @@ describe('CharacterSheetPage', () => {
 
   it('offers a picker on each planned slot of the level timeline', async () => {
     const { root } = await openSheet();
+    await openLevel(root, 5);
     // The feat slots render once the feats' content has loaded, which can trail the sheet's first paint.
     await vi.waitFor(() => {
       const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
@@ -168,12 +162,19 @@ describe('CharacterSheetPage', () => {
       );
       expect(labels).toContain('Elf feat, level 5');
       expect(labels.filter((label) => label.startsWith('Level 5 boost'))).toHaveLength(4);
+    });
+    await openLevel(root, 20);
+    await vi.waitFor(() => {
+      const labels = [...root.querySelectorAll('pio-level-timeline fr-inline-field')].map((field) =>
+        present(field.querySelector('fr-text')).textContent.trim(),
+      );
       expect(labels).toContain('Level 20 boost 1');
     });
   });
 
   it('lists the attributes with their modifier now and with the boost for a boost planned from the timeline', async () => {
     const { root } = await openSheet();
+    await openLevel(root, 5);
     const rows = await rowsShown<AttributePickerRow, AttributePicker>(root, {
       label: 'Level 5 boost 2',
       type: AttributePicker,
@@ -184,6 +185,7 @@ describe('CharacterSheetPage', () => {
 
   it('saves a boost planned from the timeline as a pick in its own slot', async () => {
     const { root } = await openSheet();
+    await openLevel(root, 5);
     await pickRow(root, { label: 'Level 5 boost 2', type: AttributePicker }, 'Dexterity');
 
     const request = await vi.waitFor(() =>

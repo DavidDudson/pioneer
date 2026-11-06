@@ -93,6 +93,21 @@ export const SegmentNarrow: TabsStory = {
   }),
 };
 
+/**
+ * `orientation="vertical"` is a column, for a long list of sections beside their content, such as
+ * a character's levels. Place it where there is width for a column; the caller picks another control on a phone.
+ */
+export const Vertical: TabsStory = {
+  render: () => ({
+    props: { sections: SECTIONS.map((label) => ({ label, to: route(label) })) },
+    template: `<fr-tabs orientation="vertical" label="Sheet sections">
+      @for (section of sections; track section.to) {
+        <fr-tab [to]="section.to" [exact]="section.to === '/'">{{ section.label }}</fr-tab>
+      }
+    </fr-tabs>`,
+  }),
+};
+
 interface SectionTabs {
   readonly overview: HTMLElement;
   readonly attributes: HTMLElement;

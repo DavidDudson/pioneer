@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import { TabsHost } from '../../testing/tabs-host';
 import type { TabsHostTab } from '../../testing/tabs-host';
-import { TabsAppearance } from './tabs-appearance';
+import { TabsAppearance, TabsOrientation } from './tabs-appearance';
 import { Tabs } from './tabs.component';
 
 interface Rendered {
@@ -149,5 +149,33 @@ describe(Tabs, () => {
 
     const row = rendered.nav.querySelector('div');
     expect(row?.className).toContain('mx-auto w-fit');
+  });
+
+  it('stacks the row, with the rule at its end, when vertical', async () => {
+    const rendered = await render('/sheet');
+    rendered.fixture.componentRef.setInput('orientation', TabsOrientation.Vertical);
+    await rendered.fixture.whenStable();
+
+    expect(rendered.nav.querySelector('div')?.className).toContain('flex-col');
+    expect(rendered.nav.className).toContain('border-e');
+  });
+
+  it('moves focus with Up and Down when vertical', async () => {
+    const rendered = await render('/sheet');
+    rendered.fixture.componentRef.setInput('orientation', TabsOrientation.Vertical);
+    await rendered.fixture.whenStable();
+
+    link(rendered, 0).focus();
+    expect(press(rendered, 'ArrowDown')).toBe(1);
+    expect(press(rendered, 'ArrowDown')).toBe(2);
+    expect(press(rendered, 'ArrowUp')).toBe(1);
+    expect(press(rendered, 'ArrowRight')).toBe(1);
+  });
+
+  it('stays a row, with the rule under it, unless vertical', async () => {
+    const rendered = await render('/sheet');
+
+    expect(rendered.nav.querySelector('div')?.className).not.toContain('flex-col');
+    expect(rendered.nav.className).not.toContain('border-e');
   });
 });

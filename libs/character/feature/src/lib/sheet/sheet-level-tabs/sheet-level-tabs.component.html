@@ -1,0 +1,10 @@
+<fr-tabs orientation="vertical" [label]="'character.sheet.levels.label' | transloco">
+  @for (link of links(); track link.headingKey + link.to.join()) {
+    <fr-tab [to]="link.to">
+      {{ link.headingKey | transloco: link.headingParams }}
+      @if (link.unresolved) {
+        <fr-badge [tone]="tone">{{ 'character.sheet.levels.unresolved' | transloco }}</fr-badge>
+      }
+    </fr-tab>
+  }
+</fr-tabs>

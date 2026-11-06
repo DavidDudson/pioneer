@@ -202,6 +202,12 @@
     },
     "spellcastingHeading": "Spellcasting",
     "sections": "Sheet sections",
+    "levels": {
+      "label": "Levels",
+      "base": "Base character",
+      "level": "Level {level}",
+      "unresolved": "To do"
+    },
     "panels": { "label": "Sheet panels" },
     "name": "Name",
     "ancestry": "Ancestry",

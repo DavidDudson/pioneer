@@ -23,6 +23,6 @@ export function sectionCrumb(route: ActivatedRouteSnapshot): Signal<string | und
   );
   return computed(() => {
     language();
-    return section === undefined ? undefined : i18n.translate(section.headingKey);
+    return section === undefined ? undefined : i18n.translate(section.headingKey, section.headingParams);
   });
 }

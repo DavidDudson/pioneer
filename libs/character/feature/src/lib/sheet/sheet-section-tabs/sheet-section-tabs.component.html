@@ -1,10 +1,12 @@
-<fr-responsive showFrom="lg">
-  <fr-tabs centered [appearance]="Appearance.Segment" [label]="'character.sheet.sections' | transloco">
-    @for (link of links(); track link.headingKey) {
-      <fr-tab [to]="link.to">{{ link.headingKey | transloco }}</fr-tab>
-    }
-  </fr-tabs>
-</fr-responsive>
+@if (wide()) {
+  <fr-responsive showFrom="lg">
+    <fr-tabs centered [appearance]="Appearance.Segment" [label]="'character.sheet.sections' | transloco">
+      @for (link of links(); track link.headingKey) {
+        <fr-tab [to]="link.to">{{ link.headingKey | transloco }}</fr-tab>
+      }
+    </fr-tabs>
+  </fr-responsive>
+}
 
 <fr-responsive hideFrom="lg">
   <fr-stack gap="sm">
