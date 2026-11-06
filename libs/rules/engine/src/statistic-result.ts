@@ -7,6 +7,7 @@ import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import type { BaseTerm } from './base-term';
 import type { BreakdownLine, ModifierLabel, OverrideLine } from './breakdown';
 import { EngineMessage } from './messages';
+import type { RollEffects } from './roll-effects';
 import type { RuleId } from './rule-in-play';
 import type { StatisticEdge } from './statistic-graph';
 import type { MissingInput } from './statistic-inputs';
@@ -73,6 +74,8 @@ export interface StatisticValue {
   readonly form?: FormReplacement;
   /** Set when terrain that costs extra movement lowers this Speed; absent otherwise. */
   readonly movementCost?: MovementCostReduction;
+  /** Set when fortune, misfortune or a degree adjustment reaches this statistic; absent otherwise. */
+  readonly rollEffects?: RollEffects;
 }
 
 /** Why a statistic has no value, pointing into its base formula. */
