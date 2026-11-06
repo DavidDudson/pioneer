@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { deriveStatistics, factsUnderForm } from '@pioneer/rules/engine';
 import type { RuleInPlay } from '@pioneer/rules/engine';
-import { inPlay } from '@pioneer/rules/engine/testing';
+import { flatModifier, inPlay } from '@pioneer/rules/engine/testing';
 import { ContentEntryFile, ContentKind, RuleElementKey } from '@pioneer/rules/sdk';
 
 import { core, fighter, noFacts, totals } from './testing/core-rules';
@@ -139,5 +139,20 @@ describe('conditions that stop movement in Player Core', () => {
 
   test.each(['frightened', 'sickened', 'clumsy', 'slowed', 'stunned', 'prone'])('%s leaves Speed alone', (slug) => {
     expect(lowered(slug, 2, SPEEDS)).toEqual(sameFor(SPEEDS, 0));
+  });
+});
+
+/** Statistics that are values, not checks or DCs: `all` leaves them alone. */
+const VALUE_STATISTICS = [...SPEEDS, 'hp:max', 'reach', 'dying-max', 'strike-damage:longsword', 'strike-damage:dagger'];
+
+describe('the all domain', () => {
+  test('reaches every check and DC, and no value, damage included', () => {
+    const held = fighterWith([inPlay(flatModifier('status', -1, ['all']), 'all-checks')]);
+    expect(Object.fromEntries(ALL_CHECKS_AND_DCS.map((selector) => [selector, drop(held, selector)]))).toEqual(
+      sameFor(ALL_CHECKS_AND_DCS, 1),
+    );
+    expect(Object.fromEntries(VALUE_STATISTICS.map((selector) => [selector, drop(held, selector)]))).toEqual(
+      sameFor(VALUE_STATISTICS, 0),
+    );
   });
 });
