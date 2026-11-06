@@ -7,12 +7,13 @@ import {
   provideAppInitializer,
 } from '@angular/core';
 import type { EnvironmentProviders } from '@angular/core';
-import { provideTransloco } from '@jsverse/transloco';
+import { provideTransloco, TranslocoService } from '@jsverse/transloco';
 import type { Translation, TranslocoLoader } from '@jsverse/transloco';
 import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { Locale, LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 
 import { LocalePreferences } from './locale-preferences';
+import { rememberLoadedLanguages } from './remember-loaded-languages';
 
 /** How to fetch each locale's root messages. Keys are ICU MessageFormat strings. */
 export type LocaleMessages = Readonly<Record<Locale, () => Promise<Translation>>>;
@@ -51,6 +52,9 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
       loader: MessageLoader,
     }),
     provideTranslocoMessageformat(),
+    provideAppInitializer(() => {
+      rememberLoadedLanguages(inject(TranslocoService));
+    }),
     provideAppInitializer(async () => {
       await inject(LocalePreferences).apply();
     }),
