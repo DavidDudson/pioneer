@@ -44,6 +44,10 @@ export class InMemoryCharacterRepository extends CharacterRepository {
     return character === undefined || this.#archived.has(id) ? undefined : this.#withPlay(character);
   }
 
+  public override async findOwner(id: CharacterId): Promise<UserId | undefined> {
+    return this.#archived.has(id) ? undefined : this.#rows.get(id)?.ownerId;
+  }
+
   public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
     return [...new Set(ids)].flatMap((id): Character[] => {
       const character = this.#rows.get(id);

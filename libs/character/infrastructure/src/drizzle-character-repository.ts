@@ -123,6 +123,14 @@ export class DrizzleCharacterRepository extends CharacterRepository {
     return this.#found.of(id, async () => this.#findOne(and(eq(characters.id, id), isNull(characters.archivedAt))));
   }
 
+  public override async findOwner(id: CharacterId): Promise<UserId | undefined> {
+    const [row] = await this.#db
+      .select({ ownerId: characters.ownerId })
+      .from(characters)
+      .where(and(eq(characters.id, id), isNull(characters.archivedAt)));
+    return row?.ownerId;
+  }
+
   public override async findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]> {
     if (ids.length === 0) {
       return [];
