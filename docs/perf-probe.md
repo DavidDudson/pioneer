@@ -40,7 +40,8 @@ from one machine, one after another.
 
 **Whole sheet load** (all 11 at once): 11 requests, 14,545 B, 118 ms wall, 84 statements.
 
-**Content manifest**: 585,294 B, no `content-encoding`, `Cache-Control: public, max-age=10`, no `ETag`.
+**Content manifest** (before compression and the `ETag`): 585,294 B, no `content-encoding`,
+`Cache-Control: public, max-age=10`, no `ETag`.
 
 `GET /characters/:id` takes 93 ms for 17 statements while every other endpoint takes 3 to 4 ms, so one of its steps
 costs about 90 ms. That is the first thing to look at for the DB story.

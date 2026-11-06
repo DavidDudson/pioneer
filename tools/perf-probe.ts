@@ -7,7 +7,7 @@
  * Needs the dev API running (`just dev`, or `bun apps/api/src/main.dev.ts`) and DATABASE_URL set. Signs in as the dev
  * player, creates a throwaway level 1 character unless `--character` names one (use that for a big build), then calls
  * each endpoint the sheet loads `--runs` times, one at a time. Per endpoint it reports the median and p95 time, the body
- * size, whether it was compressed, and the SQL statements per call (counted in the Postgres log, which the probe turns
+ * size (raw, and what gzip and brotli would shrink it to), whether it was compressed, and the SQL statements per call (counted in the Postgres log, which the probe turns
  * on with `alter system set log_statement` and back off; nothing else may use the database meanwhile). Last it fires the set at
  * once, as the browser does, for the wall time of a sheet load. Timings depend on the machine: compare runs from the
  * same one, and trust the counts and sizes more than the milliseconds.
@@ -15,6 +15,7 @@
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
+import { brotliCompressSync, gzipSync } from 'node:zlib';
 
 import { SQL } from 'bun';
 
@@ -70,6 +71,8 @@ interface Measure {
   readonly path: string;
   readonly status: number;
   readonly bytes: number;
+  readonly gzipBytes: number;
+  readonly brotliBytes: number;
   readonly encoding: string;
   readonly medianMs: number;
   readonly p95Ms: number;
@@ -129,9 +132,24 @@ async function createCharacter(cookie: string): Promise<string> {
   return created.id;
 }
 
-interface Timed {
-  readonly status: number;
+interface Sizes {
   readonly bytes: number;
+  readonly gzipBytes: number;
+  readonly brotliBytes: number;
+}
+
+/** `fetch` decodes a compressed body, so the raw size is measured and the compressed ones are computed from it. */
+function sizesOf(body: ArrayBuffer): Sizes {
+  const raw = new Uint8Array(body);
+  return {
+    bytes: raw.byteLength,
+    gzipBytes: gzipSync(raw).byteLength,
+    brotliBytes: brotliCompressSync(raw).byteLength,
+  };
+}
+
+interface Timed extends Sizes {
+  readonly status: number;
   readonly encoding: string;
   readonly ms: number;
 }
@@ -142,7 +160,7 @@ async function timed(url: string, headers: Record<string, string>): Promise<Time
   const body = await response.arrayBuffer();
   return {
     status: response.status,
-    bytes: body.byteLength,
+    ...sizesOf(body),
     encoding: response.headers.get('content-encoding') ?? 'none',
     ms: performance.now() - start,
   };
@@ -165,6 +183,8 @@ async function measure(cookie: string, characterId: string, suffix: string): Pro
     path: suffix === '' ? '/characters/:id' : suffix,
     status: last?.status ?? 0,
     bytes: last?.bytes ?? 0,
+    gzipBytes: last?.gzipBytes ?? 0,
+    brotliBytes: last?.brotliBytes ?? 0,
     encoding: last?.encoding ?? 'none',
     medianMs: rounded(percentile(sorted, MEDIAN)),
     p95Ms: rounded(percentile(sorted, P95)),
@@ -204,7 +224,7 @@ const failed = endpoints.filter(({ status }) => status !== OK);
 const sheet = await wholeLoad(cookie, characterId);
 const manifest = await fetch(`${api}/api/content/manifest`, { headers: { 'accept-encoding': 'gzip, br' } });
 const manifestBody = await manifest.arrayBuffer();
-const manifestBytes = manifestBody.byteLength;
+const { bytes: manifestBytes, gzipBytes: manifestGzip, brotliBytes: manifestBrotli } = sizesOf(manifestBody);
 const report = {
   runs,
   characterId,
@@ -212,6 +232,8 @@ const report = {
   endpoints,
   manifest: {
     bytes: manifestBytes,
+    gzipBytes: manifestGzip,
+    brotliBytes: manifestBrotli,
     encoding: manifest.headers.get('content-encoding') ?? 'none',
     cacheControl: manifest.headers.get('cache-control'),
     etag: manifest.headers.get('etag'),
@@ -223,7 +245,7 @@ console.info(
   `sheet load: ${sheet.requests} requests, ${sheet.bytes} B, ${sheet.wallMs} ms wall, ${sheet.statements} statements`,
 );
 console.info(
-  `manifest: ${manifestBytes} B, ${report.manifest.encoding}, ${report.manifest.cacheControl ?? 'no cache-control'}`,
+  `manifest: ${manifestBytes} B (gzip ${manifestGzip}, br ${manifestBrotli}), ${report.manifest.encoding}, ${report.manifest.cacheControl ?? 'no cache-control'}`,
 );
 
 const { out } = values;
