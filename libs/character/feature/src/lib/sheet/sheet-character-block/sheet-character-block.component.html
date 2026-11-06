@@ -10,10 +10,27 @@
           [failedSaves]="failedSaves()"
         >
           <pio-condition-badge frCharacterAvatarStart [conditions]="conditions()" />
+          <fr-badge frCharacterAvatarEnd tone="accent" variant="solid">{{
+            'character.sheet.levelBadge' | transloco: { level: character.level }
+          }}</fr-badge>
         </fr-character-avatar>
       </fr-button>
       <fr-modal [title]="'character.sheet.hp.label' | transloco" [(open)]="open">
-        <pio-sheet-hit-points />
+        <fr-stack gap="md">
+          <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
+            <fr-number-input
+              frInlineEditor
+              [ariaLabel]="'character.sheet.level' | transloco"
+              [min]="levelMin"
+              [max]="levelMax"
+              [value]="level.draft()"
+              (valueChange)="level.change($event)"
+              (committed)="level.flushSoon()"
+              (cancelled)="level.cancel()"
+            />
+          </fr-inline-field>
+          <pio-sheet-hit-points />
+        </fr-stack>
       </fr-modal>
     } @else {
       <fr-skeleton width="md" />

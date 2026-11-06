@@ -13,9 +13,6 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
-  CHARACTER_LEVEL_MAX,
-  CHARACTER_LEVEL_MIN,
-  CharacterLevel,
   CharacterName,
   CharacterPatchField,
   CLASS_SLOT,
@@ -32,7 +29,6 @@ import {
   Heading,
   InlineField,
   Message,
-  NumberInput,
   Responsive,
   Section,
   Stack,
@@ -100,7 +96,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
     ImportResult,
     InlineField,
     Message,
-    NumberInput,
     Section,
     SheetClassFields,
     SheetLevelPlan,
@@ -126,8 +121,6 @@ export class SheetPlanTab {
   protected readonly picks = this.sheet.picks;
   protected readonly registry = this.sheet.registry;
   protected readonly entryNames = this.picks.entryNames;
-  protected readonly levelMin = CHARACTER_LEVEL_MIN;
-  protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly sections = SHEET_SECTIONS;
   /** The section the route names, bound from the route's `:section` parameter. */
   public readonly section = input<string>();
@@ -168,12 +161,6 @@ export class SheetPlanTab {
   protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
   protected readonly secondClassOptions = this.picks.rootOptions(SECOND_CLASS_SLOT);
   protected readonly secondClass = this.picks.rootField(SECOND_CLASS_SLOT, this.secondClassOptions);
-  protected readonly level = sheetField<number>(this.sheet.character, {
-    read: (character) => character.level,
-    empty: CHARACTER_LEVEL_MIN,
-    schema: CharacterLevel,
-    save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
-  });
   /** The heritage the last edit cleared, by name, until dismissed. */
   protected readonly cleared = computed(() =>
     this.store.cleared().map((pick) => ({ key: pick.key, name: pick.selectionName ?? pick.selection })),

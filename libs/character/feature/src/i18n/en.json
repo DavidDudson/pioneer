@@ -209,6 +209,7 @@
     "name": "Name",
     "ancestry": "Ancestry",
     "level": "Level",
+    "levelBadge": "Lv {level}",
     "created": "Created",
     "updated": "· updated",
     "version": "· version {version}",

@@ -41,7 +41,7 @@
             <fr-heading variant="subheading" [level]="3">{{
               'character.sheet.identityGroup.character' | transloco
             }}</fr-heading>
-            <fr-grid [columns]="2">
+            <fr-grid [columns]="3">
               <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
                 <fr-text-input
                   frInlineEditor
@@ -50,18 +50,6 @@
                   (valueChange)="name.change($event)"
                   (committed)="name.flushSoon()"
                   (cancelled)="name.cancel()"
-                />
-              </fr-inline-field>
-              <fr-inline-field [label]="'character.sheet.level' | transloco" [edit]="level">
-                <fr-number-input
-                  frInlineEditor
-                  [ariaLabel]="'character.sheet.level' | transloco"
-                  [min]="levelMin"
-                  [max]="levelMax"
-                  [value]="level.draft()"
-                  (valueChange)="level.change($event)"
-                  (committed)="level.flushSoon()"
-                  (cancelled)="level.cancel()"
                 />
               </fr-inline-field>
             </fr-grid>
