@@ -392,6 +392,7 @@ export { type FormLimits, formLimits, formTraits } from './form-limits';
 export { KeyItemId } from './key-item-id';
 export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';
+export { resistsChosenType, runeChoices } from './etched-rune-rules';
 export { buildRules, type EquippedInputs, equippedInputs, equippedRules, type EquippedRules } from './equipped';
 export { type HeldShield, heldShields, type ShieldGrant } from './held-shields';
 export {
@@ -481,9 +482,11 @@ export { inventoryViolations, RuleBreak, RuleCount } from './rule-violations';
 export type { CountViolation, RuleViolation, RuneViolation } from './rule-violations';
 export {
   FUNDAMENTAL_GRADE_MAX,
+  type EtchedRune,
   type ItemRunes,
   ItemRunesSchema,
   NO_RUNES,
+  RuneChoice,
   type RuneEtching,
   RuneEtchingSchema,
   type RuneRef,

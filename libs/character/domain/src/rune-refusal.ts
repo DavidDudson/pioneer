@@ -3,6 +3,7 @@ import type { ContentId, RunedItem } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
+import { resistsChosenType, runeChoices } from './etched-rune-rules';
 import { meetsRestriction } from './etching-restriction';
 import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
@@ -14,7 +15,7 @@ import type { RuleLimits } from './rule-limits';
 import { etchingOf, RuneAction } from './rune-edits';
 import type { RuneEdit } from './rune-edits';
 import { NO_RUNES, sameEtchedRune } from './rune-etching';
-import type { RuneEtching, RuneRef } from './rune-etching';
+import type { ItemRunes, RuneEtching, RuneRef } from './rune-etching';
 
 function runeRefused(refusal: MessageDescriptor): InventoryRefusal {
   return { field: InventoryRefusalField.Rune, message: refusal };
@@ -81,8 +82,46 @@ export function propertyFitRefusal(
 }
 
 /**
- * Refuses a property rune that doesn't fit the item (`propertyFitRefusal`), any on a specific item, one already
- * etched, and one past the room its potency rune leaves.
+ * Refuses a choice the rune does not take, a rune that takes one etched without it, and an energy-resistant rune for a
+ * damage type another energy-resistant rune on the item already resists: each must resist a different one.
+ */
+function choiceRefusal(runes: RuneContent, current: ItemRunes, etching: PropertyEtching): InventoryRefusal | undefined {
+  const entry = runes.get(etching.rune);
+  if (entry === undefined) {
+    return undefined;
+  }
+  const choices = runeChoices(entry);
+  if (choices.length === 0) {
+    return etching.choice === undefined ? undefined : runeRefused(message('character.validation.runeTakesNoChoice'));
+  }
+  if (etching.choice === undefined || !choices.includes(etching.choice)) {
+    return runeRefused(message('character.validation.runeNeedsChoice'));
+  }
+  const taken = current.property.some((each) => {
+    const other = runes.get(each.rune);
+    return other !== undefined && resistsChosenType(other) && each.choice === etching.choice;
+  });
+  return taken ? runeRefused(message('character.validation.runeChoiceTaken')) : undefined;
+}
+
+/** Refuses a property rune already etched, and one past the room its potency rune leaves. */
+function propertyRoomRefusal(
+  reads: RuneReads,
+  current: ItemRunes,
+  etching: PropertyEtching,
+): InventoryRefusal | undefined {
+  if (current.property.some((each) => sameEtchedRune(each, etching))) {
+    return runeRefused(message('character.validation.runeEtched'));
+  }
+  const room = propertyRoom(current, reads.limits);
+  return current.property.length >= room
+    ? runeRefused(message('character.validation.propertyRunesFull', { maximum: room }))
+    : undefined;
+}
+
+/**
+ * Refuses a property rune that doesn't fit the item (`propertyFitRefusal`), any on a specific item, a wrong choice
+ * (`choiceRefusal`), one already etched, and one past the room its potency rune leaves.
  */
 function propertyRefusal(reads: RuneReads, line: RunedLine, etching: PropertyEtching): InventoryRefusal | undefined {
   const unfit = propertyFitRefusal(reads.runes, line, etching.rune);
@@ -93,13 +132,7 @@ function propertyRefusal(reads: RuneReads, line: RunedLine, etching: PropertyEtc
     return runeRefused(message('character.validation.specificRunes'));
   }
   const current = itemRunes(line.item, line.entry);
-  if (current.property.some((each) => sameEtchedRune(each, etching))) {
-    return runeRefused(message('character.validation.runeEtched'));
-  }
-  const room = propertyRoom(current, reads.limits);
-  return current.property.length >= room
-    ? runeRefused(message('character.validation.propertyRunesFull', { maximum: room }))
-    : undefined;
+  return choiceRefusal(reads.runes, current, etching) ?? propertyRoomRefusal(reads, current, etching);
 }
 
 /** Refuses etching onto anything but a weapon, armour or a shield, and the fundamental and property refusals. */

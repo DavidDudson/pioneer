@@ -6,7 +6,7 @@ import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItemId, InventoryRefusal } from './inventory';
 import { etchRune, RuneAction } from './rune-edits';
 import type { RuneEdit } from './rune-edits';
-import { RuneEtchingSchema } from './rune-etching';
+import { RuneChoice, RuneEtchingSchema } from './rune-etching';
 import type { RuneEtching, RuneRef } from './rune-etching';
 import { runeRefusal } from './rune-refusal';
 import {
@@ -20,6 +20,7 @@ import {
   propertyRune,
   RuneFixture,
   runeFixtureContent,
+  runeFixtureId,
 } from './testing';
 
 const content = { items: itemFixtureContent(), runes: runeFixtureContent() };
@@ -37,6 +38,7 @@ const KEEN = propertyRune(RuneFixture.Keen);
 const SHADOW = propertyRune(RuneFixture.Shadow);
 const HOLY = propertyRune(RuneFixture.Holy);
 const UNHOLY = propertyRune(RuneFixture.Unholy);
+const ENERGY_RESISTANT = propertyRune(RuneFixture.EnergyResistant);
 const POTENCY = fundamentalRef(FundamentalRune.Potency);
 const STRIKING = fundamentalRef(FundamentalRune.Striking);
 
@@ -148,6 +150,45 @@ describe('runeRefusal: etching', () => {
   test('refuses any property rune on a specific item', () => {
     const roomy = etched(armoury(), Armoury.Tongue, fundamental(FundamentalRune.Potency, 3));
     expect(refused(roomy, etch(Armoury.Tongue, FROST))).toBe('character.validation.specificRunes');
+  });
+});
+
+/** The energy-resistant rune etched for `choice`. */
+function resisting(choice: string): RuneEtching {
+  return {
+    type: RuneType.Property,
+    rune: runeFixtureId(RuneFixture.EnergyResistant),
+    choice: RuneChoice.parse(choice),
+  };
+}
+
+describe('runeRefusal: etching a rune made for a choice', () => {
+  const potent = etched(armoury(), Armoury.Armor, POTENCY_2);
+
+  test('refuses an energy-resistant rune with no choice, or one that is no energy', () => {
+    const unchosen = etch(Armoury.Armor, ENERGY_RESISTANT);
+    const sonic = etch(Armoury.Armor, resisting('sonic'));
+    const fire = etch(Armoury.Armor, resisting('fire'));
+    expect(refused(potent, unchosen)).toBe('character.validation.runeNeedsChoice');
+    expect(refused(potent, sonic)).toBe('character.validation.runeNeedsChoice');
+    expect(refused(potent, fire)).toBeUndefined();
+  });
+
+  test('refuses a second energy-resistant rune for a type the first resists, and allows another type', () => {
+    const fireproof = etched(potent, Armoury.Armor, resisting('fire'));
+    const again = etch(Armoury.Armor, resisting('fire'));
+    const other = etch(Armoury.Armor, resisting('cold'));
+    expect(refused(fireproof, again)).toBe('character.validation.runeChoiceTaken');
+    expect(refused(fireproof, other)).toBeUndefined();
+  });
+
+  test('refuses a choice for a rune that takes none', () => {
+    const chosen: RuneEtching = {
+      type: RuneType.Property,
+      rune: runeFixtureId(RuneFixture.Shadow),
+      choice: RuneChoice.parse('fire'),
+    };
+    expect(refused(potent, etch(Armoury.Armor, chosen))).toBe('character.validation.runeTakesNoChoice');
   });
 });
 

@@ -119,12 +119,14 @@ export { type InventoryLineContext } from './lib/inventory/inventory-row/invento
 export { RuneBadge } from './lib/inventory/rune-badge/rune-badge.component';
 export { RuneBadgeKind, RuneNote, type RuneBadgeData } from './lib/inventory/rune-badge/rune-badge-data';
 export {
+  chosenRuneName,
   GRADED_RUNE_MESSAGES,
   type GradedRune,
   type GradedRuneLine,
   injectRunedName,
   type LineRunes,
   RuneMessage,
+  runeChoiceLabel,
   type RunedNamer,
 } from './lib/inventory/rune-name';
 export { ProficiencyBadge } from './lib/proficiency-badge/proficiency-badge.component';

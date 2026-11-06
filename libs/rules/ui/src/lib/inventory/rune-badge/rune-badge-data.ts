@@ -15,6 +15,8 @@ export type RuneBadgeData =
       readonly kind: typeof RuneBadgeKind.Property;
       readonly id: ContentId;
       readonly name: string;
+      /** What its crafter chose for it, such as the damage type an energy-resistant rune resists. */
+      readonly choice?: string | undefined;
       readonly note?: RuneNote | undefined;
     }
   | { readonly kind: typeof RuneBadgeKind.Hole };

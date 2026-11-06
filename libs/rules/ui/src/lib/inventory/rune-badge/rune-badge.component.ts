@@ -4,7 +4,7 @@ import { Gem, GemTone, HoverCard, HoverCardContent } from '@pioneer/frontier';
 import { FundamentalRune } from '@pioneer/rules/sdk';
 import { runicPair } from '@pioneer/shared/kernel';
 
-import { GRADED_RUNE_MESSAGES, RuneMessage } from '../rune-name';
+import { chosenRuneName, GRADED_RUNE_MESSAGES, RuneMessage } from '../rune-name';
 import { RuneBadgeKind, RuneNote } from './rune-badge-data';
 import type { RuneBadgeData } from './rune-badge-data';
 import { FUNDAMENTAL_GLYPHS } from './rune-glyphs';
@@ -95,7 +95,7 @@ export class RuneBadge {
         return {
           glyphs: runicPair(rune.id),
           tone: rune.note === undefined ? GemTone.Blue : GemTone.Black,
-          label: rune.name,
+          label: chosenRuneName(this.#i18n, rune.name, rune.choice),
           note: this.#noteText(rune.note),
         };
       }

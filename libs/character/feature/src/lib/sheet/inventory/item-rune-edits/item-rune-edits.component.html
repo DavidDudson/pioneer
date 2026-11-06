@@ -23,7 +23,7 @@
         </fr-inline-field>
       }
     </fr-grid>
-    @for (property of properties(); track property.name) {
+    @for (property of properties(); track property.key) {
       <fr-stack direction="horizontal" gap="sm" align="center" wrap>
         <fr-text>{{ property.name }}</fr-text>
         <fr-async-button
@@ -52,6 +52,7 @@
             (searched)="propertyPicker.query.set($event)"
             (sorted)="propertyPicker.ordering.set($event)"
           />
+          <pio-rune-choice [options]="choiceOptions()" [(value)]="choice" />
           <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.runes.etching' | transloco">
             {{ 'character.sheet.runes.etch' | transloco: { name: name() } }}
           </fr-async-button>
