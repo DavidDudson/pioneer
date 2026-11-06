@@ -451,6 +451,7 @@ export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';
 export { AuraAffects, AuraElement, AuraEvent } from './rule-element-aura';
 export {
   AdjustDegreeOfSuccessElement,
+  AdjustedCheck,
   RollKept,
   RollTwiceElement,
   SubstitutedRoll,
