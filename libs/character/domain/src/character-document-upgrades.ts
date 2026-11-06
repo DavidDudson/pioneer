@@ -12,6 +12,32 @@ export type StoredCharacterDocument = z.infer<typeof StoredCharacterDocument>;
 /** Turns a document of one schema version into the next. Pure; `schemaVersion` is set by `upgradeDocument`. */
 export type UpgradeStep = (document: StoredCharacterDocument) => StoredCharacterDocument;
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/** An etched property rune of version 20, a content id, as the rune it names with no choice. */
+function etchedRune(rune: unknown): unknown {
+  return typeof rune === 'string' ? { rune } : rune;
+}
+
+/** An inventory line with its property runes as etched runes. A line with no runes is as it was. */
+function lineWithEtchedRunes(line: unknown): unknown {
+  if (!isRecord(line) || !isRecord(line['runes']) || !Array.isArray(line['runes']['property'])) {
+    return line;
+  }
+  return { ...line, runes: { ...line['runes'], property: line['runes']['property'].map(etchedRune) } };
+}
+
+/** 20 → 21: every inventory line's property runes from content ids to etched runes. */
+function etchedRunesWithChoice(document: StoredCharacterDocument): StoredCharacterDocument {
+  const { inventory } = document;
+  if (!isRecord(inventory) || !Array.isArray(inventory['items'])) {
+    return document;
+  }
+  return { ...document, inventory: { ...inventory, items: inventory['items'].map(lineWithEtchedRunes) } };
+}
+
 /**
  * Every upgrade step, oldest first: `UPGRADES[0]` turns version 1 into 2, `UPGRADES[n]` turns n + 1 into n + 2.
  * Every change to the schema's shape adds a step, a new defaulted field included (its step returns the document
@@ -56,6 +82,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 19 → 20: the custom languages an import kept by name (#1595). A version 19 build has none. */
   (document) => document,
+  /** 20 → 21: a property rune is the rune and the crafter's choice (#1747). A version 20 rune is a bare content id, with no choice. */
+  etchedRunesWithChoice,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

@@ -22,7 +22,7 @@ import {
 } from '../../../testing/inventory-sheet-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../../testing/provide-server-state-testing';
 
-const FLAMING_POTENCY_1 = { potency: 1, property: [runeFixtureId(RuneFixture.Flaming)] };
+const FLAMING_POTENCY_1 = { potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Flaming) }] };
 
 const RUNED_SWORD = { ...VALEROS.inventory.items.find((item) => item.id === SWORD), runes: FLAMING_POTENCY_1 };
 

@@ -13,7 +13,7 @@ import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { etchingOf, RuneAction } from './rune-edits';
 import type { RuneEdit } from './rune-edits';
-import { NO_RUNES } from './rune-etching';
+import { NO_RUNES, sameEtchedRune } from './rune-etching';
 import type { RuneEtching, RuneRef } from './rune-etching';
 
 function runeRefused(refusal: MessageDescriptor): InventoryRefusal {
@@ -43,6 +43,7 @@ interface RuneReads {
 }
 
 /** A fundamental rune to etch. */
+type PropertyEtching = Extract<RuneEtching, { readonly type: typeof RuneType.Property }>;
 type FundamentalEtching = Extract<RuneEtching, { readonly type: typeof RuneType.Fundamental }>;
 
 /**
@@ -73,7 +74,7 @@ export function propertyFitRefusal(
     return runeRefused(message('character.validation.unknownRune'));
   }
   const { etchedOnto } = rune.data;
-  const etched = new Set(itemRunes(item, entry).property.flatMap((each) => runes.get(each)?.slug ?? []));
+  const etched = new Set(itemRunes(item, entry).property.flatMap((each) => runes.get(each.rune)?.slug ?? []));
   return etchedOnto.item === runed && meetsRestriction(entry, etchedOnto.restriction, etched)
     ? undefined
     : runeRefused(message('character.validation.runeNotForItem'));
@@ -83,8 +84,8 @@ export function propertyFitRefusal(
  * Refuses a property rune that doesn't fit the item (`propertyFitRefusal`), any on a specific item, one already
  * etched, and one past the room its potency rune leaves.
  */
-function propertyRefusal(reads: RuneReads, line: RunedLine, id: ContentId): InventoryRefusal | undefined {
-  const unfit = propertyFitRefusal(reads.runes, line, id);
+function propertyRefusal(reads: RuneReads, line: RunedLine, etching: PropertyEtching): InventoryRefusal | undefined {
+  const unfit = propertyFitRefusal(reads.runes, line, etching.rune);
   if (unfit !== undefined) {
     return unfit;
   }
@@ -92,7 +93,7 @@ function propertyRefusal(reads: RuneReads, line: RunedLine, id: ContentId): Inve
     return runeRefused(message('character.validation.specificRunes'));
   }
   const current = itemRunes(line.item, line.entry);
-  if (current.property.includes(id)) {
+  if (current.property.some((each) => sameEtchedRune(each, etching))) {
     return runeRefused(message('character.validation.runeEtched'));
   }
   const room = propertyRoom(current, reads.limits);
@@ -106,7 +107,7 @@ function etchRefusal(reads: RuneReads, line: RunedLine, rune: RuneEtching): Inve
   if (line.runed === undefined) {
     return runeRefused(message('character.validation.takesNoRunes'));
   }
-  return rune.type === RuneType.Fundamental ? fundamentalRefusal(line, rune) : propertyRefusal(reads, line, rune.rune);
+  return rune.type === RuneType.Fundamental ? fundamentalRefusal(line, rune) : propertyRefusal(reads, line, rune);
 }
 
 /** Refuses erasing or moving a specific item's property runes, and a rune that isn't etched onto the item. */

@@ -8,7 +8,7 @@ import type { ItemContent, ItemEntry } from './inventory-content';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
 import { NO_RUNES } from './rune-etching';
-import type { ItemRunes } from './rune-etching';
+import type { EtchedRune, ItemRunes } from './rune-etching';
 
 /** A rune content entry. */
 export type RuneEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Rune }>;
@@ -58,12 +58,25 @@ export function runedItemOf(entry: ItemEntry | undefined): RunedItem | undefined
   }
 }
 
+/** Printed runes with their property runes as etched runes: a printed rune carries no choice of its own. */
+type PrintedEtched<TRunes extends PrintedRunes> = Omit<TRunes, 'property'> & {
+  readonly property: readonly EtchedRune[];
+};
+
+interface PrintedRunes {
+  readonly property: readonly ContentId[];
+}
+
+function printedEtched<TRunes extends PrintedRunes>(runes: TRunes): PrintedEtched<TRunes> {
+  return { ...runes, property: runes.property.map((rune) => ({ rune })) };
+}
+
 /** The runes a specific magic item comes with; none for any other item. A shield's integrated weapon's are its own. */
 export function printedRunes(entry: ItemEntry | undefined): ItemRunes | undefined {
   switch (entry?.kind) {
     case ContentKind.Weapon:
     case ContentKind.Armor: {
-      return entry.data.runes;
+      return entry.data.runes === undefined ? undefined : printedEtched(entry.data.runes);
     }
     case ContentKind.Shield: {
       return entry.data.runes === undefined ? undefined : { ...NO_RUNES, ...entry.data.runes };
@@ -136,7 +149,8 @@ export function workingPropertyRunes(
   limits: RuleLimits = CORE_RULE_LIMITS,
 ): readonly ContentId[] {
   const runes = itemRunes(item, entry);
-  return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
+  const working = isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
+  return working.map(({ rune }) => rune);
 }
 
 /**

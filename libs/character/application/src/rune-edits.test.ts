@@ -78,7 +78,7 @@ describe('CharacterService rune edits', () => {
     await edit({ field: CharacterPatchField.EraseRune, id: sword, rune: fundamentalRef(FundamentalRune.Striking) });
     expect(character.document.inventory.items.map(({ runes }) => runes)).toStrictEqual([
       ItemRunesSchema.parse({ potency: 1, property: [] }),
-      ItemRunesSchema.parse({ potency: 1, property: [runeFixtureId(RuneFixture.Flaming)] }),
+      ItemRunesSchema.parse({ potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Flaming) }] }),
     ]);
     expect(repository.audits.map(({ command }) => command).slice(-6)).toStrictEqual([
       CharacterCommand.EtchRune,

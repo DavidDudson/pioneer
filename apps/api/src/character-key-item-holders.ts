@@ -21,7 +21,7 @@ const ONE = ItemQuantity.parse(1);
 
 /** The runes a key item states, as an inventory line holds them: the property runes by content id. */
 function runesOf({ runes }: CampaignKeyItem): ItemRunes {
-  return ItemRunesSchema.parse({ ...runes, property: runes.property.map(({ rune }) => rune) });
+  return ItemRunesSchema.parse({ ...runes, property: runes.property.map(({ rune }) => ({ rune })) });
 }
 
 /** The inventory line a key item puts in its holder's hands: one of the base item, named for the key item. */

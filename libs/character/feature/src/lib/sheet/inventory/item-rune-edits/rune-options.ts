@@ -65,7 +65,10 @@ export function propertyRuneEntries(
   }
   const etched = itemRunes(item, entry).property;
   return [...runes.values()]
-    .filter(({ id, data }) => data.type === RuneType.Property && data.etchedOnto.item === runed && !etched.includes(id))
+    .filter(
+      ({ id, data }) =>
+        data.type === RuneType.Property && data.etchedOnto.item === runed && !etched.some((each) => each.rune === id),
+    )
     .toSorted((left, right) => compare(left.name, right.name));
 }
 
@@ -102,7 +105,7 @@ export function etchedRunes(item: InventoryItem, entry: ItemEntry | undefined): 
       type: RuneType.Fundamental,
       rune,
     })),
-    ...runes.property.map((rune): RuneRef => ({ type: RuneType.Property, rune })),
+    ...runes.property.map(({ rune, choice }): RuneRef => ({ type: RuneType.Property, rune, choice })),
   ];
 }
 

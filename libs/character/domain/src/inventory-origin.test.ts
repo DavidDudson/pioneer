@@ -85,7 +85,7 @@ describe('InventorySchema: origin', () => {
     expect(runes.length).toBeGreaterThan(PROPERTY_RUNES_MAX);
     const withRunes = (item: InventoryItem): InventoryItem => ({
       ...item,
-      runes: { property: runes },
+      runes: { property: runes.map((rune) => ({ rune })) },
     });
     expect(InventorySchema.safeParse(ropes(1, withRunes)).success).toBe(false);
     expect(InventorySchema.safeParse(ropes(1, (item) => imported(withRunes(item)))).success).toBe(true);

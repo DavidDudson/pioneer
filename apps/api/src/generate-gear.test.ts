@@ -150,7 +150,7 @@ describe('a themed weapon etched with runes', () => {
       return character.document.inventory.items
         .filter((line) => items.get(line.item)?.kind === ContentKind.Weapon && line.runes !== undefined)
         .map((line) => ({
-          names: line.runes?.property ?? [],
+          names: (line.runes?.property ?? []).map(({ rune }) => rune),
           room: propertyRoom(itemRunes(line, items.get(line.item)), CORE_RULE_LIMITS),
         }));
     });

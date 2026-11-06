@@ -166,6 +166,22 @@ const VERSION_18 = {
 /** Version 19, before a build kept custom languages: `build` had no `customLanguages`. */
 const VERSION_19 = { ...VERSION_18, schemaVersion: 19 };
 
+/** Version 20, before a property rune kept a choice: an etched property rune was a bare content id. */
+const VERSION_20 = {
+  ...VERSION_19,
+  schemaVersion: 20,
+  inventory: {
+    items: [
+      {
+        id: '7d2a6c1e-3b54-4f0a-8a55-2f6f0a1d9e01',
+        item: '0b6c8f5e-1c1a-4f7e-9a39-6e1b1d1b5c12',
+        quantity: 1,
+        runes: { property: ['0b6c8f5e-1c1a-4f7e-9a39-6e1b1d1b5c13'] },
+      },
+    ],
+  },
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -190,4 +206,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_17.schemaVersion), VERSION_17],
   [CharacterSchemaVersion.parse(VERSION_18.schemaVersion), VERSION_18],
   [CharacterSchemaVersion.parse(VERSION_19.schemaVersion), VERSION_19],
+  [CharacterSchemaVersion.parse(VERSION_20.schemaVersion), VERSION_20],
 ]);

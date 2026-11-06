@@ -68,7 +68,7 @@ describe('CharacterKeyItems', () => {
   });
 
   test('a line past the player limits is kept as stated', async () => {
-    const runes: ItemRunes = { property: Array.from({ length: 5 }, () => itemFixtureId(ItemFixture.Rope)) };
+    const runes: ItemRunes = { property: Array.from({ length: 5 }, () => ({ rune: itemFixtureId(ItemFixture.Rope) })) };
     await keyItems.give(gm, kyra.id, { ...line, runes });
 
     const [added] = await held();

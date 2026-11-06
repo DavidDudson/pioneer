@@ -71,7 +71,7 @@ function etched(
     striking: kind === RunedItem.Weapon ? grade(runes.striking) : undefined,
     resilient: kind === RunedItem.Weapon ? undefined : grade(runes.resilient),
     reinforcing: undefined,
-    property: [...new Set(property)],
+    property: [...new Set(property)].map((rune) => ({ rune })),
   };
 }
 

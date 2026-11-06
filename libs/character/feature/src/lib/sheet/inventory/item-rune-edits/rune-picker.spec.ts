@@ -33,7 +33,7 @@ const LINE: InventoryItem = lineOf(
         id: SWORD_LINE,
         item: itemFixtureId(ItemFixture.Longsword),
         quantity: 1,
-        runes: { potency: 1, property: [FLAMING] },
+        runes: { potency: 1, property: [{ rune: FLAMING }] },
       },
     ],
     coins: {},

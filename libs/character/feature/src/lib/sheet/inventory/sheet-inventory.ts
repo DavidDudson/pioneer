@@ -92,7 +92,7 @@ export function lineRunes(
       const grade = etched[rune];
       return grade === undefined ? [] : [{ rune, grade }];
     }),
-    property: etched.property.flatMap((id) => {
+    property: etched.property.flatMap(({ rune: id }) => {
       const name = runes.get(id)?.name;
       return name === undefined ? [] : [name];
     }),
@@ -137,7 +137,7 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   const etched = itemRunes(item, entry);
   const etchable = !isSpecific(entry);
   const working = new Set(workingPropertyRunes(item, entry));
-  const named = etched.property.flatMap((id): RuneBadgeData[] => {
+  const named = etched.property.flatMap(({ rune: id }): RuneBadgeData[] => {
     const rune = runes.get(id);
     if (rune === undefined) {
       return [];
