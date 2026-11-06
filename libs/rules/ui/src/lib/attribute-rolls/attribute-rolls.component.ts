@@ -25,7 +25,7 @@ interface AttributeRow {
 const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 
 /**
- * The six attributes as rows, each its name on the left and its modifier on the right as a button that asks for a
+ * The attributes (six unless `attributes` narrows them) as rows, each its name on the left and its modifier on the right as a button that asks for a
  * flat check: a d20 plus that modifier. Presentational (ADR-0028): the page rolls the dice, this only says which
  * attribute was pressed.
  *
@@ -42,6 +42,8 @@ const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
 export class AttributeRolls {
   /** The modifiers the boosts give, or undefined while they load. */
   public readonly modifiers = input<AttributeModifiers | undefined>();
+  /** Which attributes to list, in this order; all six by default. */
+  public readonly attributes = input<readonly Attribute[]>(Object.values(Attribute));
   /** An attribute's flat check was asked for. */
   public readonly rolled = output<AttributeRoll>();
 
@@ -51,7 +53,7 @@ export class AttributeRolls {
   protected readonly small = Size.Sm;
   protected readonly rows = computed((): readonly AttributeRow[] => {
     const modifiers = this.modifiers();
-    return Object.values(Attribute).map((attribute) => {
+    return this.attributes().map((attribute) => {
       const modifier = modifiers?.get(attribute);
       return {
         attribute,
