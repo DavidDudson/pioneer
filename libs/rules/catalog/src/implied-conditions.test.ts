@@ -1,56 +1,17 @@
 import { describe, expect, test } from 'bun:test';
 
 import { resolveGrants } from '@pioneer/rules/grants';
-import type { GrantedItem, GrantEntry } from '@pioneer/rules/grants';
+import type { GrantedItem } from '@pioneer/rules/grants';
 import { inputsOf } from '@pioneer/rules/grants/testing';
-import {
-  ConditionValue,
-  ContentEntryFile,
-  ContentKind,
-  OriginHopKind,
-  RuleElementKey,
-  slugName,
-} from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
+import { ConditionValue, OriginHopKind, RuleElementKey, slugName } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import { assert, property, shuffledSubarray } from 'fast-check';
 
-const file = await import('@pioneer/content/packs/player-core/condition.json');
-type ConditionEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Condition }>;
-const conditions: readonly ConditionEntry[] = ContentEntryFile.parse(file.default).filter(
-  (each): each is ConditionEntry => each.kind === ContentKind.Condition,
-);
-
-/** The sources of `entry`, of which an entry has at least one. */
-function sourcesOf({ sources, slug }: ConditionEntry): GrantEntry['sources'] {
-  const [first, ...rest] = sources;
-  if (first === undefined) {
-    throw new Error(`${slug} has no source`);
-  }
-  return [first, ...rest];
-}
-
-/** Every Player Core condition as grant resolution reads it. */
-const entries: readonly GrantEntry[] = conditions.map((each) => ({
-  id: each.id,
-  kind: each.kind,
-  slug: slugName(each.slug),
-  name: each.name,
-  rules: each.rules,
-  sources: sourcesOf(each),
-  rollOptions: [],
-  valued: each.data.valued,
-  overrides: each.data.overrides,
-}));
+import { conditionGrantEntries as entries, conditions, idNamed } from './testing/condition-entries';
+import type { ConditionEntry } from './testing/condition-entries';
 
 const nameOf = new Map(conditions.map((each) => [each.id, String(slugName(each.slug))]));
 const named = (id: ContentId): string => nameOf.get(id) ?? id;
-const idNamed = (name: string): ContentId => {
-  const found = conditions.find((each) => slugName(each.slug) === name);
-  if (found === undefined) {
-    throw new Error(`no Player Core condition ${name}`);
-  }
-  return found.id;
-};
 
 /** The conditions in play when the character is put under `roots`, each with the items that brought it. */
 function resolved(roots: readonly ContentId[]): readonly GrantedItem[] {
@@ -132,8 +93,13 @@ describe('removing the condition that implied others', () => {
   test.each(IMPLYING.map((each) => [String(slugName(each.slug)), each] as const))(
     '%s leaves nothing it alone brought',
     (_name, parent) => {
-      expect(inPlay([])).toEqual([]);
-      expect(inPlay([parent.id]).length).toBeGreaterThan(1);
+      const bystander = idNamed('frightened');
+      const brought = parent.data.implies.map((id) => named(id));
+
+      const together = inPlay([parent.id, bystander]);
+
+      expect(brought.filter((name) => together.includes(name))).toEqual(brought);
+      expect(inPlay([bystander])).toEqual(['frightened']);
     },
   );
 
