@@ -34,8 +34,8 @@ function release(documents: Record<string, object>): FoundryRelease {
 
 const GUIDE_TITLE = "Pathfinder Advanced Player's Guide";
 const replaced: ReplacedLegacy = new Map([
-  [guide, new Set(['dubious-knowledge'])],
-  [secrets, new Set(['dubious-knowledge'])],
+  [guide, new Map([['dubious-knowledge', url(1)]])],
+  [secrets, new Map([['dubious-knowledge', url(1)]])],
 ]);
 
 function select(documents: Record<string, object>, targets: BookId[]): Selection {
@@ -48,7 +48,22 @@ describe('replacedLegacy', () => {
 
     const slugs = replacedLegacy([{ book: guide, replaced: [url(1), url(2)], names }]);
 
-    expect(slugs).toEqual(new Map([[guide, new Set(['dubious-knowledge'])]]));
+    const expected = new Map([['dubious-knowledge', url(1)]]);
+
+    expect(slugs).toEqual(new Map([[guide, expected]]));
+  });
+});
+
+describe('replacedLegacy with two replaced entries of one slug', () => {
+  test('keeps the slug and drops the link, as the slug cannot say which entry a document is', () => {
+    const names = new Map([
+      [url(1), 'Heal'],
+      [url(2), 'Heal'],
+    ]);
+
+    const slugs = replacedLegacy([{ book: guide, replaced: [url(1), url(2)], names }]);
+
+    expect(slugs).toEqual(new Map([[guide, new Map([['heal', undefined]])]]));
   });
 });
 

@@ -33,6 +33,7 @@ import {
   SkipReason,
   translateImport,
   translationReport,
+  withLegacyLinks,
 } from '@pioneer/interop/foundry';
 import type {
   BacklogItem,
@@ -55,7 +56,7 @@ import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
 import { loadReplacedLegacy } from './replaced-legacy-loader.ts';
-import { applyOutcomes, applyRules, committedEntries, previousImport } from './write-output.ts';
+import { appendLegacy, applyOutcomes, applyRules, committedEntries, previousImport } from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -117,7 +118,10 @@ function options(): Options {
     books: new Set(books),
     dryRun: values['dry-run'],
     replacedLegacy: values['replaced-legacy'],
-    applyRules: ruleKeys(values['apply-rules'], values['dry-run'] || values['apply-outcomes']),
+    applyRules: ruleKeys(
+      values['apply-rules'],
+      values['dry-run'] || values['apply-outcomes'] || values['replaced-legacy'],
+    ),
     applyOutcomes: values['apply-outcomes'],
   };
 }
@@ -323,7 +327,8 @@ console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));
 const generated = packOutput(translation, { known });
 // Page numbers and AoN links on the entries the import replaces carry over to the imported entry with the same slug.
-const output = { ...generated, entries: carrySources(generated.entries, await committedEntries(targets)) };
+const carried = carrySources(generated.entries, await committedEntries(targets));
+const output = { ...generated, entries: replaced === undefined ? carried : withLegacyLinks(carried, replaced) };
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
 console.log(formatCreatureCoverage(creatureCoverage(output.entries)));
@@ -337,6 +342,13 @@ if (!dryRun && outcomesOnly) {
       `Skipped ${report.handFixed.length} hand-fixed descriptions:`,
       ...report.handFixed.map((entry) => `  ${entry}`),
     ].join('\n'),
+  );
+} else if (!dryRun && replaced !== undefined) {
+  const { written, added, present } = await appendLegacy(output.entries, targets);
+  console.log(
+    [`Added ${added} legacy entries, ${present} already committed; wrote:`, ...written.map((file) => `  ${file}`)].join(
+      '\n',
+    ),
   );
 } else if (!dryRun) {
   const { written, applied } = await applyRules(output, targets, rulesOnly);

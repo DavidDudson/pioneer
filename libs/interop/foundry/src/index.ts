@@ -52,6 +52,7 @@ export {
   type BookReplacements,
   type ReplacedLegacy,
   replacedLegacy,
+  withLegacyLinks,
 } from './replaced-legacy';
 export { fromFoundryFormula } from './foundry-formula';
 export { documentKind, entrySlugOf, entrySlugs, FOUNDRY_TYPE_KINDS } from './entry-slugs';

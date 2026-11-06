@@ -183,3 +183,45 @@ export async function applyOutcomes(output: PackOutput, targets: PackTargets): P
   const written = changed.map(({ file }) => file);
   return { written, report: totalReport(merged) };
 }
+
+/** The files `appendLegacy` wrote, and how many entries it added or found already committed. */
+export interface AppendedOutput {
+  readonly written: readonly string[];
+  readonly added: number;
+  readonly present: number;
+}
+
+/** A kind file with the legacy entries added to it. */
+interface KindFile extends PackWrite {
+  readonly added: number;
+}
+
+function bySlug(left: { readonly slug: string }, right: { readonly slug: string }): number {
+  return left.slug.localeCompare(right.slug);
+}
+
+/**
+ * Adds the legacy entries a `--replaced-legacy` run selected to the target pack's kind files (ADR-0077), creating a
+ * file for a kind the pack lacks. An entry the pack already holds is kept as committed; nothing else in the pack
+ * changes, and the files are formatted. The pack's backlog is left alone.
+ */
+export async function appendLegacy(entries: readonly ContentEntry[], targets: PackTargets): Promise<AppendedOutput> {
+  const own = entries.filter(({ pack }) => pack === targets.pack);
+  const kinds = [...new Set(own.map(({ kind }) => kind))];
+  const directory = path.posix.join(PACKS_DIRECTORY, targets.pack);
+  const writes = await Promise.all(
+    kinds.map(async (kind): Promise<KindFile> => {
+      const file = path.posix.join(directory, `${kind}.json`);
+      const source = Bun.file(path.join(ROOT, file));
+      const exists = await source.exists();
+      const committed: readonly ContentEntry[] = exists ? ContentEntryFile.parse(await source.json()) : [];
+      const have = new Set(committed.map(({ slug }) => slug));
+      const fresh = own.filter((entry) => entry.kind === kind && !have.has(entry.slug));
+      return { path: file, json: [...committed, ...fresh].toSorted(bySlug), added: fresh.length };
+    }),
+  );
+  const changed = writes.filter(({ added }) => added > 0);
+  const written = await writeAndFormat(changed.map(({ path: file, json }) => ({ path: file, json })));
+  const added = changed.reduce((sum, { added: count }) => sum + count, 0);
+  return { written, added, present: own.length - added };
+}
