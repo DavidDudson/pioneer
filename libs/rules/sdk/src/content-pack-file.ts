@@ -4,7 +4,7 @@ import { ContentEntry } from './content-entry';
 import type { EntrySlug, PackId } from './content-id';
 import { ContentKind } from './content-kind';
 import { ContentPack, ContentPackManifest } from './content-pack';
-import type { PackAncestry, PackCreature, PackStatistic } from './content-pack';
+import type { ContentPackSchema, PackAncestry, PackCreature, PackStatistic } from './content-pack';
 import { ProficiencyBonusTable } from './proficiency';
 import { RollOptionNamespaces } from './roll-option-namespace';
 import type { VariantRuleDefinition } from './variant-rule';
@@ -30,6 +30,8 @@ interface PackDefinitions {
   readonly variantRules: VariantRuleDefinition[];
   readonly otherEntries: ContentEntry[];
 }
+
+type PackParts = z.input<typeof ContentPackSchema>;
 
 /** Files an entry as a definition `ContentRegistry` serves, or with the kinds it doesn't serve yet. */
 function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void {
@@ -91,7 +93,19 @@ export function packContentsFromFiles(packFile: unknown, entryFiles: readonly un
  * The `ContentPack` a pack's checked files describe. Until the registry serves entries directly (Epic 2.3), entries
  * become the definitions it holds today.
  */
-export function contentPackFromContents({ file, entries }: PackContents): ContentPack {
+export function contentPackFromContents(contents: PackContents): ContentPack {
+  return ContentPack.define(packParts(contents));
+}
+
+/**
+ * `contentPackFromContents` without checking the parts again, for entries that were checked when the server built
+ * their bundles. Reads about as much as it copies, where `contentPackFromContents` parses every entry a second time.
+ */
+export function contentPackFromTrustedContents(contents: PackContents): ContentPack {
+  return ContentPack.trusted(packParts(contents));
+}
+
+function packParts({ file, entries }: PackContents): PackParts {
   const { proficiencyBonus, rollOptionNamespaces, ...manifest } = file;
   const definitions: PackDefinitions = {
     ancestries: [],
@@ -103,7 +117,7 @@ export function contentPackFromContents({ file, entries }: PackContents): Conten
   for (const entry of entries) {
     addDefinition(definitions, entry);
   }
-  return ContentPack.define({ manifest, proficiencyBonus, rollOptionNamespaces, ...definitions });
+  return { manifest, proficiencyBonus, rollOptionNamespaces, ...definitions };
 }
 
 /** The `ContentPack` a pack's JSON files describe: `packContentsFromFiles`, then `contentPackFromContents`. */
