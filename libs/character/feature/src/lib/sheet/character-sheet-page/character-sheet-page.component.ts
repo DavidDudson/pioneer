@@ -11,18 +11,15 @@ import { SheetArmorClass } from '../sheet-armor-class/sheet-armor-class.componen
 import { SheetAttributesBlock } from '../sheet-attributes-block/sheet-attributes-block.component';
 import { SheetCharacterBlock } from '../sheet-character-block/sheet-character-block.component';
 import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
-import { SheetCounted } from '../sheet-counted/sheet-counted.component';
-import { SheetDeathTrack } from '../sheet-death-track/sheet-death-track.component';
 import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
 import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
 import { SheetPanels } from '../sheet-panels/sheet-panels.component';
-import { SheetResources } from '../sheet-resources/sheet-resources.component';
+// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
@@ -48,14 +45,11 @@ import { SheetState } from '../sheet-state';
     SheetArmorClass,
     SheetAttributesBlock,
     SheetCharacterBlock,
-    SheetDeathTrack,
-    SheetCounted,
     SheetForm,
     SheetFormPicker,
     SheetHeaderActions,
     SheetLastRoll,
     SheetPanels,
-    SheetResources,
     SheetDrawers,
     SheetSidePanelHost,
     Skeleton,

@@ -619,23 +619,9 @@
       "costReaction": "Reaction",
       "costFree": "Free action"
     },
-    "death": {
-      "label": "Death",
-      "dead": "Dead",
-      "dying": "Dying {value}",
-      "wounded": "Wounded {value}",
-      "doomed": "Doomed {value}",
-      "recovery": "Recovery check (DC {dc})",
-      "value": "Condition value",
-      "setDying": "Set dying",
-      "setWounded": "Set wounded",
-      "setDoomed": "Set doomed"
-    },
     "resources": {
       "heroPoints": "Hero Points",
-      "focusPoints": "Focus Points",
-      "held": "{current} of {max}",
-      "spend": "Spend"
+      "focusPoints": "Focus Points"
     },
     "conditions": {
       "label": "Conditions",
@@ -705,9 +691,6 @@
       "cannot": "You can't"
     },
     "counted": {
-      "slot": "{source} rank {rank} slots",
-      "poolSlot": "{source} {pool} rank {rank} slots",
-      "refund": "Refund",
       "overcharge": "Overcharge"
     },
     "saveState": {
