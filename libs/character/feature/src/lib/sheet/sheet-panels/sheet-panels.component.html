@@ -1,6 +1,7 @@
 <fr-rail hiddenNarrow [label]="'character.sheet.panels.label' | transloco">
   <fr-stack gap="md">
     <pio-sheet-resources pool="hero-points" />
+    <pio-sheet-resources pool="focus-points" />
 
     @for (entry of panels; track entry.panel) {
       <fr-disclosure [variant]="bordered" [open]="true">

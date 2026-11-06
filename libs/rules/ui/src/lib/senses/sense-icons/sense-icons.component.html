@@ -1,0 +1,19 @@
+<fr-stack gap="xs">
+  @if (rows(); as shown) {
+    @for (row of shown; track $index) {
+      <fr-hover-card>
+        <fr-stack direction="horizontal" gap="xs" align="center">
+          <fr-icon [icon]="row.icon" />
+          <fr-text>{{ row.name }}</fr-text>
+        </fr-stack>
+        <ng-template frHoverCardContent>
+          <pio-sense-list [senses]="[row.sense]" [entryNames]="entryNames()" [names]="originNames()" />
+        </ng-template>
+      </fr-hover-card>
+    } @empty {
+      <fr-text tone="muted">{{ None | transloco }}</fr-text>
+    }
+  } @else {
+    <fr-skeleton width="md" />
+  }
+</fr-stack>

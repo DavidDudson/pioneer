@@ -856,6 +856,15 @@
       "byUnknownAuthor": " by an unknown author",
       "separator": "; "
     },
+    "speeds": {
+      "walk": "Walk",
+      "swim": "Swim",
+      "fly": "Fly",
+      "climb": "Climb",
+      "burrow": "Burrow",
+      "feet": "{value} ft",
+      "none": "None"
+    },
     "senses": {
       "sense": "{name} ({acuity}{hasRange, select, yes {, {range} feet} other {}})",
       "fromForm": "from {form}",
@@ -1005,6 +1014,14 @@
       "int": "Intelligence",
       "wis": "Wisdom",
       "cha": "Charisma",
+      "short": {
+        "str": "Str",
+        "dex": "Dex",
+        "con": "Con",
+        "int": "Int",
+        "wis": "Wis",
+        "cha": "Cha"
+      },
       "openBoosts": "Boosts still to place",
       "boost": {
         "ancestry": "Ancestry boost",

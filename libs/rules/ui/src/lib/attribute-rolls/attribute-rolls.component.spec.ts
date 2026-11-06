@@ -29,14 +29,7 @@ describe(AttributeRolls, () => {
   it('shows each attribute and its signed modifier on one row', async () => {
     const { host } = await render(FIGHTER_MODIFIERS);
     const rows = [...host.querySelectorAll('fr-stack fr-stack')].map((row) => row.textContent.replaceAll(/\s+/gu, ''));
-    expect(rows).toStrictEqual([
-      'Strength+4',
-      'Dexterity+2',
-      'Constitution+0',
-      'Intelligence+1',
-      'Wisdom+1',
-      'Charisma+0',
-    ]);
+    expect(rows).toStrictEqual(['Str+4', 'Dex+2', 'Con+0', 'Int+1', 'Wis+1', 'Cha+0']);
   });
 
   it('shows a placeholder for each modifier while they load', async () => {

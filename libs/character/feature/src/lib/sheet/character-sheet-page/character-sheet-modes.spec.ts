@@ -26,20 +26,21 @@ describe('CharacterSheetPage modes', () => {
     });
     expect(textOf(root.querySelector('pio-sheet-save-status'))).toBe('All changes saved');
     await vi.waitFor(() => {
-      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(3);
+      expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(2);
     });
 
     await openTab(root, 'Downtime', 'Rest and preparations');
     expect(textOf(root.querySelector('h1'))).toBe('Merisiel');
-    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(3);
+    expect(root.querySelectorAll('pio-vitals fr-surface pio-statistics')).toHaveLength(2);
   });
 
-  it('shows AC as a block of its own and Speed as a tile, each with its rank where it has one', async () => {
+  it('shows AC and the Speeds as blocks of their own, and the saves with their rank', async () => {
     const { root } = await openSheet();
     const vitalsOf = (): HTMLElement => present(root.querySelector('pio-vitals'));
 
     await vi.waitFor(() => {
-      expect([...vitalsOf().querySelectorAll('summary')].map((summary) => textOf(summary))).toStrictEqual(['Speed 30']);
+      const speeds = present(root.querySelector('pio-sheet-speed-block'));
+      expect(textOf(speeds)).toMatch(/Walk\s*30 ft/u);
     });
     const ac = present(root.querySelector('pio-sheet-armor-class pio-armor-class'));
     expect(textOf(ac)).toContain('Armor Class');

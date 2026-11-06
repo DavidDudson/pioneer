@@ -1,0 +1,29 @@
+<fr-stack gap="xs">
+  @for (row of rows(); track row.movement) {
+    <fr-stack direction="horizontal" justify="between" align="center" gap="xs">
+      <fr-stack direction="horizontal" gap="xs" align="center">
+        <fr-icon [icon]="row.icon" />
+        <fr-text>{{ row.name | transloco }}</fr-text>
+      </fr-stack>
+      @if (row.statistic; as statistic) {
+        <fr-hover-card>
+          <fr-button [variant]="inline">
+            <fr-text numeric>{{ Message.Feet | transloco: { value: row.total } }}</fr-text>
+          </fr-button>
+          <ng-template frHoverCardContent>
+            <pio-breakdown
+              [statistic]="statistic"
+              [kind]="row.kind"
+              [entryNames]="entryNames()"
+              [originNames]="originNames()"
+            />
+          </ng-template>
+        </fr-hover-card>
+      } @else if (loaded()) {
+        <fr-text tone="muted">{{ Message.None | transloco }}</fr-text>
+      } @else {
+        <fr-skeleton width="xs" />
+      }
+    </fr-stack>
+  }
+</fr-stack>

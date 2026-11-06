@@ -12,6 +12,16 @@ export const AttributesMessage = {
   FreeBoost: 'rules.attributes.boost.free',
 } as const;
 
+/** The three-letter keys ("Str"), for rows too narrow for the full name. */
+export const ATTRIBUTE_SHORT_MESSAGES: Readonly<Record<Attribute, string>> = {
+  [Attribute.Strength]: 'rules.attributes.short.str',
+  [Attribute.Dexterity]: 'rules.attributes.short.dex',
+  [Attribute.Constitution]: 'rules.attributes.short.con',
+  [Attribute.Intelligence]: 'rules.attributes.short.int',
+  [Attribute.Wisdom]: 'rules.attributes.short.wis',
+  [Attribute.Charisma]: 'rules.attributes.short.cha',
+};
+
 export const ATTRIBUTE_MESSAGES: Readonly<Record<Attribute, string>> = {
   [Attribute.Strength]: 'rules.attributes.str',
   [Attribute.Dexterity]: 'rules.attributes.dex',
