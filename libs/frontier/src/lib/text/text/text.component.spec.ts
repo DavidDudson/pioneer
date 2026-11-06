@@ -4,7 +4,7 @@ import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { DamageTone, Tone } from '../../tokens';
 import { FontWeight, TextVariant } from '../text.variants';
-import { Text, TextElement } from './text.component';
+import { INHERIT_TONE, Text, TextElement } from './text.component';
 
 /** Renders `fr-text` with `content` projected and returns the element it renders. */
 async function render(inputs: Readonly<Record<string, unknown>>, content = 'AC'): Promise<HTMLElement> {
@@ -82,6 +82,12 @@ describe(Text, () => {
     expect([...rendered.classList]).toContain('text-damage-fire');
     expect([...rendered.classList]).not.toContain('text-fg-muted');
     expect([...rendered.classList]).not.toContain('text-fg-default');
+  });
+
+  it('sets no colour for the inherit tone, so the text takes the colour of its parent', async () => {
+    const rendered = await render({ tone: INHERIT_TONE });
+
+    expect([...rendered.classList].filter((name) => name.startsWith('text-fg-'))).toStrictEqual([]);
   });
 
   it('keeps the line breaks in a <pre>', async () => {

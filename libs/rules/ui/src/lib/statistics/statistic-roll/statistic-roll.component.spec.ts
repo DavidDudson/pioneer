@@ -114,6 +114,12 @@ describe(StatisticRoll, () => {
       expect(button?.classList).toContain('text-roll-bonus-fg');
     });
 
+    it('lets the label take the colour of the button instead of setting its own', async () => {
+      const button = await renderCues([BONUS]);
+
+      expect(button?.querySelector('span')?.classList).not.toContain('text-fg-default');
+    });
+
     it('colours the text red for a penalty', async () => {
       const button = await renderCues([PENALTY]);
 
