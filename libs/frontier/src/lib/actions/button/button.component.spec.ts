@@ -58,6 +58,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
   },
   'outline-subtle': { has: ['border-accent-line', 'bg-accent-subtle', 'text-accent-fg'], lacks: ['bg-surface-base'] },
   inline: { has: ['text-start', 'min-h-touch'], lacks: [] },
+  field: { has: ['border', 'border-line-default', 'bg-surface-sunken', 'w-full'], lacks: ['bg-surface-base'] },
   toggle: { has: ['border-line-default', 'aria-pressed:border-accent-solid'], lacks: [] },
   segment: { has: ['w-full', 'aria-pressed:bg-accent-solid'], lacks: ['border'] },
 };

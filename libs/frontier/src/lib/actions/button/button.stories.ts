@@ -49,6 +49,7 @@ export const Danger: ButtonStory = { args: { variant: ButtonVariant.Danger, labe
 export const OutlineSubtle: ButtonStory = { args: { variant: ButtonVariant.OutlineSubtle, label: '5d5 + 10' } };
 
 export const Inline: ButtonStory = { args: { variant: ButtonVariant.Inline, label: 'Valeros' } };
+export const Field: ButtonStory = { args: { variant: ButtonVariant.Field, label: 'Valeros' } };
 
 export const Disabled: ButtonStory = { args: { variant: ButtonVariant.Primary, disabled: true } };
 

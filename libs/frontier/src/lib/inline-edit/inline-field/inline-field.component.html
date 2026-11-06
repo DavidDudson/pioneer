@@ -11,13 +11,12 @@
         </fr-stack>
       } @else {
         <fr-button
-          variant="inline"
+          variant="field"
           [describedBy]="notice() === undefined ? undefined : noticeId"
           [ariaLabel]="'frontier.inlineField.edit' | transloco: { label: label(), value: edit().display() }"
           (pressed)="edit().edit()"
         >
           {{ edit().display() }}
-          <fr-icon [icon]="pencil" />
         </fr-button>
       }
       <fr-save-status [edit]="edit()" [label]="label()" />
