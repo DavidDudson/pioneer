@@ -8,16 +8,21 @@ import type {
   CharacterVariantRuleId,
   FeatDisplayId,
   FeatDisplaySection,
+  InventoryItemId,
+  ItemAcknowledgementId,
   PlayState,
   PlayStateId,
+  RuleBreak,
+  RuleCount,
   RuleLimitField,
   RuleLimitSettingValue,
   SheetMode,
   SheetModeId,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
-import type { ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
+import type { ContentId, ContentPackId, VariantRuleId } from '@pioneer/rules/sdk';
 import type { UserId, Version } from '@pioneer/shared/kernel';
+import { sql } from 'drizzle-orm';
 import {
   boolean,
   index,
@@ -231,5 +236,44 @@ export const characterRuleLimits = pgTable(
     uniqueIndex('character_rule_limits_character_limit_idx').on(table.characterId, table.limit),
     // Serves clearing `set_by` when the user is deleted.
     index('character_rule_limits_set_by_idx').on(table.setBy),
+  ],
+);
+
+/**
+ * The rule-breaking lines an owner acknowledged on a character outside a campaign, which silence their warnings
+ * (ADR-0064). An acknowledgement covers a line up to the count it was made at. A revoked one is archived, never deleted
+ * (ADR-0062). The foreign key on `acknowledged_by` (to users, on delete set null) is in the migration, as identity's
+ * tables are outside this context's boundary.
+ */
+export const characterItemAcknowledgements = pgTable(
+  'character_item_acknowledgements',
+  {
+    id: uuid().$type<ItemAcknowledgementId>().primaryKey(),
+    characterId: uuid()
+      .$type<CharacterId>()
+      .notNull()
+      .references(() => characters.id, { onDelete: 'restrict' }),
+    // An inventory line lives inside the character's document, so it has no table to point at.
+    itemId: uuid().$type<InventoryItemId>().notNull(),
+    rule: text().$type<RuleBreak>().notNull(),
+    // The nil uuid for every rule but a rune not allowed, so the live-row unique index needs no nullable column.
+    rune: uuid().$type<ContentId>().notNull(),
+    value: smallint().$type<RuleCount>().notNull(),
+    // Null once the owner's account is deleted: the character keeps the acknowledgement.
+    acknowledgedBy: uuid().$type<UserId>(),
+    acknowledgedAt: timestamp({ withTimezone: true, mode: 'string' }).notNull(),
+    archivedAt: timestamp({ withTimezone: true, mode: 'string' }),
+  },
+  (table) => [
+    // A line is acknowledged once for a rule at a time; a revoked acknowledgement no longer holds its place.
+    uniqueIndex('character_item_acknowledgements_live_idx')
+      .on(table.characterId, table.itemId, table.rule, table.rune)
+      .where(sql`${table.archivedAt} is null`),
+    // Serves the character's live acknowledgements, read oldest first.
+    index('character_item_acknowledgements_character_idx')
+      .on(table.characterId, table.acknowledgedAt, table.id)
+      .where(sql`${table.archivedAt} is null`),
+    // Serves clearing `acknowledged_by` when the user is deleted.
+    index('character_item_acknowledgements_acknowledged_by_idx').on(table.acknowledgedBy),
   ],
 );

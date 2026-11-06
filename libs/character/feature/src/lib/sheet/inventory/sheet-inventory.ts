@@ -185,9 +185,17 @@ export function sheetInventory(
   { limits, approvals, campaign, melded = false }: InventoryRules = CORE_TABLE,
 ): readonly InventoryGroup[] {
   const contents = contentsByContainer(inventory.items);
-  const { open, approved } = partitionApproved(inventoryViolations(inventory, { items, runes }, limits), approvals);
-  const breaks = reasonsByItem(open, runes);
-  const approvedBreaks = reasonsByItem(approved, runes);
+  const byGm = partitionApproved(
+    inventoryViolations(inventory, { items, runes }, limits),
+    approvals.filter((each) => each.acknowledgement === undefined),
+  );
+  const byOwner = partitionApproved(
+    byGm.open,
+    approvals.filter((each) => each.acknowledgement !== undefined),
+  );
+  const breaks = reasonsByItem(byOwner.open, runes);
+  const approvedBreaks = reasonsByItem(byGm.approved, runes);
+  const acknowledgedBreaks = reasonsByItem(byOwner.approved, runes);
   const lineOf = (item: InventoryItem): InventoryLine => {
     const entry = items.get(item.item);
     return {
@@ -205,6 +213,7 @@ export function sheetInventory(
       runeBadges: runeBadges(item, entry, runes),
       breaks: breaks.get(item.id) ?? [],
       approved: approvedBreaks.get(item.id) ?? [],
+      acknowledged: acknowledgedBreaks.get(item.id) ?? [],
       keyItem: item.keyItem !== undefined,
       keyItemLink:
         item.keyItem === undefined || campaign === undefined ? undefined : ['/campaigns', campaign, 'inventory'],

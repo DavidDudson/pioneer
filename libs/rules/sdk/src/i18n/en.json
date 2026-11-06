@@ -1218,6 +1218,7 @@
       "melded": "Melded",
       "ruleBreaking": "Breaks a rule",
       "approvedByGm": "Approved by the GM",
+      "acknowledgedByOwner": "Acknowledged by the owner",
       "keyItem": "Key item",
       "load": "Holds {held} of {capacity} Bulk",
       "loadUnlimited": "Holds {held} Bulk",

@@ -39,6 +39,8 @@ export interface InventoryLine {
   readonly breaks: readonly MessageDescriptor[];
   /** Why the item breaks the rules the campaign's GM approved; empty when none is approved. */
   readonly approved: readonly MessageDescriptor[];
+  /** Why the item breaks the rules its owner acknowledged on a character outside a campaign; empty or absent when none. */
+  readonly acknowledged?: readonly MessageDescriptor[];
   /** Whether the GM gave it as a campaign key item: it breaks no rule, and the player cannot remove or sell it. */
   readonly keyItem: boolean;
   /** Router commands to the campaign's Party Inventory, which a key item names itself with; undefined when none. */

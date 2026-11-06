@@ -323,6 +323,10 @@
         "unknownRune": "A property rune that cannot be etched on this item"
       },
       "remove": "Remove {name}",
+      "acknowledge": "Acknowledge the warnings on {name}",
+      "acknowledging": "Acknowledging…",
+      "acknowledgementRevoke": "Take back the acknowledgement on {name}",
+      "acknowledgementRevoking": "Taking back…",
       "removeConfirm": "Remove {name}? Press again",
       "customHeading": "Items with no content",
       "customExplain": "The import kept these by the name Pathbuilder gave them because no loaded content has them. They weigh nothing. Remove one once you have added the real item.",
@@ -1036,6 +1040,9 @@
     "packs": "Packs:",
     "items": "Items:",
     "entry": "{name} ({pack})"
+  },
+  "itemApprovals": {
+    "campaignApproves": "{campaign} approves the rule-breaking items of this character. Its GM decides, not you."
   },
   "ruleLimits": {
     "loadError": "Could not load the table limits.",

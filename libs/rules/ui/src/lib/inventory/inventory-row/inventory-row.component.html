@@ -20,7 +20,11 @@
     <pio-inventory-load [load]="line().load" />
   </fr-stack>
   <pio-rune-badges [runes]="line().runeBadges ?? []" />
-  <pio-inventory-breaks [reasons]="line().breaks" [approved]="line().approved" />
+  <pio-inventory-breaks
+    [reasons]="line().breaks"
+    [approved]="line().approved"
+    [acknowledged]="line().acknowledged ?? []"
+  />
   <ng-container [ngTemplateOutlet]="actions() ?? null" [ngTemplateOutletContext]="{ $implicit: line() }" />
   @if (line().contents.length > 0) {
     <fr-list gap="xs" markers>

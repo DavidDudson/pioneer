@@ -118,3 +118,35 @@ describe('the same inventory with the GM’s approval', () => {
     expect(ruleBreakingCount(partitionApproved(violations, []).open)).toBe(1);
   });
 });
+
+describe('the same inventory with its owner’s acknowledgement', () => {
+  const inventory = overInvested();
+  const acknowledgement = ItemApproval.parse({
+    item: idAt(INVESTED_MAX),
+    rule: RuleBreak.Invested,
+    value: INVESTED_MAX + 1,
+    acknowledgement: '00000000-0000-4000-8000-0000000000aa',
+  });
+
+  function lineOf(approvals: readonly ItemApproval[]): InventoryLine | undefined {
+    return sheetInventory(inventory, runed, { limits: CORE_RULE_LIMITS, approvals })
+      .flatMap((group) => group.lines)
+      .find((each) => each.id === idAt(INVESTED_MAX));
+  }
+
+  it('moves the reason to the acknowledged reasons, apart from the GM’s approved ones', () => {
+    const line = lineOf([acknowledgement]);
+    expect(line?.breaks).toStrictEqual([]);
+    expect(line?.approved).toStrictEqual([]);
+    expect(line?.acknowledged).toStrictEqual([
+      { key: ViolationMessage.Invested, params: { limit: INVESTED_MAX, actual: INVESTED_MAX + 1 } },
+    ]);
+  });
+
+  it('leaves the warning when the item grew past the count acknowledged', () => {
+    const grown = ItemApproval.parse({ ...acknowledgement, value: INVESTED_MAX });
+    const line = lineOf([grown]);
+    expect(line?.breaks).toHaveLength(1);
+    expect(line?.acknowledged).toStrictEqual([]);
+  });
+});

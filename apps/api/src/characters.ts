@@ -2,6 +2,7 @@ import {
   CharacterAllyService,
   CharacterContent,
   CharacterFlaggedItems,
+  CharacterItemApprovalService,
   CharacterKeyItemPromotion,
   CharacterKeyItems,
   CharacterPackService,
@@ -21,6 +22,7 @@ import {
 import type { CharacterContentSource } from '@pioneer/character/application';
 import {
   characterRoutes,
+  DrizzleCharacterItemAcknowledgementRepository,
   DrizzleCharacterPackRepository,
   DrizzleCharacterRepository,
   DrizzleCharacterRuleLimitRepository,
@@ -54,6 +56,8 @@ interface PackServices {
   readonly ruleLimits: CharacterRuleLimitService;
   readonly unenabled: CharacterUnenabledService;
   readonly held: HeldContentPacks;
+  /** The campaign each character is attached to, which also approves its rule-breaking items. */
+  readonly campaigns: CampaignPackDirectory;
 }
 
 /** What the pack services read a character's content and rows from. */
@@ -97,7 +101,7 @@ function packServices(db: Database, clock: Clock, { content, repository }: Chara
     campaigns,
     held,
   });
-  return { packs, variants, ruleLimits, allies, unenabled, held };
+  return { packs, variants, ruleLimits, allies, unenabled, held, campaigns };
 }
 
 /** The character context as mounted: its routes, and the Pioneer file export other contexts are wired to. */
@@ -118,6 +122,32 @@ export interface Characters {
   readonly content: CharacterContentSource;
 }
 
+/** The homebrew a Pioneer file embeds, read against who may use each pack. */
+function embeddedHomebrew(db: Database, clock: Clock): PioneerEmbeddedHomebrew {
+  return new PioneerEmbeddedHomebrew(db, clock, new PackAccessPolicy(new CampaignPackEnablementDirectory(db)));
+}
+
+/** What the owner's acknowledgements are read against: the characters, the campaign each is in and the rules they break. */
+interface ItemApprovalParts {
+  readonly repository: DrizzleCharacterRepository;
+  readonly campaigns: CampaignPackDirectory;
+  readonly content: CharacterContent;
+}
+
+/** What silences a character's rule-breaking warnings: its campaign's GM, or outside a campaign its owner. */
+function itemApprovalService(db: Database, clock: Clock, parts: ItemApprovalParts): CharacterItemApprovalService {
+  const { repository, campaigns, content } = parts;
+  return new CharacterItemApprovalService(
+    {
+      characters: repository,
+      acknowledgements: new DrizzleCharacterItemAcknowledgementRepository(db),
+      campaigns,
+      flagged: new CharacterFlaggedItems(content),
+    },
+    clock,
+  );
+}
+
 /**
  * The character context's part of the composition root: content, services and routes. Content is read from the
  * content tables the seed fills, so a re-seed is served without a restart.
@@ -125,7 +155,10 @@ export interface Characters {
 export function characters(db: Database, clock: Clock, authenticator: RequestAuthenticator): Characters {
   const content = new StoredContentSource(new ContentRepository(db));
   const repository = new DrizzleCharacterRepository(db);
-  const { packs, variants, ruleLimits, allies, unenabled, held } = packServices(db, clock, { content, repository });
+  const { packs, variants, ruleLimits, allies, unenabled, held, campaigns } = packServices(db, clock, {
+    content,
+    repository,
+  });
   const characterContent = new CharacterContent(content, packs, {
     variants,
     limits: ruleLimits,
@@ -141,11 +174,8 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
     ),
     exports: new PathbuilderExportService(new HttpPathbuilderExportFetcher()),
   };
-  const homebrew = new PioneerEmbeddedHomebrew(
-    db,
-    clock,
-    new PackAccessPolicy(new CampaignPackEnablementDirectory(db)),
-  );
+  const homebrew = embeddedHomebrew(db, clock);
+  const itemApprovals = itemApprovalService(db, clock, { repository, campaigns, content: characterContent });
   const pioneerFiles = new PioneerFileService({ repository, content: characterContent, clock, homebrew });
   return {
     pioneerFiles,
@@ -167,7 +197,7 @@ export function characters(db: Database, clock: Clock, authenticator: RequestAut
           repository,
           content: characterContent,
           characters: service,
-          services: { packs, allies, variants, ruleLimits, unenabled },
+          services: { packs, allies, variants, ruleLimits, itemApprovals, unenabled },
         }),
       ),
   };

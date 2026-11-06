@@ -38,6 +38,11 @@ export {
   type OwnChoices,
 } from './character-unenabled-service';
 export { CharacterRuleLimitMessage } from './character-rule-limit-message';
+export { CharacterItemAcknowledgementRepository } from './character-item-acknowledgement-repository';
+export type { ItemAcknowledgementRevocation } from './character-item-acknowledgement-repository';
+export { InMemoryCharacterItemAcknowledgementRepository } from './in-memory-character-item-acknowledgement-repository';
+export { CharacterItemApprovalMessage } from './character-item-approval-message';
+export { CharacterItemApprovalService, type CharacterItemApprovalPorts } from './character-item-approval-service';
 export { CharacterRuleLimitRepository } from './character-rule-limit-repository';
 export { CharacterRuleLimitService, type CharacterRuleLimitPorts } from './character-rule-limit-service';
 export { InMemoryCharacterRuleLimitRepository } from './in-memory-character-rule-limit-repository';
