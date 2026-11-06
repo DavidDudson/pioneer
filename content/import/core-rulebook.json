@@ -3,6 +3,10 @@
     "tag": "pf2e-8.6.0",
     "sha256": "d9c4c1f6bbf9bd907ec0acbaea9b8d4e8b0d049758a8616829f07c1b4ee81342"
   },
+  "legacyPin": {
+    "tag": "5.16.1",
+    "sha256": "08d772c26e9c71e33b7c690f8f543dcb1890d8efacaa9fba771ea696b099b61d"
+  },
   "backlog": [
     {
       "type": "vocabulary",

@@ -122,14 +122,27 @@ function options(): Options {
   };
 }
 
-async function readPin(pack: PackId): Promise<ImportPin> {
+/** The pin of the release a run reads its documents from, and the pin whose release gives its config. */
+interface Pins {
+  readonly documents: ImportPin;
+  readonly config: ImportPin;
+}
+
+async function readPins(pack: PackId, legacy: boolean): Promise<Pins> {
   const file = Bun.file(path.join(ROOT, 'content/import', `${pack}.json`));
   const pinned = await file.exists();
   if (!pinned) {
     throw new Error(`content/import/${pack}.json is missing; commit the pack's pin first (ADR-0031)`);
   }
-  const { pin } = ImportFile.parse(await file.json());
-  return pin;
+  const { pin, legacyPin } = ImportFile.parse(await file.json());
+  if (!legacy) {
+    return { documents: pin, config: pin };
+  }
+  if (legacyPin === undefined) {
+    throw new Error(`content/import/${pack}.json has no legacyPin; commit the legacy release's pin first (ADR-0077)`);
+  }
+  // The pre-remaster release's config modules need runtime helpers the loader lacks, so the pack's own release gives them.
+  return { documents: legacyPin, config: pin };
 }
 
 async function verified(
@@ -281,16 +294,17 @@ function formatKindData(translation: ImportTranslation): string {
 
 const { pack, books, dryRun, replacedLegacy, applyRules: rulesOnly, applyOutcomes: outcomesOnly } = options();
 const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
-const pin = await readPin(pack);
-const files = await archiveFiles(await archive(pin));
-const release = readFoundryRelease(files);
-const config = await loadFoundryConfig(files, path.join(CACHE, pin.tag));
+const pins = await readPins(pack, replacedLegacy);
+const files = await archiveFiles(await archive(pins.config));
+const documentFiles = pins.documents === pins.config ? files : await archiveFiles(await archive(pins.documents));
+const release = readFoundryRelease(documentFiles);
+const config = await loadFoundryConfig(files, path.join(CACHE, pins.config.tag));
 const replaced = replacedLegacy ? await loadReplacedLegacy() : undefined;
 const selection =
   replaced === undefined
     ? selectEntries(release, books, bookRegistry.books)
     : selectReplacedLegacy(release, { targets: books, books: bookRegistry.books, replaced });
-console.log(`${pack} at ${pin.tag}, books ${[...books].join(', ')}`);
+console.log(`${pack} at ${pins.documents.tag}, books ${[...books].join(', ')}`);
 console.log(formatReport(dryRunReport(selection), selection));
 const creatures = selectCreatures(release, books, bookRegistry.books);
 console.log(formatCreatures(creatures));

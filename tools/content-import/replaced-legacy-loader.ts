@@ -7,16 +7,20 @@ import path from 'node:path';
 
 import { replacedLegacy } from '@pioneer/interop/foundry';
 import type { BookReplacements, ReplacedLegacy } from '@pioneer/interop/foundry';
-import { AonListingFile, AonSupersedesFile, AonUrl, BookId } from '@pioneer/rules/sdk';
+import { AonListedEntry, AonSupersedesFile, AonUrl, BookId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
+import * as z from 'zod';
+
+/** The entries of a book's listing (`<book>.json`) or page file (`pages/<book>.json`); other fields are not read. */
+const Listed = z.looseObject({ entries: z.array(AonListedEntry) });
 
 const AON = path.resolve(import.meta.dir, '..', '..', 'content', 'aon');
 
 /** The entries of an AoN file that lists them, or none when the file is absent. */
-async function listed(file: string): Promise<AonListingFile['entries']> {
+async function listed(file: string): Promise<readonly AonListedEntry[]> {
   const source = Bun.file(file);
   const present = await source.exists();
-  return present ? AonListingFile.parse(await source.json()).entries : [];
+  return present ? Listed.parse(await source.json()).entries : [];
 }
 
 /** The names a book's Sources listing and its fetched pages give by URL. */

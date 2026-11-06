@@ -33,9 +33,14 @@ export type ImportPin = z.infer<typeof ImportPin>;
 
 const BACKLOG_MAX = 100_000;
 
-/** `content/import/<pack>.json`: the pin and the pack's backlog, which pack output writes (`importBacklog`). */
+/**
+ * `content/import/<pack>.json`: the pin and the pack's backlog, which pack output writes (`importBacklog`). A pack
+ * that also takes the legacy entries remaster entries replace names the pre-remaster release they come from in
+ * `legacyPin` (ADR-0077).
+ */
 export const ImportFile = z.strictObject({
   pin: ImportPin,
+  legacyPin: ImportPin.optional(),
   backlog: z.array(BacklogItem).max(BACKLOG_MAX).readonly(),
 });
 export type ImportFile = z.infer<typeof ImportFile>;

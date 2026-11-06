@@ -121,13 +121,13 @@ export async function applyRules(
   targets: PackTargets,
   keys: ReadonlySet<string>,
 ): Promise<AppliedOutput> {
-  const { pin, backlog } = await committedBacklog(targets);
+  const { pin, legacyPin, backlog } = await committedBacklog(targets);
   const committed = await committedEntries(targets);
   const gapped = gappedEntries(backlog, keys);
   const merge = mergeRules(committed, output.entries, { gapped, keys });
   const merged = importedGaps(output, gapped);
   const remaining = clearAppliedGaps(backlog, output.backlog, { merged, keys });
-  const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, backlog: remaining }) };
+  const cleared = { path: backlogPath(targets.pack), json: ImportFile.parse({ pin, legacyPin, backlog: remaining }) };
   const files = await mergedEntryFiles(targets, merge);
   const written = await writeAll(files, [cleared]);
   return { written, applied: merge.size };
