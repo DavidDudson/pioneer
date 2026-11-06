@@ -1,5 +1,5 @@
 import type { ActionOrigin, ActionStatus, StatisticValue } from '@pioneer/rules/engine';
-import type { ActionCost, ActionMode, ContentId, RichText } from '@pioneer/rules/sdk';
+import type { ActionCost, ActionMode, ContentId, FrequencyPeriod, RichText } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /** What using something pays besides its actions, as keys the page that spends understands. */
@@ -55,6 +55,8 @@ export interface ActionLine {
   readonly status: ActionStatus;
   /** Why it is not plainly available. */
   readonly reasons: readonly MessageDescriptor[];
+  /** The period it comes back over once its uses are spent; absent when it can be used again now. */
+  readonly recharge?: FrequencyPeriod | undefined;
   /** When it can be used (a reaction's trigger), as the content words it; absent when it has none. */
   readonly trigger?: RichText | undefined;
   /** What it needs ("you have a free hand"), as the content words it; absent when it needs nothing. */

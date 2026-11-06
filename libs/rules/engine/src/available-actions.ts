@@ -1,7 +1,7 @@
 import { evaluatePredicate, Truth } from '@pioneer/rules/predicate';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
 import { ActionMode, Proficiency } from '@pioneer/rules/sdk';
-import type { ActionCost, ActionData, ContentId, Origin, Selector, Trait } from '@pioneer/rules/sdk';
+import type { ActionCost, ActionData, ContentId, FrequencyPeriod, Origin, Selector, Trait } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor, ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
@@ -74,6 +74,8 @@ export interface AvailableAction {
   readonly status: ActionStatus;
   /** Why it is not plainly available; never empty for a conditional or unavailable action. */
   readonly reasons: readonly MessageDescriptor[];
+  /** The period its frequency refreshes over, when it has no uses left; absent when it can be used again now. */
+  readonly recharge?: FrequencyPeriod | undefined;
   /** The best of its skills to roll, with its breakdown; absent for an action that rolls nothing. */
   readonly roll: StatisticValue | undefined;
 }
@@ -172,6 +174,7 @@ function availableAction(candidate: ActionCandidate, input: AvailableActionsInpu
     modes: action.modes ?? DEFAULT_MODES,
     status,
     reasons: [...blocked, ...doubtful],
+    recharge: action.frequency !== undefined && input.spent.has(id) ? action.frequency.per : undefined,
     roll: bestRoll(action, input.statistics),
   };
 }

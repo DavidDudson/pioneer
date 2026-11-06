@@ -1,5 +1,5 @@
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
-import { ActionCost, ActionMode } from '@pioneer/rules/sdk';
+import { ActionCost, ActionMode, FrequencyPeriod } from '@pioneer/rules/sdk';
 
 import { ActionCategory, ActionResourceKind } from './action-line';
 
@@ -37,6 +37,22 @@ export const ActionsMessage = {
   SummaryTrigger: 'rules.actions.summary.trigger',
   /** Label of what an action needs in its hover summary. */
   SummaryRequirements: 'rules.actions.summary.requirements',
+  /** Label of when a spent action can be used again in its hover summary. */
+  SummaryRecharge: 'rules.actions.summary.recharge',
+} as const;
+
+/** When a spent action can be used again, by the period its frequency refreshes over. */
+export const RechargeMessage: Readonly<Record<FrequencyPeriod, string>> = {
+  [FrequencyPeriod.Turn]: 'rules.actions.recharge.turn',
+  [FrequencyPeriod.Round]: 'rules.actions.recharge.round',
+  [FrequencyPeriod.Minute]: 'rules.actions.recharge.minute',
+  [FrequencyPeriod.TenMinutes]: 'rules.actions.recharge.tenMinutes',
+  [FrequencyPeriod.Hour]: 'rules.actions.recharge.hour',
+  [FrequencyPeriod.TwentyFourHours]: 'rules.actions.recharge.twentyFourHours',
+  [FrequencyPeriod.Day]: 'rules.actions.recharge.day',
+  [FrequencyPeriod.Week]: 'rules.actions.recharge.week',
+  [FrequencyPeriod.Month]: 'rules.actions.recharge.month',
+  [FrequencyPeriod.Year]: 'rules.actions.recharge.year',
 } as const;
 
 /** How each action cost is worded, spelled out so the key check sees them. */

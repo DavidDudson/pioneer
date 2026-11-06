@@ -5,6 +5,7 @@ import type { RichText } from '@pioneer/rules/sdk';
 
 import { RichTextView } from '../rich-text/rich-text.component';
 import { StatisticConditions } from '../statistics/statistic-conditions/statistic-conditions.component';
+import { ActionRecharge } from './action-recharge.component';
 import type { ShownAction } from './action-row.component';
 import { ActionsMessage } from './actions-messages';
 
@@ -28,7 +29,7 @@ interface Fact {
  */
 @Component({
   selector: 'pio-action-summary',
-  imports: [ActionIcon, Badge, RichTextView, Stack, StatisticConditions, Text, TranslocoPipe],
+  imports: [ActionIcon, ActionRecharge, Badge, RichTextView, Stack, StatisticConditions, Text, TranslocoPipe],
   templateUrl: './action-summary.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

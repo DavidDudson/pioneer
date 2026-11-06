@@ -12,7 +12,7 @@ import {
 import type { ActionCostRange, Character, ResourcesSpent, TurnState } from '@pioneer/character/domain';
 import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import type { StatisticInputs } from '@pioneer/rules/engine';
-import { ActionMode, STAFF_CANTRIP } from '@pioneer/rules/sdk';
+import { ActionMode, FrequencyPeriod, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 import type { ActionCost, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionResourceKind, STAFF_SPELL_BLOCK_MESSAGES } from '@pioneer/rules/ui';
 import type { ActionLine, ActionResource, UsePayment } from '@pioneer/rules/ui';
@@ -52,6 +52,8 @@ interface ItemAction {
   readonly resource: ActionResource;
   readonly payment: UsePayment;
   /** Why it cannot be used whatever the turn leaves. */
+  /** The period it comes back over when its uses or charges are spent; absent otherwise. */
+  readonly recharge?: FrequencyPeriod | undefined;
   readonly reasons: readonly MessageDescriptor[];
 }
 
@@ -72,6 +74,7 @@ function lineOf(item: ItemAction, turn: TurnState | undefined): ActionLine {
     source: undefined,
     status: reasons.length > 0 || fit.affordable === false ? ActionStatus.Unavailable : ActionStatus.Available,
     reasons,
+    recharge: item.recharge,
     resource: item.resource,
     payment: item.payment,
     roll: undefined,
@@ -122,7 +125,7 @@ function activationActions(registry: ContentRegistry, character: Character, play
     if (isInvestable(held, entry) && held.invested !== true) {
       own.push(message(ItemReasonMessage.NotInvested));
     }
-    return (activations.get(held.item) ?? []).flatMap(({ slug, name, cost, upTo }): ItemAction[] => {
+    return (activations.get(held.item) ?? []).flatMap(({ slug, name, cost, upTo, frequency }): ItemAction[] => {
       const key = activationUseKey(held.id, slug);
       const maximum = counted.uses.get(key);
       if (maximum === undefined) {
@@ -141,6 +144,7 @@ function activationActions(registry: ContentRegistry, character: Character, play
           resource: { kind: ActionResourceKind.Uses, current, max: maximum.max },
           payment: { use: key },
           reasons: current === 0 ? [...own, message(ItemReasonMessage.NoUses)] : own,
+          recharge: current === 0 ? frequency.per : undefined,
         },
       ];
     });
@@ -174,6 +178,7 @@ function staffActions(registry: ContentRegistry, character: Character, play: She
         resource: { kind: ActionResourceKind.Charges, current: staff.charges?.left ?? 0, max: staff.charges?.max },
         payment: { staff: { item: staff.key, spell: spell.id } },
         reasons,
+        recharge: staff.charges?.left === 0 ? FrequencyPeriod.Day : undefined,
       };
     }),
   );
