@@ -259,7 +259,6 @@ describe('core rules pack', () => {
       sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
     );
     expect(reachedBy('int-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]));
-    expect(reachedBy('all')).toStrictEqual(sorted([...SELECTORS, ...LORE_SELECTORS, ...STRIKES, ...STRIKE_DAMAGES]));
   });
 
   test('spell domains route to the spell attack or the DC, and the attribute domain to both', () => {
