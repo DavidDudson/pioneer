@@ -30,8 +30,8 @@ const CLERIC = {
   build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric') } },
 };
 
-function vitalsOf(root: HTMLElement): string {
-  return textOf(present(root.querySelector<HTMLElement>('pio-vitals')));
+function speedsOf(root: HTMLElement): string {
+  return textOf(present(root.querySelector<HTMLElement>('pio-sheet-speed-block')));
 }
 
 /** The Hit Points controls, in the modal the block opens. */
@@ -50,21 +50,20 @@ describe('CharacterSheetPage form speed and size', () => {
     await prebuildServerStateTesting([], PACKS);
   }, PREBUILD_TIMEOUT);
 
-  it('shows the land Speed, and marks it as from the form when a form sets it', async () => {
+  it('shows the land Speed a form sets', async () => {
     const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, play: ape, packs: PACKS });
 
     await vi.waitFor(() => {
-      expect(vitalsOf(root)).toMatch(/Speed\s*25\s*from [^;]*Animal Form/u);
+      expect(speedsOf(root)).toMatch(/Walk\s*25 ft/u);
     });
   });
 
-  it('shows the land Speed unmarked while no form is in play', async () => {
+  it('shows the character’s own land Speed while no form is in play', async () => {
     const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, packs: PACKS });
 
     await vi.waitFor(() => {
-      expect(vitalsOf(root)).toMatch(/Speed\s*\d+/u);
+      expect(speedsOf(root)).toMatch(/Walk\s*\d+ ft/u);
     });
-    expect(vitalsOf(root)).not.toMatch(/Speed\s*\d+\s*from/u);
   });
 
   it('says the form sets the size and what the character’s own is', async () => {

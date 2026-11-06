@@ -33,6 +33,10 @@ function vitalsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-vitals'));
 }
 
+function speedsOf(root: HTMLElement): string {
+  return textOf(present(root.querySelector<HTMLElement>('pio-sheet-speed-block')));
+}
+
 function hitPointsOf(root: HTMLElement): HTMLElement {
   return present(root.querySelector<HTMLElement>('pio-sheet-hit-points'));
 }
@@ -86,15 +90,15 @@ describe('CharacterSheetPage speeds from rule elements', () => {
     });
 
     await vi.waitFor(() => {
-      const text = textOf(vitalsOf(root));
-      expect(text).toMatch(/Fly Speed\s*30/u);
-      expect(text).toMatch(/Swim Speed\s*20/u);
-      expect(text).toMatch(/Climb Speed\s*15/u);
-      expect(text).toMatch(/Burrow Speed\s*10/u);
+      const text = speedsOf(root);
+      expect(text).toMatch(/Fly\s*30 ft/u);
+      expect(text).toMatch(/Swim\s*20 ft/u);
+      expect(text).toMatch(/Climb\s*15 ft/u);
+      expect(text).toMatch(/Burrow\s*10 ft/u);
     });
   });
 
-  it('shows no non-land Speed the character has nothing for', async () => {
+  it('reads None for each non-land Speed the character has nothing for', async () => {
     const { root } = await openSheet(wearingCharm(false, ItemFixture.MovementCharm), {
       play: playOf(0, 0),
       packs: PACKS,
@@ -103,6 +107,6 @@ describe('CharacterSheetPage speeds from rule elements', () => {
     await vi.waitFor(() => {
       expect(textOf(vitalsOf(root))).toContain('Fortitude');
     });
-    expect(textOf(vitalsOf(root))).not.toMatch(/(?:Fly|Swim|Climb|Burrow) Speed/u);
+    expect(speedsOf(root)).toMatch(/Swim\s*None.*Fly\s*None.*Climb\s*None.*Burrow\s*None/u);
   });
 });

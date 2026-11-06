@@ -1,7 +1,7 @@
 <ng-template #cards>
   @if (blocks(); as shown) {
     @for (block of shown; track block.key) {
-      <fr-surface padding="sm">
+      <fr-surface padding="xs">
         @if (block.tile; as tile) {
           <pio-statistics [statistics]="tile.list" [entryNames]="entryNames()" [originNames]="originNames()" />
         } @else {
@@ -16,7 +16,7 @@
     }
   } @else {
     @for (tile of loadingTiles; track tile) {
-      <fr-surface padding="sm"><fr-skeleton width="md" /></fr-surface>
+      <fr-surface padding="xs"><fr-skeleton width="md" /></fr-surface>
     }
   }
 </ng-template>

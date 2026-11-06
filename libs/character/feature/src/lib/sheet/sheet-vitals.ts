@@ -10,6 +10,11 @@ import { sheetSpellcasting } from './sheet-spellcasting';
 
 const AC = Selector.parse('ac');
 const SPELL_DC = 'spell-dc:';
+const SPEED_PREFIX = 'speed:';
+
+function isSpeed(selector: Selector): boolean {
+  return selector.startsWith(SPEED_PREFIX);
+}
 
 /** What the engine derived for the sheet, which the vitals row shows. */
 export interface VitalReads {
@@ -44,8 +49,8 @@ export function sheetArmorClass(registry: ContentRegistry, character: Character,
 export function sheetVitals(registry: ContentRegistry, character: Character, reads: VitalReads): readonly Vital[] {
   const { ranks } = statisticInputsOf(registry, character);
   const own = reads.statistics
-    // Perception is a row of the Skills panel, and Armor Class a block of its own, not vitals.
-    .filter(({ result }) => result.selector !== PERCEPTION && result.selector !== AC)
+    // Perception is a row of the Skills panel, and Armor Class and the Speeds are blocks of their own, not vitals.
+    .filter(({ result }) => result.selector !== PERCEPTION && result.selector !== AC && !isSpeed(result.selector))
     .map((statistic): Vital => {
       const { selector } = statistic.result;
       if (statistic.kind === StatisticKind.Value) {

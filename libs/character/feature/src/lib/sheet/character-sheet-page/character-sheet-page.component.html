@@ -1,6 +1,6 @@
 <fr-page width="full">
   <fr-page-header titleHidden [title]="title()">
-    <fr-grid frPageIdentity gap="sm" [columns]="7">
+    <fr-grid frPageIdentity gap="xs" [columns]="8">
       <pio-sheet-character-block />
       <pio-sheet-armor-class />
       <pio-sheet-attributes-block />
@@ -10,6 +10,8 @@
         [entryNames]="sheet.picks.entryNames()"
         [originNames]="sheet.originNames()"
       />
+      <pio-sheet-speed-block />
+      <pio-sheet-senses-block />
     </fr-grid>
     <fr-tabs frPageTabs centered appearance="segment" [label]="'character.sheet.tabs.label' | transloco">
       @for (tab of tabs; track tab.mode) {

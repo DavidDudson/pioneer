@@ -4,7 +4,7 @@ import { Button, ButtonVariant, LocaleFormat, Size, Skeleton, Stack, Text } from
 import { Attribute } from '@pioneer/rules/sdk';
 import type { AttributeModifier, AttributeModifiers } from '@pioneer/rules/sdk';
 
-import { ATTRIBUTE_MESSAGES } from '../attributes/attributes-messages';
+import { ATTRIBUTE_MESSAGES, ATTRIBUTE_SHORT_MESSAGES } from '../attributes/attributes-messages';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 
 /** A flat check asked for: the attribute's message key, and the modifier added to the d20. */
@@ -17,6 +17,7 @@ export interface AttributeRoll {
 interface AttributeRow {
   readonly attribute: Attribute;
   readonly name: string;
+  readonly shortName: string;
   readonly modifier: AttributeModifier | undefined;
   readonly label: string;
 }
@@ -58,6 +59,7 @@ export class AttributeRolls {
       return {
         attribute,
         name: ATTRIBUTE_MESSAGES[attribute],
+        shortName: ATTRIBUTE_SHORT_MESSAGES[attribute],
         modifier,
         label: modifier === undefined ? '' : this.#format.number(modifier, SIGNED),
       };

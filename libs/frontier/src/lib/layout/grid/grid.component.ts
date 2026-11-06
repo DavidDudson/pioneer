@@ -10,7 +10,7 @@ import { gapVariants, Space } from '../../tokens';
  * own width (container queries), not the viewport: one column when narrow
  * (two for six-up stat blocks), more at the `md` and `lg` container sizes.
  */
-export const GridColumns = { One: 1, Two: 2, Three: 3, Four: 4, Six: 6, Seven: 7 } as const;
+export const GridColumns = { One: 1, Two: 2, Three: 3, Four: 4, Six: 6, Seven: 7, Eight: 8 } as const;
 export type GridColumns = ValueOf<typeof GridColumns>;
 
 /** Fluid alternative: as many columns as fit at this minimum item width. */
@@ -48,6 +48,7 @@ const gridVariants = cva('grid', {
       4: 'grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4',
       6: 'grid-cols-2 @sm:grid-cols-3 @lg:grid-cols-6',
       7: 'grid-cols-2 @sm:grid-cols-3 @lg:grid-cols-7',
+      8: 'grid-cols-2 @sm:grid-cols-4 @lg:grid-cols-8',
     } satisfies Record<GridColumns, string>,
     minItem: {
       sm: 'grid-cols-fill-sm',

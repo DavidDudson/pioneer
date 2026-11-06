@@ -22,8 +22,10 @@ import { SheetPanels } from '../sheet-panels/sheet-panels.component';
 // oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
+import { SheetSensesBlock } from '../sheet-senses-block/sheet-senses-block.component';
 import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
+import { SheetSpeedBlock } from '../sheet-speed-block/sheet-speed-block.component';
 import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 
@@ -45,6 +47,8 @@ import { SheetState } from '../sheet-state';
     SheetArmorClass,
     SheetAttributesBlock,
     SheetCharacterBlock,
+    SheetSensesBlock,
+    SheetSpeedBlock,
     SheetForm,
     SheetFormPicker,
     SheetHeaderActions,

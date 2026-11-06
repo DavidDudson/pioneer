@@ -9,8 +9,9 @@ import { filter, merge } from 'rxjs';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
 import type { OriginNames } from '../origin-chain/origin-names';
 import { SenseList } from './sense-list/sense-list.component';
-import { ACUITY_MESSAGES, SensesMessage } from './senses-messages';
-import type { ShownSense, ShownSenses } from './shown-senses';
+import { SensesMessage } from './senses-messages';
+import type { ShownSenses } from './shown-senses';
+import { wordSense } from './word-sense';
 
 /**
  * A character's senses (play-and-campaigns.md, "Statistics and breakdowns"): each as its name, acuity and range, with
@@ -55,39 +56,14 @@ export class SensesView {
     this.#format.locale();
     const senses = this.senses();
     const own = this.own();
+    const words = { i18n: this.#i18n, format: this.#format, names: this.entryNames() };
     return senses === undefined
       ? undefined
       : {
-          senses: senses.map((sense) => this.#sense(sense)),
-          own: own.map((sense) => this.#sense(sense)),
+          senses: senses.map((sense) => wordSense(sense, words)),
+          own: own.map((sense) => wordSense(sense, words)),
           empty: senses.length === 0,
           hasOwn: own.length > 0,
         };
   });
-
-  #words(key: string, params?: Readonly<Record<string, string>>): string {
-    return this.#i18n.translate(key, params);
-  }
-
-  #name(entry: ContentId): string | undefined {
-    return this.entryNames().get(entry);
-  }
-
-  #sense({ sense, acuity, range, origins, fromForm }: SenseInPlay): ShownSense {
-    const text = this.#words(SensesMessage.Sense, {
-      name: this.#name(sense) ?? sense,
-      acuity: this.#words(ACUITY_MESSAGES[acuity]),
-      hasRange: range === undefined ? 'no' : 'yes',
-      range: range === undefined ? '' : this.#format.number(range),
-    });
-    const form = origins[0] === undefined ? undefined : (this.#name(origins[0].entry) ?? undefined);
-    return {
-      text,
-      fromForm:
-        fromForm === true
-          ? this.#words(SensesMessage.FromForm, { form: form ?? this.#words(SensesMessage.UnnamedForm) })
-          : undefined,
-      origins,
-    };
-  }
 }

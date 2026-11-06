@@ -10,7 +10,10 @@ export { ArmorClass } from './lib/armor-class/armor-class.component';
 export { DefenceIcons } from './lib/defences/defence-icons/defence-icons.component';
 export { DefenceKind } from './lib/defences/defence-kind';
 export { DefencesView } from './lib/defences/defences.component';
+export { SenseIcons } from './lib/senses/sense-icons/sense-icons.component';
 export { SensesView } from './lib/senses/senses.component';
+export { SpeedRows, type SpeedRow } from './lib/speeds/speed-rows.component';
+export { Movement } from './lib/speeds/speeds-messages';
 export { ContentPreview } from './lib/entry-preview/content-preview.component';
 export { EntryPreviewView } from './lib/entry-preview/entry-preview.component';
 export {
