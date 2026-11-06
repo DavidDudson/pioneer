@@ -28,12 +28,15 @@ export const ActionOriginKind = {
   Skill: 'skill',
   /** Something the character has gives it: a feat, feature, item, spell or condition. */
   Granted: 'granted',
+  /** An item the character owns: a consumable, an activation or a staff's spell. The sheet adds these beside the engine's. */
+  Item: 'item',
 } as const;
 export type ActionOriginKind = ValueOf<typeof ActionOriginKind>;
 
 export type ActionOrigin =
   | { readonly kind: typeof ActionOriginKind.Basic }
   | { readonly kind: typeof ActionOriginKind.Skill }
+  | { readonly kind: typeof ActionOriginKind.Item }
   | { readonly kind: typeof ActionOriginKind.Granted; readonly source: Origin };
 
 /** An action a character may have, with how it came to be on the list. */

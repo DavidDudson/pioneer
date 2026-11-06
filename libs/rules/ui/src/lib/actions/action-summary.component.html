@@ -5,10 +5,10 @@
     }
     <fr-text variant="caption" tone="muted">{{ action().detail }}</fr-text>
   </fr-stack>
-  @if (action().line.traits.length > 0) {
+  @if (badges().length > 0) {
     <fr-stack gap="2xs" direction="horizontal" wrap>
-      @for (trait of action().line.traits; track trait) {
-        <fr-badge>{{ trait }}</fr-badge>
+      @for (badge of badges(); track badge) {
+        <fr-badge>{{ badge }}</fr-badge>
       }
     </fr-stack>
   }
