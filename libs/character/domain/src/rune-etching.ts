@@ -10,7 +10,7 @@ const PROPERTY_RUNES_STORED_MAX = 20;
 const RUNE_CHOICE_MAX_LENGTH = 64;
 
 /** What the crafter chose when etching a rune made for one thing: an energy's damage type, a creature type. */
-const RuneChoice = z.string().min(1).max(RUNE_CHOICE_MAX_LENGTH).brand<'RuneChoice'>();
+export const RuneChoice = z.string().min(1).max(RUNE_CHOICE_MAX_LENGTH).brand<'RuneChoice'>();
 export type RuneChoice = z.infer<typeof RuneChoice>;
 
 /** A property rune etched onto an item: the rune, and the crafter's choice when the rune asks for one. */
