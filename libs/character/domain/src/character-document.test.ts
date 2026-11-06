@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
+import { ChoiceValue, ContentId, SlotKey } from '@pioneer/rules/sdk';
 
 import { CorruptCharacterDocumentError, decodeCharacterDocument } from './character-document';
 import {
@@ -93,6 +93,13 @@ describe('decodeCharacterDocument', () => {
     const upgraded = decodeCharacterDocument(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(5)));
     expect(upgraded.appearance).toStrictEqual([]);
     expect(upgraded.personality).toStrictEqual([]);
+  });
+
+  test("upgrades a version 20 document's property runes to etched runes with no choice", () => {
+    const upgraded = decodeCharacterDocument(PAST_DOCUMENTS.get(CharacterSchemaVersion.parse(20)));
+    expect(upgraded.inventory.items[0]?.runes?.property).toStrictEqual([
+      { rune: ContentId.parse('0b6c8f5e-1c1a-4f7e-9a39-6e1b1d1b5c13') },
+    ]);
   });
 
   test('reads an override and its earlier states from a version 14 document as the player’s', () => {

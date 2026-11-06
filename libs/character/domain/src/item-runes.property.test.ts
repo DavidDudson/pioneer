@@ -40,7 +40,7 @@ const swordRunes = record({
 }).map(({ property: etched, fundamental: { potency, striking } }) => ({
   potency,
   striking,
-  property: etched.slice(0, potency ?? 0),
+  property: etched.slice(0, potency ?? 0).map((rune) => ({ rune })),
 }));
 
 /** Two longswords with runes etched onto each. */
@@ -80,7 +80,7 @@ function allRunes(inventory: Inventory): readonly string[] {
       const { property: properties, ...fundamental } = etched;
       return [
         ...Object.entries(fundamental).flatMap(([kind, grade]) => (grade === undefined ? [] : [`${kind}:${grade}`])),
-        ...properties,
+        ...properties.map(({ rune }) => rune),
       ];
     })
     .toSorted();
@@ -104,7 +104,7 @@ describe('transferRune (properties)', () => {
         const [from, to] = moved.items;
         const on = (etched: InventoryItem | undefined): boolean =>
           rune.type === RuneType.Property
-            ? (etched?.runes?.property.includes(rune.rune) ?? false)
+            ? (etched?.runes?.property.some((each) => each.rune === rune.rune) ?? false)
             : etched?.runes?.[rune.rune] !== undefined;
         expect(on(from)).toBe(false);
         expect(on(to)).toBe(true);

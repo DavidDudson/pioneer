@@ -1,10 +1,11 @@
 import { FundamentalRune, RuneType } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 
 import type { Inventory, InventoryItem, InventoryItemId } from './inventory';
 import { hasRunes } from './item-runes';
-import { NO_RUNES } from './rune-etching';
-import type { ItemRunes, RuneEtching, RuneRef } from './rune-etching';
+import { NO_RUNES, sameEtchedRune } from './rune-etching';
+import type { EtchedRune, ItemRunes, RuneChoice, RuneEtching, RuneRef } from './rune-etching';
 
 function withRunes(item: InventoryItem, runes: ItemRunes): InventoryItem {
   const { runes: _old, ...rest } = item;
@@ -18,16 +19,30 @@ function changeRunes(inventory: Inventory, id: InventoryItemId, change: (runes: 
   };
 }
 
+/** The etched rune a property rune etching or reference names: the rune, and its choice when it has one. */
+function etchedOf({
+  rune,
+  choice,
+}: {
+  readonly rune: ContentId;
+  readonly choice?: RuneChoice | undefined;
+}): EtchedRune {
+  return choice === undefined ? { rune } : { rune, choice };
+}
+
 function plusRune(runes: ItemRunes, etching: RuneEtching): ItemRunes {
   if (etching.type === RuneType.Property) {
-    return runes.property.includes(etching.rune) ? runes : { ...runes, property: [...runes.property, etching.rune] };
+    const etched = etchedOf(etching);
+    return runes.property.some((each) => sameEtchedRune(each, etched))
+      ? runes
+      : { ...runes, property: [...runes.property, etched] };
   }
   return { ...runes, [etching.rune]: etching.grade };
 }
 
 function lessRune(runes: ItemRunes, rune: RuneRef): ItemRunes {
   if (rune.type === RuneType.Property) {
-    return { ...runes, property: runes.property.filter((each) => each !== rune.rune) };
+    return { ...runes, property: runes.property.filter((each) => !sameEtchedRune(each, etchedOf(rune))) };
   }
   const { [rune.rune]: _old, ...rest } = runes;
   return rest;
@@ -36,7 +51,7 @@ function lessRune(runes: ItemRunes, rune: RuneRef): ItemRunes {
 /** Rune `rune` as etched onto `runes`, a fundamental one at its grade; undefined when it isn't etched there. */
 export function etchingOf(runes: ItemRunes, rune: RuneRef): RuneEtching | undefined {
   if (rune.type === RuneType.Property) {
-    return runes.property.includes(rune.rune) ? rune : undefined;
+    return runes.property.some((each) => sameEtchedRune(each, etchedOf(rune))) ? rune : undefined;
   }
   if (rune.rune === FundamentalRune.Reinforcing) {
     const { reinforcing } = runes;

@@ -77,7 +77,7 @@ describe('the key item holders over the character context', () => {
     const line = lineOf(caliburn);
 
     expect(line).toMatchObject({ keyItem: caliburn.id, item: caliburn.base.item, name: 'Caliburn', quantity: 1 });
-    expect(line.runes?.property).toStrictEqual(caliburn.runes.property.map(({ rune }) => rune));
+    expect(line.runes?.property).toStrictEqual(caliburn.runes.property.map(({ rune }) => ({ rune })));
   });
 
   test('the top grades the campaign allows are ones the inventory stores', () => {
@@ -96,7 +96,7 @@ describe('the key item holders over the character context', () => {
 
   test('describes a line the way a key item copies it, and linking marks that same line', async () => {
     const id = InventoryItemId.parse(newId());
-    const property = Array.from({ length: 6 }, () => ContentId.parse(newId()));
+    const property = Array.from({ length: 6 }, () => ({ rune: ContentId.parse(newId()) }));
     const item = {
       id,
       item: ContentId.parse(newId()),

@@ -60,7 +60,7 @@ describe('etching runes', () => {
 
   test('fundamental and property runes are etched onto the item', () => {
     expect(runesOf(runedSword(), Armoury.Sword)).toStrictEqual(
-      runes({ potency: 2, striking: 1, property: [FLAMING_ID] }),
+      runes({ potency: 2, striking: 1, property: [{ rune: FLAMING_ID }] }),
     );
   });
 
@@ -77,7 +77,9 @@ describe('etching runes', () => {
   });
 
   test('a specific item has the runes printed on it, and a fundamental rune etched higher', () => {
-    expect(runesOf(armoury(), Armoury.Tongue)).toEqual(runes({ potency: 1, striking: 1, property: [FLAMING_ID] }));
+    expect(runesOf(armoury(), Armoury.Tongue)).toEqual(
+      runes({ potency: 1, striking: 1, property: [{ rune: FLAMING_ID }] }),
+    );
     const upgraded = etchRune(armoury(), Armoury.Tongue, fundamental(FundamentalRune.Potency, 2));
     expect(runesOf(upgraded, Armoury.Tongue).potency).toBe(RuneGrade.parse(2));
     const erased = eraseRune(upgraded, Armoury.Tongue, POTENCY);
@@ -90,7 +92,9 @@ describe('transferring runes', () => {
     let inventory = transferRune(runedSword(), { from: Armoury.Sword, to: Armoury.SpareSword, rune: POTENCY });
     inventory = transferRune(inventory, { from: Armoury.Sword, to: Armoury.SpareSword, rune: FLAMING });
     expect(runesOf(inventory, Armoury.Sword)).toStrictEqual(runes({ striking: 1, property: [] }));
-    expect(runesOf(inventory, Armoury.SpareSword)).toStrictEqual(runes({ potency: 2, property: [FLAMING_ID] }));
+    expect(runesOf(inventory, Armoury.SpareSword)).toStrictEqual(
+      runes({ potency: 2, property: [{ rune: FLAMING_ID }] }),
+    );
   });
 
   test('leaves the inventory as it was for a rune that is not etched', () => {
@@ -110,7 +114,7 @@ describe('property runes that work', () => {
   test('none without a potency rune, though they stay etched', () => {
     const inventory = eraseRune(runedSword(), Armoury.Sword, POTENCY);
     expect(working(inventory, Armoury.Sword)).toStrictEqual([]);
-    expect(runesOf(inventory, Armoury.Sword).property).toStrictEqual([FLAMING_ID]);
+    expect(runesOf(inventory, Armoury.Sword).property).toStrictEqual([{ rune: FLAMING_ID }]);
   });
 
   test("all of a specific item's, whatever its potency", () => {

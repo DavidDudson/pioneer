@@ -63,7 +63,7 @@ export class CharacterKeyItemPromotion {
       itemName,
       name: line.name ?? itemName,
       runes: line.runes,
-      property: (line.runes?.property ?? []).map((rune) => ({ rune, name: runes.get(rune)?.name ?? rune })),
+      property: (line.runes?.property ?? []).map(({ rune }) => ({ rune, name: runes.get(rune)?.name ?? rune })),
       keyItem: line.keyItem,
     };
   }

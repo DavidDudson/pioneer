@@ -48,7 +48,7 @@ describe('CharacterKeyItemPromotion', () => {
         quantity: ItemQuantity.parse(1),
         name: InventoryItemName.parse('Caliburn'),
         carry: STOWED,
-        runes: ItemRunesSchema.parse({ property: [flaming] }),
+        runes: ItemRunesSchema.parse({ property: [{ rune: flaming }] }),
       },
     ];
     mordred = await repository.update(

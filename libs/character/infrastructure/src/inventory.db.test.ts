@@ -205,7 +205,7 @@ describe.skipIf(adminUrl === undefined)('inventory edits (postgres)', () => {
 
     const stored = await service.get(fixtureOwnerId, created.id);
     expect(onlyItem(stored).runes).toStrictEqual(
-      ItemRunesSchema.parse({ potency: 1, property: [runeFixtureId(RuneFixture.Flaming)] }),
+      ItemRunesSchema.parse({ potency: 1, property: [{ rune: runeFixtureId(RuneFixture.Flaming) }] }),
     );
   });
 });

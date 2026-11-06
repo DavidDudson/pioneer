@@ -9,6 +9,7 @@ import { isSpecific, itemRunes, propertyRoom } from './item-runes';
 import type { RunedContent } from './item-runes';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
+import { sameEtchedRune } from './rune-etching';
 import { propertyFitRefusal, runedLine } from './rune-refusal';
 
 /** A rule an inventory can break. */
@@ -85,11 +86,11 @@ function propertyViolations(content: RunedContent, inventory: Inventory, limits:
     // Each rune is read against the item's other runes, as it was when etched.
     const misfits: RuneViolation[] = runes.property
       .filter((rune) => {
-        const others = runes.property.filter((each) => each !== rune);
+        const others = runes.property.filter((each) => !sameEtchedRune(each, rune));
         const without = { ...item, runes: { ...runes, property: others } };
-        return propertyFitRefusal(content.runes, { ...line, item: without }, rune) !== undefined;
+        return propertyFitRefusal(content.runes, { ...line, item: without }, rune.rune) !== undefined;
       })
-      .map((rune) => ({ item: item.id, rule: RuleBreak.RuneNotAllowed, rune }));
+      .map((rune) => ({ item: item.id, rule: RuleBreak.RuneNotAllowed, rune: rune.rune }));
     return [...count, ...misfits];
   });
 }
