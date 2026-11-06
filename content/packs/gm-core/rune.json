@@ -4680,7 +4680,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["etched-damage"],
+        "category": "splash",
+        "damageType": "bludgeoning",
+        "perWeaponDie": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.QNaCujl2faKRyLD1"
     },
