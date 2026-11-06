@@ -16,8 +16,9 @@ const ETCHED_DAMAGE = 'etched-damage';
  * a conditional action; returning, extending and shifting are activations or movement the sheet does not model; the
  * rooting family is a critical-hit effect on the target (a condition it can't yet apply).
  *
- * Why the target-dependent runes stay here: bane and energy vulnerability name a creature type or energy the crafter
- * or wielder picks; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
+ * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and the engine builds its
+ * damage from the etched choice (`chosenRuneRules`), so its `rules` stay empty; energy vulnerability gives the target a
+ * weakness, which no element applies yet; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
  * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic runes
  * need the mythic rules.
  */

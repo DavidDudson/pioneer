@@ -5,7 +5,7 @@ import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { equippedRules } from './equipped';
 import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, investItem, ItemQuantity } from './inventory';
-import { CarryState } from './item-carry';
+import { CarryState, ONE_HAND } from './item-carry';
 import { etchRune } from './rune-edits';
 import { RuneChoice } from './rune-etching';
 import type { RuneEtching } from './rune-etching';
@@ -48,6 +48,51 @@ function rulesOfArmor(...etchings: readonly RuneEtching[]): readonly object[] {
   const document = { ...new CharacterBuilder().build().document, inventory: investItem(inventory, ARMOR, true) };
   return equippedRules(document, content, slots).rules.map(({ element }) => element);
 }
+
+const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-000000000001');
+
+/** The rules in play for a longsword held in one hand at +1 with `etchings` etched onto it. */
+function rulesOfSword(...etchings: readonly RuneEtching[]): readonly object[] {
+  let inventory = addItem(EMPTY_INVENTORY, {
+    id: SWORD,
+    item: itemFixtureId(ItemFixture.Longsword),
+    quantity: ItemQuantity.parse(1),
+    container: undefined,
+  });
+  inventory = carryItem(inventory, SWORD, { state: CarryState.Held, hands: ONE_HAND });
+  inventory = etchRune(inventory, SWORD, fundamental(FundamentalRune.Potency, 1));
+  for (const etching of etchings) {
+    inventory = etchRune(inventory, SWORD, etching);
+  }
+  const document = { ...new CharacterBuilder().build().document, inventory };
+  return equippedRules(document, content, slots).rules.map(({ element }) => element);
+}
+
+describe('bane runes', () => {
+  test('add 1d6 damage against creatures of the type their crafter chose', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.Bane, 'dragon'))).toStrictEqual([
+      {
+        key: 'DamageDice',
+        selectors: ['etched-damage'],
+        diceNumber: 1,
+        dieSize: 'd6',
+        predicate: [{ or: ['target:trait:dragon'] }],
+      },
+    ]);
+  });
+
+  test('reach both traits for the fungus and plant choice', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.Bane, 'fungus-plant'))).toMatchObject([
+      { predicate: [{ or: ['target:trait:fungus', 'target:trait:plant'] }] },
+    ]);
+  });
+
+  test('give nothing with no choice, or for a humanoid or undead', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.Bane))).toStrictEqual([]);
+    expect(rulesOfSword(energyRune(RuneFixture.Bane, 'undead'))).toStrictEqual([]);
+    expect(rulesOfSword(energyRune(RuneFixture.Bane, 'humanoid'))).toStrictEqual([]);
+  });
+});
 
 describe('energy-resistant runes', () => {
   test('give a resistance to each type their crafters chose, 5 and 10 by grade', () => {

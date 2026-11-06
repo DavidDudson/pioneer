@@ -3,7 +3,7 @@ import type { ContentId, RunedItem } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
-import { resistsChosenType, runeChoices } from './etched-rune-rules';
+import { choiceIsDistinct, runeChoices } from './etched-rune-rules';
 import { meetsRestriction } from './etching-restriction';
 import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
@@ -99,7 +99,7 @@ function choiceRefusal(runes: RuneContent, current: ItemRunes, etching: Property
   }
   const taken = current.property.some((each) => {
     const other = runes.get(each.rune);
-    return other !== undefined && resistsChosenType(other) && each.choice === etching.choice;
+    return other !== undefined && choiceIsDistinct(other) && each.choice === etching.choice;
   });
   return taken ? runeRefused(message('character.validation.runeChoiceTaken')) : undefined;
 }
