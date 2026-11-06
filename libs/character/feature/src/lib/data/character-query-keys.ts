@@ -12,5 +12,6 @@ export const characterKeys = {
   variantRules: (id: CharacterId | undefined) => [...characterKeys.all, 'variant-rules', id] as const,
   ruleLimits: (id: CharacterId | undefined) => [...characterKeys.all, 'rule-limits', id] as const,
   ruleLimitSettings: (id: CharacterId | undefined) => [...characterKeys.all, 'rule-limit-settings', id] as const,
+  itemApprovals: (id: CharacterId | undefined) => [...characterKeys.all, 'item-approvals', id] as const,
   unenabled: (id: CharacterId | undefined) => [...characterKeys.all, 'unenabled-content', id] as const,
 };

@@ -17,6 +17,7 @@ export const InventoryMessage = {
   Melded: 'rules.inventory.melded',
   RuleBreaking: 'rules.inventory.ruleBreaking',
   ApprovedByGm: 'rules.inventory.approvedByGm',
+  AcknowledgedByOwner: 'rules.inventory.acknowledgedByOwner',
   KeyItem: 'rules.inventory.keyItem',
   Load: 'rules.inventory.load',
   LoadUnlimited: 'rules.inventory.loadUnlimited',

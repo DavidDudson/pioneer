@@ -14,6 +14,7 @@ export const ARCHIVABLE_TABLES: ReadonlySet<string> = new Set([
   'contentPacks',
   'campaignItemApprovals',
   'campaignKeyItems',
+  'characterItemAcknowledgements',
 ]);
 
 interface DeleteCallShape {

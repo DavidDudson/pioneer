@@ -20,6 +20,7 @@ import { CharacterStore } from '../../../data/character-store';
 import { sheetField } from '../../sheet-field';
 import { CarryChoice, carryOf, choiceOf } from '../carry-options';
 import { injectCarryPicker } from '../carry-picker';
+import { ItemAcknowledge } from '../item-acknowledge/item-acknowledge.component';
 import { ItemRemove } from '../item-remove/item-remove.component';
 import { injectPlacePicker } from '../place-picker';
 import { LOOSE } from '../sheet-inventory';
@@ -46,7 +47,18 @@ interface InvestLabels {
  */
 @Component({
   selector: 'pio-item-edits',
-  imports: [Grid, InlineField, ItemRemove, NumberInput, Picker, Stack, TextInput, ToggleButton, TranslocoPipe],
+  imports: [
+    Grid,
+    InlineField,
+    ItemAcknowledge,
+    ItemRemove,
+    NumberInput,
+    Picker,
+    Stack,
+    TextInput,
+    ToggleButton,
+    TranslocoPipe,
+  ],
   templateUrl: './item-edits.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -743,8 +743,16 @@ export { explorationAction, isExplorationActivity, PERCEPTION, suggestedInitiati
 export { untypedDamage } from './untyped-damage';
 export { INITIATIVE, initiativeRoll } from './initiative-roll';
 export type { RollAs } from './initiative-roll';
-export { CharacterItemApprovals, covers, ItemApproval, partitionApproved, violationCount } from './item-approvals';
-export type { ApprovedViolations } from './item-approvals';
+export {
+  AcknowledgeItemBody,
+  CharacterItemApprovals,
+  covers,
+  ItemAcknowledgementId,
+  ItemApproval,
+  partitionApproved,
+  violationCount,
+} from './item-approvals';
+export type { ApprovedViolations, ItemAcknowledgement } from './item-approvals';
 export {
   ACTIVE_SPELLS_MAX,
   activeSpellOf,

@@ -109,9 +109,18 @@ lets a GM change them for a campaign, and lets a character outside a campaign se
   violations with `partitionApproved`. An approved reason moves from the warning to an "approved by the GM" tag, and the
   header counts only the items that still warn. The campaign's `approves` and the character's `covers` are the same
   rule written in each context; a test in `apps/api` holds the rule names together.
-- **A character outside a campaign has no approvals, so its warnings stay.** Whether the owner may acknowledge them is
-  an open question on the epic (#919), not decided here. Leaving a campaign takes the approvals away with it, as they
-  belong to the campaign; they come back if the character returns to that campaign.
+- **A character outside a campaign has no GM, so its owner acknowledges its warnings.** An acknowledgement is an
+  approval written by the owner: a row in `character_item_acknowledgements` (character, item, rule, rune, the count
+  acknowledged, who and when), audited, and archived when taken back, never deleted (ADR-0062). It covers the line up
+  to the count acknowledged, so the warning comes back if the item grows, and it filters the same violations with
+  `partitionApproved`. `POST /characters/:id/item-acknowledgements` and
+  `DELETE /characters/:id/item-acknowledgements/:acknowledgementId` are owner only (a non-owner gets a 404); in a
+  campaign they are a 409, as its GM approves. The sheet shows an acknowledged reason under an "acknowledged by the
+  owner" tag, apart from "approved by the GM". Joining a campaign keeps the acknowledgements but they no longer count,
+  so only its GM silences a warning there; leaving brings them back. The item keeps working while it is flagged,
+  approved or not: a warning is an observation (decided on the epic, #919).
+- Leaving a campaign takes the campaign's approvals away with it, as they belong to the campaign; they come back if the
+  character returns to that campaign.
 
 ## A GM gives a character a key item
 

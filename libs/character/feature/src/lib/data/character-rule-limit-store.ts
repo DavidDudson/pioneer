@@ -1,9 +1,17 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
 import { CharacterContract, CORE_RULE_LIMITS } from '@pioneer/character/domain';
-import type { AttachedCampaignId, CharacterItemApprovals, ItemApproval, RuleLimits } from '@pioneer/character/domain';
+import type {
+  AcknowledgeItemBody,
+  AttachedCampaignId,
+  CharacterId,
+  CharacterItemApprovals,
+  ItemAcknowledgementId,
+  ItemApproval,
+  RuleLimits,
+} from '@pioneer/character/domain';
 import { ApiClient } from '@pioneer/shared/web';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, QueryClient } from '@tanstack/angular-query-experimental';
 
 import { characterKeys } from './character-query-keys';
 import { CharacterStore } from './character-store';
@@ -12,6 +20,8 @@ import { CharacterStore } from './character-store';
 export interface TableRules {
   readonly limits: RuleLimits;
   readonly approvals: readonly ItemApproval[];
+  /** Whether the owner may acknowledge a warning: a character outside a campaign has no GM to approve it. */
+  readonly acknowledgeable?: boolean | undefined;
   /** The campaign it comes from, which a key item on the sheet links back to; none outside a campaign. */
   readonly campaign?: AttachedCampaignId | undefined;
 }
@@ -27,6 +37,7 @@ export const CORE_TABLE: TableRules = { limits: CORE_RULE_LIMITS, approvals: [] 
 @Injectable()
 export class CharacterRuleLimitStore {
   readonly #api = inject(ApiClient);
+  readonly #client = inject(QueryClient);
   readonly #characters = inject(CharacterStore);
   readonly #id = computed(() => this.#characters.selected()?.id);
 
@@ -54,7 +65,7 @@ export class CharacterRuleLimitStore {
   public readonly approvalsQuery = injectQuery(() => {
     const id = this.#id();
     return {
-      queryKey: [...characterKeys.all, 'item-approvals', id],
+      queryKey: characterKeys.itemApprovals(id),
       queryFn: async (): Promise<CharacterItemApprovals> => {
         if (id === undefined) {
           throw new Error('No character selected');
@@ -64,6 +75,31 @@ export class CharacterRuleLimitStore {
       enabled: id !== undefined && this.#approvalsWanted(),
     };
   });
+
+  /** The owner acknowledges a rule-breaking line of the open character, which silences its warning. */
+  public async acknowledge(target: AcknowledgeItemBody): Promise<void> {
+    const id = this.#openId();
+    await this.#api.call(CharacterContract.acknowledgeItem, { params: { id }, body: target });
+    await this.#client.invalidateQueries({ queryKey: characterKeys.itemApprovals(id) });
+  }
+
+  /** The owner takes an acknowledgement back, so the warning returns. */
+  public async revoke(acknowledgement: ItemAcknowledgementId): Promise<void> {
+    const id = this.#openId();
+    await this.#api.call(CharacterContract.revokeItemAcknowledgement, {
+      params: { id, acknowledgementId: acknowledgement },
+      body: undefined,
+    });
+    await this.#client.invalidateQueries({ queryKey: characterKeys.itemApprovals(id) });
+  }
+
+  #openId(): CharacterId {
+    const id = this.#id();
+    if (id === undefined) {
+      throw new Error('No character selected');
+    }
+    return id;
+  }
 
   /** Asks for the approvals: called by the panels that show them, as they open. */
   public wantApprovals(): void {
@@ -78,5 +114,6 @@ export class CharacterRuleLimitStore {
     limits: this.limits(),
     approvals: this.approvalsQuery.data()?.approvals ?? CORE_TABLE.approvals,
     campaign: this.approvalsQuery.data()?.campaign,
+    acknowledgeable: this.approvalsQuery.data()?.acknowledgeable,
   }));
 }

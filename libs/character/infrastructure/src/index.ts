@@ -13,12 +13,19 @@ export { characterFeatDisplays } from './character.table';
 export { DrizzleFeatDisplayRepository } from './drizzle-feat-display-repository';
 export { featDisplayRoutes } from './feat-display-routes';
 export { pioneerFileRoutes } from './pioneer-file-routes';
-export { characterPacks, characterRuleLimits, characterVariantRules } from './character.table';
+export {
+  characterItemAcknowledgements,
+  characterPacks,
+  characterRuleLimits,
+  characterVariantRules,
+} from './character.table';
+export { DrizzleCharacterItemAcknowledgementRepository } from './drizzle-character-item-acknowledgement-repository';
 export { DrizzleCharacterPackRepository } from './drizzle-character-pack-repository';
 export { characterAllyRoutes } from './character-ally-routes';
 export { characterPackRoutes } from './character-pack-routes';
 export { DrizzleCharacterVariantRepository } from './drizzle-character-variant-repository';
 export { characterVariantRoutes } from './character-variant-routes';
 export { DrizzleCharacterRuleLimitRepository } from './drizzle-character-rule-limit-repository';
+export { characterItemApprovalRoutes } from './character-item-approval-routes';
 export { characterRuleLimitRoutes } from './character-rule-limit-routes';
 export { characterUnenabledRoutes } from './character-unenabled-routes';

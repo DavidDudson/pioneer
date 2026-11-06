@@ -1,0 +1,20 @@
+<fr-stack direction="horizontal" justify="end">
+  @if (open().length > 0) {
+    <fr-async-button
+      size="sm"
+      [action]="acknowledge"
+      [pendingLabel]="'character.sheet.inventory.acknowledging' | transloco"
+    >
+      {{ 'character.sheet.inventory.acknowledge' | transloco: { name: name() } }}
+    </fr-async-button>
+  }
+  @if (acknowledged().length > 0) {
+    <fr-async-button
+      size="sm"
+      [action]="revoke"
+      [pendingLabel]="'character.sheet.inventory.acknowledgementRevoking' | transloco"
+    >
+      {{ 'character.sheet.inventory.acknowledgementRevoke' | transloco: { name: name() } }}
+    </fr-async-button>
+  }
+</fr-stack>

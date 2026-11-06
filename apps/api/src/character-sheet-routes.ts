@@ -7,6 +7,7 @@ import {
 import type {
   CharacterAllyService,
   CharacterContentSource,
+  CharacterItemApprovalService,
   CharacterPackService,
   CharacterRuleLimitService,
   CharacterService,
@@ -15,6 +16,7 @@ import type {
 } from '@pioneer/character/application';
 import {
   characterAllyRoutes,
+  characterItemApprovalRoutes,
   characterPackRoutes,
   characterRuleLimitRoutes,
   characterSheetBundleRoutes,
@@ -38,6 +40,7 @@ export interface CharacterSheetServices {
   readonly allies: CharacterAllyService;
   readonly variants: CharacterVariantService;
   readonly ruleLimits: CharacterRuleLimitService;
+  readonly itemApprovals: CharacterItemApprovalService;
   readonly unenabled: CharacterUnenabledService;
 }
 
@@ -68,6 +71,7 @@ export function characterSheetRoutes(ports: CharacterSheetRoutesPorts): Contract
     .use(characterPackRoutes(services.packs, authenticator))
     .use(characterVariantRoutes(services.variants, authenticator))
     .use(characterRuleLimitRoutes(services.ruleLimits, authenticator))
+    .use(characterItemApprovalRoutes(services.itemApprovals, authenticator))
     .use(characterUnenabledRoutes(services.unenabled, authenticator))
     .use(playRoutes(play, authenticator))
     .use(characterSheetBundleRoutes(bundle, authenticator));

@@ -7,9 +7,10 @@ import {
   RuleLimitFieldSchema,
   SetRuleLimitSettingBody,
 } from './character-rule-limit-settings';
-import { CharacterItemApprovals } from './item-approvals';
+import { AcknowledgeItemBody, CharacterItemApprovals, ItemAcknowledgementId } from './item-approvals';
 
 const ById = z.object({ id: CharacterId });
+const ByAcknowledgement = z.object({ id: CharacterId, acknowledgementId: ItemAcknowledgementId });
 const ByRuleLimit = z.object({ id: CharacterId, limit: RuleLimitFieldSchema });
 
 /**
@@ -22,6 +23,28 @@ export const CharacterRuleLimitContract = {
     method: HttpMethod.Get,
     path: '/characters/:id/item-approvals',
     params: ById,
+    query: NoQuery,
+    body: NoBody,
+    response: CharacterItemApprovals,
+  }),
+  /**
+   * Owner only: acknowledges a rule-breaking line of a character outside a campaign, at the count it breaks the rule by
+   * now, so its warning goes quiet. A character in a campaign has a GM to approve instead: 409. A line that breaks no
+   * such rule is a 404. Acknowledging it again replaces the count.
+   */
+  acknowledgeItem: new Endpoint({
+    method: HttpMethod.Post,
+    path: '/characters/:id/item-acknowledgements',
+    params: ById,
+    query: NoQuery,
+    body: AcknowledgeItemBody,
+    response: CharacterItemApprovals,
+  }),
+  /** Owner only: takes an acknowledgement back so the warning returns; one already revoked is no change. */
+  revokeItemAcknowledgement: new Endpoint({
+    method: HttpMethod.Delete,
+    path: '/characters/:id/item-acknowledgements/:acknowledgementId',
+    params: ByAcknowledgement,
     query: NoQuery,
     body: NoBody,
     response: CharacterItemApprovals,
