@@ -34,8 +34,8 @@ export class SheetModeService {
   }
 
   async #assertAccess(actor: UserId, id: CharacterId): Promise<void> {
-    const character = await this.#characters.findById(id);
-    if (character === undefined || !mayAccessCharacter(actor, character)) {
+    const ownerId = await this.#characters.findOwner(id);
+    if (ownerId === undefined || !mayAccessCharacter(actor, { ownerId })) {
       throw new NotFoundError('Character', id);
     }
   }

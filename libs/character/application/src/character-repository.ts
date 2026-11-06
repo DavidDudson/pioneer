@@ -38,6 +38,9 @@ export abstract class CharacterRepository {
   /** Any owner's live character; an archived one reads as missing. The service applies the access policy. */
   public abstract findById(id: CharacterId): Promise<Character | undefined>;
 
+  /** The owner of a live character, without reading its document; undefined for a missing or archived one. */
+  public abstract findOwner(id: CharacterId): Promise<UserId | undefined>;
+
   /** Any owner's live characters among `ids`, in one read; archived and unknown ids are left out. */
   public abstract findByIds(ids: readonly CharacterId[]): Promise<readonly Character[]>;
 

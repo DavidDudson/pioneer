@@ -8,7 +8,7 @@ import type { CharacterCampaignRoles } from './character-campaign-roles';
  * Who may read or change a character (ADR-0007): only its owner. Services treat a refusal as
  * not found, so another user's character ids reveal nothing.
  */
-export function mayAccessCharacter(actor: UserId, character: Character): boolean {
+export function mayAccessCharacter(actor: UserId, character: Pick<Character, 'ownerId'>): boolean {
   return character.ownerId === actor;
 }
 

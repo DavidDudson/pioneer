@@ -3,6 +3,7 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import {
   CharacterCommand,
   CharacterDocumentSchema,
+  CharacterId,
   CharacterLevel,
   CharacterName,
   CharacterPatchField,
@@ -11,7 +12,7 @@ import {
   CURRENT_SCHEMA_VERSION,
   StoredCharacterDocument,
 } from '@pioneer/character/domain';
-import type { Character, CharacterId } from '@pioneer/character/domain';
+import type { Character } from '@pioneer/character/domain';
 import { CharacterBuilder, fixtureOwnerId, humanAncestryId, PAST_DOCUMENTS } from '@pioneer/character/domain/testing';
 import {
   FIRST_VERSION,
@@ -140,6 +141,16 @@ describe.skipIf(adminUrl === undefined)('DrizzleCharacterRepository (postgres)',
     expect(theirs.map((character) => character.id)).toStrictEqual([seelah.id]);
     const mine = await repository.listForOwner(fixtureOwnerId, byName);
     expect(mine.map((character) => character.id)).not.toContain(seelah.id);
+  });
+
+  test('finds a live character’s owner without its document', async () => {
+    const owned = new CharacterBuilder().named('Owner Lookup').ownedBy(otherOwnerId).build();
+    await repository.insert(owned, created);
+    expect(await repository.findOwner(owned.id)).toBe(otherOwnerId);
+    const unknownId = CharacterId.parse(newId());
+    expect(await repository.findOwner(unknownId)).toBeUndefined();
+    await repository.archive(owned.id, later, created);
+    expect(await repository.findOwner(owned.id)).toBeUndefined();
   });
 
   test('an owner must be an existing user', async () => {

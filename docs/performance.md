@@ -112,3 +112,12 @@ Gzip adds about 3.5 ms to an uncached manifest response and cuts it 80%. The man
 
 The manifest keeps `max-age=10`. A 304 is already cheap, and the short window is what lets a re-seed reach browsers in
 seconds, so lengthening it trades that for few saved requests. That is a product call; nothing here argues for it.
+
+### Sheet mode ownership and the connection time zone
+
+`SheetModeService` now asks the repository for a character's owner (`CharacterRepository.findOwner`, one indexed
+column) instead of loading the whole character document to check access. The statement count for `/sheet-mode` stays
+at 4 on the probe; what goes is the `document` and play-state read and its parse.
+
+`connect` sets the connection `TimeZone` to UTC. A `timestamptz` comes back as text in the session's zone, so a
+database set to another zone returned `sessions.expires_at` shifted in dev.

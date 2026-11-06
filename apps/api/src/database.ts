@@ -1,3 +1,4 @@
+import { SQL } from 'bun';
 import { drizzle } from 'drizzle-orm/bun-sql';
 import type { BunSQLDatabase } from 'drizzle-orm/bun-sql';
 import { migrate } from 'drizzle-orm/bun-sql/migrator';
@@ -7,8 +8,12 @@ export type Database = BunSQLDatabase<Record<string, unknown>> & { readonly $cli
 /** Session advisory lock key held while migrating. Any fixed value works; every instance must use the same one. */
 const MIGRATION_LOCK = 109_001;
 
+/**
+ * Every connection runs in UTC, whatever the server's `TimeZone` is. A `timestamptz` is read back as text in the
+ * session's zone, so a database set to another one would hand `expires_at` back shifted.
+ */
 export function connect(url: string): Database {
-  return drizzle(url, { casing: 'snake_case' });
+  return drizzle({ client: new SQL({ url, connection: { TimeZone: 'UTC' } }), casing: 'snake_case' });
 }
 
 /**
