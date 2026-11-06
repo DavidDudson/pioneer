@@ -1,8 +1,8 @@
 <fr-surface padding="sm">
   <fr-async-region>
-    <ng-template frAsyncPending><pio-attributes compact [modifiers]="undefined" /></ng-template>
+    <ng-template frAsyncPending><pio-attribute-rolls [modifiers]="undefined" /></ng-template>
     <ng-template [frAsyncData]="sheet.registry">
-      <pio-attributes compact [modifiers]="picks.attributes()?.modifiers" />
+      <pio-attribute-rolls [modifiers]="picks.attributes()?.modifiers" (rolled)="roll($event)" />
     </ng-template>
   </fr-async-region>
 </fr-surface>

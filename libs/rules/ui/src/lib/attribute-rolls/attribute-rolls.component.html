@@ -1,0 +1,19 @@
+<fr-stack gap="xs">
+  @for (row of rows(); track row.attribute) {
+    <fr-stack direction="horizontal" justify="between" align="center" gap="xs">
+      <fr-text>{{ row.name | transloco }}</fr-text>
+      @if (row.modifier === undefined) {
+        <fr-skeleton width="xs" />
+      } @else {
+        <fr-button
+          [variant]="outline"
+          [size]="small"
+          [ariaLabel]="Message.Roll | transloco: { name: row.name | transloco, modifier: row.label }"
+          (pressed)="rolled.emit({ name: row.name, modifier: row.modifier })"
+        >
+          <fr-text monospace minWidth="modifier">{{ row.label }}</fr-text>
+        </fr-button>
+      }
+    </fr-stack>
+  }
+</fr-stack>
