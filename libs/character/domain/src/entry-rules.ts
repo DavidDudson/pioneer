@@ -1,8 +1,9 @@
 import { RuleInPlay } from '@pioneer/rules/engine';
-import type { GrantEntry, GrantResolution } from '@pioneer/rules/grants';
+import type { ContentLookup, GrantEntry, GrantResolution } from '@pioneer/rules/grants';
 import { ContentKind, Level, OriginHopKind } from '@pioneer/rules/sdk';
 import type { Origin } from '@pioneer/rules/sdk';
 
+import { chosenRuneRules } from './etched-rune-rules';
 import type { Inventory } from './inventory';
 import type { ItemContent } from './inventory-content';
 
@@ -52,6 +53,18 @@ export function rulesOf(
         }),
       ),
     );
+}
+
+/** The rule elements of the inventory's resolved entries, and the resistances its runes' choices give. */
+export function equippedRulesOf(
+  resolution: GrantResolution,
+  context: EntryContext,
+  lookup: ContentLookup,
+): RuleInPlay[] {
+  return [
+    ...rulesOf(resolution, context, fromInventory),
+    ...chosenRuneRules(context.inventory, context.content, lookup),
+  ];
 }
 
 const IN_PLAY_HOPS: ReadonlySet<OriginHopKind> = new Set([

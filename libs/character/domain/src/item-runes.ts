@@ -140,6 +140,19 @@ export function propertyRoom(runes: ItemRunes, limits: RuleLimits = CORE_RULE_LI
 }
 
 /**
+ * The etched property runes that work on `item`. A specific item's all work; on any other, as many as its potency
+ * rune's grade, first etched first. The rest stay etched, doing nothing, until a potency rune is etched high enough.
+ */
+export function workingEtchedRunes(
+  item: InventoryItem,
+  entry: ItemEntry | undefined,
+  limits: RuleLimits = CORE_RULE_LIMITS,
+): readonly EtchedRune[] {
+  const runes = itemRunes(item, entry);
+  return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
+}
+
+/**
  * The property runes that work on `item`. A specific item's all work; on any other, as many as its potency rune's
  * grade, first etched first. The rest stay etched, doing nothing, until a potency rune is etched high enough.
  */
@@ -148,9 +161,7 @@ export function workingPropertyRunes(
   entry: ItemEntry | undefined,
   limits: RuleLimits = CORE_RULE_LIMITS,
 ): readonly ContentId[] {
-  const runes = itemRunes(item, entry);
-  const working = isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
-  return working.map(({ rune }) => rune);
+  return workingEtchedRunes(item, entry, limits).map(({ rune }) => rune);
 }
 
 /**

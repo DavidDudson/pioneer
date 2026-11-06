@@ -26,7 +26,7 @@ import { exclusiveEffects } from './effect-exclusivity';
 import { badgeOptions, effectRoots } from './effects';
 import type { ActiveEffect } from './effects';
 import { encumberedRoots } from './encumbered-roots';
-import { fromInventory, rulesOf } from './entry-rules';
+import { equippedRulesOf, fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
 import { environmentRoots } from './environments';
 import type { Inventory, InventoryItemId } from './inventory';
@@ -270,7 +270,7 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
   const resolution = equippedResolution(document, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
-  const rules = rulesOf(resolution, { inventory: document.inventory, content }, fromInventory);
+  const rules = equippedRulesOf(resolution, { inventory: document.inventory, content }, slots.lookup);
   return {
     rules,
     facts: factsUnderForm({ rules, facts: resolution.facts }),

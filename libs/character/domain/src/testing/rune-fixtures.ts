@@ -10,6 +10,9 @@ export const RuneFixture = {
   Keen: 'keen',
   /** An armour rune that gives +1 status to Will. */
   Shadow: 'shadow',
+  /** Armour runes made for one damage type, which the crafter chooses when etching them. */
+  EnergyResistant: 'energy-resistant',
+  EnergyResistantGreater: 'energy-resistant-greater',
   /** Alignment weapon runes, each refused on a weapon with the other. */
   Holy: 'holy',
   Unholy: 'unholy',
@@ -29,6 +32,11 @@ function weaponRune(restriction?: string): MagicItemFields {
   };
 }
 
+/** A property rune etched onto armour, with no rules of its own. */
+function armorRune(): MagicItemFields {
+  return { data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'armor' } } };
+}
+
 export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Flaming]: { ...weaponRune(), rules: [PERCEPTION_PLUS_ONE] },
   [RuneFixture.Frost]: weaponRune(),
@@ -36,6 +44,8 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Keen]: weaponRune('melee'),
   [RuneFixture.Holy]: weaponRune('without-unholy-rune'),
   [RuneFixture.Unholy]: weaponRune('without-holy-rune'),
+  [RuneFixture.EnergyResistant]: armorRune(),
+  [RuneFixture.EnergyResistantGreater]: armorRune(),
   [RuneFixture.Shadow]: {
     data: { bulk: 'negligible', type: 'property', etchedOnto: { item: 'armor' } },
     rules: [{ key: 'FlatModifier', selectors: ['will'], type: 'status', value: 1 }],
