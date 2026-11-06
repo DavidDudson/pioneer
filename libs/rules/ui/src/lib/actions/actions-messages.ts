@@ -29,6 +29,10 @@ export const ActionsMessage = {
   UseForOne: 'rules.actions.useForOne',
   /** The button that uses a variable-cost action for {count} actions. */
   UseForMany: 'rules.actions.useForMany',
+  /** Label of an action's trigger in its hover summary. */
+  SummaryTrigger: 'rules.actions.summary.trigger',
+  /** Label of what an action needs in its hover summary. */
+  SummaryRequirements: 'rules.actions.summary.requirements',
 } as const;
 
 /** How each action cost is worded, spelled out so the key check sees them. */

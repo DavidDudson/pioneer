@@ -14,6 +14,7 @@ import {
 import { cutTo } from '../testing/test-packs';
 import { INVENTORY_CONTENT_KINDS } from './inventory/sheet-inventory';
 import { sheetEntryPreview, sheetEntryPreviews, sheetFetchingPreviews } from './sheet-entry-previews';
+import { SheetSidePanelState } from './sheet-side-panel/sheet-side-panel-state';
 
 type SpellEntry = Extract<ContentEntry, { readonly kind: typeof ContentKind.Spell }>;
 
@@ -146,10 +147,16 @@ describe(sheetEntryPreviews, () => {
 function fetching(
   registry: Mock<LoadRegistry>,
   held: () => ContentRegistry | undefined = () => undefined,
+  sidePanel?: SheetSidePanelState,
 ): EntryPreviews {
   // The registry came from a module of its own; the loader here is a fake.
   TestBed.resetTestingModule();
-  TestBed.configureTestingModule({ providers: [{ provide: ContentLoader, useValue: { registry } }] });
+  TestBed.configureTestingModule({
+    providers: [
+      { provide: ContentLoader, useValue: { registry } },
+      ...(sidePanel === undefined ? [] : [{ provide: SheetSidePanelState, useValue: sidePanel }]),
+    ],
+  });
   return TestBed.runInInjectionContext(() => sheetFetchingPreviews(held, () => undefined));
 }
 function firstFeat(registry: ContentRegistry): ContentId {
@@ -204,5 +211,31 @@ describe(sheetFetchingPreviews, () => {
     await previews.load?.(id);
     expect(previews.target?.(id)).toBeDefined();
     expect(previews.target?.(missing)).toBeUndefined();
+  });
+
+  it('opens an entry in the side panel once the panel has loaded, on the page it is on', async () => {
+    const registry = await featRegistry();
+    const id = firstFeat(registry);
+    const slug = registry.packs.flatMap((pack) => pack.otherEntries).find((entry) => entry.id === id)?.slug;
+    const sidePanel = new SheetSidePanelState();
+    const previews = fetching(
+      vi.fn<LoadRegistry>(async () => registry),
+      () => registry,
+      sidePanel,
+    );
+
+    expect(previews.panel?.(id)).toBeUndefined();
+    sidePanel.panel.set(SheetSidePanelState);
+    expect(previews.panel?.(id)).toStrictEqual({ to: ['/'], queryParams: { drawer: 'open', se: slug } });
+  });
+
+  it('opens nothing in a side panel the app does not provide', async () => {
+    const registry = await featRegistry();
+    const previews = fetching(
+      vi.fn<LoadRegistry>(async () => registry),
+      () => registry,
+    );
+
+    expect(previews.panel?.(firstFeat(registry))).toBeUndefined();
   });
 });

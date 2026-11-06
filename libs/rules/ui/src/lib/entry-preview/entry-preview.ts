@@ -1,6 +1,7 @@
 import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
 import type { Params } from '@angular/router';
+import { DRAWER_OPEN, DRAWER_PARAM } from '@pioneer/frontier';
 import type { LinkTarget } from '@pioneer/frontier';
 import type { EffectLine, SpellAtRank } from '@pioneer/rules/engine';
 import { slugName } from '@pioneer/rules/sdk';
@@ -72,6 +73,25 @@ export interface StatisticLink {
   readonly queryParams?: Params;
 }
 
+/** The query parameters of a page's side panel, beside the drawer's own `drawer`. */
+export const SidePanelParam = {
+  /** The words searched for. */
+  Query: 'sq',
+  /** The entry being read, as `kind:name`, which is the entry's slug. */
+  Entry: 'se',
+} as const;
+
+/** Where an entry opens in the page's side panel: the page itself, with the query parameters that open the drawer on it. */
+export interface PanelLink {
+  readonly to: LinkTarget;
+  readonly queryParams: Params;
+}
+
+/** The query parameters that open the side panel on `entry`. */
+export function panelQuery(entry: ContentEntry): Params {
+  return { [DRAWER_PARAM]: DRAWER_OPEN, [SidePanelParam.Entry]: entry.slug };
+}
+
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */
 export interface EntryPreviews {
   /** The entry's preview, or `undefined` when it isn't loaded (its reference then shows without one). */
@@ -84,6 +104,8 @@ export interface EntryPreviews {
   readonly load?: (id: ContentId) => Promise<EntryPreview | undefined>;
   /** Where the entry opens in full (its page or panel), for the card's link; none when the page can't open it. */
   readonly target?: (id: ContentId) => LinkTarget | undefined;
+  /** Where the entry opens in the page's side panel; none when the page has no panel loaded. */
+  readonly panel?: (id: ContentId) => PanelLink | undefined;
   /**
    * Where the breakdown of the statistic `selector` opens, for the name in an effect line; none when the page shows
    * no breakdown, and the name is then plain text.

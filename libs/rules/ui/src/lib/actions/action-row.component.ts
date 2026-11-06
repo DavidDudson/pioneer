@@ -1,13 +1,15 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { ActionIcon, Badge, Stack } from '@pioneer/frontier';
+import { ActionIcon, Badge, HoverCard, HoverCardContent, Link, Stack, Text } from '@pioneer/frontier';
 import type { ActionIconCost, BadgeTone } from '@pioneer/frontier';
 import { ActionStatus } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 
-import { EntryNameCell } from '../picker-cells/entry-name-cell/entry-name-cell.component';
+import { ENTRY_PREVIEWS } from '../entry-preview/entry-preview';
+import type { PanelLink } from '../entry-preview/entry-preview';
 import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
 import type { ActionLine } from './action-line';
+import { ActionSummary } from './action-summary.component';
 import { ACTION_STATUS_MESSAGES } from './actions-messages';
 import { UseButtons } from './use-buttons.component';
 
@@ -39,12 +41,25 @@ const STATUS_TONES: Readonly<Record<ActionStatus, BadgeTone>> = {
 
 /**
  * One action of the list (`pio-actions`) as a compact row: its cost icon and name on the left, its roll and use buttons
- * on the right. Source, traits and reasons stay on the `ShownAction`, for the content panel. The status shows only when
- * asked for, as the Now view lists nothing unusable.
+ * on the right. Hovering or focusing the name shows the action's summary; when the page has a side panel the name
+ * opens the action there, and the roll and use buttons do not. The status shows only when asked for, as the Now view
+ * lists nothing unusable.
  */
 @Component({
   selector: 'pio-action-row',
-  imports: [ActionIcon, Badge, EntryNameCell, Stack, StatisticRoll, TranslocoPipe, UseButtons],
+  imports: [
+    ActionIcon,
+    ActionSummary,
+    Badge,
+    HoverCard,
+    HoverCardContent,
+    Link,
+    Stack,
+    StatisticRoll,
+    Text,
+    TranslocoPipe,
+    UseButtons,
+  ],
   templateUrl: './action-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -53,7 +68,11 @@ export class ActionRow {
   /** Whether to show the status, which the All view needs and the Now view does not. */
   public readonly showStatus = input(false);
 
+  readonly #previews = inject(ENTRY_PREVIEWS);
+
   protected readonly Check = StatisticKind.Check;
+  /** Where the name opens the action in the page's side panel; none when the page has no panel. */
+  protected readonly panel = computed((): PanelLink | undefined => this.#previews.panel?.(this.action().line.id));
   protected readonly statusKey = computed(() => ACTION_STATUS_MESSAGES[this.action().line.status]);
   protected readonly statusTone = computed(() => STATUS_TONES[this.action().line.status]);
 }

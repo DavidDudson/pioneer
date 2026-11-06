@@ -2,13 +2,8 @@ import type { ContentEntryRef } from '@pioneer/content/ui';
 
 import { BROWSE_KINDS } from '../browser/browse-kinds';
 
-/** The query parameters the sheet's side panel keeps in the address, beside the drawer's own `drawer`. */
-export const PanelParam = {
-  /** The words searched for. */
-  Query: 'sq',
-  /** The entry being read, as `kind:name`. */
-  Entry: 'se',
-} as const;
+/** The query parameters the sheet's side panel keeps in the address, beside the drawer's own `drawer`. The sheet shares them to open an entry. */
+export { SidePanelParam as PanelParam } from '@pioneer/rules/ui';
 
 const SEPARATOR = ':';
 

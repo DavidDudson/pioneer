@@ -34,7 +34,7 @@ async function render(view: ActionsViewKind): Promise<HTMLElement> {
 }
 
 function shownNames(host: HTMLElement): readonly string[] {
-  return [...host.querySelectorAll('pio-action-row pio-entry-name-cell')].map((cell) => cell.textContent.trim());
+  return [...host.querySelectorAll('pio-action-row fr-hover-card')].map((cell) => cell.textContent.trim());
 }
 
 describe('the compact action rows', () => {

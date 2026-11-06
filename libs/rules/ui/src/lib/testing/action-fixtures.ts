@@ -1,8 +1,18 @@
 import { ActionOriginKind, ActionStatus, EngineMessage } from '@pioneer/rules/engine';
-import { ActionCost, ActionMode, ContentId, contentId, EntrySlug, ModifierType, PackId } from '@pioneer/rules/sdk';
+import {
+  ActionCost,
+  ActionMode,
+  ContentId,
+  contentId,
+  EntrySlug,
+  ModifierType,
+  PackId,
+  RichText,
+} from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 
 import type { ActionLine } from '../actions/action-line';
+import type { ShownAction } from '../actions/action-row.component';
 import { GLOOM_WALKER, IN_DARKNESS, line as modifierLine, statistic, term } from './breakdown-fixtures';
 
 const BASIC = { kind: ActionOriginKind.Basic } as const;
@@ -117,3 +127,22 @@ export const GRABBED_ACTIONS: readonly ActionLine[] = [STRIDE, DEMORALIZE, { ...
 
 /** The character with its shield raised: Shield Block is enabled and called for. */
 export const SHIELD_RAISED_ACTIONS: readonly ActionLine[] = [STRIDE, { ...SHIELD_BLOCK, priority: 0 }];
+
+function paragraph(text: string): RichText {
+  return RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text }] }]);
+}
+
+/** Shield Block as its hover summary shows it: a reaction with a trigger, a requirement and an effect. */
+export const SHIELD_BLOCK_SUMMARY: ShownAction = {
+  line: {
+    ...SHIELD_BLOCK,
+    traits: ['general'],
+    trigger: paragraph('While you have your shield raised, you take damage from a physical attack.'),
+    requirements: paragraph('You have a shield raised.'),
+    effect: paragraph('Your shield prevents you from taking an amount of damage up to its Hardness.'),
+  },
+  detail: 'Granted by Shield Block',
+  costIcon: { cost: ActionCost.Reaction, label: 'Reaction' },
+  reasons: [],
+  conditions: [],
+};

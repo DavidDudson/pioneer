@@ -1,5 +1,5 @@
 import type { ActionOrigin, ActionStatus, StatisticValue } from '@pioneer/rules/engine';
-import type { ActionCost, ActionMode, ContentId } from '@pioneer/rules/sdk';
+import type { ActionCost, ActionMode, ContentId, RichText } from '@pioneer/rules/sdk';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 /** One action on a character's list as the sheet shows it: what the engine decided, with the names it needs. */
@@ -16,6 +16,12 @@ export interface ActionLine {
   readonly status: ActionStatus;
   /** Why it is not plainly available. */
   readonly reasons: readonly MessageDescriptor[];
+  /** When it can be used (a reaction's trigger), as the content words it; absent when it has none. */
+  readonly trigger?: RichText | undefined;
+  /** What it needs ("you have a free hand"), as the content words it; absent when it needs nothing. */
+  readonly requirements?: RichText | undefined;
+  /** What it does, as the elements in play change it; the hover summary trims it. */
+  readonly effect?: RichText | undefined;
   /** The best of its skills to roll with its breakdown; absent for an action that rolls nothing. */
   readonly roll: StatisticValue | undefined;
   /** Its place among the actions the situation calls for, first being the most pressing; absent when it calls for none. */

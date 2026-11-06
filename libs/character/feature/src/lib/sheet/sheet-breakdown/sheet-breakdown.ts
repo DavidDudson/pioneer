@@ -12,7 +12,7 @@ export const BREAKDOWN_STATISTIC_PARAM = 'statistic';
 const OPEN = 'open';
 
 /** The page at `url`, without its query: the page a stat link stays on while the drawer opens beside it. */
-function pathOf(url: string): string {
+export function pathOf(url: string): string {
   return url.split('?')[0] ?? url;
 }
 

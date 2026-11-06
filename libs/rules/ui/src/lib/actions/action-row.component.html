@@ -3,7 +3,14 @@
     @if (action().costIcon; as costIcon) {
       <fr-action-icon [cost]="costIcon.cost" [upTo]="costIcon.upTo" [label]="costIcon.label" />
     }
-    <pio-entry-name-cell [name]="action().line.name" [entry]="action().line.id" />
+    <fr-hover-card>
+      @if (panel(); as link) {
+        <fr-link [to]="link.to" [queryParams]="link.queryParams">{{ action().line.name }}</fr-link>
+      } @else {
+        <fr-text tabindex="0">{{ action().line.name }}</fr-text>
+      }
+      <ng-template frHoverCardContent><pio-action-summary [action]="action()" /></ng-template>
+    </fr-hover-card>
   </fr-stack>
   @if (showStatus()) {
     <fr-badge [tone]="statusTone()">{{ statusKey() | transloco }}</fr-badge>

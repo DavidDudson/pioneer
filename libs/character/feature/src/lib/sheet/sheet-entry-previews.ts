@@ -1,4 +1,5 @@
 import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { equippedRules, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { LinkTarget } from '@pioneer/frontier';
@@ -7,11 +8,12 @@ import { alterAction, EffectMode, spellAtRank } from '@pioneer/rules/engine';
 import type { AlteredAction } from '@pioneer/rules/engine';
 import { ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, RichText, SpellRank } from '@pioneer/rules/sdk';
-import { entryTarget } from '@pioneer/rules/ui';
-import type { EntryPreview, EntryPreviews, PreviewEffect, PreviewRanks } from '@pioneer/rules/ui';
+import { entryTarget, panelQuery } from '@pioneer/rules/ui';
+import type { EntryPreview, EntryPreviews, PanelLink, PreviewEffect, PreviewRanks } from '@pioneer/rules/ui';
 
-import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
+import { injectStatisticLink, pathOf } from './sheet-breakdown/sheet-breakdown';
 import { sheetEntryEffects } from './sheet-entry-effects';
+import { SheetSidePanelState } from './sheet-side-panel/sheet-side-panel-state';
 import { sheetSlotContent } from './sheet-slot-content';
 
 /** Entries by registry: a loaded registry never changes, so each is indexed once. */
@@ -164,6 +166,8 @@ export function sheetFetchingPreviews(
   kinds: readonly ContentKind[] = FETCHED_PREVIEW_KINDS,
 ): EntryPreviews {
   const loader = inject(ContentLoader);
+  const router = inject(Router);
+  const sidePanel = inject(SheetSidePanelState, { optional: true });
   const kept: { attempt: Promise<ContentRegistry> | undefined; fetched: ContentRegistry | undefined } = {
     attempt: undefined,
     fetched: undefined,
@@ -187,6 +191,11 @@ export function sheetFetchingPreviews(
     const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
     return entry === undefined ? undefined : entryTarget(entry);
   };
+  const panel = (id: ContentId): PanelLink | undefined => {
+    const held = registry();
+    const entry = (held === undefined ? undefined : sheetEntry(held, id)) ?? sheetEntryIn(kept.fetched, id);
+    return entry === undefined ? undefined : panelLink(entry, { router, sidePanel });
+  };
   const onCharacter = (entry: ContentEntry | undefined): EntryPreview | undefined =>
     entry === undefined ? undefined : previewOnCharacter(entry, registry(), character());
   return {
@@ -196,8 +205,20 @@ export function sheetFetchingPreviews(
     },
     load: async (id) => onCharacter(sheetEntryIn(await fetchKinds(), id)),
     target,
+    panel,
     statistic: injectStatisticLink(),
   };
+}
+
+/**
+ * Where `entry` opens in the side panel: the page being shown, with the drawer open on the entry. Offered once the app's
+ * loader has delivered the panel; until then, or without one, a row opens nothing.
+ */
+function panelLink(
+  entry: ContentEntry,
+  { router, sidePanel }: { readonly router: Router; readonly sidePanel: SheetSidePanelState | null },
+): PanelLink | undefined {
+  return sidePanel?.panel() === undefined ? undefined : { to: [pathOf(router.url)], queryParams: panelQuery(entry) };
 }
 
 function sheetEntryIn(registry: ContentRegistry | undefined, id: ContentId): ContentEntry | undefined {
