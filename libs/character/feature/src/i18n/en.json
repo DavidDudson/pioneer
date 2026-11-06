@@ -590,7 +590,9 @@
     },
     "resources": {
       "heroPoints": "Hero Points",
-      "focusPoints": "Focus Points"
+      "focusPoints": "Focus Points",
+      "held": "{current} of {max}",
+      "spend": "Spend"
     },
     "conditions": {
       "label": "Conditions",
@@ -660,7 +662,13 @@
       "cannot": "You can't"
     },
     "counted": {
+      "slot": "{source} rank {rank} slots",
+      "poolSlot": "{source} {pool} rank {rank} slots",
+      "refund": "Refund",
       "overcharge": "Overcharge"
+    },
+    "spellResources": {
+      "label": "Spell resources"
     },
     "saveState": {
       "saving": "Saving",

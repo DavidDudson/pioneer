@@ -20,6 +20,7 @@ import type { SheetSpellAccess } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { sheetSectionPreviews } from '../sheet-section-previews';
 import { preparedFieldsOf } from '../sheet-spell-picks';
+import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
 import {
   filterFocus,
   filterInnate,
@@ -27,8 +28,8 @@ import {
   SPELL_TARGET_FILTER_MESSAGES,
   SpellTargetFilter,
 } from '../sheet-spell-targets';
-import type { SpellSpend } from '../sheet-spell-use';
 // oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
+import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 import { SpellAccess } from '../spell-access/spell-access.component';
 
@@ -48,6 +49,7 @@ import { SpellAccess } from '../spell-access/spell-access.component';
     InnateSpellsView,
     SheetFormLimits,
     SheetPreparedSpells,
+    SheetSpellResources,
     Segmented,
     Skeleton,
     SpellAccess,

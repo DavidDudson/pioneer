@@ -18,22 +18,25 @@
       </fr-stack>
     </ng-template>
     <ng-template [frAsyncData]="spells">
-      <fr-stack gap="md">
-        <fr-segmented
-          [options]="targetOptions()"
-          [ariaLabel]="'character.sheet.spellTargets.label' | transloco"
-          [(value)]="targetFilter"
-        />
-        @if (shownFocus(); as focusLine) {
-          <pio-focus-spells [focus]="focusLine" />
-        }
-        @if (shownInnate(); as innateLine) {
-          <pio-innate-spells [innate]="innateLine" />
-        }
-        <pio-sheet-prepared-spells [entries]="shownPrepared()" />
-        @if (access(); as spellAccess) {
-          <pio-spell-access [access]="spellAccess" />
-        }
+      <fr-stack horizontalFrom="lg" gap="lg" align="start">
+        <pio-sheet-spell-resources />
+        <fr-stack gap="md" grow>
+          <fr-segmented
+            [options]="targetOptions()"
+            [ariaLabel]="'character.sheet.spellTargets.label' | transloco"
+            [(value)]="targetFilter"
+          />
+          @if (shownFocus(); as focusLine) {
+            <pio-focus-spells [focus]="focusLine" />
+          }
+          @if (shownInnate(); as innateLine) {
+            <pio-innate-spells [innate]="innateLine" />
+          }
+          <pio-sheet-prepared-spells [entries]="shownPrepared()" />
+          @if (access(); as spellAccess) {
+            <pio-spell-access [access]="spellAccess" />
+          }
+        </fr-stack>
       </fr-stack>
     </ng-template>
   </fr-async-region>
