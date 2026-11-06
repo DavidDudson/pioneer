@@ -49,10 +49,31 @@ function damageTypeOf(choice: string): DamageType | undefined {
   return Object.values(DamageType).find((type) => type === choice);
 }
 
-/** What a rune's crafter chose, in words: the damage type's name, else the choice as it was written. */
+/** The creature types a bane rune is made for, by the choice stored on the rune. */
+const CREATURE_TYPE_MESSAGES: Readonly<Record<string, string>> = {
+  aberration: 'rules.runes.creatureType.aberration',
+  animal: 'rules.runes.creatureType.animal',
+  beast: 'rules.runes.creatureType.beast',
+  celestial: 'rules.runes.creatureType.celestial',
+  construct: 'rules.runes.creatureType.construct',
+  dragon: 'rules.runes.creatureType.dragon',
+  elemental: 'rules.runes.creatureType.elemental',
+  fey: 'rules.runes.creatureType.fey',
+  fiend: 'rules.runes.creatureType.fiend',
+  'fungus-plant': 'rules.runes.creatureType.fungusPlant',
+  giant: 'rules.runes.creatureType.giant',
+  monitor: 'rules.runes.creatureType.monitor',
+  ooze: 'rules.runes.creatureType.ooze',
+};
+
+/** What a rune's crafter chose, in words: a damage type's or creature type's name, else the choice as it was written. */
 export function runeChoiceLabel(i18n: TranslocoService, choice: string): string {
   const type = damageTypeOf(choice);
-  return type === undefined ? choice : i18n.translate(DAMAGE_TYPE_MESSAGES[type]);
+  if (type !== undefined) {
+    return i18n.translate(DAMAGE_TYPE_MESSAGES[type]);
+  }
+  const creature = CREATURE_TYPE_MESSAGES[choice];
+  return creature === undefined ? choice : i18n.translate(creature);
 }
 
 /** A rune's name with the choice its crafter made after it: "Energy Resistant (fire)"; the name alone with none. */

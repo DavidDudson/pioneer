@@ -13,6 +13,8 @@ export const RuneFixture = {
   /** Armour runes made for one damage type, which the crafter chooses when etching them. */
   EnergyResistant: 'energy-resistant',
   EnergyResistantGreater: 'energy-resistant-greater',
+  /** A weapon rune made for one creature type, which the crafter chooses when etching it. */
+  Bane: 'bane',
   /** Alignment weapon runes, each refused on a weapon with the other. */
   Holy: 'holy',
   Unholy: 'unholy',
@@ -42,6 +44,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Frost]: weaponRune(),
   [RuneFixture.Shock]: weaponRune(),
   [RuneFixture.Keen]: weaponRune('melee'),
+  [RuneFixture.Bane]: weaponRune(),
   [RuneFixture.Holy]: weaponRune('without-unholy-rune'),
   [RuneFixture.Unholy]: weaponRune('without-holy-rune'),
   [RuneFixture.EnergyResistant]: armorRune(),

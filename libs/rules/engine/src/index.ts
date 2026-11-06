@@ -17,6 +17,7 @@ export {
 } from './breakdown';
 export { deriveStatistics, type StatisticContent } from './derive-statistics';
 export { damageTargetOf } from './damage-target';
+export { ETCHED_DAMAGE } from './strike-targets';
 export {
   damageDice,
   deriveStrikes,

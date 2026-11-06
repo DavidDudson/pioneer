@@ -11,8 +11,8 @@ import {
   itemRunes,
   partitionApproved,
   propertyRoom,
-  resistsChosenType,
   runeApplied,
+  runeChoices,
   runedItemOf,
   workingPropertyRunes,
 } from '@pioneer/character/domain';
@@ -107,7 +107,7 @@ function runeNote(rune: RuneEntry, working: boolean): RuneNote | undefined {
   if (!working) {
     return RuneNote.NoEffect;
   }
-  return runeApplied(rune) || resistsChosenType(rune) ? undefined : RuneNote.NotApplied;
+  return runeApplied(rune) || runeChoices(rune).length > 0 ? undefined : RuneNote.NotApplied;
 }
 
 /** A fundamental rune's badge, or a hole when the item has none and its runes can still be etched. */
