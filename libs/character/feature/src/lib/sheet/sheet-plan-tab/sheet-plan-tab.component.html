@@ -48,7 +48,7 @@
                 (cancelled)="name.cancel()"
               />
             </fr-inline-field>
-            <fr-inline-field #ancestryField [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
+            <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
               <pio-ancestry-picker
                 frInlineEditor
                 [rows]="origins.ancestries()"
@@ -104,7 +104,6 @@
           @if (picks.hasSecondClass()) {
             <pio-sheet-class-fields [picks]="picks" [classField]="secondClass" [second]="true" />
           }
-          <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
         </fr-stack>
       </fr-section>
 
@@ -119,14 +118,6 @@
             <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
           </ng-template>
         </fr-async-region>
-      </fr-section>
-
-      <fr-section
-        [concealed]="shownLevel() !== baseLevel"
-        [anchor]="sections.features.anchor"
-        [heading]="sections.features.headingKey | transloco"
-      >
-        <pio-class-features [lines]="picks.features()" />
       </fr-section>
 
       @if (plannedLevel(); as planned) {

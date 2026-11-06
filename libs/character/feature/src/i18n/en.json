@@ -226,7 +226,6 @@
     "secondSubclass": "Second subclass",
     "secondKeyAttribute": "Second key attribute",
     "featsHeading": "Feats",
-    "featuresHeading": "Class features",
     "cleared": {
       "heading": "Cleared by your last change",
       "heritage": "{name} doesn’t belong to the new ancestry, so your heritage was cleared. Pick another.",

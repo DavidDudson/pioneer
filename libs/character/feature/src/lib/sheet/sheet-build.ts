@@ -7,7 +7,6 @@ import {
   characterTraits,
   CLASS_SLOT,
   classContent,
-  classFeatures,
   DEITY_SLOT,
   hasSecondClass,
   HERITAGE_SLOT,
@@ -22,7 +21,7 @@ import type { SelectOption } from '@pioneer/frontier';
 import { ChoiceValue, ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { Attribute, ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import { BuildPart } from '@pioneer/rules/ui';
-import type { BuildLine, BuildValue, ClassFeatureLine } from '@pioneer/rules/ui';
+import type { BuildLine, BuildValue } from '@pioneer/rules/ui';
 import * as z from 'zod';
 
 import { sheetSlotContent } from './sheet-slot-content';
@@ -162,22 +161,4 @@ export function sheetKeyAttribute(
 /** Whether the character has a second class slot: the Dual Class variant is in force for it. */
 export function sheetHasSecondClass(registry: ContentRegistry): boolean {
   return hasSecondClass(sheetSlotContent(registry).rootSlots);
-}
-
-/**
- * The class features the character has at its level, with the class and level each came from: its class's, then its
- * second class's when it has one.
- */
-export function sheetClassFeatures(registry: ContentRegistry, character: Character): readonly ClassFeatureLine[] {
-  const content = sheetSlotContent(registry);
-  const grants = characterGrants(character.document, content);
-  const slots = sheetHasSecondClass(registry) ? [CLASS_SLOT, SECOND_CLASS_SLOT] : [CLASS_SLOT];
-  return slots.flatMap((slot) =>
-    classFeatures(grants, content.lookup, slot).map((feature) => ({
-      key: feature.id,
-      name: feature.name,
-      className: feature.className,
-      level: feature.level,
-    })),
-  );
 }

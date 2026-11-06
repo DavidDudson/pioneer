@@ -82,15 +82,4 @@ describe('CharacterSheetPage with Dual Class', () => {
     expect(body.patch.field).toBe('selectSlot');
     expect(body.patch.selection).toBeTypeOf('string');
   });
-
-  it('lists the features of both classes, each from its own class', async () => {
-    const { root } = await openSheet(fighter(true), { characterVariantRules: DUAL_CLASS_ON });
-    const features = present(root.querySelector('section[aria-labelledby="sheet-features"]'));
-
-    await vi.waitFor(() => {
-      const items = [...features.querySelectorAll('fr-list-item')].map((item) => item.textContent.trim());
-      expect(items).toContain('Reactive Strikefrom Fighter, level 1');
-      expect(items).toContain('Doctrinefrom Cleric, level 1');
-    });
-  });
 });

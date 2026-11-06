@@ -9,10 +9,12 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { LucidePencil } from '@lucide/angular';
 
 import { Button } from '../../actions/button/button.component';
 import { Message, MessageTone } from '../../feedback/message/message.component';
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
+import { Icon } from '../../icon/icon.component';
 import { uniqueId } from '../../ids';
 import { Stack } from '../../layout/stack/stack.component';
 import { Text } from '../../text/text/text.component';
@@ -40,7 +42,7 @@ const AUTOFOCUS = '[data-autofocus]';
  */
 @Component({
   selector: 'fr-inline-field',
-  imports: [Button, Message, SaveStatus, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [Button, Icon, Message, SaveStatus, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './inline-field.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block', '[attr.aria-busy]': 'edit().busy() || null' },
@@ -51,6 +53,8 @@ export class InlineField<TValue> {
   /** A warning about the value as it stands (a pick that counts for nothing), shown under it and read with it. */
   public readonly notice = input<string | undefined>(undefined);
 
+  /** Marks the read view as something to press, since it otherwise reads as plain text. */
+  protected readonly pencil = LucidePencil;
   protected readonly noticeId = uniqueId('fr-inline-notice');
 
   protected readonly Status = InlineEditStatus;

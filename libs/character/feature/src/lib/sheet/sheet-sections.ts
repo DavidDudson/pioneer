@@ -33,7 +33,6 @@ export const SHEET_SECTIONS = {
   timeline: { anchor: 'sheet-timeline', headingKey: 'character.sheet.timelineHeading' },
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   feats: { anchor: 'sheet-feats', headingKey: 'character.sheet.featsHeading' },
-  features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   /** The homebrew packs the character uses, chosen by its owner or by its campaign. */
   packs: { anchor: 'sheet-packs', headingKey: 'character.sheet.packsHeading' },
   /** The variant rules the character uses, chosen by its owner or by its campaign (ADR-0061). */

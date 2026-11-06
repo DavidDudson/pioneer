@@ -1,18 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ApplicationRef } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { playerCoreClassId } from '@pioneer/character/domain/testing';
-import { contentId, EntrySlug, PackId } from '@pioneer/rules/sdk';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { pickAncestry } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { HUMAN, id, MERISIEL, openSheet, patchedOf, present } from '../../testing/sheet-page-harness';
-
-/** Sarenrae, who can be holy. */
-const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
-/** Player Core's Deity (Cleric), whose sanctification `ChoiceSet` is its first rule. */
-const SANCTIFICATION_SLOT = '1fa11812-c31f-5034-804b-3b86660f2193:0';
 
 /** The label of the inline field holding focus. */
 function focusedField(): string | undefined {
@@ -24,41 +17,6 @@ describe('CharacterSheetPage build', () => {
   beforeAll(async () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
-
-  it('summarises the build, each empty part saying what to pick', async () => {
-    const { root } = await openSheet();
-    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
-
-    await vi.waitFor(() => {
-      expect(
-        [...build.querySelectorAll('fr-description-item')].map((item) => [
-          item.querySelector('[role="term"]')?.textContent.trim(),
-          item.querySelector('[role="definition"]')?.textContent.trim(),
-        ]),
-      ).toStrictEqual([
-        ['Class', 'Pick a class'],
-        ['Subclass', 'Pick a subclass'],
-        ['Ancestry', 'Elf'],
-        ['Heritage', 'Pick a heritage'],
-        ['Background', 'Pick a background'],
-        ['Deity', 'Pick a deity'],
-        ['Key attribute', 'Pick a class and its key attribute'],
-        ['Size', 'Medium'],
-        ['Traits', 'Elf Humanoid'],
-      ]);
-    });
-  });
-
-  it("names a holy cleric's traits, the ancestry's and the holy trait its sanctification gives", async () => {
-    const choices = { class: playerCoreClassId('cleric'), deity: SARENRAE, [SANCTIFICATION_SLOT]: 'holy' };
-    const { root } = await openSheet({ ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, ...choices } } });
-    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
-
-    await vi.waitFor(() => {
-      const badges = [...build.querySelectorAll('fr-description-item:last-of-type fr-badge')];
-      expect(badges.map((badge) => badge.textContent.trim())).toStrictEqual(['Elf', 'Holy', 'Humanoid']);
-    });
-  });
 
   it('shows an empty heritage and background as not chosen, with no error', async () => {
     const { root } = await openSheet();
@@ -81,17 +39,6 @@ describe('CharacterSheetPage build', () => {
     await vi.waitFor(() => {
       expect(identity.textContent).toContain(unloaded);
     });
-  });
-
-  it('Edit build moves focus to the ancestry picker', async () => {
-    const { root } = await openSheet();
-    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
-
-    present(
-      [...build.querySelectorAll<HTMLElement>('button')].find((button) => button.textContent.trim() === 'Edit build'),
-    ).click();
-
-    expect(focusedField()).toBe('Ancestry');
   });
 
   it('says which heritage a new ancestry cleared until dismissed, then moves focus to the heritage picker', async () => {

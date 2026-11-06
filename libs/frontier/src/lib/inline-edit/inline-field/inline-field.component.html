@@ -17,6 +17,7 @@
           (pressed)="edit().edit()"
         >
           {{ edit().display() }}
+          <fr-icon [icon]="pencil" />
         </fr-button>
       }
       <fr-save-status [edit]="edit()" [label]="label()" />

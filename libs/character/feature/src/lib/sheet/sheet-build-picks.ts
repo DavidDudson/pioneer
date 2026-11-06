@@ -6,13 +6,12 @@ import type { InlineEdit, SelectOption } from '@pioneer/frontier';
 import type { Defences } from '@pioneer/rules/engine';
 import type { SlotKey } from '@pioneer/rules/sdk';
 import { ATTRIBUTE_MESSAGES } from '@pioneer/rules/ui';
-import type { BuildLine, ChoiceLine, ClassFeatureLine, LevelTimelineRow } from '@pioneer/rules/ui';
+import type { BuildLine, ChoiceLine, LevelTimelineRow } from '@pioneer/rules/ui';
 
 import { sheetAttributes } from './sheet-attributes';
 import type { SheetAttributes } from './sheet-attributes';
 import {
   sheetBuildSummary,
-  sheetClassFeatures,
   sheetHasSecondClass,
   sheetKeyAttribute,
   sheetRootOptions,
@@ -69,7 +68,6 @@ export interface BuildPicks extends EngineReads, ClassPicks {
   /** The attribute modifiers and the boosts still to pick; undefined while the character or the content loads. */
   readonly attributes: Signal<SheetAttributes | undefined>;
   /** Undefined while the character or the content loads. */
-  readonly features: Signal<readonly ClassFeatureLine[] | undefined>;
   /** What the character is, part by part; undefined while it, its slots or the content load. */
   readonly buildLines: Signal<readonly BuildLine[] | undefined>;
   /** Every choice with its status, as the server read the slots; undefined while the character loads. */
@@ -171,7 +169,6 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
     defences: loaded({ ...sources, registry: sources.engineRegistry }, sheetDefences),
     senses: loaded({ ...sources, registry: sources.engineRegistry }, sheetSenses),
     attributes: loaded(sources, sheetAttributes),
-    features: loaded(sources, sheetClassFeatures),
     buildLines: computed(() => {
       const registry = sources.registry();
       const character = sources.character();

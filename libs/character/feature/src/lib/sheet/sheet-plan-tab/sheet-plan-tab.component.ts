@@ -40,14 +40,7 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import {
-  AncestryPicker,
-  AttributesView,
-  BackgroundPicker,
-  BuildSummaryView,
-  ClassFeaturesView,
-  HeritagePicker,
-} from '@pioneer/rules/ui';
+import { AncestryPicker, AttributesView, BackgroundPicker, HeritagePicker } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
@@ -84,8 +77,8 @@ function focusField(field: ElementRef<HTMLElement>): void {
 }
 
 /**
- * The Plan tab: who the character is mechanically. Its identity pickers, the build summary, attributes worked out
- * from the boost picks with the boosts still to place, every choice with its status, and the class features. A
+ * The Plan tab: who the character is mechanically. Its identity pickers, and the attributes worked out from the
+ * origin boosts with the boosts still to place; the levels' tabs hold the rest. A
  * just-imported character's report shows first, and a heritage the last edit cleared is named until dismissed.
  */
 @Component({
@@ -100,9 +93,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     AsyncRegion,
     AttributesView,
     BackgroundPicker,
-    BuildSummaryView,
     Button,
-    ClassFeaturesView,
     Grid,
     Heading,
     HeritagePicker,
@@ -126,9 +117,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
 export class SheetPlanTab {
   readonly #injector = inject(Injector);
   private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
-  private readonly ancestryField = viewChild.required<string, ElementRef<HTMLElement>>('ancestryField', {
-    read: ElementRef,
-  });
   private readonly heritageField = viewChild.required<string, ElementRef<HTMLElement>>('heritageField', {
     read: ElementRef,
   });
@@ -193,11 +181,6 @@ export class SheetPlanTab {
 
   public constructor() {
     rememberTab(SheetMode.Plan);
-  }
-
-  /** Edit build goes to the pickers: focus lands on the ancestry, the first of them, and scrolls it into view. */
-  protected editBuild(): void {
-    focusField(this.ancestryField());
   }
 
   /** Dismissing removes the focused Dismiss button with the notice, so focus moves to the heritage picker it names. */
