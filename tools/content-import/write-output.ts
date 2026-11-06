@@ -203,7 +203,7 @@ function bySlug(left: { readonly slug: string }, right: { readonly slug: string 
 /**
  * Adds the legacy entries a `--replaced-legacy` run selected to the target pack's kind files (ADR-0077), creating a
  * file for a kind the pack lacks. An entry the pack already holds is kept as committed; nothing else in the pack
- * changes, and the files are formatted. The pack's backlog is left alone.
+ * changes, and the files are printed in the canonical layout. The pack's backlog is left alone.
  */
 export async function appendLegacy(entries: readonly ContentEntry[], targets: PackTargets): Promise<AppendedOutput> {
   const own = entries.filter(({ pack }) => pack === targets.pack);
@@ -221,7 +221,10 @@ export async function appendLegacy(entries: readonly ContentEntry[], targets: Pa
     }),
   );
   const changed = writes.filter(({ added }) => added > 0);
-  const written = await writeAndFormat(changed.map(({ path: file, json }) => ({ path: file, json })));
+  const written = await writeAll(
+    [],
+    changed.map(({ path: file, json }) => ({ path: file, json })),
+  );
   const added = changed.reduce((sum, { added: count }) => sum + count, 0);
   return { written, added, present: own.length - added };
 }
