@@ -209,14 +209,9 @@ function skillSlotsWhere(
 }
 
 /**
- * The trained skill and skill increase slots up to the character's level, in the order they are read, each with what
- * it offers after the grants and the slots before it. Slots above its level are the plan, picked in the timeline.
+ * Every trained skill and skill increase slot, at any level (#492), in the order they are read, each with what it
+ * offers at its level after the grants and the slots before it: the level tabs' pickers.
  */
-export function sheetSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
-  return skillSlotsWhere(registry, character, (level) => level <= character.level);
-}
-
-/** The skill slots above the character's level (#492), each offering what it will once the character is there. */
 export function sheetPlannedSkillSlots(registry: ContentRegistry, character: Character): readonly SheetSkillSlot[] {
-  return skillSlotsWhere(registry, character, (level) => level > character.level);
+  return skillSlotsWhere(registry, character, () => true);
 }

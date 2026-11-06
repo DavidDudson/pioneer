@@ -19,14 +19,13 @@ import {
   sheetSubclass,
 } from './sheet-build';
 import type { SheetKeyAttribute, SheetSubclass } from './sheet-build';
-import { sheetChoices, sheetChoiceSlots } from './sheet-choices';
+import { sheetChoices } from './sheet-choices';
 import { sheetDefences } from './sheet-defences';
 import { engineReads, loaded } from './sheet-pick-sources';
 import type { BuildPickSources, EngineReads } from './sheet-pick-sources';
 import { sheetPlannedSlots } from './sheet-planned-slots';
 import { sheetSenses } from './sheet-senses';
 import { markTrainedAgain, sheetTrainedAgain } from './sheet-skill-repeats';
-import { sheetSkillSlots } from './sheet-skills';
 import { sheetSlotContent } from './sheet-slot-content';
 import { slotField, slotFieldsOf } from './sheet-slot-picks';
 import type { SlotPickField } from './sheet-slot-picks';
@@ -77,14 +76,7 @@ export interface BuildPicks extends EngineReads, ClassPicks {
   readonly choices: Signal<readonly ChoiceLine[] | undefined>;
   /** One row per level from 1 to 20 with the slots it opens; undefined while the character or the content loads. */
   readonly timeline: Signal<readonly LevelTimelineRow[] | undefined>;
-  /** One pick per trained skill and skill increase up to the character's level, in the order they are read. */
-  readonly skillFields: Signal<readonly SlotPickField[]>;
-  /**
-   * One pick per `ChoiceSet` that lists its options (a divine font, a domain, a warden spell), by the entry asking
-   * (#596).
-   */
-  readonly choiceFields: Signal<readonly SlotPickField[]>;
-  /** One pick per skill and boost slot above the character's level, for the timeline to offer ahead of time (#492). */
+  /** One pick per skill and boost slot at any level, for the level tabs to offer (#492). */
   readonly plannedFields: Signal<readonly SlotPickField[]>;
 }
 
@@ -201,32 +193,9 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
   };
 }
 
-/** The skill, choice and planned slot pickers, each reading its slots as they load. */
-function pickFields(sources: BuildPickSources): Pick<BuildPicks, 'skillFields' | 'choiceFields' | 'plannedFields'> {
+/** The slot pickers of the level tabs, reading their slots as they load. */
+function pickFields(sources: BuildPickSources): Pick<BuildPicks, 'plannedFields'> {
   return {
-    skillFields: slotFieldsOf(
-      sources,
-      loaded(sources, (registry, character) =>
-        sheetSkillSlots(registry, character).map(({ key, label, options, trained, rows }) => ({
-          key,
-          label,
-          options,
-          trained,
-          rows: { kind: 'skills', rows },
-        })),
-      ),
-    ),
-    choiceFields: slotFieldsOf(
-      sources,
-      loaded(sources, (registry, character) =>
-        sheetChoiceSlots(registry, character).map(({ key, label, options, rows }) => ({
-          key,
-          label,
-          options,
-          rows: { kind: 'choices', rows },
-        })),
-      ),
-    ),
     plannedFields: slotFieldsOf(
       sources,
       loaded(sources, (registry, character) => sheetPlannedSlots(registry, character, sources.translate)),

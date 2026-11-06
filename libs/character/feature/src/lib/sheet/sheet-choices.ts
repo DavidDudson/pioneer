@@ -1,18 +1,15 @@
-import { characterGrants, listedChoices, SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
-import type { Character, CharacterSlot, SlotSubject } from '@pioneer/character/domain';
-import type { SelectOption } from '@pioneer/frontier';
-import { FIRST_TAKE } from '@pioneer/rules/grants';
-import type { ContentLookup, EntryFacts } from '@pioneer/rules/grants';
+import { SlotStatus, SlotSubjectKind } from '@pioneer/character/domain';
+import type { CharacterSlot, SlotSubject } from '@pioneer/character/domain';
+import type { ContentLookup } from '@pioneer/rules/grants';
 import { AttributeSchema, ContentId, ContentKind, SlotRank } from '@pioneer/rules/sdk';
-import type { ChoiceValue, ContentRegistry, ContentText, SlotKey } from '@pioneer/rules/sdk';
+import type { ChoiceValue, ContentText } from '@pioneer/rules/sdk';
 import { ChoiceState } from '@pioneer/rules/ui';
-import type { ChoiceLine, ChoiceReplacement, ChoiceSelection, SlotPickerFacts, SlotPickerRow } from '@pioneer/rules/ui';
+import type { ChoiceLine, ChoiceReplacement, ChoiceSelection } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { BOOST_LABEL_KEYS } from './sheet-attributes';
 import { SKILL_SLOT_LABEL_KEYS } from './sheet-skill-sources';
-import { sheetSlotContent } from './sheet-slot-content';
 
 const STATES: Readonly<Record<SlotStatus, ChoiceState>> = {
   [SlotStatus.Open]: ChoiceState.Open,
@@ -174,58 +171,4 @@ function isShown(slot: CharacterSlot): boolean {
  */
 export function sheetChoices(slots: readonly CharacterSlot[], lookup?: ContentLookup): readonly ChoiceLine[] {
   return slots.filter((slot) => isShown(slot)).map((slot) => lineOf(slot, lookup));
-}
-
-/** What an option's entry says of itself, as the slot picker's table shows it. */
-function factsOf({ level, rarity, traits, description, legacy, unsupported, replacedBy }: EntryFacts): SlotPickerFacts {
-  return {
-    level,
-    rarity,
-    traits,
-    summary: description,
-    ...(legacy === true ? { legacy } : {}),
-    ...(unsupported === true ? { unsupported } : {}),
-    ...(replacedBy === undefined ? {} : { replacedBy: replacedBy.map(({ name }) => name) }),
-  };
-}
-
-/** A `ChoiceSet` that lists its options, as the Choices section's picker for it reads it (#596). */
-export interface SheetChoiceSlot {
-  readonly key: SlotKey;
-  /** "Domain Initiate: Select a domain." */
-  readonly label: MessageDescriptor;
-  readonly options: readonly SelectOption<string>[];
-  /** What the table shows of each option: its name, and its source when the option names a content entry. */
-  readonly rows: readonly SlotPickerRow[];
-}
-
-/**
- * The character's `ChoiceSet` slots that list their options, each offering what it offers at the character's level,
- * by the entry asking: Divine Font's font, Domain Initiate's domain (ADR-0050). A pick no longer offered shows by the
- * name the server read, as any inline pick's does.
- */
-export function sheetChoiceSlots(registry: ContentRegistry, character: Character): readonly SheetChoiceSlot[] {
-  const content = sheetSlotContent(registry);
-  return listedChoices(characterGrants(character.document, content), content.lookup).map(({ slot, entryName }) => ({
-    key: slot.key,
-    label: labelOf({
-      kind: SlotSubjectKind.Choice,
-      entry: slot.origin.entry,
-      entryName,
-      prompt: slot.prompt,
-      ...(slot.take === FIRST_TAKE ? {} : { take: slot.take }),
-    }),
-    options: slot.options.map((option) => ({ value: option.value, label: option.label })),
-    rows: slot.options.map((option): SlotPickerRow => {
-      const id = ContentId.safeParse(option.value);
-      const entry = id.success ? content.lookup.entry(id.data) : undefined;
-      return {
-        id: option.value,
-        name: option.label,
-        sources: entry?.sources ?? [],
-        facts: entry?.facts === undefined ? undefined : factsOf(entry.facts),
-        disabledReason: undefined,
-      };
-    }),
-  }));
 }

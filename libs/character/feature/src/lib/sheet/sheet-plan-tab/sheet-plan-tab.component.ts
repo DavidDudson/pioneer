@@ -51,15 +51,11 @@ import {
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
-import { SheetArchetypeProgress } from '../sheet-archetype-progress/sheet-archetype-progress.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
-import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
 import { SheetLevelTabs } from '../sheet-level-tabs/sheet-level-tabs.component';
 import { injectOriginRows } from '../sheet-origin-rows';
-import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
-import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SheetRuleBreaks } from '../sheet-rule-breaks/sheet-rule-breaks.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import {
@@ -72,7 +68,6 @@ import {
   shownSection,
 } from '../sheet-sections';
 import type { SheetSection } from '../sheet-sections';
-// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every region of the base character and its levels
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
@@ -98,9 +93,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
   imports: [
     SheetSectionTabs,
     Responsive,
-    SheetArchetypeProgress,
     SheetLevelTabs,
-    SheetPickFields,
     AncestryPicker,
     AsyncData,
     AsyncPending,
@@ -119,9 +112,7 @@ function focusField(field: ElementRef<HTMLElement>): void {
     NumberInput,
     Section,
     SheetClassFields,
-    SheetFeats,
     SheetLevelPlan,
-    SheetReroll,
     SheetRuleBreaks,
     SheetUnenabledContent,
     Stack,

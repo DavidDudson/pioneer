@@ -104,15 +104,8 @@
           @if (picks.hasSecondClass()) {
             <pio-sheet-class-fields [picks]="picks" [classField]="secondClass" [second]="true" />
           }
+          <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
         </fr-stack>
-      </fr-section>
-
-      <fr-section
-        [concealed]="shownLevel() !== baseLevel"
-        [anchor]="sections.build.anchor"
-        [heading]="sections.build.headingKey | transloco"
-      >
-        <pio-build-summary [lines]="picks.buildLines()" (edit)="editBuild()" />
       </fr-section>
 
       <fr-section
@@ -126,26 +119,6 @@
             <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
           </ng-template>
         </fr-async-region>
-      </fr-section>
-
-      <fr-section
-        [concealed]="shownLevel() !== baseLevel"
-        [anchor]="sections.choices.anchor"
-        [heading]="sections.choices.headingKey | transloco"
-      >
-        <fr-stack gap="md">
-          <pio-sheet-reroll />
-          <pio-sheet-pick-fields [fields]="picks.skillFields()" />
-          <pio-sheet-archetype-progress />
-        </fr-stack>
-      </fr-section>
-
-      <fr-section
-        [concealed]="shownLevel() !== baseLevel"
-        [anchor]="sections.feats.anchor"
-        [heading]="sections.feats.headingKey | transloco"
-      >
-        <pio-sheet-feats />
       </fr-section>
 
       <fr-section

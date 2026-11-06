@@ -25,13 +25,14 @@ export const BOOST_LABEL_KEYS: Readonly<Record<BoostSource, string>> = {
 };
 
 /**
- * The character's attribute modifiers, worked out from its boost picks, and its empty boost slots up to its level.
- * Slots above it are the plan, not yet missing.
+ * The character's attribute modifiers, worked out from its boost picks, and its empty origin boost slots (ancestry,
+ * background, class) up to its level. The free boosts of a level are on that level's tab, and slots above the
+ * character's level are the plan, not yet missing.
  */
 export function sheetAttributes(registry: ContentRegistry, character: Character): SheetAttributes {
   const content = sheetSlotContent(registry).boosts;
   const open = boostSlots(character.document, content).flatMap((slot): OpenBoostLine[] =>
-    slot.pick === undefined && slot.level <= character.level
+    slot.pick === undefined && slot.source !== BoostSource.Free && slot.level <= character.level
       ? [{ key: slot.key, label: message(BOOST_LABEL_KEYS[slot.source], { level: slot.level }) }]
       : [],
   );
@@ -68,14 +69,14 @@ function boostRows(
   });
 }
 
-/** The boost slots above the character's level (#492), lowest first, each with the attributes it offers. */
+/** Every boost slot, at any level (#492), lowest first, each with the attributes it offers: the level tabs' pickers. */
 export function sheetPlannedBoosts(
   registry: ContentRegistry,
   character: Character,
   translate: (key: string) => string,
 ): readonly SheetPlannedBoost[] {
   const content = sheetSlotContent(registry).boosts;
-  const planned = boostSlots(character.document, content).filter((slot) => slot.level > character.level);
+  const planned = boostSlots(character.document, content);
   const modifiers = attributeModifiers(character.document, content);
   return planned.map((slot) => ({
     key: slot.key,

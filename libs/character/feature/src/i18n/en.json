@@ -99,11 +99,6 @@
     }
   },
   "sheet": {
-    "reroll": {
-      "action": "Re-roll the rest",
-      "pending": "Re-rolling…",
-      "problems": "Some kept picks can't be kept. See the marked picks."
-    },
     "override": {
       "title": "Override",
       "titleAdjust": "Adjust {name}",
@@ -195,11 +190,6 @@
     "actionsHeading": "Actions",
     "choicesHeading": "Choices",
     "timelineHeading": "Level timeline",
-    "archetypes": {
-      "progress": "{archetype}: {taken} of {lock, plural, one {# feat} other {# feats}} before your next dedication.",
-      "cleared": "{archetype}: your next dedication is open.",
-      "clearsAt": "Your plan opens it at level {level}."
-    },
     "spellcastingHeading": "Spellcasting",
     "sections": "Sheet sections",
     "levels": {
@@ -208,7 +198,9 @@
       "level": "Level {level}",
       "unresolved": "To do"
     },
-    "panels": { "label": "Sheet panels" },
+    "panels": {
+      "label": "Sheet panels"
+    },
     "name": "Name",
     "ancestry": "Ancestry",
     "level": "Level",
@@ -217,7 +209,6 @@
     "version": "· version {version}",
     "conflict": "Someone else changed this character. Showing their latest version.",
     "saveFailed": "Could not save. Try again.",
-    "buildHeading": "Build",
     "heritage": "Heritage",
     "ancestryPlaceholder": "Search ancestries by name",
     "heritagePlaceholder": "Search heritages by name",
@@ -242,7 +233,6 @@
       "dismiss": "Dismiss"
     },
     "notChosen": "Not chosen",
-    "skillTrainedFrom": "Already trained in {skill} (from {source})",
     "optionTrained": "Already trained in {skills}",
     "skillTrainedTwice": "Trained by {first} and {second}; the second training is lost",
     "trainedSource": "{name}",
@@ -443,43 +433,12 @@
       "remove": "Remove",
       "removeNamed": "Remove {name}"
     },
-    "unplacedFeats": {
-      "heading": "Feats with no slot",
-      "explain": "The import found these feats but no slot offers them, so they were kept as imported and break a rule. Pick one in a feat slot or move it to one that offers it now, or dismiss it.",
-      "dismiss": "Dismiss",
-      "dismissNamed": "Dismiss {name}",
-      "move": "Move to slot",
-      "moveNamed": "Move {name} to a slot"
-    },
     "feats": {
       "slot": "{prompt}, level {level}",
       "slotFrom": "Feat from {entry}, level {level}",
-      "placeholder": "Search feats by name",
-      "everything": "Show every feat",
-      "available": "Available to you: up to this slot’s level, no unique feats or artifacts, prerequisites not unmet.",
       "unknownFeat": "Unknown feat",
       "unmet": "Prerequisites not met: {prerequisites}",
-      "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}",
-      "level": "Level {level}",
-      "group": {
-        "ancestry": "Ancestry feats",
-        "class": "Class feats",
-        "skill": "Skill feats",
-        "general": "General feats",
-        "bonus": "Bonus feats",
-        "deityBoon": "Deity boons",
-        "calling": "Callings",
-        "curse": "Curses"
-      },
-      "display": {
-        "active": "Active",
-        "modifier": "Modifier",
-        "grantOnly": "Grants only",
-        "narrative": "Narrative"
-      },
-      "showGrantOnly": "Show feats that only grant something else",
-      "from": "From {entry}",
-      "none": "No feat slots yet. Pick a class and ancestry first."
+      "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}"
     },
     "spellTargets": {
       "label": "Show spells by targets",

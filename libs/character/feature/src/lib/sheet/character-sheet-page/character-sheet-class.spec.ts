@@ -118,7 +118,7 @@ describe('CharacterSheetPage class', () => {
     const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }), {
       slots: [CLERIC_SLOT, doctrine],
     });
-    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
       const subclass = [...build.querySelectorAll('fr-description-item')].find(

@@ -27,7 +27,7 @@ describe('CharacterSheetPage build', () => {
 
   it('summarises the build, each empty part saying what to pick', async () => {
     const { root } = await openSheet();
-    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
       expect(
@@ -52,7 +52,7 @@ describe('CharacterSheetPage build', () => {
   it("names a holy cleric's traits, the ancestry's and the holy trait its sanctification gives", async () => {
     const choices = { class: playerCoreClassId('cleric'), deity: SARENRAE, [SANCTIFICATION_SLOT]: 'holy' };
     const { root } = await openSheet({ ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, ...choices } } });
-    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
       const badges = [...build.querySelectorAll('fr-description-item:last-of-type fr-badge')];
@@ -85,9 +85,11 @@ describe('CharacterSheetPage build', () => {
 
   it('Edit build moves focus to the ancestry picker', async () => {
     const { root } = await openSheet();
-    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
-    present(build.querySelector<HTMLElement>('button')).click();
+    present(
+      [...build.querySelectorAll<HTMLElement>('button')].find((button) => button.textContent.trim() === 'Edit build'),
+    ).click();
 
     expect(focusedField()).toBe('Ancestry');
   });

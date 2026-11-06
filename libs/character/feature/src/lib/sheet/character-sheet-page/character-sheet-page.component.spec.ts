@@ -21,10 +21,7 @@ describe('CharacterSheetPage', () => {
 
     expect(regionsOf(root)).toStrictEqual([
       ['Identity', true],
-      ['Build', true],
       ['Attributes', true],
-      ['Choices', true],
-      ['Feats', true],
       ['Class features', true],
     ]);
     await openTab(root, 'Encounter', 'Defences');
@@ -81,23 +78,6 @@ describe('CharacterSheetPage', () => {
     );
   });
 
-  it('lists every choice with its status, flagging a planned pick and an invalid one with its reason', async () => {
-    const { root } = await openSheet();
-    const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
-
-    expect(
-      [...choices.querySelectorAll('fr-list-item')].map((item) =>
-        [...item.querySelectorAll('fr-text, fr-badge')].map((part) => part.textContent.trim()).join(' '),
-      ),
-    ).toStrictEqual([
-      'Ancestry Elf Chosen',
-      'Background Not chosen',
-      'Ancestry boost Constitution Needs a new choice This choice no longer offers that option, so it counts for nothing. Choose another.',
-      'Level 5 boost Strength Planned for level 5',
-      'Voluntary flaw Intelligence Chosen',
-    ]);
-  });
-
   it('shows the modifiers the picks give: the elf’s fixed boosts and flaw, each boost, then the voluntary flaw', async () => {
     const { root } = await openSheet();
     const attributes = present(root.querySelector('section[aria-labelledby="sheet-attributes"]'));
@@ -119,36 +99,25 @@ describe('CharacterSheetPage', () => {
     });
   });
 
-  it('lists the boosts still to place up to the character’s level, and none planned above it', async () => {
+  it('lists the origin boosts still to place on the base character, and leaves the free boosts to their level', async () => {
     const { root } = await openSheet();
     const attributes = present(root.querySelector('section[aria-labelledby="sheet-attributes"]'));
 
     await vi.waitFor(() => {
-      expect(attributes.textContent).toContain('Boosts still to place');
+      expect(attributes.textContent).toContain('Strength');
     });
-    expect([...attributes.querySelectorAll('fr-list-item')].map((item) => item.textContent.trim())).toStrictEqual([
-      'Level 1 boost',
-    ]);
+    expect(attributes.textContent).not.toContain('Level 1 boost');
   });
 
-  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level, class and feats', async () => {
+  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level and class', async () => {
     const { root } = await openSheet();
     const inlineLabels = (): string[] =>
       [...root.querySelectorAll('section fr-inline-field')]
         .filter((field) => field.closest('pio-level-timeline') === null)
         .filter((field) => field.closest('pio-sheet-rule-limits') === null)
         .map((field) => present(field.querySelector('fr-text')).textContent.trim());
-    // The feat slot renders once the feats' content has loaded, which can trail the sheet's first paint.
     await vi.waitFor(() => {
-      expect(inlineLabels()).toStrictEqual([
-        'Name',
-        'Ancestry',
-        'Heritage',
-        'Background',
-        'Level',
-        'Class',
-        'Elf feat, level 1',
-      ]);
+      expect(inlineLabels()).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class']);
     });
   });
 
