@@ -1,0 +1,329 @@
+[
+  {
+    "id": "6ef68413-fd22-5489-b036-99026aa0495f",
+    "pack": "secrets-of-magic",
+    "kind": "armor",
+    "slug": "armor:invisible-chain-shirt",
+    "name": "Invisible Chain Shirt",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["comfort", "flexible", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1063"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+2 resilient ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "b845e180-6c72-501f-9c94-d32442d00eab"
+          },
+          {
+            "type": "text",
+            "text": " chain shirt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is itself invisible. Other creatures can't see it at all, allowing you to wear it surreptitiously. Additionally, the armor's invisible composition is quieter and more comfortable than a normal chain shirt. It loses the noisy trait and gains the comfort trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Stride and turn partially invisible, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " until the end of your next turn or until you use a hostile action, whichever comes first. As normal, you can use the concealment from this activation to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BK1AKKi1gDMn5uBs"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "invisible-chain-shirt",
+          "name": "Invisible Chain Shirt",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "light",
+      "group": "chain",
+      "baseItem": "chain-shirt",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": ["b845e180-6c72-501f-9c94-d32442d00eab"]
+      }
+    }
+  },
+  {
+    "id": "1875a81a-e6f4-56a5-b526-df95e2d2911e",
+    "pack": "secrets-of-magic",
+    "kind": "armor",
+    "slug": "armor:rebounding-breastplate",
+    "name": "Rebounding Breastplate",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1070"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater resilient greater fortification breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " absorbs impacts for later release. While wearing the armor, you gain resistance 5 to bludgeoning, piercing, and slashing damage and resistance 10 to force damage. Keep track of how much damage the armor prevents from enemy attacks, as the armor absorbs that damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 1 minute, the absorbed damage disperses harmlessly and resets to 0. Only damage caused by foes or hazards powers the armor, not damage you take from yourself, allies, or the environment."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your armor has absorbed at least 30 damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The absorbed energy explodes from your armor in a pulse of force. Creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 43,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, they're pushed 10 feet away from you, and on a critical failure, they're pushed 20 feet away from you and fall "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". The armor's absorbed damage resets to 0."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["force"],
+        "value": 10
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "piercing", "slashing"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FKNgrFDIRBumr6P5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": 2,
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 3,
+        "resilient": 2,
+        "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
+      }
+    }
+  }
+]

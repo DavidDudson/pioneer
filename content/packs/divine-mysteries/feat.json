@@ -393,7 +393,8 @@
         }
       ],
       "prerequisitePredicate": ["self:trait:holy"]
-    }
+    },
+    "supersedes": ["6e33f87d-a539-5205-b8a5-301fd4b1efc3"]
   },
   {
     "id": "d30fbce9-e211-52ad-9c37-3ea690dcaf31",
@@ -2134,7 +2135,8 @@
         },
         "selfEffect": "c5967b66-33ae-58ce-aeb3-30c0b51f9697"
       }
-    }
+    },
+    "supersedes": ["58ad44f9-5193-5231-8fd5-ce969b4ede4f"]
   },
   {
     "id": "8a62515c-73ad-5808-a2e3-015537e92132",
@@ -2411,7 +2413,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["787d3fb0-6fa0-5f88-bc90-36db01e46e84"]
   },
   {
     "id": "889451e8-1b51-5cd1-b801-8e6964b20b86",
@@ -2823,7 +2826,8 @@
         }
       ],
       "prerequisitePredicate": ["self:trait:unholy"]
-    }
+    },
+    "supersedes": ["89c4cd49-6f2c-50d8-8752-9ca53ccf297c"]
   },
   {
     "id": "ac46ceb4-86dd-5f11-8b13-f1b12ff01018",
@@ -6102,7 +6106,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["f9b1067a-3881-5fe2-ac4d-2d236ff71031"]
   },
   {
     "id": "3a5ba6f2-d449-5d3c-917e-6930f4445651",
@@ -6284,7 +6289,14 @@
     },
     "data": {
       "category": "class"
-    }
+    },
+    "supersedes": [
+      "d925826d-4865-5093-ab90-03fa2b915bcc",
+      "9e53e3d2-0069-5f76-9927-367b13a69b7e",
+      "b5351c3b-120f-5377-85c2-0f3b68d54138",
+      "29c5cc7e-1b0c-55e1-bfc3-e844b95665b7",
+      "4b0656c5-cfde-5190-9bd6-6f67a6fafc09"
+    ]
   },
   {
     "id": "ab3777b0-6fbd-5367-b4eb-fcffd2385b8e",
@@ -6724,7 +6736,8 @@
           "predicate": ["self:trait:unholy"]
         }
       ]
-    }
+    },
+    "supersedes": ["e3b4c99b-62a2-5c91-89a3-20fbcece1016"]
   },
   {
     "id": "bd682c73-d97d-5b7c-a644-393241959058",
@@ -7519,7 +7532,8 @@
         }
       ],
       "prerequisitePredicate": ["self:trait:unholy"]
-    }
+    },
+    "supersedes": ["fc6453c8-4ca3-5268-a8f6-82268fb63e01"]
   },
   {
     "id": "d6b3a388-a6f3-5855-9b3e-9455158d0a71",
@@ -7578,7 +7592,8 @@
         }
       ],
       "prerequisitePredicate": ["self:trait:holy"]
-    }
+    },
+    "supersedes": ["42f76c5f-e798-57fd-ad09-8ff8ac2db360"]
   },
   {
     "id": "e4d35743-698e-54d0-98b1-5470719822a9",

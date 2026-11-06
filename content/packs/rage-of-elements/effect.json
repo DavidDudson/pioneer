@@ -2576,6 +2576,61 @@
     }
   },
   {
+    "id": "17a92729-2df5-5879-ae9d-5096f96b63cc",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-overwhelming-perfume",
+    "name": "Effect: Overwhelming Perfume",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "cca526bf-ad2e-5a59-a28e-d6788451e631"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the aura can't benefit from the scent ability and are sickened 1 as long as they remain in the aura."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.wdA5DW7YiYR4jXPs"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "fed65c14-29e6-5903-af2d-99b184f3eaa1",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -3129,6 +3184,120 @@
     }
   },
   {
+    "id": "81a76393-f823-5e1f-8a86-7d86beae55c5",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-armor-greater",
+    "name": "Effect: Spiny Lodestone - Armor (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8ee69afd-270a-5f7c-aee5-6000a619f314"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to Athletics checks and resistance 5 to nonlethal damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.o9N5EUN5ajuXSTVX"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "087b658a-2a9e-5fda-ad2c-567452de75f9",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-armor-major",
+    "name": "Effect: Spiny Lodestone - Armor (Major)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c90f84c1-6dca-558c-b7a3-ad64eff2f555"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to Athletics checks and resistance 10 to nonlethal damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.OVEn6314ZAul4bbi"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "67b08add-7238-5acd-abb6-1d95dfabee21",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -3237,6 +3406,130 @@
     ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.m6z7OrJgF4XQFNpa"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "7a232ebb-4fc3-5c9b-b5fa-df602eefc107",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-weapon-greater",
+    "name": "Effect: Spiny Lodestone - Weapon (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "8ee69afd-270a-5f7c-aee5-6000a619f314"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a spell by Activating the "
+          },
+          {
+            "type": "text",
+            "text": "spiny lodestone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your Strikes with the weapon deal an additional 1d6 piercing damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.yd0qnTSjz6d9rgxU"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "af346a56-fe7f-5c59-9300-567fa777e56b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-spiny-lodestone-weapon-major",
+    "name": "Effect: Spiny Lodestone - Weapon (Major)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "c90f84c1-6dca-558c-b7a3-ad64eff2f555"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a spell by Activating the "
+          },
+          {
+            "type": "text",
+            "text": "spiny lodestone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", your Strikes with the weapon deal an additional 1d8 piercing damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.LZ8q9ctapWVrGxhE"
     },
     "data": {
       "category": "equipment",
@@ -3658,6 +3951,89 @@
     }
   },
   {
+    "id": "a4537ec9-e4c1-57ce-82e5-4a383cfd0200",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thermal-nimbus-cold",
+    "name": "Effect: Thermal Nimbus (Cold)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "@item.level"
+      },
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "@level + @item.level",
+        "predicate": ["junction:fire:resistance", "self:effect:kinetic-aura"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.1WqXbwhfT1f6OrPU"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "680db463-d252-5a3b-a13d-5806ae56f18b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thermal-nimbus-fire",
+    "name": "Effect: Thermal Nimbus (Fire)",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "@item.level"
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": "@level + @item.level",
+        "predicate": [
+          "self:effect:kinetic-aura",
+          {
+            "or": ["junction:fire:resistance", "junction:water:resistance"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.IYeAJ0sB2zCgus1b"
+    },
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "91279d11-3c60-54be-b59d-e102a7c06061",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -3856,6 +4232,124 @@
     }
   },
   {
+    "id": "462f251b-298b-5cc5-af86-8b731160beb7",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-armor-greater",
+    "name": "Effect: Thorn Triad - Armor (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3671c81a-7f65-5475-b1c8-7a888a4f0809"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a plant spell by activating the triad, you gain resistance 4 to bludgeoning and piercing damage and weakness 3 to fire until the end of your next turn, or double the resistance for a non-cantrip spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.JGlkg3US7Tk1SirV"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "fdd86a22-6ef4-54bc-9ae6-a375bb3c37ae",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-armor-major",
+    "name": "Effect: Thorn Triad - Armor (Major)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "513280c7-bdf2-55ac-bb21-8b27962f4f96"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a plant spell by activating the triad, you gain resistance 6 to bludgeoning and piercing damage and weakness 3 to fire until the end of your next turn, or double the resistance for a non-cantrip spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.pzR7ohtc1KKCSWIS"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
     "id": "17fbf84c-7103-575e-a509-af94e40f73cc",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -4015,6 +4509,112 @@
     ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.FTj94xTqZbaCs4jT"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3c2358a1-bd23-5f8d-bb4e-bf2cf2bfb3e1",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-weapon-greater",
+    "name": "Effect: Thorn Triad - Weapon (Greater)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3671c81a-7f65-5475-b1c8-7a888a4f0809"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a plant spell by activating the triad, thorns erupt from the weapon. Your Strikes with the weapon deal an additional 1d6 persistent bleed damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WOblH0tb7WQ8qgM2"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "bd4ac1f7-329f-5109-9b03-09183bb69d0b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:effect-thorn-triad-weapon-major",
+    "name": "Effect: Thorn Triad - Weapon (Major)",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "513280c7-bdf2-55ac-bb21-8b27962f4f96"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a plant spell by activating the triad, thorns erupt from the weapon. Your Strikes with the weapon deal an additional 1d8 persistent bleed damage until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.2MzNdLHge0l8B6sQ"
     },
     "data": {
       "category": "equipment",
@@ -4551,6 +5151,1046 @@
     }
   },
   {
+    "id": "bd512f70-1d38-59e2-a18d-04628306be42",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-element-embodied-metal",
+    "name": "Spell Effect: Element Embodied (Metal)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3070770d-aadb-56f1-a35f-5a3a2a115967"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing upon the deepest wells of magic in an elemental plane, you transform into a spectacular elemental. You can choose between an air elemental, earth elemental, fire elemental, or water elemental. Your battle form is Gargantuan, and you must have enough space to expand into or the spell is lost. While in this form, you gain the elemental trait and the trait for the element you choose. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 25 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more attacks specific to the battle form you choose, which are the only attacks you can use. You're trained with them. Your attack modifier is +34, and you use the listed damage. These attacks are Dexterity based if you choose an air or fire elemental, or Strength based if you choose an earth or water elemental. (This distinction doesn't change the statistics, but matters for the enfeebled and clumsy conditions, for example). If your unarmed attack modifier is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Acrobatics modifier of +36 for air or fire elemental or Athletics modifier of +36 for earth or water elemental, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of elemental you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal Elemental",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 40 feet, fly 40 feet; resistance 10 to electricity;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Arcing Electricity",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, electricity, metal) 30 feet. A creature that enters the aura or starts its turn in the aura takes "
+                      },
+                      {
+                        "type": "damage",
+                        "instances": [
+                          {
+                            "formula": "2d12",
+                            "damageType": "electricity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " damage with a basic Reflex save against your spell DC; a creature made of metal, with the metal trait, or wearing metal armor takes a –1 circumstance penalty on this save. A creature can take damage from the aura only once per round;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " blade (reach 25 feet, versatile slashing), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d12+15 piercing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " metal shard (range increment 40 feet, versatile slashing), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 piercing."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "25 + @level"
+          },
+          "size": "gargantuan",
+          "skills": [
+            {
+              "skill": "skill:acr",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "fly": 40,
+            "land": 40
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 30,
+          "resistances": [
+            {
+              "type": "electricity",
+              "value": 10
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "blade",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["reach-25", "unarmed", "versatile-s"],
+              "modifier": 34,
+              "damage": {
+                "dice": 3,
+                "die": "d12",
+                "damageType": "piercing",
+                "modifier": 15
+              }
+            },
+            {
+              "slug": "metal-shard",
+              "ability": "dex",
+              "category": "unarmed",
+              "traits": ["unarmed", "versatile-s"],
+              "range": 40,
+              "modifier": 34,
+              "damage": {
+                "dice": 4,
+                "die": "d8",
+                "damageType": "piercing",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": ["elemental", "metal"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true
+        }
+      },
+      {
+        "key": "Aura",
+        "slug": "arcing-electricity",
+        "radius": 30,
+        "traits": ["electricity", "metal"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.lRfiYmsoQMJZ81NQ"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b5785524-498b-521a-ba32-5fac59eb4f3e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-element-embodied-wood",
+    "name": "Spell Effect: Element Embodied (Wood)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3070770d-aadb-56f1-a35f-5a3a2a115967"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing upon the deepest wells of magic in an elemental plane, you transform into a spectacular elemental. You can choose between an air elemental, earth elemental, fire elemental, or water elemental. Your battle form is Gargantuan, and you must have enough space to expand into or the spell is lost. While in this form, you gain the elemental trait and the trait for the element you choose. You can Dismiss the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following statistics and abilities regardless of which battle form you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "AC = 25 + your level. Ignore your armor's check penalty and Speed reduction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more attacks specific to the battle form you choose, which are the only attacks you can use. You're trained with them. Your attack modifier is +34, and you use the listed damage. These attacks are Dexterity based if you choose an air or fire elemental, or Strength based if you choose an earth or water elemental. (This distinction doesn't change the statistics, but matters for the enfeebled and clumsy conditions, for example). If your unarmed attack modifier is higher, you can use it instead."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Acrobatics modifier of +36 for air or fire elemental or Athletics modifier of +36 for earth or water elemental, unless your own modifier is higher."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You also gain specific abilities based on the type of elemental you choose:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood Elemental",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 30 feet, climb 35 feet; resistance 5 to physical; weakness to axes 10;"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Lush Growth",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (aura, wood) 30 feet. Ground in the area is difficult terrain, and any time a creature in the area regains HP from a healing vitality effect, the aura grants a +5 status bonus to the healing;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Woody Toughness",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " You gain 40 temporary Hit Points when you choose this form instead of 30;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Melee",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " branch (reach 25 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 3d10+18 bludgeoning;"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Ranged",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "action-cost",
+                        "cost": "one"
+                      },
+                      {
+                        "type": "text",
+                        "text": " seed (range increment 40 feet), "
+                      },
+                      {
+                        "type": "text",
+                        "text": "Damage",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " 4d8+6 bludgeoning."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "BattleForm",
+        "form": {
+          "armorClass": {
+            "modifier": "25 + @level"
+          },
+          "size": "gargantuan",
+          "skills": [
+            {
+              "skill": "skill:ath",
+              "modifier": 23
+            }
+          ],
+          "speeds": {
+            "climb": 35,
+            "land": 30
+          },
+          "senses": [
+            {
+              "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+            }
+          ],
+          "tempHP": 40,
+          "weaknesses": [
+            {
+              "type": "axe-vulnerability",
+              "value": 10
+            }
+          ],
+          "resistances": [
+            {
+              "type": "physical",
+              "value": 5
+            }
+          ],
+          "strikes": [
+            {
+              "slug": "branch",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["reach-25", "unarmed"],
+              "modifier": 34,
+              "damage": {
+                "dice": 3,
+                "die": "d10",
+                "damageType": "bludgeoning",
+                "modifier": 18
+              }
+            },
+            {
+              "slug": "seed",
+              "ability": "str",
+              "category": "unarmed",
+              "traits": ["unarmed"],
+              "range": 40,
+              "modifier": 34,
+              "damage": {
+                "dice": 4,
+                "die": "d8",
+                "damageType": "bludgeoning",
+                "modifier": 6
+              }
+            }
+          ],
+          "traits": ["elemental", "wood"],
+          "canCast": false,
+          "canSpeak": false,
+          "hasHands": true
+        }
+      },
+      {
+        "key": "Aura",
+        "slug": "lush-growth",
+        "radius": 30,
+        "traits": ["wood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.xPNKt1aQc3dquKlt"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "5fa47faf-3a70-5cfe-ae5d-de8c7027c083",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-elemental-absorption",
+    "name": "Spell Effect: Elemental Absorption",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "ffea1a9e-dfd7-54c8-aaa8-642598428717"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You absorb elemental energy, which you can release as a powerful counterattack. Choose air, earth, fire, or water. You gain resistance 5 to damage dealt by effects with the chosen elemental trait; if you choose water, you also gain resistance to cold damage. As usual, if a spell has a multiple effects, such as a spell that deals both fire damage and bludgeoning damage with superheated rocks, you gain resistance to only the effects associated with the element you chose. Keep track of how much damage you have prevented with this spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a 2-action activity, which has the concentrate trait and the trait matching the element you chose, you can release the stored energy. This deals damage equal to the amount you've stored (maximum 30 damage) to one enemy within 60 feet, with a basic Reflex save. The damage type depends on the element you chose: fire damage for fire; bludgeoning or cold damage for water; bludgeoning or slashing damage for air; or bludgeoning, piercing, or slashing damage for earth. After releasing the energy, the spell ends. If you do not use the stored energy before the spell ends, the energy is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+3)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The resistance increases by 5 and the maximum damage increases by 30."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": "5 * floor(@item.level / 3)",
+        "predicate": ["elemental-absorption:water"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["electricity", "slashing"],
+        "value": "5 * floor(@item.level / 3)",
+        "predicate": ["elemental-absorption:metal"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["bludgeoning", "vitality"],
+        "value": "5 * floor(@item.level / 3)",
+        "predicate": ["elemental-absorption:wood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.LldX5hnNhKzGtOS0"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d581729f-3410-5c75-a06a-3e307f67c52b",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-elemental-gift",
+    "name": "Spell Effect: Elemental Gift",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "7da61e61-857f-5d15-9727-0318625af660"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an element when you Cast the Spell. The target gains the benefit of that element as described below, and this spell gains that trait's element."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Air",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a +30-foot status bonus to its land Speed and gains a fly Speed equal to its land Speed without the status bonus."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Earth",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " While on the ground, the target gets a +2 status bonus to Fortitude and Reflex saves against effects that would Shove or Trip it, and to saves against effects that would attempt to knock it prone. In addition, the ground adjacent to the target is difficult terrain, and the difficult terrain moves with the target, though the target ignores this difficult terrain with its own movement."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fire",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target's melee unarmed Strikes and melee weapon Strikes deal 1d6 persistent fire damage on a hit."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Metal",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target's Strikes using a metal weapon or an unarmed attack deal an additional 1d4 electricity damage on a hit and get a +1 status bonus to the attack roll if the target is made of metal or wearing metal armor."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target takes on a watery sheen, gaining resistance 5 to fire and a swim Speed equal to its land Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wood",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target gains a number of temporary Hit Points equal to the spell's rank, then gains half that number of temporary HP at the start of each of its turns."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "elemental-gift",
+        "choices": [
+          {
+            "value": "air",
+            "label": "Air"
+          },
+          {
+            "value": "earth",
+            "label": "Earth"
+          },
+          {
+            "value": "fire",
+            "label": "Fire"
+          },
+          {
+            "value": "metal",
+            "label": "Metal"
+          },
+          {
+            "value": "water",
+            "label": "Water"
+          },
+          {
+            "value": "wood",
+            "label": "Wood"
+          }
+        ],
+        "prompt": "Select an element.",
+        "rollOption": "elemental-gift"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 30,
+        "predicate": ["elemental-gift:air"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:fortitude", "save:reflex"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          "elemental-gift:earth",
+          {
+            "or": ["action:shove", "action:trip"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "slug": "earth-prone",
+        "predicate": ["elemental-gift:earth", "inflicts:prone"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "category": "persistent",
+        "predicate": ["elemental-gift:fire", "option:melee"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:metal-weapon",
+        "toggleable": true,
+        "predicate": ["elemental-gift:metal"],
+        "display": {
+          "label": "Using a metal weapon"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "attack-roll",
+        "option": "target:metal",
+        "toggleable": true,
+        "predicate": ["elemental-gift:metal"],
+        "display": {
+          "label": "Target is wearing metal armor or is made of metal"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d4",
+        "damageType": "electricity",
+        "predicate": [
+          "elemental-gift:metal",
+          {
+            "or": ["option:metal-weapon", "option:unarmed"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-attack-roll"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          "elemental-gift:metal",
+          "target:metal",
+          {
+            "or": ["option:metal-weapon", "option:unarmed"]
+          }
+        ]
+      },
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5,
+        "predicate": ["elemental-gift:water"]
+      },
+      {
+        "key": "TempHP",
+        "value": "@item.level",
+        "predicate": ["elemental-gift:wood"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.AF4vQ1xoOiJ1ewH1"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "ee260691-2201-5fb9-81de-79bf6329a3ad",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -4961,6 +6601,11 @@
         "key": "GrantShield",
         "hardness": 2,
         "endsOnBlock": true,
+        "raised": true,
+        "shards": {
+          "damageType": "piercing",
+          "damage": "1d4"
+        },
         "brackets": [
           {
             "start": 3,
@@ -4982,12 +6627,7 @@
             "hardness": 12,
             "shards": "6d4"
           }
-        ],
-        "raised": true,
-        "shards": {
-          "damageType": "piercing",
-          "damage": "1d4"
-        }
+        ]
       }
     ],
     "externalIds": {
@@ -5795,6 +7435,66 @@
     }
   },
   {
+    "id": "4b2f38e2-5de8-5ed5-bf62-203ae357d718",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-repel-metal",
+    "name": "Spell Effect: Repel Metal",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "3cf2daaf-1164-529a-afde-f38aa46f85e3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target gains a +2 circumstance bonus to AC against the triggering attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.vhFnQBvguBXo6vxx"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "0cdceb2c-1ae3-5da2-8171-035a79824f90",
     "pack": "rage-of-elements",
     "kind": "effect",
@@ -5916,6 +7616,150 @@
         "count": 10,
         "unit": "minute",
         "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "38e8f186-a1ce-5c7b-a393-da5a3cd4ddda",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-serrate",
+    "name": "Spell Effect: Serrate",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Strikes with the target weapon deal additional slashing damage until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "serrate-weapon",
+        "choices": {
+          "ownedKinds": ["weapon"],
+          "filter": []
+        },
+        "prompt": "Select a weapon."
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["picked:serrate-weapon-damage"],
+        "diceNumber": "ceil(@item.level / 2)",
+        "dieSize": "d4",
+        "damageType": "slashing"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spell-effects.Item.CDNKDV3UsAp95D1m"
+    },
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "3bde73c3-be1a-51b1-b436-e93c4e05355e",
+    "pack": "rage-of-elements",
+    "kind": "effect",
+    "slug": "effect:spell-effect-shielded-arm",
+    "name": "Spell Effect: Shielded Arm",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can raise its arm with the Raise a Shield action and Shield Block with it, reducing the damage as if it had a shield with Hardness 4 and 15 Hit Points and no Broken Threshold. The spell ends if the shield's Hit Points are spent. While the shield is raised, the +2 circumstance bonus to AC applies."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantShield",
+        "hardness": 4,
+        "hitPoints": 15,
+        "brokenThreshold": 0,
+        "endsWhenDestroyed": true,
+        "brackets": [
+          {
+            "start": 3,
+            "hardness": 8,
+            "hitPoints": 30
+          },
+          {
+            "start": 5,
+            "hardness": 12,
+            "hitPoints": 45
+          },
+          {
+            "start": 7,
+            "hardness": 16,
+            "hitPoints": 60
+          },
+          {
+            "start": 9,
+            "hardness": 20,
+            "hitPoints": 75
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["self:effect:effect-raise-a-shield"]
+      }
+    ],
+    "data": {
+      "category": "spell",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
       }
     }
   },
@@ -7700,93 +9544,6 @@
       "category": "feat",
       "duration": {
         "type": "encounter"
-      }
-    }
-  },
-  {
-    "id": "3bde73c3-be1a-51b1-b436-e93c4e05355e",
-    "pack": "rage-of-elements",
-    "kind": "effect",
-    "slug": "effect:spell-effect-shielded-arm",
-    "name": "Spell Effect: Shielded Arm",
-    "level": 1,
-    "rarity": "common",
-    "traits": [],
-    "sources": [
-      {
-        "kind": "book",
-        "book": "rage-of-elements"
-      }
-    ],
-    "description": [
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "Granted by "
-          },
-          {
-            "type": "ref",
-            "id": "914276a4-71c0-5e9a-b3a1-48109e2bf6bc"
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "The target can raise its arm with the Raise a Shield action and Shield Block with it, reducing the damage as if it had a shield with Hardness 4 and 15 Hit Points and no Broken Threshold. The spell ends if the shield's Hit Points are spent. While the shield is raised, the +2 circumstance bonus to AC applies."
-          }
-        ]
-      }
-    ],
-    "rules": [
-      {
-        "key": "GrantShield",
-        "hardness": 4,
-        "hitPoints": 15,
-        "brokenThreshold": 0,
-        "endsWhenDestroyed": true,
-        "brackets": [
-          {
-            "start": 3,
-            "hardness": 8,
-            "hitPoints": 30
-          },
-          {
-            "start": 5,
-            "hardness": 12,
-            "hitPoints": 45
-          },
-          {
-            "start": 7,
-            "hardness": 16,
-            "hitPoints": 60
-          },
-          {
-            "start": 9,
-            "hardness": 20,
-            "hitPoints": 75
-          }
-        ]
-      },
-      {
-        "key": "FlatModifier",
-        "selectors": ["ac"],
-        "type": "circumstance",
-        "value": 2,
-        "predicate": ["self:effect:effect-raise-a-shield"]
-      }
-    ],
-    "data": {
-      "category": "spell",
-      "duration": {
-        "type": "time",
-        "count": 1,
-        "unit": "minute",
-        "expiry": "turn-start"
       }
     }
   }

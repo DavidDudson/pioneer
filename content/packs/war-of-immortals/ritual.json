@@ -732,7 +732,8 @@
         ],
         "casters": 3
       }
-    }
+    },
+    "supersedes": ["addafe23-8626-5617-8d69-2e9b2e1bf6b6"]
   },
   {
     "id": "992d5233-19a9-5c9d-8fb9-29816de73a67",
@@ -1590,7 +1591,8 @@
         ],
         "casters": 6
       }
-    }
+    },
+    "supersedes": ["111b05ef-18ac-5274-8d20-0858ab5b6f9a"]
   },
   {
     "id": "adc405bb-90a8-5eb4-a252-b04fd25ed98a",

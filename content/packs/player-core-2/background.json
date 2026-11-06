@@ -94,7 +94,8 @@
         ["int", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["6db2c738-bb58-5c45-991a-9bcb769e9ce5"]
   },
   {
     "id": "9dd9c932-c12b-5468-b08e-7b138abba857",
@@ -191,7 +192,8 @@
         ["dex", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["cacdd5ba-ab09-51d1-87ac-cd22858ef1d7"]
   },
   {
     "id": "4cc233da-68ca-5f49-8955-8011454a1ede",
@@ -273,7 +275,8 @@
         ["cha", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["da6cab7a-a2d9-5cef-ae8a-5b0dedc92bcf"]
   },
   {
     "id": "84982992-8105-5f67-b87c-4b350081b3fd",
@@ -358,7 +361,8 @@
         ["int", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["17aa0333-ae67-5c81-a46e-8d69217fdbaa"]
   },
   {
     "id": "8b7b554d-73bc-572b-b593-9e8023c9a182",
@@ -450,7 +454,8 @@
         ["dex", "int"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["3527272e-2b23-518b-a64e-4bb3950feda8"]
   },
   {
     "id": "65fe948f-cb3e-5e39-9479-5463fedcc1e3",
@@ -665,7 +670,8 @@
     },
     "data": {
       "boosts": [["con", "dex", "str"]]
-    }
+    },
+    "supersedes": ["be839e98-46cf-5013-8a3e-848a42cf2e76"]
   },
   {
     "id": "0bcd1608-728c-5d1c-b0d9-a7e56b6947b0",
@@ -864,7 +870,8 @@
         ["cha", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["ba93a4d9-75d7-5422-98a5-f8303e48416c"]
   },
   {
     "id": "92bb8b63-ff66-56a1-88a2-b19053bb3a53",
@@ -961,7 +968,8 @@
         ["str", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["bc30626e-8eeb-5119-8991-9cb4128709d7"]
   },
   {
     "id": "fc6ad8b5-13a2-5999-8d7c-e01b4f334265",
@@ -1058,7 +1066,8 @@
         ["con", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["8ef1c3ae-7e75-554c-9647-7e069625d5af"]
   },
   {
     "id": "a1a791ca-1149-55d0-a78c-c3554d06cd69",
@@ -1150,7 +1159,8 @@
         ["cha", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["957e6434-cff2-5f26-b4fd-8e366b24b700"]
   },
   {
     "id": "5b2bf40d-16fd-5558-864e-705b615de857",
@@ -1346,7 +1356,8 @@
         ["con", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["3dda455e-867f-5bfa-af03-fe315806ca13"]
   },
   {
     "id": "2bec3e1b-99e7-59bf-83da-b5d846b918fc",
@@ -1443,7 +1454,8 @@
         ["int", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["c7c910c4-ee3e-5e4c-8cc2-2515b74aa6a3"]
   },
   {
     "id": "228b8738-fae3-5c67-a3b6-66794eb03fb2",
@@ -1543,7 +1555,8 @@
         ["cha", "int"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["9614ec2c-5ec6-54e5-bff7-edb1b9237841"]
   },
   {
     "id": "275f0dbb-511f-55ff-9b0d-89b573194baa",
@@ -1732,7 +1745,8 @@
         ["int", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["17fd9bb5-66ba-500f-9fa3-eabe4f7b08d2"]
   },
   {
     "id": "9caa1895-30cc-5de4-97ea-e7bb92b3c4da",
@@ -1829,7 +1843,8 @@
         ["cha", "dex"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["78feeca9-d8c1-5524-afbc-40eb8f401375"]
   },
   {
     "id": "0e763baf-7bfd-504b-804e-04938a7dd642",
@@ -1921,7 +1936,8 @@
         ["con", "str"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["1d0894be-ce6f-5dbc-bb88-c5d019887fca"]
   },
   {
     "id": "8f3e9563-0ff1-52af-af4a-07a32d2163fd",
@@ -2013,7 +2029,8 @@
         ["cha", "str"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["da9c6909-a0e0-55e3-97a0-3261c1325dab"]
   },
   {
     "id": "fd86cb0c-b549-5100-9fc4-6a136ccdf253",
@@ -2110,6 +2127,7 @@
         ["cha", "con"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["74258918-f408-5d72-b854-2cb17fc7892c"]
   }
 ]

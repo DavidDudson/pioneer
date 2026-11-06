@@ -2504,7 +2504,8 @@
         "type": "worn",
         "slot": "shoes"
       }
-    }
+    },
+    "supersedes": ["79070e82-a64f-58c4-98a8-72a7604f162e"]
   },
   {
     "id": "a0095594-393c-5248-aa1a-21b241cab668",
@@ -4028,7 +4029,8 @@
         "slot": "bracers"
       },
       "apex": "str"
-    }
+    },
+    "supersedes": ["7344aac6-d509-5b37-aee3-2a03ebf8c31d"]
   },
   {
     "id": "daab0fc3-3af6-5a9c-bbaa-0573d99339cc",
@@ -4318,7 +4320,8 @@
         "type": "worn",
         "slot": "gloves"
       }
-    }
+    },
+    "supersedes": ["ae7303a2-ed1f-5023-a324-ce270260e1ba"]
   },
   {
     "id": "307a0563-9ba2-597e-841c-8681179ae153",
@@ -5256,7 +5259,8 @@
         "type": "worn",
         "slot": "bracers"
       }
-    }
+    },
+    "supersedes": ["8aa38d45-9d93-589a-aa21-6dc99035237a"]
   },
   {
     "id": "d2b7a765-4316-51fb-bd59-b3ef4a66e8ce",
@@ -5486,7 +5490,8 @@
         "type": "worn",
         "slot": "cloak"
       }
-    }
+    },
+    "supersedes": ["a4888e83-a05d-5ee5-b6d4-765b3c2089e6"]
   },
   {
     "id": "43ff1e77-7a79-5a33-9801-816e326dde5b",
@@ -5683,7 +5688,8 @@
         "slot": "cloak"
       },
       "apex": "dex"
-    }
+    },
+    "supersedes": ["9e4552af-36c9-5d9b-b161-121a15956337"]
   },
   {
     "id": "ac059dd8-eb8c-5918-b774-1e46ba389164",
@@ -10131,7 +10137,8 @@
         "type": "worn",
         "slot": "garment"
       }
-    }
+    },
+    "supersedes": ["3909d9ea-f7a7-5f33-a7b2-b376b76e0316"]
   },
   {
     "id": "1f2b1c51-6130-54de-8637-e9bef802663b",
@@ -12949,7 +12956,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["fae23b19-4efc-570a-9a12-896caec7538c"]
   },
   {
     "id": "20ce9297-8617-56b4-b01a-1c5073ca5f7f",
@@ -15919,7 +15927,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["b138ba55-bdf9-599a-9b61-d5380776a4fa"]
   },
   {
     "id": "3425849f-7a67-5fd2-8926-f76a99081728",
@@ -17682,7 +17691,8 @@
         "type": "worn"
       },
       "apex": "cha"
-    }
+    },
+    "supersedes": ["dfd3897a-b945-5910-891d-e86a014a1be0"]
   },
   {
     "id": "40e64f96-08b1-5929-94ad-00afba06bd92",

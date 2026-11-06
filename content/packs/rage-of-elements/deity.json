@@ -1,0 +1,1245 @@
+[
+  {
+    "id": "7c94f55f-2674-5fd6-8627-7424810d2a2a",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:atreia",
+    "name": "Atreia",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Responsible for fire, purification, and radiance, Atreia the Lambent King is the benevolent elemental lord of fire. When the multiverse was young, Atreia soared across the Plane of Fire as a triple-headed ibis, with wings that burned and eyes of flame, routing evil from the plane. Now, he is imprisoned within the Garnet Brand, a red gem encased in an eternal shroud of steam. Though he cannot hear or grant power to his followers from his prison, some groups of salamanders on the Plane of Fire still honor the Lambent King for his dominion over protection and life-giving fire, as do a few small circles of mortals who hold the discovery and purification of evil above all other causes. Statues depicting his likeness can be found across his former realms, hidden in ancient sites dedicated to healing and holy light."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Burn away corruption, clear the way for new growth, purify tainted areas"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Deny a suffering creature warmth, shade, or water; abandon a creature in darkness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire, purification, and radiance"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.R0DvoLO8WbYIYhb3"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["fire", "healing", "protection", "sun"],
+        "alternate": []
+      },
+      "font": ["heal"],
+      "attributes": ["cha", "wis"],
+      "skills": ["skill:performance"],
+      "weapons": ["katar"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "272d555d-f777-5439-b02b-cc5325c0a648"
+        },
+        {
+          "rank": 3,
+          "spell": "0474b135-7232-52c1-beff-221dccc82e78"
+        },
+        {
+          "rank": 4,
+          "spell": "19a34df3-2235-5e84-8597-17cc1cc9f505"
+        }
+      ]
+    }
+  },
+  {
+    "id": "008fa9bf-65af-58c0-8d93-dc9a2038627b",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:ferrumnestra",
+    "name": "Ferrumnestra",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=273"
+      }
+    ],
+    "description": [
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Ferrumnestra",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", The Lady of Rust"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " accept the inevitable, clear what remains of that which has fallen to ruin, usher the past into obscurity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " preserve knowledge that has outlived its time, restore an object or structure that has been reclaimed by the elements"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " metal, decline, inevitability, mourning"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Attribute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Constitution or Wisdom"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "DEVOTEE BENEFITS",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cleric Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+          },
+          {
+            "type": "text",
+            "text": ", 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "7eee8d89-12a6-580e-8d31-9fc9d86f18ab"
+          },
+          {
+            "type": "text",
+            "text": ", 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "8592bca6-0f4f-55d8-b72f-b043c13f4eb5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Font",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " harm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Sanctification",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " none"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Athletics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " decay, destruction, metal, void"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alternate Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sorrow, vigil"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " pick"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just as the birth of every mortal begins another inexorable march toward the grave, the infinitesimally slow decline of the Plane of Metal began eons ago at the moment of its creation. The plane has been deteriorating for as long as it has existed, and Ferrumnestra, the Lady of Rust, has always been there to shepherd it along toward its distant but inevitable end. Her charge is to eternally traverse the plane, consuming the last vestiges of its planar material as it crumbles into its most basic elements. Only nonexistence remains in her wake."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ferrumnestra's physical form is a colossal many-legged crustacean covered in layer upon layer of shell-like plates made of tarnished and rusted metal. An innumerable host of ore lice almost always accompanies her. Normally hailing from the Plane of Water, these creatures follow behind the Lady of Rust in a chittering swarm, eagerly devouring residue she leaves behind and growing extremely large. Other denizens of the plane give them a wide berth, for while Ferrumnestra herself is neither cruel nor aggressive, she feels no responsibility for the safety of those who run afoul of her voracious entourage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Lady of Rust has no permanent dwelling, preferring to wander the plane as her divine calling directs her. Many of her worshippers follow her example by mounting pilgrimages to the plane's farthest reaches, shepherding any ancient ruins they discover along on the passage into oblivion."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.RnS5P7zX0HRPsDnt"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["decay", "destruction", "void", "metal"],
+        "alternate": ["sorrow", "vigil"]
+      },
+      "font": ["harm"],
+      "attributes": ["con", "wis"],
+      "skills": ["skill:athletics"],
+      "weapons": ["pick"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "248bb8df-49f3-51db-ae05-afebdded8c5c"
+        },
+        {
+          "rank": 3,
+          "spell": "7eee8d89-12a6-580e-8d31-9fc9d86f18ab"
+        },
+        {
+          "rank": 4,
+          "spell": "8592bca6-0f4f-55d8-b72f-b043c13f4eb5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "b4f41283-d00c-5f22-a86a-ef2d350ce58e",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:kelizandri",
+    "name": "Kelizandri",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=104"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kelizandri, the elemental lord of water, oversees the deep sea, waves, and drowning. The Brackish Emperor claims to be the offspring of an ancient god and a brine dragon, and he usually takes the form of an immense aquatic dragon with metallic scales and crystalline talons. He spends much of his time slumbering in his magnificent Palace of Salt and Bones, entertaining himself with rampages of wanton destruction and conquest whenever he wakes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kelizandri's worshippers include brine dragons, water elementals, and mortals who revere the inhospitable unknowns of the deep sea. He holds no love for marids, having killed the last Saline Padishah, Niloufar the Great, and destroyed her capital city of Arzanib. The lord's domain on the Plane of Water is the Brackish Empire Kelizandrika, a conglomeration of affiliated brine dragon-controlled realms. The most powerful dragons of Kelizandrika's ruling councils are said to advise the elemental lord personally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Instill hydrophobia in others, kill your foes by drowning them, sacrifice treasures to the depths of the ocean"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Destroy a body of water, use magic to calm the waves"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " water, waves, drowning"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.14GLsVobnZTEmJrs"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "must",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["destruction", "nightmares", "travel", "water"],
+        "alternate": ["tyranny", "wyrmkin", "zeal"]
+      },
+      "font": ["harm"],
+      "attributes": ["cha", "con"],
+      "skills": ["skill:athletics"],
+      "weapons": ["trident"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
+        },
+        {
+          "rank": 2,
+          "spell": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+        },
+        {
+          "rank": 4,
+          "spell": "f0b4d595-f619-5a11-973d-a30a7c9523ad"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5daeeca6-9bb0-5330-b484-6b6cb4688c1e",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:laudinmio",
+    "name": "Laudinmio",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=274"
+      }
+    ],
+    "description": [
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Laudinmio",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", The Sovereign of Alchemy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " discover new alloys and concoctions, have multiple concurrent plans, innovate use of metals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " allow your creation to fall into malicious hands, destroy an alchemical formula"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " metal, alchemy, discovery, experiments, regret"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Attribute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intelligence or Charisma"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "DEVOTEE BENEFITS",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cleric Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "fd7f09d9-b4a2-5a6e-8588-839d28c53fd6"
+          },
+          {
+            "type": "text",
+            "text": ", 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " (metal only), 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "efcbeb7d-28bc-5644-abad-cbccad85de79"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Font",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " harm or heal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Sanctification",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " none"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Crafting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " change, creation, metal, sorrow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alternate Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " wealth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored Weapon",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " alchemical bomb; a cleric of Laudinmio doesn't automatically gain any access to uncommon bombs"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When Laudinmio began their study of metal in earnest, they found mentors among deities now dead or forgotten—old gods who wished for them to inherit the position of elemental lord. Under this divine pressure and tutelage, Laudinmio rose in prominence as an inquisitive alchemist with millions of projects, endeavors, and discoveries. Once they accepted the mantle, Laudinmio's encouragement of spontaneity and self-expression—be it artistic or scientific—made them a popular ruler famed for administrative flexibility and natural charm. All in their realm, known as the Euphonious Coalition, celebrated metallic crafts, alchemy, and fashion. Laudinmio was keen on being at their most eye-catching and expressive, relying on fashion experts to decide what form, shape, and appearance would complement their attire. As a result, portrayals of the Sovereign of Alchemy have varied greatly over the ages."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Laudinmio's residence and laboratory, the inverted-pyramidal Castle Amalgam, sits in the reflective Lake Everchange. Tentacular carbon coils protrude from the irregular metallic and crystalline walls. Some function as structural supports, while the rest are experiments \"gone awry, but never wrong.\" Today, much of the castle lies in ruins, the aftermath of an incursion during which Ayrzul claimed part of Laudinmio's control over metal, adding a measure of it to the power of earth."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Laudinmio blames themself for failing to repel the terran invaders. The loss of this sovereignty threatened not only their own existence, but also the stability of the plane. In what little time they had after defeat, Laudinmio instructed the Euphonious Coalition to disperse before falling into stasis. Though the planar connections have been restored, Laudinmio yet slumbers, their short bouts of lucidity haunted by regret and confusion. A contingent of loyal subjects remained in the castle to secure their sovereign's safety while envoys travel the Universe seeking a way to soothe Laudinmio's pain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.xLbSMedLDFyb8sFw"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["change", "creation", "sorrow", "metal"],
+        "alternate": ["wealth"]
+      },
+      "font": ["harm", "heal"],
+      "attributes": ["cha", "int"],
+      "skills": ["skill:crafting"],
+      "weapons": ["alchemical-bomb"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "fd7f09d9-b4a2-5a6e-8588-839d28c53fd6"
+        },
+        {
+          "rank": 2,
+          "spell": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+        },
+        {
+          "rank": 5,
+          "spell": "efcbeb7d-28bc-5644-abad-cbccad85de79"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dee607f2-cd70-53a0-ab5e-d547f559e4ca",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:shumunue",
+    "name": "Shumunue",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=275"
+      }
+    ],
+    "description": [
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "The Carved Lady of Mimicry"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " wood, camouflage, carpentry, life, mimicry"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celebrate births, make time for nature, recreate life in your works"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " permanently damage a plant or wood creature, polymorph another without permission"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Attribute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Constitution or Charisma"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shumunue, Lord of Wood, is one of the few elemental lords not native to their plane of rule. Before the Carved Lady of Mimicry arrived on the Plane of Wood, it was a diverse and cultivated forest that stretched as far as the eye could see, yet it was eerily still. Animated creatures were rare, and beyond the wind through the boughs, little moved. Then Shumunue came to establish the Court of Transcendence. In her grotto, she taught the flowers and leaves to mimic praying mantises, bees, and moths. Then came herds of wooden deer, cranes, bats, and more, all delicately carved and polished. Within their minds, Shumunue imparted to these creatures the blueprints for their species and the instinct to carve their own descendants. Thus the Plane of Wood began to fill with life that resembled creatures from beyond its borders."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some legends claim Shumunue is a construct who gained sentience for being universally perfect, but the Lady of Mimicry disputes this, stating that she's the product of a union between a kodama and a kizidhar wizard who traveled to her plane. She rules over no land or organization, for she sees no need to exert her personal opinions on anybody else. She instead dedicates herself to the act of creation. Rather than having subjects, the Carved Lady keeps a close group of confidants, who put in requests for her immense powers on behalf of others in need."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shumunue maintains a sophisticated esca, or lure, of golden-hued wood. She regularly shaves this lure into the shape of a female humanoid with a head of ginkgo leaves. Some mistake this esca for Shumunue's physical form, but in actuality, the Carved Lady closely resembles an enormous forest dragon with scales like the bark of ancient trees. Her left flank bears a large blighted patch where Ayrzul's poison left its mark. While she's in no immediate danger, many on the Plane of Wood wait breathlessly to see whether their reconnection with the cosmos can cure her affliction."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Avatar"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When casting the avatar spell, a worshipper of Shumunue gains the following additional abilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shumunue",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speed 70 feet, fly Speed 70 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " hand of wood (reach 15 feet), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d6+6 bludgeoning damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " splinter shot (range 120 feet), "
+          },
+          {
+            "type": "text",
+            "text": "Damage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6d6+3 piercing"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.hAoVzkeFjTwh5Ykl"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy"]
+      },
+      "domains": {
+        "primary": ["creation", "passion", "swarm", "wood"],
+        "alternate": ["perfection", "repose"]
+      },
+      "font": ["heal"],
+      "attributes": ["cha", "con"],
+      "skills": ["skill:deception"],
+      "weapons": ["club"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "b71f10a1-dfaa-5f94-bb40-b14efcee0c95"
+        },
+        {
+          "rank": 2,
+          "spell": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+        },
+        {
+          "rank": 5,
+          "spell": "813db347-48b2-5dec-bbda-70e18cbe1719"
+        }
+      ]
+    }
+  },
+  {
+    "id": "0ced0da2-b5ac-5fda-ac69-764a6db9c7c9",
+    "pack": "rage-of-elements",
+    "kind": "deity",
+    "slug": "deity:verilorn",
+    "name": "Verilorn",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "rage-of-elements",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=276"
+      }
+    ],
+    "description": [
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Custodian Of Oak And Ash"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " wood, cultivation, forestry, gardening, security"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " patiently plant your seeds, plan for orderly beauty, watch over your sproutlings"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " abandon your post, neglect your crops, purposely pervert nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine Attribute",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Constitution or Wisdom"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Verilorn, Lord of Wood, Custodian of Oak and Ash, is a gardener. While some might consider gardening to be a free-flowing form of creation, Verilorn believes his gardens should be orderly and exact above all else. The towering trees that fill his arboretums are precise in their positioning and meticulous in their size and shade. Verilorn knows when a sprout will form into wood with such nicety that even the deities who govern time take inspiration."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Quiet and taciturn in person, Verilorn has few confidants and fewer friends. From within the boughs of his titanic tree cities, he stays constantly vigilant, listening through endless networks of bamboo tubes that hear all whispers and watching through ashen masks that see all threats. His creations are idyllically beautiful, but rigid and cold."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "He wasn't always this way. In eons past, when the planes began their eternal cycle, Verilorn cultivated life with as free a spirit as his counterpart, Shumunue. It was only after his plane became severed from the elemental cycle, the aftershocks killing many of his people, that Verilorn changed. Never again, he vowed, would his wild and chaotic gardens bring harm to his people or himself. Alone in his twisting tree tower, he wishes to ask Shumunue if they might again shape wood in the wilds together. But he can't bend as he used to. He's afraid that if he does, he will ultimately break."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At present, Verilorn has more pressing concerns. Power suffuses the Plane of Wood as it reconnects to the other planes, like a field finding the sun after a long winter. This change yields more growth than Verilorn can track and more paths than he can patrol. The Lord of Wood remains content to monitor the situation for now, but should any of his subjects come to harm, he won't hesitate to don his role of Reaper and Pruner once more."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Avatar"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When casting the avatar spell, a worshipper of Verilorn gains the following additional abilities."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Verilorn",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speed 50 feet, burrow Speed 30 feet, ignore difficult terrain and greater difficult terrain"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Melee",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " reaping sickle (agile, finesse, reach 15 feet, trip), Damage 6d4+6 slashing"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ranged",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " leaf swarm (range 120 feet), Damage 6d6+3 slashing"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.pafYqAGj47TmGBib"
+    },
+    "data": {
+      "category": "deity",
+      "domains": {
+        "primary": ["creation", "nature", "protection", "wood"],
+        "alternate": ["duty", "perfection"]
+      },
+      "font": ["heal"],
+      "attributes": ["con", "wis"],
+      "skills": ["skill:nature"],
+      "weapons": ["sickle"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "25fe372e-06e2-554b-9642-0a73ebb681d0"
+        },
+        {
+          "rank": 2,
+          "spell": "d649aded-ca36-5663-ba2c-edc97e35bd6c"
+        },
+        {
+          "rank": 6,
+          "spell": "ddb17c70-63fb-50e6-a176-cba80f6a95d8"
+        }
+      ]
+    }
+  }
+]

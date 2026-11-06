@@ -172,7 +172,8 @@
       "hitPoints": 12,
       "baseItem": "wooden-shield",
       "acBonus": 2
-    }
+    },
+    "supersedes": ["d8620506-0e02-5148-ad03-82cc1a1c3197"]
   },
   {
     "id": "ba062b5e-c621-5409-9e62-c61571323eba",
@@ -375,7 +376,8 @@
       ],
       "baseItem": "buckler",
       "acBonus": 1
-    }
+    },
+    "supersedes": ["f195b2b7-7a36-5729-98c8-9a1580a7b463"]
   },
   {
     "id": "ba147718-a9ab-5eb9-89c2-86a634cd9dbd",
@@ -737,6 +739,7 @@
       ],
       "baseItem": "steel-shield",
       "acBonus": 2
-    }
+    },
+    "supersedes": ["09494439-f5c2-5a2e-90e2-bcccb90bbab0"]
   }
 ]

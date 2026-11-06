@@ -1034,7 +1034,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["c095cf51-c80a-5aaf-9706-0640c2626cd1"]
   },
   {
     "id": "49a86606-b67b-5d69-91e2-5eadc485cfdd",
@@ -7680,7 +7681,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["3cf2daaf-1164-529a-afde-f38aa46f85e3"]
   },
   {
     "id": "31fde142-7eab-5bdf-b194-f117e2a65994",
@@ -7883,7 +7885,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["0c4e568e-0f89-548d-bb86-a0f0b6080f59"]
   },
   {
     "id": "448bb39d-4ffb-5b6d-bce7-4ea489bf89ad",
@@ -10286,7 +10289,8 @@
       },
       "traditions": [],
       "damage": []
-    }
+    },
+    "supersedes": ["5c35afbc-960c-5d4e-bf0d-94e611657e72"]
   },
   {
     "id": "4255ad80-f0e7-5e7c-be1c-aa426b93a3fe",

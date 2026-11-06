@@ -1,0 +1,228 @@
+[
+  {
+    "id": "4ce367ac-388c-5445-8ea7-e50cf8762fa2",
+    "pack": "advanced-players-guide",
+    "kind": "action",
+    "slug": "action:instinctive-obfuscation",
+    "name": "Instinctive Obfuscation",
+    "rarity": "common",
+    "traits": ["gnome", "illusion", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1421"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " At least one arcane or occult innate spell gained from a gnome heritage or gnome ancestry feat"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are attacked by a foe"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The magic within you manifests as a natural reaction to threats. You gain the effects of Mirror Image but with two images instead of three. The tradition of this action matches the tradition of your gnome ancestry options."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.rSpCV0leurp2Bg2d"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are attacked by a foe"
+            }
+          ]
+        }
+      ],
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "52f2e1a2-642e-52ef-adba-7311b0434b7e",
+    "pack": "advanced-players-guide",
+    "kind": "action",
+    "slug": "action:rampaging-ferocity",
+    "name": "Rampaging Ferocity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1294"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use "
+          },
+          {
+            "type": "ref",
+            "id": "9ea21395-7a73-595a-b64f-5c44bd818484"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lash out viciously even as you fend off death. Make a single melee Strike. If this Strike brings a foe to 0 Hit Points, this activation of Orc Ferocity doesn't count against its frequency."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.FkfWKq9jhhPzKAbb"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You use Orc Ferocity"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "53191795-5953-50f2-855d-2d1511356073",
+    "pack": "advanced-players-guide",
+    "kind": "action",
+    "slug": "action:soaring-flight",
+    "name": "Soaring Flight",
+    "rarity": "common",
+    "traits": ["morph", "primal", "tengu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1320"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To be a tengu is to be unburdened by the concerns of the world below. You grow a pair of magical wings or expand your existing ones. For 5 minutes, you gain a "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79"
+          },
+          {
+            "type": "text",
+            "text": " Speed equal to your land Speed or 20 feet, whichever is greater."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.mVscmsZWWcVACdU5"
+    },
+    "data": {
+      "cost": "two",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  }
+]

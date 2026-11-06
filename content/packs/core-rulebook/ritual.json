@@ -1,0 +1,697 @@
+[
+  {
+    "id": "b62464b0-f548-50da-9b6f-4cafb2e0c0ec",
+    "pack": "core-rulebook",
+    "kind": "ritual",
+    "slug": "ritual:freedom",
+    "name": "Freedom",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You perform a ritual to free a creature imprisoned, petrified, or otherwise put into stasis by any magical effects from all such effects, even effects like "
+          },
+          {
+            "type": "ref",
+            "id": "111b05ef-18ac-5274-8d20-0858ab5b6f9a"
+          },
+          {
+            "type": "text",
+            "text": " that don't have a duration, as long as "
+          },
+          {
+            "type": "text",
+            "text": "freedom",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s spell rank is equal to or higher than the effect's spell rank. To perform the ritual, you must be within 10 feet of the target, or within 10 feet of the place where the target was imprisoned (in the case of effects that trap the creature in an unreachable prison, like the oubliette form of Imprisonment). You must know the name of the creature and details of its background; if the creature is not a close associate, a failure or critical failure on a secondary Society check reduces even a critical success on the primary check to a failure."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You free the target from all magical effects imprisoning it, petrifying it, or putting it into stasis. It gains a +1 status bonus to saving throws to resist those same magical effects for 1 week."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You free the target from all magical effects imprisoning it, petrifying it, or putting it into stasis."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to free the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The magical effects imprisoning the target, petrifying the target, or putting it into stasis affect you and all secondary casters."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4ddJSjC9Zz5DX0oG"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "valuable oils and objects associated with the target worth a total value of 100 gp × the spell rank × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 2
+      }
+    }
+  },
+  {
+    "id": "111b05ef-18ac-5274-8d20-0858ab5b6f9a",
+    "pack": "core-rulebook",
+    "kind": "ritual",
+    "slug": "ritual:imprisonment",
+    "name": "Imprisonment",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=13"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You perform a ritual to imprison a creature in one of several forms. While some versions of this ritual offer all of the forms, others include only a single form or only a few of them. Whichever form you use, the effect can't be counteracted, though it can be ended by "
+          },
+          {
+            "type": "ref",
+            "id": "b62464b0-f548-50da-9b6f-4cafb2e0c0ec"
+          },
+          {
+            "type": "text",
+            "text": ". Some forms of "
+          },
+          {
+            "type": "text",
+            "text": "imprisonment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can be ended by other means. Because the ritual requires the target to remain within 10 feet at all times, it typically requires you to subdue the target first."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Chains",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You bind the creature with chains, rendering it unable to use any actions other than to speak. Other creatures that attempt to approach, harm the chains, or free the trapped creature in any way must succeed at a Will save or be unable to do so forever. The chains have Hardness equal to 5 × the "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " ritual's spell rank, and double that many Hit Points. Destroying the chains frees the target."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Object (9th rank or higher)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You either shrink the creature to an inch in height or transform it into an insubstantial form whose body trails away into wisps below its head. Either way, you trap it inside a gem, jar, bottle, lamp, or similar container. The creature ceases aging and doesn't require food or drink. The creature is still aware of its surroundings and can move within the container and speak, but it can't use any other actions. Destroying the container kills the target rather than freeing it. This form of "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " is also transmutation magic."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Oubliette (10th rank only)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You entomb the target in a state of suspended animation deep beneath the surface of the ground and out of tune with reality so that it can't be reached by any means. You also prevent divinations from revealing the location where the "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " occurred. Powerful magic such as "
+                },
+                {
+                  "type": "ref",
+                  "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+                },
+                {
+                  "type": "text",
+                  "text": " can reveal the location of the imprisonment, but even such magic can't free the target from the oubliette; only a 10th-rank "
+                },
+                {
+                  "type": "ref",
+                  "id": "b62464b0-f548-50da-9b6f-4cafb2e0c0ec"
+                },
+                {
+                  "type": "text",
+                  "text": " ritual can do so."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Prison",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You render the creature completely unable to leave a particular confined area or structure of your choice, such as a jail cell or sealed cave. The magic also prevents the creature from damaging its prison, either directly or indirectly, to break free. If the creature's prison is entirely destroyed by some external force, the creature is freed, though for some larger or natural prisons, this might be unfeasible."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Slumber (sleep effect)",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You put the creature into an eternal sleep. It ceases aging and doesn't require food or drink. A single sincere physical display of affection from a creature who genuinely loves the target-whether romantically, filially, or otherwise-frees it from the slumber. This form of "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " is also enchantment magic."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Temporal Stasis",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You send the creature into a state of suspended animation outside the flow of time. The creature doesn't grow older and can't be affected by any effect from within the normal timestream. While casting this ritual, you can optionally name any amount of time for the stasis; after this duration elapses, the stasis ends. Unlike other forms of "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", temporal stasis can be counteracted by a "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "ref",
+                  "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+                },
+                {
+                  "type": "text",
+                  "text": " spell. This form of "
+                },
+                {
+                  "type": "text",
+                  "text": "imprisonment",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": " is also transmutation magic."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You imprison the target. You can either use a form of "
+          },
+          {
+            "type": "text",
+            "text": "imprisonment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that usually requires 1 additional spell rank, or give any creatures trying to use a "
+          },
+          {
+            "type": "text",
+            "text": "freedom",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " ritual to rescue the target a -2 circumstance penalty to checks associated with that ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You imprison the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to imprison the target."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You imprison yourself and the secondary casters in the same way you intended to imprison the target."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use the object form of "
+          },
+          {
+            "type": "text",
+            "text": "imprisonment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in addition to the other options, and you can target a creature of up to 18th level. The base cost increases to 2,000 gp."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use the object and oubliette forms of "
+          },
+          {
+            "type": "text",
+            "text": "imprisonment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in addition to the other options, and you can target a creature of up to 20th level. The base cost increases to 6,000 gp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2CNqkt2s2IYkVnv6"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "reagents to construct the magical prison worth a total value of 800 gp × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism"],
+        "proficiency": "legendary"
+      },
+      "secondary": {
+        "checks": [
+          {
+            "skills": ["skill:crafting"]
+          },
+          {
+            "skills": ["skill:society"]
+          }
+        ],
+        "casters": 6
+      }
+    }
+  },
+  {
+    "id": "4a4f7abc-61b7-5c66-888b-14c0ef791e19",
+    "pack": "core-rulebook",
+    "kind": "ritual",
+    "slug": "ritual:inveigle",
+    "name": "Inveigle",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Rituals.aspx?ID=14"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You win over the target's mind, causing it to see you as a close and trusted friend and look upon your every suggestion as reasonable. The target is helpful toward you, so it will go out of its way to help you. As with any other helpful creature, there are limits to what you can ask of it. If you ever ask the target to do something completely against its nature or needlessly harmful to the target or its interests, not only does it refuse, but it also can attempt a Will save to end the effect early. Because of the casting time and range, it's generally difficult to cast this ritual unless the target is willing (perhaps convinced the ritual will have some other effect) or restrained. If the creature is unwilling to accept the ritual, it can attempt a Will save to negate the effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual succeeds and the target takes a -4 status penalty to Will saves to end the effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual succeeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ritual fails and the target instead hates you, becoming hostile to you for the duration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can use "
+          },
+          {
+            "type": "text",
+            "text": "inveigle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on a creature up to 1 mile away throughout the casting, as long as you have a lock of hair, a drop of blood, or some other piece of the creature's body, which you mix into the oils used in the cost. The base cost increases to 100 gp. The duration is shorter than normal, based on how large a piece of the creature's body you use. Blood, hair, scales, and the like cause the ritual to last 1 week, while a hand or other substantial body part causes the ritual to last 1 month."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.5pwK2FZX6QwgtfqX"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "rare oils worth a total value of 10 gp × the target's level"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism", "skill:religion"],
+        "proficiency": "expert"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  }
+]

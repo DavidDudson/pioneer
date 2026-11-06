@@ -1,0 +1,160 @@
+[
+  {
+    "id": "b8352471-7edf-5437-81eb-f66d111262f1",
+    "pack": "secrets-of-magic",
+    "kind": "rune",
+    "slug": "rune:bane",
+    "name": "Bane",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1041"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A bane rune causes a weapon to grant you improved understanding of creatures of a particular type, allowing you to deal more damage to those creatures. The crafter chooses aberration, animal, beast, celestial, construct, dragon, elemental, fey, fiend, giant, monitor, ooze, or both fungus and plant. The weapon deals 1d6 additional damage of the weapon's damage type to creatures with the chosen trait or traits. The benefit doesn't apply against creatures of the chosen type disguised as other creatures. It's up to GM discretion whether the bane rune applies against a creature disguised as a creature of the chosen type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The GM might allow bane runes for other creature traits, such as astral, dream, or demon. However, humanoids, undead, and specific types of humanoids (such as elves) are never a valid option."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hnbbqvzYDyhDiJnf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "8eeeb6fe-14d2-594d-b620-daac665caf72",
+    "pack": "secrets-of-magic",
+    "kind": "rune",
+    "slug": "rune:impactful",
+    "name": "Impactful",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rune thrums with pure magical energy. Weapons with the rune deal an additional 1d6 force damage on a successful Strike. On a critical hit, you can choose to force the target to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 27
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed 5 feet away from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.H9qYN48voa2ZDy3i"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  },
+  {
+    "id": "fdabde55-c55e-5875-ba15-9c435fab2462",
+    "pack": "secrets-of-magic",
+    "kind": "rune",
+    "slug": "rune:impactful-greater",
+    "name": "Impactful (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["force", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1062"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This rune thrums with pure magical energy. Weapons with the rune deal an additional 1d6 force damage on a successful Strike. On a critical hit, you can choose to force the target to succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37
+          },
+          {
+            "type": "text",
+            "text": " save or be pushed 10 feet away from you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ri9QkRCD6cAbQ6t3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "type": "property",
+      "etchedOnto": {
+        "item": "weapon"
+      }
+    }
+  }
+]

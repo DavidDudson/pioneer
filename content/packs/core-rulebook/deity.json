@@ -1,0 +1,73 @@
+[
+  {
+    "id": "0acab85f-1ba8-5dae-bfed-a9a64bdfadaf",
+    "pack": "core-rulebook",
+    "kind": "deity",
+    "slug": "deity:whispering-way",
+    "name": "Whispering Way",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Deities.aspx?ID=24"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These cultists believe undeath is the truest form of existence, and life is meant to be spent in preparation for transition to a more glorious unlife after death."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " seek methods to become undead (a lich if possible), oppose those who seek to destroy undead, protect necromantic secrets, serve the Whispering Tyrant"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy necromantic texts (unless they reveal secrets of the Whispering Way), teach others of the Whispering Way other than by whispering, use vitality energy to harm undead"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.EUOAV02rHz96jMPh"
+    },
+    "data": {
+      "category": "philosophy",
+      "domains": {
+        "primary": [],
+        "alternate": []
+      },
+      "font": [],
+      "attributes": [],
+      "skills": [],
+      "weapons": [],
+      "spells": []
+    }
+  }
+]

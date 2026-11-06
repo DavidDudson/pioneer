@@ -1,0 +1,172 @@
+[
+  {
+    "id": "e5f1af93-0ce6-523b-beed-5f020c1b14a4",
+    "pack": "core-rulebook",
+    "kind": "archetype",
+    "slug": "archetype:alchemist",
+    "name": "Alchemist",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enjoy tinkering with alchemical formulas and substances in your spare time, and your studies have progressed beyond mere experimentation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.Ux0sa5SUBu616i5k"
+    },
+    "data": {
+      "dedication": "0298f46c-461a-5f03-a713-d70487df558a",
+      "multiclass": "813dd18a-d35f-55ca-ae49-9b808fd032cf"
+    }
+  },
+  {
+    "id": "2a6d1247-a6e9-51ff-87ba-037c16a7b128",
+    "pack": "core-rulebook",
+    "kind": "archetype",
+    "slug": "archetype:barbarian",
+    "name": "Barbarian",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "There's a rage deep inside you that sometimes breaks loose, granting you some of the might of a barbarian in addition to your other abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.uYCTmos3yZtbD9qs"
+    },
+    "data": {
+      "dedication": "3a5ccb93-43e2-5fdf-805e-b288ce1e918c",
+      "multiclass": "65fa7017-5446-55e4-9957-b6b15e0e4d3e"
+    }
+  },
+  {
+    "id": "6b10860f-2171-5c1a-9e0c-d3825d7464c7",
+    "pack": "core-rulebook",
+    "kind": "archetype",
+    "slug": "archetype:champion",
+    "name": "Champion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have sworn a solemn oath to your deity, who has granted you champion powers to aid you in your cause."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.DXtjeVaWNB8zSjpA"
+    },
+    "data": {
+      "dedication": "b0073d24-3fff-5563-9ff1-89aa3d5a77d1",
+      "multiclass": "031181a9-1185-5d1b-b918-100989345743"
+    }
+  },
+  {
+    "id": "9373c6f7-3924-5194-aab0-2d98e11c6d32",
+    "pack": "core-rulebook",
+    "kind": "archetype",
+    "slug": "archetype:monk",
+    "name": "Monk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Monastic training has taught you martial arts and allowed you to hone your mind, body, and spirit to new heights."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.5v7k1XWQxaP0DoGX"
+    },
+    "data": {
+      "dedication": "7a35c246-b02f-5859-977f-b20efb99740d",
+      "multiclass": "635feb6f-6ac2-544a-87cd-9bcfff296ef6"
+    }
+  },
+  {
+    "id": "f0210013-db3b-53e2-8a82-3df2dd947ee3",
+    "pack": "core-rulebook",
+    "kind": "archetype",
+    "slug": "archetype:sorcerer",
+    "name": "Sorcerer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You coax the magic power in your blood to manifest, accessing magic others don't expect you to have."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.DJiYP5tFBrBMD0We"
+    },
+    "data": {
+      "dedication": "e24d09f9-e97f-51e0-8fa1-8a919020a2b3",
+      "multiclass": "9f8ed7a0-5dd1-57ef-b7fe-cc6618330554"
+    }
+  }
+]

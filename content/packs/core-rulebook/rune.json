@@ -1,0 +1,141 @@
+[
+  {
+    "id": "64272184-618b-5fee-bc1b-ec04f51664b9",
+    "pack": "core-rulebook",
+    "kind": "rune",
+    "slug": "rune:invisibility-greater",
+    "name": "Invisibility (Greater)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=287"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Light seems to partially penetrate this armor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate—Go Invisible",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (concentrate)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " three times per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " With a thought, you become invisible for 1 minute, gaining the effects of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of "
+          },
+          {
+            "type": "text",
+            "text": "invisibility",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bxz885LMjLCkpDq3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "go-invisible",
+          "name": "Go Invisible",
+          "frequency": {
+            "max": 3,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor",
+        "restriction": "light"
+      }
+    }
+  }
+]

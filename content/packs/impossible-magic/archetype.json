@@ -306,7 +306,8 @@
     },
     "data": {
       "dedication": "432f6751-95ab-55b0-976d-69bc495a52e4"
-    }
+    },
+    "supersedes": ["6df49d91-16f3-58b2-95b6-6c4d0584dd74"]
   },
   {
     "id": "ec353963-b82e-51a0-8714-f0fa03b87e6c",

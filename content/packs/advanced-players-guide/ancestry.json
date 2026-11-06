@@ -1,0 +1,831 @@
+[
+  {
+    "id": "d9e02ac6-fa8f-5177-9a03-d1de22cf1ea4",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:catfolk",
+    "name": "Catfolk",
+    "rarity": "uncommon",
+    "traits": ["catfolk", "humanoid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=17"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Curious and gregarious wanderers, catfolk combine features of felines and humanoids in both appearance and temperament. They enjoy learning new things, collecting new tales and trinkets, and ensuring their loved ones are safe and happy. Catfolk view themselves as chosen guardians of natural places in the world and are often recklessly brave, even in the face of overwhelming opposition.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catfolk",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6a16937c-ff0d-57dd-aab9-adc60c4f7a94"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:catfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Catfolk feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:catfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Catfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:catfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Catfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:catfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Catfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:catfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Catfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.972EkpJOPv9KkQIW"
+    },
+    "data": {
+      "hitPoints": 8,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["cha"], ["dex"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["wis"],
+      "languages": ["f9a100aa-5ebc-5394-9f54-fd97a217a7e8", "444a2133-3e11-55b6-b57a-1f11ebe8e12b"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566",
+          "721dd516-a92c-5e07-89f5-55096378a186",
+          "315eced7-9fa5-595b-bdab-002877559cff"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "53a710a6-46e4-55e6-b148-e4583e1f4209",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:kobold",
+    "name": "Kobold",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=18"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every kobold knows that their slight frame belies true, mighty draconic power. They are ingenious crafters and devoted allies within their warrens, but those who trespass into their territory find them to be inspired skirmishers, especially when they have the backing of a draconic sorcerer or true dragon overlord. However, these reptilian opportunists prove happy to cooperate with other humanoids when it's to their benefit, combining caution and cunning to make their fortunes in the wider world.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kobold",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kobold",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kobold feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kobold",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kobold feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kobold",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kobold feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kobold",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kobold feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:kobold",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Kobold feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.7oQxL6wgsokD3QXG"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["cha"], ["dex"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["con"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "17635451-e596-5045-8af5-47f581cd1a40"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "85a9a212-540b-5211-96ce-ffce82640b25",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "ff9d8655-df77-52bc-852f-ee4669509e08",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "67979b6a-4b24-5be5-b7ea-94783c497bcb",
+      "reach": 5
+    }
+  },
+  {
+    "id": "88eedef6-608e-5ecb-8765-710fc0670c41",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:ratfolk",
+    "name": "Ratfolk",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "ratfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=20"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ysoki—as ratfolk call themselves—are a clever, adaptable, and fastidious ancestry who happily crowd their large families into the smallest of living spaces.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ratfolk",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:ratfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ratfolk feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:ratfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ratfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:ratfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ratfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:ratfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ratfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:ratfolk",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Ratfolk feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.P6PcVnCkh4XMdefw"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "small",
+      "speed": 25,
+      "boosts": [["dex"], ["int"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["str"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "0138f3af-66e3-51ad-8b55-8a7644fa94d5"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "7cd4c9cb-53a2-5f62-8cf3-d904bce62260",
+          "17635451-e596-5045-8af5-47f581cd1a40",
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566",
+          "1fb509e8-a33a-5a44-85ab-733764797c61",
+          "4d4fb5fa-160d-553f-b657-24105dc56050",
+          "da0478dc-3e4f-5abb-9b5f-79be74bf143e"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  },
+  {
+    "id": "95c47a3a-e3b7-5d7a-b3da-9eff402f9b2a",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry",
+    "slug": "ancestry:tengu",
+    "name": "Tengu",
+    "rarity": "uncommon",
+    "traits": ["humanoid", "tengu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Ancestries.aspx?ID=21"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tengus are a gregarious and resourceful people that have spread far and wide from their ancestral home in Tian Xia, collecting and combining whatever innovations and traditions they happen across with those from their own long history.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tengu",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "75709f71-dc14-5fbe-a101-21d12d5897a3"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tengu",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tengu feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tengu",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tengu feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tengu",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tengu feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tengu",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tengu feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:tengu",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Tengu feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.18xDKYPDBLEv2myX"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["dex"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": [],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "cd4a558a-c679-5063-8c6c-749d2d47e501"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": [
+          "c49a86a0-8e49-56c1-86f9-eaa50a3297e3",
+          "3128d8af-f464-563e-ac8d-ac86a7e9408b",
+          "30b3a33b-b3f0-5ba1-9e46-aed5301bb2ce",
+          "d2200e11-b3e5-5878-be67-4f4492c1f76d",
+          "cc56a173-7e20-50ca-b027-1a5aca98fe4b",
+          "6901cc04-49bb-5344-bcaa-a4a99712d566"
+        ]
+      },
+      "vision": "16b42c38-9373-58ec-a7ac-2221bb17a71c",
+      "reach": 5
+    }
+  }
+]

@@ -1024,7 +1024,8 @@
         "resilient": 1,
         "property": ["b845e180-6c72-501f-9c94-d32442d00eab"]
       }
-    }
+    },
+    "supersedes": ["6ef68413-fd22-5489-b036-99026aa0495f"]
   },
   {
     "id": "06c9358a-11d2-54ec-a6ca-f4321a9c805c",
@@ -1325,7 +1326,8 @@
         "resilient": 2,
         "property": ["cd04907f-f4ad-540b-8e85-80028195a121"]
       }
-    }
+    },
+    "supersedes": ["1875a81a-e6f4-56a5-b526-df95e2d2911e"]
   },
   {
     "id": "d819ff90-10e8-5a23-9399-1ad0bf234fc4",

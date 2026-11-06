@@ -1,0 +1,741 @@
+[
+  {
+    "id": "445be1e7-41ce-56fe-876d-ff31dc1dc3ec",
+    "pack": "secrets-of-magic",
+    "kind": "shield",
+    "slug": "shield:burr-shield",
+    "name": "Burr Shield",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1044"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This well-crafted wooden shield is covered in numerous seed pods with long spurs. You can Strike with these burrs as though they were "
+          },
+          {
+            "type": "ref",
+            "id": "bbe81ce4-2fd6-5e24-a413-eb4c666c0fd3",
+            "label": "+1 Striking Shield Spikes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your previous action was a successful Strike with the burrs"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of the burrs catches on the Strike's target, inflicting "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MK3Fq0BV2uTspvXn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "light",
+      "hardness": 5,
+      "hitPoints": 30,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "d7b2e05f-ae28-5141-9dfc-33b88eca2c87",
+    "pack": "secrets-of-magic",
+    "kind": "shield",
+    "slug": "shield:staff-storing-shield",
+    "name": "Staff-Storing Shield",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magically "
+          },
+          {
+            "type": "text",
+            "text": "reinforced wooden shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " normally has a blank face. It can absorb a staff and transform between a shield and staff. When you prepare a staff, you can hold it up to the shield, at which point the items will merge, and the shield's face becomes an image corresponding to the type of magic, such as a skull for a staff of necromancy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the staff-storing shield from its shield form into the stored staff, which has an image of the shield on it, or change it from the stored staff back into a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EBcZ7ftWs8lVW7Fj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "hardness": 6,
+      "hitPoints": 36,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "19dec816-d0dd-5f27-b6f4-e356c9b5ea4b",
+    "pack": "secrets-of-magic",
+    "kind": "shield",
+    "slug": "shield:staff-storing-shield-greater",
+    "name": "Staff-Storing Shield (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magically "
+          },
+          {
+            "type": "text",
+            "text": "reinforced wooden shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " normally has a blank face. It can absorb a staff and transform between a shield and staff. When you prepare a staff, you can hold it up to the shield, at which point the items will merge, and the shield's face becomes an image corresponding to the type of magic, such as a skull for a staff of necromancy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the staff-storing shield from its shield form into the stored staff, which has an image of the shield on it, or change it from the stored staff back into a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "54"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "27"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aBAU0sTkFLuTxO3X"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "negligible",
+      "hardness": 9,
+      "hitPoints": 54,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "33acbdc8-ff43-599c-a080-29219f281bc1",
+    "pack": "secrets-of-magic",
+    "kind": "shield",
+    "slug": "shield:staff-storing-shield-major",
+    "name": "Staff-Storing Shield (Major)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magically "
+          },
+          {
+            "type": "text",
+            "text": "reinforced wooden shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " normally has a blank face. It can absorb a staff and transform between a shield and staff. When you prepare a staff, you can hold it up to the shield, at which point the items will merge, and the shield's face becomes an image corresponding to the type of magic, such as a skull for a staff of necromancy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the staff-storing shield from its shield form into the stored staff, which has an image of the shield on it, or change it from the stored staff back into a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "72"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nhCHLI5SnJXF3fQE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5500
+        }
+      },
+      "bulk": "negligible",
+      "hardness": 12,
+      "hitPoints": 72,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  },
+  {
+    "id": "073429bb-90a9-5acd-a58c-01205d98dd41",
+    "pack": "secrets-of-magic",
+    "kind": "shield",
+    "slug": "shield:staff-storing-shield-true",
+    "name": "Staff-Storing Shield (True)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=1079"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magically "
+          },
+          {
+            "type": "text",
+            "text": "reinforced wooden shield",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " normally has a blank face. It can absorb a staff and transform between a shield and staff. When you prepare a staff, you can hold it up to the shield, at which point the items will merge, and the shield's face becomes an image corresponding to the type of magic, such as a skull for a staff of necromancy."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You change the staff-storing shield from its shield form into the stored staff, which has an image of the shield on it, or change it from the stored staff back into a shield."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Hardness"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "HP"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "BT"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "96"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "48"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xAOVPVH6cX3iVFlk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55000
+        }
+      },
+      "bulk": "negligible",
+      "hardness": 16,
+      "hitPoints": 96,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  }
+]

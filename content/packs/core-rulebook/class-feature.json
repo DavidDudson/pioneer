@@ -1,0 +1,1463 @@
+[
+  {
+    "id": "33b4b6bb-7c49-5065-b675-76ed92d0e4c2",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:bomber",
+    "name": "Bomber",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/ResearchFields.aspx?ID=1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You specialize in explosions and other violent alchemical reactions. You start with the formulas for two common 1st-level alchemical bombs, in addition to your other formulas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of Infused Reagents to create your signature items using "
+          },
+          {
+            "type": "ref",
+            "id": "941d4a1c-a6b7-5123-b992-fe1d82e8bc52"
+          },
+          {
+            "type": "text",
+            "text": ", you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When throwing an alchemical bomb with the splash trait, you can deal splash damage to only your primary target instead of the usual splash area."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "9086046b-62e1-505a-94ca-d60c04b53861",
+            "label": "Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using Advanced Alchemy to make bombs during your daily preparations, you can use a batch of reagents to create any three bombs instead of just two of the same bomb."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual InfusionsLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to create perpetual alchemical infusions that can provide a near-infinite supply of certain simple items. You gain the ability to create two 1st-level alchemical items using "
+          },
+          {
+            "type": "ref",
+            "id": "ef01dc12-d06f-5f19-a1f3-097f23cd75a9"
+          },
+          {
+            "type": "text",
+            "text": " without spending a batch of infused reagents. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you gain a level, you can swap any number of your perpetual infusions with other eligible infusions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two 1st-level bombs."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PotencyLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your perpetual infusions improve, allowing you to use Quick Alchemy to create more powerful items with no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The moderate versions of the bombs you chose for perpetual infusions."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "538b2444-4cc7-5bd7-8ff6-149ffd5112e2",
+            "label": "Greater Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can increase the splash on your bombs to damage creatures within 10 feet, or 15 feet if you have "
+          },
+          {
+            "type": "ref",
+            "id": "3e128ba5-8a6b-56f7-9b38-c294a7e3b652"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PerfectionLevel 17"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have perfected your perpetual infusions, allowing you to use Quick Alchemy to create even more powerful items at no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The greater versions of the bombs you chose for perpetual infusions."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Bomber",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can deal splash damage to only your primary target instead of the usual splash area."
+              }
+            ]
+          }
+        ],
+        "predicate": ["option:alchemical", "option:bomb", "option:splash"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.7JbiaZ8bxODM5mzS"
+    },
+    "data": {
+      "tags": ["alchemist-research-field"]
+    }
+  },
+  {
+    "id": "c37442da-3e00-5316-9cb3-42aa28128bde",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:champions-reaction",
+    "name": "Champion's Reaction",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=691"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your cause gives you a special reaction. See specific causes for more information."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.sXVX4ARUuo8Egrz5"
+    },
+    "data": {}
+  },
+  {
+    "id": "3bf1df82-73bd-5950-a482-181da43bae77",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:chirurgeon",
+    "name": "Chirurgeon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/ResearchFields.aspx?ID=2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You concentrate on healing others with alchemy. You start with the formulas for two common 1st-level alchemical elixirs with the healing trait, in addition to your other formulas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of Infused Reagents to create your signature items using "
+          },
+          {
+            "type": "ref",
+            "id": "941d4a1c-a6b7-5123-b992-fe1d82e8bc52"
+          },
+          {
+            "type": "text",
+            "text": ", you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use your proficiency rank in Crafting for anything that requires a proficiency rank in Medicine (such as prerequisites), and use your Crafting modifier in place of your Medicine modifier for all Medicine checks."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "4e0ac1c5-e994-5bf8-b3fe-0bccfa57c98d",
+            "label": "Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using Advanced Alchemy to make any elixir with the healing trait during your daily preparations, you can create three elixirs with each batch of reagents instead of two."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual InfusionsLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to create perpetual alchemical infusions that can provide a near-infinite supply of certain simple items. You gain the ability to create two 1st-level alchemical items using "
+          },
+          {
+            "type": "ref",
+            "id": "ef01dc12-d06f-5f19-a1f3-097f23cd75a9"
+          },
+          {
+            "type": "text",
+            "text": " without spending a batch of infused reagents. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lesser antidote and lesser antiplague."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PotencyLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your perpetual infusions improve, allowing you to use Quick Alchemy to create more powerful items with no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate "
+          },
+          {
+            "type": "ref",
+            "id": "ffe5f130-7c5f-587d-bd5b-62e257bc07d9",
+            "label": "Antidote"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "288451c5-df5e-50c3-80c2-549ecd4a3989",
+            "label": "Antiplague"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "9a0f3902-c0a6-5b4b-bd74-95d7c80c34ab",
+            "label": "Greater Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Quick Alchemy to create any type of elixir of life, the creature drinking the elixir gains the maximum Hit Points possible for that elixir, instead of rolling to determine the number of Hit Points regained."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PerfectionLevel 17"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have perfected your perpetual infusions, allowing you to use Quick Alchemy to create even more powerful items at no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Greater "
+          },
+          {
+            "type": "ref",
+            "id": "b210ca89-dc7c-536f-8b4b-e3426838d7e3",
+            "label": "Antidote"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "370ddd08-3ead-5bf0-8bac-de5f5ef10463",
+            "label": "Antiplague"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.eNZnx4LISDNftbx2"
+    },
+    "data": {
+      "tags": ["alchemist-research-field"]
+    }
+  },
+  {
+    "id": "b0aad9e6-2020-5460-a3ae-e4df5b563b6b",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:divine-ally",
+    "name": "Divine Ally",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=692"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your devotion attracts a spirit of your deity's alignment. Once you choose an ally, your choice can't be changed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The following are divine allies:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blade Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A spirit of battle dwells within your armaments. Select one weapon or "
+          },
+          {
+            "type": "ref",
+            "id": "30f44d19-1eec-5808-ae18-11a7bb4d8a59",
+            "label": "Handwraps of Mighty Blows (+1)"
+          },
+          {
+            "type": "text",
+            "text": " when you make your daily preparations. In your hands, the item gains the effect of a property rune. For a champion following the tenets of good, choose "
+          },
+          {
+            "type": "text",
+            "text": "disrupting",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "ghost touch",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "returning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "shifting",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You also gain the weapon's critical specialization effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are a champion following the tenets of evil, you can choose the following property runes: "
+          },
+          {
+            "type": "text",
+            "text": "fearsome",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "returning",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "text",
+            "text": "shifting",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "af6a98d1-1629-5078-8b7f-d650d6e279af"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shield Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A spirit of protection dwells within your shield. In your hands, the shield's Hardness increases by 2 and its HP and BT increase by half."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Steed Ally",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a young animal companion as a mount. Ordinarily, your animal companion is one that has the mount special ability, such as a horse. You can select a different animal companion (GM's discretion), but this ability doesn't grant it the mount special ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ERwuazupczhUSZ73"
+    },
+    "data": {}
+  },
+  {
+    "id": "77e15bcc-913a-5ab0-b34a-e835f93d17ea",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:heros-defiance",
+    "name": "Hero's Defiance",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=394"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can defy fate and continue fighting as long as you have divine energy. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "0790892e-5c64-5b5b-82ee-899a09ccf6da"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LzB6X9vOaq3wq1FZ"
+    },
+    "data": {}
+  },
+  {
+    "id": "2b2bb0e1-bb8d-5c72-930c-a2bec98c733a",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:liberator",
+    "name": "Liberator",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You defend the freedom of others. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ba3a7521-4de2-50d3-8141-fb398774967d"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Your code gains the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " oppose slavery and tyranny, fight for others' freedom to make their own decisions, respect choices others make for their own lives"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " force or threaten someone to act a certain way, engage in slavery or tyranny"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You punish those who ensnare your allies in bondage. If the triggering enemy was using any effects to make your ally grabbed, restrained, immobilized, or paralyzed when you used Liberating Step, that enemy takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@attr.cha",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ],
+            "label": "persistent spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can help your whole group get into position. When you use Liberating Step, if your ally doesn't attempt to break free of an effect, you and all allies within 15 feet can Step, in addition to the triggering ally."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ba3a7521-4de2-50d3-8141-fb398774967d",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:holy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.FCoMFUsth4xB4veC"
+    },
+    "data": {
+      "tags": ["champion-cause", "holy"]
+    }
+  },
+  {
+    "id": "69f268ff-8094-569f-8969-f63ad61f33bf",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:mutagenist",
+    "name": "Mutagenist",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/ResearchFields.aspx?ID=3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You focus on bizarre mutagenic transformations that sacrifice one aspect of a creature's physical or psychological being in order to strengthen another. You start with the formulas for two common 1st-level alchemical mutagens, in addition to your other formulas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of Infused Reagents to create your signature items using "
+          },
+          {
+            "type": "ref",
+            "id": "941d4a1c-a6b7-5123-b992-fe1d82e8bc52"
+          },
+          {
+            "type": "text",
+            "text": ", you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the following free action."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Mutagenic Flashback"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You experience a brief resurgence of a mutagen. Choose one mutagen you've consumed since your last daily preparations. You gain the effects of that mutagen for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "56293a49-1aa2-5884-b11c-4d69f3dff437",
+            "label": "Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using Advanced Alchemy to make mutagens during your daily preparations, you can use a batch of reagents to create any three mutagens instead of just two of the same mutagen."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual InfusionsLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to create perpetual alchemical infusions that can provide a near-infinite supply of certain simple items. You gain the ability to create two 1st-level alchemical items using Quick Alchemy without spending a batch of infused reagents. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you gain a level, you can swap any number of your perpetual infusions with other eligible infusions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two 1st-level mutagens."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PotencyLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your perpetual infusions improve, allowing you to use "
+          },
+          {
+            "type": "ref",
+            "id": "ef01dc12-d06f-5f19-a1f3-097f23cd75a9"
+          },
+          {
+            "type": "text",
+            "text": " to create more powerful items with no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two 3rd-level or lower mutagens."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "f000c13f-9324-5f6d-b6fc-80370ba0db0e",
+            "label": "Greater Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you imbibe another mutagen while you are under the effects of a mutagen, you can gain the benefits and the drawbacks of both mutagens at once, despite the fact that they both have the polymorph trait and would not normally function together."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you come under the effects of any further mutagens while benefiting from two mutagens, you lose the benefit of one of the former mutagens of your choice, while retaining the drawbacks of all the mutagens."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are under the effects of two mutagens and you come under the effect of a non-mutagen polymorph effect, you lose the benefits of the mutagens while retaining the drawbacks of both."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PerfectionLevel 17"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have perfected your perpetual infusions, allowing you to use Quick Alchemy to create even more powerful items at no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two 11th-level or lower mutagens."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tvdb1jkjl2bRZjSp"
+    },
+    "data": {
+      "tags": ["alchemist-research-field"]
+    }
+  },
+  {
+    "id": "3965c104-f9ef-576a-a71e-ba716d732fa3",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:paladin",
+    "name": "Paladin",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're honorable, forthright, and committed to pushing back the forces of cruelty. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "17aa8796-8085-5e51-a96f-5bd6a9308f47"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Your code gains the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " follow the law, respect legitimate authorities or leadership"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " take advantage of another, cheat"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You surround evil targets in a punishing halo. If you hit with your Retributive Strike, the target takes persistent spirit damage equal to your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Retributive Strike, each ally within 15 feet of you with the target in their melee reach can spend a reaction to Strike the target with a -5 penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "17aa8796-8085-5e51-a96f-5bd6a9308f47",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:retributive-strike",
+        "toggleable": true,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ],
+        "display": {
+          "label": "Retributive Strike"
+        }
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:holy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.peEXunfbSD8WcMFk"
+    },
+    "data": {
+      "tags": ["champion-cause", "holy"]
+    }
+  },
+  {
+    "id": "afbac968-a7bd-5829-9461-17d2acda1fb4",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:perfected-form",
+    "name": "Perfected Form",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Spells.aspx?ID=437"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have purged incompetence from your techniques. On your first Strike of your turn, if you roll lower than 10, you can treat the attack roll as a 10. This is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KmTfg7Sg5va4yU00"
+    },
+    "data": {}
+  },
+  {
+    "id": "66ff0a5d-c721-56a2-896a-cc021a7e55da",
+    "pack": "core-rulebook",
+    "kind": "class-feature",
+    "slug": "class-feature:redeemer",
+    "name": "Redeemer",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're full of kindness and forgiveness. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3871772f-71c6-5f33-9fd6-563570c82834"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "ff652482-2177-52e0-973f-1ec91c5e2f69"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Your code gains the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " try to redeem those who commit wicked deeds, show compassion to others regardless of their authority or station"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " kill a sapient enemy without first offering a chance at redemption"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A guilty conscience assails foes who spurn your Glimpse of Redemption. A foe that responds to your Glimpse of Redemption by dealing damage takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@attr.cha",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ],
+            "label": "persistent spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You protect multiple allies. You can apply the resistance granted by Glimpse of Redemption to yourself and all allies within 15 feet of you, including the triggering ally, except the resistance is reduced by 2 for all."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3871772f-71c6-5f33-9fd6-563570c82834",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:holy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.UyuwFp0jQqYL2AdF"
+    },
+    "data": {
+      "tags": ["champion-cause", "holy"]
+    }
+  }
+]

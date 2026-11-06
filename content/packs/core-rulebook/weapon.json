@@ -1,0 +1,1234 @@
+[
+  {
+    "id": "67df87e7-bc9a-5ffc-845e-2759f102d043",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:bottled-lightning-moderate",
+    "name": "Bottled Lightning (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "electricity", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=76"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bottled lightning is packed with volatile reagents that create a blast of electricity when they are exposed to air. Bottled lightning deals 2d6 electricity damage and 2 electricity splash damage. On a hit, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +1 item bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.97QyNEOAyYLdGaYc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "electricity"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e897fbdf-b0b6-56d5-afce-94b4c3b6dd8a",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:frost-brand",
+    "name": "Frost Brand",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["cold", "magical", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=387"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "c9077442-2c05-5df9-b213-d3fad04dc2c8"
+          },
+          {
+            "type": "text",
+            "text": " greatsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " appears to be nothing but icy shards. The "
+          },
+          {
+            "type": "text",
+            "text": "frost brand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " automatically extinguishes non-magical fires in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ". While wielding it, you gain fire resistance 5."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swing the "
+          },
+          {
+            "type": "text",
+            "text": "frost brand",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into the area of an ongoing magical fire, and the blade attempts to counteract the fire with a counteract modifier of +27. If it fails, it can't attempt to counteract the same fire again."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.87IvbaQnkUOBgdD0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "greatsword",
+      "damage": {
+        "dice": 1,
+        "die": "d12",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["c9077442-2c05-5df9-b213-d3fad04dc2c8"]
+      }
+    }
+  },
+  {
+    "id": "dbc96a6b-66f2-5535-9c98-3c8b46e374db",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:frost-vial-moderate",
+    "name": "Frost Vial (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "cold", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=77"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to attack rolls, the bomb deals 2d6 cold damage and 2 cold splash damage, and the target takes a -10-foot penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Frost Vial (Moderate)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nVvH1ZcM7OwIVIs8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d6",
+        "damageType": "cold"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ad1a7b9c-2da6-5d43-9c64-323f59408ece",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:holy-avenger",
+    "name": "Holy Avenger",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["divine", "good", "lawful", "versatile-p"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=389"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The gleaming holy avenger is the iconic weapon of powerful paladins. The crossbar of this +2 greater striking "
+          },
+          {
+            "type": "ref",
+            "id": "1c942139-39ff-5ab6-bccc-88a68a1ec2e6"
+          },
+          {
+            "type": "text",
+            "text": " cold iron longsword is styled to look like angel wings. Tradition holds that those who see their reflection in a holy avenger's highly polished blade have their faults laid bare. If you are evil, you are "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " while carrying or wielding this weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You command the sword and point it at a creature you can see. The sword casts Detect Alignment to detect evil, but this targets only the selected creature instead of detecting in an area."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Paladin Wielder",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're a champion of the paladin cause, you also gain the following two benefits."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When you critically hit an evil creature with the "
+                },
+                {
+                  "type": "text",
+                  "text": "holy avenger",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", the creature is slowed 1 and enfeebled 2 for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can activate the sword in the following way."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hit a creature using the "
+          },
+          {
+            "type": "text",
+            "text": "holy avenger",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " on your previous action"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " at the same level as your champion focus spells. It must target an illusion the creature you hit created, a spell affecting the creature you hit, or an item the creature you hit wears or carries. The spell or item you attempt to counteract must be within 120 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a champion with the paladin cause; supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "detect alignment",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "text",
+            "text": "dispel magic",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The initial raw materials must include 120 gp of cold iron."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OIs6WPuCRh2UJTOe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": 1,
+      "material": {
+        "type": "cold-iron",
+        "grade": "standard"
+      },
+      "activations": [
+        {
+          "slug": "holy-avenger",
+          "name": "Holy Avenger",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "longsword",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "4933f860-22c5-552b-9575-7702f262fe75",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:oathbow",
+    "name": "Oathbow",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["deadly-d10", "magical", "propulsive", "volley-30"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=392"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Constructed of a flexible, white wood and with ornate, twisting designs carved into its surface, this +2 striking composite longbow appears to have been made by elves. Sometimes when you loose an arrow, its whistling in flight sounds like a voice whispering in Elven, wishing for the swift defeat of your enemies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You swear an oath to destroy one creature you can see. For the next 7 days or until that creature is slain, your attacks with the bow against that creature deal 1d6 additional damage, and you gain a +2 circumstance bonus to Survival checks to Track that creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your critical hits against the target gain the bow's critical specialization effect; if they would already do so, they instead increase the DC of the Athletics check to Escape when critically hit to DC 20."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you activate the bow, you can't activate it again for 7 days. If you kill the creature you've sworn an oath against, the oath ends and you need to wait only 10 minutes before you can activate it again."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "target:oathbow",
+        "toggleable": true,
+        "display": {
+          "label": "Target is Oathbow's sworn target"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["target:oathbow"],
+        "display": {
+          "label": "Oathbow (tracking Oathbow's sworn target)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bheWnrBqMphBRUmn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "bow",
+      "baseItem": "longbow",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "piercing"
+      },
+      "range": 100,
+      "reload": 0,
+      "usage": {
+        "type": "held",
+        "hands": "one-plus"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "b96e9566-a27e-522c-af70-39800dee0995",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-power",
+    "name": "Staff of Power",
+    "level": 16,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=361"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This staff of magically hardened wood is topped with a silver sculpture depicting magical runic symbols. When used as a weapon, a "
+          },
+          {
+            "type": "text",
+            "text": "staff of power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Voluntarily destroying a "
+          },
+          {
+            "type": "text",
+            "text": "staff of power",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " unleashes an incredible blast of energy. When wielding the staff, you can Interact to break it. This releases a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " magical explosion centered on the staff. This deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per charge remaining in the staff ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "). You automatically critically fail your save. A creature reduced to 0 Hit Points by this damage dies instantly; this is a death effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "cfa16eeb-cd33-54aa-904d-2c72742cd3ac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7e84331-b195-5f53-9e66-26d7a31225a7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "daa245e0-fdd6-582d-888d-f47865223c52"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "25a3d838-3162-5afd-a28e-bccf51fbd742"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e2594f4d-2f11-588b-a4b3-5a9afe11dd4f"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "062680d1-edd9-5d3d-b358-fc861d29d3ff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "094faa33-6827-59be-afc0-36661ab12e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6m9niDjhA6tBfp5x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0289fa5f-f6a1-5866-85b0-4ceb003cd7ae",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:thunderstone-moderate",
+    "name": "Thunderstone (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "sonic", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=79"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When this stone hits a creature or a hard surface, it explodes with a deafening bang. A thunderstone deals the listed sonic damage and sonic splash damage, and each creature within 10 feet of the space in which the stone exploded must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the listed DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Many types of thunderstone grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +1 item bonus to attack rolls. The bomb deals 2d4 sonic damage and 2 sonic splash damage, and the DC is 20."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JOaELkzLWTywhn5Z"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 2,
+        "die": "d4",
+        "damageType": "sonic"
+      },
+      "splash": 2,
+      "itemBonus": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

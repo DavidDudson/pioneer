@@ -155,10 +155,15 @@ function isPlainProperty(entry: ContentEntry, item: string): boolean {
 
 const RUNES = await loadRunes();
 
+/** Whether any pack's copy of the rune has rules: a legacy copy of a rune the remaster already covers needs none. */
+function ruled(slug: string): boolean {
+  return RUNES.some((entry) => entry.slug === slug && entry.rules.length > 0);
+}
+
 /** Plain property runes for `item` with neither rules nor a recorded gap. */
 function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
   return RUNES.filter((entry) => isPlainProperty(entry, item))
-    .filter((entry) => entry.rules.length === 0 && !gaps.has(entry.slug))
+    .filter((entry) => entry.rules.length === 0 && !gaps.has(entry.slug) && !ruled(entry.slug))
     .map((entry) => entry.slug);
 }
 
