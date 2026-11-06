@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { Size } from '../../tokens';
-import { Button, ButtonType, ButtonVariant } from './button.component';
+import { Button, ButtonType, ButtonVariant, RollLuck, RollTone } from './button.component';
 
 interface Rendered {
   readonly button: HTMLButtonElement;
@@ -57,6 +57,10 @@ const VARIANT_CLASSES: Record<ButtonVariant, VariantClasses> = {
     lacks: ['text-accent-on-solid'],
   },
   'outline-subtle': { has: ['border-accent-line', 'bg-accent-subtle', 'text-accent-fg'], lacks: ['bg-surface-base'] },
+  roll: {
+    has: ['border-line-default', 'bg-surface-sunken', 'text-fg-default'],
+    lacks: ['text-roll-bonus-fg', 'bg-roll-fortune-bg', 'border-roll-degree-line'],
+  },
   inline: { has: ['text-start', 'min-h-touch'], lacks: [] },
   field: { has: ['border', 'border-line-default', 'bg-surface-sunken', 'w-full'], lacks: ['bg-surface-base'] },
   toggle: { has: ['border-line-default', 'aria-pressed:border-accent-solid'], lacks: [] },
@@ -166,5 +170,39 @@ describe(Button, () => {
     button.dispatchEvent(click);
     expect(click.defaultPrevented).toBe(true);
     expect(presses).toHaveLength(0);
+  });
+
+  describe('roll variant cues', () => {
+    it('colours the text by the sign of what applies', async () => {
+      const bonus = await render({ variant: ButtonVariant.Roll, rollTone: RollTone.Bonus });
+      const penalty = await render({ variant: ButtonVariant.Roll, rollTone: RollTone.Penalty });
+
+      expect([...bonus.button.classList]).toStrictEqual(expect.arrayContaining(['text-roll-bonus-fg']));
+      expect([...bonus.button.classList]).not.toContain('text-fg-default');
+      expect([...penalty.button.classList]).toStrictEqual(expect.arrayContaining(['text-roll-penalty-fg']));
+    });
+
+    it('fills the background for fortune and misfortune', async () => {
+      const fortune = await render({ variant: ButtonVariant.Roll, rollLuck: RollLuck.Fortune });
+      const misfortune = await render({ variant: ButtonVariant.Roll, rollLuck: RollLuck.Misfortune });
+
+      expect([...fortune.button.classList]).toStrictEqual(expect.arrayContaining(['bg-roll-fortune-bg']));
+      expect([...fortune.button.classList]).not.toContain('bg-surface-sunken');
+      expect([...misfortune.button.classList]).toStrictEqual(expect.arrayContaining(['bg-roll-misfortune-bg']));
+    });
+
+    it('colours the border when the degree of success shifts', async () => {
+      const { button } = await render({ variant: ButtonVariant.Roll, rollShifted: true });
+
+      expect([...button.classList]).toStrictEqual(expect.arrayContaining(['border-roll-degree-line']));
+      expect([...button.classList]).not.toContain('border-line-default');
+    });
+
+    it('ignores the cues on any other variant', async () => {
+      const { button } = await render({ rollTone: RollTone.Bonus, rollLuck: RollLuck.Fortune, rollShifted: true });
+
+      expect([...button.classList]).not.toContain('text-roll-bonus-fg');
+      expect([...button.classList]).not.toContain('bg-roll-fortune-bg');
+    });
   });
 });

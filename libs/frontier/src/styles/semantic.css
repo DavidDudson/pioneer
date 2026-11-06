@@ -180,6 +180,16 @@
   --fr-chart-4: var(--fr-ramp-warning-400);
   --fr-chart-5: var(--fr-ramp-danger-400);
   --fr-chart-6: var(--fr-ramp-neutral-400);
+
+  /*
+   * Cues on a roll button. Aliases of the status tokens, which the light block below redefines, so each follows the
+   * mode. Colour is never the only cue: the button also carries an asterisk and a popover that words each one.
+   */
+  --fr-roll-bonus-fg: var(--fr-success-fg);
+  --fr-roll-penalty-fg: var(--fr-danger-fg);
+  --fr-roll-fortune-bg: var(--fr-success-subtle);
+  --fr-roll-misfortune-bg: var(--fr-danger-subtle);
+  --fr-roll-degree-line: var(--fr-info-solid);
 }
 
 /* Light mode. Same tokens as above; only the ramp steps change. */

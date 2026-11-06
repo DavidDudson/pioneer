@@ -122,6 +122,12 @@
   --color-info-on-solid: var(--fr-info-on-solid);
   --color-info-line: var(--fr-info-line);
 
+  --color-roll-bonus-fg: var(--fr-roll-bonus-fg);
+  --color-roll-penalty-fg: var(--fr-roll-penalty-fg);
+  --color-roll-fortune-bg: var(--fr-roll-fortune-bg);
+  --color-roll-misfortune-bg: var(--fr-roll-misfortune-bg);
+  --color-roll-degree-line: var(--fr-roll-degree-line);
+
   --color-accent-emphasis: var(--fr-accent-emphasis);
   --color-accent-on-emphasis: var(--fr-accent-on-emphasis);
   --color-danger-emphasis: var(--fr-danger-emphasis);

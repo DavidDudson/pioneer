@@ -1,6 +1,6 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import type { ValueOf } from '@pioneer/shared/kernel';
-import { cva } from 'class-variance-authority';
+import { cva, cx } from 'class-variance-authority';
 
 import { Size } from '../../tokens';
 
@@ -13,6 +13,11 @@ export const ButtonVariant = {
   Danger: 'danger',
   /** A text roll or value button: border and text in the accent, on a muted accent background. */
   OutlineSubtle: 'outline-subtle',
+  /**
+   * A roll button: neutral until its cues say otherwise. The text colour is the sign of what applies (`rollTone`), the
+   * background marks fortune or misfortune (`rollLuck`) and the border a shifted degree of success (`rollShifted`).
+   */
+  Roll: 'roll',
   /** Looks like the text it sits in; e.g. an inline-edit read view. Sized by its content. */
   Inline: 'inline',
   /** Looks like a text input: bordered on a sunken background, the width of its container. An inline-edit read view. */
@@ -26,6 +31,14 @@ export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 
 /** The shared sizes plus `xs`, which only a button has. */
 export type ButtonSize = Size | 'xs';
+
+/** The sign of what applies to a roll: a net bonus, a net penalty, or neither. */
+export const RollTone = { Neutral: 'neutral', Bonus: 'bonus', Penalty: 'penalty' } as const;
+export type RollTone = ValueOf<typeof RollTone>;
+
+/** Whether a roll is made twice, keeping the higher (fortune) or the lower (misfortune). */
+export const RollLuck = { None: 'none', Fortune: 'fortune', Misfortune: 'misfortune' } as const;
+export type RollLuck = ValueOf<typeof RollLuck>;
 
 export const ButtonType = { Button: 'button', Submit: 'submit' } as const;
 export type ButtonType = ValueOf<typeof ButtonType>;
@@ -68,6 +81,7 @@ const buttonVariants = cva(
           'justify-center font-medium border border-accent-line bg-accent-subtle text-accent-fg',
           'hover:border-accent-solid hover:text-accent-fg',
         ].join(' '),
+        roll: 'justify-center border font-medium',
         danger:
           'justify-center bg-danger-solid font-medium text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
         field:
@@ -109,6 +123,21 @@ const buttonVariants = cva(
 );
 
 /**
+ * What a roll button shows beyond its label, each independent of the others. Each cue's off state is the neutral look,
+ * so no two classes set the same property. Colour alone never carries a cue.
+ */
+const rollCues = cva('', {
+  variants: {
+    tone: { neutral: 'text-fg-default', bonus: 'text-roll-bonus-fg', penalty: 'text-roll-penalty-fg' },
+    luck: { none: 'bg-surface-sunken', fortune: 'bg-roll-fortune-bg', misfortune: 'bg-roll-misfortune-bg' },
+    shifted: {
+      true: 'border-roll-degree-line hover:border-roll-degree-line',
+      false: 'border-line-default hover:border-accent-line',
+    },
+  },
+});
+
+/**
  * A button. Renders a native `<button>`; handle presses with `(pressed)`.
  * For actions that call the server use `fr-async-button`.
  *
@@ -146,15 +175,24 @@ export class Button {
   public readonly expanded = input<boolean | undefined>(undefined);
   /** The content is a lone `fr-icon`: a square button. Give it an `ariaLabel`. */
   public readonly iconOnly = input(false, { transform: booleanAttribute });
+  /** The `roll` variant's text colour: green for a net bonus, red for a net penalty. */
+  public readonly rollTone = input<RollTone>(RollTone.Neutral);
+  /** The `roll` variant's background: fortune or misfortune. */
+  public readonly rollLuck = input<RollLuck>(RollLuck.None);
+  /** The `roll` variant's border: the degree of success can shift. */
+  public readonly rollShifted = input(false, { transform: booleanAttribute });
   public readonly pressed = output<MouseEvent>();
 
   protected readonly classes = computed(() => {
     const variant = this.variant();
-    return buttonVariants({
+    const base = buttonVariants({
       variant,
       size: variant === ButtonVariant.Inline || variant === ButtonVariant.Field ? 'fit' : this.size(),
       iconOnly: this.iconOnly(),
     });
+    return variant === ButtonVariant.Roll
+      ? cx(base, rollCues({ tone: this.rollTone(), luck: this.rollLuck(), shifted: this.rollShifted() }))
+      : base;
   });
 
   protected press(event: MouseEvent): void {
