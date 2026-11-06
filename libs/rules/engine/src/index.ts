@@ -73,6 +73,7 @@ export {
   NoteRoll,
   type StrikeNote,
   type StrikeRules,
+  type RuleSplash,
   type StrikeScope,
   strikeRules,
 } from './strike-rules';

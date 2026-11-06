@@ -6,7 +6,7 @@ import type { ModifierInputs, RuleId } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
 import { strikeRules } from './strike-rules';
-import type { ExtraDice, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
+import type { ExtraDice, RuleSplash, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
 
 /** The family each weapon's attack roll is derived under: `strike:<weapon slug>`. */
 const ATTACK = 'strike';
@@ -29,6 +29,8 @@ export interface StrikeDamage {
   readonly persistent: PersistentDamage | undefined;
   /** A bomb's splash damage, of the damage's type, dealt to creatures near its target; no bonus adds to it. */
   readonly splash: DamageAmount | undefined;
+  /** Flat splash damage that `DamageDice` elements give (a shockwave rune's), each of its own type. */
+  readonly ruleSplash: readonly RuleSplash[];
   /**
    * The materials and property runes the damage counts as (the Strike's, after item alterations and adjustments), which
    * a weakness or resistance with exceptions reads (`applyDamage`'s `counts`).
@@ -150,6 +152,7 @@ function damageOf(
     extra: changes?.extra ?? [],
     persistent,
     splash: weapon.splash,
+    ruleSplash: changes?.splash ?? [],
     counts: [...(weapon.materials ?? []), ...(weapon.propertyRunes ?? [])].map((each) => DamageException.parse(each)),
     bonus: results.get(Selector.parse(`${DAMAGE}:${weapon.slug}`)),
   };

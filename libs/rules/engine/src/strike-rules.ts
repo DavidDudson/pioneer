@@ -1,9 +1,16 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
-import { DamageProperty, DiceCount, RollOptionNamespace, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
+import {
+  DamageAmount,
+  DamageDiceCategory,
+  DamageProperty,
+  DiceCount,
+  RollOptionNamespace,
+  RuleElementKey,
+  RuleNumber,
+} from '@pioneer/rules/sdk';
 import type {
   DamageAlterationElement,
-  DamageDiceCategory,
   DamageDiceElement,
   DamageType,
   DieSize,
@@ -42,6 +49,13 @@ export interface ExtraDice {
   readonly origin: Origin;
 }
 
+/** Flat splash damage a `DamageDice` element gives a Strike (Shockwave's), dealt to creatures near the target. */
+export interface RuleSplash {
+  readonly amount: DamageAmount;
+  readonly damageType: DamageType;
+  readonly origin: Origin;
+}
+
 /** What a Strike's rule elements change about its dice, and the notes on its rolls. */
 export interface StrikeRules {
   /** The weapon's dice after `DamageDice` and `DamageAlteration` elements change their number. */
@@ -49,6 +63,8 @@ export interface StrikeRules {
   /** The weapon's damage type after elements override it. */
   readonly damageType: DamageType;
   readonly extra: readonly ExtraDice[];
+  /** The flat splash damage the elements give, with the dice the Strike ends up rolling counted. */
+  readonly splash: readonly RuleSplash[];
   readonly notes: readonly StrikeNote[];
   /**
    * The elements that would change the Strike if their situation held (the target is undead) and that no roll has
@@ -136,9 +152,48 @@ function extraOf(
       ];
 }
 
+/** Flat splash found, before it counts the Strike's dice: `count` of it, for each damage die when `perDie`. */
+interface PendingSplash {
+  readonly count: DiceCount;
+  readonly perDie: boolean;
+  readonly damageType: DamageType;
+  readonly origin: Origin;
+}
+
+/** Whether `element` is flat splash: category `splash` and no die. */
+function isFlatSplash(element: DamageDiceElement): boolean {
+  return element.category === DamageDiceCategory.Splash && element.dieSize === undefined;
+}
+
+/** The flat splash `element` gives, if its amount has a value. */
+function splashOf(
+  { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
+  damageType: DamageType,
+  read: Reader,
+): PendingSplash[] {
+  const count = element.diceNumber === undefined ? DiceCount.parse(1) : diceOf(read, rule, element.diceNumber);
+  return count === undefined
+    ? []
+    : [
+        {
+          count,
+          perDie: element.perWeaponDie === true,
+          damageType: element.damageType ?? damageType,
+          origin: rule.origin,
+        },
+      ];
+}
+
+/** `pending` as the splash it deals when the Strike rolls `dice` damage dice; none when that is nothing. */
+function splashFor({ count, perDie, damageType, origin }: PendingSplash, dice: DiceCount): RuleSplash[] {
+  const total = perDie ? count * dice : count;
+  return total > 0 ? [{ amount: DamageAmount.parse(total), damageType, origin }] : [];
+}
+
 /** A Strike's rules as far as read: its dice and type so far, the extra dice and the notes found. */
 interface Reading extends DiceAndType {
   readonly extra: readonly ExtraDice[];
+  readonly splash: readonly PendingSplash[];
   readonly notes: readonly StrikeNote[];
   readonly conditional: readonly RuleId[];
 }
@@ -157,6 +212,11 @@ function applied(
     reaches(element.selectors, targets.damage, ownsStrike(rule, targets))
   ) {
     const more = element.diceNumber === undefined ? undefined : diceOf(using.read, rule, element.diceNumber);
+    if (isFlatSplash(element)) {
+      return rolls
+        ? { ...reading, splash: [...reading.splash, ...splashOf({ rule, element }, reading.damageType, using.read)] }
+        : reading;
+    }
     const changes = rolls && element.dieSize === undefined;
     return {
       ...reading,
@@ -181,6 +241,7 @@ function changedBy(before: Reading, after: Reading): boolean {
     after.dice !== before.dice ||
     after.damageType !== before.damageType ||
     after.extra.length !== before.extra.length ||
+    after.splash.length !== before.splash.length ||
     after.notes.length !== before.notes.length
   );
 }
@@ -199,6 +260,7 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
     dice: targets.dice,
     damageType: targets.damageType,
     extra: [],
+    splash: [],
     notes: [],
     conditional: [],
   };
@@ -219,5 +281,5 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
         : reading;
     }
   }
-  return reading;
+  return { ...reading, splash: reading.splash.flatMap((pending) => splashFor(pending, reading.dice)) };
 }
