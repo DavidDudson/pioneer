@@ -5,7 +5,7 @@ import { LucidePlus } from '@lucide/angular';
 import { Icon } from '../../icon/icon.component';
 import { Stack } from '../../layout/stack/stack.component';
 import { Size } from '../../tokens';
-import { Button, ButtonType, ButtonVariant } from './button.component';
+import { Button, ButtonType, ButtonVariant, RollLuck, RollTone } from './button.component';
 
 interface ButtonStoryArgs extends Button {
   readonly label: string;
@@ -17,6 +17,8 @@ const meta: Meta<ButtonStoryArgs> = {
   title: 'Actions/Button',
   component: Button,
   argTypes: {
+    rollTone: { control: 'inline-radio', options: Object.values(RollTone) },
+    rollLuck: { control: 'inline-radio', options: Object.values(RollLuck) },
     variant: { control: 'select', options: Object.values(ButtonVariant) },
     size: { control: 'inline-radio', options: Object.values(Size) },
     type: { control: 'inline-radio', options: Object.values(ButtonType) },
@@ -88,3 +90,19 @@ export const IconOnly: ButtonStory = {
     moduleMetadata: { imports: [Icon] },
   }),
 };
+
+/** A roll button with no cue: the neutral default. */
+export const Roll: ButtonStory = { args: { variant: ButtonVariant.Roll, label: '+10' } };
+export const RollBonus: ButtonStory = {
+  args: { variant: ButtonVariant.Roll, rollTone: RollTone.Bonus, label: '+12*' },
+};
+export const RollPenalty: ButtonStory = {
+  args: { variant: ButtonVariant.Roll, rollTone: RollTone.Penalty, label: '+8' },
+};
+export const RollFortune: ButtonStory = {
+  args: { variant: ButtonVariant.Roll, rollLuck: RollLuck.Fortune, label: '+10' },
+};
+export const RollMisfortune: ButtonStory = {
+  args: { variant: ButtonVariant.Roll, rollLuck: RollLuck.Misfortune, label: '+10' },
+};
+export const RollShifted: ButtonStory = { args: { variant: ButtonVariant.Roll, rollShifted: true, label: '+10' } };

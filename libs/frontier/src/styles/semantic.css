@@ -180,6 +180,16 @@
   --fr-chart-4: var(--fr-ramp-warning-400);
   --fr-chart-5: var(--fr-ramp-danger-400);
   --fr-chart-6: var(--fr-ramp-neutral-400);
+
+  /*
+   * Cues on a roll button. The text colours are saturated steps of the status ramps: the paler status-fg steps read as
+   * white on the button. The light block below sets darker steps. Colour is never the only cue: the popover words each.
+   */
+  --fr-roll-bonus-fg: var(--fr-ramp-success-500);
+  --fr-roll-penalty-fg: var(--fr-ramp-danger-500);
+  --fr-roll-fortune-bg: var(--fr-success-subtle);
+  --fr-roll-misfortune-bg: var(--fr-danger-subtle);
+  --fr-roll-degree-line: var(--fr-info-solid);
 }
 
 /* Light mode. Same tokens as above; only the ramp steps change. */
@@ -289,4 +299,8 @@
   --fr-chart-4: var(--fr-ramp-warning-500);
   --fr-chart-5: var(--fr-ramp-danger-600);
   --fr-chart-6: var(--fr-ramp-neutral-600);
+
+  /* Roll button cues: darker steps for the light surfaces; the fills and line follow the status tokens above. */
+  --fr-roll-bonus-fg: var(--fr-ramp-success-700);
+  --fr-roll-penalty-fg: var(--fr-ramp-danger-700);
 }

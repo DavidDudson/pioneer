@@ -964,7 +964,33 @@
       "computed": "computed {computed}",
       "fromForm": "from {form}",
       "conditional": "{value} {hasSummary, select, yes {when {summary}} other {in some situations}} ({name})",
-      "roll": "Roll {name} {modifier}"
+      "roll": "Roll {name} {modifier}",
+      "rollEffects": {
+        "fortune": "Fortune: roll twice, keep the higher ({name})",
+        "misfortune": "Misfortune: roll twice, keep the lower ({name})",
+        "degree": "Degree of success: {changes} ({name})",
+        "change": "{degree} {change}",
+        "when": "{text}, when {summary}",
+        "inSomeSituations": "{text}, in some situations",
+        "conditionalMark": "{label}, with more that applies in some situations",
+        "degrees": {
+          "all": "every result",
+          "criticalFailure": "a critical failure",
+          "failure": "a failure",
+          "success": "a success",
+          "criticalSuccess": "a critical success"
+        },
+        "changes": {
+          "oneDegreeBetter": "becomes one degree better",
+          "oneDegreeWorse": "becomes one degree worse",
+          "twoDegreesBetter": "becomes two degrees better",
+          "twoDegreesWorse": "becomes two degrees worse",
+          "toCriticalSuccess": "becomes a critical success",
+          "toSuccess": "becomes a success",
+          "toFailure": "becomes a failure",
+          "toCriticalFailure": "becomes a critical failure"
+        }
+      }
     },
     "strikes": {
       "damage": "{roll} {type}",

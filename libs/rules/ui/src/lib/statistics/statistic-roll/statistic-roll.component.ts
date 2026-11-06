@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, ButtonVariant, HoverCard, HoverCardContent, LocaleFormat, Size, Text } from '@pioneer/frontier';
+import { TranslocoService } from '@jsverse/transloco';
+import { Button, ButtonVariant, HoverCard, HoverCardContent, LocaleFormat, Size, Stack, Text } from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
@@ -10,11 +10,18 @@ import { SIGNED } from '../../breakdown/number-style';
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
 import type { OriginNames } from '../../origin-chain/origin-names';
 import { STATISTIC_ROLLER } from '../statistic-roller';
-import { StatisticsMessage } from '../statistics-messages';
+import { RollEffectMessage, StatisticsMessage } from '../statistics-messages';
+import { rollCues } from './roll-cues';
+import { degreeAdjustmentText, rollTwiceText } from './roll-effect-words';
+
+/** Follows the modifier when something conditional would change the roll. */
+const CONDITIONAL_MARK = '*';
 
 /**
- * A text button that rolls one check: the modifier it rolls ("+10") is the label, in one colour on a muted background,
- * never an icon. Hovering or focusing it opens the breakdown of that modifier. Shown only where the page provides a
+ * A text button that rolls one check: the modifier it rolls ("+10") is the label, never an icon. It is neutral until
+ * a cue says otherwise: green or red text for a net bonus or penalty, an asterisk when a conditional line or effect
+ * would change it, a background for fortune or misfortune and a blue border for a shifted degree of success. Hovering
+ * or focusing it opens the breakdown and words each cue. Shown only where the page provides a
  * `STATISTIC_ROLLER`; the button names the check it rolls for screen readers ("Roll Perception +10").
  *
  * ```html
@@ -23,7 +30,7 @@ import { StatisticsMessage } from '../statistics-messages';
  */
 @Component({
   selector: 'pio-statistic-roll',
-  imports: [BreakdownView, Button, HoverCard, HoverCardContent, Text, TranslocoPipe],
+  imports: [BreakdownView, Button, HoverCard, HoverCardContent, Stack, Text],
   templateUrl: './statistic-roll.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -39,12 +46,30 @@ export class StatisticRoll {
 
   protected readonly roller = inject(STATISTIC_ROLLER, { optional: true });
   readonly #format = inject(LocaleFormat);
-  protected readonly Message = StatisticsMessage;
   protected readonly Check = StatisticKind.Check;
-  protected readonly outline = ButtonVariant.OutlineSubtle;
+  readonly #i18n = inject(TranslocoService);
+  protected readonly rollVariant = ButtonVariant.Roll;
   protected readonly small = Size.Sm;
   /** The modifier the roll adds, signed: "+10". */
   protected readonly label = computed(() => this.#format.number(this.statistic().total, SIGNED));
+  protected readonly cues = computed(() => rollCues(this.statistic()));
+  /** The label with an asterisk after it when something conditional would change the roll. */
+  protected readonly shown = computed(() =>
+    this.cues().conditional ? `${this.label()}${CONDITIONAL_MARK}` : this.label(),
+  );
+  protected readonly ariaLabel = computed(() => {
+    const name = this.#i18n.translate(StatisticsMessage.Roll, { name: this.name(), modifier: this.label() });
+    return this.cues().conditional ? this.#i18n.translate(RollEffectMessage.Conditional, { label: name }) : name;
+  });
+  /** Each fortune, misfortune and degree adjustment that reaches the check, worded for the popover. */
+  protected readonly effects = computed<readonly string[]>(() => {
+    const words = { i18n: this.#i18n, format: this.#format, names: { entries: this.entryNames() } };
+    const { rollTwice = [], degreeAdjustments = [] } = this.statistic().rollEffects ?? {};
+    return [
+      ...rollTwice.map((line) => rollTwiceText(line, words)),
+      ...degreeAdjustments.map((line) => degreeAdjustmentText(line, words)),
+    ];
+  });
 
   protected roll(): void {
     this.roller?.roll({ name: this.name(), statistic: this.statistic() });
