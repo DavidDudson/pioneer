@@ -35,6 +35,14 @@ describe('weapon property rune effects', () => {
     ]);
   });
 
+  test('shockwave deals bludgeoning splash equal to the number of weapon damage dice', () => {
+    const entry = RUNES.find((rune) => rune.slug === 'rune:shockwave');
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'DamageDice', category: 'splash', damageType: 'bludgeoning', perWeaponDie: true },
+    ]);
+  });
+
   test.each([
     { slug: 'rune:vitalizing', dice: 1 },
     { slug: 'rune:vitalizing-greater', dice: 2 },

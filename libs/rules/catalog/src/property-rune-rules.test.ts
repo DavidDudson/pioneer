@@ -19,7 +19,7 @@ const ETCHED_DAMAGE = 'etched-damage';
  * Why the target-dependent runes stay here: bane and energy vulnerability name a creature type or energy the crafter
  * or wielder picks; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
  * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic runes
- * need the mythic rules; shockwave needs splash damage equal to the weapon's dice, which no rule element yields.
+ * need the mythic rules.
  * Astral has rules for its ghost touch and spirit damage; its rules about a possessed creature stay out.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
@@ -44,7 +44,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:rooting-major',
   'rune:rooting-true',
   'rune:shifting',
-  'rune:shockwave',
   'rune:spell-reservoir',
   'rune:underwater',
   'rune:vorpal',
