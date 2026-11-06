@@ -165,6 +165,7 @@ describe('availableActions frequency', () => {
     const action = candidate({ cost: 'reaction', trigger: WORDING, frequency: { max: 1, per: 'round' } });
 
     expect(weigh(action).status).toBe(ActionStatus.Available);
+    expect(weigh(action).recharge).toBeUndefined();
   });
 
   test('a frequency with no uses left makes the action unavailable for the period', () => {
@@ -174,6 +175,7 @@ describe('availableActions frequency', () => {
 
     expect(result.status).toBe(ActionStatus.Unavailable);
     expect(result.reasons).toStrictEqual([{ key: EngineMessage.ActionFrequencySpent, params: { per: 'round' } }]);
+    expect(result.recharge).toBe('round');
   });
 
   test('every reason that blocks an action is listed', () => {

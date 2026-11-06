@@ -15,7 +15,7 @@ import type { Inventory } from '@pioneer/character/domain';
 import { CharacterBuilder, ITEM_FIXTURE_FILES, ItemFixture, itemFixtureId } from '@pioneer/character/domain/testing';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ActionStatus } from '@pioneer/rules/engine';
-import { Slug } from '@pioneer/rules/sdk';
+import { FrequencyPeriod, Slug } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ActionResourceKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
@@ -136,6 +136,15 @@ describe(sheetItemActions, () => {
           reasons: [{ key: 'character.sheet.itemActions.noUses' }],
         },
       ]);
+    });
+
+    it('carries the period its uses refresh over once they are spent, and none while some are left', async () => {
+      const registry = await registryWithItems();
+      const held = carrying({ id: BOOTS, fixture: ItemFixture.WingedBoots });
+      const spent = { uses: { [activationUseKey(BOOTS, SKIES)]: 1 } };
+
+      expect(listed(registry, held, spent)).toMatchObject([{ recharge: FrequencyPeriod.Hour }]);
+      expect(listed(registry, held)[0]?.recharge).toBeUndefined();
     });
 
     it('is unusable, with the reason, while stowed', async () => {

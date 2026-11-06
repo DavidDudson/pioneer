@@ -342,7 +342,20 @@
       },
       "summary": {
         "trigger": "Trigger",
-        "requirements": "Requirements"
+        "requirements": "Requirements",
+        "recharge": "Usable again"
+      },
+      "recharge": {
+        "turn": "Next turn.",
+        "round": "Next round.",
+        "minute": "After a minute or a rest.",
+        "tenMinutes": "After 10 minutes or a rest.",
+        "hour": "After an hour or a rest.",
+        "twentyFourHours": "24 hours after it was used.",
+        "day": "At the next daily preparation.",
+        "week": "A week after it was used.",
+        "month": "A month after it was used.",
+        "year": "A year after it was used."
       },
       "emptyAll": "No action matches the filters.",
       "filters": "Filters",

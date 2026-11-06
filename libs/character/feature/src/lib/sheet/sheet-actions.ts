@@ -118,6 +118,7 @@ export function sheetActions(
       source:
         action.origin.kind === ActionOriginKind.Granted ? entries.get(action.origin.source.entry)?.name : undefined,
       status: fit.affordable === false || blocked !== undefined ? ActionStatus.Unavailable : action.status,
+      recharge: action.recharge,
       reasons: [
         ...action.reasons,
         ...fit.reasons,

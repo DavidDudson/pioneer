@@ -18,6 +18,7 @@
       <pio-rich-text [text]="fact.text" [headingLevel]="level" />
     </fr-stack>
   }
+  <pio-action-recharge [period]="action().line.recharge" />
   <pio-rich-text [text]="effect()" [headingLevel]="level" />
   <pio-statistic-conditions [conditions]="action().conditions" />
   @for (reason of action().reasons; track reason) {
