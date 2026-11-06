@@ -1,8 +1,8 @@
-import { ActionStatus } from '@pioneer/rules/engine';
-import type { ActionOriginKind } from '@pioneer/rules/engine';
+import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import { ActionCost } from '@pioneer/rules/sdk';
 import type { ActionMode } from '@pioneer/rules/sdk';
 
+import { ActionCategory } from './action-line';
 import type { ActionLine } from './action-line';
 
 /** Which view of the actions is open: those usable at this moment, or every one. */
@@ -108,4 +108,22 @@ export function traitsOf(
   compare: (left: string, right: string) => number,
 ): readonly string[] {
   return [...new Set(lines.flatMap((line) => line.traits))].toSorted(compare);
+}
+
+const ORIGIN_CATEGORIES: Readonly<Record<ActionOriginKind, ActionCategory>> = {
+  [ActionOriginKind.Basic]: ActionCategory.Basic,
+  [ActionOriginKind.Skill]: ActionCategory.Basic,
+  [ActionOriginKind.Granted]: ActionCategory.Granted,
+  [ActionOriginKind.Item]: ActionCategory.Items,
+};
+
+/** The subtab a line is listed under: the one it names, else the one its origin gives. */
+export function categoryOf(line: ActionLine): ActionCategory {
+  return line.category ?? ORIGIN_CATEGORIES[line.origin.kind];
+}
+
+/** The categories `lines` have actions in, in the order the subtabs run; a category with none is left out. */
+export function categoriesOf(lines: readonly ActionLine[]): readonly ActionCategory[] {
+  const present = new Set(lines.map((line) => categoryOf(line)));
+  return Object.values(ActionCategory).filter((category) => present.has(category));
 }

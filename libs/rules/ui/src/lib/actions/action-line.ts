@@ -28,6 +28,17 @@ export interface ActionResource {
   readonly max?: number | undefined;
 }
 
+/** The kinds the Actions tab splits its list into, in the order its subtabs run. */
+export const ActionCategory = {
+  Strikes: 'strikes',
+  Spells: 'spells',
+  Innate: 'innate',
+  Items: 'items',
+  Granted: 'granted',
+  Basic: 'basic',
+} as const;
+export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
+
 /** One action on a character's list as the sheet shows it: what the engine decided, with the names it needs. */
 export interface ActionLine {
   readonly id: ContentId;
@@ -37,6 +48,8 @@ export interface ActionLine {
   readonly cost: ActionCost | undefined;
   readonly modes: readonly ActionMode[];
   readonly origin: ActionOrigin;
+  /** The kind it is listed under when its origin does not say (a Strike, a spell, an innate spell); absent otherwise. */
+  readonly category?: ActionCategory | undefined;
   /** What gives it, by name, for an action the character was granted. */
   readonly source: string | undefined;
   readonly status: ActionStatus;
@@ -52,6 +65,8 @@ export interface ActionLine {
   readonly resource?: ActionResource | undefined;
   /** What using it pays besides actions; a line with a payment can be used even when its content gives no cost. */
   readonly payment?: UsePayment | undefined;
+  /** Whether using it is an attack, which moves the multiple attack penalty on: a Strike. */
+  readonly attack?: true | undefined;
   /** The best of its skills to roll with its breakdown; absent for an action that rolls nothing. */
   readonly roll: StatisticValue | undefined;
   /** Its place among the actions the situation calls for, first being the most pressing; absent when it calls for none. */

@@ -13,6 +13,8 @@ import {
   SHIELD_RAISED_ACTIONS,
   STANDING_ACTIONS,
 } from '../testing/action-fixtures';
+import { ActionCategory } from './action-line';
+import type { ActionLine } from './action-line';
 import { ActionsViewKind } from './actions-list';
 import { ActionsView } from './actions.component';
 
@@ -116,5 +118,29 @@ export const Items: ActionsStory = {
     await expect(canvas.getByText('2 held')).toBeVisible();
     await expect(canvas.getByText('1/1 uses')).toBeVisible();
     await expect(canvas.getByText('3/4 charges')).toBeVisible();
+  },
+};
+
+/** A line listed under Spells. */
+function spell(line: ActionLine): ActionLine {
+  return { ...line, category: ActionCategory.Spells };
+}
+
+/** One subtab for each kind of action the character has, the first open; a kind with no actions has none. */
+export const KindSubtabs: ActionsStory = {
+  args: {
+    lines: [...SHIELD_RAISED_ACTIONS.slice(0, 1).map((line) => spell(line)), ...ITEM_ACTIONS, ...STANDING_ACTIONS],
+  },
+  play: async ({ canvasElement, userEvent }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByRole('tab').map((tab) => tab.textContent.trim())).toStrictEqual([
+      'Spells',
+      'Items',
+      'Basic actions',
+    ]);
+    await userEvent.click(canvas.getByRole('tab', { name: 'Items' }));
+    await expect(canvas.getByRole('tab', { name: 'Items' })).toHaveAttribute('aria-selected', 'true');
+    await expect(canvas.getByText('2 held')).toBeVisible();
+    await expect(canvas.queryByText('Pick a Lock')).toBeNull();
   },
 };

@@ -265,7 +265,7 @@ export {
   skillPickerColumns,
   slotPickerColumns,
 } from './lib/slot-picker/slot-picker-table';
-export { ActionResourceKind } from './lib/actions/action-line';
+export { ActionCategory, ActionResourceKind } from './lib/actions/action-line';
 export type { ActionLine, ActionResource } from './lib/actions/action-line';
 export { ActionUser } from './lib/actions/action-user';
 export type { ActionUse, UsableLine, UsePayment } from './lib/actions/action-user';

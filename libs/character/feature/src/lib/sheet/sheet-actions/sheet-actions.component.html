@@ -4,7 +4,14 @@
     <fr-async-region>
       <ng-template frAsyncPending><pio-actions [lines]="undefined" /></ng-template>
       <ng-template [frAsyncData]="playQuery">
-        <pio-actions [lines]="lines()" [mode]="mode()" [entryNames]="entryNames()" [(view)]="view" />
+        <pio-actions
+          [lines]="lines()"
+          [mode]="mode()"
+          [entryNames]="entryNames()"
+          [category]="kind()"
+          [(view)]="view"
+          (categoryChange)="open($event)"
+        />
       </ng-template>
     </fr-async-region>
   </ng-template>

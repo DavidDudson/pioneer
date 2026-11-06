@@ -123,7 +123,7 @@ const OWNERS: ReadonlyMap<string, readonly string[]> = new Map([
       'controls/picker/',
     ],
   ],
-  ['button', ['actions/button/', 'controls/select/', 'controls/picker/']],
+  ['button', ['actions/button/', 'actions/tab-list/', 'controls/select/', 'controls/picker/']],
   ['textarea', ['controls/text-area/']],
   ['datalist', []],
   ['optgroup', []],

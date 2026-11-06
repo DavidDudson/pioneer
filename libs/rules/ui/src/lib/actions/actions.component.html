@@ -1,8 +1,16 @@
 <fr-stack gap="md">
+  @if (categoryOptions().length > 1) {
+    <fr-tab-list
+      [options]="categoryOptions()"
+      [label]="Message.CategoriesLabel | transloco"
+      [value]="open()"
+      (valueChange)="category.set($event)"
+    />
+  }
   <fr-segmented [options]="viewOptions()" [ariaLabel]="Message.ViewLabel | transloco" [(value)]="view" />
   @if (view() === Now) {
-    <pio-actions-now [lines]="lines()" [mode]="mode()" [entryNames]="entryNames()" [originNames]="originNames()" />
+    <pio-actions-now [lines]="shown()" [mode]="mode()" [entryNames]="entryNames()" [originNames]="originNames()" />
   } @else {
-    <pio-actions-all [lines]="lines()" [entryNames]="entryNames()" [originNames]="originNames()" />
+    <pio-actions-all [lines]="shown()" [entryNames]="entryNames()" [originNames]="originNames()" />
   }
 </fr-stack>
