@@ -54,7 +54,6 @@ export class SheetLevelPlan {
     clear: async (slot) => this.#state.store.clearSlot(slot),
     translate: (key, params) => this.#i18n.translate(key, params),
     messages: this.#messages,
-    showGrantOnly: computed(() => false),
   });
 
   /** A picker for each planned slot, by the slot's key. */

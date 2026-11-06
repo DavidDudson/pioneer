@@ -2,14 +2,12 @@ import { computed, untracked } from '@angular/core';
 import type { Signal } from '@angular/core';
 import type { Character, CharacterSlot } from '@pioneer/character/domain';
 import type { InlineEdit } from '@pioneer/frontier';
-import { ChoiceValue, DisplayCategory } from '@pioneer/rules/sdk';
+import { ChoiceValue } from '@pioneer/rules/sdk';
 import type { ContentRegistry, SlotKey } from '@pioneer/rules/sdk';
 import type { FeatPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { NOT_CHOSEN, RootPick } from './sheet-build';
-import { visibleFeatGroups } from './sheet-feat-groups';
-import type { SheetFeatGroup } from './sheet-feat-groups';
 import { featSlotFilter } from './sheet-feat-slot-filter';
 import { featRows, sheetFeats } from './sheet-feats';
 import type { SheetFeats, SheetFeatSlot } from './sheet-feats';
@@ -26,8 +24,6 @@ export interface FeatPickSources {
   readonly select: (slot: SlotKey, selection: ChoiceValue) => Promise<void>;
   readonly clear: (slot: SlotKey) => Promise<void>;
   readonly translate: (key: string, params?: object) => string;
-  /** Whether the user shows the feats that only grant something else; they are folded away until they do. */
-  readonly showGrantOnly: Signal<boolean>;
   /** Changes when the language changes or the messages load, so translated text is read again. */
   readonly messages: Signal<unknown>;
   /** Where the pickers keep their filters; without it they list everything their slot offers, unfiltered. */
@@ -45,18 +41,10 @@ export interface FeatField {
   readonly field: InlineEdit<string | undefined>;
 }
 
-/** The feat pickers and the feats the character has by slot type; undefined while the feats load. */
-export interface FeatFields {
-  readonly fields: readonly FeatField[];
-  readonly groups: readonly SheetFeatGroup[];
-  /** Whether the character has a feat that only grants something else, so there is a filter to offer. */
-  readonly hasGrantOnly: boolean;
-}
-
 /** One feat slot as an inline pick, saved by `selectSlot`, cleared by `clearSlot`. */
 function featField(sources: FeatPickSources, feats: Signal<SheetFeats | undefined>, read: SheetFeatSlot): FeatField {
   const { key, label } = read;
-  const slot = computed(() => feats()?.slots.find((each) => each.key === key));
+  const slot = computed(() => feats()?.planned.find((each) => each.key === key));
   const options = computed(() => slot()?.options ?? []);
   const field = sheetField<string | undefined>(sources.character, {
     read: (character) => character.document.build.choices[key] ?? NOT_CHOSEN,
@@ -131,31 +119,8 @@ function fieldsOf(
 }
 
 /**
- * One inline pick per feat slot up to the character's level (#466), and the feats the character's features grant.
- * Undefined while the feats load.
- */
-export function featFieldsOf(sources: FeatPickSources): Signal<FeatFields | undefined> {
-  const feats = featsOf(sources);
-  const fields = fieldsOf(sources, feats, (read) => read.slots);
-  return computed(() => {
-    const read = feats();
-    if (read === undefined) {
-      return undefined;
-    }
-    const hasGrantOnly = read.groups.some((group) =>
-      group.feats.some((feat) => feat.category === DisplayCategory.GrantOnly),
-    );
-    return {
-      fields: fields(),
-      groups: visibleFeatGroups(read.groups, sources.showGrantOnly()),
-      hasGrantOnly,
-    };
-  });
-}
-
-/**
- * One inline pick per feat slot above the character's level (#492), offering the feats it will have at the slot's
- * level. The timeline's alone, so the feats section builds none. Empty while the feats load.
+ * One inline pick per feat slot, at any level (#492), offering the feats it will have at the slot's level. The
+ * level tabs' alone. Empty while the feats load.
  */
 export function plannedFeatFieldsOf(sources: FeatPickSources): Signal<readonly FeatField[]> {
   return fieldsOf(sources, featsOf(sources), (read) => read.planned);

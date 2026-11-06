@@ -67,10 +67,7 @@ export {
   type TimelineSkill,
 } from './lib/level-timeline/level-timeline-row';
 export { type BuildLine, BuildPart, type BuildValue } from './lib/build-summary/build-line';
-export { BuildSummaryView } from './lib/build-summary/build-summary.component';
 export { SIZE_MESSAGES } from './lib/build-summary/build-summary-messages';
-export { type ClassFeatureLine } from './lib/class-features/class-feature-line';
-export { ClassFeaturesView } from './lib/class-features/class-features.component';
 export { type SlotPoolLine, type SpellcastingEntryLine } from './lib/spellcasting/spellcasting-entry-line';
 export { SpellcastingView } from './lib/spellcasting/spellcasting.component';
 export { DeityView } from './lib/deity/deity.component';

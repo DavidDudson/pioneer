@@ -1002,10 +1002,6 @@
         "freeNumbered": "Level {level} boost {number}"
       }
     },
-    "classFeatures": {
-      "none": "No class features yet.",
-      "origin": "from {className}, level {level}"
-    },
     "languages": {
       "none": "No languages yet. Pick an ancestry first.",
       "from": "from {source}",
@@ -1162,29 +1158,6 @@
       }
     },
     "build": {
-      "edit": "Edit build",
-      "part": {
-        "class": "Class",
-        "subclass": "Subclass",
-        "ancestry": "Ancestry",
-        "heritage": "Heritage",
-        "background": "Background",
-        "deity": "Deity",
-        "keyAttribute": "Key attribute",
-        "size": "Size",
-        "traits": "Traits"
-      },
-      "empty": {
-        "class": "Pick a class",
-        "subclass": "Pick a subclass",
-        "ancestry": "Pick an ancestry",
-        "heritage": "Pick a heritage",
-        "background": "Pick a background",
-        "deity": "Pick a deity",
-        "keyAttribute": "Pick a class and its key attribute",
-        "size": "Pick an ancestry for its size",
-        "traits": "Pick an ancestry for its traits"
-      },
       "size": {
         "tiny": "Tiny",
         "small": "Small",

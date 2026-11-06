@@ -29,12 +29,12 @@ describe('planned slots', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('plans the skill slots above the level only, each with a key and the skills it offers', async () => {
+  it('plans every skill slot, each with a key and the skills it offers', async () => {
     const slots = sheetPlannedSkillSlots(await registry(), fighterAt(3));
 
     const keys = slots.map((slot) => slot.key);
     expect(keys).toContain('skill-increase:5');
-    expect(keys).not.toContain('skill-increase:3');
+    expect(keys).toContain('skill-increase:3');
     expect(slots.every((slot) => slot.options.length > 0)).toBe(true);
   });
 
@@ -53,7 +53,7 @@ describe('planned slots', () => {
     expect(increase.rows.map((row) => row.id)).toStrictEqual(increase.options.map((option) => option.value));
   });
 
-  it('plans the boost slots above the level only, numbering the four boosts of a level', async () => {
+  it('plans every boost slot, numbering the four boosts of a level', async () => {
     const boosts = sheetPlannedBoosts(await registry(), fighterAt(4), (key) => key);
 
     const atFive = boosts.filter((boost) => boost.key.startsWith('boost:5:free:'));
@@ -63,6 +63,6 @@ describe('planned slots', () => {
         params: { level: 5, number },
       })),
     );
-    expect(boosts.some((boost) => boost.key.startsWith('boost:1:'))).toBe(false);
+    expect(boosts.some((boost) => boost.key.startsWith('boost:1:'))).toBe(true);
   });
 });

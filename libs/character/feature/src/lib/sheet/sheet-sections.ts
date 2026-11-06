@@ -13,7 +13,6 @@ export interface SheetSection {
 /** Every section of the sheet, each on one tab (`SHEET_TAB_SECTIONS`). */
 export const SHEET_SECTIONS = {
   identity: { anchor: 'sheet-identity', headingKey: 'character.sheet.identityHeading' },
-  build: { anchor: 'sheet-build', headingKey: 'character.sheet.buildHeading' },
   deity: { anchor: 'sheet-deity', headingKey: 'character.sheet.deity.heading' },
   attributes: { anchor: 'sheet-attributes', headingKey: 'character.sheet.attributesHeading' },
   defences: { anchor: 'sheet-defences', headingKey: 'character.sheet.defencesHeading' },
@@ -34,7 +33,6 @@ export const SHEET_SECTIONS = {
   timeline: { anchor: 'sheet-timeline', headingKey: 'character.sheet.timelineHeading' },
   spellcasting: { anchor: 'sheet-spellcasting', headingKey: 'character.sheet.spellcastingHeading' },
   feats: { anchor: 'sheet-feats', headingKey: 'character.sheet.featsHeading' },
-  features: { anchor: 'sheet-features', headingKey: 'character.sheet.featuresHeading' },
   /** The homebrew packs the character uses, chosen by its owner or by its campaign. */
   packs: { anchor: 'sheet-packs', headingKey: 'character.sheet.packsHeading' },
   /** The variant rules the character uses, chosen by its owner or by its campaign (ADR-0061). */

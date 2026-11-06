@@ -9,9 +9,18 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { pickRow, pickValue, rowsShown } from '../../testing/origin-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
+import type { OpenSheet } from '../../testing/sheet-page-harness';
+import { openLevel } from '../../testing/sheet-tabs-testing';
 
 const openSheet = openerAt(SheetMode.Encounter);
 const openPlan = openerAt(SheetMode.Plan);
+
+/** Opens the Plan tab at its Level 1 tab, where the trained skill pickers are. */
+async function openLevelOne(character: object): Promise<OpenSheet> {
+  const opened = await openPlan(character);
+  await openLevel(opened.root, 1);
+  return opened;
+}
 
 const ATHLETICS = contentId(PackId.parse('core-rules'), EntrySlug.parse('statistic:athletics'));
 const TRAINING = ['Level 1 trained skill 1', 'Level 1 trained skill 2', 'Level 1 trained skill 3'];
@@ -28,16 +37,14 @@ function skillsSection(root: HTMLElement): HTMLElement {
 }
 
 function timelineSection(root: HTMLElement): HTMLElement {
-  return present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
+  return present(root.querySelector('section[aria-labelledby="sheet-level-1"]'));
 }
 
-/** The labels of the Plan tab's skill pickers. */
+/** The labels of the skill pickers on the Plan tab's Level 1 tab. */
 function pickerLabels(root: HTMLElement): string[] {
-  // The choices' own pickers come first; the skill pickers are the last block.
-  const skillFields = [...timelineSection(root).querySelectorAll('pio-sheet-pick-fields')].at(-1);
-  return [...(skillFields?.querySelectorAll('fr-inline-field') ?? [])].map((field) =>
-    present(field.querySelector('fr-text')).textContent.trim(),
-  );
+  return [...timelineSection(root).querySelectorAll('pio-level-timeline fr-inline-field')]
+    .map((field) => present(field.querySelector('fr-text')).textContent.trim())
+    .filter((label) => label.includes('trained skill'));
 }
 
 /** The text of the Skills panel's row for `name`. */
@@ -66,7 +73,7 @@ function rankOf(root: HTMLElement, name: string): ShownRank | undefined {
 
 describe('CharacterSheetPage skills', () => {
   it('asks a fighter for its three trained skills, one picker each', async () => {
-    const { root } = await openPlan(fighter());
+    const { root } = await openLevelOne(fighter());
 
     await vi.waitFor(() => {
       expect(pickerLabels(root)).toStrictEqual(TRAINING);
@@ -74,7 +81,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('has no skill pickers before a class is picked', async () => {
-    const { root } = await openPlan(MERISIEL);
+    const { root } = await openLevelOne(MERISIEL);
 
     await vi.waitFor(() => {
       expect(timelineSection(root)).toBeDefined();
@@ -93,7 +100,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('picks a trained skill in its slot', async () => {
-    const { root } = await openPlan(fighter());
+    const { root } = await openLevelOne(fighter());
     await pickRow(root, { label: FIRST_SLOT, type: SkillPicker }, 'Athletics');
 
     const request = await vi.waitFor(() =>
@@ -105,7 +112,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('offers each skill with its attribute, rank and modifier', async () => {
-    const { root } = await openPlan(fighter());
+    const { root } = await openLevelOne(fighter());
 
     const rows = await rowsShown<SkillPickerRow, SkillPicker>(root, { label: FIRST_SLOT, type: SkillPicker });
 
@@ -116,35 +123,12 @@ describe('CharacterSheetPage skills', () => {
     expect(rows.find((row) => row.name === 'Athletics')?.modifier).toBeTypeOf('number');
   });
 
-  it('says beside the pickers which earlier slot trained a skill they cannot offer', async () => {
-    const { root } = await openPlan(fighter({ 'skill-training:1:0': ATHLETICS }));
-
-    await vi.waitFor(() => {
-      expect(timelineSection(root).textContent).toContain(
-        'Already trained in Athletics (from Level 1 trained skill 1)',
-      );
-    });
-  });
-
-  it('names the class that trained a skill the pickers cannot offer', async () => {
-    const cleric = {
-      ...MERISIEL,
-      build: { choices: { ...MERISIEL.build.choices, class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis' } },
-    };
-    const { root } = await openPlan(cleric);
-
-    await vi.waitFor(() => {
-      expect(timelineSection(root).textContent).toContain('Already trained in Religion (from Cleric)');
-    });
-  });
-
   it('says nothing about trained skills while none is trained', async () => {
-    const { root } = await openPlan(fighter());
+    const { root } = await openLevelOne(fighter());
 
     await vi.waitFor(() => {
       expect(pickerLabels(root)).toStrictEqual(TRAINING);
     });
-    expect(timelineSection(root).textContent).not.toContain('Already trained');
   });
 
   it('totals an untrained skill from its attribute alone', async () => {
@@ -190,7 +174,7 @@ describe('CharacterSheetPage skills', () => {
   });
 
   it('saves a Lore typed in a skill picker as a pick of its topic, with the name as typed', async () => {
-    const { root } = await openPlan(fighter());
+    const { root } = await openLevelOne(fighter());
     await pickValue(root, { label: FIRST_SLOT, type: SkillPicker }, 'lore:Sailing Lore');
 
     const request = await vi.waitFor(() =>
@@ -199,26 +183,6 @@ describe('CharacterSheetPage skills', () => {
     expect(request.request.body).toMatchObject({
       patch: { field: 'selectSlot', slot: 'skill-training:1:0', selection: 'lore:sailing', loreName: 'Sailing Lore' },
     });
-  });
-
-  it('names a skill slot in the Choices section by its level', async () => {
-    const slot = {
-      status: 'filled',
-      key: 'skill-training:1:0',
-      subject: { kind: 'skill', source: 'training', level: 1 },
-      selection: ATHLETICS,
-      selectionName: 'Athletics',
-    };
-    const { root } = await openSheet(fighter({ 'skill-training:1:0': ATHLETICS }), {
-      slots: [slot],
-      tab: SheetMode.Plan,
-    });
-    const choices = present(root.querySelector('section[aria-labelledby="sheet-choices"]'));
-
-    await vi.waitFor(() => {
-      expect(choices.textContent).toContain('Level 1 trained skill');
-    });
-    expect(choices.textContent).toContain('Athletics');
   });
 
   it('says in the rank popover, not on the row, that a skill two sources train loses the second training', async () => {

@@ -95,19 +95,7 @@ describe('CharacterSheetPage class', () => {
     });
   });
 
-  it('lists the class features, each with the class and level it came from', async () => {
-    const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }));
-    const features = present(root.querySelector('section[aria-labelledby="sheet-features"]'));
-
-    await vi.waitFor(() => {
-      expect([...features.querySelectorAll('fr-list-item')].map((item) => item.textContent.trim())).toContain(
-        'Warpriestfrom Cleric, level 1',
-      );
-    });
-    expect(features.textContent).toContain('Doctrine');
-  });
-
-  it('names the picked subclass in the build summary', async () => {
+  it('names the picked subclass in the identity section', async () => {
     const doctrine = {
       status: 'filled',
       key: DOCTRINE,
@@ -118,13 +106,10 @@ describe('CharacterSheetPage class', () => {
     const { root } = await openSheet(cleric({ [DOCTRINE]: WARPRIEST }), {
       slots: [CLERIC_SLOT, doctrine],
     });
-    const build = present(root.querySelector('section[aria-labelledby="sheet-build"]'));
+    const build = present(root.querySelector('section[aria-labelledby="sheet-identity"]'));
 
     await vi.waitFor(() => {
-      const subclass = [...build.querySelectorAll('fr-description-item')].find(
-        (item) => item.querySelector('[role="term"]')?.textContent.trim() === 'Subclass',
-      );
-      expect(subclass?.querySelector('[role="definition"]')?.textContent.trim()).toBe('Warpriest');
+      expect(build.textContent).toContain('Warpriest');
     });
   });
 

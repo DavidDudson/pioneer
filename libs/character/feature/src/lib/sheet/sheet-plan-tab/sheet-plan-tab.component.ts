@@ -13,9 +13,6 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import {
   ANCESTRY_SLOT,
   BACKGROUND_SLOT,
-  CHARACTER_LEVEL_MAX,
-  CHARACTER_LEVEL_MIN,
-  CharacterLevel,
   CharacterName,
   CharacterPatchField,
   CLASS_SLOT,
@@ -32,7 +29,6 @@ import {
   Heading,
   InlineField,
   Message,
-  NumberInput,
   Responsive,
   Section,
   Stack,
@@ -40,26 +36,15 @@ import {
   TextInput,
 } from '@pioneer/frontier';
 import { AncestryId, ChoiceValue } from '@pioneer/rules/sdk';
-import {
-  AncestryPicker,
-  AttributesView,
-  BackgroundPicker,
-  BuildSummaryView,
-  ClassFeaturesView,
-  HeritagePicker,
-} from '@pioneer/rules/ui';
+import { AncestryPicker, AttributesView, BackgroundPicker, HeritagePicker } from '@pioneer/rules/ui';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { ImportResult } from '../../import/import-result/import-result.component';
-import { SheetArchetypeProgress } from '../sheet-archetype-progress/sheet-archetype-progress.component';
 import { SheetClassFields } from '../sheet-class-fields/sheet-class-fields.component';
-import { SheetFeats } from '../sheet-feats/sheet-feats.component';
 import { sheetField } from '../sheet-field';
 import { SheetLevelPlan } from '../sheet-level-plan/sheet-level-plan.component';
 import { SheetLevelTabs } from '../sheet-level-tabs/sheet-level-tabs.component';
 import { injectOriginRows } from '../sheet-origin-rows';
-import { SheetPickFields } from '../sheet-pick-fields/sheet-pick-fields.component';
-import { SheetReroll } from '../sheet-reroll/sheet-reroll.component';
 import { SheetRuleBreaks } from '../sheet-rule-breaks/sheet-rule-breaks.component';
 import { SheetSectionTabs } from '../sheet-section-tabs/sheet-section-tabs.component';
 import {
@@ -72,7 +57,6 @@ import {
   shownSection,
 } from '../sheet-sections';
 import type { SheetSection } from '../sheet-sections';
-// oxlint-disable-next-line import/max-dependencies -- the Plan tab gathers every region of the base character and its levels
 import { SheetState } from '../sheet-state';
 import { rememberTab } from '../sheet-tab';
 import { SheetUnenabledContent } from '../sheet-unenabled-content/sheet-unenabled-content.component';
@@ -89,8 +73,8 @@ function focusField(field: ElementRef<HTMLElement>): void {
 }
 
 /**
- * The Plan tab: who the character is mechanically. Its identity pickers, the build summary, attributes worked out
- * from the boost picks with the boosts still to place, every choice with its status, and the class features. A
+ * The Plan tab: who the character is mechanically. Its identity pickers, and the attributes worked out from the
+ * origin boosts with the boosts still to place; the levels' tabs hold the rest. A
  * just-imported character's report shows first, and a heritage the last edit cleared is named until dismissed.
  */
 @Component({
@@ -98,30 +82,23 @@ function focusField(field: ElementRef<HTMLElement>): void {
   imports: [
     SheetSectionTabs,
     Responsive,
-    SheetArchetypeProgress,
     SheetLevelTabs,
-    SheetPickFields,
     AncestryPicker,
     AsyncData,
     AsyncPending,
     AsyncRegion,
     AttributesView,
     BackgroundPicker,
-    BuildSummaryView,
     Button,
-    ClassFeaturesView,
     Grid,
     Heading,
     HeritagePicker,
     ImportResult,
     InlineField,
     Message,
-    NumberInput,
     Section,
     SheetClassFields,
-    SheetFeats,
     SheetLevelPlan,
-    SheetReroll,
     SheetRuleBreaks,
     SheetUnenabledContent,
     Stack,
@@ -135,9 +112,6 @@ function focusField(field: ElementRef<HTMLElement>): void {
 export class SheetPlanTab {
   readonly #injector = inject(Injector);
   private readonly identity = viewChild.required<string, ElementRef<HTMLElement>>('identity', { read: ElementRef });
-  private readonly ancestryField = viewChild.required<string, ElementRef<HTMLElement>>('ancestryField', {
-    read: ElementRef,
-  });
   private readonly heritageField = viewChild.required<string, ElementRef<HTMLElement>>('heritageField', {
     read: ElementRef,
   });
@@ -147,8 +121,6 @@ export class SheetPlanTab {
   protected readonly picks = this.sheet.picks;
   protected readonly registry = this.sheet.registry;
   protected readonly entryNames = this.picks.entryNames;
-  protected readonly levelMin = CHARACTER_LEVEL_MIN;
-  protected readonly levelMax = CHARACTER_LEVEL_MAX;
   protected readonly sections = SHEET_SECTIONS;
   /** The section the route names, bound from the route's `:section` parameter. */
   public readonly section = input<string>();
@@ -189,12 +161,6 @@ export class SheetPlanTab {
   protected readonly characterClass = this.picks.rootField(CLASS_SLOT, this.classOptions);
   protected readonly secondClassOptions = this.picks.rootOptions(SECOND_CLASS_SLOT);
   protected readonly secondClass = this.picks.rootField(SECOND_CLASS_SLOT, this.secondClassOptions);
-  protected readonly level = sheetField<number>(this.sheet.character, {
-    read: (character) => character.level,
-    empty: CHARACTER_LEVEL_MIN,
-    schema: CharacterLevel,
-    save: async (value) => this.store.patch({ field: CharacterPatchField.Level, value: CharacterLevel.parse(value) }),
-  });
   /** The heritage the last edit cleared, by name, until dismissed. */
   protected readonly cleared = computed(() =>
     this.store.cleared().map((pick) => ({ key: pick.key, name: pick.selectionName ?? pick.selection })),
@@ -202,11 +168,6 @@ export class SheetPlanTab {
 
   public constructor() {
     rememberTab(SheetMode.Plan);
-  }
-
-  /** Edit build goes to the pickers: focus lands on the ancestry, the first of them, and scrolls it into view. */
-  protected editBuild(): void {
-    focusField(this.ancestryField());
   }
 
   /** Dismissing removes the focused Dismiss button with the notice, so focus moves to the heritage picker it names. */

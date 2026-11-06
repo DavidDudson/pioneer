@@ -11,11 +11,6 @@ export interface SlotFilterMessages {
   readonly available: string;
 }
 
-export const FEAT_FILTER_MESSAGES: SlotFilterMessages = {
-  everything: 'character.sheet.feats.everything',
-  available: 'character.sheet.feats.available',
-};
-
 export const SPELL_FILTER_MESSAGES: SlotFilterMessages = {
   everything: 'character.sheet.prepared.everything',
   available: 'character.sheet.prepared.available',

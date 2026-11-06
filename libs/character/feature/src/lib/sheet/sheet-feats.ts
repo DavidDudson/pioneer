@@ -23,8 +23,6 @@ import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
 import { CHARACTER_CONTENT_KINDS } from '../data/content-registry-query';
 import { sheetEntry } from './sheet-entry-previews';
-import { sheetFeatGroups } from './sheet-feat-groups';
-import type { SheetFeatGroup } from './sheet-feat-groups';
 import { sheetTrainedAgain, trainedAgainNote } from './sheet-skill-repeats';
 import type { TrainedAgain, Translate } from './sheet-skill-repeats';
 import { sheetSlotContent } from './sheet-slot-content';
@@ -76,12 +74,9 @@ export interface SheetFeatOption {
   readonly locked: SheetFeatLock | undefined;
 }
 
-/** The feats section: the slots up to the character's level, those above it, and the feats it has, by slot type. */
+/** Every feat slot, lowest first, with the feats each offers at its level (#492): the level tabs' pickers. */
 export interface SheetFeats {
-  readonly slots: readonly SheetFeatSlot[];
-  /** The slots above the character's level, lowest first, with the feats each offers once the character is there (#492). */
   readonly planned: readonly SheetFeatSlot[];
-  readonly groups: readonly SheetFeatGroup[];
 }
 
 /** The words of rich text: its text, and each reference by its label or the name of the entry it names. */
@@ -170,9 +165,8 @@ function slotRead(slots: readonly CharacterSlot[], key: SlotKey): CharacterSlot 
 }
 
 /**
- * The sheet's feats (#466): each feat slot up to the character's level, lowest first, with the feats it offers at its
- * level and whether the character meets their prerequisites there, and the feats the character has by slot type (#487).
- * Slots above the level are the plan (#492), read the same way at the level they open.
+ * The sheet's feats (#466): each feat slot, lowest first, with the feats it offers at its level and whether the
+ * character meets their prerequisites there (#492).
  */
 export function sheetFeats(
   registry: ContentRegistry,
@@ -194,11 +188,7 @@ export function sheetFeats(
       reason: read?.status === SlotStatus.Invalid ? read.reason : undefined,
     };
   };
-  return {
-    slots: reads.filter((slot) => slot.level <= character.document.level).map((slot) => slotOf(slot)),
-    planned: reads.filter((slot) => slot.level > character.document.level).map((slot) => slotOf(slot)),
-    groups: sheetFeatGroups(registry, character),
-  };
+  return { planned: reads.map((slot) => slotOf(slot)) };
 }
 
 /** Why a feat can't be picked, or that its prerequisites can't be checked; undefined for a feat with nothing in the way. */

@@ -15,6 +15,8 @@ export const ButtonVariant = {
   OutlineSubtle: 'outline-subtle',
   /** Looks like the text it sits in; e.g. an inline-edit read view. Sized by its content. */
   Inline: 'inline',
+  /** Looks like a text input: bordered on a sunken background, the width of its container. An inline-edit read view. */
+  Field: 'field',
   /** A standalone on/off button, filled with the accent when on. Features use `fr-toggle-button`. */
   Toggle: 'toggle',
   /** One option of a segmented control, filled with the accent when chosen. Features use `fr-segmented`. */
@@ -68,6 +70,8 @@ const buttonVariants = cva(
         ].join(' '),
         danger:
           'justify-center bg-danger-solid font-medium text-danger-on-solid hover:bg-danger-solid-hover active:bg-danger-solid-active',
+        field:
+          'min-h-touch w-full min-w-none justify-between border border-line-default bg-surface-sunken px-sm text-start text-body text-fg-default hover:border-accent-line pointer-fine:min-h-control-md',
         inline:
           '-mx-2xs min-h-touch min-w-none px-2xs text-start text-body text-fg-default hover:bg-surface-sunken pointer-fine:min-h-control-sm',
         toggle: [
@@ -148,7 +152,7 @@ export class Button {
     const variant = this.variant();
     return buttonVariants({
       variant,
-      size: variant === ButtonVariant.Inline ? 'fit' : this.size(),
+      size: variant === ButtonVariant.Inline || variant === ButtonVariant.Field ? 'fit' : this.size(),
       iconOnly: this.iconOnly(),
     });
   });

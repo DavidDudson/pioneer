@@ -17,8 +17,8 @@ import {
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
 import { cutTo } from '../testing/test-packs';
-import { featFieldsOf, plannedFeatFieldsOf } from './sheet-feat-picks';
-import type { FeatField, FeatFields, FeatPickSources } from './sheet-feat-picks';
+import { plannedFeatFieldsOf } from './sheet-feat-picks';
+import type { FeatField, FeatPickSources } from './sheet-feat-picks';
 import { FEAT_CONTENT_KINDS, sheetFeats } from './sheet-feats';
 import type { SheetFeats } from './sheet-feats';
 
@@ -80,17 +80,13 @@ describe(sheetFeats, () => {
     await prebuildServerStateTesting([], [...FEAT_PACKS, GATED_FEATS]);
   }, PREBUILD_TIMEOUT);
 
-  it('reads the slots above the character’s level as the plan, and the rest as its feats', async () => {
+  it('reads every slot as the plan, whatever the character’s level', async () => {
     const registry = await gatedRegistry();
 
     const atOne = sheetFeats(registry, fighterAt(1), []);
-    const atTwo = sheetFeats(registry, fighterAt(2), []);
 
-    expect(atOne.slots.map((slot) => slot.key)).toContain(FIGHTER_FEAT_1);
+    expect(atOne.planned.map((slot) => slot.key)).toContain(FIGHTER_FEAT_1);
     expect(atOne.planned.map((slot) => slot.key)).toContain(FIGHTER_FEAT_2);
-    expect(atOne.slots.map((slot) => slot.key)).not.toContain(FIGHTER_FEAT_2);
-    expect(atTwo.slots.map((slot) => slot.key)).toContain(FIGHTER_FEAT_2);
-    expect(atTwo.planned.map((slot) => slot.key)).not.toContain(FIGHTER_FEAT_2);
   });
 
   it('holds a feat back in a planned slot below the level it needs, and offers it from that level', async () => {
@@ -108,7 +104,7 @@ describe('feat pickers across a level change', () => {
     await prebuildServerStateTesting([], [...FEAT_PACKS, GATED_FEATS]);
   }, PREBUILD_TIMEOUT);
 
-  it('moves a slot from the planned pickers to the feats once the level reaches it', async () => {
+  it('keeps a slot in the planned pickers across a level change', async () => {
     const registry = await gatedRegistry();
     const character = signal<Character | undefined>(fighterAt(1));
     const sources: FeatPickSources = {
@@ -118,27 +114,22 @@ describe('feat pickers across a level change', () => {
       select: async () => undefined,
       clear: async () => undefined,
       translate: (key) => key,
-      showGrantOnly: signal(false),
       messages: signal(undefined),
     };
-    const { fields, planned } = TestBed.runInInjectionContext(() => ({
-      fields: featFieldsOf(sources),
-      planned: plannedFeatFieldsOf(sources),
-    }));
+    const planned = TestBed.runInInjectionContext(() => plannedFeatFieldsOf(sources));
 
-    expect(keysOf(fields()?.fields)).toContain(FIGHTER_FEAT_1);
+    expect(keysOf(planned())).toContain(FIGHTER_FEAT_1);
     expect(keysOf(planned())).toContain(FIGHTER_FEAT_2);
 
     character.set(fighterAt(2));
 
-    expect(keysOf(fields()?.fields)).toContain(FIGHTER_FEAT_2);
-    expect(keysOf(planned())).not.toContain(FIGHTER_FEAT_2);
+    expect(keysOf(planned())).toContain(FIGHTER_FEAT_2);
     expect(keysOf(planned())).toContain(FIGHTER_FEAT_4);
   });
 });
 
 interface Filtered {
-  readonly fields: Signal<FeatFields | undefined>;
+  readonly fields: Signal<readonly FeatField[]>;
   readonly params: WritableSignal<QueryParams>;
   readonly writes: Record<string, string | undefined>[];
 }
@@ -155,7 +146,6 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
     select: async () => undefined,
     clear: async () => undefined,
     translate: (key) => key,
-    showGrantOnly: signal(false),
     messages: signal(undefined),
     filters: {
       params: url,
@@ -171,11 +161,11 @@ async function filtered(params: QueryParams = {}): Promise<Filtered> {
       },
     },
   };
-  return { fields: TestBed.runInInjectionContext(() => featFieldsOf(sources)), params: url, writes };
+  return { fields: TestBed.runInInjectionContext(() => plannedFeatFieldsOf(sources)), params: url, writes };
 }
 
 const fieldAt = (read: Filtered, key: string): FeatField | undefined =>
-  read.fields()?.fields.find((field) => field.key === key);
+  read.fields().find((field) => field.key === key);
 const namesAt = (read: Filtered, key: string): readonly string[] =>
   (fieldAt(read, key)?.rows() ?? []).map((row) => row.name);
 
