@@ -1,8 +1,9 @@
 <fr-page width="full">
   <fr-page-header titleHidden [title]="title()">
-    <fr-grid frPageIdentity gap="sm" [columns]="6">
+    <fr-grid frPageIdentity gap="sm" [columns]="7">
       <pio-sheet-character-block />
       <pio-sheet-armor-class />
+      <pio-sheet-attributes-block />
       <pio-vitals
         bare
         [vitals]="sheet.vitals()"

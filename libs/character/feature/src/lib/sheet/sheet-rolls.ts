@@ -131,23 +131,18 @@ export class SheetRolls implements StatisticRoller {
    * degree (none, half rounded down, full, double); the save is let go either way, so it never scales a later roll.
    */
   public rollDamage(name: string, expression: DiceExpression): void {
-    this.saveError.set(undefined);
-    this.#count += 1;
     const save = this.#save;
     this.#save = undefined;
-    const roll = rollWithFortune(expression, NO_FORTUNE, this.#random);
-    const damage = savedDamage(roll, save);
-    this.#rolled.set({
-      id: this.#count,
-      name,
-      statistic: undefined,
-      expression,
-      roll,
-      reasons: [],
-      dc: undefined,
-      damage,
-    });
-    this.#present(name, roll, { dc: undefined, damage });
+    this.#cast(name, expression, (roll) => ({ dc: undefined, damage: savedDamage(roll, save) }));
+  }
+
+  /** Rolls a flat check, one d20 plus `modifier` with no statistic behind it; the card compares it to the typed DC. */
+  public rollFlat(name: string, modifier: number): void {
+    const outcome = parseDiceExpression(checkText(modifier));
+    if (outcome.ok) {
+      this.#save = undefined;
+      this.#cast(name, outcome.expression, () => ({ dc: this.dc() }));
+    }
   }
 
   /** Types the DC the card compares the last roll with; it replaces the one a check in text asked for. */
@@ -250,6 +245,25 @@ export class SheetRolls implements StatisticRoller {
 
   #words(): ConditionWords {
     return { i18n: this.#i18n, format: this.#format, names: { entries: this.#state.picks.entryNames() } };
+  }
+  /** Rolls `expression` for a roll with no statistic behind it, keeps it as the last roll and shows it on the stage. */
+  #cast(name: string, expression: DiceExpression, against: (roll: FortunedRoll) => Against): void {
+    this.saveError.set(undefined);
+    this.#count += 1;
+    const roll = rollWithFortune(expression, NO_FORTUNE, this.#random);
+    const placed = against(roll);
+    const { damage } = placed;
+    this.#rolled.set({
+      id: this.#count,
+      name,
+      statistic: undefined,
+      expression,
+      roll,
+      reasons: [],
+      dc: undefined,
+      damage,
+    });
+    this.#present(name, roll, placed);
   }
   #finish({ name, statistic, reasons, dc, check }: CheckRoll): void {
     const outcome = parseDiceExpression(checkText(statistic.total));

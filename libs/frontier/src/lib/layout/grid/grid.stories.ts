@@ -45,6 +45,9 @@ export const FourColumns: GridStory = { args: { columns: GridColumns.Four } };
 /** Six-up stat blocks: two columns even when narrow. */
 export const SixColumns: GridStory = { args: { columns: GridColumns.Six, gap: Space.Sm } };
 
+/** Seven-up: the sheet's header row. */
+export const SevenColumns: GridStory = { args: { columns: GridColumns.Seven, gap: Space.Sm } };
+
 /** As many columns as fit at the minimum item width. */
 export const Fluid: GridStory = { args: { minItem: GridMinItem.Sm } };
 

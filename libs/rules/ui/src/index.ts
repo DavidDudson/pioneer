@@ -1,3 +1,4 @@
+export { AttributeRolls, type AttributeRoll } from './lib/attribute-rolls/attribute-rolls.component';
 export { AttributesView, type OpenBoostLine } from './lib/attributes/attributes.component';
 export { ATTRIBUTE_MESSAGES } from './lib/attributes/attributes-messages';
 export { BreakdownView } from './lib/breakdown/breakdown.component';

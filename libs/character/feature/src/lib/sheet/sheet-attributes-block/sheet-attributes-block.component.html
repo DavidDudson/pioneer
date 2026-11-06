@@ -1,0 +1,10 @@
+@for (group of groups; track group[0]) {
+  <fr-surface padding="sm">
+    <fr-async-region>
+      <ng-template frAsyncPending><pio-attribute-rolls [modifiers]="undefined" [attributes]="group" /></ng-template>
+      <ng-template [frAsyncData]="sheet.registry">
+        <pio-attribute-rolls [modifiers]="picks.attributes()?.modifiers" [attributes]="group" (rolled)="roll($event)" />
+      </ng-template>
+    </fr-async-region>
+  </fr-surface>
+}
