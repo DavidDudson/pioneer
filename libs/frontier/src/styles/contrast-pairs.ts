@@ -58,6 +58,13 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
     background: [`${role}-emphasis`],
     minimum: ContrastMinimum.Text,
   })),
+  // A roll button's text on its neutral fill and on its fortune or misfortune fill.
+  { foreground: ['roll-bonus-fg'], background: ['surface-sunken', 'roll-fortune-bg'], minimum: ContrastMinimum.Text },
+  {
+    foreground: ['roll-penalty-fg'],
+    background: ['surface-sunken', 'roll-misfortune-bg'],
+    minimum: ContrastMinimum.Text,
+  },
   // A roll's total and dice, coloured by damage type, on the surfaces and the roll toast.
   { foreground: DAMAGE_TONES.map((tone) => `damage-${tone}`), background: SURFACES, minimum: ContrastMinimum.Text },
   // A rune gem's glyph in its tier colour on the gem's dark fill, and the outline against the surfaces it sits on.

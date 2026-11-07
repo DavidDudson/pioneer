@@ -1,20 +1,28 @@
 @if (roller && kind() === Check) {
   <fr-hover-card [tapOpens]="false">
     <fr-button
-      [variant]="outline"
+      [variant]="rollVariant"
       [size]="small"
-      [ariaLabel]="Message.Roll | transloco: { name: name(), modifier: label() }"
+      [rollTone]="cues().tone"
+      [rollLuck]="cues().luck"
+      [rollShifted]="cues().shifted"
+      [ariaLabel]="ariaLabel()"
       (pressed)="roll()"
     >
-      <fr-text monospace minWidth="modifier">{{ label() }}</fr-text>
+      <fr-text monospace tone="inherit" minWidth="modifier">{{ shown() }}</fr-text>
     </fr-button>
     <ng-template frHoverCardContent>
-      <pio-breakdown
-        [statistic]="statistic()"
-        [kind]="kind()"
-        [entryNames]="entryNames()"
-        [originNames]="originNames()"
-      />
+      <fr-stack gap="xs">
+        <pio-breakdown
+          [statistic]="statistic()"
+          [kind]="kind()"
+          [entryNames]="entryNames()"
+          [originNames]="originNames()"
+        />
+        @for (effect of effects(); track effect) {
+          <fr-text>{{ effect }}</fr-text>
+        }
+      </fr-stack>
     </ng-template>
   </fr-hover-card>
 }

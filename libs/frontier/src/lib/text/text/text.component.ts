@@ -23,6 +23,10 @@ export const TextElement = {
 } as const;
 export type TextElement = ValueOf<typeof TextElement>;
 
+/** A tone that sets no colour, so the text takes its parent's: a label inside a coloured button. */
+export const INHERIT_TONE = 'inherit';
+export type InheritTone = typeof INHERIT_TONE;
+
 const PHRASE_ELEMENTS: ReadonlySet<TextElement> = new Set(Object.values(PhraseElement));
 
 function isPhraseElement(element: TextElement): element is PhraseElement {
@@ -74,7 +78,7 @@ const elementVariants = cva('', {
 export class Text {
   public readonly element = input<TextElement>(TextElement.Span);
   public readonly variant = input<TextVariant>(TextVariant.Body);
-  public readonly tone = input<Tone>(Tone.Default);
+  public readonly tone = input<Tone | InheritTone>(Tone.Default);
   /** Colours the text by a damage type instead of its tone (a roll's total; the type is named alongside). */
   public readonly damage = input<DamageTone | undefined>(undefined);
   public readonly weight = input<FontWeight | undefined>(undefined);
@@ -99,10 +103,11 @@ export class Text {
 
   protected readonly classes = computed(() => {
     const damage = this.damage();
+    const tone = this.tone();
     return cx(
       textVariants({
         variant: this.variant(),
-        tone: damage === undefined ? this.tone() : undefined,
+        tone: damage === undefined && tone !== INHERIT_TONE ? tone : undefined,
         weight: this.weight(),
         truncate: this.truncate(),
         numeric: this.numeric(),
