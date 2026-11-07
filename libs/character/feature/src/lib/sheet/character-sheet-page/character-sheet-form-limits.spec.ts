@@ -43,6 +43,13 @@ const SLOW_RENDER = 10_000;
 const POLL_MS = 50;
 const AGREEING_READS = 6;
 
+/** The subtab of the actions section that lists the basic actions, Cast a Spell among them; none while the character has only that kind. */
+function basicTab(root: HTMLElement): HTMLElement | undefined {
+  return [...section(root, 'sheet-actions').querySelectorAll<HTMLElement>('[role="tab"]')].find(
+    (control) => textOf(control) === 'Basic actions',
+  );
+}
+
 /** The control of the actions section that shows every action, found again each time as a render replaces it. */
 function allFilter(root: HTMLElement): HTMLElement {
   return present(
@@ -90,12 +97,15 @@ describe('CharacterSheetPage form limits', () => {
     const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
 
     await vi.waitFor(
-      async () => {
+      () => {
         allFilter(root).click();
-        await expect(summaryOf(root, 'Cast a Spell')).resolves.toContain("Can't cast spells in");
+        basicTab(root)?.click();
+        expect(textOf(section(root, 'sheet-actions'))).toContain('Cast a Spell');
       },
       { timeout: SLOW_RENDER },
     );
+
+    await expect(summaryOf(root, 'Cast a Spell')).resolves.toContain("Can't cast spells in");
   });
 
   it('says nothing of casting in a form that lets the character cast', async () => {

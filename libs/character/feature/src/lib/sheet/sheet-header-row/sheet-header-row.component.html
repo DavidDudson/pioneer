@@ -1,0 +1,13 @@
+<fr-grid gap="xs" [columns]="8">
+  <pio-sheet-character-block />
+  <pio-sheet-armor-class />
+  <pio-sheet-attributes-block />
+  <pio-vitals
+    bare
+    [vitals]="sheet.vitals()"
+    [entryNames]="sheet.picks.entryNames()"
+    [originNames]="sheet.originNames()"
+  />
+  <pio-sheet-speed-block />
+  <pio-sheet-senses-block />
+</fr-grid>

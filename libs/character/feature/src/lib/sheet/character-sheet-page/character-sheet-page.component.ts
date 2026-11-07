@@ -2,32 +2,19 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input } f
 import { RouterOutlet } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { CharacterId } from '@pioneer/character/domain';
-import { DateDisplay, Grid, Page, PageBody, PageHeader, Skeleton, Stack, Tab, Tabs, Text } from '@pioneer/frontier';
-import { VitalsView } from '@pioneer/rules/ui';
+import { DateDisplay, Page, PageBody, PageHeader, Skeleton, Stack, Tab, Tabs, Text } from '@pioneer/frontier';
 
-import { CHARACTER_CONTENT_PROVIDERS } from '../../data/source-packs';
-import { SheetArmorClass } from '../sheet-armor-class/sheet-armor-class.component';
-import { SheetAttributesBlock } from '../sheet-attributes-block/sheet-attributes-block.component';
-import { SheetCharacterBlock } from '../sheet-character-block/sheet-character-block.component';
-import { SheetConfigurationState } from '../sheet-configuration/sheet-configuration-state';
 import { SheetDrawers } from '../sheet-drawers/sheet-drawers.component';
 import { SheetFormPicker } from '../sheet-form-picker/sheet-form-picker.component';
 import { SheetForm } from '../sheet-form/sheet-form.component';
 import { SheetHeaderActions } from '../sheet-header-actions/sheet-header-actions.component';
-import { SHEET_INLINE_ROLLS_PROVIDERS } from '../sheet-inline-rolls';
+import { SheetHeaderRow } from '../sheet-header-row/sheet-header-row.component';
 import { SheetLastRoll } from '../sheet-last-roll/sheet-last-roll.component';
-import { SHEET_OVERRIDES_PROVIDERS } from '../sheet-override/sheet-override';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
 import { SheetPanels } from '../sheet-panels/sheet-panels.component';
-// oxlint-disable-next-line import/max-dependencies -- the page that gathers every region of the sheet, and its side panel
-import { SHEET_ROLLS_PROVIDERS } from '../sheet-rolls';
 import { SHEET_TABS } from '../sheet-sections';
-import { SheetSensesBlock } from '../sheet-senses-block/sheet-senses-block.component';
-import { SheetSidePanelState } from '../sheet-side-panel/sheet-side-panel-state';
 import { SheetSidePanelHost } from '../sheet-side-panel/sheet-side-panel.component';
-import { SheetSpeedBlock } from '../sheet-speed-block/sheet-speed-block.component';
-import { SHEET_PLAY_PROVIDERS } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
+import { CHARACTER_SHEET_PAGE_PROVIDERS } from './character-sheet-page-providers';
 
 /**
  * Character sheet: one character under four tabs (play-and-campaigns.md, Sheet modes), each its own route below the
@@ -39,22 +26,17 @@ import { SheetState } from '../sheet-state';
   selector: 'pio-character-sheet-page',
   imports: [
     DateDisplay,
-    Grid,
     Page,
     PageBody,
     PageHeader,
     RouterOutlet,
-    SheetArmorClass,
-    SheetAttributesBlock,
-    SheetCharacterBlock,
-    SheetSensesBlock,
-    SheetSpeedBlock,
+    SheetDrawers,
     SheetForm,
     SheetFormPicker,
     SheetHeaderActions,
+    SheetHeaderRow,
     SheetLastRoll,
     SheetPanels,
-    SheetDrawers,
     SheetSidePanelHost,
     Skeleton,
     Stack,
@@ -62,19 +44,9 @@ import { SheetState } from '../sheet-state';
     Tabs,
     Text,
     TranslocoPipe,
-    VitalsView,
   ],
   templateUrl: './character-sheet-page.component.html',
-  providers: [
-    SheetConfigurationState,
-    SheetSidePanelState,
-    SheetState,
-    ...SHEET_PLAY_PROVIDERS,
-    ...CHARACTER_CONTENT_PROVIDERS,
-    ...SHEET_ROLLS_PROVIDERS,
-    ...SHEET_INLINE_ROLLS_PROVIDERS,
-    ...SHEET_OVERRIDES_PROVIDERS,
-  ],
+  providers: CHARACTER_SHEET_PAGE_PROVIDERS,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterSheetPage {

@@ -3,7 +3,7 @@
     <fr-empty-state [title]="noneKey() | transloco" />
   } @else {
     <fr-list gap="3xs">
-      @for (row of statistics; track row.key) {
+      @for (row of statistics; track row.key + row.name) {
         <fr-list-item>
           @if (row.ok) {
             <pio-statistic-line

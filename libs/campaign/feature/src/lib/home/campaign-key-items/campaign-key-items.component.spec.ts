@@ -189,9 +189,7 @@ describe('CampaignKeyItemsPanel', () => {
 
   it('says no key item is held when the filter keeps none', async () => {
     const root = await open(keyItems('kyra', false), false);
-
     filterBy('Party stash');
-
     await vi.waitFor(() => {
       expect(root.textContent).toContain('No key items for this holder.');
     });

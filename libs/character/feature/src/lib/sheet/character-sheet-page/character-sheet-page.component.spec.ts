@@ -108,7 +108,7 @@ describe('CharacterSheetPage', () => {
     expect(attributes.textContent).not.toContain('Level 1 boost');
   });
 
-  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background, level and class', async () => {
+  it('edits only the chosen inputs inline on Plan: name, ancestry, heritage, background and class', async () => {
     const { root } = await openSheet();
     const inlineLabels = (): string[] =>
       [...root.querySelectorAll('section fr-inline-field')]
@@ -116,7 +116,7 @@ describe('CharacterSheetPage', () => {
         .filter((field) => field.closest('pio-sheet-rule-limits') === null)
         .map((field) => present(field.querySelector('fr-text')).textContent.trim());
     await vi.waitFor(() => {
-      expect(inlineLabels()).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class']);
+      expect(inlineLabels()).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class']);
     });
   });
 
