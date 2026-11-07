@@ -107,3 +107,11 @@ export { type EffectScope, summariseEffects, type SummarisedEntry } from './effe
 export { battleFormInPlay, factsUnderForm, type FormInPlay } from './battle-form';
 export { type ShieldInPlay, shieldsInPlay } from './granted-shields';
 export { applyMovementCost, movementCostsInPlay, type MovementCostInPlay } from './movement-cost';
+export {
+  type DegreeAdjustment,
+  type DegreeAdjustmentLine,
+  type RollEffects,
+  type RollEffectStatus,
+  RollEffectStatusKind,
+  type RollTwiceLine,
+} from './roll-effects';

@@ -8,6 +8,7 @@ import { collectLines } from './collect';
 import { modifierRules } from './modifier';
 import { applyMovementCost, movementCostsInPlay } from './movement-cost';
 import { proficiencyBonuses } from './proficiency-bonuses';
+import { applyRollEffects, collectRollEffects, rollEffectsInPlay } from './roll-effects';
 import { NO_ITEM, NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
 import type { ItemScope, ModifierInputs } from './rule-in-play';
 import { StatisticBases } from './statistic-bases';
@@ -55,13 +56,16 @@ export function deriveStatistics(
   };
   const form = battleFormInPlay({ rules, facts });
   const costs = movementCostsInPlay({ rules, facts });
+  const rollEffects = rollEffectsInPlay(rules);
   return new Map(
     bases.bases.map(({ definition, result }) => {
       const lines = collectLines(definition, modifiers, { ...context, situation });
       const sets = changes.set.get(definition.selector) ?? [];
       const finishedResult = finished(result, { lines, sets, context });
       const formed = applyForm(finishedResult, form, context.resolve(NO_ITEM));
-      return [definition.selector, applyMovementCost(formed, costs)];
+      const moved = applyMovementCost(formed, costs);
+      const effects = collectRollEffects(definition, rollEffects, { facts, situation });
+      return [definition.selector, applyRollEffects(moved, effects)];
     }),
   );
 }
