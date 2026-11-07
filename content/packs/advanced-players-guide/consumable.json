@@ -1,0 +1,2793 @@
+[
+  {
+    "id": "31bed0c1-4be5-5f84-ab6a-8ceb969d97d0",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:balisse-feather",
+    "name": "Balisse Feather",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "divine", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=707"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Usage",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " affixed to a weapon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " Envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You deal damage using the affixed weapon to a creature you have seen commit an evil act."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, fire-red feather seems to catch flame every time the weapon it adorns strikes a purveyor of evil. When you activate the feather, the creature you damaged burns with holy light. The creature must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 29
+          },
+          {
+            "type": "text",
+            "text": " save or take a -2 status penalty to AC and saving throws and reduce its resistances by 5. These effects last until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Do8vjuUBOslgPtyw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "free"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "weapon"
+      }
+    }
+  },
+  {
+    "id": "e9e5901d-df12-5760-92e7-a64ee1121e67",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:candle-of-revealing",
+    "name": "Candle of Revealing",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=710"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When lit, this black candle's eerie blue flame reveals the presence of invisible creatures. Within a 10-foot radius of the lit candle, creatures don't benefit from the invisible condition. Their bodies are outlined, not fully visible, so they are concealed. Once lit, the candle burns for 1 minute, after which the effect ends. If extinguished, it can't be relit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XpmPX3ScEOBgAoKd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 60
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c5e4a080-a69e-5dc5-ba98-6c3584ea76ce",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:cerulean-scourge",
+    "name": "Cerulean Scourge",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "injury", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=692"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from a carefully distilled blend of serpentine hemotoxins, the fast-acting cerulean scourge is infamous for transforming the blood vessels near the original wound, which glow with a bright blue light before painfully bursting."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Injury)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "15d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9hdT05ywPVyh9vQX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1450
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "88fa0909-8eaa-5503-b626-a5b7a703f670",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:drakeheart-mutagen-moderate",
+    "name": "Drakeheart Mutagen (Moderate)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=688"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your skin grows tough scales like a drake, your eyesight become sharp and your pupils slitted, and your limbs grow wiry and quick, but your mind and reflexes become slow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain +5 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +2 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4bb8e110-5a92-56a4-bdb5-df0bc9f3d583"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to Will saves, Reflex saves, and all skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes or until you use Final Surge, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "22364a4f-3e93-51e2-aac4-0911230366f9"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xY2MogTwH9Fd8UPG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "22364a4f-3e93-51e2-aac4-0911230366f9",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "acca1a99-4288-5afa-b83c-49a7dddef4cf",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:dust-of-corpse-animation-greater",
+    "name": "Dust of Corpse Animation (Greater)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=712"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black pouch contains what appears to be fine bone dust. Pouring the dust in a special pattern over a corpse turns it into an undead creature. The type of undead created depends on the condition of the corpse, resulting in either a "
+          },
+          {
+            "type": "text",
+            "text": "skeleton ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "or a "
+          },
+          {
+            "type": "text",
+            "text": "zombie",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If the undead's level would be greater than 11, the dust fails to animate it. The body must be of an appropriate size and type for the undead you wish to create-for example, you must sprinkle the dust on a horse's skeleton to animate a "
+          },
+          {
+            "type": "text",
+            "text": "skeletal horse",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If more than one undead in the level range is appropriate, such as "
+          },
+          {
+            "type": "text",
+            "text": "skeletal guard",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "skeletal champion",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for a Medium humanoid skeleton, you choose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The animated undead has the "
+          },
+          {
+            "type": "text",
+            "text": "minion ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "trait, meaning it can use 2 actions when you Command it. You can issue a Command for the current turn as part of the activation. The undead creature remains animated for 1 minute before collapsing back into its corpse form. As usual, you can have a maximum of four minions under your control."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yPFHTY1GH3rdWwds"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1500
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "36825ff0-23d5-5ba2-87a8-7fc4fe08ba3d",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:engulfing-snare",
+    "name": "Engulfing Snare",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["consumable", "mechanical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=702"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You arrange a spiky cage of bones, particularly tough vegetation, or other material to spring up when disturbed. The snare deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to the first creature to enter this square; that creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature is knocked aside by the snare's deployment, taking half damage, and is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature is captured by the cage, taking full damage and falling "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ". It is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " while it remains within the cage. It can get free by "
+                },
+                {
+                  "type": "ref",
+                  "id": "2ae74030-e87a-55ee-955c-fb9870392d44",
+                  "label": "Escaping"
+                },
+                {
+                  "type": "text",
+                  "text": " (DC 31) or by destroying the cage (Hardness 5, HP 30, object immunities)."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the creature takes double damage."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is knocked aside by the snare's deployment, taking half damage, and is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is captured by the cage, taking full damage and falling "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ". It is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " while it remains within the cage. It can get free by "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44",
+            "label": "Escaping"
+          },
+          {
+            "type": "text",
+            "text": " (DC 31) or by destroying the cage (Hardness 5, HP 30, object immunities)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the creature takes double damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DIQg2Tml1wWjSC1q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "negligible",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9da7f6fa-73bb-59b9-919b-170cd3113f82",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:flare-snare",
+    "name": "Flare Snare",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["consumable", "mechanical", "snare", "trap", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=703"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using bioluminescent matter or alchemical reagents, you rig a short-lived flare to a trip wire or pressure plate. When a Small or larger creature enters the square, this flare shoots into the sky. To creatures with a clear view of the sky, this flare is visible from up to 2 miles away on a clear day or up to 5 miles away on a clear night."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.riLNCaVS9zGvt4Nn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": "negligible",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "71be6272-7543-51c8-aeef-a87cc69d830b",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:focus-cathartic-moderate",
+    "name": "Focus Cathartic (Moderate)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=689"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus briefly calms your neurons, helping ease mental effects. When you drink this elixir, the elixir attempts a counteract check with a 1d20+8 counteract modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XfcSVHwMA60JxUXJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3d7b1c61-0e40-56f1-ad9a-0c49f0589143",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:forensic-dye",
+    "name": "Forensic Dye",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=695"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating this vial of colorless liquid requires inserting a small amount of another chemical or material, such as blood or mud. The vial reacts rapidly, transforming into a murky, reddish-brown substance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once activated, the dye remains potent for up to 10 minutes, during which time you can spend 1 minute to brush it onto a single object of up to 1 Bulk or across the ground in a single 5-foot square. Where the dye comes in contact with an exact match for the activating chemical, it takes on a bright blue hue, while staying transparent in areas where there is no activating component present."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8eTGOQ9P69405jIO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7926d00e-2372-5e76-89ff-7800cf73d09e",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:ghost-ink",
+    "name": "Ghost Ink",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=696"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This pale-blue ink dries rapidly, becoming fully transparent 1 minute after application. The ink glows red when exposed to heat, such as that from a torch or other open flame. This glow lasts only as long as the ink is exposed to heat, after which the ink becomes invisible again. The crafter of the ghost ink can alter the formula slightly to instead make the ink sensitive to sunlight, starlight, magical light, or heatless light created by an alchemical effect such as a sunrod."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the text isn't glowing, a creature closely examining a surface marked with ghost ink can detect the presence of the ink with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "perception",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " check. On a critical success, they can make out the ink well enough to use Society to "
+          },
+          {
+            "type": "ref",
+            "id": "c0dfa393-d8fb-5aca-9e4e-71cedf7ff14b"
+          },
+          {
+            "type": "text",
+            "text": ". One vial of ghost ink is sufficient to write a page worth of text."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qnvq3PSTiejQTSi9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "85bdf2d8-c854-509b-a9eb-9bb16459481f",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:incense-of-distilled-death",
+    "name": "Incense of Distilled Death",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=715"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black incense smells of fresh earth and ash. You activate the incense by lighting it, whereupon it fills a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " with oily smoke and potent void energy. "
+          },
+          {
+            "type": "text",
+            "text": "Undead ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "creatures, including "
+          },
+          {
+            "type": "text",
+            "text": "incorporeal ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "undead, gain fast healing 4 while in the area; though this healing comes from void energy, it doesn't negatively impact living creatures. Once lit, the incense burns for 1 minute, and it can't be extinguished."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4RKfLoqVluZGWzLc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "288994e9-280e-5f89-a4e6-d29aa29861e7",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:leadenleg",
+    "name": "Leadenleg",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "injury", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=693"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once injected, this synthetic toxin sinks into the extremities, numbing them nearly to paralysis."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Injury)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and -5-foot status penalty to all Speeds (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and -10-foot status penalty to all Speeds (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and -20-foot status penalty to all Speeds (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QJ1fTrX42PoEWpK5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "c393c0bb-2a41-5a74-954b-1627442883bf",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:nauseating-snare",
+    "name": "Nauseating Snare",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "mechanical", "poison", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=704"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You position particularly foul substances to splash over a creature. The first creature to enter the square must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 20,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+                  "label": "Sickened 3"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " saving throw."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MbPboT76BBKVGepB"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "poison",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "626a78ae-b7d8-50e3-8c52-6f95ad01f5cd",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:oil-of-object-animation-greater",
+    "name": "Oil of Object Animation (Greater)",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=716"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This fine golden oil comes in a small blue canister. Carefully spreading the oil over an object turns it into an "
+          },
+          {
+            "type": "text",
+            "text": "animated object",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " of the same type. For example, sprinkling it on a statue makes an "
+          },
+          {
+            "type": "text",
+            "text": "animated statue",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". If the animated object's level would be greater than 11, the oil struggles to animate it and ultimately fails."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This animated object has the "
+          },
+          {
+            "type": "text",
+            "text": "minion ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "trait, meaning it can use 2 actions when you Command it. You can issue a Command for the current turn as part of the activation. The object remains animated for 1 minute before falling inert. As usual, you can have a maximum of four minions under your control."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EP8f2NL28vPlmX7k"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "category": "oil",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "677d35e4-4c67-584e-a540-15151d320d66",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:oil-of-revelation",
+    "name": "Oil of Revelation",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=717"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bright oil, first created by humans as a tool to help them fight in darkness, holds flecks of tiny gemstones in suspension and smells like a struck "
+          },
+          {
+            "type": "text",
+            "text": "tindertwig",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time a weapon coated with this oil damages a creature, the wound glows with light for 1 minute. If the creature is "
+          },
+          {
+            "type": "text",
+            "text": "invisible",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the light's position means it is merely "
+          },
+          {
+            "type": "text",
+            "text": "hidden ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "to creatures that would otherwise be unable to see it, rather than "
+          },
+          {
+            "type": "text",
+            "text": "undetected",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The light also negates the "
+          },
+          {
+            "type": "text",
+            "text": "concealed ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "condition due to lighting conditions. If the coated weapon doesn't damage a creature within 1 hour, the oil sloughs off and loses its power."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.o9k5L682AlZfhpRu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "58f0afdb-6fcb-5a7c-8230-c62db6f43d19",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-disguise-moderate",
+    "name": "Potion of Disguise (Moderate)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "polymorph", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=719"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Upon imbibing this potion, you take on the appearance of a specific type of creature for 2d12 hours. The type of creature is determined when the potion is created. For example, you might have a "
+          },
+          {
+            "type": "text",
+            "text": "potion of elf disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "potion of frog disguise",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". Drinking the potion doesn't impart the knowledge of how long the effect lasts; the GM rolls the duration in secret."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The disguise doesn't change your traits or statistics, nor does it give you any of the special abilities of the creature you're imitating. It might affect what items you can hold or wear (for example, your new form might lack opposable thumbs). The potion shrinks you down to a minimum of size Tiny, or increases your size if the creature is larger than you, to a maximum of Large. This does not change any of your statistics, with the exception of reducing your reach to 0 as a Tiny creature. The creature has to be of a specific kind, such as \"leopard\" or \"lion\" rather than just \"cat\", or \"fire giant\" or \"ogre\" rather than just \"giant\", but the potion can't cause you to mimic a specific individual creature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effects of this potion use the same rules as the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " activity of Deception. Onlookers always assume you're the chosen type of creature unless they're actively Seeking. You gain a +4 status bonus to your Deception DC against such Perception checks and add your level even if untrained."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Initial raw materials must include a bit of blood, hair, or flesh of the creature the potion will allow the drinker to imitate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.25Rr05SIfTj0GA31"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ae58a043-ff91-5cca-a285-252969098a2d",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:ration-tonic-greater",
+    "name": "Ration Tonic (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=723"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This slender vial appears to hold clean, clear water with a faintly fruity scent. Drinking a ration tonic magically nourishes you with the equivalent of a week's worth of food and water, distributing the nourishment in a constant and healthy flow across the week. The tonic has a subtle, pleasant taste, its particulars chosen when the potion is crafted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EkC2W5A5fohoIKSd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "25187525-12fc-5546-8053-8251bc672d4e",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:shielding-salve",
+    "name": "Shielding Salve",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "oil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=724"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This shimmering paste has many properties of a "
+          },
+          {
+            "type": "text",
+            "text": "shield ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "spell. When you slather it onto a creature or object, the target gains a +1 circumstance bonus to AC for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time a physical attack or a magic missile hits the target during that round, the oil prevents 5 damage from that attack or spell, and then the oil's effect ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "35602b1f-f498-5287-aba8-5aadd0892b50"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EWujUs3YmlBu2jhm"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "oil",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "35602b1f-f498-5287-aba8-5aadd0892b50",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
+    "id": "a0f24779-802b-52fb-a215-3240825de781",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:sinew-shock-serum-moderate",
+    "name": "Sinew-Shock Serum (Moderate)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=691"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This serum jolts the body to help shake off physical debilitations. When you drink this elixir, it attempts a counteract check with a 1d20+8 Counteract Modifier to remove the "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+          },
+          {
+            "type": "text",
+            "text": " condition from a single source, using the source of that condition to determine the counteract rank and DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tslVf3qtQE7V1YvG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "07f95ccc-1f6f-5532-aee3-3237361622fd",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:skinstitch-salve",
+    "name": "Skinstitch Salve",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "healing"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=698"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sticky salve stubbornly holds wounds closed and encourages swift natural healing. You can activate the salve in either of the following ways."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You "
+          },
+          {
+            "type": "ref",
+            "id": "e03baa02-2fea-552f-9996-c41bfa074713"
+          },
+          {
+            "type": "text",
+            "text": " without requiring "
+          },
+          {
+            "type": "ref",
+            "id": "050458fd-ce2e-53a2-ac9d-e9a790d70513"
+          },
+          {
+            "type": "text",
+            "text": ". You either gain a +2 item bonus to the Medicine check, or you can use the skinstitch salve's Medicine modifier of 1d20+13 instead of your own."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You "
+          },
+          {
+            "type": "ref",
+            "id": "18c1b923-595b-5203-a0be-010205e51c44"
+          },
+          {
+            "type": "text",
+            "text": " or use "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +2 item bonus to the triggering Medicine check. If you roll a success on the Medicine check, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "07905eb5-b6e1-517e-b484-3104129b569c"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.FgAPV0iLE6R1QMJ5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "07905eb5-b6e1-517e-b484-3104129b569c",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f42b9a4e-2e48-5734-abc9-c4f7091827f3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:snagging-hook-snare",
+    "name": "Snagging Hook Snare",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "mechanical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=705"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This snare snags a creature with its wicked metal hooks. The first creature to enter the square takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a critical failure, the hooks piercing its flesh make the creature "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until it successfully "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44",
+            "label": "Escapes"
+          },
+          {
+            "type": "text",
+            "text": " (DC 27)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.j9G3tnrKQ1N1dLzN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "negligible",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1694ca77-0f11-5b41-9298-d5e350bf9ae3",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:sovereign-glue",
+    "name": "Sovereign Glue",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=699"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This peculiar amber glue bonds two surfaces together almost inseparably. A single flask covers an area up to 1 square foot and must be used all at once to form a single bond between two surfaces. If the activation is interrupted, the bond fails and the glue is wasted. Once two surfaces are joined with sovereign glue, they can be separated only with a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 50
+          },
+          {
+            "type": "text",
+            "text": " check. The adhered objects tend to break before the glue does unless they're particularly durable, though a creature determined to separate the objects can break off the parts connected by the sovereign glue and later "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " the objects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sovereign glue can affect creatures only if they are willing, and its bond can be harmlessly broken by carefully exfoliating the outermost layer of skin or waiting a short while for the skin to shed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7IrQPyMm76nLVoXx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ccfe6e80-4ea3-5d9b-9dee-3376eaad19a4",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:timeless-salts",
+    "name": "Timeless Salts",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=700"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You sprinkle these salts onto a single object up to 10 cubic feet in volume and no more than 40 Bulk to preserve it for 1 week. The object doesn't decay, and effects that require the object to be fresh don't count the time passing during this duration as having elapsed. When sprinkled on a corpse, this extends the period in which a creature can be revived by magic, as well as the wait time required before a corpse can be targeted again with "
+          },
+          {
+            "type": "ref",
+            "id": "b74b8226-f3e5-51b2-85dd-83ed11cd93c3"
+          },
+          {
+            "type": "text",
+            "text": ". The salts prevent ordinary pests from consuming the target (such as maggots for a corpse or moths for a piece of clothing). Any creature can use an Interact action to disperse the salts from an unattended object and end this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ha6n30Tj3TNru9Dj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 14
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f8bfac98-76b2-5978-a23a-3379d51e95f1",
+    "pack": "advanced-players-guide",
+    "kind": "consumable",
+    "slug": "consumable:universal-solvent-moderate",
+    "name": "Universal Solvent (Moderate)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Equipment.aspx?ID=701"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Originally formulated as a means of dissolving "
+          },
+          {
+            "type": "ref",
+            "id": "1694ca77-0f11-5b41-9298-d5e350bf9ae3",
+            "label": "Sovereign Glue"
+          },
+          {
+            "type": "text",
+            "text": ", this powerful solvent can break almost any adhesive's grip. As universal solvent is particularly effective against sovereign glue, it automatically dissolves sovereign glue. It attempts to counteract any other adhesives, such as "
+          },
+          {
+            "type": "ref",
+            "id": "7fb3c0d9-e471-5331-9133-4ed75a92feeb",
+            "label": "Tanglefoot Bags"
+          },
+          {
+            "type": "text",
+            "text": ", with a counteract modifier of 1d20+9."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QSVIv5obLhKkmy67"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 21
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

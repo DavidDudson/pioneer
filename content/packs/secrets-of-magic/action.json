@@ -1,5 +1,223 @@
 [
   {
+    "id": "5f5f3ba8-3d8c-5192-a097-d005f7deed9d",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:act-together",
+    "name": "Act Together",
+    "rarity": "common",
+    "traits": ["summoner", "tandem"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=758"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon act as one. Either you or your eidolon takes an action or activity using the same number of actions as Act Together, and the other takes a single action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For example, if you spent 2 actions to Act Together, you could cast "
+          },
+          {
+            "type": "ref",
+            "id": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "type": "text",
+            "text": " (2 actions) and your eidolon could Strike (1 action), or your eidolon could use its Breath Weapon (2 actions) and you could Stride (1 action)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lets you each use separate exploration activities like "
+          },
+          {
+            "type": "ref",
+            "id": "c51e323a-8364-5dc1-89f7-4f3216a699a8"
+          },
+          {
+            "type": "text",
+            "text": " as you travel."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.2KV87ponbWXgGIhZ"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
+    "id": "3a234761-716c-5c79-b993-ac8abebd1e13",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:affix-a-fulu",
+    "name": "Affix a Fulu",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You affix a fulu to an armor, weapon, shield, creature, or structure that's beside or in the same square as you. A creature can remove a fulu from itself or an unattended object in its reach with a single action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9Nmz5114UB87n7Aj"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "c37a3b0e-49e0-5ac4-a746-da1dfcb3852e",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:arcane-cascade",
+    "name": "Arcane Cascade",
+    "rarity": "common",
+    "traits": ["concentrate", "magus", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=756"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You used your most recent action this turn to "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " or make a "
+          },
+          {
+            "type": "ref",
+            "id": "3ed95565-78ac-5824-9bfd-2bdb6073b247"
+          },
+          {
+            "type": "text",
+            "text": ". You need to meet this requirement only to enter the stance, not to remain in it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You divert a portion of the spell's magical power and keep it cycling through your body and weapon using specialized forms, breathing, or footwork. While you're in the stance, your melee Strikes deal 1 extra force damage. This damage increases to 2 if you have weapon specialization and 3 if you have greater weapon specialization. Any Strike that benefits from this damage gains the arcane trait, making it magical."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your most recent spell before entering the stance was one that can deal damage, the damage from the stance is instead the same type that spell could deal (or one type of your choice if the spell could deal multiple types of damage)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.HbejhIywqIufrmVM"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You used your most recent action this turn to Cast a Spell or make a "
+            },
+            {
+              "type": "ref",
+              "id": "3ed95565-78ac-5824-9bfd-2bdb6073b247"
+            },
+            {
+              "type": "text",
+              "text": ". You need to meet this requirement only to enter the stance, not to remain in it."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "f8a76fa4-c460-5e6b-b53e-cfbfc45ba36e"
+    }
+  },
+  {
     "id": "4b5a591f-35b1-5484-9c60-2f5a4847388f",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -36,6 +254,40 @@
     "data": {
       "cost": "one",
       "category": "interaction"
+    }
+  },
+  {
+    "id": "2fe77445-3490-5b87-857b-efe6eddd4117",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:beasts-charge",
+    "name": "Beast's Charge",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon rushes forward, using its momentum to increase the power of its attack. Your eidolon Strides twice and then Strikes. If the eidolon moved at least 20 feet away from its starting position and moved entirely in a straight line, it gains a +1 circumstance bonus to this attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cx0juTYewwBmrYWv"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
     }
   },
   {
@@ -134,6 +386,1182 @@
     }
   },
   {
+    "id": "72a46559-0d61-537d-b98e-9a6373e0b9c1",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-acid-cone",
+    "name": "Breath Weapon (Acid) (Cone)",
+    "rarity": "common",
+    "traits": ["acid", "arcane", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "acid"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Lt591Og3XRhx5dRx"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c69b07ac-0b09-54df-be10-3ea6bb48fb09",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-acid-line",
+    "name": "Breath Weapon (Acid) (Line)",
+    "rarity": "common",
+    "traits": ["acid", "arcane", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "acid"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.slwllcUtVhoCdBuM"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "404d63a8-1683-5935-ad55-674dcedae736",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-cold-cone",
+    "name": "Breath Weapon (Cold) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "cold", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "cold"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.auOTjKr8gB1dqFh4"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f22bee64-1d73-5ca3-8f26-819fd038c7c3",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-cold-line",
+    "name": "Breath Weapon (Cold) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "cold", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "cold"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.grkggNQnOxWWsjBH"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0424b3af-6adb-5eee-8793-f20776123ac8",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-electricity-cone",
+    "name": "Breath Weapon (Electricity) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "electricity"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.LfsQy2T8GjpuMqAh"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c7ff2a06-a5e3-5885-b9a2-b81de89e1345",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-electricity-line",
+    "name": "Breath Weapon (Electricity) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "electricity"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3UEwtMA5y8foVqYP"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f9dde49a-ad3e-50f3-9bab-10a918ff4ded",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-fire-cone",
+    "name": "Breath Weapon (Fire) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "fire"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JqThDeWlGobiAPJd"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7c6d302c-665f-59f0-89ed-c3722f25b4dc",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-fire-line",
+    "name": "Breath Weapon (Fire) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "fire"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "fire"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.90fHUm0HGZFAbG1K"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "204c33e7-e86a-5629-97f7-c7b390b19ad9",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-piercing-cone",
+    "name": "Breath Weapon (Piercing) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.0XiPnnxKHWKFg1tN"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "69552759-4f3d-5608-b9f4-fe8d780da42a",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-piercing-line",
+    "name": "Breath Weapon (Piercing) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "piercing"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QQQaV7pi9Gv2GpLj"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "641b4639-9862-5947-b3d0-2aed2f37ec67",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-poison-cone",
+    "name": "Breath Weapon (Poison) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "poison"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.NEBuuhjZE9BL3I8v"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3a17765d-832a-5cea-880c-b40a724ee032",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-poison-line",
+    "name": "Breath Weapon (Poison) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "poison"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.AWXPiqz4xDN03iPs"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "991df047-58ee-5b2c-9be1-b6a1bebdfabf",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-void-cone",
+    "name": "Breath Weapon (Void) (Cone)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "void"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5Vuhf4DjvMvRqiEZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "25877604-db2b-5508-adb2-63295598675a",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:breath-weapon-void-line",
+    "name": "Breath Weapon (Void) (Line)",
+    "rarity": "common",
+    "traits": ["arcane", "eidolon", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon exhales a blast of destructive energy. Your eidolon deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ", with a basic Reflex save against your spell DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon then can't use their Breath Weapon again for the next 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every 2 levels thereafter, the damage increases by 1d6. "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(ceil(@level/2))d6",
+                "damageType": "void"
+              }
+            ],
+            "label": "Leveled Damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EmFzFAwgQ0lJZwba"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
     "id": "2af4b844-0eba-5331-9556-91d226fab3ba",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -219,6 +1647,58 @@
     }
   },
   {
+    "id": "8fd196f1-3f5f-5e44-82da-16f57f461989",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:cleanse-soul-path",
+    "name": "Cleanse Soul Path",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=774"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You meditate, pray, or otherwise try to reinforce your soul's connection to your soulforged armament. This takes 10 minutes. Attempt a counteract check against your "
+          },
+          {
+            "type": "text",
+            "text": "soulforged corruption",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The counteract rank is half your level rounded up, and the counteract check modifier is your Religion modifier. If successful, reduce the stage of your "
+          },
+          {
+            "type": "text",
+            "text": "soulforged corruption",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " by 1 (to a minimum of Stage 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.ZhKXvnw7ND2hQ2pp"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
     "id": "e39cdd38-4bde-57f2-8fdb-3b84191de8b4",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -258,6 +1738,589 @@
     },
     "data": {
       "category": "familiar"
+    }
+  },
+  {
+    "id": "4435873d-90d2-5e72-8ecb-a7b27687953c",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:defend-life",
+    "name": "Defend Life",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're within 1 mile of the target"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " After calculating the amount of damage the target would take (applying weaknesses, resistances, and the like), you lose an equal number of Hit Points, and the target doesn't take any of the damage. You can't reduce the amount of Hit Points you lose in this way. The target still takes any effects that would come with the damage, however, such as the venom on a viper's fangs Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.5V49l0K460CcvBOO"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're within 1 mile of the target"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target takes damage"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "38084582-0474-57d2-be8b-1e9008b80219",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:divert-lightning",
+    "name": "Divert Lightning",
+    "rarity": "common",
+    "traits": ["electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't immune to electricity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature within 30 feet of you is targeted by an electricity effect or is in the area of an electricity effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw the electricity to yourself like a lightning rod in order to shield the target. If the triggering effect was targeted, it targets you instead of the triggering creature. If it was an area effect, it leaps from the triggering creature's space to fill your space instead. This doesn't divert lightning from any other creatures targeted by or in the area of the lightning. You're automatically hit by or automatically fail your save against the effect. You then can't Divert Lightning for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.s2RrhZx1f1X4YnYV"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren't immune to electricity"
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature within 30 feet of you is targeted by an electricity effect or is in the area of an electricity effect."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "84c94bfb-f6a9-5610-bd10-338e0d72cdee",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:draconic-frenzy",
+    "name": "Draconic Frenzy",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon makes one Strike with their primary unarmed attack and two Strikes with their secondary unarmed attack (in any order). If any of these attacks critically hits an enemy, your eidolon instantly recovers the use of their Breath Weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uMFB3uw8WTWL0LZD"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "0db01333-5712-5006-b00b-84cca9a5ab5c",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:dutiful-retaliation",
+    "name": "Dutiful Retaliation",
+    "rarity": "common",
+    "traits": ["eidolon", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy within 15 feet of you hits you with a Strike and deals damage to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is within 15 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon instinctively flashes with ectoplasmic energy, allowing them to strike back against an enemy who dares to harm you. Your eidolon makes a melee unarmed Strike against the triggering enemy, even if that enemy isn't within your eidolon's reach."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KyKXp599tK9BgodC"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is within 15 feet of you."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy within 15 feet of you hits you with a Strike and deals damage to you."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d4ef010b-38a5-524e-8d3f-13b2ea0a1ede",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:field-of-roots",
+    "name": "Field of Roots",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon extends its roots underground to entangle and possibly damage all foes nearby. All enemies within your eidolon's reach take damage of the same type and amount as your eidolon's most damaging Strike, depending on their Reflex saves. Any ongoing effects of the save last until the enemy either Escapes or leaves your eidolon's reach."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After using Field of Roots, your eidolon is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " until it takes a single action, which has the manipulate trait, to detach from the ground; this also ends any remaining effects on enemies from Field of Roots."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy takes no damage, but takes a -10 foot circumstance penalty to its Speeds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy takes half damage, takes a -10-foot circumstance penalty to its Speeds, and, at the end of each of its turns, takes half damage again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The enemy is immobilized, takes full damage, and, at the end of each of its turns, takes full damage again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tNrBIYct9l1lrW1I"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3a1d2e8d-c065-5b06-8ca0-3ce9d07aefcf",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:fight-with-fear",
+    "name": "Fight with Fear",
+    "rarity": "common",
+    "traits": ["concentrate", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature that you can see uses a mental effect against you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering creature must attempt a Will save, which has the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": ", and you gain a +2 status bonus to your saving throw or other defense against the triggering mental effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is frightened 2, and you're unaffected by the triggering mental effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.hi56uHG1aAb84Zzu"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A creature that you can see uses a mental effect against you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "75b88502-e37c-5955-9e86-54e945189ab6",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:furious-strike",
+    "name": "Furious Strike",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon channels its anger into a furious attack. It makes a melee Strike. This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your eidolon deals an extra die of weapon damage and gains a +1 circumstance bonus to the damage roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're at least 10th level, increase this to two extra dice with a +2 circumstance bonus, and if you're at least 18th level, increase it to three extra dice with a +3 circumstance bonus."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:furious-strike",
+        "toggleable": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.06frwOOuo4HJtivl"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
     }
   },
   {
@@ -434,6 +2497,143 @@
     }
   },
   {
+    "id": "655b420d-b55f-5eef-b14c-c4e3a257ac7c",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:manifest-eidolon",
+    "name": "Manifest Eidolon",
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "summoner", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=757"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon appears in an open space adjacent to you, and can then take a single action. If your eidolon was already manifested, you unmanifest it instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The conduit that allows your eidolon to manifest is also a tether between you. Your eidolon must remain within 100 feet of you at all times and can't willingly go beyond that limit. If forced beyond this distance, or if you are reduced to 0 Hit Points, your eidolon's physical form dissolves: your eidolon unmanifests, and you need to use Manifest Eidolon to manifest it again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This activity has the trait matching your eidolon's tradition (arcane, divine, occult, or primal)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
+    },
+    "data": {
+      "cost": "three",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "ca9bce75-9967-5175-be9a-34509f9c6b43",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:manifest-soulforged-armament",
+    "name": "Manifest Soulforged Armament",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "extradimensional"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If summoning a weapon or shield, you have the hands free to wield it; if summoning armor, you aren't wearing any armor"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately wield or wear the soulforged armament bound to you. The soulforged armament remains manifested until you Dismiss this effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once per day when you use this ability, you can manifest the armament's essence form. You gain the armament's essence power until it's Dismissed. After 1 minute, the essence form armament is automatically Dismissed."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KMKuJ0onVS72t9Fv"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If summoning a weapon or shield, you have the hands free to wield it; if summoning armor, you aren't wearing any armor"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "5adb2fb7-c421-51f5-a9fc-be20ac66dbd7",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -576,6 +2776,48 @@
     }
   },
   {
+    "id": "748435ce-8933-5113-a268-47cd50c7725a",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:primal-roar",
+    "name": "Primal Roar",
+    "rarity": "common",
+    "traits": ["auditory", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon unleashes a primal roar or other such terrifying noise that fits your eidolon's form. Your eidolon attempts Intimidation checks to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " each enemy that can hear the roar; these Demoralize attempts don't take any penalty for not sharing a language."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kbUymGTjbesOKsV6"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
     "id": "5edf4024-835e-5ae0-8fd7-036887d3253d",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -654,6 +2896,66 @@
     }
   },
   {
+    "id": "107fae1d-ef7c-5217-af0a-75170870d3b1",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:seething-frenzy",
+    "name": "Seething Frenzy",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon's fury boils over into a reckless, out-of-control frenzy. While frenzied, your eidolon is affected by "
+          },
+          {
+            "type": "text",
+            "text": "boost eidolon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " and gains temporary Hit Points equal to your level, but it takes a -2 penalty to AC. Your eidolon can't voluntarily end the frenzy or start another frenzy while in the frenzy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The frenzy lasts for 1 minute, after which it's "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute and can't start another frenzy for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.nSTMF6kYIt6rXhJx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "defensive"
+    }
+  },
+  {
     "id": "c5b44c5a-771b-57b0-b705-f0fe80a8182c",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -694,6 +2996,73 @@
     },
     "data": {
       "category": "interaction"
+    }
+  },
+  {
+    "id": "85482130-3544-5282-9999-7e6d7537f345",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:sever-conduit",
+    "name": "Sever Conduit",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon takes damage that would bring you to 0 Hit Points and comes from an effect other than a death effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You quickly shut the buffer in your link with your eidolon, causing your bonded ally to wink out of existence before you can be laid low. Your eidolon unmanifests, and you can't Manifest your Eidolon for 1 minute. In exchange, you don't take the triggering damage, though your eidolon still suffers any other adverse effects that accompanied the damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.VCUz5EnBUJF07j1a"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon takes damage that would bring you to 0 Hit Points and comes from an effect other than a death effect"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -840,6 +3209,152 @@
     }
   },
   {
+    "id": "a1590210-2f4e-51fe-9e44-f96d8f964c4d",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:share-senses",
+    "name": "Share Senses",
+    "rarity": "common",
+    "traits": ["concentrate", "scrying", "summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=759"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your eidolon is manifested."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You project your senses into your eidolon, allowing you to perceive through it. When you do, you lose all sensory information from your own body, but can sense through your eidolon's body for up to 1 minute. You can "
+          },
+          {
+            "type": "ref",
+            "id": "9d0e5c47-3a1c-5d1a-bfc9-36eb6ed9b3ef"
+          },
+          {
+            "type": "text",
+            "text": " this effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This action has the trait matching your eidolon's tradition (arcane, divine, occult, or primal). Your eidolon can also use this ability. When it does, it projects its senses into your body."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.3ZzoI9MTtJFd1Kjl"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your eidolon is manifested."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3ed95565-78ac-5824-9bfd-2bdb6073b247",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:spellstrike",
+    "name": "Spellstrike",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=755"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " until recharged (see below)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You channel a spell into a punch or sword thrust to deliver a combined attack. You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell don't occur immediately but are imbued into your attack instead. Make a melee Strike with a weapon or unarmed attack. Your spell is coupled with your attack, using your attack roll result to determine the effects of both the Strike and the spell. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Spellstrike. The infusion of spell energy grants your Strike the arcane trait, making it magical."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use Spellstrike, you can't do so again until you recharge your Spellstrike as a single action, which has the concentrate trait. You also recharge your Spellstrike when you cast a conflux spell that takes at least 1 action to cast; casting a focus spell of another type doesn't recharge your Spellstrike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QDW9H8XLIjuW2fE4"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
     "id": "1676e2a5-981b-520b-9d31-4b2d6a6c9bf5",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -935,6 +3450,49 @@
     }
   },
   {
+    "id": "24cf1eb2-5c2a-5b02-871c-400bdbf5900b",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:tendril-strike",
+    "name": "Tendril Strike",
+    "rarity": "common",
+    "traits": ["eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stretching to extend its body to its limits, your eidolon attacks a foe that would normally be beyond its reach. Your eidolon makes a melee unarmed Strike, increasing its reach by 5 feet for that Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the unarmed attack has the disarm, shove, or trip trait, the eidolon can use the corresponding action instead of a Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.YpuEmI1fJBZD3kMc"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
     "id": "8ecc8b14-69f6-5080-91a5-512304deda1c",
     "pack": "secrets-of-magic",
     "kind": "action",
@@ -999,6 +3557,203 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "55ed2f06-2b83-5c42-870d-0c7e4dbcb639",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:thundering-roar",
+    "name": "Thundering Roar",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "emotion", "fear", "flourish", "mental", "sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target unleashes a powerful vocalization. Each enemy in a 10- foot emanation takes 4d8 sonic damage with a basic Will save against your spell DC. A creature that fails its Will save is also "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage from the roar increases by 2d8."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6SAdjml3OZw0BZnn"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3300aa4e-f723-588d-9e21-82a5ebff5569",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:visions-of-sin",
+    "name": "Visions of Sin",
+    "rarity": "common",
+    "traits": ["eidolon", "emotion", "magical", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon summons images of its sin into the mind of a target creature within 30 feet, tormenting and confusing the target. The target must attempt a Will save against your spell DC with the following effects. The effects last until the end of your next turn, but your eidolon can use a single action, which has the concentrate trait, to extend the effects until the end of your next turn (like Sustaining a Spell), to a maximum duration of 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target is evil, it takes a -2 circumstance penalty to its save. Regardless of whether it succeeds, the target becomes temporarily immune for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " and can't use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target is also "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The confusion can't be extended, but the other effects can."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iJLzVonevhsi2uPs"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "ten-minutes"
+      }
     }
   },
   {
@@ -1123,6 +3878,58 @@
         "per": "day"
       },
       "selfEffect": "77afd741-40ec-564e-ab0d-3c7533af61aa"
+    }
+  },
+  {
+    "id": "ce961a06-b407-5d38-a051-4911f75257bb",
+    "pack": "secrets-of-magic",
+    "kind": "action",
+    "slug": "action:wyrms-breath",
+    "name": "Wyrm's Breath",
+    "rarity": "common",
+    "traits": ["concentrate", "eidolon"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon gathers the power of the mightiest wyrms to make its magical breath even more spectacular. If your eidolon's next action is to use Breath Weapon, both the number of damage dice and area of the Breath Weapon are doubled."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OJ9cIvPukPT0rppR"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "minute"
+      }
     }
   }
 ]

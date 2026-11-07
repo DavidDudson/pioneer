@@ -551,7 +551,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["b179811a-d669-51a1-aa87-7b49c97b6e6a"]
   },
   {
     "id": "3cc003e9-617a-5da5-87a2-63bb215ba7d5",
@@ -693,7 +694,8 @@
         "slot": "eyepiece"
       },
       "apex": "int"
-    }
+    },
+    "supersedes": ["6c2a9187-cf51-51fc-b807-5fd069f7c54b"]
   },
   {
     "id": "9045c5bb-a10f-5897-a057-72fc7fc4179d",
@@ -1001,7 +1003,8 @@
         "type": "worn",
         "slot": "cloak"
       }
-    }
+    },
+    "supersedes": ["c12518b6-6683-53f7-8baa-49239ab6fd73"]
   },
   {
     "id": "b7c23cfc-6c42-5580-8660-4287bb5ee971",
@@ -1123,7 +1126,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["920ceb86-3f07-5117-9cef-823d252674b1"]
   },
   {
     "id": "c45697ae-ee65-53d4-ae17-eb8d4c5051c5",
@@ -1561,7 +1565,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["2496334a-f1a9-56e0-aeb6-e3c0b76ce630"]
   },
   {
     "id": "87caaa86-725a-5799-82bc-8ed4b3ee15c1",
@@ -3623,7 +3628,8 @@
         "type": "worn",
         "slot": "cloak"
       }
-    }
+    },
+    "supersedes": ["dcce1020-8f8a-5ecc-adb5-04387afce6cd"]
   },
   {
     "id": "78d5d1d1-2e1a-5705-9608-343718490a30",
@@ -4016,7 +4022,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["0dcdf71c-e271-5cf1-8101-368b7ec59403"]
   },
   {
     "id": "a5e9984b-e82b-5285-9786-f663b868912d",
@@ -4283,7 +4290,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["e3cf3a34-5ae5-5af2-b3d7-c8d1a8102cde"]
   },
   {
     "id": "8fee879b-5364-506f-b406-d21fb673858b",
@@ -4391,7 +4399,8 @@
         "type": "worn",
         "slot": "collar"
       }
-    }
+    },
+    "supersedes": ["4d5fa089-02e3-58f3-8b72-1b89d70d245c"]
   },
   {
     "id": "89d77d5f-fd88-5d15-889a-8c52dfc327c5",
@@ -5199,7 +5208,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["1e520261-1c5b-54fc-8cb2-ea1cec0b366c"]
   },
   {
     "id": "c8aba569-38f7-558d-bc3e-1ad2b447c42b",
@@ -5461,7 +5471,8 @@
         "type": "worn"
       },
       "apex": "con"
-    }
+    },
+    "supersedes": ["357a3d23-8696-5a22-92fa-a1c26f64686e"]
   },
   {
     "id": "b3caa61b-1879-5475-8bb1-210a096ed6ae",
@@ -5705,7 +5716,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["a93ad728-372f-5885-8cd7-33974a289938"]
   },
   {
     "id": "cff13e70-74cb-544b-9c8b-1abf11493d03",
@@ -6366,7 +6378,8 @@
       "usage": {
         "type": "tattooed"
       }
-    }
+    },
+    "supersedes": ["65fd608d-d1e5-56c5-ab7e-5a880e8bcddd"]
   },
   {
     "id": "75c01af8-9f76-508c-b56e-6e07c61729af",
@@ -6965,7 +6978,8 @@
         "type": "affixed",
         "to": "armor-or-a-weapon"
       }
-    }
+    },
+    "supersedes": ["3cab426a-d5d9-5586-b797-47ffde2290ea"]
   },
   {
     "id": "d5f9ff53-2b9e-5145-a6d6-173d150d389b",
@@ -7613,7 +7627,8 @@
         "type": "affixed",
         "to": "armor-or-a-weapon"
       }
-    }
+    },
+    "supersedes": ["27ce6ead-e877-5b71-bb5a-8e1e262b79d0"]
   },
   {
     "id": "479716a9-0dcb-5838-b780-dff00ae8bec8",
@@ -7729,7 +7744,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["03dd6005-c246-563d-a2bd-aff5e531fcae"]
   },
   {
     "id": "163de01d-75a1-579d-a533-6a4eac6371e1",
@@ -7863,7 +7879,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["89b00940-0c61-5d2f-8de2-f3ed12565fdf"]
   },
   {
     "id": "63b77405-b2e9-5aa4-bb9e-9e195ab7021f",
@@ -7954,7 +7971,8 @@
         "type": "worn",
         "slot": "eyepiece"
       }
-    }
+    },
+    "supersedes": ["0b980a80-4653-588d-9446-dee7163b166a"]
   },
   {
     "id": "ec27dfde-6942-50bc-b9ff-c14d7fa38d63",
@@ -8716,7 +8734,8 @@
         "type": "affixed",
         "to": "armor-or-a-weapon"
       }
-    }
+    },
+    "supersedes": ["b9f2e475-f462-5fec-9384-4146e10ab296"]
   },
   {
     "id": "09b8ad8a-43a0-5d06-ae24-7601660fad08",
@@ -8966,7 +8985,8 @@
         "type": "worn",
         "slot": "headwear"
       }
-    }
+    },
+    "supersedes": ["5320e276-0534-5b24-87e0-30e121532fe4"]
   },
   {
     "id": "223b4edc-31a5-5cd6-893c-d9e3e660e2c0",
@@ -10608,7 +10628,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["d4ff45c8-9fa9-5938-91fc-47acb79301b8"]
   },
   {
     "id": "1994114a-8aee-5198-9251-4f2fd395e4cb",
@@ -10731,7 +10752,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["99a6eb6b-bfa6-5852-8904-9342eeaace35"]
   },
   {
     "id": "6cf9c0d7-071e-554b-8420-013d964ac969",
@@ -10799,7 +10821,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["d0aca956-589b-550f-8a40-62bdc5e1412c"]
   },
   {
     "id": "5ee66109-39f2-5846-99fc-bdd493f401d8",
@@ -11017,7 +11040,8 @@
         "slot": "mask"
       },
       "apex": "cha"
-    }
+    },
+    "supersedes": ["86e99485-5c66-53e8-8447-c4071a711c43"]
   },
   {
     "id": "f1907d1e-54ec-5508-851b-f28083f6b770",
@@ -11302,7 +11326,8 @@
         "slot": "cloak"
       },
       "apex": "dex"
-    }
+    },
+    "supersedes": ["60076c31-60f7-5f12-b642-86d63a4622df"]
   },
   {
     "id": "a8e59fa6-1013-5fb8-b574-0b1a7173fba8",
@@ -12032,7 +12057,8 @@
         "type": "affixed",
         "to": "armor-or-a-weapon"
       }
-    }
+    },
+    "supersedes": ["2ff3eb5e-16b3-505d-8f86-b33bb3cdecdc"]
   },
   {
     "id": "31d5ef6e-20b4-5899-a433-f2d363413a77",
@@ -12510,7 +12536,8 @@
       "usage": {
         "type": "tattooed"
       }
-    }
+    },
+    "supersedes": ["568a0569-4136-5c07-b089-9df346a7401c"]
   },
   {
     "id": "496b8542-8281-5aaa-b7d0-7dfb04cfd901",
@@ -12733,7 +12760,8 @@
         "slot": "belt"
       },
       "apex": "wis"
-    }
+    },
+    "supersedes": ["60ed3123-4b93-5df7-91b8-6114a7543042"]
   },
   {
     "id": "03d5fec4-ed64-5bfc-9a98-697b5a5cf167",
@@ -13541,7 +13569,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["e0843770-8e67-5a3f-93e8-ba490667fa60"]
   },
   {
     "id": "e5a0fa86-a6fc-5edc-9603-e86d32d4652b",
@@ -13991,7 +14020,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["b342e40b-ca36-557b-96c3-57fdae729930"]
   },
   {
     "id": "92276fec-90a7-55db-90f5-945047c44c1b",
@@ -14113,7 +14143,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["77c447f6-637c-5f1e-959e-0b7ff909c860"]
   },
   {
     "id": "319ca8f1-9e03-531f-9778-10a3c8d6496d",
@@ -14221,7 +14252,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["cf4c8469-faae-56c4-97c8-15ee27bfb814"]
   },
   {
     "id": "10eef96c-9067-504b-ba10-b054dc924377",
@@ -15003,7 +15035,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["2355f68e-8ed3-5ea6-89aa-551d3c7d45b9"]
   },
   {
     "id": "9efb596d-4cba-5ad7-a667-196e99572261",
@@ -15315,7 +15348,8 @@
         "slot": "gloves"
       },
       "apex": "str"
-    }
+    },
+    "supersedes": ["86c42294-38bd-58c4-86df-d6966f767234"]
   },
   {
     "id": "2696ded5-144c-5540-8366-ecd4271c6b67",
@@ -15941,7 +15975,8 @@
         "type": "affixed",
         "to": "armor-or-a-weapon"
       }
-    }
+    },
+    "supersedes": ["bcf625a1-15e0-515e-9dd2-4dce3ef29370"]
   },
   {
     "id": "b753c7f5-8d8a-5924-9d53-47b657a33aa6",
@@ -16397,7 +16432,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["287bb95f-d65d-5216-9c48-38f270c7e3bb"]
   },
   {
     "id": "7e2c4be7-f89e-5e8a-8082-fa4fd1ae6d83",
@@ -17003,7 +17039,8 @@
       "usage": {
         "type": "tattooed"
       }
-    }
+    },
+    "supersedes": ["5d36bfbc-e892-5734-9ede-e388caf4cf98"]
   },
   {
     "id": "cec38bb9-7217-5267-afb3-fb2c81222200",

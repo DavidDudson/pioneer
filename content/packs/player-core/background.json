@@ -3504,7 +3504,8 @@
         ["dex", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["b648d491-cda2-5e3f-a269-27323d7e97a5"]
   },
   {
     "id": "c6207e2e-d6a5-5f22-88b4-082f838efd1c",

@@ -315,7 +315,8 @@
         "resilient": 2,
         "property": []
       }
-    }
+    },
+    "supersedes": ["4e542071-a506-5bf3-93f8-250ed3e705de"]
   },
   {
     "id": "161f6109-ac1e-51f1-a17d-d03acc9632c8",
@@ -392,7 +393,8 @@
         "potency": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["94c70ee7-317a-5967-9f00-005dee858e5a"]
   },
   {
     "id": "dc0d041c-0107-51e3-97a7-22f5ad13b1c6",
@@ -612,7 +614,8 @@
         "resilient": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["3d5b4d40-e584-5b3f-83b4-6a3934c1bc6e"]
   },
   {
     "id": "a8ceca36-01ce-589d-b0ac-a0fc6727f212",
@@ -786,7 +789,8 @@
         "resilient": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["526cc65b-5ca9-5a9d-85e2-5b806f5ba3a8"]
   },
   {
     "id": "85314d3e-cbdc-5ed5-b539-5c84361efb30",
@@ -1022,7 +1026,8 @@
         "resilient": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["ef36635f-54cd-505f-b679-2f17a2f725fd"]
   },
   {
     "id": "af6a6bef-c6ff-53ac-8db0-0d460d4c16a2",
@@ -1398,6 +1403,7 @@
         "resilient": 2,
         "property": []
       }
-    }
+    },
+    "supersedes": ["a39a4157-efbe-5d41-8093-e927fcceccea"]
   }
 ]

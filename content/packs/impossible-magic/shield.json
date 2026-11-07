@@ -163,7 +163,8 @@
       "hitPoints": 30,
       "baseItem": "wooden-shield",
       "acBonus": 2
-    }
+    },
+    "supersedes": ["445be1e7-41ce-56fe-876d-ff31dc1dc3ec"]
   },
   {
     "id": "3fceb247-218f-5bf3-86e3-bcbc8d5188cd",
@@ -1241,7 +1242,8 @@
       "hitPoints": 36,
       "baseItem": "wooden-shield",
       "acBonus": 2
-    }
+    },
+    "supersedes": ["073429bb-90a9-5acd-a58c-01205d98dd41"]
   },
   {
     "id": "8242bb54-d972-55e5-8a45-fbf2f515a913",

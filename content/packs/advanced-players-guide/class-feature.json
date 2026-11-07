@@ -1,0 +1,4496 @@
+[
+  {
+    "id": "2a2376eb-abb7-5c3d-9beb-71ae5328921d",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:ancestors",
+    "name": "Ancestors",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The voices of generations past speak to you, and you hear their words. You might resent the constant interruption, or you might revere the spirits of those who came before. Perhaps you hail from a culture with strong ancestral traditions, such as the Shoanti Skoan-Quah (Skull Clan), a traditional dwarven community that worships Torag's family pantheon, or a group that reveres Erastil or Pharasma. You might commune with powerful psychopomps who shepherd souls to the afterlife, with the River of Souls itself, or with those spirits who have become trapped outside of the great cycle of spiritual rebirth. You learn from their whispers and the fragments of their memories, but opening your mind to their knowledge and experience also allows them to meddle in your worldly affairs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The whispers of your ancestors have bestowed additional knowledge upon you. You gain an additional ancestry feat at 1st level and another additional ancestry feat at 11th level. These feats can't be ones that grant physiological effects, such as additional senses or unarmed attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Society"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "912fa9a0-4abd-5bfe-97a5-947107ea814f"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "e0cb695b-b3d2-5438-b1ef-ab4137970f7f"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "b34334a6-b66b-5967-9b3b-ce9851fa1387"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death, family"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of Ancestral Meddling"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of Ancestral Meddling"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ancestral spirits you commune with haunt you and meddle with your belongings and actions, either out of a well-intentioned (but ultimately detrimental) attempt to assist you, as punishment for your audacity in circumventing the traditional means of achieving divine power, for their own amusement, or a mixture of the above. Your hair, clothing, and belongings constantly shift and stir, seemingly of their own volition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of your ancestors becomes predominant in their meddling. The first time you gain this effect each day, roll 1d4 on the list below to determine which type of ancestor becomes predominant. This predominant ancestor guides you to use their preferred type of action. When you try to use one of the types of actions listed for the other ancestors, you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 4
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, you spend the action but gain no effect (though you don't lose the spell if you were Casting a Spell). If your action would take 1 minute or longer, it's long enough that you can overcome the meddling, and you don't need to attempt a flat check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During combat or another tense, round-by-round encounter, other ancestors wrestle for control of your actions. When you roll initiative, and then at the end of each of your turns during the encounter, roll 1d4 and change your predominant ancestor appropriately. Once the encounter ends, you return to the influence of the ancestor you first rolled for the day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flat check DC to use other actions is 6, and you get the moderate curse benefit listed for your predominant ancestor in the list below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flat check DC is 8, and you get the major curse benefit listed for your predominant ancestor instead of the moderate curse benefit."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Ancestral Influence"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Martial Ancestor"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Preferred action",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Strikes"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Moderate curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Your Strikes gain a +1 status bonus to attack rolls and a +2 status bonus to damage."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Major curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Your Strikes gain a +1 status bonus to attack rolls and a +6 status bonus to damage"
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Skillful Ancestor"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Preferred action",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Perception and Skill actions"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Moderate curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " You gain a +1 status bonus to skill checks and Perception checks."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Major curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " You gain a +2 status bonus to skill checks and Perception checks."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Spellcasting Ancestor"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Preferred action",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Cast a Spell"
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Moderate curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Non-cantrip spells without a duration gain a status bonus to their damage and healing equal to the spell's rank."
+                      }
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Major curse benefit",
+                        "marks": ["strong"]
+                      },
+                      {
+                        "type": "text",
+                        "text": " Non-cantrip spells without a duration gain a status bonus to their damage and healing equal to the spell's rank + 3."
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You choose which ancestor guides your actions"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["912fa9a0-4abd-5bfe-97a5-947107ea814f"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["e0cb695b-b3d2-5438-b1ef-ab4137970f7f"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["b34334a6-b66b-5967-9b3b-ce9851fa1387"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "71a6396c-7cc2-5918-a06b-bf3cf1b533f6"
+          },
+          {
+            "rank": 1,
+            "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+          },
+          {
+            "rank": 2,
+            "spell": "8e71d902-1acc-566b-a53d-ce97cdbf3b85"
+          },
+          {
+            "rank": 5,
+            "spell": "d75cb7fc-4eee-5db4-aa60-c68fdd54d855"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:duty",
+                "item:alternate-domain:duty",
+                "item:domain:family",
+                "item:alternate-domain:family",
+                "item:domain:soul",
+                "item:alternate-domain:soul"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qvRlih3u7vK3FYUR"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "941eac9e-a39d-5fc2-b5c7-a54f17303d32",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:antipaladin",
+    "name": "Antipaladin",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=6"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're dishonorable, dishonest, and committed to breaking the false hopes of kindness. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8a161f93-b449-5575-8dd1-dbcd449eaf80"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "acc4d6ca-be8c-5a92-a926-3294052c3586"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. You gain the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destroy that which offends you or stands in your way, take advantage of others, cheat, steal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " bind yourself with a law other than what your deity requires"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An enemy damaged by the initial damage from your Destructive Vengeance also takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@attr.cha",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ],
+            "label": "persistent spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your Charisma modifier. This applies only to the damage the reaction itself deals to the triggering creature, not the damage you deal with subsequent "
+          },
+          {
+            "type": "ref",
+            "id": "b70e1acb-3d61-50f7-92b1-231839a6b427",
+            "label": "Strikes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Destructive Vengeance, each enemy within 15 feet of you other than the triggering creature takes half the damage you deal to the triggering enemy, of the same damage type you chose."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8a161f93-b449-5575-8dd1-dbcd449eaf80",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:unholy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.EQ6DVIQHAUXUhY6Y"
+    },
+    "data": {
+      "tags": ["champion-cause", "unholy"]
+    }
+  },
+  {
+    "id": "3c091e66-a9e0-5624-9f86-d1a94c86f657",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:battle",
+    "name": "Battle",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Warlike forces fill you with physical might and tactical knowledge, aiming to have you uphold the glory of combat, fight to improve the world, prepare against the necessity of conflict, or endure the inevitability of war. You might draw upon deities such as Gorum, Iomedae, Rovagug, the Horseman of War Szuriel, the Queen of the Night Eiseth, the Vudrani god Diomazul, and others, or you might find power in the unending conflict between the armies of Heaven and Hell, the Elemental Planes, the Outer Gods, or even the collective spirits of those who fought in wars over the ages."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are no stranger to the trappings of warfare. You are trained in medium and heavy armor. At 13th level, if you gain the light armor expertise class feature, you also gain expert proficiency in these armors."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one weapon group that embodies your mystery. You are trained in all martial weapons of that group. At 11th level, if you gain the weapon expertise class feature, you also gain expert proficiency for martial weapons in your chosen group, and you become trained in advanced weapons in that group."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Athletics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial Call to Arms;"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "e95d4549-41ac-5a4e-926a-bb6208a48418"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater Heroic Feat"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " might, zeal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of the Hero's Burden"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of the Hero's Burden"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You thrive while adrenaline flows and your life depends on your might alone, but holding the collective battle prowess of the ages within you leaves your body weakened after a fight. You smell faintly of steel and blood no matter how you try to remove or mask the scent, you appear more muscular than you actually are, and you hear the faint clash and clamor of battle in the distance at all times."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body languishes when you aren't bringing harm to your foes. You take a -2 status penalty to AC and saving throws, but each time you make a Strike, you can suspend these penalties until the start of your next turn."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The strain of conflict wears upon your body, even though you gain vitality from it. Making a Strike reduces the penalty from your minor curse to -1 rather than suspending it entirely. You gain a +2 status bonus to weapon and unarmed damage rolls. You also gain fast healing equal to half your level while in a non-trivial combat encounter."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body proves capable of truly heroic feats, but doing so interferes with your mental focus. Your moderate curse's fast healing is equal to your level, and its damage bonus is +6. You gain a +1 status bonus to weapon and unarmed attack rolls, but you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "trained",
+        "predicate": ["class:oracle"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "trained",
+        "predicate": ["class:oracle"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert",
+        "predicate": ["class:oracle", "feature:light-armor-expertise"]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "expert",
+        "predicate": ["class:oracle", "feature:light-armor-expertise"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["e95d4549-41ac-5a4e-926a-bb6208a48418"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "6dee4f5d-f584-5402-af2a-d3738ec685b3"
+          },
+          {
+            "rank": 1,
+            "spell": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "rank": 2,
+            "spell": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
+          },
+          {
+            "rank": 4,
+            "spell": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:destruction",
+                "item:alternate-domain:destruction",
+                "item:domain:might",
+                "item:alternate-domain:might",
+                "item:domain:protection",
+                "item:alternate-domain:protection",
+                "item:domain:zeal",
+                "item:alternate-domain:zeal"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.gjOGOR30Czpnx3tM"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "366c74d0-e0e4-51fc-bdd9-dfe4d5a0e1b9",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:battledancer",
+    "name": "Battledancer",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Styles.aspx?ID=1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To you, a fight is a kind of performance art, and you command your foes' attention with mesmerizing motions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Performance and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "1e22c658-9703-5bc2-9a02-48c302a65267",
+            "label": "Panache"
+          },
+          {
+            "type": "text",
+            "text": " during an encounter when the result of your Performance check to "
+          },
+          {
+            "type": "ref",
+            "id": "56d1e4d6-9708-5d3c-b2ac-5fe9f0cfb544"
+          },
+          {
+            "type": "text",
+            "text": " exceeds the Will DC of an observing foe, even if the foe isn't fascinated."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "d8c8a1ba-3ed9-5a9c-b372-87c442637d12",
+        "predicate": ["class:swashbuckler"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Exemplary Finisher",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You can Step as a free action immediately after the finisher."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:finisher", "feature:exemplary-finisher"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5HoEwzLDJGTCZtFa"
+    },
+    "data": {
+      "tags": ["swashbuckler-style"]
+    }
+  },
+  {
+    "id": "d883462e-355e-5c37-b530-60ec73dd7a38",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:bones",
+    "name": "Bones",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mystery imparts an understanding of death and undeath in all their macabre complexity. You might have had a brush with death yourself-maybe even dying and returning to life-or carry the touch of undeath in your blood. If you commune with deities, you might speak with guardians of death like Pharasma and the psychopomp ushers (the most powerful among creatures that guide souls through the afterlife); a bringer of death like the Mantis God Achaekek or the Horseman of the Apocalypse Charon; or a herald of undeath such as Urgathoa."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cleverly leverage the subtleties of life and death to your benefit. Each day during your preparations, you can choose to align yourself in the confluence of vitality and void energy so as to gain void healing, which means you are harmed by vitality damage and healed by void effects as if you were undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you already have void healing, instead the DC of your recovery checks is equal to 9 + your current dying value."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medicine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "bb65f478-400b-518d-a697-75f634f6dbc1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "6b8124a6-c48e-5873-adae-69ba0cd33023"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "90b2af99-a403-5d3a-9c62-a93a4805ef47"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "ffa007b2-dcf6-50a7-bbe9-dc3f5ee31429"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death, undeath"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of Living Death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of Living Death"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is slowly decaying even though you are alive, and using your powers furthers this unnatural living death. You carry a touch of the grave about you, manifesting as bloodless pallor, a faint smell of earth, or deathly cold skin."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bones protrude through your skin and your flesh rots, combining with a stench of decay and an unearthly chill. Non-magical effects that would restore your Hit Points only grant you half as many HP as normal."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your dead flesh continues to rot, affecting your health. You become "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ", and this drained condition is cumulative with any other drained conditions you gain. This drained condition is removed only when you Refocus; effects that normally remove the drained condition reduce your drained condition to drained 1 instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, you gain resistance to poison equal to half your level. You gain a +4 status bonus to saves against diseases, poisons, and death effects, and if you roll a success on such a save, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You stand just steps from the grave. You become "
+          },
+          {
+            "type": "ref",
+            "id": "6c4e09a7-469d-5668-8c1b-92f87de94d27",
+            "label": "Wounded 1"
+          },
+          {
+            "type": "text",
+            "text": ". This wounded condition is removed only when you Refocus; effects that normally remove the wounded condition reduce your wounded condition to wounded 1 instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you would attempt a recovery check, you can choose to get an automatic success instead of rolling, and if you roll a critical failure on a save against a disease, poison, or death effect, you get a failure instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6b8124a6-c48e-5873-adae-69ba0cd33023"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["90b2af99-a403-5d3a-9c62-a93a4805ef47"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["ffa007b2-dcf6-50a7-bbe9-dc3f5ee31429"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "bb65f478-400b-518d-a697-75f634f6dbc1"
+          },
+          {
+            "rank": 1,
+            "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+          },
+          {
+            "rank": 2,
+            "spell": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "rank": 3,
+            "spell": "0474b135-7232-52c1-beff-221dccc82e78"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:decay",
+                "item:alternate-domain:decay",
+                "item:domain:undeath",
+                "item:alternate-domain:undeath",
+                "item:domain:vigil",
+                "item:alternate-domain:vigil"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.IaxmCkdsPlA52spu"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "924df2eb-53f9-59d2-b006-f105e8e9c88e",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:braggart",
+    "name": "Braggart",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Styles.aspx?ID=2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You boast, taunt, and psychologically needle your foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Intimidation. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "1e22c658-9703-5bc2-9a02-48c302a65267",
+            "label": "Panache"
+          },
+          {
+            "type": "text",
+            "text": " during an encounter whenever you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " a foe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Exemplary Finisher",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the foe was temporarily immune to your Demoralize, their temporary immunity ends."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:finisher", "feature:exemplary-finisher"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KBhwFjdptrKyN5EM"
+    },
+    "data": {
+      "tags": ["swashbuckler-style"]
+    }
+  },
+  {
+    "id": "80746438-b043-5b42-b65b-95bca2693dff",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:cosmos",
+    "name": "Cosmos",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=4"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Celestial bodies great and small exert influence on you, giving you sublime cosmic power. Perhaps you see the glittering stars as a divine blessing, or perhaps you feel drawn to the infinitely dark spaces between. You might uphold deities like Desna, Sarenrae, or the deific lovers Shizuru and Tsukiyo who represent the sun and the moon-or you might draw power from dark entities from beyond the stars, like certain Outer Gods, or destructive gods of the night like Zon-Kuthon or the rat goddess Lao Shu Po."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is as much an astronomical one as it is physical. You gain resistance equal to 2 + half your level against all physical damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "00ac54ca-28d8-5812-a85d-45db0fc07318"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "ecbc46df-1e29-5e5f-a26c-a5ed0dc9b13d"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "77a5bf21-c146-560a-aef6-fe6142f6b3a2"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " darkness, moon"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of the Sky's Call"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of the Sky's Call"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have your head in the clouds-and not just figuratively. Your body is drawn toward the heavens, making you lighter and less substantial than you should be. Your eyes glow with starry light, and your hair and clothing float and drift around you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unnatural lightness makes it hard to keep your footing and interact with other physical objects. You are "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and take a -2 penalty to saves and DCs against "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", and other forms of forced movement."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is drawn further skyward. You are "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": ", and the penalty from your minor curse increases to -3."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are treated as one size smaller for wind effects. You gain a +2 status bonus against "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " attempts, you only take half as much damage from falls, and you gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "8eea4e4c-e044-58bc-9a1c-6248d17424e5"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "d84fa288-9b68-5be2-874c-113c1210b212"
+          },
+          {
+            "type": "text",
+            "text": " skill feats. You weigh only half as much, and your Bulk, should someone need to carry you, is also half as much."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your body rises, you float just above the ground beneath you. You become "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": ", and the penalty from your minor curse increases to -4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can walk on liquids as if they were solid; you gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "e70c2d9e-7de6-52e4-affc-78a41b0b0269"
+          },
+          {
+            "type": "text",
+            "text": " skill feat; and you don't leave tracks, trigger weight-sensitive pressure plates, or otherwise connect with the ground below you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": "2 + floor(@level / 2)",
+        "predicate": ["class:oracle"]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["00ac54ca-28d8-5812-a85d-45db0fc07318"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["ecbc46df-1e29-5e5f-a26c-a5ed0dc9b13d"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["77a5bf21-c146-560a-aef6-fe6142f6b3a2"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+          },
+          {
+            "rank": 1,
+            "spell": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          },
+          {
+            "rank": 2,
+            "spell": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "rank": 5,
+            "spell": "c6cea9c6-25dd-5c7c-8056-4c7bac1dceba"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:darkness",
+                "item:alternate-domain:darkness",
+                "item:domain:moon",
+                "item:alternate-domain:moon",
+                "item:domain:void",
+                "item:alternate-domain:void",
+                "item:domain:star",
+                "item:alternate-domain:star"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RI2EMRBBPNSoTJXu"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "0d3b7df1-d7b3-5684-bd6e-836a739aca20",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:desecrator",
+    "name": "Desecrator",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=5"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You always take what pleases you, no matter who it hurts, and you spread the influence of evil across all you touch. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4bebacb0-6b63-5bf6-8727-a26ba05c36ab"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "acc4d6ca-be8c-5a92-a926-3294052c3586"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. You gain the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " subvert or corrupt everything in your path that is pure or holy, sow doubt among those holding ideals of purity or holiness"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " none"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If your Charisma modifier is +2 or greater, your resistance against the triggering damage equals your Charisma modifier + half your level"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Selfish Shield, each enemy within 15 feet of you takes a -1 status penalty to attack rolls against you until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "4bebacb0-6b63-5bf6-8727-a26ba05c36ab",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:unholy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8YIA0jh64Ecz0TG6"
+    },
+    "data": {
+      "tags": ["champion-cause", "unholy"]
+    }
+  },
+  {
+    "id": "ca09b41c-9b7a-56f9-b06c-3b351c615cc0",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:fencer",
+    "name": "Fencer",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Styles.aspx?ID=3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move carefully, feinting and creating false openings to lead your foes into inopportune attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Deception. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "1e22c658-9703-5bc2-9a02-48c302a65267",
+            "label": "Panache"
+          },
+          {
+            "type": "text",
+            "text": " during an encounter whenever you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "8b950c56-7b5d-5063-9439-adb52a323cd9"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "b905f68d-f05b-5179-8c61-b90a9c7d2bdb"
+          },
+          {
+            "type": "text",
+            "text": " against a foe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Exemplary Finisher",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The foe is Off-Guard until your next turn."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:finisher", "feature:exemplary-finisher"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Jgid6Ja6Y879COlN"
+    },
+    "data": {
+      "tags": ["swashbuckler-style"]
+    }
+  },
+  {
+    "id": "6f29968b-886e-590a-bd09-d7c12342092b",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:flames",
+    "name": "Flames",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=5"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fire lives at the center of the world, the center of the sun, and the center of civilization. You might revere this elemental force, siphon power from the Elemental Plane of Fire, or venerate a collection of deities such as Asmodeus, Sarenrae, the Tian goddess of disasters and volcanoes Lady Nanbyo, or the elemental lord of fire Ymeri."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Like fire itself, you flicker and dance, avoiding effects that would quench your vitality. You have expert proficiency in Reflex saves. At 13th level, if you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "222cdf7e-d3a9-5c3c-b957-2d07f3f44c6e",
+            "label": "Lightning Reflexes"
+          },
+          {
+            "type": "text",
+            "text": " class feature, your proficiency rank for Reflex saves increases to master, and when you roll a success on a Reflex save, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Acrobatics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "7b03f972-02bc-5893-a09b-e77b8d99010d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "9549e408-8af7-5983-9194-b54af5809e0e"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "cb8dd8a0-56be-5800-9aa4-2e90d7044f5a"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "6daacee7-f1fb-5a7e-86df-e8e7d426860c"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " fire, sun"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of Engulfing Flames"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of Engulfing Flames"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You see flames and smoke wherever you look. These flames might be imagined, or they might be a preternatural glimpse of the metaphorical fires that empower the entire multiverse-but you always see them. Fires flare noticeably (though not dangerously) in your presence, you occasionally smoke slightly, and your body is almost painfully hot to the touch."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The smoke, heat, and crackling flames of your curse fill your vision and all your other senses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures further than 30 feet are "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you. You can't benefit from effects that would allow you to ignore or mitigate this concealment, as normal for effects of an oracular curse."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Smoke and flickering visions of flame fill your senses more completely, and harmless flickers of obscuring flames also fill your space."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are concealed from other creatures, though as the other creatures aren't cursed themselves, they can benefit from effects that would allow them to ignore or mitigate the concealed condition, as normal. All other creatures and objects are concealed from you regardless of distance; however, when casting a fire spell, you automatically succeed at the flat check for this concealed condition for targets within 30 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All your senses become imprecise beyond 30 feet, meaning everything past 30 feet that you'd normally be able to see is "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " from you."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flames surrounding you are no longer simply visions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aura of fire surrounds you in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": ", dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (basic Reflex save) to all other creatures in the aura at the end of each of your turns. You lose 1d6 Hit Points at the end of your turn each round, with no save; if you have a weakness to fire, increase the number of HP you lose by that weakness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can suppress your aura until the start of your next turn by spending a single action, which has the concentrate trait, to diminish the flames, causing neither you nor anyone in the aura to take damage. While Refocusing to reduce your curse, you are continually diminishing the flames, so you don't lose HP. The flames subside if you fall "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", but they resume when you wake up unless you rested for long enough to reset your curse. As usual for oracular curses, you can't mitigate or reduce the lost Hit Points in any way, though you can still heal the lost HP normally after the fact."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:reflex"],
+        "title": "Flames",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a Reflex save, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": [
+          "class:oracle",
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:reflex"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save",
+        "predicate": [
+          "class:oracle",
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["9549e408-8af7-5983-9194-b54af5809e0e"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["cb8dd8a0-56be-5800-9aa4-2e90d7044f5a"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6daacee7-f1fb-5a7e-86df-e8e7d426860c"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "5f652603-de54-511c-aead-1966a7166ca8"
+          },
+          {
+            "rank": 1,
+            "spell": "14e2abdf-052f-5a62-a6a0-8b4191474b38"
+          },
+          {
+            "rank": 2,
+            "spell": "2243e5b0-a99c-5b26-81b2-026db385848c"
+          },
+          {
+            "rank": 3,
+            "spell": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:dust",
+                "item:alternate-domain:dust",
+                "item:domain:fire",
+                "item:alternate-domain:fire",
+                "item:domain:star",
+                "item:alternate-domain:star",
+                "item:domain:sun",
+                "item:alternate-domain:sun"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.GTSvbFb36InvuH0w"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "d38acce8-e4ba-5149-8e22-806959819286",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:gymnast",
+    "name": "Gymnast",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Styles.aspx?ID=4"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reposition, maneuver, and bewilder your foes with daring feats of physical prowess."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Athletics. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "1e22c658-9703-5bc2-9a02-48c302a65267",
+            "label": "Panache"
+          },
+          {
+            "type": "text",
+            "text": " during an encounter whenever you successfully "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "082b982f-3ed4-5d9c-9722-9ab10198523a"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": " a foe."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.B7RMnrHwQHlezlJT"
+    },
+    "data": {
+      "tags": ["swashbuckler-style"]
+    }
+  },
+  {
+    "id": "0fd84242-e039-5eb5-a2d2-5ea8d1807316",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:keen-recollection",
+    "name": "Keen Recollection",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Feats.aspx?ID=1848"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can recall pertinent facts on topics that aren't your specialty. Your proficiency bonus to untrained skill checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " is equal to your level instead of +0."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "proficiency",
+        "value": "@level",
+        "predicate": ["action:recall-knowledge", "proficiency:untrained"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.DZWQspPi4IkfXV2E"
+    },
+    "data": {}
+  },
+  {
+    "id": "f2fb25d8-0896-5491-814a-28f059d5a098",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:life",
+    "name": "Life",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=6"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The never-ending flow of vitality energy within living beings is palpable to you. You might uphold the sanctity of life, or perhaps you seek to undermine it. You might draw power from the collective vitality of the world's living creatures, hold some connection to the Forge of Creation, or revere a collection of deities including Irori, Pharasma, Sarenrae, and the god of medicine Qi Zhong."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your body is a deep reservoir of life energy. At each level, you gain Hit Points equal to 10 + your Constitution modifier from the oracle class, instead of 8 + your Constitution modifier."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Medicine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "f8d84b3b-064a-5eaa-88e6-5202648f8ae5"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "a51e4c2f-01cb-50ed-adf0-4d9c5c0aa6da"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "8679bdd6-175b-5f8e-97e2-dd1b63cbcfcd"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death, healing"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of Outpouring Life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of Outpouring Life"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life energy flows outward from you and connects you to all living things, but you expend your vital essence to do so. Your presence comforts the ill and injured, causes scars to fade slightly, spurs new growth in plants, and otherwise infuses your surroundings with vitality."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your life force seeps outward, it becomes more difficult to keep your body functioning. Effects that restore Hit Points to you take a status penalty equal to half your level (minimum 1) to the number of HP you recover."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flow of life energy away from you can't be reversed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition to the effects of your minor curse, you can't be healed by magical effects originating from other creatures. However, if you are unconscious, magical effects can restore you to 1 HP (but no higher). You are affected normally by healing elixirs, potions, and other items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " and all your targets are living creatures, you roll d12s instead of d8s for the amount of healing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you finish casting a non-cantrip spell, you restore Hit Points equal to the spell rank to your choice of either one target of the spell or the creature nearest to you. You can't heal yourself in this way. This healing has the healing, necromancy, and vitality traits, as well as the tradition trait of the spell."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Life energy tears through you to empower your magic. Some of your spells carry vitality energy with them."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you use a spell slot to cast a 5th-rank or higher spell that takes 2 or more actions to cast, you disperse vitality energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " with the effects of a 3-action "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell with a level 4 lower than that of the spell you cast. This healing occurs immediately after you finish Casting the Spell. You don't benefit from this healing. Instead, you lose double the number of Hit Points rolled for the heal spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["f8d84b3b-064a-5eaa-88e6-5202648f8ae5"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["a51e4c2f-01cb-50ed-adf0-4d9c5c0aa6da"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["8679bdd6-175b-5f8e-97e2-dd1b63cbcfcd"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+          },
+          {
+            "rank": 1,
+            "spell": "272d555d-f777-5439-b02b-cc5325c0a648"
+          },
+          {
+            "rank": 2,
+            "spell": "18377ab1-5227-575a-9895-fa1920850f0d"
+          },
+          {
+            "rank": 5,
+            "spell": "5e1f1719-c07a-594b-97a4-218bda042916"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:death",
+                "item:alternate-domain:death",
+                "item:domain:healing",
+                "item:alternate-domain:healing",
+                "item:domain:pain",
+                "item:alternate-domain:pain",
+                "item:domain:soul",
+                "item:alternate-domain:soul"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.o1gGG36wpn9mxeop"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "508d5cd8-640e-5ff7-be72-baea8ca9e267",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:lore",
+    "name": "Lore",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=7"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Knowledge and information come freely to you. You might use this lore to gain power or perhaps to understand the divine mysteries of the multiverse. You might have a conduit to the fabled Akashic Record, maintain a subtle telepathic connection to the collective subconscious of all living creatures, or follow in the footsteps of deities such as Abadar, Irori, Nethys, Irori's scholarly nephew Gruhastha, the fey triune goddess of fate Magdh, or the lawful aeon god-figure known as the Monad."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You hold more mystical knowledge within you than most. You have one additional spell in your repertoire of each level you can cast."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism and one Lore skill of your choice"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "41d5ae1d-9b49-5b81-b590-cf8a4000341e"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "9ee0b0b2-2453-519b-b873-fb963da48039"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "5832be2e-73b1-5feb-8850-99efdba8b5c5"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " knowledge, truth"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of Torrential Knowledge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of Torrential Knowledge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a link to true divine knowledge, but your mortal mind struggles to process and act on what you know. Loose materials around you, such as dust, grains of rice, and droplets of water, slowly shift to form strange runes or faint indecipherable writing, and you sometimes speak unintelligible truths or statements in unknown languages without realizing it."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You take a -4 penalty to initiative, as trying to process a surge of information about what's happening around you slows your ability to respond to it."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The flow of information through your mind grows. The attention you divert to process this huge influx of information means you are always "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the start of each of your turns, you automatically make one check to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " as a free action. This uses a skill of your choice that has the Recall Knowledge action, using a result equal to 10 + your proficiency bonus in that skill (with no other bonuses, penalties, or modifiers)."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The massive flow of information clouding your mind overwhelms your ability to communicate with others. You can understand all languages, but you can't speak, use linguistic effects, or otherwise communicate with your allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you Cast a Spell with a verbal component, you must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " or the spell is lost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +4 status bonus on saving throws against linguistic effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["41d5ae1d-9b49-5b81-b590-cf8a4000341e"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["9ee0b0b2-2453-519b-b873-fb963da48039"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["5832be2e-73b1-5feb-8850-99efdba8b5c5"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "rank": 1,
+            "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+          },
+          {
+            "rank": 3,
+            "spell": "22b62dab-5ef5-5d09-8c09-2f7bcfc88be1"
+          },
+          {
+            "rank": 6,
+            "spell": "1ca1f242-df46-5466-a3e1-3ae1e1069c1f"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:knowledge",
+                "item:alternate-domain:knowledge",
+                "item:domain:magic",
+                "item:alternate-domain:magic",
+                "item:domain:secrecy",
+                "item:alternate-domain:secrecy",
+                "item:domain:truth",
+                "item:alternate-domain:truth"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tZBb3Kh4nJcNoUFI"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "805fd495-5f3c-5043-b651-70c0816df34a",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:tempest",
+    "name": "Tempest",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Mysteries.aspx?ID=8"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An oracle wields divine power, but not from a single divine being. This power could come from a potent concept or ideal, the attention of multiple divine entities whose areas of concern all touch on that subject, or a direct and dangerous conduit to raw divine power. This is the oracle's mystery, a source of divine magic not beholden to any deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mystery might represent a pantheistic devotion to all the deities with power over the subject of your mystery, veneration of a particular ideal, or a conduit to raw divine energy. Whatever its origin and nature, your mystery determines the revelation spells you can cast and the oracular curse that overtakes your body when you do. You learn skills related to that mystery, gain access to a cantrip, and gain a special benefit drawn from the combined divine knowledge and experience of your mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fury of the wind and waves pounds in your heart, whether your power flows from natural storms, a conduit to the elemental Planes of Air and Water, or through reverence of deities such as Gozreh, the tengu god of storms Hei Feng, the demon lord Dagon, or the elemental lords of air and water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can see perfectly through wind and water, and you send electric charges through both air and water. You never take penalties to Perception from wind, rain, fog, or other precipitation, or from looking through water or being underwater, and such conditions don't cause anything to be concealed from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you deal physical damage with a non-cantrip air or water spell, you deal an additional 1 electricity damage per spell rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Initial "
+                },
+                {
+                  "type": "ref",
+                  "id": "fc7a915e-7a3a-5e9c-be3b-18ecc7ec400d"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Advanced "
+                },
+                {
+                  "type": "ref",
+                  "id": "4683ae40-bc9e-5830-8983-8743108011a9"
+                },
+                {
+                  "type": "text",
+                  "text": ";"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Greater "
+                },
+                {
+                  "type": "ref",
+                  "id": "6bb85d2e-6b43-59a9-99cb-705f8b393341"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Air, Water"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Curse of the Perpetual Storm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Curse of the Perpetual Storm"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are the center of your own tiny tempest, ever surrounded by wind and rain that worsens the more you tap into your elemental powers. Even when you are calm and at rest, your hair and clothing are blown about by gentle winds, you are slightly damp, and your touch often comes with a static shock."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Minor Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aura of a whirling storm whips up in a 5-foot emanation around you and in your space. The aura puts out small non-magical fires 1 round after they're lit or brought into your aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Electrical energy builds up within your storm, turning you into a lightning rod; you gain weakness 2 to electricity, and electricity spells or effects that have additional effects for a creature wearing or holding metal treat you as though you were wearing metal."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Moderate Curse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your minor curse's aura expands to a 10-foot emanation and carries rain on the winds. The whirling winds impose a -2 circumstance penalty on ranged attack rolls using physical ammunition that target you or originate from you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your weakness to electricity increases to 5 or half your level, whichever is greater, but torrential rain grants you an equal amount of fire resistance."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Major Curse (11th)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your minor curse's aura expands to a 15-foot emanation and grows stronger. High winds blowing outward in the aura impede creatures' progress. The aura is difficult terrain for Large and smaller creatures on the ground, and for Huge or smaller flying creatures. You aren't affected by this difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The electricity arcing through you becomes dangerous. Any creature that touches you or damages you with an unarmed melee attack or non-reach melee weapon takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. As normal, this doesn't affect creatures you touch."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "SpellcastingEntry",
+        "slug": "oracle-focus",
+        "tradition": "divine",
+        "attribute": "cha",
+        "preparation": "focus"
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["fc7a915e-7a3a-5e9c-be3b-18ecc7ec400d"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["4683ae40-bc9e-5830-8983-8743108011a9"],
+        "predicate": ["feat:advanced-revelation"]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "oracle-focus",
+        "spells": ["6bb85d2e-6b43-59a9-99cb-705f8b393341"],
+        "predicate": ["feat:greater-revelation"]
+      },
+      {
+        "key": "RepertoireSpells",
+        "entry": "oracle",
+        "spells": [
+          {
+            "rank": "cantrip",
+            "spell": "af70a0e9-8098-5ea9-9c72-12ee05e62eb1"
+          },
+          {
+            "rank": 1,
+            "spell": "16c68123-97c7-5b43-9789-d4983552b8d3"
+          },
+          {
+            "rank": 4,
+            "spell": "f0b4d595-f619-5a11-973d-a30a7c9523ad"
+          },
+          {
+            "rank": 6,
+            "spell": "088c1f48-de0f-5b8a-83b3-24ce61a928bc"
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "divine-access-deity",
+        "choices": {
+          "kind": "deity",
+          "filter": [
+            {
+              "or": [
+                "item:domain:air",
+                "item:alternate-domain:air",
+                "item:domain:cold",
+                "item:alternate-domain:cold",
+                "item:domain:lightning",
+                "item:alternate-domain:lightning",
+                "item:domain:water",
+                "item:alternate-domain:water"
+              ]
+            }
+          ]
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 11]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.W9cF7wZztLDb1WGY"
+    },
+    "data": {
+      "tags": ["oracle-mystery"]
+    }
+  },
+  {
+    "id": "5f506cbe-3011-5788-9065-898af63a4e77",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:toxicologist",
+    "name": "Toxicologist",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/ResearchFields.aspx?ID=4"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You specialize in toxins and venoms of all types. You start with the formulas for two common 1st-level alchemical poisons in your formula book, in addition to your other formulas."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of Infused Reagents to create your signature items using "
+          },
+          {
+            "type": "ref",
+            "id": "941d4a1c-a6b7-5123-b992-fe1d82e8bc52"
+          },
+          {
+            "type": "text",
+            "text": ", you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can apply an injury poison you're holding to a weapon you're wielding as a single action, rather than as a 2-action activity, and you can change the DCs of your infused poisons to your class DC if it's higher."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "f7c2289c-8482-5d29-a14b-71d79ded3695",
+            "label": "Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 5"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When using Advanced Alchemy to make poisons during your daily preparations, you can spend one batch of reagents to create three poisons in any combination, instead of just two of the same poison."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual InfusionsLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have learned how to create perpetual alchemical infusions that can provide a near-infinite supply of certain simple items. You gain the ability to create two 1st-level alchemical items using "
+          },
+          {
+            "type": "ref",
+            "id": "ef01dc12-d06f-5f19-a1f3-097f23cd75a9"
+          },
+          {
+            "type": "text",
+            "text": " without spending a batch of infused reagents. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you gain a level, you can swap any number of your perpetual infusions with other eligible infusions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two common 1st-level alchemical poisons."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PotencyLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your perpetual infusions improve, allowing you to use Quick Alchemy to create more powerful items with no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two common 5th-level or lower alchemical poisons."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "ref",
+            "id": "01bfa449-1a9f-57e6-a8f2-7ec20a31ef56",
+            "label": "Greater Field Discovery"
+          },
+          {
+            "type": "text",
+            "text": "Level 13"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can apply two different injury poisons to the same weapon, though not to a piece of ammunition. The two poisons can be up to six levels lower than your level, and you can't use the poisons made without spending a batch of infused reagents via perpetual infusions. Applying the two poisons requires a separate action to apply each poison."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once completed, you combine the two poisons on the weapon into a double poison with the lower of the two poisons' DCs. This double poison is only virulent if both poisons were virulent, and if the poisons have a different number of stages, the double poison has a number of stages equal to the poison with the lower number of stages. The target takes the effects of both poisons for its current stage."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Perpetual PerfectionLevel 17"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have perfected your perpetual infusions, allowing you to use Quick Alchemy to create even more powerful items at no cost. The items you can select depend on your research field and must be in your formula book."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two common 11th-level or lower alchemical poisons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.P9quO9XZi3OWFe1k"
+    },
+    "data": {
+      "tags": ["alchemist-research-field"]
+    }
+  },
+  {
+    "id": "7fb78160-32cc-5d42-a64d-d23f821c4788",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:tyrant",
+    "name": "Tyrant",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Causes.aspx?ID=4"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Might makes right, and you subjugate the weak to keep them in their proper place. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "43d00f4a-60ca-5ca3-a7ca-5d7f939e1bde"
+          },
+          {
+            "type": "text",
+            "text": " champion's reaction and the "
+          },
+          {
+            "type": "ref",
+            "id": "acc4d6ca-be8c-5a92-a926-3294052c3586"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. You gain the follow edicts and anathema:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " enforce proper hierarchies, topple illegitimate hierarchies, lead when you are the most suited to the task"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " let one who is lesser than you wield power over you or lead you"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine SmiteLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The regrets of disobedience linger. If an enemy refuses your Iron Command, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "@attr.cha",
+                "damageType": "spirit",
+                "category": "persistent"
+              }
+            ],
+            "label": "persistent spirit damage"
+          },
+          {
+            "type": "text",
+            "text": " equal to your Charisma modifier."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "ExaltLevel 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Iron Command, each enemy within 15 feet of you other than the triggering creature must also either drop prone or take mental damage (the enemy chooses). These creatures take only minimum damage (typically 3 damage at 11th level, 4 at 12th, 5 at 16th, and 6 at 19th), and the effects they take can't be adjusted by anything that changes your Iron Command."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For instance, the "
+          },
+          {
+            "type": "ref",
+            "id": "3c7a6e8d-a1de-5f67-a3a2-7d612ec04b02"
+          },
+          {
+            "type": "text",
+            "text": " feat couldn't turn the damage into per "
+          },
+          {
+            "type": "ref",
+            "id": "03f09f32-a6d0-56f8-995b-b80986c1e1dc",
+            "label": "Persistent Mental Damage"
+          },
+          {
+            "type": "text",
+            "text": " for creatures other than the triggering creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "43d00f4a-60ca-5ca3-a7ca-5d7f939e1bde",
+        "allowDuplicate": false,
+        "predicate": [
+          {
+            "or": ["class:champion", "feat:champions-reaction"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "sanctification:unholy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.HiIvez0TqESbleB5"
+    },
+    "data": {
+      "tags": ["champion-cause", "unholy"]
+    }
+  },
+  {
+    "id": "72019935-7b92-5291-b240-c218b74c5cab",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:wit",
+    "name": "Wit",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide",
+        "aon": "https://2e.aonprd.com/Styles.aspx?ID=5"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are friendly, clever, and full of humor, always knowing just what to say in any situation. Your witticisms leave foes unprepared for the skill and speed of your attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Diplomacy and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "51658dbd-0707-5758-ac1b-c17943d9590f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You gain "
+          },
+          {
+            "type": "ref",
+            "id": "1e22c658-9703-5bc2-9a02-48c302a65267",
+            "label": "Panache"
+          },
+          {
+            "type": "text",
+            "text": " during an encounter whenever you succeed at a Bon Mot against a foe."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "51658dbd-0707-5758-ac1b-c17943d9590f",
+        "predicate": ["class:swashbuckler"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-attack-roll"],
+        "title": "Exemplary Finisher",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The foe takes a -2 circumstance penalty to attack rolls against you until the start of your next turn. Effect: Exemplary Finisher (Wit)"
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": ["option:finisher", "feature:exemplary-finisher"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.4lGhbEjlEoGP4scl"
+    },
+    "data": {
+      "tags": ["swashbuckler-style"]
+    }
+  }
+]

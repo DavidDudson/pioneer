@@ -1,5 +1,169 @@
 [
   {
+    "id": "f926a76b-3a90-549b-a45e-9676b1c24a36",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:ability-boosts",
+    "name": "Ability Boosts",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level and every 5 levels thereafter, boost four different ability scores. You can use these boosts to increase ability scores above 18. Boosting an ability score increases it by 1 if it's already 18 or above, or by 2 if it starts out below 18."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon also gets four ability boosts at these levels. The eidolon's ability boosts follow the same rules as yours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.GI5IAl4dkly4At8e"
+    },
+    "data": {}
+  },
+  {
+    "id": "91ab7da5-ce8e-5493-a0fc-e4e31f2b0dd8",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:arcane-cascade",
+    "name": "Arcane Cascade",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=756"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you wield magic, you can enter a special stance to make your attacks more effective."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c37a3b0e-49e0-5ac4-a746-da1dfcb3852e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "c37a3b0e-49e0-5ac4-a746-da1dfcb3852e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.09iL38CZZEa0q0Mt"
+    },
+    "data": {}
+  },
+  {
+    "id": "b2a9b24c-4bc1-5aab-bc21-4ea744c9bcfb",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:arcane-spellcasting-magus",
+    "name": "Arcane Spellcasting (Magus)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You study spells so you can combine them with your attacks or solve problems that strength of arms alone can't handle. You can cast arcane spells using the "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " activity, and you can supply material, somatic, and verbal components when casting spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Because you're a magus, you can draw replacement sigils with the tip of your weapon or your free hand for spells requiring material components, replacing them with somatic components instead of needing a material component pouch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 1st level, you can prepare one 1st-rank spell and five cantrips each morning from the spells in your spellbook. Prepared spells remain available to you until you cast them or until you prepare your spells again. The number of spells you can prepare is called your spell slots."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you increase in level as a magus, your number of spell slots and the highest rank of spells you can cast from spell slots increase. Because you split your focus between physical training and magical scholarship, you have no more than two spell slots of your highest level and, if you can cast 2nd-rank spells or higher, two spell slots of 1 level lower than your highest spell rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of your spells require you to attempt a spell attack roll to see how effective they are, or have your enemies roll against your spell DC (typically by attempting a saving throw). Your spell attack rolls and spell DCs use your Intelligence modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.wXaz41gwqNtTn6tf"
+    },
+    "data": {}
+  },
+  {
     "id": "a987e48c-e3a9-5483-ba08-295ea4fdfe5b",
     "pack": "secrets-of-magic",
     "kind": "class-feature",
@@ -196,6 +360,1365 @@
     ],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.aSOgbQWMwStTTmap"
+    },
+    "data": {}
+  },
+  {
+    "id": "2f287f7b-ca1d-5e6d-9fce-5072c8a78653",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-anger",
+    "name": "Catharsis Emotion (Anger)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your destructive wrath allows you to harm your foes but causes you pain in the process."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy deals damage to you. You can't use this reaction if you're "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": ", you can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": ". If you succeed, the creature or hazard imposing the condition on you (if applicable) takes force damage equal to your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you Cast a Spell from your spell slots, if the spell deals damage and doesn't have a duration, you gain a status bonus to that spell's damage equal to the spell's rank. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "6e1cd1fd-d87e-5a39-b8fe-5de73bad8880"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become fatigued until you Settle your Emotions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a1afb3c1-4241-521e-b458-79b7d0b6e420"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.MizJPiKnopfpGmvw"
+    },
+    "data": {}
+  },
+  {
+    "id": "7cf27b53-3bbd-5c4c-99ad-10a48cb17cf3",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-awe",
+    "name": "Catharsis Emotion (Awe)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your powerful sense of wonderment can be infectious and distracting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or an ally within 30 feet critically succeeds on an attack roll against an enemy's AC or a skill check against one of an enemy's DCs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you're "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " or stupefied, you can attempt an additional save to end the effect if it allowed a save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you cast a spell, choose one creature that was hit by your spell attack roll or that failed its saving throw, if any. That creature becomes fascinated with you until the end of its next turn. It's then temporarily immune to this fervor effect for 1 hour. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until you Settle your Emotions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "ed738ff6-31d4-5abd-b34c-d55a9ab1d707"
+          },
+          {
+            "type": "text",
+            "text": " (doesn't require a religious symbol)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rgLaxC3I2L7HSPNn"
+    },
+    "data": {}
+  },
+  {
+    "id": "7c769e7d-0848-5748-aabb-ed2ddb69f064",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-dedication",
+    "name": "Catharsis Emotion (Dedication)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your commitment protects those you are dedicated to but can lead to dependency. Your emotional focus is an individual creature you're bound to."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your emotional focus takes damage from an enemy while within 30 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your emotional focus gains a number of temporary Hit Points equal to half your level rounded up. These temporary HP last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your spells that target your emotional focus gain the benefits of Reach Spell. When you cast a healing spell that affects your emotional focus, your emotional focus also gains temporary HP equal to the spell's rank in addition to the spell's effects. These temporary HP last for 1 minute. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "0169fd36-2fab-563c-b9d2-59d5a5fc0d2f"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until you Settle your Emotions, you can't Cast Spells unless you're adjacent to your emotional focus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "12bd2b2c-f1a5-5fb5-9019-537347375066"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.eNFYMQMS2BszErCX"
+    },
+    "data": {}
+  },
+  {
+    "id": "280862db-0387-576e-8e60-8fe04de50e9e",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-fear",
+    "name": "Catharsis Emotion (Fear)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You let your fear fuel you, rather than consume you, but it burns your endurance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy makes you "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Increase your frightened value by 1, to a maximum of "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't take the status penalty from the frightened condition to your spell DCs or spell attack bonus. Instead, you gain a status bonus to spell attack rolls equal to the penalty you would've taken, and your foes take the same status penalty to their saving throws against your spells. Any other statistic takes the status penalty as normal. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "a8b9cc60-f471-559b-a07c-6ad022c23b56"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are "
+          },
+          {
+            "type": "ref",
+            "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+          },
+          {
+            "type": "text",
+            "text": " for 2 rounds, running from the source of the frightened condition that triggered your Catharsis. If that source is no longer present, you instead flee from the position where you were at the start of your emotional fallout."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "c717a797-4991-5a2d-8495-0aeed031faf0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustModifier",
+        "selectors": ["spell-attack-dc"],
+        "slug": "frightened",
+        "mode": "multiply",
+        "value": -1,
+        "predicate": ["self:effect:emotional-fervor"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.7PutMrgKIaAeKBuU"
+    },
+    "data": {}
+  },
+  {
+    "id": "c599839a-ae9c-5030-9883-3dfb8a111acd",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-hatred",
+    "name": "Catharsis Emotion (Hatred)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unabashed hatred consumes your soul and causes your foe to falter. Your emotional focus is an individual enemy you detest."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You start your first turn in an encounter against your emotional focus or one of their followers. If the encounter includes multiple eligible followers and doesn't include your actual emotional focus, choose one of the followers to act as your emotional focus for this encounter (or until your actual emotional focus shows up)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can Step or Stride. You must end this movement closer to your emotional focus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your emotional focus is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to you and takes a –2 status penalty to saves against your spells. You're off-guard to your emotional focus and take a –2 status penalty to saves against it. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "1ce2f883-74e2-5f2d-99fa-78356f6720d6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+            "label": "Stunned 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "0629bdd2-9278-53b8-9ec6-b843f3b379e9"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.S4uY5ap2yhDRqhd0"
+    },
+    "data": {}
+  },
+  {
+    "id": "4817d535-5ae8-59c3-8782-82b5063b6d29",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-joy",
+    "name": "Catharsis Emotion (Joy)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unbridled enthusiasm and positive attitude can lead you to success, but you might expend more energy than you planned."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically succeed on an attack roll or save, or an enemy critically fails on a save against you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reduce the value of any "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+          },
+          {
+            "type": "text",
+            "text": " condition you have by 1 and end any persistent mental damage you have."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to Performance checks and to the spell attack rolls of emotion spells, and enemies take a –1 status penalty to saves against your emotion spells. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "14ef4b6a-5640-523d-ae50-9e3f4fbf860b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " until you Settle your Emotions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cd8fe223-f0a3-52b1-a173-a9c5d888de07"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["self:effect:emotional-fervor"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["spell-dc", "spell-attack"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["self:effect:emotional-fervor", "item:trait:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.zFY2PlJTObXpcQW4"
+    },
+    "data": {}
+  },
+  {
+    "id": "1243b9b6-165f-59e9-813c-5bea37b782ca",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-love",
+    "name": "Catharsis Emotion (Love)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're joined by the bonds of love and nothing can break that, but love can distract you from other things in your life. Your emotional focus is someone you're in love with; they aren't required to love you back."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your emotional focus takes damage from an enemy while within 30 feet of you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If either you or your emotional focus is "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": ", one of you can attempt a new saving throw against one confusing or controlling effect (if it allowed a save), ending the condition if the new save is a success. If both of you are eligible, your emotional focus gets the new save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 status bonus to Will saves. If you cast a spell to benefit your emotional focus, this bonus increases to +3 until the start of your next turn. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "272d555d-f777-5439-b02b-cc5325c0a648"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're "
+          },
+          {
+            "type": "ref",
+            "id": "88ca1b7b-d5de-5978-9ff4-258c9aadef1a"
+          },
+          {
+            "type": "text",
+            "text": " with your emotional focus for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e6e8ab8a-ca1b-53eb-86f4-e5be4abdc056"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 1,
+        "slug": "catharsis-emotion-love",
+        "predicate": ["self:effect:emotional-fervor"]
+      },
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:benefit-love-focus",
+        "toggleable": true,
+        "predicate": ["self:effect:emotional-fervor"],
+        "display": {
+          "label": "You cast a spell to benefit your emotional focus"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["save:will"],
+        "slug": "catharsis-emotion-love",
+        "mode": "override",
+        "value": 3,
+        "predicate": ["option:benefit-love-focus"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.lDjKVZ48zbqQf3CU"
+    },
+    "data": {}
+  },
+  {
+    "id": "7e080005-9a4d-50ad-abb1-1a355f813fca",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-misery",
+    "name": "Catharsis Emotion (Misery)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To suffer is to know you're alive; to make your enemies suffer as greatly as you have eases your suffering."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain persistent damage from a foe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a number of temporary Hit Points equal to your level. They last for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can choose not to attempt a flat check to end persistent damage you're taking. When you cast a damaging spell, you can choose one creature that failed its save or that you hit with your spell attack roll. That target takes persistent damage of the same type the spell dealt, of an amount equal to the highest amount of persistent damage you currently have. You can't choose a creature that's already taking persistent damage. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take an untyped penalty to any damage you would deal with any spell you cast until you Settle your Emotions. The penalty is –1 per spell rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "f7bdb64d-38fc-51c8-824e-14bd69e1c543"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.jklanV9AbZDnZHaD"
+    },
+    "data": {}
+  },
+  {
+    "id": "5d7bb5dc-96e9-5186-b527-47c3064fc36d",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-pride",
+    "name": "Catharsis Emotion (Pride)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All is well as long as you appear well, but you get caught up in the moment and lose track of what's important."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You critically fail on an attack roll or saving throw."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The critical failure becomes a failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each time you cast an illusion spell, until the start of your next turn, any critical failure you roll on an attack roll or saving throw is a failure instead. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "ce5ba457-89bd-5a85-8d45-2faa300f9d49"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You momentarily lose track of what's real, becoming "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. Spell: mirror image"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "86a57df8-744c-52ca-b4a3-a66542dfce68"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ccrTv2j7eplr2JU8"
+    },
+    "data": {}
+  },
+  {
+    "id": "dd73db4b-4829-5ba4-9c7e-a3aa1d2fa6a7",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:catharsis-emotion-remorse",
+    "name": "Catharsis Emotion (Remorse)",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to overcome your failings, but your guilt stays with you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An ally within 30 feet drops to 0 Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Catharsis Activation",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Step or Stride. You must end this movement closer to the triggering ally."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fervor",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any spell you cast that restores Hit Points to the triggering ally gets a status bonus to the Hit Points healed equal to the spell's rank, or double the spell's rank if the ally is at 0 Hit Points. Spell: "
+          },
+          {
+            "type": "ref",
+            "id": "58e8fbff-b06a-529b-9867-a8ff4a331d36"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Emotional Fallout",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your emotional weight crushes you, leaving you "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " until you Settle your Emotions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "281b0528-38d8-5b12-a99d-64bf1af504f5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.T9gUmwghw16itUAO"
+    },
+    "data": {}
+  },
+  {
+    "id": "b382fd6e-ed03-5de3-b435-211aa277b5d0",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:conflux-spells",
+    "name": "Conflux Spells",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn a conflux spell from your hybrid study, and you can cast additional conflux spells by selecting certain feats. Conflux spells are magus-specific spells created for combat and are a type of focus spell. It costs 1 Focus Point to cast a focus spell, and you start with a focus pool of 1 Focus Point. You refill your focus pool during your daily preparations, and you can regain 1 Focus Point by spending 10 minutes using the Refocus activity to both study your spellbook and perform a physical regimen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus spells are automatically heightened to half your level rounded up. Focus spells don't require spell slots, nor can you cast them using spell slots. Taking feats can give you more focus spells and increase the size of your focus pool, though your focus pool can never hold more than 3 points. The full rules can be found on page 300 of the Core Rulebook."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.FkbFgmoVz5lHhSMo"
     },
     "data": {}
   },
@@ -445,6 +1968,429 @@
     }
   },
   {
+    "id": "24e28075-ead9-5e48-8488-27e0af347e82",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:double-spellstrike",
+    "name": "Double Spellstrike",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can extend the magic of spells you store with Spellstrike. After you make a Spellstrike with a spell cast from a spell slot, you retain an echo of the spell, stored in your body. The next time you Spellstrike, you can cast the same spell again without expending a spell slot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you choose to cast a different spell with Spellstrike, or you go 1 minute without using the stored spell, the stored spell dissipates harmlessly."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.VmPIJomEdmgGrCMS"
+    },
+    "data": {}
+  },
+  {
+    "id": "553873d9-9638-539a-9fac-432194a6df70",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon",
+    "name": "Eidolon",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have a connection with a powerful and usually otherworldly entity called an eidolon, and you can use your life force as a conduit to manifest this ephemeral entity into the mortal world. Magic also flows through this conduit from your eidolon into you, so your eidolon determines the type of spells you cast and the spell list you choose from (as described in Summoner Spellcasting on page 54)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose a type of eidolon from the options starting on page 59 and other eidolons you have access to. When you choose your eidolon, you also determine its appearance and general form, within the parameters for that particular type of eidolon. Once you establish your eidolon's type and general appearance, these features can't be changed later, except by selecting special evolution feats that can cause your eidolon to develop new features."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your magical connection with your eidolon takes the form of a sigil on each of your bodies. As long as your eidolon is manifested, the sigil glows with light and can't be covered or disguised via any means; it will shine through clothing, appear over cloaks, and remain unaffected by obfuscating magic. This, combined with the way that the two of you clearly act in tandem, makes it readily apparent to an intelligent observer that the two of you are connected in some way, even if the person has never encountered a summoner before."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring your eidolon into reality with the Manifest Eidolon action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon is no mere minion. It doesn't have the minion or summoned trait, and the two of you work together and coordinate your actions. You and your eidolon share your actions and multiple attack penalty. Each round, you can use any of your actions (including reactions and free actions) for yourself or your eidolon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You coordinate your actions with your eidolon more efficiently when you Act Together. Your connection with your eidolon allows you to communicate with it telepathically at all times, even when it isn't manifested. You also gain the Share Senses action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Lastly, the connection between you and your eidolon means you both share a single pool of Hit Points. Damage taken by either you or the eidolon reduces your Hit Points, while healing either of you recovers your Hit Points. Like with your actions, if you and your eidolon are both subject to the same effect that affects your Hit Points, you apply those effects only once (applying the greater effect, if applicable). For instance, if you and your eidolon get caught in an area effect that would heal or damage you both, only the greater amount of healing or damage applies."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Gear and your Eidolon"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon can't wear or use magic items, except for items with the eidolon trait. An eidolon can have up to two items invested. Your eidolon's link to you means it can benefit from certain magic items invested by you."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon gains item bonuses to Perception and skills from any magical items that you have invested."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon increases its item bonus to AC based on your armor's armor potency rune or bracers of armor. It also gains an item bonus to its saves from the resilient rune on your armor or from your bracers of armor. Other permanent items that grant or increase item bonuses to AC and saves might convey a similar benefit, as determined by the GM."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your eidolon's Strikes benefit from the fundamental and property runes on your handwraps of mighty blows. Alternatively, you can Invest a magic weapon (even though magic weapons can't normally be Invested) to share its fundamental and property runes with your eidolon. You share these benefits only while you're holding the weapon, and you can have no more than one weapon invested in this way at a time. In either case, the eidolon gains only the benefits that can apply to its attacks, with the same limitations noted in handwraps of mighty blows."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Lost and Altered Actions"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you or your eidolon becomes slowed, stunned, quickened, or otherwise affected by something that changes the actions you gain at the start of each turn, it affects your shared actions. However, if you are both subject to such an effect, apply only the more severe one. For instance, if you or your eidolon were "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": ", you would start your turn with one fewer action, but if you were both slowed 1, you would still lose only one action, rather than adding the two slowed effects together. However, if you were slowed 1 and your eidolon "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": ", you'd have two fewer actions, because that's the more severe effect. If only one of you becomes restricted in how you can spend your actions, that restriction doesn't automatically extend to the other; for example, if your eidolon became "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " or petrified, it wouldn't be able to move, but you could still use your actions to move. The GM resolves any situation that's unclear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You, as the player, control both your summoner and your eidolon, and the two are generally considered to cooperate unless you decide for them not to. While a summoner's link with an eidolon is a partnership, ultimately the eidolon is linked to you, not the other way around. If there's ever a conflict of who should act, you win out over your eidolon. This means that if the eidolon comes under an effect that would take its actions out of your control, such as the "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " or controlled condition, you can use all of your shared actions so your eidolon doesn't have any actions remaining to cause trouble (as long as you are able to act). However, if you came under such an effect, you would simply use all of your shared actions, preventing your eidolon from acting."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "655b420d-b55f-5eef-b14c-c4e3a257ac7c",
+        "allowDuplicate": false
+      },
+      {
+        "key": "GrantItem",
+        "item": "5f5f3ba8-3d8c-5192-a097-d005f7deed9d",
+        "allowDuplicate": false
+      },
+      {
+        "key": "GrantItem",
+        "item": "a1590210-2f4e-51fe-9e44-f96d8f964c4d",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.qOEpe596B0UjhcG0"
+    },
+    "data": {}
+  },
+  {
+    "id": "92331fd0-d987-517e-a4f2-8ae9c295cb66",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-defensive-expertise",
+    "name": "Eidolon Defensive Expertise",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon increases its ability to avoid attacks. Its proficiency rank for unarmored defense increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2CZPYoyWih6zYTcb"
+    },
+    "data": {}
+  },
+  {
+    "id": "44c4dcf9-6cd2-5230-82e8-0114ce088107",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-defensive-mastery",
+    "name": "Eidolon Defensive Mastery",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon's form becomes particularly difficult to assail. Its proficiency rank for unarmored defense increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.0WvI8KM5m0SaZ3MH"
+    },
+    "data": {}
+  },
+  {
+    "id": "7d393f17-f9cf-535a-9150-fb6bf0254838",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-symbiosis",
+    "name": "Eidolon Symbiosis",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection with your eidolon strengthens, granting your eidolon access to a new ability depending on its type, as described in Eidolon Abilities in each eidolon's entry."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.skQBrwRwJW2K6ACj"
+    },
+    "data": {}
+  },
+  {
+    "id": "5750d2f3-5630-5c8e-964a-d65ad60a3816",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-transcendence",
+    "name": "Eidolon Transcendence",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection with your eidolon approaches its peak, granting your eidolon access to a powerful new ability depending on its type, as described in Eidolon Abilities in each eidolon's entry. This ability also increases one of the eidolon's ability scores by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.nCE9DzkugRefREqT"
+    },
+    "data": {}
+  },
+  {
+    "id": "45ef8c02-c5c7-5aab-a60d-a08c6d2a6068",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-unarmed-expertise",
+    "name": "Eidolon Unarmed Expertise",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon becomes more capable of using its unarmed attacks. Its proficiency rank for unarmed attacks increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pda6iUaU9waXId5Q"
+    },
+    "data": {}
+  },
+  {
     "id": "60a52ad4-ba9d-5f3e-a7fc-c0f5bfadd414",
     "pack": "secrets-of-magic",
     "kind": "class-feature",
@@ -473,6 +2419,70 @@
     "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.NIzHfVcVMhDmvA49"
+    },
+    "data": {}
+  },
+  {
+    "id": "3d72687b-b1c9-5b98-9ee6-9990f8c8d3f9",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:eidolon-weapon-specialization",
+    "name": "Eidolon Weapon Specialization",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon has learned how to inflict greater injuries with its unarmed attacks. It deals 2 additional damage with unarmed attacks in which it's an expert. This damage increases to 3 if it's a master, and 4 if it's legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.oCnyGRvkfjTsZXcX"
+    },
+    "data": {}
+  },
+  {
+    "id": "b5ffb7fc-3c7d-57cb-8e5d-53e7d63abf13",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:evolution-feat",
+    "name": "Evolution Feat",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Evolution feats are a special type of summoner class feat that allow you to customize your eidolon through your shared link. You gain an evolution feat for your eidolon at 1st level, representing the differences that make it unique from other eidolons of its type. If you retrain this feat, the feat you replace it with must also be an evolution feat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.IPcdQAwJk0aZe5mg"
     },
     "data": {}
   },
@@ -743,6 +2753,474 @@
     }
   },
   {
+    "id": "591049fd-a45b-5242-bf92-18a5a479bc37",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:greater-eidolon-specialization",
+    "name": "Greater Eidolon Specialization",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eidolon's damage from weapon specialization increases to 4 with unarmed attacks in which it's an expert, 6 if it's a master, and 8 if it's legendary."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.B5SyM7qHrU0gTGR0"
+    },
+    "data": {}
+  },
+  {
+    "id": "9f4a58d5-fd9f-5765-a189-c35f27decc92",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:hybrid-study",
+    "name": "Hybrid Study",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your extensive physical training and carefully chosen magic combine to form a unique and dangerous fighting style that's more than the sum of its parts. You choose one field of hybrid study to represent your particular combination of skills. Your hybrid study gives you a special ability, usually tied to "
+          },
+          {
+            "type": "ref",
+            "id": "57ad4365-c4e3-50c6-8834-41314c65031e"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "91ab7da5-ce8e-5493-a0fc-e4e31f2b0dd8"
+          },
+          {
+            "type": "text",
+            "text": ", and it determines your initial conflux spell. The hybrid studies presented in this book are as follows."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "7766feb8-a1ea-5fd2-a146-81f1afd4969e"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "1199ff86-a600-5a83-bbea-0f3763ef5bf8"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "cf0266a9-1dcd-58f3-ad40-e04e9a63c067"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "e2af8b3e-1707-5c9b-ba79-c8fe2c34c57c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "00e82067-2d87-541f-8a41-e0a17a04537c"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.FTeIs1Z1Qeli4BIF"
+    },
+    "data": {}
+  },
+  {
+    "id": "7766feb8-a1ea-5fd2-a146-81f1afd4969e",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:inexorable-iron",
+    "name": "Inexorable Iron",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once you begin along a path, nothing can stop you from reaching its end. You transform the mass of a greataxe, greatsword, or polearm into an unstoppable force to augment your own striking power or keep you standing on the battlefield."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you enter Arcane Cascade stance and at the start of each of your turns while you're in that stance, if you're wielding a melee weapon in two hands, you gain temporary Hit Points equal to half your level (minimum 1 temporary HP)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "90ec9d96-ec22-5a4b-97de-13a41738f11b"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ZslXrvYRxHBXc1Ds"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
+    "id": "1db31120-6049-5930-8a7f-f64d18cba458",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:instant-manifestation",
+    "name": "Instant Manifestation",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can manifest your eidolon with incredible speed. You can use "
+          },
+          {
+            "type": "ref",
+            "id": "655b420d-b55f-5eef-b14c-c4e3a257ac7c"
+          },
+          {
+            "type": "text",
+            "text": " as a single action, instead of a three-action activity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.H0iWhiyP0QqgmAKs"
+    },
+    "data": {}
+  },
+  {
+    "id": "1199ff86-a600-5a83-bbea-0f3763ef5bf8",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:laughing-shadow",
+    "name": "Laughing Shadow",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Magic is freeing, a means to your ends, and you can use it to go where you want, do as you please, and avoid the consequences. You are a laughing shadow of spell and blade, always one step ahead of your foes, always with a trick up your sleeve."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in Arcane Cascade stance, you gain a +5-foot status bonus to your Speeds, or a +10-foot bonus if you're unarmored. If you have a free hand while in the stance and are attacking an "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creature, you increase the extra damage to 3, to 5 if you have weapon specialization, or to 7 if you have greater weapon specialization. You must have your other hand completely free; the extra damage doesn't apply if you have a free-hand weapon or other item in that hand, even if you would normally be able to use the hand for other things."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "23aa72a8-86a1-5b76-beed-4ae8b0aba84f"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 5,
+        "slug": "laughing-shadow-armored-movement",
+        "predicate": ["self:armored", "self:effect:arcane-cascade"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 10,
+        "slug": "laughing-shadow-unarmored-movement",
+        "predicate": [
+          "self:effect:arcane-cascade",
+          {
+            "not": "self:armored"
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 3,
+        "predicate": [
+          "target:condition:off-guard",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 5,
+        "predicate": [
+          "feature:weapon-specialization",
+          "target:condition:off-guard",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "arcane-cascade-extra-damage",
+        "mode": "upgrade",
+        "value": 7,
+        "predicate": [
+          "feature:greater-weapon-specialization",
+          "target:condition:off-guard",
+          {
+            "gte": ["hands-free:but-really", 1]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.3gVDqDPSz4fB5T9G"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
+    "id": "633ad9ca-cb15-523e-b0b3-8cf5557093e9",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:link-spells",
+    "name": "Link Spells",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your connection to your eidolon allows you to cast link spells, special spells that have been forged through your shared connection with your eidolon. Link spells are a type of focus spell. It costs 1 Focus Point to cast a focus spell, and you start with a focus pool of 1 Focus Point. You refill your focus pool during your daily preparations, and you can regain 1 Focus Point by spending 10 minutes using the Refocus activity to specifically connect with your eidolon, such as by having a heart-to-heart conversation, playing together, or meditating in unison on the nature of your bond."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus spells are automatically heightened to half your level rounded up, much like cantrips. Focus spells don't require spell slots, and you can't cast them using spell slots. Taking feats can give you more focus spells and increase the size of your focus pool, though your focus pool can never hold more than 3 Focus Points. The full rules for focus spells appear on page 300 of the Core Rulebook."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn the "
+          },
+          {
+            "type": "ref",
+            "id": "a33730f4-1919-5153-9250-9e5863ceb2a4"
+          },
+          {
+            "type": "text",
+            "text": " link spell, which allows you to grant your eidolon one of several useful benefits."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Link Cantrips"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Link cantrips are special link spells that don't cost Focus Points, so you can cast them as often as you like. Link cantrips are in addition to the cantrips you choose from your tradition's spell list. Generally, only feats can give you more link cantrips. Unlike other cantrips, you can't swap out link cantrips gained from summoner feats at a later level, unless you swap out the specific feat via retraining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn the "
+          },
+          {
+            "type": "ref",
+            "id": "53d21ae7-276b-537f-93ad-59042f49c527"
+          },
+          {
+            "type": "text",
+            "text": " link cantrip, which briefly improves your eidolon's capabilities, allowing it to attack with greater power."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.wguqw300DB5XdD8W"
+    },
+    "data": {}
+  },
+  {
     "id": "3b5c4d59-a370-5cdd-a0a8-d34fcb389107",
     "pack": "secrets-of-magic",
     "kind": "class-feature",
@@ -998,6 +3476,1096 @@
     }
   },
   {
+    "id": "047c0f3c-4fa9-59cc-9255-b58d173ba922",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:runelord-specialization",
+    "name": "Runelord Specialization",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw untold power from runes, sometimes called sin magic. You associate with one of the seven vices, also known as the seven rewards of rule: envy (abjuration), gluttony (necromancy), greed (transmutation), lust (enchantment), pride (illusion), sloth (conjuration), and wrath (evocation). Studying these techniques often tempts you with the associated sin. While leaning into it could corrupt you, it might make you more powerful. If you choose this class archetype, you must select "
+          },
+          {
+            "type": "ref",
+            "id": "f309543d-d84a-5da8-89ed-34caed5a1c7e"
+          },
+          {
+            "type": "text",
+            "text": " as your 2nd-level class feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a wizard specializing in one of the seven schools other than divination."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelord Adjustments",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " In addition to the normal school spell for your chosen school of magic, you learn the initial rune spell associated with your school, with its school adjusted to your chosen school of magic if it wasn't from that school already. Your pool of Focus Points increases to 2 Focus Points. At 8th level, you also learn the advanced rune spell associated with your school, also adjusting its school to match your chosen school of magic if it wasn't already, and your pool of Focus Points increases to 3 Focus Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Refocus by indulging in your school's sin in lieu of studying your spellbook. As you become more powerful, your indulgence grows. At 12th level, if you indulge in your sin to "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": ", if you have spent at least 2 Focus Points since the last time you Refocused, you recover 2 Focus Points when you Refocus instead of 1. At 18th level, if you indulge in your sin to Refocus, if you have spent at least 3 Focus Points since the last time you Refocused, you recover 3 Focus Points when you Refocus instead of 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in martial polearms. At 11th level, if you gain "
+          },
+          {
+            "type": "ref",
+            "id": "31364a26-b9ea-582e-8fc2-2f1f47fb1ab4"
+          },
+          {
+            "type": "text",
+            "text": ", you become an expert in martial polearms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finally, you lose the ability to prepare or cast any spell from your school's prohibited schools. You remove all spells of those schools from your spell list, meaning you can't even activate scrolls or wands of such spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additional Feats",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 2nd "
+          },
+          {
+            "type": "ref",
+            "id": "f1e6ae66-8628-5269-85a1-27eb4f1fc0b7"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "The Seven Schools"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The following seven schools are considered proper specializations of Thassilonian rune magic. In this paradigm, the Thassilonians considered divination magic to be something every wizard should learn but that none need take the effort to master."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Abjuration (Envy)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of abjuration specialize in protective magic and in suppressing all other magic to glorify their own."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " evocation, necromancy; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "c887301c-a938-5984-ac70-655db0f34af1"
+          },
+          {
+            "type": "text",
+            "text": " advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "4239a1e0-2b6b-506f-8eab-916d18c9a173"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Conjuration (Sloth)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of conjuration use their magic to create what they need as they need it, and call forth servants to do their bidding."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " evocation, illusion; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "0fe57239-f3c4-5725-9c6a-3a8017e781db"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "a98dbd71-888a-53a8-995e-6f603bb6e9a0"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Enchantment (Lust)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of enchantment specialize in magic that compels and controls the minds of others, often to fulfill their own needs and desires."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " necromancy, transmutation; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "f6115fa4-414d-5ec2-88b0-6532c3880111"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "313c11ff-3959-5152-b6f8-247cf4a8f9f6"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Evocation (Wrath)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of evocation channel raw destructive energies and direct them toward all who would oppose their will."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " abjuration, conjuration; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "e7b43921-a822-5482-b46f-1a7784b49e1a"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "48abeee9-4024-50a3-957e-b5209f4ff629"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Illusion (Pride)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of illusion use magic to create the perfect appearance and fool others through trickery, deception, and misdirection."
+          },
+          {
+            "type": "line-break"
+          },
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " conjuration, transmutation; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "86a57df8-744c-52ca-b4a3-a66542dfce68"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "d5f36ee8-a692-5f7b-93cd-727a19c1a9a9"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Necromancy (Gluttony)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of necromancy tap into their constant hunger for more power and enhancing their longevity, potentially even unto undeath."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " abjuration, enchantment; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "74d1e3b1-2acd-5276-9f8f-aa634410ef3f"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "905d9a31-06d5-5b8f-b05e-23672015be36"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Transmutation (Greed)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Runelords of transmutation not only transform objects to create value, but also transform and enhance their own power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prohibited Schools",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " enchantment, illusion; "
+          },
+          {
+            "type": "text",
+            "text": "Rune Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "866e671b-d814-5c60-8453-9b24637b9c6f"
+          },
+          {
+            "type": "text",
+            "text": ", advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "6542a1c8-0202-5980-9594-a17835593295"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.HYTaibaCGE85rhbZ"
+    },
+    "data": {}
+  },
+  {
+    "id": "05735b23-9823-54a6-8059-aca79a7a11cc",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:shared-reflexes",
+    "name": "Shared Reflexes",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon boost each other's reflexes, allowing you both to roll away from danger. Your proficiency rank for Reflex saves and your eidolon's proficiency rank for Reflex saves increase to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dZNAXTQovlWVvAyX"
+    },
+    "data": {}
+  },
+  {
+    "id": "c3013982-fd37-5df7-8aec-87ea3a32682a",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:shared-resolve",
+    "name": "Shared Resolve",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon steel your mind together against effects that threaten you, each protecting the others' minds from danger. Your and your eidolon's proficiency ranks for Will saves increase to master. When you roll a success on a Will save, you get a critical success instead. When your eidolon rolls a success on a Will save, it gets a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:will"],
+        "title": "Shared Resolve",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a Will save, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.eZPfHVz14j42jCnS"
+    },
+    "data": {}
+  },
+  {
+    "id": "8a2d622d-3e78-53c7-af42-d35c437602d8",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:shared-vigilance",
+    "name": "Shared Vigilance",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon work together to remain alert to threats around you, allowing you to perceive far more together than you could individually. Your proficiency rank in Perception and your eidolon's proficiency rank in Perception increase to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "perception",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.QiMlJ33kNEoyh1M0"
+    },
+    "data": {}
+  },
+  {
+    "id": "cf0266a9-1dcd-58f3-ad40-e04e9a63c067",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:sparkling-targe",
+    "name": "Sparkling Targe",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've studied the applications of magic, training yourself to perform not just offensive maneuvers but defensive tactics as well. When magic flows through you, your shield can block impossible things, even a dragon's breath or a magic missile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " general feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you're in Arcane Cascade stance with your shield raised, your circumstance bonus to AC from your shield also applies to your saves against spells and other magical effects. In addition, damage you take as a result of a spell or magical effect while you're in Arcane Cascade can trigger your Shield Block reaction, even if the damage isn't physical. When blocking damage in this way, increase your shield's Hardness by an amount equal to the extra damage from Arcane Cascade (typically 1, but 2 if you have weapon specialization, or 3 if you have greater weapon specialization). These benefits apply whether you're using an actual shield, the shield spell, or something else that works like a shield (such as a raised tome if you have the Raise a Tome feat)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "a4f76a4e-adf8-5b6a-9656-886a52fe8389"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:defend-against-magic",
+        "toggleable": true,
+        "predicate": ["self:effect:arcane-cascade"],
+        "display": {
+          "label": "Defending against magic"
+        }
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:magical", "item:type:spell", "option:defend-against-magic"]
+          },
+          "self:effect:arcane-cascade",
+          "self:effect:raise-a-shield",
+          {
+            "not": "feature:weapon-specialization"
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["option:magical", "item:type:spell", "option:defend-against-magic"]
+          },
+          "self:effect:arcane-cascade",
+          "self:effect:raise-a-shield",
+          "feature:weapon-specialization",
+          {
+            "not": "feature:greater-weapon-specialization"
+          }
+        ]
+      },
+      {
+        "key": "ItemAlteration",
+        "items": ["item:type:shield", "item:equipped"],
+        "property": "hardness",
+        "mode": "add",
+        "value": 3,
+        "predicate": [
+          {
+            "or": ["option:magical", "option:spell", "option:defend-against-magic"]
+          },
+          "self:effect:arcane-cascade",
+          "self:effect:raise-a-shield",
+          "feature:greater-weapon-specialization"
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.maGzhKLmgubAdUlN"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
+    "id": "015d8b81-2a1d-56c4-ad80-720c1103fd3a",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:spell-repertoire-summoner",
+    "name": "Spell Repertoire (Summoner)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The collection of spells you can cast is called your spell repertoire. At 1st level, you learn two 1st-rank spells of your choice and five cantrips of your choice. You choose these from the common spells from the tradition corresponding to your eidolon, or from other spells from that tradition to which you have access. You can cast any spell in your spell repertoire by using a spell slot of an appropriate spell rank. Your spell slots and the spells in your spell repertoire are separate. If a feat or other ability adds a spell to your spell repertoire, it doesn't give you another spell slot, and vice versa."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add to this spell repertoire as you increase in level. Each time you get a spell slot (see Table 2-4: Summoner Spells per Day), you add a spell of the same rank to your spell repertoire. At 2nd level, you select another 1st-rank spell. At 3rd level, you add the first 2nd-rank spell to your repertoire. At 4th level you gain your second and your spell repertoire reaches its maximum size of five spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 5th level, in addition to adding two 3rd-rank spells to your repertoire, you lose your lowest rank of spell slots. Any time you lose a rank of spell slots, you lose two spells in your repertoire as well. These can come from spells you already know or out of the number of new spells you're learning. On levels in which you don't change your spell slots, you can swap out multiple spells, as described below."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Swapping Spells in Your Repertoire"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you gain new spells in your repertoire, you might want to replace some of the spells you previously learned. Each time you gain a level and learn new spells, you can swap out one of your old spells for a different spell of the same rank. If it's a level at which you lose a set of lower-rank slots, you can replace the two in either order. You can also instead swap a cantrip. You can also swap out spells by retraining during downtime."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 6th level and every even level thereafter, you can swap out any number of your spells for different spells of a level you can cast. When you do, you must keep at least one spell you can cast with your lowest rank of spell slots so you don't end up with slots you can't use. For instance, at 6th level you would need to keep at least one 2nd-rank spell, but all your other spells could be 3rd level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Ju2Tp5s5iBB76tQO"
+    },
+    "data": {}
+  },
+  {
+    "id": "57ad4365-c4e3-50c6-8834-41314c65031e",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:spellstrike",
+    "name": "Spellstrike",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic",
+        "aon": "https://2e.aonprd.com/Actions.aspx?ID=755"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned the fundamental magus technique that lets you combine magical and physical attacks together. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "3ed95565-78ac-5824-9bfd-2bdb6073b247"
+          },
+          {
+            "type": "text",
+            "text": " activity."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellstrike Specifics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though the base Spellstrike rules cover most spells, various modifications apply to more complicated spells when loaded into your fist, blade, or other attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One Target",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell targets only the target of your Strike, even if it normally allows more targets. Some feats let you affect more creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reach: The coupled spell affects the target using the reach of the weapon or unarmed attack you make your Spellstrike with. For instance, shocking grasp would affect a creature beyond the reach of your hand if you used a weapon with reach, and ray of frost would affect only a creature in your weapon's reach, even though the spell's range is longer."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ancillary Effects",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your spell still has any non-targeted effects that might affect creatures other than the target, as well as any ongoing effects starting from the moment you hit with the Strike. For example, acid splash would still deal its splash damage to creatures other than the target and tanglefoot's circumstance penalty would last for its normal duration. The spell takes effect after the Strike deals damage; if the Strike has other special effects, the GM determines whether they happen before or after the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Multiple Defenses",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Any additional rolls after the initial spell attack still happen normally, such as the Fortitude save attempted by the target of a disintegrate spell. Similarly, a spell that allows you to attack with it again on subsequent rounds would only combine a Strike with its initial attack roll, not with any later ones. Invalid or Immune Target: If the target you hit wouldn't be a valid target for the spell, the spell is still expended but doesn't affect the target. If the target is immune to your attack but not the spell, it can still be affected by the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Variable Actions",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Some spells have different effects based on the number of actions you spend to cast them. You choose whether to use the effects of the 1- or 2-action version of the spell when you use Spellstrike. A spell has to take exactly 1 or 2 actions; you can't use Spellstrike with a spell that takes a free action, reaction, or 3 or more actions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Metamagic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You typically can't use metamagic with Spellstrike because metamagic requires the next action you take to be Cast a Spell, and Spellstrike is a combined activity that doesn't qualify."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "3ed95565-78ac-5824-9bfd-2bdb6073b247"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KVj5ofUwu3VJSrVw"
+    },
+    "data": {}
+  },
+  {
+    "id": "e2af8b3e-1707-5c9b-ba79-c8fe2c34c57c",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:starlit-span",
+    "name": "Starlit Span",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With magic, the sky's the limit, and you can't be bound by the confines of physical proximity. Your power reaches as far as your senses can perceive, transcending the space between you and your target even with spells that normally require direct physical contact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you use Spellstrike, you can make a ranged weapon or ranged unarmed Strike, as long as the target is within the first range increment of your ranged weapon or ranged unarmed attack. You can deliver the spell even if its range is shorter than the range increment of your ranged attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "8e5bcea4-897a-549e-9180-18bd021dc630"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Pew7duAozEeAemif"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
+    }
+  },
+  {
     "id": "b998d731-b5bc-5f3b-9ebe-1afa7455a584",
     "pack": "secrets-of-magic",
     "kind": "class-feature",
@@ -1113,6 +4681,461 @@
     },
     "data": {
       "tags": ["druid-order"]
+    }
+  },
+  {
+    "id": "fe690444-9724-57e9-b900-3f86786b2c1c",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:studious-spells",
+    "name": "Studious Spells",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your hybrid study grants you additional spells that can enhance your power in combat. You gain two special 2nd-rank studious spell slots, which can be used to prepare "
+          },
+          {
+            "type": "ref",
+            "id": "252f0769-5c44-520c-a7ae-6837e4b3932b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "566a10d1-097c-5ee1-b473-4e0ab1475228"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "42fa4e93-acfd-52ff-a186-cef177164f63"
+          },
+          {
+            "type": "text",
+            "text": ", and an additional spell depending on your hybrid study. You add any spells from this class feature to your spellbook. At 11th level, the extra slots increase to 3rd-rank and you add "
+          },
+          {
+            "type": "ref",
+            "id": "2b79f5bd-e9d5-59cd-81f8-b1362ed0b59a"
+          },
+          {
+            "type": "text",
+            "text": " and an additional spell depending on your hybrid study. At 13th level, the extra slots increase to 4th-rank and you add "
+          },
+          {
+            "type": "ref",
+            "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "type": "text",
+            "text": " and an additional spell depending on your hybrid study."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Laughing Shadow",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: Mirror Image; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "d463be96-fdf4-58b2-b560-2489ad2ca28f"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sparkling Targe",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "d54ee3a3-6742-53c8-9070-17edcb0cae19"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "f1128904-7b44-50af-9d44-36c9a08a6156"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "2e797ff1-fcb3-5e23-af04-bc8fc9271425"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Starlit Span",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "6bcf1643-218b-5e08-9fa5-62ff7c800b72"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "ad0650c3-31d5-51c2-8226-045ac8442ae8"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inexorable Iron",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "3cddd734-8a89-5de8-9c13-65748a0c7c32"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Twisting Tree",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "88a7eae6-f2cf-572b-8d9a-4a038426d29a"
+          },
+          {
+            "type": "text",
+            "text": "; 11th: "
+          },
+          {
+            "type": "ref",
+            "id": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+          },
+          {
+            "type": "text",
+            "text": "; 13th: "
+          },
+          {
+            "type": "ref",
+            "id": "57a0b3be-ec46-56cd-99e6-c5c0988b0285"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.6HCI2iHyBZAr7a4P"
+    },
+    "data": {}
+  },
+  {
+    "id": "bb3f186c-545f-573f-9851-cec948595c81",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:summoner-spellcasting",
+    "name": "Summoner Spellcasting",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your link to your eidolon grants you limited magic connected to your eidolon's nature. You can cast spells using the Cast a Spell activity, and you can supply material, somatic, and verbal components when casting spells. Because of the magic you draw from your eidolon, you can usually replace material components with somatic components, so you don't need a material component pouch."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each day, you can cast one 1st-rank spell and five cantrips. You must know spells to cast them, and you learn them via the spell repertoire class feature. The number of spells you can cast each day is called your spell slots."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you increase in level as a summoner, the magical link with your eidolon grants you additional, more powerful spell slots. Your total number of spell slots and the highest rank of spells you can cast are shown in Table 2-4: Summoner Spells per Day. Because of the way you draw magic from your connection to your eidolon, you begin to lose lower-rank spell slots once you reach 5th level. The maximum number of spell slots you get from the summoner class is four, starting when you reach 4th level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of your spells require you to attempt a spell attack roll to see how effective they are, or have your enemies roll against your spell DC (typically by attempting a saving throw). Since your key ability is Charisma, your spell attack rolls and spell DCs use your Charisma modifier. Details on calculating these statistics appear on page 447 of the Core Rulebook."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightening Spells"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you gain spell slots of 2nd level and higher, you can fill those slots with stronger versions of lower-rank spells. This increases the spell's rank, heightening it to match the spell slot. Many spells have specific improvements when they are heightened to certain ranks."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Cantrips"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A cantrip is a special type of spell that doesn't use spell slots. You can cast a cantrip at will, any number of times per day. A cantrip is always automatically heightened to half your level rounded up-this is usually equal to the highest rank of spell you can cast as a summoner. For example, as a 1st-level summoner, your cantrips are 1st-rank spells, and as a 5th-level summoner, your cantrips are 3rd-rank spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.gWcN75VNpSZ4FqNb"
+    },
+    "data": {}
+  },
+  {
+    "id": "0ad83307-e453-5273-87cc-aade7ddc035e",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:twin-juggernauts",
+    "name": "Twin Juggernauts",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["summoner"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You and your eidolon fight off physical hardship together with your shared life force. Your proficiency rank for Fortitude saves and your eidolon's proficiency rank for Fortitude saves increase to master. When you roll a success on a Fortitude save, you get a critical success instead. When your eidolon rolls a success on a Fortitude save, it gets a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:fortitude"],
+        "title": "Twin Juggernauts",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a success on a Fortitude save, you get a critical success instead."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:fortitude"],
+        "adjustment": {
+          "success": "one-degree-better"
+        },
+        "checkType": "save"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.q1Y12Pg2gQg2FJPR"
+    },
+    "data": {}
+  },
+  {
+    "id": "00e82067-2d87-541f-8a41-e0a17a04537c",
+    "pack": "secrets-of-magic",
+    "kind": "class-feature",
+    "slug": "class-feature:twisting-tree",
+    "name": "Twisting Tree",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["magus"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "secrets-of-magic"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The staff is perhaps one of the simplest of weapons, but this simplicity belies its elegance and versatility. To you, a staff is casting implement and martial weapon alike-the foundation of a fighting style."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you wield a staff in one hand, the staff adjusts in shape and weight, gaining the agile trait and increasing its damage die size to 1d6. While you wield a staff in both hands, it lengthens, twists, and reshapes, gaining the parry, reach, and trip traits. While you're in Arcane Cascade stance, you can Interact or Release to change your grip on the weapon as a free action when you Strike with your staff, including Strikes made in a Spellstrike. This happens before you roll your attack roll. You can also Interact to change your grip on the staff as a free action triggered at the end of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Conflux Spell",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "9fe2c312-86ce-5849-bff7-13d89d504fa6"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.6YJ8KFl7THkVy6Gm"
+    },
+    "data": {
+      "tags": ["magus-hybrid-study"]
     }
   },
   {

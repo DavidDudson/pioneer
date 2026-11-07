@@ -5995,7 +5995,8 @@
         },
         "selfEffect": "0d9b9736-5e27-5d15-a339-6215f6ec9a02"
       }
-    }
+    },
+    "supersedes": ["5a69cc04-21ab-56dc-a8c2-bbfa5dcae9ea"]
   },
   {
     "id": "b52922dd-9ef9-5964-b64d-14e931957132",
@@ -30239,7 +30240,8 @@
           "per": "hour"
         }
       }
-    }
+    },
+    "supersedes": ["4ce367ac-388c-5445-8ea7-e50cf8762fa2"]
   },
   {
     "id": "50302430-d069-5952-8da1-e3f8c44345f4",
@@ -31112,7 +31114,8 @@
     },
     "data": {
       "category": "class"
-    }
+    },
+    "supersedes": ["9b74eeac-8b69-59a4-b780-212d1977b1ee"]
   },
   {
     "id": "0b3af023-c502-580c-b7d6-c4ffa288e830",
@@ -34713,7 +34716,8 @@
         }
       ],
       "archetype": "f4915953-a349-556c-9c96-34aff718c6a8"
-    }
+    },
+    "supersedes": ["168fbc4f-d426-575c-af3f-6f0a18b48120"]
   },
   {
     "id": "da848e73-2a32-55b9-98b2-ee3dd5331da8",
@@ -37509,7 +37513,8 @@
           }
         ]
       }
-    }
+    },
+    "supersedes": ["f550c578-ea0f-5806-ae9e-253d886116fb"]
   },
   {
     "id": "b21f027c-af22-5410-955c-8e3d65613bb5",
@@ -40924,7 +40929,8 @@
     },
     "data": {
       "category": "class"
-    }
+    },
+    "supersedes": ["a0aa2ff3-4c66-571e-99a1-69b1c24ef53a"]
   },
   {
     "id": "9cd70797-5354-5a60-aecd-9f2e6c619cb2",
@@ -44244,7 +44250,8 @@
         ]
       },
       "prerequisitePredicate": ["feat:orc-ferocity"]
-    }
+    },
+    "supersedes": ["52f2e1a2-642e-52ef-adba-7311b0434b7e"]
   },
   {
     "id": "5138cbea-e7f6-53b0-8938-80b1a18cdd4b",

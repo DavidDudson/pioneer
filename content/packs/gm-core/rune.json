@@ -3347,7 +3347,8 @@
         "item": "armor",
         "restriction": "light"
       }
-    }
+    },
+    "supersedes": ["64272184-618b-5fee-bc1b-ec04f51664b9"]
   },
   {
     "id": "bc974552-c0c5-57ac-9924-d474d2bdf9a0",

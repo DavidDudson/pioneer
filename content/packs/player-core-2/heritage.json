@@ -208,7 +208,8 @@
     },
     "data": {
       "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
-    }
+    },
+    "supersedes": ["20aa64ee-126c-5181-9e48-a4d9c7cbd36f"]
   },
   {
     "id": "d2182525-eac0-50e7-a3e4-6fb57d559324",
@@ -259,7 +260,8 @@
     },
     "data": {
       "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
-    }
+    },
+    "supersedes": ["a67b7fca-d9f5-5045-85f5-8f575554f034"]
   },
   {
     "id": "71658914-1efd-538e-b341-26b0b42fbf84",
@@ -390,7 +392,8 @@
     },
     "data": {
       "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
-    }
+    },
+    "supersedes": ["8115d931-456e-59c7-86b1-942f15c3b039"]
   },
   {
     "id": "cd0e68f9-f6eb-5f31-95a3-ad5273c80ca4",
@@ -433,7 +436,8 @@
     },
     "data": {
       "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
-    }
+    },
+    "supersedes": ["176433c4-1fb0-545a-9bb8-d8933c06e0e0"]
   },
   {
     "id": "a0ff6efe-b61a-599c-84de-9ae25b8e8f27",
@@ -673,7 +677,8 @@
     },
     "data": {
       "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
-    }
+    },
+    "supersedes": ["00d9b402-9163-5285-b49a-cf9c7874bc2e"]
   },
   {
     "id": "1fd3d2d2-d743-55e6-91e3-a4ba853c6193",
@@ -1095,7 +1100,8 @@
     },
     "data": {
       "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
-    }
+    },
+    "supersedes": ["6f6d2b4e-9f42-5877-91d3-cc36efd5a412"]
   },
   {
     "id": "93f58b30-6c3b-526e-9fa4-e847d345a6ab",
@@ -1161,7 +1167,8 @@
     },
     "data": {
       "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
-    }
+    },
+    "supersedes": ["2f4066ee-1d49-5273-bf78-bc89e8667b6b"]
   },
   {
     "id": "3f30fb1e-10e7-5c90-83c6-9485274e078a",
@@ -1196,7 +1203,8 @@
     },
     "data": {
       "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
-    }
+    },
+    "supersedes": ["46253e06-c945-57f8-8c29-a0bd7dc1be66"]
   },
   {
     "id": "6d2b7067-8523-5757-8673-71257ad5b9da",
@@ -1326,7 +1334,8 @@
     },
     "data": {
       "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
-    }
+    },
+    "supersedes": ["0b246cdc-ec80-5f48-9784-2de2c11576ba"]
   },
   {
     "id": "96243b63-60db-5403-ba28-ece4a4a5e730",
@@ -1378,7 +1387,8 @@
     },
     "data": {
       "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
-    }
+    },
+    "supersedes": ["6461fdfe-1ad2-524b-b8ba-41331b02b3a1"]
   },
   {
     "id": "a27608b9-c013-5966-8b24-af99260fb880",
@@ -1434,7 +1444,8 @@
     },
     "data": {
       "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
-    }
+    },
+    "supersedes": ["3fe83653-972a-5041-828f-90a17574deba"]
   },
   {
     "id": "49fc731e-7d0f-5eb9-82c2-c85de04b788f",
@@ -1701,7 +1712,8 @@
     },
     "data": {
       "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
-    }
+    },
+    "supersedes": ["0593e89f-ecc5-5efa-a022-ece00ceb5348"]
   },
   {
     "id": "5ede205f-f9f8-5169-b5ec-410b08d96b92",
@@ -1767,7 +1779,8 @@
     },
     "data": {
       "ancestry": "166604ea-3c4f-5953-8af5-6c68acca0f0e"
-    }
+    },
+    "supersedes": ["144b2c41-c4ef-5912-8214-b325e5c73392"]
   },
   {
     "id": "9d34f183-0f60-5866-a416-2683a8613c6e",
@@ -1922,7 +1935,8 @@
     },
     "data": {
       "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
-    }
+    },
+    "supersedes": ["94c27703-4abf-57d5-8b0d-1575199d9330"]
   },
   {
     "id": "d03a65c6-f0e0-570d-a1b7-03bf2bdcc11b",
@@ -2082,7 +2096,8 @@
     },
     "data": {
       "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
-    }
+    },
+    "supersedes": ["d24410b7-fae8-509d-a2c5-a2d526e22c4e"]
   },
   {
     "id": "dcd46ba1-3b14-5d9c-baa0-6f003b5809d6",
@@ -2223,7 +2238,8 @@
     },
     "data": {
       "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
-    }
+    },
+    "supersedes": ["98dd0a4e-b168-5aa0-a925-fb434f02c309"]
   },
   {
     "id": "380270d1-1815-5162-b8e7-861130207501",
@@ -2274,7 +2290,8 @@
     },
     "data": {
       "ancestry": "e42e0bb3-3c3a-5c7f-a8be-ef4c3eae793b"
-    }
+    },
+    "supersedes": ["7dc2aa5c-4ed4-5971-9c17-41b1edc3b341"]
   },
   {
     "id": "930c6fc3-8fe4-559e-beab-dc417009c129",
@@ -2382,7 +2399,8 @@
     },
     "data": {
       "ancestry": "a25b24fd-47a6-5f22-b7c0-c8102e5708a7"
-    }
+    },
+    "supersedes": ["b593870a-dcf1-570c-91bd-5c178ab6c440"]
   },
   {
     "id": "79ce4dc5-a8ec-5ce7-90ae-d0a1ce7ec7e1",
@@ -2890,7 +2908,8 @@
     },
     "data": {
       "ancestry": "12568aa7-1050-549d-88a0-9a7d9e804adb"
-    }
+    },
+    "supersedes": ["446a9b66-9c4d-5812-b366-696f8f852620"]
   },
   {
     "id": "a6ba90b2-f05d-58de-852d-55aac4b978a9",
