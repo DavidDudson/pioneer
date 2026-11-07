@@ -39,7 +39,8 @@ function viewsOf(spent: ResourcesSpent, maxima: ResourceMaxima): readonly Resour
 /**
  * Hero points and focus points (#345, #633), each a row of pips, one per point, filled for the points held: a press
  * fills up to a pip or empties the last filled one. Hero points always show; the focus pool shows once the character's
- * focus spells give one. `pool` shows only that one: the header shows focus points, the skills rail hero points.
+ * focus spells give one. `pool` shows only that one: the Spells tab's resources panel shows focus points, the skills rail hero
+ * points.
  * Spending the last hero point of a dying character is Heroic Recovery, which the server applies.
  */
 @Component({

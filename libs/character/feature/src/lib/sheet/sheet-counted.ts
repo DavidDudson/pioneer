@@ -23,7 +23,16 @@ import type {
   SlotCountKey,
   UseCountKey,
 } from '@pioneer/character/domain';
-import type { ActionCost, Activation, ContentId, ContentRegistry, Origin, Slug, SpellRank } from '@pioneer/rules/sdk';
+import type {
+  ActionCost,
+  Activation,
+  ContentId,
+  ContentRegistry,
+  Origin,
+  Slug,
+  SpellPreparation,
+  SpellRank,
+} from '@pioneer/rules/sdk';
 
 import { sheetSlotContent } from './sheet-slot-content';
 
@@ -34,6 +43,8 @@ interface SlotView {
   readonly source: string;
   readonly pool: string | undefined;
   readonly rank: SpellRank;
+  /** How the entry casts: only a spontaneous entry spends its slots as the sheet tracks them. */
+  readonly preparation: SpellPreparation;
   readonly current: number;
   readonly max: number;
 }
@@ -155,21 +166,23 @@ export function countedViews(registry: ContentRegistry, character: Character, sp
   const activations = itemActivations(registry);
   const counted = sheetCounted(registry, character);
   const nameOf = (origin: Origin): string => content.lookup.entry(origin.entry)?.name ?? origin.entry;
-  const slotView = ({ key, source, pool, rank }: Omit<SlotView, 'current' | 'max'>): SlotView => ({
+  const slotView = ({ key, source, pool, rank, preparation }: Omit<SlotView, 'current' | 'max'>): SlotView => ({
     key,
     source,
     pool,
     rank,
+    preparation,
     current: heldCount({ spent: spent.slots, maxima: counted.slots, key }),
     max: counted.slots.get(key)?.max ?? 0,
   });
   const slots = characterSpellcasting(grants).flatMap((entry) => {
     const source = nameOf(entry.origin);
+    const { preparation } = entry;
     const own = entry.slots.ranks.map(({ rank }) =>
-      slotView({ key: slotCountKey(entry.slug, undefined, rank), source, pool: undefined, rank }),
+      slotView({ key: slotCountKey(entry.slug, undefined, rank), source, pool: undefined, rank, preparation }),
     );
     const pooled = entry.pools.flatMap(({ pool, ranks }) =>
-      ranks.map(({ rank }) => slotView({ key: slotCountKey(entry.slug, pool, rank), source, pool, rank })),
+      ranks.map(({ rank }) => slotView({ key: slotCountKey(entry.slug, pool, rank), source, pool, rank, preparation })),
     );
     return [own, pooled].flat();
   });
