@@ -64,12 +64,13 @@ export function slotContent(
   legacyContent = variants.some((variant) => variant.id === LEGACY_CONTENT_VARIANT),
 ): SlotContent {
   const rootSlots = characterRootSlots(variants);
+  const lookup = grantLookup(registry, legacyContent);
   return {
-    lookup: grantLookup(registry, legacyContent),
+    lookup,
     namespaces: registry.rollOptionNamespaces(),
     rootSlots,
     variantRoots: variantGrantRoots(variants),
-    boosts: boostContent(registry, rootSlots),
+    boosts: boostContent(registry, rootSlots, () => lookup),
     skills: skillContent(registry),
     languages: languageContent(registry),
     spells: spellContent(registry),
