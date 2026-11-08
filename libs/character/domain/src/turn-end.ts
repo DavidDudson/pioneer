@@ -8,20 +8,13 @@ import {
   RollTotal,
 } from '@pioneer/rules/dice';
 import type { DamageApplication, RandomSource, RollResult, TermResult } from '@pioneer/rules/dice';
-import {
-  BadgeReevaluation,
-  ConditionEffect,
-  ConditionValue,
-  Dc,
-  DegreeOfSuccess,
-  EffectExpiry,
-  HitPoints,
-} from '@pioneer/rules/sdk';
+import { BadgeReevaluation, Dc, DegreeOfSuccess, EffectExpiry, HitPoints } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
 
 import { lapsingSpells, spellsAfterTurnEnd } from './active-spells';
 import { airAfterTurn, isSuffocating, SuffocationChecks, suffocationDamage, suffocationDc } from './breath';
 import type { BreathState } from './breath';
+import { easeCondition } from './condition-ease';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition, PersistentDamage } from './conditions';
 import { endEffects } from './effect-ending';
@@ -53,7 +46,6 @@ const NO_ATTACKS = 0;
 const NO_MODIFIER = 0;
 const FIRST_CHECK = 1;
 const CHECKS_LIMIT = 99;
-const LAST_VALUE = ConditionValue.parse(1);
 
 /** What a turn end reads besides the play state. */
 export interface EndTurnInputs {
@@ -143,15 +135,15 @@ interface Eased {
 
 /** `condition` after the end of the turn eases it: gone if the content removes it or its value is spent, else a point lower. */
 function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions): Eased {
-  const effect = recovery.get(condition.condition);
-  if (effect === undefined) {
+  const change = recovery.get(condition.condition);
+  if (change === undefined) {
     return { kept: [condition], events: [] };
   }
-  const value = condition.value ?? LAST_VALUE;
-  if (effect === ConditionEffect.Remove || value <= LAST_VALUE) {
+  const eased = easeCondition(condition, change);
+  if (eased.ended) {
     return { kept: [], events: [conditionEnded(condition.condition, condition.id)] };
   }
-  const lowered = ConditionValue.parse(value - LAST_VALUE);
+  const lowered = eased.value;
   return {
     kept: [{ ...condition, value: lowered }],
     events: [conditionLowered(condition.condition, condition.id, lowered)],

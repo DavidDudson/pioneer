@@ -56,8 +56,8 @@ const LIMITS: PlayLimits = {
   hitPoints: hp(40),
   healing: hp(10),
   recovery: new Map([
-    [FATIGUED, ConditionEffect.Remove],
-    [DRAINED, ConditionEffect.Lower],
+    [FATIGUED, { effect: ConditionEffect.Remove }],
+    [DRAINED, { effect: ConditionEffect.Lower }],
   ]),
   resources: resourceMaxima(FocusPoints.parse(2)),
   counted: COUNTED,

@@ -94,7 +94,14 @@ export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { uniqueItems } from './unique-items';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory, PrerequisiteClause, Take, UNLIMITED } from './feat';
-export { ConditionData, ConditionEffect, ConditionGroup, ConditionRecovery, ConditionTrigger } from './condition';
+export {
+  ConditionChange,
+  ConditionData,
+  ConditionEffect,
+  ConditionEnding,
+  ConditionGroup,
+  ConditionTrigger,
+} from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export {
   EnvironmentConsequence,
