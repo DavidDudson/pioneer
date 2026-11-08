@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, spyOn, test } from 'bun:test';
 
-import { benchmark, budgetFor, CI_RUNNER_MULTIPLIER, median, summarise } from './bench';
+import { benchmark, budgetFor, calibrate, median, REFERENCE_CALIBRATION_MS, speedFactor, summarise } from './bench';
 
 describe('median', () => {
   test('is the middle timing of an odd count', () => {
@@ -32,18 +32,21 @@ describe('benchmark', () => {
   test('warms up, then times each run on fresh input', () => {
     let prepared = 0;
     let ran = 0;
-    const result = benchmark({
-      name: 'counts',
-      prepare: (): number => {
-        prepared += 1;
-        return prepared;
+    const result = benchmark(
+      {
+        name: 'counts',
+        prepare: (): number => {
+          prepared += 1;
+          return prepared;
+        },
+        run: (): void => {
+          ran += 1;
+        },
+        warmupRuns: 2,
+        timedRuns: 3,
       },
-      run: (): void => {
-        ran += 1;
-      },
-      warmupRuns: 2,
-      timedRuns: 3,
-    });
+      1,
+    );
     expect(prepared).toBe(5);
     expect(ran).toBe(5);
     expect(result.timedRuns).toBe(3);
@@ -52,16 +55,32 @@ describe('benchmark', () => {
 });
 
 describe('budgetFor', () => {
-  test('is the budget as given on a dev machine', () => {
-    expect(budgetFor(4, false)).toBe(4);
+  test('is the budget as given on a machine as fast as the dev machine', () => {
+    expect(budgetFor(4, 1)).toBe(4);
   });
 
-  test('scales the budget by the CI multiplier on a runner', () => {
-    expect(budgetFor(4, true)).toBe(4 * CI_RUNNER_MULTIPLIER);
+  test('scales the budget by how much slower the machine is', () => {
+    expect(budgetFor(4, 2.5)).toBe(10);
   });
 
   test('stays absent when there is no budget', () => {
-    expect(budgetFor(undefined, true)).toBeUndefined();
+    expect(budgetFor(undefined, 2.5)).toBeUndefined();
+  });
+});
+
+describe('speedFactor', () => {
+  test('is how many times longer the calibration takes than on the dev machine', () => {
+    expect(speedFactor(REFERENCE_CALIBRATION_MS * 3)).toBeCloseTo(3);
+  });
+
+  test('never goes under 1, so a fast machine keeps the given budget', () => {
+    expect(speedFactor(REFERENCE_CALIBRATION_MS / 2)).toBe(1);
+  });
+});
+
+describe('calibrate', () => {
+  test('takes a positive time', () => {
+    expect(calibrate()).toBeGreaterThan(0);
   });
 });
 
@@ -73,21 +92,24 @@ describe('benchmark retries', () => {
   test('passes a case that is slow in its first round only', () => {
     const log = spyOn(console, 'log').mockReturnValue(undefined);
     let calls = 0;
-    const result = benchmark({
-      name: 'slow once',
-      budgetMs: 20,
-      warmupRuns: 0,
-      timedRuns: 2,
-      prepare: () => undefined,
-      run: () => {
-        calls += 1;
-        // Calls 1 and 2 (the first round) take 160 and 80 ms, over the budget even scaled for a CI runner; later calls are instant.
-        const until = performance.now() + 80 * Math.max(0, 3 - calls);
-        while (performance.now() < until) {
-          // Busy wait: the first round is over the budget.
-        }
+    const result = benchmark(
+      {
+        name: 'slow once',
+        budgetMs: 20,
+        warmupRuns: 0,
+        timedRuns: 2,
+        prepare: () => undefined,
+        run: () => {
+          calls += 1;
+          // Calls 1 and 2 (the first round) take 80 and 40 ms; later calls are instant.
+          const until = performance.now() + Math.max(0, 120 - 40 * calls);
+          while (performance.now() < until) {
+            // Busy wait: the first round is over the budget.
+          }
+        },
       },
-    });
+      1,
+    );
     log.mockRestore();
     expect(result.fastestMs).toBeLessThan(20);
     expect(process.exitCode).not.toBe(1);
@@ -96,19 +118,22 @@ describe('benchmark retries', () => {
   test('fails a case that stays over its budget in every round', () => {
     const log = spyOn(console, 'log').mockReturnValue(undefined);
     const error = spyOn(console, 'error').mockReturnValue(undefined);
-    benchmark({
-      name: 'always slow',
-      budgetMs: 5,
-      warmupRuns: 0,
-      timedRuns: 1,
-      prepare: () => undefined,
-      run: () => {
-        const until = performance.now() + 40;
-        while (performance.now() < until) {
-          // Busy wait: every round is over the budget.
-        }
+    benchmark(
+      {
+        name: 'always slow',
+        budgetMs: 5,
+        warmupRuns: 0,
+        timedRuns: 1,
+        prepare: () => undefined,
+        run: () => {
+          const until = performance.now() + 10;
+          while (performance.now() < until) {
+            // Busy wait: every round is over the budget.
+          }
+        },
       },
-    });
+      1,
+    );
     log.mockRestore();
     error.mockRestore();
     expect(process.exitCode).toBe(1);
