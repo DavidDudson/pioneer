@@ -18,10 +18,11 @@ import { SheetFormLimits } from '../sheet-form-limits/sheet-form-limits.componen
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { sheetSectionPreviews } from '../sheet-section-previews';
+import { SpellItemCasting } from '../sheet-spell-item-casting';
 import { sheetSpellList } from '../sheet-spell-list';
 import { preparedFieldsOf } from '../sheet-spell-picks';
-import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
 // oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
+import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
 import { SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
@@ -48,7 +49,10 @@ import { SheetSpender } from '../sheet-spender';
     TranslocoPipe,
   ],
   templateUrl: './sheet-spells.component.html',
-  providers: [{ provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetSpells).previews }],
+  providers: [
+    SpellItemCasting,
+    { provide: ENTRY_PREVIEWS, useFactory: (): EntryPreviews => inject(SheetSpells).previews },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetSpells {
@@ -60,6 +64,7 @@ export class SheetSpells {
   readonly #play = inject(PlayStore);
   readonly #spender = inject(SheetSpender);
   readonly #i18n = inject(TranslocoService);
+  protected readonly items = inject(SpellItemCasting);
   readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
   /** Changes when the language changes or the messages load, so the pickers' rows are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
@@ -128,6 +133,9 @@ export class SheetSpells {
   );
   /** Every spell the character can cast, one row per source, that passes the filter. */
   protected readonly spellList = computed((): readonly SpellRowLine[] =>
-    sheetSpellList({ focus: this.focus(), innate: this.innate(), prepared: this.prepared() }, this.targetFilter()),
+    sheetSpellList(
+      { focus: this.focus(), innate: this.innate(), prepared: this.prepared(), items: this.items.rows() },
+      this.targetFilter(),
+    ),
   );
 }

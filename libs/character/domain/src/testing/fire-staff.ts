@@ -53,3 +53,22 @@ export const FIREBALL_WAND: MagicItemFields & { readonly kind: ContentKind } = {
   },
   traits: ['magical', 'wand'],
 };
+
+/** A scroll of Fireball (3rd rank): the spell cast once, and the scroll gone. */
+export const FIREBALL_SCROLL: MagicItemFields & { readonly kind: ContentKind } = {
+  kind: ContentKind.Consumable,
+  level: FIREBALL_WAND_LEVEL,
+  data: {
+    bulk: 'light',
+    category: 'scroll',
+    spell: { spell: staffSpellId('fireball'), rank: FIREBALL_RANK },
+  },
+  traits: ['magical', 'scroll'],
+};
+
+/** The staff, wand and scroll fixtures by the item fixture they are. */
+export const FIRE_ITEMS = {
+  'fire-staff': FIRE_STAFF,
+  'fireball-wand': FIREBALL_WAND,
+  'fireball-scroll': FIREBALL_SCROLL,
+} as const;

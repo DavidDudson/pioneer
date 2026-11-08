@@ -65,7 +65,10 @@ function preparedWith(spent: number, revision = 1): object {
 }
 
 async function stavesOf(root: HTMLElement): Promise<HTMLElement> {
-  return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-staff-spells')));
+  return vi.waitFor(() => {
+    present(root.querySelector('pio-spell-item-controls'));
+    return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
+  });
 }
 
 function buttonOf(staves: HTMLElement, name: string): HTMLButtonElement {
@@ -93,7 +96,7 @@ describe('CharacterSheetPage staff casts', () => {
     const staves = await stavesOf(root);
 
     await vi.waitFor(() => {
-      expect(textOf(staves)).toContain('0 of 3 charges');
+      expect(textOf(staves)).toContain('0/3 charges');
     });
     const labels = [...staves.querySelectorAll('button')].map((button) => textOf(button));
     expect(labels).not.toContain('Cast, 1 charge');
@@ -146,7 +149,7 @@ describe('CharacterSheetPage staff casts', () => {
       request.flush(castWith(1, spell, 2));
     });
     await vi.waitFor(() => {
-      expect(textOf(staves)).toContain('2 of 3 charges');
+      expect(textOf(staves)).toContain('2/3 charges');
     });
   });
 
@@ -179,7 +182,7 @@ describe('CharacterSheetPage staff casts', () => {
       request.flush({ ...preparedWith(0, 3), events: [] });
     });
     await vi.waitFor(() => {
-      expect(textOf(staves)).toContain('3 of 3 charges');
+      expect(textOf(staves)).toContain('3/3 charges');
     });
   });
 

@@ -34,7 +34,10 @@ function textOf(element: Element): string {
 
 /** The staff's section once its spells load, past the empty host shown until they do. */
 async function stavesOf(root: HTMLElement): Promise<HTMLElement> {
-  return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-staff-spells')));
+  return vi.waitFor(() => {
+    present(root.querySelector('pio-spell-item-controls'));
+    return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
+  });
 }
 
 describe('CharacterSheetPage staff spells', () => {
@@ -51,7 +54,7 @@ describe('CharacterSheetPage staff spells', () => {
     const staves = await stavesOf(root);
 
     await vi.waitFor(() => {
-      expect(textOf(staves)).toContain('3 of 4 charges');
+      expect(textOf(staves)).toContain('3/4 charges');
     });
     expect(textOf(staves)).toContain('Cantrip, no charges');
     expect(textOf(staves)).toContain('1 charge');
@@ -68,12 +71,12 @@ describe('CharacterSheetPage staff spells', () => {
     expect(textOf(staves)).toContain('Not prepared today');
   });
 
-  it('shows no section for a staff that is stowed', async () => {
+  it('lists no row for a staff that is stowed', async () => {
     const { root } = await openSheet(wizardWith({ state: 'stowed' }), { packs: PACKS });
 
     await vi.waitFor(() => {
       expect(root.querySelector('pio-sheet-prepared-spells')).not.toBeNull();
     });
-    expect(root.querySelector('pio-staff-spells')).toBeNull();
+    expect(root.querySelector('pio-spell-item-controls')).toBeNull();
   });
 });

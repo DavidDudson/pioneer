@@ -459,6 +459,10 @@
       "unmet": "Prerequisites not met: {prerequisites}",
       "locked": "Locked until you have {needed, plural, one {# more feat} other {# more feats}} from {archetype}"
     },
+    "spellItems": {
+      "wand": "{name} ({left}/{max} casts)",
+      "staff": "{name} ({left}/{max} charges)"
+    },
     "spellTargets": {
       "label": "Show spells by targets",
       "all": "All",
