@@ -1,16 +1,9 @@
 import { FormulaValue } from '@pioneer/rules/formula';
 import { Truth } from '@pioneer/rules/predicate';
-import {
-  DamageAmount,
-  DamageDiceCategory,
-  DamageProperty,
-  DiceCount,
-  RollOptionNamespace,
-  RuleElementKey,
-  RuleNumber,
-} from '@pioneer/rules/sdk';
+import { DamageProperty, DiceCount, RollOptionNamespace, RuleElementKey, RuleNumber } from '@pioneer/rules/sdk';
 import type {
   DamageAlterationElement,
+  DamageDiceCategory,
   DamageDiceElement,
   DamageType,
   DieSize,
@@ -25,8 +18,12 @@ import type { ModifierInputs, RuleId, RuleInPlay } from './rule-in-play';
 import { changed, truthOf, valueOf } from './rule-value';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
+import { criticallyAffectedBy } from './strike-critical-effects';
+import type { CriticalEffect } from './strike-critical-effects';
 import { notedBy } from './strike-notes';
 import type { StrikeNote } from './strike-notes';
+import { isFlatSplash, splashFor } from './strike-splash';
+import type { PendingSplash, RuleSplash } from './strike-splash';
 import { ownsStrike, reaches } from './strike-targets';
 import type { StrikeTargets } from './strike-targets';
 import { weakenedBy } from './strike-weaknesses';
@@ -34,6 +31,8 @@ import type { CriticalWeakness } from './strike-weaknesses';
 
 export { NoteRoll } from './strike-notes';
 export type { StrikeNote } from './strike-notes';
+export type { RuleSplash } from './strike-splash';
+export type { CriticalEffect } from './strike-critical-effects';
 export type { CriticalWeakness } from './strike-weaknesses';
 export { ETCHED_DAMAGE } from './strike-targets';
 export type { StrikeTargets } from './strike-targets';
@@ -52,13 +51,6 @@ export interface ExtraDice {
   readonly origin: Origin;
 }
 
-/** Flat splash damage a `DamageDice` element gives a Strike (Shockwave's), dealt to creatures near the target. */
-export interface RuleSplash {
-  readonly amount: DamageAmount;
-  readonly damageType: DamageType;
-  readonly origin: Origin;
-}
-
 /** What a Strike's rule elements change about its dice, and the notes on its rolls. */
 export interface StrikeRules {
   /** The weapon's dice after `DamageDice` and `DamageAlteration` elements change their number. */
@@ -70,6 +62,8 @@ export interface StrikeRules {
   readonly splash: readonly RuleSplash[];
   /** The weaknesses a critical hit gives its target. */
   readonly weaknesses: readonly CriticalWeakness[];
+  /** What a critical hit does besides its damage: conditions on the target, damage to others or to its armor. */
+  readonly criticalEffects: readonly CriticalEffect[];
   readonly notes: readonly StrikeNote[];
   /**
    * The elements that would change the Strike if their situation held (the target is undead) and that no roll has
@@ -157,19 +151,6 @@ function extraOf(
       ];
 }
 
-/** Flat splash found, before it counts the Strike's dice: `count` of it, for each damage die when `perDie`. */
-interface PendingSplash {
-  readonly count: DiceCount;
-  readonly perDie: boolean;
-  readonly damageType: DamageType;
-  readonly origin: Origin;
-}
-
-/** Whether `element` is flat splash: category `splash` and no die. */
-function isFlatSplash(element: DamageDiceElement): boolean {
-  return element.category === DamageDiceCategory.Splash && element.dieSize === undefined;
-}
-
 /** The flat splash `element` gives, if its amount has a value. */
 function splashOf(
   { rule, element }: { readonly rule: RuleInPlay; readonly element: DamageDiceElement },
@@ -189,17 +170,12 @@ function splashOf(
       ];
 }
 
-/** `pending` as the splash it deals when the Strike rolls `dice` damage dice; none when that is nothing. */
-function splashFor({ count, perDie, damageType, origin }: PendingSplash, dice: DiceCount): RuleSplash[] {
-  const total = perDie ? count * dice : count;
-  return total > 0 ? [{ amount: DamageAmount.parse(total), damageType, origin }] : [];
-}
-
 /** A Strike's rules as far as read: its dice and type so far, the extra dice and the notes found. */
 interface Reading extends DiceAndType {
   readonly extra: readonly ExtraDice[];
   readonly splash: readonly PendingSplash[];
   readonly weaknesses: readonly CriticalWeakness[];
+  readonly criticalEffects: readonly CriticalEffect[];
   readonly notes: readonly StrikeNote[];
   readonly conditional: readonly RuleId[];
 }
@@ -242,18 +218,19 @@ function applied(
     ...reading,
     notes: notedBy(reading.notes, rule, targets),
     weaknesses: weakenedBy(reading.weaknesses, rule, targets),
+    criticalEffects: criticallyAffectedBy(reading.criticalEffects, rule, targets),
   };
 }
 
-/** Whether `after` differs from `before` in what the Strike's rules give. */
+/** What the Strike's rules add to a Reading: extra dice, splash, notes, weaknesses and critical effects. */
+const GIVEN = ['extra', 'splash', 'notes', 'weaknesses', 'criticalEffects'] as const;
+
+/** Whether `after` differs from `before` in what the Strike's rules give: rules only add to those, so more of them is a change. */
 function changedBy(before: Reading, after: Reading): boolean {
   return (
     after.dice !== before.dice ||
     after.damageType !== before.damageType ||
-    after.extra.length !== before.extra.length ||
-    after.splash.length !== before.splash.length ||
-    after.notes.length !== before.notes.length ||
-    after.weaknesses.length !== before.weaknesses.length
+    GIVEN.some((given) => after[given].length !== before[given].length)
   );
 }
 
@@ -262,9 +239,9 @@ function changedBy(before: Reading, after: Reading): boolean {
  * on the situation (the target is undead) applies when a roll has claimed it (`ModifierInputs.situation`); otherwise
  * it gives nothing, and is listed in `conditional` if it would have changed the Strike. `DamageDice` with a `dieSize` adds dice of its
  * own; without one it adds to the weapon's dice, or overrides their type. `DamageAlteration` changes the weapon's dice
- * number or type. Elements apply in the order found. A weapon with no die rolls flat damage, which neither changes. A
- * `Note` that reaches a roll comes back with it; a `CriticalSpecialization` gives the critical hit note of the group; a
- * `CriticalWeakness` comes back as the weakness a critical hit gives.
+ * number or type. Elements apply in the order found. A weapon with no die rolls flat damage, which neither changes.
+ * A `Note` comes back with the roll it reaches, a `CriticalSpecialization` as the group's critical hit note, and a
+ * `CriticalWeakness` or `CriticalEffect` as what a critical hit does.
  */
 export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets: StrikeTargets): StrikeRules {
   const using = { targets, read: readerFor(inputs, scope) };
@@ -275,6 +252,7 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
     splash: [],
     notes: [],
     weaknesses: [],
+    criticalEffects: [],
     conditional: [],
   };
   let reading = start;

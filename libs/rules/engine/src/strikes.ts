@@ -5,6 +5,7 @@ import { strikesUnderForm } from './battle-form-strikes';
 import type { ModifierInputs, RuleId } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
+import type { CriticalEffect } from './strike-critical-effects';
 import { strikeRules } from './strike-rules';
 import type { ExtraDice, RuleSplash, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
 import type { CriticalWeakness } from './strike-weaknesses';
@@ -58,6 +59,8 @@ export interface Strike {
   readonly notes: readonly StrikeNote[];
   /** The weaknesses a critical hit with this Strike gives its target (`CriticalWeakness` elements). */
   readonly weaknesses: readonly CriticalWeakness[];
+  /** What a critical hit with this Strike does besides its damage (`CriticalEffect` elements). */
+  readonly criticalEffects: readonly CriticalEffect[];
   /** The rule elements that would change this Strike if a roll claimed their situation (`StrikeRules.conditional`). */
   readonly conditional: readonly RuleId[];
   readonly map: MultipleAttackPenalty;
@@ -183,6 +186,7 @@ export function deriveStrikes(
       damage: damageOf(weapon, results, changes),
       notes: changes?.notes ?? [],
       weaknesses: changes?.weaknesses ?? [],
+      criticalEffects: changes?.criticalEffects ?? [],
       conditional: changes?.conditional ?? [],
       map: multipleAttackPenalty(weapon),
     };

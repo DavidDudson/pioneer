@@ -1073,21 +1073,20 @@
         "damageType": "acid"
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Corrosive",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target's armor (if any) takes 3d6 acid damage (before applying Hardness); if the target has a shield raised, the shield takes this damage instead."
-              }
-            ]
+        "effect": {
+          "kind": "damage",
+          "damageType": "acid",
+          "amount": {
+            "type": "dice",
+            "count": 3,
+            "die": "d6"
+          },
+          "target": {
+            "type": "armor"
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -1153,21 +1152,20 @@
         "ignoreResistance": true
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Corrosive",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target's armor (if any) takes 6d6 acid damage (before applying Hardness); if the target has a shield raised, the shield takes this damage instead."
-              }
-            ]
+        "effect": {
+          "kind": "damage",
+          "damageType": "acid",
+          "amount": {
+            "type": "dice",
+            "count": 6,
+            "die": "d6"
+          },
+          "target": {
+            "type": "armor"
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -2462,30 +2460,20 @@
         "damageType": "cold"
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Frost",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target is also Slowed 1 until the end of your next turn unless it succeeds at a "
-              },
-              {
-                "type": "check",
-                "statistic": "save:fortitude",
-                "dc": 24
-              },
-              {
-                "type": "text",
-                "text": " save."
-              }
-            ]
+        "effect": {
+          "kind": "condition",
+          "condition": "slowed",
+          "value": 1,
+          "duration": {
+            "type": "next-turn-end"
+          },
+          "save": {
+            "statistic": "fortitude",
+            "dc": 24
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -2560,30 +2548,20 @@
         "ignoreResistance": true
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Frost",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target is also Slowed 1 until the end of your next turn unless it succeeds at a "
-              },
-              {
-                "type": "check",
-                "statistic": "save:fortitude",
-                "dc": 34
-              },
-              {
-                "type": "text",
-                "text": " save."
-              }
-            ]
+        "effect": {
+          "kind": "condition",
+          "condition": "slowed",
+          "value": 1,
+          "duration": {
+            "type": "next-turn-end"
+          },
+          "save": {
+            "statistic": "fortitude",
+            "dc": 34
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -4608,21 +4586,20 @@
         "damageType": "electricity"
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Shock",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "Electricity arcs out to deal an equal amount of electricity damage to up to two other creatures of your choice within 10 feet of the target."
-              }
-            ]
+        "effect": {
+          "kind": "damage",
+          "damageType": "electricity",
+          "amount": {
+            "type": "equal"
+          },
+          "target": {
+            "type": "others",
+            "count": 2,
+            "within": 10
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -4697,21 +4674,21 @@
         "ignoreResistance": true
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Shock",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "Electricity arcs out to deal an equal amount of electricity damage, ignoring resistance, to up to two other creatures of your choice within 10 feet of the target."
-              }
-            ]
-          }
-        ]
+        "effect": {
+          "kind": "damage",
+          "damageType": "electricity",
+          "amount": {
+            "type": "equal"
+          },
+          "target": {
+            "type": "others",
+            "count": 2,
+            "within": 10
+          },
+          "ignoresResistance": true
+        }
       }
     ],
     "externalIds": {
@@ -5564,30 +5541,26 @@
         "damageType": "sonic"
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Thundering",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target must succeed at a "
-              },
-              {
-                "type": "check",
-                "statistic": "save:fortitude",
-                "dc": 24
-              },
-              {
-                "type": "text",
-                "text": " save or be Deafened for 1 minute (1 hour on a critical failure)."
-              }
-            ]
+        "effect": {
+          "kind": "condition",
+          "condition": "deafened",
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "minute"
+          },
+          "save": {
+            "statistic": "fortitude",
+            "dc": 24
+          },
+          "criticalFailureDuration": {
+            "type": "time",
+            "count": 1,
+            "unit": "hour"
           }
-        ]
+        }
       }
     ],
     "externalIds": {
@@ -5671,30 +5644,19 @@
         "ignoreResistance": true
       },
       {
-        "key": "Note",
+        "key": "CriticalEffect",
         "selectors": ["etched-damage"],
-        "title": "Thundering",
-        "outcome": ["criticalSuccess"],
-        "text": [
-          {
-            "type": "paragraph",
-            "content": [
-              {
-                "type": "text",
-                "text": "The target must succeed at a "
-              },
-              {
-                "type": "check",
-                "statistic": "save:fortitude",
-                "dc": 34
-              },
-              {
-                "type": "text",
-                "text": " save or be Deafened permanently."
-              }
-            ]
+        "effect": {
+          "kind": "condition",
+          "condition": "deafened",
+          "duration": {
+            "type": "permanent"
+          },
+          "save": {
+            "statistic": "fortitude",
+            "dc": 34
           }
-        ]
+        }
       }
     ],
     "externalIds": {

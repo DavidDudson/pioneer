@@ -28,6 +28,9 @@ describe('StrikesView rule elements', () => {
     expect(text).toContain('Plus 1d6 fire precision');
     expect(text).toContain('Plus 1d6 cold on a critical hit');
     expect(text).toContain('On a critical hit, the target gains weakness 5 to fire until the end of your next turn');
+    expect(text).toContain(
+      'Gloom Walker: on a critical hit, the target is Slowed 1 until the end of your next turn, unless it succeeds at a DC 24 Fortitude save',
+    );
   });
 
   it('shows a note on the roll it is for, with its title and the degrees it shows on', async () => {

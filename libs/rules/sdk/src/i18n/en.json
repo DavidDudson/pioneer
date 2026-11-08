@@ -1019,6 +1019,27 @@
       "damageCondition": "Extra damage when its condition holds ({name})",
       "splash": "{amount} {type} splash",
       "criticalWeakness": "On a critical hit, the target gains weakness {amount} to {type} until the end of your next turn",
+      "criticalEffect": {
+        "condition": "{source}: on a critical hit, the target is {condition}{hasValue, select, yes { {value}} other {}} {duration}{hasSave, select, yes {, unless it succeeds at a DC {dc} {save}} other {}}{hasWorse, select, yes { ({worse} on a critical failure)} other {}}",
+        "damageOthers": "{source}: on a critical hit, {amount} {type} damage{ignores, select, yes {, ignoring resistance,} other {}} to up to {count} other creatures within {range} ft of the target",
+        "damageArmor": "{source}: on a critical hit, the target's armor, or its raised shield, takes {amount} {type} damage, before Hardness",
+        "equalDamage": "equal",
+        "conditions": {
+          "deafened": "Deafened",
+          "immobilized": "Immobilized",
+          "slowed": "Slowed"
+        },
+        "saves": {
+          "fortitude": "Fortitude save",
+          "reflex": "Reflex save",
+          "will": "Will save"
+        },
+        "duration": {
+          "nextTurnEnd": "until the end of your next turn",
+          "time": "for {span}",
+          "permanent": "permanently"
+        }
+      },
       "rangeIncrement": "Range increment {range} ft",
       "materials": "Made of {materials}",
       "propertyRunes": "Property runes: {runes}",

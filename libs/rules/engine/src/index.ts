@@ -71,6 +71,7 @@ export {
   vitalsInPlay,
 } from './vitals-in-play';
 export {
+  type CriticalEffect,
   type CriticalWeakness,
   type ExtraDice,
   NoteRoll,

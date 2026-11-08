@@ -77,9 +77,7 @@ function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[
     persistent === undefined
       ? []
       : [{ ...extra, diceNumber: persistent, dieSize: 'd10', category: 'persistent', critical: true }];
-  const critical = slug.startsWith('rune:flaming')
-    ? []
-    : [{ key: 'Note', selectors: [ETCHED_DAMAGE], outcome: ['criticalSuccess'] }];
+  const critical = slug.startsWith('rune:flaming') ? [] : [{ key: 'CriticalEffect', selectors: [ETCHED_DAMAGE] }];
   return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
 }
 
@@ -228,5 +226,53 @@ describe('armour property rune rules', () => {
     const entry = RUNES.find((rune) => rune.slug === slug);
 
     expect(entry?.rules).toMatchObject([{ key: 'CriticalHitCheck', selectors: ['ac'], dc }]);
+  });
+});
+
+const FORTITUDE_24 = { statistic: 'fortitude', dc: 24 };
+const FORTITUDE_34 = { statistic: 'fortitude', dc: 34 };
+const NEXT_TURN_END = { type: 'next-turn-end' };
+const ELECTRIC_ARC = {
+  kind: 'damage',
+  damageType: 'electricity',
+  amount: { type: 'equal' },
+  target: { type: 'others', count: 2, within: 10 },
+};
+const ARMOR_ACID = { kind: 'damage', damageType: 'acid', target: { type: 'armor' } };
+
+/** What each energy rune does besides its damage on a critical hit, by grade. */
+const CRITICAL_EFFECTS: readonly (readonly [string, object])[] = [
+  ['rune:frost', { kind: 'condition', condition: 'slowed', value: 1, duration: NEXT_TURN_END, save: FORTITUDE_24 }],
+  [
+    'rune:frost-greater',
+    { kind: 'condition', condition: 'slowed', value: 1, duration: NEXT_TURN_END, save: FORTITUDE_34 },
+  ],
+  [
+    'rune:thundering',
+    {
+      kind: 'condition',
+      condition: 'deafened',
+      duration: { type: 'time', count: 1, unit: 'minute' },
+      save: FORTITUDE_24,
+      criticalFailureDuration: { type: 'time', count: 1, unit: 'hour' },
+    },
+  ],
+  [
+    'rune:thundering-greater',
+    { kind: 'condition', condition: 'deafened', duration: { type: 'permanent' }, save: FORTITUDE_34 },
+  ],
+  ['rune:shock', ELECTRIC_ARC],
+  ['rune:shock-greater', { ...ELECTRIC_ARC, ignoresResistance: true }],
+  ['rune:corrosive', { ...ARMOR_ACID, amount: { type: 'dice', count: 3, die: 'd6' } }],
+  ['rune:corrosive-greater', { ...ARMOR_ACID, amount: { type: 'dice', count: 6, die: 'd6' } }],
+];
+
+describe('critical effects of the energy runes', () => {
+  test.each(CRITICAL_EFFECTS)('%s does its effect on a critical hit', (slug, effect) => {
+    const critical: readonly unknown[] = RUNES.filter((rune) => rune.slug === slug).flatMap(({ rules }) =>
+      rules.filter(({ key }) => key === 'CriticalEffect'),
+    );
+
+    expect(critical).toStrictEqual([{ key: 'CriticalEffect', selectors: [ETCHED_DAMAGE], effect }]);
   });
 });

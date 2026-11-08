@@ -451,6 +451,17 @@ export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
 export { CriticalHitCheckElement } from './rule-element-critical-hit-check';
+export {
+  CreatureCount,
+  CriticalCondition,
+  CriticalDamageAmountType,
+  CriticalDamageTargetType,
+  CriticalDurationType,
+  CriticalEffectElement,
+  CriticalEffectKind,
+  CriticalSaveStatistic,
+} from './rule-element-critical-effect';
+export type { CriticalDuration, CriticalSave } from './rule-element-critical-effect';
 export { CriticalWeaknessElement } from './rule-element-critical-weakness';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
 export { criticalSpecializationOf } from './critical-specialization';
