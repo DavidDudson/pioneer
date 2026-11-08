@@ -1,6 +1,8 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
+import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { FIGHTER_CHECKS } from '../testing/attributes-fixtures';
 import { AttributeRolls } from './attribute-rolls.component';
 
@@ -9,6 +11,7 @@ type AttributeRollsStory = StoryObj<AttributeRolls>;
 const meta: Meta<AttributeRolls> = {
   title: 'Rules/Attribute rolls',
   component: AttributeRolls,
+  decorators: [applicationConfig({ providers: [{ provide: STATISTIC_ROLLER, useValue: { roll: () => undefined } }] })],
 };
 export default meta;
 
