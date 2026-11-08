@@ -16,13 +16,19 @@ export interface GradedRuneLine {
   readonly grade: number;
 }
 
+/** A property rune on an item: its name, and the choice its crafter made when it takes one. */
+export interface PropertyRuneLine {
+  readonly name: string;
+  readonly choice: string | undefined;
+}
+
 /** The runes an item's name reads, as the rules write them: "+1 Striking Flaming". */
 export interface LineRunes {
   readonly potency: number | undefined;
   /** Striking, resilient or reinforcing, at their grades, in that order. */
   readonly fundamental: readonly GradedRuneLine[];
-  /** The property runes' names, in the order they were etched. */
-  readonly property: readonly string[];
+  /** The property runes, in the order they were etched. */
+  readonly property: readonly PropertyRuneLine[];
 }
 
 /** Message keys for runes, spelled out so the key check sees them. */
@@ -103,7 +109,7 @@ export function injectRunedName(): Signal<RunedNamer> {
       const words = [
         ...(runes.potency === undefined ? [] : [i18n.translate(RuneMessage.Potency, { grade: runes.potency })]),
         ...runes.fundamental.map(({ rune, grade }) => i18n.translate(GRADED_RUNE_MESSAGES[rune], { grade })),
-        ...runes.property,
+        ...runes.property.map(({ name: rune, choice }) => chosenRuneName(i18n, rune, choice)),
       ];
       return words.length === 0 ? name : i18n.translate(RuneMessage.RunedName, { runes: words.join(' '), name });
     };

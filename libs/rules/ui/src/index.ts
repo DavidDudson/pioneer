@@ -130,6 +130,7 @@ export {
   type GradedRuneLine,
   injectRunedName,
   type LineRunes,
+  type PropertyRuneLine,
   RuneMessage,
   runeChoiceLabel,
   type RunedNamer,

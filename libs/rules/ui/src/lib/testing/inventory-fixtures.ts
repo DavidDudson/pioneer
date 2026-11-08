@@ -62,7 +62,11 @@ export const FIGHTER_INVENTORY: readonly InventoryGroup[] = [
       line('longsword', 'Longsword', {
         bulk: ONE_BULK,
         hands: 1,
-        runes: { potency: 1, fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }], property: ['Flaming'] },
+        runes: {
+          potency: 1,
+          fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }],
+          property: [{ name: 'Flaming', choice: undefined }],
+        },
       }),
     ],
   },
@@ -102,7 +106,11 @@ export const RUNED_INVENTORY: readonly InventoryGroup[] = [
       line('longsword', 'Longsword', {
         bulk: ONE_BULK,
         hands: 1,
-        runes: { potency: 1, fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }], property: ['Flaming'] },
+        runes: {
+          potency: 1,
+          fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }],
+          property: [{ name: 'Flaming', choice: undefined }],
+        },
         runeBadges: [
           { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Potency, grade: 1 },
           { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Striking, grade: 2 },
@@ -118,6 +126,27 @@ export const RUNED_INVENTORY: readonly InventoryGroup[] = [
           { kind: RuneBadgeKind.Fundamental, rune: FundamentalRune.Reinforcing, grade: 2 },
           { kind: RuneBadgeKind.Hole },
         ],
+      }),
+    ],
+  },
+];
+
+/** Armour etched twice with Energy Resistant, for fire and for cold: the name tells the two apart. */
+export const CHOSEN_RUNES_INVENTORY: readonly InventoryGroup[] = [
+  {
+    placement: InventoryPlacement.Worn,
+    lines: [
+      line('armor', 'Leather Armor', {
+        bulk: ONE_BULK,
+        runes: {
+          potency: undefined,
+          fundamental: [],
+          property: [
+            { name: 'Energy Resistant', choice: 'fire' },
+            { name: 'Energy Resistant', choice: 'cold' },
+          ],
+        },
+        runeBadges: [],
       }),
     ],
   },
