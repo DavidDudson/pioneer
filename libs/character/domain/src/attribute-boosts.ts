@@ -1,4 +1,5 @@
-import type { RootSlotDefinition } from '@pioneer/rules/grants';
+import { grantLookup } from '@pioneer/rules/grants';
+import type { ContentLookup, RootSlotDefinition } from '@pioneer/rules/grants';
 import {
   AncestryId,
   Attribute,
@@ -107,11 +108,13 @@ const PARTIAL_BOOST_FROM = 4;
 
 /**
  * The boosts of the registry's ancestries, and of the backgrounds and classes its packs hold as entries, for a
- * character with `rootSlots`.
+ * character with `rootSlots`. `lookup` is the grant lookup the key attribute options are read from, which a caller that
+ * has one shares, as a registry builds a lookup once per `legacyContent`.
  */
 export function boostContent(
   registry: ContentRegistry,
   rootSlots: readonly RootSlotDefinition[] = CHARACTER_ROOT_SLOTS,
+  lookup: () => ContentLookup = () => grantLookup(registry),
 ): BoostContent {
   const entries = registry.packs.flatMap((pack) => pack.otherEntries);
   const backgrounds = new Map(
@@ -130,7 +133,7 @@ export function boostContent(
     background: (id: ContentId): readonly Boost[] | undefined => backgrounds.get(id),
     keyAttribute: (id: ContentId): Boost | undefined => classes.get(id),
     secondClass: hasSecondClass(rootSlots),
-    keyAttributeOptions: grantedKeyOptions(registry, entries, rootSlots),
+    keyAttributeOptions: grantedKeyOptions({ registry, entries, rootSlots, lookup }),
   };
 }
 

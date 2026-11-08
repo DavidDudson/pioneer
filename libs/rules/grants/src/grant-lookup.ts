@@ -2,29 +2,29 @@ import {
   ContentId,
   contentId,
   ContentKind,
-  contentPackId,
   effectiveLicense,
   isLegacyLicense,
   Rarity,
   RollOption,
   slugName,
-  unsupportedPacksOf,
 } from '@pioneer/rules/sdk';
 import type {
   ContentEntry,
   ContentLicense,
   ContentPack,
-  ContentPackId,
   ContentRegistry,
   PackAncestry,
   Trait,
   VariantRuleDefinition,
 } from '@pioneer/rules/sdk';
 
-import type { ContentLookup, EntryFacts, GrantEntry, Replacement } from './grant-entry';
+import type { ContentLookup, EntryFacts, GrantEntry } from './grant-entry';
 import { heldEntry, lazyEntry, lookupOf } from './held-entries';
 import type { HeldEntry } from './held-entries';
-import { replacementsOf } from './replacements';
+import { memoizedLookup } from './lookup-cache';
+import { isHeldBack } from './lookup-state';
+import type { LookupState } from './lookup-state';
+import { lazyReplacements } from './replacements';
 
 /**
  * The kinds grants read from the registry's envelope entries (`otherEntries`): those a character picks in a root slot,
@@ -181,7 +181,7 @@ function standingOf(
   pack: ContentPack,
   state: LookupState,
 ): Pick<EntryFacts, 'legacy' | 'replacedBy' | 'unsupported'> {
-  const replacedBy = state.replacements.get(entry.id) ?? [];
+  const replacedBy = state.replacements().get(entry.id) ?? [];
   return {
     ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true as const } : {}),
     ...(isHeldBack(entry, pack, state) ? { unsupported: true as const } : {}),
@@ -256,24 +256,6 @@ function variantEntry(pack: ContentPack, variant: VariantRuleDefinition): GrantE
   };
 }
 
-/** What a lookup holds entries back by: the packs unsupported for the character, and whether it has legacy content on. */
-interface LookupState {
-  readonly unsupported: ReadonlySet<ContentPackId>;
-  readonly legacyContent: boolean;
-  /** The remaster entries in force that replace each legacy entry. */
-  readonly replacements: ReadonlyMap<ContentId, readonly Replacement[]>;
-}
-
-/** Whether the entry is held back: its pack is unsupported, or it is legacy content and the character has none on. */
-function isHeldBack(
-  entry: { readonly license?: ContentLicense | undefined },
-  pack: ContentPack,
-  state: LookupState,
-): boolean {
-  const legacy = isLegacyLicense(effectiveLicense(entry, pack.manifest));
-  return state.unsupported.has(contentPackId(pack.id)) || (legacy && !state.legacyContent);
-}
-
 function heldEnvelope(entry: ContentEntry, pack: ContentPack, state: LookupState): HeldEntry | undefined {
   const read = entry.sources.length > 0 && ENVELOPE_KINDS.has(entry.kind);
   return read ? lazyEntry(entry.id, entry.kind, () => envelopeEntry(entry, pack, state)) : undefined;
@@ -290,11 +272,17 @@ function packEntries(pack: ContentPack, state: LookupState): HeldEntry[] {
 /**
  * The registry's content as grants read it: ancestries, heritages, backgrounds and classes, the kinds a character
  * picks in its root slots, the class features and feats they grant, and carried items. Other kinds join as the
- * registry holds them. Built once per registry; lookups are by id and by kind, and an envelope entry is converted when
- * first read. Legacy entries are held back as unsupported unless `legacyContent` says the character has them on.
+ * registry holds them. Built once per registry and `legacyContent` (see `memoizedLookup`); lookups are by id and by
+ * kind, and an envelope entry is converted when first read. Legacy entries are held back as unsupported unless
+ * `legacyContent` says the character has them on.
  */
 export function grantLookup(registry: ContentRegistry, legacyContent = false): ContentLookup {
-  const unsupported = unsupportedPacksOf(registry);
-  const state: LookupState = { unsupported, legacyContent, replacements: replacementsOf(registry, unsupported) };
-  return lookupOf(registry.packs.flatMap((pack) => packEntries(pack, state)));
+  return memoizedLookup(registry, legacyContent, (unsupported) => {
+    const state: LookupState = {
+      unsupported,
+      legacyContent,
+      replacements: lazyReplacements(registry, unsupported),
+    };
+    return lookupOf(registry.packs.flatMap((pack) => packEntries(pack, state)));
+  });
 }
