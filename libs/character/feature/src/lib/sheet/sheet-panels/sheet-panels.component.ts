@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Disclosure, DisclosureVariant, Rail, Stack, Text } from '@pioneer/frontier';
+import { Disclosure, DisclosureVariant, Rail, Skeleton, Stack, Text } from '@pioneer/frontier';
 
 import { SheetPanelContent } from '../sheet-panel/sheet-panel.component';
 import { SheetResources } from '../sheet-resources/sheet-resources.component';
@@ -13,7 +13,7 @@ import { SHEET_PANELS } from '../sheet-sections';
  */
 @Component({
   selector: 'pio-sheet-panels',
-  imports: [Disclosure, Rail, SheetPanelContent, SheetResources, Stack, Text, TranslocoPipe],
+  imports: [Disclosure, Rail, SheetPanelContent, SheetResources, Skeleton, Stack, Text, TranslocoPipe],
   templateUrl: './sheet-panels.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

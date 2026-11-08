@@ -1,12 +1,21 @@
 <fr-rail hiddenNarrow [label]="'character.sheet.panels.label' | transloco">
-  <fr-stack gap="md">
-    <pio-sheet-resources pool="hero-points" />
+  @defer (on idle) {
+    <fr-stack gap="md">
+      <pio-sheet-resources pool="hero-points" />
 
-    @for (entry of panels; track entry.panel) {
-      <fr-disclosure [variant]="bordered" [open]="true">
-        <fr-text frDisclosureSummary>{{ entry.headingKey | transloco }}</fr-text>
-        <pio-sheet-panel [panel]="entry.panel" />
-      </fr-disclosure>
-    }
-  </fr-stack>
+      @for (entry of panels; track entry.panel) {
+        <fr-disclosure [variant]="bordered" [open]="true">
+          <fr-text frDisclosureSummary>{{ entry.headingKey | transloco }}</fr-text>
+          <pio-sheet-panel [panel]="entry.panel" />
+        </fr-disclosure>
+      }
+    </fr-stack>
+  } @placeholder {
+    <fr-stack gap="md">
+      <fr-skeleton shape="block" width="full" />
+      @for (entry of panels; track entry.panel) {
+        <fr-skeleton shape="block" width="full" />
+      }
+    </fr-stack>
+  }
 </fr-rail>
