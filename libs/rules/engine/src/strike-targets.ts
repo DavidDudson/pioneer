@@ -38,6 +38,9 @@ const ALL = Domain.parse('all');
  */
 export const ETCHED_DAMAGE = Domain.parse('etched-damage');
 
+/** The attack roll of the weapon an element's item is etched on, as `ETCHED_DAMAGE` is its damage roll (a returning rune's note). */
+export const ETCHED_ATTACK = Domain.parse('etched-attack');
+
 /** Whether the rule comes from the inventory item the Strike's weapon is. */
 export function ownsStrike(rule: RuleInPlay, { origin }: StrikeTargets): boolean {
   const item = inventoryItemOf(rule.origin);
@@ -50,5 +53,8 @@ export function reaches(
   reached: ReadonlySet<ModifierTarget>,
   etched: boolean,
 ): boolean {
-  return reached.has(ALL) || targets.some((target) => (target === ETCHED_DAMAGE ? etched : reached.has(target)));
+  return (
+    reached.has(ALL) ||
+    targets.some((target) => (target === ETCHED_DAMAGE || target === ETCHED_ATTACK ? etched : reached.has(target)))
+  );
 }

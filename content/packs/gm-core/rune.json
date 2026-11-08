@@ -4257,7 +4257,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["etched-attack"],
+        "title": "Returning",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a thrown Strike, the weapon flies back to your hand once the Strike is complete. If your hands are full when it returns, it falls to the ground in your space."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qlunQzfnzPQpMG6U"
     },

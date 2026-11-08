@@ -15,6 +15,10 @@ import { DEFINITIONS, LONGSWORD, strikeOf } from './testing/strike-test-fixtures
 const BLOWGUN = { slug: 'blowgun', category: 'simple', traits: [], damage: { dice: 1, damageType: 'piercing' } };
 const SENSATE = 'a bright flash of light';
 const text = (words: string): object[] => [{ type: 'paragraph', content: [{ type: 'text', text: words }] }];
+
+/** A `Note` on `selector`, as a rune etched on a weapon gives it. */
+const etchedNote = (selector: string): object => ({ key: 'Note', selectors: [selector], text: text(SENSATE) });
+
 function numbers(strike: Strike | undefined): readonly number[] {
   return [Number(strike?.damage?.dice), ...(strike?.damage?.extra.map(({ count }) => Number(count)) ?? [])];
 }
@@ -132,6 +136,36 @@ describe('Strike notes from rule elements', () => {
         [calm, 'b'],
       ])?.notes,
     ).toEqual([]);
+  });
+
+  describe('etched on a weapon', () => {
+    const RUNED = '11111111-1111-4111-8111-111111111111';
+    const OTHER = '22222222-2222-4222-8222-222222222222';
+
+    test('etched-attack is on the attack roll of the weapon it is etched on, and not its damage roll', () => {
+      const strike = strikeOf([[etchedNote('etched-attack'), 'returning', RUNED]], LONGSWORD, RUNED);
+
+      expect(strike?.notes.map(({ roll }) => roll)).toEqual(['attack']);
+    });
+
+    test('etched-damage stays on the damage roll only', () => {
+      const strike = strikeOf([[etchedNote('etched-damage'), 'returning', RUNED]], LONGSWORD, RUNED);
+
+      expect(strike?.notes.map(({ roll }) => roll)).toEqual(['damage']);
+    });
+
+    test('an etched note is not on a weapon of another inventory item', () => {
+      const strike = strikeOf(
+        [
+          [etchedNote('etched-attack'), 'a', OTHER],
+          [etchedNote('etched-damage'), 'b', OTHER],
+        ],
+        LONGSWORD,
+        RUNED,
+      );
+
+      expect(strike?.notes).toEqual([]);
+    });
   });
 });
 
