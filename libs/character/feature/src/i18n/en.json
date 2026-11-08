@@ -241,6 +241,15 @@
     "optionTrained": "Already trained in {skills}",
     "skillTrainedTwice": "Trained by {first} and {second}; the second training is lost",
     "trainedSource": "{name}",
+    "shape": {
+      "shiftTo": "Shape to shift {name} into",
+      "shift": "Shift {name}",
+      "shifting": "Shifting…",
+      "current": "{name} has the shape of {shape}",
+      "reset": "Return {name} to its own shape",
+      "resetting": "Returning…",
+      "columnName": "Weapon"
+    },
     "runes": {
       "heading": "Runes on {name}",
       "potencyOf": "Potency rune on {name}",
@@ -824,6 +833,8 @@
     "preparedSlotRepeated": "A slot can be changed once in one daily preparations. Remove the repeat.",
     "environmentUnknown": "That is not an environment in the content this character uses.",
     "explorationUnknown": "That is not an exploration activity in the content this character uses.",
+    "shapeNotShifting": "That item has no shifting rune, so it cannot take another shape.",
+    "shapeUnavailable": "That weapon cannot take that shape: it must be another melee weapon that takes the same number of hands.",
     "effectUnknown": "That effect is not in the content this character uses.",
     "effectMissing": "That effect is no longer on the character. Reload the sheet and try again.",
     "effectFull": "This character has as many effects as it can hold. Remove one first.",

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { installRulesFakes } from '@pioneer/rules/sdk/testing';
 
-import { equippedInputs } from './equipped';
+import { equippedInputs } from './equipped-inputs';
 import { addItem, carryItem, EMPTY_INVENTORY, InventoryItemId, ItemQuantity } from './inventory';
 import type { Inventory } from './inventory';
 import { CarryState, ONE_HAND } from './item-carry';

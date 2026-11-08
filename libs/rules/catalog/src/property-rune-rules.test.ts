@@ -14,8 +14,6 @@ const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
  * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
  * land; a new book's rune must get rules or be listed here.
  *
- * Why the weapon-changing runes stay here: shifting swaps the weapon for another, a choice the sheet does not model.
- *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
  * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
  * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic potency
@@ -33,11 +31,16 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:grievous',
   'rune:mythic-weapon-potency',
   'rune:pacifying',
-  'rune:shifting',
   'rune:spell-reservoir',
   'rune:underwater',
   'rune:vorpal',
 ]);
+
+/**
+ * Weapon property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
+ * weapon take the shape of another (`weapon-shapes.ts`), a choice the sheet keeps per item.
+ */
+const MODELLED_IN_PLAY: ReadonlySet<string> = new Set(['rune:shifting']);
 
 interface EnergyRune {
   readonly slug: string;
@@ -155,7 +158,10 @@ function ruled(slug: string): boolean {
 /** Plain property runes for `item` with neither rules nor a recorded gap. */
 function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
   return RUNES.filter((entry) => isPlainProperty(entry, item))
-    .filter((entry) => entry.rules.length === 0 && !gaps.has(entry.slug) && !ruled(entry.slug))
+    .filter(
+      (entry) =>
+        entry.rules.length === 0 && !gaps.has(entry.slug) && !MODELLED_IN_PLAY.has(entry.slug) && !ruled(entry.slug),
+    )
     .map((entry) => entry.slug);
 }
 
@@ -174,6 +180,10 @@ describe('weapon property rune rules', () => {
 
   test('a recorded gap names a rune that still has no rules', () => {
     expect(staleGaps(WEAPON_GAPS)).toEqual([]);
+  });
+
+  test('a rune modelled in play is in the content, and has no rules of its own', () => {
+    expect(staleGaps(MODELLED_IN_PLAY)).toEqual([]);
   });
 
   test.each(ENERGY_RUNES)('$slug adds its energy damage to the weapon it is etched on', (rune) => {

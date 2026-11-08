@@ -28,8 +28,9 @@ import { ANCESTRY_SLOT } from './character-slots';
 import { buildRanks, characterGrants, classContent, classInputs } from './class-build';
 import { customEffectRules } from './custom-effect';
 import { characterStatisticContent } from './custom-lore';
-import { buildRules, equippedInputs, equippedRules } from './equipped';
+import { buildRules, equippedRules, shapedDocument } from './equipped';
 import type { EquippedRules } from './equipped';
+import { equippedInputs } from './equipped-inputs';
 import { favoredWeapons } from './favored-weapons';
 import { grantedStrikes } from './granted-strikes';
 import { contentRolledAs } from './initiative-roll';
@@ -63,10 +64,9 @@ function classInputsOf(
 }
 
 /**
- * What the engine reads of a character so far: level, the modifiers its boosts give, the ranks its class, background,
- * features and skill picks raise, what its ancestry and class give, the spellcasting entries its spell attacks and DCs
- * are derived for, its worn armour and held weapons when the registry holds the item kinds, and the Strikes its features
- * give (a fist).
+ * What the engine reads of a character so far: level, its boosts, ranks, ancestry and class, the spellcasting entries
+ * its spell attacks and DCs are derived for, its worn armour and held weapons (a shifted weapon as its new shape) when
+ * the registry holds the item kinds, and the Strikes its features give (a fist).
  */
 export function characterStatisticInputs(
   registry: ContentRegistry,
@@ -76,7 +76,7 @@ export function characterStatisticInputs(
   const grants = characterGrants(document, slots);
   const favored = favoredWeapons(grants);
   const items = itemContent(registry);
-  const equipped = equippedInputs(document.inventory, items, {
+  const equipped = equippedInputs(shapedDocument(document, items, slots).inventory, items, {
     favored,
     rules: () => equippedRules(document, items, slots),
   });

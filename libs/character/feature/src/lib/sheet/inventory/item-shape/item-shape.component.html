@@ -1,0 +1,32 @@
+@if (shifts()) {
+  <fr-stack gap="xs">
+    @if (shape(); as shape) {
+      <fr-text>{{ 'character.sheet.shape.current' | transloco: { name: name(), shape: shape } }}</fr-text>
+      <fr-async-button
+        size="sm"
+        [action]="reset"
+        [pendingLabel]="'character.sheet.shape.resetting' | transloco"
+        [describeError]="describeError"
+      >
+        {{ 'character.sheet.shape.reset' | transloco: { name: name() } }}
+      </fr-async-button>
+    }
+    <fr-async-form [form]="form" [action]="shift" [describeError]="describeError">
+      <fr-stack direction="horizontal" gap="sm" align="end" wrap>
+        <fr-picker-field
+          [label]="'character.sheet.shape.shiftTo' | transloco: { name: name() }"
+          [rows]="shapes.shown()"
+          [columns]="shapeColumns()"
+          [rowValue]="shapeValue"
+          [rowLabel]="shapeLabel"
+          [formField]="form.shape"
+          (searched)="shapes.query.set($event)"
+          (sorted)="shapes.ordering.set($event)"
+        />
+        <fr-async-button type="submit" size="sm" [pendingLabel]="'character.sheet.shape.shifting' | transloco">
+          {{ 'character.sheet.shape.shift' | transloco: { name: name() } }}
+        </fr-async-button>
+      </fr-stack>
+    </fr-async-form>
+  </fr-stack>
+}

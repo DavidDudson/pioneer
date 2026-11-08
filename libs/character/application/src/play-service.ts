@@ -71,6 +71,7 @@ import { NO_MAX_HIT_POINTS, NO_REST, NO_VALUED, turnLimits } from './play-defaul
 import type { RestContent } from './play-defaults';
 import { derivedMaxHitPoints } from './play-hit-points';
 import { changesInventory, inventoryAfter } from './play-inventory';
+import { checkShape } from './play-shape';
 import { shieldsOf } from './play-shield';
 import { shiftsForm, spendLimits } from './play-spend';
 import { checkStaffCast, staffCastOf, takesBackCast } from './play-staff';
@@ -116,6 +117,7 @@ export class PlayService {
     }
     await checkExploration(command, async () => this.#contentOf(character).registry());
     await checkEnvironment(command, async () => this.#contentOf(character).registry());
+    await checkShape(character, command, async () => this.#contentOf(character).registry());
     const reinventoried = await this.#reinventoried(character, current.play, command);
     const { play, events } = isTurnCommand(command)
       ? await this.#turned(character, current.play, command)
