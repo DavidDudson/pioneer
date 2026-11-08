@@ -80,6 +80,19 @@ describe('the key item holders over the character context', () => {
     expect(line.runes?.property).toStrictEqual(caliburn.runes.property.map(({ rune }) => ({ rune })));
   });
 
+  test('the line keeps the choice a property rune was etched for', () => {
+    const resistant = { rune: newId(), name: 'Energy Resistant', choice: 'fire' };
+    const coat = CreateKeyItemBody.parse({
+      name: 'Ember coat',
+      base: { item: newId(), name: 'Leather Armor' },
+      runes: { property: [resistant, { rune: newId(), name: 'Shadow' }] },
+      notes: '',
+    });
+    const line = lineOf({ ...caliburn, ...coat });
+
+    expect(line.runes?.property).toMatchObject([{ rune: resistant.rune, choice: 'fire' }, { choice: undefined }]);
+  });
+
   test('the top grades the campaign allows are ones the inventory stores', () => {
     expect(lineOf(caliburn).runes).toMatchObject({ potency: 4, striking: 4, resilient: 4, reinforcing: 6 });
   });
@@ -92,6 +105,27 @@ describe('the key item holders over the character context', () => {
 
     expect(given?.document.inventory.items.map(({ keyItem }) => keyItem)).toStrictEqual([caliburn.id]);
     expect(taken?.document.inventory.items).toStrictEqual([]);
+  });
+
+  test('describes the choice a property rune was etched for, so a key item keeps it', async () => {
+    const id = InventoryItemId.parse(newId());
+    const rune = ContentId.parse(newId());
+    const item = {
+      id,
+      item: ContentId.parse(newId()),
+      quantity: ItemQuantity.parse(1),
+      carry: STOWED,
+      runes: ItemRunesSchema.parse({ property: [{ rune, choice: 'cold' }] }),
+    };
+    const { inventory } = kyra.document;
+    await repository.update(kyra.withInventory({ ...inventory, items: [item] }, kyra.updatedAt), kyra.version, {
+      actor: gm,
+      command: CharacterCommand.GiftItem,
+    });
+
+    const described = await holders.describe(CampaignCharacterId.parse(kyra.id), ReviewedItemId.parse(id));
+
+    expect(described?.runes.property).toMatchObject([{ rune, choice: 'cold' }]);
   });
 
   test('describes a line the way a key item copies it, and linking marks that same line', async () => {

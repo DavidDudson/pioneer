@@ -122,6 +122,7 @@ export {
   KeyItemRunes,
   KeyItemView,
   KeyPropertyRune,
+  KeyRuneChoice,
 } from './campaign-key-items';
 export {
   DepositBody,
