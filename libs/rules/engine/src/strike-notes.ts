@@ -2,7 +2,7 @@ import { criticalSpecializationOf, DegreeOfSuccess, RuleElementKey } from '@pion
 import type { ContentText, NoteElement, Origin, RichText } from '@pioneer/rules/sdk';
 
 import type { RuleInPlay } from './rule-in-play';
-import { ownsStrike, reaches } from './strike-targets';
+import { ETCHED_ATTACK, ETCHED_DAMAGE, ownsStrike, reaches } from './strike-targets';
 import type { StrikeTargets } from './strike-targets';
 
 /** Which of a Strike's rolls a note is for. */
@@ -23,9 +23,13 @@ export interface StrikeNote {
 function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets): StrikeNote[] {
   const { selectors, title, text, outcome } = element;
   const note = { title, text, outcome, origin: rule.origin };
+  const owns = ownsStrike(rule, targets);
+  // An etched selector names one roll: etched-attack the attack roll only, etched-damage the damage roll only.
+  const attackSelectors = selectors.filter((selector) => selector !== ETCHED_DAMAGE);
+  const damageSelectors = selectors.filter((selector) => selector !== ETCHED_ATTACK);
   return [
-    ...(reaches(selectors, targets.attack, false) ? [{ ...note, roll: NoteRoll.Attack }] : []),
-    ...(reaches(selectors, targets.damage, ownsStrike(rule, targets)) ? [{ ...note, roll: NoteRoll.Damage }] : []),
+    ...(reaches(attackSelectors, targets.attack, owns) ? [{ ...note, roll: NoteRoll.Attack }] : []),
+    ...(reaches(damageSelectors, targets.damage, owns) ? [{ ...note, roll: NoteRoll.Damage }] : []),
   ];
 }
 
