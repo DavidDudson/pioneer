@@ -15,7 +15,7 @@ export interface VitalHitPoints {
 }
 
 /** A condition on a character: the name part of its slug, and its value when it is valued. */
-export interface VitalCondition {
+interface VitalCondition {
   readonly name: string;
   readonly value?: number | undefined;
 }

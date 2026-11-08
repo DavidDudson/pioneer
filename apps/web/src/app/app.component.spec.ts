@@ -170,7 +170,7 @@ describe(App, () => {
 
     await openMenu(element, 'Account menu');
     await fixture.whenStable();
-    const trigger = accountPanel().querySelector<HTMLButtonElement>('button[aria-label="Theme"]');
+    const trigger = accountPanel().querySelector<HTMLButtonElement>('button[aria-label="Dynamic (Theme)"]');
     expect(trigger?.textContent.trim()).toBe('Dynamic');
     trigger?.click();
     await fixture.whenStable();

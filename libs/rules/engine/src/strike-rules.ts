@@ -32,7 +32,6 @@ import type { StrikeTargets } from './strike-targets';
 
 export { NoteRoll } from './strike-notes';
 export type { StrikeNote } from './strike-notes';
-export { ETCHED_DAMAGE } from './strike-targets';
 export type { StrikeTargets } from './strike-targets';
 
 /** Dice a `DamageDice` element adds to a Strike's damage, on top of the weapon's. */

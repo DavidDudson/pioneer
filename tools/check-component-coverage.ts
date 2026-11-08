@@ -17,6 +17,11 @@ const EXEMPTIONS: Readonly<Record<string, Exemption>> = {
     spec: 'actions/section-index/section-index.component.spec.ts',
     story: 'actions/section-index/section-index.stories.ts',
   },
+  'actions/stepper/step.component.ts': {
+    reason: 'One step of fr-stepper; its Back, Next and Edit only work inside it.',
+    spec: 'actions/stepper/stepper.component.spec.ts',
+    story: 'actions/stepper/stepper.stories.ts',
+  },
   'actions/tab/tab.component.ts': {
     reason: 'One tab of fr-tabs; its roving focus only works inside them.',
     spec: 'actions/tabs/tabs.component.spec.ts',

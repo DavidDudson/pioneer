@@ -72,12 +72,13 @@ export const Downtime: ActionsStory = {
   args: { lines: STANDING_ACTIONS, mode: ActionMode.Downtime },
 };
 
-/** Every action, with its status and why an unusable one is. */
+/** Every action, with its status; the summary on hover says why an unusable one is. */
 export const All: ActionsStory = {
   args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All, category: ActionCategory.Basic },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Needs trained proficiency in thievery.')).toBeVisible();
+    const row = canvas.getByText('Pick a Lock').closest('pio-action-row');
+    await expect(row).toHaveTextContent('Unavailable');
   },
 };
 
