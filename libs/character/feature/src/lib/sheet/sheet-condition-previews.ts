@@ -5,7 +5,7 @@ import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
-import { heldConditionEndings } from './sheet-condition-endings';
+import { endingsFor, heldConditionEndings } from './sheet-condition-endings';
 import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
@@ -47,19 +47,42 @@ function heldConditionPreview(
   };
 }
 
-/** What a condition previews as on `character`: as it applies when held, else as its entry does elsewhere. */
+/**
+ * What a condition previews as for anyone who lacks it: its entry and the ways it ends, each with its rule text, the DC of
+ * its check at the condition's base and the action that does it; no entry is held, so none is named as easing it. None for an entry that
+ * isn't a condition, or a registry that doesn't hold it; a condition with no endings previews as its entry alone.
+ */
+export function genericConditionPreview(
+  registry: ContentRegistry | undefined,
+  id: ContentId,
+): EntryPreview | undefined {
+  const condition = registry === undefined ? undefined : sheetEntry(registry, id);
+  const preview = sheetEntryPreview(registry, id);
+  if (registry === undefined || condition?.kind !== ContentKind.Condition || preview === undefined) {
+    return undefined;
+  }
+  const endings = endingsFor(registry, new Set(), { endings: condition.data.recovery, value: undefined });
+  return endings.length === 0 ? preview : { ...preview, endings };
+}
+
+/** What a condition previews as on `character`: as it applies when held, else as any character sees it. */
 function sheetConditionPreview(
   registry: ContentRegistry | undefined,
   character: Character | undefined,
   id: ContentId,
 ): EntryPreview | undefined {
-  return heldConditionPreview(registry, character, id) ?? sheetEntryPreview(registry, id);
+  return (
+    heldConditionPreview(registry, character, id) ??
+    genericConditionPreview(registry, id) ??
+    sheetEntryPreview(registry, id)
+  );
 }
 
 /**
  * `own` with a condition the character has previewing as it applies (value and effects), wherever the section's own
- * registry holds the condition or not. Any other reference keeps `own`'s preview, and a condition the character lacks
- * keeps its entry's. The engine's registry carries the condition kind whenever the character has a condition, so
+ * registry holds the condition or not. A condition the character lacks previews with the ways it ends
+ * (`genericConditionPreview`) when the engine's registry holds it, else as `own` does, and any other reference keeps
+ * `own`'s preview. The engine's registry carries the condition kind whenever the character has a condition, so
  * nothing is fetched for a reference to one it doesn't.
  */
 export function withHeldConditions(
@@ -71,7 +94,10 @@ export function withHeldConditions(
 ): EntryPreviews {
   return {
     ...own,
-    preview: (id) => heldConditionPreview(engine.registry(), engine.character(), id) ?? own.preview(id),
+    preview: (id) =>
+      heldConditionPreview(engine.registry(), engine.character(), id) ??
+      genericConditionPreview(engine.registry(), id) ??
+      own.preview(id),
   };
 }
 
