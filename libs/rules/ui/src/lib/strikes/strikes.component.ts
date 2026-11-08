@@ -18,7 +18,7 @@ import type { ConditionToggle } from '../statistics/statistic-conditions/statist
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import type { NamedStrike, StrikeSituations, StrikesShield } from './named-strike';
-import { extraDiceText } from './strike-extra-dice';
+import { criticalEffectText, extraDiceText } from './strike-extras';
 import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
@@ -241,11 +241,19 @@ export class StrikesView {
   }
 
   /** "Plus 1d6 fire precision" for each die a rule element adds to the damage, and "3 bludgeoning splash" for splash it adds. */
-  #extras({ damage, weaknesses }: Strike): readonly string[] {
+  #extras({ damage, weaknesses, criticalEffects }: Strike): readonly string[] {
     const dice = (damage?.extra ?? []).map((extra) => extraDiceText(this.#i18n, extra));
     const splash = (damage?.ruleSplash ?? []).map((each) => this.#amountOfType(StrikesMessage.Splash, each));
     const weakness = weaknesses.map((each) => this.#amountOfType(StrikesMessage.CriticalWeakness, each));
-    return [...dice, ...splash, ...weakness];
+    const effects = criticalEffects.map((each) =>
+      criticalEffectText(this.#i18n, this.#nameOf(each.origin.entry), each),
+    );
+    return [...dice, ...splash, ...weakness, ...effects];
+  }
+
+  /** The display name of an entry, or its id while the names load. */
+  #nameOf(entry: ContentId): string {
+    return this.entryNames().get(entry) ?? entry;
   }
 
   /** A message of an amount of one damage type, such as a splash or a weakness: "1 fire splash". */

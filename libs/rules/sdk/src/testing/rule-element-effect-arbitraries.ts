@@ -1,4 +1,4 @@
-import { array, boolean, integer, oneof, record, uniqueArray, uuid } from 'fast-check';
+import { array, boolean, constant, constantFrom, integer, oneof, record, uniqueArray, uuid } from 'fast-check';
 import type { Arbitrary } from 'fast-check';
 
 import { DamageType } from '../damage';
@@ -104,6 +104,28 @@ const criticalWeakness = element('CriticalWeakness', {
   value: integer({ min: 1, max: SMALLINT_MAX }),
 });
 
+const timedDuration = record({
+  type: constant('time'),
+  count: integer({ min: 1, max: SMALLINT_MAX }),
+  unit: constantFrom('round', 'minute', 'hour', 'day'),
+});
+const criticalDuration = oneof(constant({ type: 'next-turn-end' }), constant({ type: 'permanent' }), timedDuration);
+const criticalCondition = record({
+  kind: constant('condition'),
+  condition: constantFrom('deafened', 'immobilized', 'slowed'),
+  duration: criticalDuration,
+});
+const criticalArmorDamage = record({
+  kind: constant('damage'),
+  damageType,
+  amount: constant({ type: 'equal' }),
+  target: constant({ type: 'armor' }),
+});
+const criticalEffect = element('CriticalEffect', {
+  selectors: targets,
+  effect: oneof(criticalCondition, criticalArmorDamage),
+});
+
 /** The effect-group elements, for `ruleElementJson` to draw from. */
 export const effectElements: readonly Arbitrary<object>[] = [
   fastHealing,
@@ -116,4 +138,5 @@ export const effectElements: readonly Arbitrary<object>[] = [
   aura,
   criticalHitCheck,
   criticalWeakness,
+  criticalEffect,
 ];

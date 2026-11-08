@@ -1,4 +1,4 @@
-import { DamageDiceCategory, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { CriticalDurationType, DamageDiceCategory, DegreeOfSuccess } from '@pioneer/rules/sdk';
 
 /** Message keys the Strikes list renders with, spelled out so the key check sees them. */
 export const StrikesMessage = {
@@ -63,3 +63,22 @@ export const NOTE_DEGREE_MESSAGES: Readonly<Record<DegreeOfSuccess, string>> = {
 export function yesNo(flags: Readonly<Record<string, boolean>>): Readonly<Record<string, string>> {
   return Object.fromEntries(Object.entries(flags).map(([name, flag]) => [name, flag ? 'yes' : 'no']));
 }
+
+/** The lines for what a critical hit does besides its damage, spelled out so the key check sees them. */
+export const CriticalEffectMessage = {
+  /** "Frost: on a critical hit, the target is Slowed 1 until the end of your next turn, unless it succeeds at a DC 24 Fortitude save". */
+  Condition: 'rules.strikes.criticalEffect.condition',
+  /** "Shock: on a critical hit, equal electricity damage to up to 2 other creatures within 10 ft of the target". */
+  DamageOthers: 'rules.strikes.criticalEffect.damageOthers',
+  /** "Corrosive: on a critical hit, the target's armor, or its raised shield, takes 3d6 acid damage, before Hardness". */
+  DamageArmor: 'rules.strikes.criticalEffect.damageArmor',
+  /** "equal": the damage as much as the Strike dealt. */
+  EqualDamage: 'rules.strikes.criticalEffect.equalDamage',
+} as const;
+
+/** How long a condition from a critical hit lasts, by kind of duration. */
+export const CRITICAL_DURATION_MESSAGES = {
+  [CriticalDurationType.NextTurnEnd]: 'rules.strikes.criticalEffect.duration.nextTurnEnd',
+  [CriticalDurationType.Time]: 'rules.strikes.criticalEffect.duration.time',
+  [CriticalDurationType.Permanent]: 'rules.strikes.criticalEffect.duration.permanent',
+} as const;

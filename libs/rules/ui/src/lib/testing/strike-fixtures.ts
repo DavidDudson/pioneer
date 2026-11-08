@@ -2,10 +2,12 @@ import { deriveStrikes, EngineMessage, LineStatusKind, NoteRoll } from '@pioneer
 import type { ExtraDice, RuleId, StatisticValue, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { TextPosition } from '@pioneer/rules/formula';
 import {
+  ConditionValue,
   ContentId,
   contentId,
   ContentText,
   DamageAmount,
+  Dc,
   DiceCount,
   EntrySlug,
   Feet,
@@ -216,6 +218,7 @@ export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
 }
 
 const FLAME_WEAKNESS = DamageAmount.parse(5);
+const FROST_SAVE_DC = Dc.parse(24);
 
 const FLAME_DICE: ExtraDice = {
   count: DiceCount.parse(1),
@@ -239,6 +242,18 @@ export const ELEMENT_STRIKE: readonly NamedStrike[] = [
         extra: [FLAME_DICE, { ...FLAME_DICE, damageType: 'cold', category: undefined, critical: true }],
       },
       weaknesses: [{ damageType: 'fire', amount: FLAME_WEAKNESS, origin: origin(GLOOM_WALKER) }],
+      criticalEffects: [
+        {
+          effect: {
+            kind: 'condition',
+            condition: 'slowed',
+            value: ConditionValue.parse(1),
+            duration: { type: 'next-turn-end' },
+            save: { statistic: 'fortitude', dc: FROST_SAVE_DC },
+          },
+          origin: origin(GLOOM_WALKER),
+        },
+      ],
       notes: [
         {
           roll: NoteRoll.Attack,
