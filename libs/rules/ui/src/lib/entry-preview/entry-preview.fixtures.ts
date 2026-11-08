@@ -171,23 +171,30 @@ export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
     {
       kind: 'automatic',
       text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
+      against: [],
       held: [],
     },
     {
       kind: 'check',
       text: endingText('A flat check ends the condition.'),
       dc: 12,
+      against: [
+        { name: 'Fortitude', modifier: 7 },
+        { name: 'Will', modifier: -1 },
+      ],
       held: [],
     },
     {
       kind: 'action',
       text: endingText('You can spend an action to steady yourself.'),
       action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
+      against: [],
       held: [],
     },
     {
       kind: 'others',
       text: endingText('A spell or ability that restores coordination can lower or remove it.'),
+      against: [],
       held: [{ id: ContentId.parse(FIREBALL), name: ENDING_SOURCE_NAME }],
     },
   ],

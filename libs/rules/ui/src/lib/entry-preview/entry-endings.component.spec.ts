@@ -36,6 +36,13 @@ describe(EntryEndingsView, () => {
     expect(textOf(render(ENDINGS))).toContain('DC 12');
   });
 
+  it('shows the modifier the character rolls at for each statistic of a check, signed', () => {
+    const text = textOf(render(ENDINGS));
+
+    expect(text).toContain('Fortitude +7');
+    expect(text).toContain('Will -1');
+  });
+
   it('names the action that ends it', () => {
     expect(textOf(render(ENDINGS))).toContain('Steady');
   });

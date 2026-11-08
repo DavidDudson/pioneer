@@ -1,11 +1,12 @@
 <fr-stack gap="xs">
   <fr-text weight="medium">{{ Message.Endings | transloco }}</fr-text>
-  @for (ending of listed(); track $index) {
+  @for (row of rows(); track $index) {
+    @let ending = row.ending;
     <fr-stack gap="3xs">
       <fr-stack gap="2xs" direction="horizontal" align="center">
         <fr-text variant="caption" weight="medium">{{ KindMessage[ending.kind] | transloco }}</fr-text>
-        @if (ending.dc; as dc) {
-          <fr-badge>{{ Message.EndingDc | transloco: { dc } }}</fr-badge>
+        @for (badge of row.badges; track badge) {
+          <fr-badge>{{ badge }}</fr-badge>
         }
       </fr-stack>
       <pio-rich-text [text]="ending.text" />

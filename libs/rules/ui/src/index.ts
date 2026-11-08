@@ -30,6 +30,7 @@ export {
   type PreviewEffect,
   type PreviewEnding,
   type PreviewEndingSource,
+  type PreviewEndingStatistic,
   type PreviewRanks,
   type StatisticLink,
   panelQuery,

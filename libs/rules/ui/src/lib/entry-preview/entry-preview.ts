@@ -38,6 +38,13 @@ export interface PreviewEndingSource {
   readonly name: ContentText;
 }
 
+/** A statistic the character may roll to end a condition, with the modifier it rolls at. */
+export interface PreviewEndingStatistic {
+  readonly name: string;
+  /** The statistic's total for the character now, conditions it holds included. */
+  readonly modifier: number;
+}
+
 /** One way a condition the character has ends or eases, as that character meets it. */
 export interface PreviewEnding {
   readonly kind: ConditionEnding['kind'];
@@ -45,6 +52,8 @@ export interface PreviewEnding {
   readonly text: RichText;
   /** The DC of a check at the value the character holds; absent for a flat or another creature's DC, or no check. */
   readonly dc?: number;
+  /** The statistics the character may roll for the check, as it has them; empty for a flat check or no check. */
+  readonly against: readonly PreviewEndingStatistic[];
   /** The action that ends it, which anyone can take; absent where the ending names none. */
   readonly action?: PreviewEndingSource;
   /** What the character has that ends or eases it; empty when it has nothing, or the ending names nothing. */

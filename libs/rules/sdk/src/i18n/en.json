@@ -135,6 +135,7 @@
       "noEffects": "Changes no statistic.",
       "endings": "How this character can end it",
       "endingDc": "DC {dc}",
+      "endingAgainst": "{statistic} {modifier}",
       "endingAction": "Action:",
       "endingHeld": "You have:",
       "endingKind": {

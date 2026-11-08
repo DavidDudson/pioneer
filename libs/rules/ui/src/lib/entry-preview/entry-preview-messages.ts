@@ -25,6 +25,8 @@ export const EntryPreviewMessage = {
   Endings: 'rules.entryPreview.endings',
   /** "DC 12": a recovery check at the value the character holds. */
   EndingDc: 'rules.entryPreview.endingDc',
+  /** "Fortitude +7": a statistic the recovery check may be rolled with, and the modifier the character rolls at. */
+  EndingAgainst: 'rules.entryPreview.endingAgainst',
   /** Leads the action that ends a condition. */
   EndingAction: 'rules.entryPreview.endingAction',
   /** Leads what the character has that eases a condition. */
