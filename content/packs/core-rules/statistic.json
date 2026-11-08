@@ -882,8 +882,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -892,7 +892,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Strength measures your character's physical power. Strength is important if your character plans to engage in hand-to-hand combat. Your Strength modifier gets added to melee damage rolls and determines how much your character can carry."
           }
         ]
       }
@@ -918,8 +918,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -928,7 +928,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Dexterity measures your character's agility, balance, and reflexes. Dexterity is important if your character plans to make attacks with ranged weapons or use stealth to surprise foes. Your Dexterity modifier is also added to your character's AC and Reflex saving throws."
           }
         ]
       }
@@ -954,8 +954,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -964,7 +964,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Constitution measures your character's health and stamina. Constitution is important for all characters, especially those who fight in close range. Your Constitution modifier is added to your Hit Points and Fortitude saving throws."
           }
         ]
       }
@@ -990,8 +990,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -1000,7 +1000,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Intelligence measures how well your character can learn and reason. A high Intelligence allows your character to analyze situations and understand patterns, and it means they can become trained in additional skills and might be able to master additional languages."
           }
         ]
       }
@@ -1026,8 +1026,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -1036,7 +1036,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Wisdom measures your character's common sense, awareness, and intuition. High Wisdom helps your character detect hidden things and resist mental effects. Your Wisdom modifier is added to your Perception and Will saving throws."
           }
         ]
       }
@@ -1062,8 +1062,8 @@
       {
         "kind": "book",
         "book": "player-core",
-        "page": 400,
-        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
+        "page": 19,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2027"
       }
     ],
     "description": [
@@ -1072,7 +1072,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+            "text": "Charisma measures your character's personal magnetism and strength of personality. A high Charisma modifier helps you build relationships and influence the thoughts and moods of others with social skills."
           }
         ]
       }
