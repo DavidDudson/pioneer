@@ -81,8 +81,8 @@ describe('benchmark retries', () => {
       prepare: () => undefined,
       run: () => {
         calls += 1;
-        // Calls 1 and 2 (the first round) take 80 and 40 ms; later calls are instant.
-        const until = performance.now() + Math.max(0, 120 - 40 * calls);
+        // Calls 1 and 2 (the first round) take 160 and 80 ms, over the budget even scaled for a CI runner; later calls are instant.
+        const until = performance.now() + 80 * Math.max(0, 3 - calls);
         while (performance.now() < until) {
           // Busy wait: the first round is over the budget.
         }
@@ -103,7 +103,7 @@ describe('benchmark retries', () => {
       timedRuns: 1,
       prepare: () => undefined,
       run: () => {
-        const until = performance.now() + 10;
+        const until = performance.now() + 40;
         while (performance.now() < until) {
           // Busy wait: every round is over the budget.
         }
