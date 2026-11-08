@@ -15,6 +15,12 @@ const EFFECT_PREFIXES: readonly (readonly [string, ReadonlySet<string>])[] = [
 /** The variant Foundry appends to an effect of a spell with several, `Animal Form (Bear)`. */
 const VARIANT_SUFFIX = / \([^)]*\)$/u;
 
+/** A polymorph spell, feat or action already committed in the pack, which the run's own entries may not include. */
+export interface PolymorphSource {
+  readonly type: string;
+  readonly name: string;
+}
+
 interface TraitedEntry {
   readonly source: SelectedEntry;
   readonly envelope: ImportedEnvelope;
@@ -24,14 +30,19 @@ interface TraitedEntry {
 /**
  * Foundry's effects carry no traits, so a `Spell Effect: X` of a polymorph spell `X`, or an `Effect: X` of a polymorph
  * feat or action `X`, is not a polymorph effect to the engine and would not replace another form. Those effects take
- * the polymorph trait from what they are the effect of, matched by name among the import's own entries.
+ * the polymorph trait from what they are the effect of, matched by name among the import's own entries and the
+ * polymorph entries `committed` in the pack already (a legacy run imports the effect but not always its spell).
  */
-export function withPolymorphTraits<Entry extends TraitedEntry>(entries: readonly Entry[]): readonly Entry[] {
-  const polymorph = new Set<string>(
-    entries
+export function withPolymorphTraits<Entry extends TraitedEntry>(
+  entries: readonly Entry[],
+  committed: readonly PolymorphSource[] = [],
+): readonly Entry[] {
+  const polymorph = new Set<string>([
+    ...committed.map(({ type, name }) => `${type}:${name}`),
+    ...entries
       .filter(({ envelope }) => envelope.traits.includes(POLYMORPH))
       .map(({ source, envelope }) => `${source.document.type}:${envelope.name}`),
-  );
+  ]);
   return entries.map((entry) => {
     const { kindData, envelope } = entry;
     if (kindData?.kind !== ContentKind.Effect || envelope.traits.includes(POLYMORPH)) {

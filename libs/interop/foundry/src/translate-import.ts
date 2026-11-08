@@ -2,6 +2,7 @@ import { ContentKind, slugName, Trait } from '@pioneer/rules/sdk';
 import type { BookId, PackId } from '@pioneer/rules/sdk';
 
 import { withPolymorphTraits } from './effect-traits';
+import type { PolymorphSource } from './effect-traits';
 import { entryReferences } from './entry-references';
 import type { KnownEntry } from './entry-references';
 import { entrySlugs } from './entry-slugs';
@@ -41,6 +42,8 @@ export interface ImportContext {
   readonly documents?: readonly PackDocument[];
   /** The release's journals, for the archetypes Foundry keeps as journal pages; without them none are imported. */
   readonly journals?: readonly JournalDocument[];
+  /** The polymorph spells, feats and actions already committed in the target pack, which give their trait to effects. */
+  readonly polymorph?: readonly PolymorphSource[];
 }
 
 export interface ImportedEntry {
@@ -112,7 +115,10 @@ export function translateImport(selected: readonly SelectedEntry[], context: Imp
   });
   return {
     envelopes,
-    entries: withPolymorphTraits(translated.map((entry) => importedEntry(entry))),
+    entries: withPolymorphTraits(
+      translated.map((entry) => importedEntry(entry)),
+      context.polymorph,
+    ),
     archetypes: archetypes.entries,
     vocabulary: vocabulary.entries,
     vocabularyGaps: vocabulary.gaps,

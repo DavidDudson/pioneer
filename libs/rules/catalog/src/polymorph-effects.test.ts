@@ -31,29 +31,10 @@ function untraited(entries: readonly ContentEntry[]): readonly string[] {
     .map(({ pack, slug }) => contentKey(pack, slug));
 }
 
-/**
- * Legacy Secrets of Magic effects imported with no traits, so without the polymorph trait of their spell, and
- * they do not yet replace another form. Remove a key when the import or the entry carries the trait.
- */
-const LEGACY_GAPS: ReadonlySet<string> = new Set([
-  'secrets-of-magic/effect:spell-effect-angel-form-monadic-deva',
-  'secrets-of-magic/effect:spell-effect-angel-form-movanic-deva',
-  'secrets-of-magic/effect:spell-effect-daemon-form-ceustodaemon',
-  'secrets-of-magic/effect:spell-effect-daemon-form-piscodaemon',
-  'secrets-of-magic/effect:spell-effect-demon-form-babau',
-  'secrets-of-magic/effect:spell-effect-demon-form-hezrou',
-  'secrets-of-magic/effect:spell-effect-demon-form-nabasu',
-  'secrets-of-magic/effect:spell-effect-demon-form-vrock',
-  'secrets-of-magic/effect:spell-effect-devil-form-barbazu',
-  'secrets-of-magic/effect:spell-effect-devil-form-erinys',
-  'secrets-of-magic/effect:spell-effect-devil-form-osyluth',
-  'secrets-of-magic/effect:spell-effect-juvenile-companion',
-]);
-
 describe('polymorph effects', () => {
   test('every effect of a polymorph spell, feat or action has the polymorph trait, so it replaces another form', async () => {
     const packs = await Promise.all(contentCatalog.map(async (loader) => loader.load()));
-    const missing = packs.flatMap((pack) => untraited(pack.otherEntries)).filter((key) => !LEGACY_GAPS.has(key));
+    const missing = packs.flatMap((pack) => untraited(pack.otherEntries));
 
     expect(missing).toEqual([]);
   });
