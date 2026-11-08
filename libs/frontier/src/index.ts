@@ -111,6 +111,7 @@ export { DrawerWidth } from './lib/layout/drawer/drawer-width';
 export { DRAWER_OPEN, DRAWER_PARAM } from './lib/layout/drawer/drawer-query';
 export { PageHeader } from './lib/layout/page-header/page-header.component';
 export { CRUMB, type Crumb } from './lib/layout/page-header/route-crumbs';
+export { SectionBody } from './lib/layout/section/section-body.directive';
 export { Section } from './lib/layout/section/section.component';
 export { Dropdown, DropdownAlign } from './lib/layout/dropdown/dropdown.component';
 export { HeaderCrumbs } from './lib/layout/header-crumbs/header-crumbs';

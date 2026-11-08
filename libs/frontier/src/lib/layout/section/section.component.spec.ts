@@ -1,8 +1,10 @@
-import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
+import { ApplicationRef, Component, createComponent, EnvironmentInjector, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import type { ComponentFixture } from '@angular/core/testing';
 import { beforeEach, describe, expect, it, onTestFinished } from 'vitest';
 
 import { provideFrontierI18nTesting } from '../../testing/provide-frontier-i18n-testing';
+import { SectionBody } from './section-body.directive';
 import { Section } from './section.component';
 
 interface Rendered {
@@ -60,5 +62,49 @@ describe(Section, () => {
   it('projects its content after the heading', async () => {
     const { region } = await render('sheet-identity', 'Identity');
     expect(region.textContent.trim()).toBe('IdentityStrength +4');
+  });
+});
+
+@Component({
+  selector: 'fr-section-body-host',
+  imports: [Section, SectionBody],
+  templateUrl: './section-body-host.component.html',
+})
+class SectionBodyHost {
+  public readonly shown = signal('first');
+}
+
+describe('Section body', () => {
+  let fixture: ComponentFixture<SectionBodyHost>;
+  let root: HTMLElement;
+  const show = async (which: string): Promise<void> => {
+    fixture.componentInstance.shown.set(which);
+    await fixture.whenStable();
+  };
+
+  beforeEach(async () => {
+    TestBed.configureTestingModule({ providers: [...provideFrontierI18nTesting()] });
+    fixture = TestBed.createComponent(SectionBodyHost);
+    root = fixture.nativeElement as HTMLElement;
+    await fixture.whenStable();
+  });
+
+  it('builds only the shown section', () => {
+    expect(root.querySelector('#first-body')).not.toBeNull();
+    expect(root.querySelector('#second-body')).toBeNull();
+  });
+
+  it('builds a section the first time it is shown', async () => {
+    await show('second');
+    expect(root.querySelector('#second-body')).not.toBeNull();
+  });
+
+  it('keeps a built section, concealed, when another is shown', async () => {
+    await show('second');
+    const first = root.querySelector('#first-body');
+    expect(first).not.toBeNull();
+    expect(first?.closest('fr-section')?.classList.contains('hidden')).toBe(true);
+    await show('first');
+    expect(root.querySelector('#first-body')).toBe(first);
   });
 });
