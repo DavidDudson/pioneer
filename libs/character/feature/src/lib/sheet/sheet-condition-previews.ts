@@ -20,7 +20,7 @@ function valueOf(active: readonly ActiveCondition[]): ConditionValue | undefined
  * statistics the engine derives, so frightened 2 says "−2 status" where the entry says "the condition's value". None
  * for a condition the character lacks, an entry that isn't a condition, or a registry that doesn't hold it.
  */
-export function heldConditionPreview(
+function heldConditionPreview(
   registry: ContentRegistry | undefined,
   character: Character | undefined,
   id: ContentId,

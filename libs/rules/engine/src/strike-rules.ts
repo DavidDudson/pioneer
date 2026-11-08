@@ -37,7 +37,6 @@ export type { RuleSplash } from './strike-splash';
 export type { CriticalEffect } from './strike-critical-effects';
 export type { CriticalRange } from './strike-critical-range';
 export type { CriticalWeakness } from './strike-weaknesses';
-export { ETCHED_DAMAGE } from './strike-targets';
 export type { StrikeTargets } from './strike-targets';
 
 /** Dice a `DamageDice` element adds to a Strike's damage, on top of the weapon's. */

@@ -46,6 +46,13 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
     ]);
   });
 
+  test('a damage trait as the type is a subject of its own', () => {
+    const { rules, untranslated } = translated({ key: RuleElementKey.Resistance, type: 'holy', value: 10 });
+
+    expect(untranslated).toEqual([]);
+    expect(rules as readonly unknown[]).toEqual([{ key: RuleElementKey.Resistance, type: ['holy'], value: 10 }]);
+  });
+
   test('exceptions stand', () => {
     const { rules, untranslated } = translated({
       exceptions: ['adamantine'],
@@ -70,7 +77,6 @@ describe('Resistance, Weakness and Immunity from Foundry', () => {
   test.each([
     ['a type picked by a ChoiceSet', { type: '{item|flags.system.rulesSelections.resistance}', value: 10 }],
     ['a custom type', { type: 'custom', definition: ['origin:treerazer'], label: 'PF2E.IWR.Custom', value: 5 }],
-    ['a damage trait as the type', { type: 'holy', value: 10 }],
     ['doubleVs', { type: 'all-damage', value: 5, doubleVs: ['non-magical'] }],
     ['a value read from the actor flags', { type: 'fire', value: '@actor.flags.system.ragingResistance' }],
   ])('%s has no Pioneer meaning yet, so the element is kept for the backlog', (_case, extra) => {

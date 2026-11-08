@@ -43,7 +43,7 @@ export const Empty: ActionsStory = {
 
 /** Standing in an encounter: the usable actions by cost, Escape and Grapple with a roll button. */
 export const Now: ActionsStory = {
-  args: { lines: STANDING_ACTIONS },
+  args: { lines: STANDING_ACTIONS, category: ActionCategory.Basic },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('heading', { name: '1 action' })).toBeVisible();
@@ -72,18 +72,19 @@ export const Downtime: ActionsStory = {
   args: { lines: STANDING_ACTIONS, mode: ActionMode.Downtime },
 };
 
-/** Every action, with its status and why an unusable one is. */
+/** Every action, with its status; the summary on hover says why an unusable one is. */
 export const All: ActionsStory = {
-  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All },
+  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All, category: ActionCategory.Basic },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText('Needs trained proficiency in thievery.')).toBeVisible();
+    const row = canvas.getByText('Pick a Lock').closest('pio-action-row');
+    await expect(row).toHaveTextContent('Unavailable');
   },
 };
 
 /** The All view narrowed to one trait. */
 export const Filtered: ActionsStory = {
-  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All },
+  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All, category: ActionCategory.Basic },
   play: async ({ canvasElement, userEvent }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'attack' }));
@@ -94,7 +95,7 @@ export const Filtered: ActionsStory = {
 
 /** The All view lists every action as a compact row, sorted by name. */
 export const AllByName: ActionsStory = {
-  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All },
+  args: { lines: STANDING_ACTIONS, view: ActionsViewKind.All, category: ActionCategory.Basic },
   play: async ({ canvasElement }) => {
     const names = [...canvasElement.querySelectorAll('pio-action-row pio-entry-name-cell')].map((cell) =>
       cell.textContent.trim(),
@@ -136,6 +137,7 @@ export const KindSubtabs: ActionsStory = {
     await expect(canvas.getAllByRole('tab').map((tab) => tab.textContent.trim())).toStrictEqual([
       'Spells',
       'Items',
+      'Features and feats',
       'Basic actions',
     ]);
     await userEvent.click(canvas.getByRole('tab', { name: 'Items' }));

@@ -46,7 +46,6 @@ import { effectElements } from './rule-element-effect-arbitraries';
 const ruleValue = oneof(ruleNumber, validFormulaText);
 const nonAttributeTypes = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
 const damageType = anyOf(DamageType);
-
 const choiceValue = oneof(uuid(), slugText);
 const choiceOption = withOptional(record({ value: choiceValue, label: contentText }), { predicate: predicateJson });
 const choiceOptions = array(choiceOption, { minLength: 1, maxLength: LIST_MAX });
@@ -54,7 +53,6 @@ const choiceQuery = record({ kind: anyOf(ContentKind), filter: predicateJson });
 const suboption = withOptional(record({ value: slugText, label: contentText }), { predicate: predicateJson });
 const suboptions = array(suboption, { minLength: 1, maxLength: LIST_MAX });
 const choiceRef = record({ choice: slugText });
-
 const flatModifierOptional = { slug: slugText, damageType };
 
 const grantItem = element(

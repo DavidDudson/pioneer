@@ -59,7 +59,7 @@ describe('CharacterSheetPage class', () => {
     const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT] });
 
     await vi.waitFor(() => {
-      expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Level', 'Class', 'Subclass']);
+      expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class', 'Subclass']);
     });
     expect(fieldNamed(root, 'Class').textContent).toContain('Cleric');
   });

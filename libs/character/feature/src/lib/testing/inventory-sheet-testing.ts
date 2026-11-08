@@ -15,6 +15,7 @@ import { expect, onTestFinished, vi } from 'vitest';
 
 import { characterRoutes } from '../character.routes';
 import { prebuildServerStateTesting, provideServerStateTesting } from './provide-server-state-testing';
+import { ruleLimitSettingsOf } from './rule-limit-settings-testing';
 import { answerItemApprovalsRead, answerSheetBundle } from './sheet-page-harness';
 import { NO_CHARACTER_PACKS, NO_VARIANT_RULES, playOf } from './sheet-reads-testing';
 
@@ -78,6 +79,9 @@ async function answerServerState(character: object, { approvals, limits = true }
     sheet: { character, slots: [], languages: { known: [], open: 0 } },
     ruleLimits: CORE_RULE_LIMITS,
     play: playOf(0, 0),
+    featDisplay: { showGrantOnly: [] },
+    ruleLimitSettings: ruleLimitSettingsOf(),
+    unenabled: { variantRules: [], packs: [], items: [] },
     packs: NO_CHARACTER_PACKS,
     variantRules: NO_VARIANT_RULES,
   });
@@ -116,7 +120,7 @@ export async function openInventory(
   rows: number = VALEROS.inventory.items.length,
   approvals?: object,
 ): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/exploration`, character, { approvals });
+  const sheet = await openSheet(`/characters/${id}/exploration/inventory`, character, { approvals });
   const section = present(sheet.querySelector<HTMLElement>('pio-inventory-section'));
   await vi.waitFor(async () => {
     await settle();
@@ -200,7 +204,7 @@ export async function patchSent(): Promise<TestRequest> {
 
 /** Opens Valeros's sheet, with `query` in the URL when given, and waits for the shop to list what it offers. */
 export async function openShop(query = ''): Promise<HTMLElement> {
-  const sheet = await openSheet(`/characters/${id}/downtime${query}`, VALEROS, { limits: false });
+  const sheet = await openSheet(`/characters/${id}/downtime/downtime${query}`, VALEROS, { limits: false });
   const shop = present(sheet.querySelector<HTMLElement>('pio-shop'));
   await vi.waitFor(async () => {
     await settle();

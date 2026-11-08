@@ -144,7 +144,7 @@ export interface SheetOptions {
 const NO_UNENABLED = { variantRules: [], packs: [], items: [] };
 
 export { answerItemApprovalsRead } from './rule-limit-reads-testing';
-export { answerSheetBundle, deathOf, playOf } from './sheet-reads-testing';
+export { answerSheetBundle, playOf } from './sheet-reads-testing';
 
 /** The server's answer to an edit of Merisiel: her sheet, and the picks the edit cleared. */
 export function patchedOf(character: object, slots: readonly object[], cleared: readonly object[] = []): object {

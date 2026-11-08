@@ -68,13 +68,12 @@ export type ConditionDc = z.infer<typeof ConditionDc>;
  * A check that ends or eases a condition. `against` is the statistics the character may roll (`save:fortitude`,
  * `skill:athletics`), empty for a flat check; `dc` is absent when it is another creature's (Escape).
  */
-export const ConditionCheck = z.strictObject({
+const ConditionCheck = z.strictObject({
   against: z.array(Selector).max(CHECK_SELECTORS_MAX).readonly(),
   dc: ConditionDc.optional(),
   /** The DC when someone helps, where the rules give one (persistent damage, DC 10 when assisted). */
   assistedDc: ConditionDc.optional(),
 });
-export type ConditionCheck = z.infer<typeof ConditionCheck>;
 
 /** Fields every ending has: its rule text, as content in the source locale (ADR-0009), never built in code. */
 const endingText = { text: RichText } as const;

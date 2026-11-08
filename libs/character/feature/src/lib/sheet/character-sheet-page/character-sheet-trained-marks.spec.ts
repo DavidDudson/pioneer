@@ -10,6 +10,7 @@ import { openFeatTable, stubTableLayout } from '../../testing/feat-table-testing
 import { backgroundRowsShown, rowsShown } from '../../testing/origin-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
 import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { openLevel } from '../../testing/sheet-tabs-testing';
 import { TEST_PACKS } from '../../testing/test-packs';
 
 const MARKS_PACK = 'trained-marks';
@@ -140,6 +141,7 @@ describe('CharacterSheetPage options that train a skill again', () => {
     // A picker's table reads its height once, when the sheet renders it, so before the sheet opens (#734).
     stubTableLayout();
     const { root } = await openSheet(fighter({ background: ACOLYTE }), { packs: PACKS });
+    await openLevel(root, 1);
     const slot = await vi.waitFor(async () => fieldNamed(root, 'Fighter feat, level 1'));
 
     const rows = await openFeatTable(slot, 2);

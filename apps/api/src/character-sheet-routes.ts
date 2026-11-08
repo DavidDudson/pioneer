@@ -35,7 +35,7 @@ import type { ContractRouter, RequestAuthenticator } from '@pioneer/shared/serve
 import type { Database } from './database';
 
 /** The use cases behind what a sheet shows beside the build. */
-export interface CharacterSheetServices {
+interface CharacterSheetServices {
   readonly packs: CharacterPackService;
   readonly allies: CharacterAllyService;
   readonly variants: CharacterVariantService;

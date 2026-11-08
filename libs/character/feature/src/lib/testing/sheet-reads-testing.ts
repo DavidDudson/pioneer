@@ -26,11 +26,6 @@ export function playOf(damage: number, temp: number, revision = 1): object {
   return { revision, play: { hp: { damage, temp } } };
 }
 
-/** The play state of a character at 0 Hit Points with the death track's `track` conditions, at `revision`. */
-export function deathOf(track: object, revision = 1): object {
-  return { revision, play: { hp: { damage: 15, temp: 0 }, ...track } };
-}
-
 /** The bundle a spec answers with when it needs only the sheet: `sheet` and the core rules' limits. */
 export function sheetBundleOf(sheet: object): object {
   return { sheet, ruleLimits: CORE_RULE_LIMITS };

@@ -4,7 +4,7 @@ import { DamageGroup, RuleElementKey } from '@pioneer/rules/sdk';
  * Foundry's `Resistance`, `Weakness` and `Immunity` in Pioneer's spelling (ADR-0008): `type` is a list, and
  * Foundry's `all-damage` is the `all` group. A `value` formula is read as for any element, and `exceptions` and a
  * predicate stand. What this cannot carry over (a type picked by a `ChoiceSet`, a `custom` type with its own
- * `definition`, a type that is a damage trait such as `holy` or `silver`, `doubleVs`, `mode`, and the `exceptions` of
+ * `definition`, `doubleVs`, `mode`, and the `exceptions` of
  * an `Immunity`) is left as it is, so the element fails and is kept for the backlog.
  */
 
