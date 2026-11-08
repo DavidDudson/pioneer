@@ -5,6 +5,7 @@ import type { Uuid } from '@pioneer/shared/kernel';
 import { ImportKind, ImportKindSchema } from './import-kind';
 import type { PathbuilderName } from './import-kind';
 import { LEGACY_ITEM_NAMES } from './legacy-names';
+import { LEGACY_SPELL_NAMES } from './legacy-spell-names';
 
 /** The content entry a Pathbuilder name resolved to. */
 export interface ContentMatch {
@@ -47,6 +48,7 @@ const MIN_FUZZY_LENGTH = 10;
 /** Pre-remaster names per kind, as match keys: legacy key to remaster key. */
 const LEGACY_KEYS: Partial<Record<ImportKind, ReadonlyMap<string, string>>> = {
   [ImportKind.Item]: new Map(LEGACY_ITEM_NAMES.map(([legacy, remaster]) => [matchKey(legacy), matchKey(remaster)])),
+  [ImportKind.Spell]: new Map(LEGACY_SPELL_NAMES.map(([legacy, remaster]) => [matchKey(legacy), matchKey(remaster)])),
 };
 
 function digitsOf(key: string): string {

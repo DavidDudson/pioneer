@@ -11,6 +11,7 @@ const toolkitId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b01');
 const wholeId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b02');
 const lesserId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b03');
 const plusOneId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b04');
+const ringOfTruthId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b05');
 
 function item(id: Uuid, name: string): ContentMatch {
   return { id, name: ContentText.parse(name) };
@@ -24,6 +25,7 @@ const lookup: ContentLookup = entryLookup({
     item(plusOneId, 'Potency Crystal +1'),
   ],
   [ImportKind.Feat]: [item(toolkitId, 'Shield Blocking')],
+  [ImportKind.Spell]: [item(ringOfTruthId, 'Ring of Truth')],
 });
 
 function resolvedId(kind: ImportKind, name: string): Uuid | undefined {
@@ -35,7 +37,11 @@ describe('legacy names', () => {
     expect(resolvedId(ImportKind.Item, "Healer's Tools")).toBe(toolkitId);
   });
 
-  test('applies to items only', () => {
+  test("resolves a spell's pre-remaster name to its remaster entry", () => {
+    expect(resolvedId(ImportKind.Spell, 'Zone of Truth')).toBe(ringOfTruthId);
+  });
+
+  test('applies to items and spells only', () => {
     expect(resolvedId(ImportKind.Feat, "Healer's Tools")).toBeUndefined();
   });
 });
