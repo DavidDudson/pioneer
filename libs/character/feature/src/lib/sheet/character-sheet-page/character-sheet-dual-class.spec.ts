@@ -72,9 +72,9 @@ describe('CharacterSheetPage with Dual Class', () => {
     const { root } = await openSheet(fighter(true), { characterVariantRules: DUAL_CLASS_ON });
 
     await vi.waitFor(() => {
-      expect(labels(root)).toContain('Second subclass');
+      expect(labels(root)).toContain('Doctrine');
     });
-    await pickRow(root, { label: 'Second subclass', type: SubclassPicker }, 'Warpriest');
+    await pickRow(root, { label: 'Doctrine', type: SubclassPicker }, 'Warpriest');
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
     );

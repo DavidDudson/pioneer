@@ -13,12 +13,12 @@
     />
   </fr-inline-field>
   @if (classPicks().subclassField(); as subclassField) {
-    <fr-inline-field [label]="labels().subclass | transloco" [edit]="subclassField">
+    <fr-inline-field [label]="subclassName() ?? (labels().subclass | transloco)" [edit]="subclassField">
       <pio-subclass-picker
         frInlineEditor
         [rows]="rows.subclasses()"
         [loading]="rows.loading()"
-        [ariaLabel]="labels().subclass | transloco"
+        [ariaLabel]="subclassName() ?? (labels().subclass | transloco)"
         [placeholder]="'character.sheet.subclassPlaceholder' | transloco"
         [value]="subclassField.draft()"
         (valueChange)="subclassField.change($event)"

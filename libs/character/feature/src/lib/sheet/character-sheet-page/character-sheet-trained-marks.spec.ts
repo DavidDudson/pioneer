@@ -123,7 +123,7 @@ describe('CharacterSheetPage options that train a skill again', () => {
   it('marks the subclass that trains a skill the class trains', async () => {
     const { root } = await openSheet(cleric(), AS_CLERIC);
 
-    const rows = await rowsShown<SubclassPickerRow, SubclassPicker>(root, { label: 'Subclass', type: SubclassPicker });
+    const rows = await rowsShown<SubclassPickerRow, SubclassPicker>(root, { label: 'Doctrine', type: SubclassPicker });
 
     expect(rows.map((row) => [row.name, row.note, row.disabledReason])).toContainEqual([
       'Devout-doctrine',
