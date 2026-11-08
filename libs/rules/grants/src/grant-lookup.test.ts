@@ -278,3 +278,22 @@ describe('grantLookup replacements', () => {
     expect(factsOfId(registry, legacyId)?.replacedBy).toBeUndefined();
   });
 });
+
+describe('grantLookup memoization', () => {
+  test('returns the same lookup for a registry and legacyContent, and another for the other legacyContent', () => {
+    const registry = registryOf('human');
+    expect(grantLookup(registry)).toBe(grantLookup(registry));
+    expect(grantLookup(registry, true)).toBe(grantLookup(registry, true));
+    expect(grantLookup(registry, true)).not.toBe(grantLookup(registry));
+  });
+
+  test('builds another lookup once a pack is registered, so it holds the new content', () => {
+    const registry = registryOf('human');
+    const before = grantLookup(registry);
+    registry.register(new ContentPackBuilder().withId('second-pack').withFeat('sudden-charge').build());
+    const after = grantLookup(registry);
+    expect(after).not.toBe(before);
+    expect(after.ofKind(ContentKind.Feat)).toHaveLength(1);
+    expect(before.ofKind(ContentKind.Feat)).toHaveLength(0);
+  });
+});
