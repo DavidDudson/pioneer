@@ -1018,6 +1018,7 @@
       "persistent": "{formula} persistent {type}",
       "damageCondition": "Extra damage when its condition holds ({name})",
       "splash": "{amount} {type} splash",
+      "criticalWeakness": "On a critical hit, the target gains weakness {amount} to {type} until the end of your next turn",
       "rangeIncrement": "Range increment {range} ft",
       "materials": "Made of {materials}",
       "propertyRunes": "Property runes: {runes}",

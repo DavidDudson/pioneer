@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
+import { DamageAmount, RollOption, StatisticDefinition, StatisticKind } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, PLAYER_CORE_PROFICIENCY_BONUS } from '@pioneer/rules/sdk/testing';
 
 import { deriveStatistics } from './derive-statistics';
@@ -258,5 +258,35 @@ describe('Strike rules aimed at the weapon they are etched on', () => {
     for (const strike of strikes(undefined)) {
       expect(strike.damage?.extra).toStrictEqual([]);
     }
+  });
+});
+
+describe('Strike weaknesses from rule elements', () => {
+  test('a CriticalWeakness reaching the damage roll is on the Strike, with its type, amount and origin', () => {
+    const element = { key: 'CriticalWeakness', selectors: ['strike-damage'], type: 'fire', value: 10 };
+
+    const strike = strikeOf([[element, 'vulnerability']]);
+
+    expect(strike?.weaknesses).toEqual([
+      { damageType: 'fire', amount: DamageAmount.parse(10), origin: inPlay(element, 'vulnerability').origin },
+    ]);
+  });
+
+  test('a CriticalWeakness for other rolls, or whose predicate fails, is not on the Strike', () => {
+    const elsewhere = { key: 'CriticalWeakness', selectors: ['perception'], type: 'fire', value: 5 };
+    const calm = {
+      key: 'CriticalWeakness',
+      selectors: ['strike-damage'],
+      type: 'cold',
+      value: 5,
+      predicate: ['self:effect:calm'],
+    };
+
+    expect(
+      strikeOf([
+        [elsewhere, 'a'],
+        [calm, 'b'],
+      ])?.weaknesses,
+    ).toEqual([]);
   });
 });

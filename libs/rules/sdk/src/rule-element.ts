@@ -10,6 +10,7 @@ import { RuleElementKey } from './rule-element-base';
 import { BattleFormElement, CreatureSizeElement } from './rule-element-creature-size';
 import { CriticalHitCheckElement } from './rule-element-critical-hit-check';
 import { CriticalSpecializationElement } from './rule-element-critical-specialization';
+import { CriticalWeaknessElement } from './rule-element-critical-weakness';
 import { DamageAlterationElement, DamageDiceElement } from './rule-element-damage';
 import { ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 import { GrantShieldElement } from './rule-element-grant-shield';
@@ -94,6 +95,7 @@ const Element = z.discriminatedUnion('key', [
   MovementCostElement,
   GrantShieldElement,
   CriticalHitCheckElement,
+  CriticalWeaknessElement,
 ]);
 
 /** Names the `key` when the value is an object whose `key` is a string Pioneer does not know. */

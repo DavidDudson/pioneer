@@ -29,9 +29,12 @@ import { notedBy } from './strike-notes';
 import type { StrikeNote } from './strike-notes';
 import { ownsStrike, reaches } from './strike-targets';
 import type { StrikeTargets } from './strike-targets';
+import { weakenedBy } from './strike-weaknesses';
+import type { CriticalWeakness } from './strike-weaknesses';
 
 export { NoteRoll } from './strike-notes';
 export type { StrikeNote } from './strike-notes';
+export type { CriticalWeakness } from './strike-weaknesses';
 export { ETCHED_DAMAGE } from './strike-targets';
 export type { StrikeTargets } from './strike-targets';
 
@@ -65,6 +68,8 @@ export interface StrikeRules {
   readonly extra: readonly ExtraDice[];
   /** The flat splash damage the elements give, with the dice the Strike ends up rolling counted. */
   readonly splash: readonly RuleSplash[];
+  /** The weaknesses a critical hit gives its target. */
+  readonly weaknesses: readonly CriticalWeakness[];
   readonly notes: readonly StrikeNote[];
   /**
    * The elements that would change the Strike if their situation held (the target is undead) and that no roll has
@@ -194,6 +199,7 @@ function splashFor({ count, perDie, damageType, origin }: PendingSplash, dice: D
 interface Reading extends DiceAndType {
   readonly extra: readonly ExtraDice[];
   readonly splash: readonly PendingSplash[];
+  readonly weaknesses: readonly CriticalWeakness[];
   readonly notes: readonly StrikeNote[];
   readonly conditional: readonly RuleId[];
 }
@@ -232,7 +238,11 @@ function applied(
   ) {
     return { ...reading, ...altered(reading, { element, rule }, using.read) };
   }
-  return { ...reading, notes: notedBy(reading.notes, rule, targets) };
+  return {
+    ...reading,
+    notes: notedBy(reading.notes, rule, targets),
+    weaknesses: weakenedBy(reading.weaknesses, rule, targets),
+  };
 }
 
 /** Whether `after` differs from `before` in what the Strike's rules give. */
@@ -242,7 +252,8 @@ function changedBy(before: Reading, after: Reading): boolean {
     after.damageType !== before.damageType ||
     after.extra.length !== before.extra.length ||
     after.splash.length !== before.splash.length ||
-    after.notes.length !== before.notes.length
+    after.notes.length !== before.notes.length ||
+    after.weaknesses.length !== before.weaknesses.length
   );
 }
 
@@ -252,7 +263,8 @@ function changedBy(before: Reading, after: Reading): boolean {
  * it gives nothing, and is listed in `conditional` if it would have changed the Strike. `DamageDice` with a `dieSize` adds dice of its
  * own; without one it adds to the weapon's dice, or overrides their type. `DamageAlteration` changes the weapon's dice
  * number or type. Elements apply in the order found. A weapon with no die rolls flat damage, which neither changes. A
- * `Note` that reaches a roll comes back with it; a `CriticalSpecialization` gives the critical hit note of the group.
+ * `Note` that reaches a roll comes back with it; a `CriticalSpecialization` gives the critical hit note of the group; a
+ * `CriticalWeakness` comes back as the weakness a critical hit gives.
  */
 export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets: StrikeTargets): StrikeRules {
   const using = { targets, read: readerFor(inputs, scope) };
@@ -262,6 +274,7 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
     extra: [],
     splash: [],
     notes: [],
+    weaknesses: [],
     conditional: [],
   };
   let reading = start;
