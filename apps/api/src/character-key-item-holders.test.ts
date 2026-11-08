@@ -82,15 +82,17 @@ describe('the key item holders over the character context', () => {
 
   test('the line keeps the choice a property rune was etched for', () => {
     const resistant = { rune: newId(), name: 'Energy Resistant', choice: 'fire' };
+    const shadow = { rune: newId(), name: 'Shadow' };
     const coat = CreateKeyItemBody.parse({
       name: 'Ember coat',
       base: { item: newId(), name: 'Leather Armor' },
-      runes: { property: [resistant, { rune: newId(), name: 'Shadow' }] },
+      runes: { property: [resistant, shadow] },
       notes: '',
     });
     const line = lineOf({ ...caliburn, ...coat });
 
-    expect(line.runes?.property).toMatchObject([{ rune: resistant.rune, choice: 'fire' }, { choice: undefined }]);
+    expect(line.runes?.property).toMatchObject([{ rune: resistant.rune, choice: 'fire' }, { rune: shadow.rune }]);
+    expect(line.runes?.property[1]).not.toHaveProperty('choice');
   });
 
   test('the top grades the campaign allows are ones the inventory stores', () => {
