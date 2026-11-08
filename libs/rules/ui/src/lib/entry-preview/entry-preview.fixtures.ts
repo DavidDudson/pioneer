@@ -226,3 +226,37 @@ export const CLUMSY_NOT_HELD_PREVIEW: EntryPreview = {
 
 /** The id the clumsy fixtures stand for, as a reference to it names it. */
 export const CLUMSY_ID = ContentId.parse(CLUMSY);
+
+function para(text: string): RichText {
+  return endingText(text);
+}
+
+/** Clumsy as any reader sees it: one rule that scales with the value. */
+export const CLUMSY_FORMULA_PREVIEW: EntryPreview = {
+  ...CLUMSY_NOT_HELD_PREVIEW,
+  valued: true,
+  values: {
+    kind: 'formula',
+    text: para('You take a status penalty equal to the value to Dexterity-based rolls and DCs.'),
+  },
+};
+
+const THIRD = ConditionValue.parse(3);
+const FOURTH = ConditionValue.parse(4);
+
+/** Dying held at 2: every value listed, with the held one marked. */
+export const DYING_STAGES_PREVIEW: EntryPreview = {
+  ...CLUMSY_NOT_HELD_PREVIEW,
+  name: ContentText.parse('Dying'),
+  valued: true,
+  value: ConditionValue.parse(2),
+  values: {
+    kind: 'staged',
+    stages: [
+      { value: ConditionValue.parse(1), text: para('You are unconscious and make a recovery check each turn.') },
+      { value: ConditionValue.parse(2), text: para('You are unconscious and the recovery check DC is higher.') },
+      { value: THIRD, text: para('You are unconscious and close to death.') },
+      { value: FOURTH, text: para('You die.') },
+    ],
+  },
+};

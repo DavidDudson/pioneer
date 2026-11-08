@@ -21,6 +21,7 @@ const pack = new ContentPackBuilder()
     recovery: [{ kind: 'automatic', trigger: 'rest', change: { effect: 'remove' }, text: TEXT }],
   })
   .withCondition('plain')
+  .withCondition('wobbly', [], { valued: true, values: { kind: 'formula', text: TEXT } })
   .withFeat('toughness');
 const registry = new ContentRegistry();
 registry.register(pack.build());
@@ -45,6 +46,12 @@ describe(conditionCard, () => {
     const card = conditionCard(entryNamed(ContentKind.Condition, 'dazed'), CARD, () => undefined);
 
     expect(card.endings?.every(({ held }) => held.length === 0)).toBe(true);
+  });
+
+  it('carries what each value of a valued condition means', () => {
+    const card = conditionCard(entryNamed(ContentKind.Condition, 'wobbly'), CARD, () => undefined);
+
+    expect(card.values).toStrictEqual({ kind: 'formula', text: TEXT });
   });
 
   it('leaves the card of a condition with no endings as it is', () => {

@@ -8,6 +8,7 @@ import { slugName } from '@pioneer/rules/sdk';
 import type {
   ConditionEnding,
   ConditionValue,
+  ConditionValues,
   ContentEntry,
   ContentId,
   ContentLevel,
@@ -94,6 +95,8 @@ export interface EntryPreview {
    * for a character (the public browser); empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
+  /** What each value of a valued condition means: its stages, or the rule that scales with the value. */
+  readonly values?: ConditionValues;
   /** How a condition the character has ends or eases, with what the character has to do it. */
   readonly endings?: readonly PreviewEnding[];
   /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */

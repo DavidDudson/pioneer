@@ -2,6 +2,7 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId } from './content-id';
+import { ConditionValue } from './origin';
 import { RichText } from './rich-text';
 import { Selector } from './selector';
 
@@ -23,6 +24,7 @@ const ENDINGS_MAX = 12;
 const LOWER_BY_MAX = 9;
 const CHECK_SELECTORS_MAX = 4;
 const OTHERS_BY_MAX = 24;
+const STAGES_MAX = 9;
 
 /** What ends or eases a condition for the character without anyone editing it. */
 export const ConditionTrigger = {
@@ -111,6 +113,21 @@ export const ConditionEnding = z.discriminatedUnion('kind', [
 ]);
 export type ConditionEnding = z.infer<typeof ConditionEnding>;
 
+/** What one value of a staged condition does: its rule text, as content in the source locale (ADR-0009). */
+export const ConditionStage = z.strictObject({ value: ConditionValue, text: RichText });
+export type ConditionStage = z.infer<typeof ConditionStage>;
+
+/**
+ * What each value of a valued condition means. Staged: every value has its own effect, listed in `stages` (Dying 1 to
+ * 4, Stunned, Slowed, Doomed, Wounded). Formula: the effect scales with the value with no useful end, so one `text`
+ * gives the rule once (Frightened, Clumsy, Drained, Enfeebled, Sickened, Stupefied).
+ */
+export const ConditionValues = z.discriminatedUnion('kind', [
+  z.strictObject({ kind: z.literal('staged'), stages: z.array(ConditionStage).min(1).max(STAGES_MAX).readonly() }),
+  z.strictObject({ kind: z.literal('formula'), text: RichText }),
+]);
+export type ConditionValues = z.infer<typeof ConditionValues>;
+
 /**
  * A condition's `data` on the `ContentEntry` envelope. What it does to statistics is in `rules`; this is what the
  * app needs to apply and stack it.
@@ -118,6 +135,8 @@ export type ConditionEnding = z.infer<typeof ConditionEnding>;
 export const ConditionData = z.strictObject({
   /** Whether it carries a value (Frightened 2) or is simply on or off (Blinded). */
   valued: z.boolean(),
+  /** What each value means; absent for an unvalued condition, and for a valued one whose content does not say yet. */
+  values: ConditionValues.optional(),
   group: ConditionGroupSchema.optional(),
   /** Conditions this one replaces while it lasts (Blinded overrides Dazzled). */
   overrides: z.array(ContentId).max(CONDITION_REFS_MAX).readonly(),

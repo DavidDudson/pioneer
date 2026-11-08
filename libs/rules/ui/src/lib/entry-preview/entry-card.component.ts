@@ -10,6 +10,7 @@ import { EntryEndingsView } from './entry-endings.component';
 import type { EntryPreview } from './entry-preview';
 import { EntryPreviewMessage } from './entry-preview-messages';
 import { EntryRanksView } from './entry-ranks.component';
+import { EntryValuesView } from './entry-values.component';
 
 /** The generic card of an entry: name, level, traits, `summary` and sources. `pio-entry-preview` picks it. */
 @Component({
@@ -19,6 +20,7 @@ import { EntryRanksView } from './entry-ranks.component';
     EntryEffectsView,
     EntryEndingsView,
     EntryRanksView,
+    EntryValuesView,
     Heading,
     RichTextView,
     SourceLineView,

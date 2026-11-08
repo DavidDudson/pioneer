@@ -16,7 +16,8 @@ export function conditionCard(entry: ContentEntry, card: EntryPreview, sourceOf:
     return card;
   }
   const endings = conditionEndings(sourceOf, new Set(), { endings: entry.data.recovery, value: undefined });
-  const marked: EntryPreview = entry.data.valued ? { ...card, valued: true } : card;
+  const valued: EntryPreview = entry.data.valued ? { ...card, valued: true } : card;
+  const marked: EntryPreview = entry.data.values === undefined ? valued : { ...valued, values: entry.data.values };
   return endings.length === 0 ? marked : { ...marked, endings };
 }
 

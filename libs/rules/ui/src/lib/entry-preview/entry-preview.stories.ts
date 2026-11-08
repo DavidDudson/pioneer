@@ -6,7 +6,9 @@ import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
 import { EntryPreviewView } from './entry-preview.component';
 import {
   CLUMSY_ENDINGS_PREVIEW,
+  CLUMSY_FORMULA_PREVIEW,
   CLUMSY_PREVIEW,
+  DYING_STAGES_PREVIEW,
   FIREBALL,
   FIREBALL_PREVIEW,
   modifierPreviewEffect,
@@ -73,4 +75,14 @@ export const SpellRanks: EntryPreviewStory = {
 /** A condition the character has, with how it ends: by itself, by a check at its value, by an action, and by what the character has. */
 export const ConditionEndings: EntryPreviewStory = {
   args: { preview: CLUMSY_ENDINGS_PREVIEW },
+};
+
+/** A condition whose effect scales with its value says the rule once. */
+export const ConditionFormula: EntryPreviewStory = {
+  args: { preview: CLUMSY_FORMULA_PREVIEW },
+};
+
+/** A condition whose values each do something lists every stage, with the one held marked. */
+export const ConditionStages: EntryPreviewStory = {
+  args: { preview: DYING_STAGES_PREVIEW },
 };

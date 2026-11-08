@@ -1,0 +1,19 @@
+<fr-stack gap="xs">
+  <fr-text weight="medium">{{ Message.Values | transloco }}</fr-text>
+  @if (rule(); as text) {
+    <pio-rich-text [text]="text" />
+  } @else {
+    <fr-list gap="2xs">
+      @for (row of rows(); track row.stage.value) {
+        <fr-list-item [attr.aria-current]="row.current">
+          <fr-stack gap="3xs">
+            <fr-text variant="caption" [weight]="row.weight">{{
+              Message.Stage | transloco: { value: row.stage.value }
+            }}</fr-text>
+            <pio-rich-text [text]="row.stage.text" />
+          </fr-stack>
+        </fr-list-item>
+      }
+    </fr-list>
+  }
+</fr-stack>

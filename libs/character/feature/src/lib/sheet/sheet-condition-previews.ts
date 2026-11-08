@@ -44,6 +44,7 @@ function heldConditionPreview(
       entry: condition,
       mode: EffectMode.Applying,
     }),
+    ...(condition.data.values === undefined ? {} : { values: condition.data.values }),
     ...(endings.length === 0 ? {} : { endings }),
   };
 }
