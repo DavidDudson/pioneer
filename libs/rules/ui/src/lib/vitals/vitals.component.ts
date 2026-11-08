@@ -4,6 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import { Grid, Skeleton, Surface } from '@pioneer/frontier';
 import { BaseTermKind } from '@pioneer/rules/engine';
+import { FormulaValue } from '@pioneer/rules/formula';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Selector } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
@@ -42,7 +43,11 @@ interface VitalBlock {
 const LOADING_TILES = 3;
 
 /** Message keys the vitals render with, spelled out so the key check sees them. */
-const VitalsMessage = { Unarmored: 'rules.vitals.unarmored', Proficiency: 'rules.vitals.proficiency' } as const;
+const VitalsMessage = {
+  Unarmored: 'rules.vitals.unarmored',
+  Proficiency: 'rules.vitals.proficiency',
+  Luck: 'rules.vitals.luck',
+} as const;
 
 /** Vitals that share one card: the saves, and the class DC with the spell DCs. */
 const VitalGroup = { Saves: 'saves', Dcs: 'dcs' } as const;
@@ -110,8 +115,14 @@ export class VitalsView {
     if (vitals === undefined) {
       return undefined;
     }
-    const rowsOf = (group: VitalGroup): NamedStatistic[] =>
-      vitals.flatMap((vital) => (groupOf(vital) === group ? [rowOf(vital), ...this.#proficiencyRows(vital)] : []));
+    const rowsOf = (group: VitalGroup): NamedStatistic[] => {
+      const grouped = vitals.filter((vital) => groupOf(vital) === group);
+      return [
+        ...grouped.map((vital) => rowOf(vital)),
+        ...grouped.flatMap((vital) => this.#proficiencyRows(vital)),
+        ...grouped.flatMap((vital) => this.#luckRows(vital)),
+      ];
+    };
     const placed = new Set<VitalGroup>();
     return vitals.flatMap((vital): VitalBlock[] => {
       const group = groupOf(vital);
@@ -156,6 +167,27 @@ export class VitalsView {
     return [
       { name: this.#i18n.translate(VitalsMessage.Proficiency), kind: StatisticKind.Value, result: shown, flat: true },
     ];
+  }
+
+  /** Luck, a flat d20, as the last row of the DCs' card: the class DC's result with nothing in it. */
+  #luckRows({ statistic }: Vital): NamedStatistic[] {
+    const { result } = statistic;
+    if (result.selector !== CLASS_DC || !result.ok) {
+      return [];
+    }
+    const none = FormulaValue.parse(0);
+    const shown = {
+      ...result,
+      base: [],
+      formulaValue: none,
+      baseValue: none,
+      lines: [],
+      computed: none,
+      total: none,
+      overrides: [],
+      pinnedBy: undefined,
+    };
+    return [{ name: this.#i18n.translate(VitalsMessage.Luck), kind: StatisticKind.Value, result: shown, flat: true }];
   }
 
   /** What sets Armor Class, worded: the worn armour's name, or unarmored. Other vitals have none. */

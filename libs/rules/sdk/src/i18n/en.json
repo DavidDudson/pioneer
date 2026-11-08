@@ -1442,7 +1442,8 @@
     },
     "vitals": {
       "unarmored": "Unarmored",
-      "proficiency": "Proficiency"
+      "proficiency": "Proficiency",
+      "luck": "Luck"
     },
     "form": {
       "active": "In form: {name}",

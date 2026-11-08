@@ -85,6 +85,9 @@ export class StatisticRoll {
   });
   /** Each fortune, misfortune and degree adjustment that reaches the check, worded for the popover. */
   protected readonly effects = computed<readonly string[]>(() => {
+    if (this.flat()) {
+      return [];
+    }
     const words = { i18n: this.#i18n, format: this.#format, names: { entries: this.entryNames() } };
     const { rollTwice = [], degreeAdjustments = [] } = this.statistic().rollEffects ?? {};
     return [
