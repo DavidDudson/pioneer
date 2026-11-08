@@ -1542,7 +1542,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:extend-weapon",
+        "toggleable": true,
+        "display": {
+          "label": "Extend the weapon to a reach of 60 feet"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "reach",
+        "mode": "override",
+        "value": 60,
+        "etched": true,
+        "predicate": ["option:extend-weapon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.bJORQsO9E1JCJh6i"
     },
@@ -1639,7 +1656,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:extend-weapon",
+        "toggleable": true,
+        "display": {
+          "label": "Extend the weapon to a reach of 120 feet"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "reach",
+        "mode": "override",
+        "value": 120,
+        "etched": true,
+        "predicate": ["option:extend-weapon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.WHwprq9Xym2DOr2x"
     },

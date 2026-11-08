@@ -135,6 +135,18 @@ describe('adjustStrike', () => {
       override.numbers.get(NumericItemProperty.RangeIncrement),
     ]).toEqual([false, FormulaValue.parse(10)]);
   });
+
+  test('a melee weapon takes the reach an override gives it, and keeps none when the predicate fails', () => {
+    const extended = adjusted(LONGSWORD, [{ key: 'AdjustStrike', property: 'reach', mode: 'override', value: 60 }]);
+    const failing = adjusted(LONGSWORD, [
+      { key: 'AdjustStrike', property: 'reach', mode: 'override', value: 60, predicate: ['option:extend-weapon'] },
+    ]);
+
+    expect([extended.numbers.get(NumericItemProperty.Reach), failing.numbers.has(NumericItemProperty.Reach)]).toEqual([
+      FormulaValue.parse(60),
+      false,
+    ]);
+  });
 });
 
 describe('an etched adjustment', () => {

@@ -121,6 +121,9 @@ export const FIGHTER_STRIKES: readonly NamedStrike[] = [
   { name: 'Dagger', traits: ['Agile', 'Finesse'], strike: strikeOf(1) },
 ];
 
+/** The reach of an extended weapon in the element Strike. */
+const REACH = Feet.parse(60);
+
 const FAILED_ATTACK = {
   ok: false,
   selector: Selector.parse('strike:longsword'),
@@ -238,6 +241,7 @@ export const ELEMENT_STRIKE: readonly NamedStrike[] = [
         extra: [FLAME_DICE, { ...FLAME_DICE, damageType: 'cold', category: undefined, critical: true }],
       },
       ...criticalsFrom(origin(GLOOM_WALKER)),
+      weapon: { ...strikeOf(0).weapon, reach: REACH },
       notes: [
         {
           roll: NoteRoll.Attack,

@@ -13,8 +13,7 @@ const ETCHED_DAMAGE = 'etched-damage';
  * land; a new book's rune must get rules or be listed here.
  *
  * Why the weapon-changing runes stay here: quickstrike gives quickened, which the play state holds as an applied condition
- * (with its action restriction) and no rule derives; extending gives its reach through an activation (Extend) the sheet
- * does not model; shifting swaps the weapon for another, a choice the sheet does not model.
+ * (with its action restriction) and no rule derives; shifting swaps the weapon for another, a choice the sheet does not model.
  *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
  * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
@@ -30,8 +29,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:conducting',
   'rune:energy-vulnerability',
   'rune:energy-vulnerability-greater',
-  'rune:extending',
-  'rune:extending-greater',
   'rune:grievous',
   'rune:mythic-weapon-potency',
   'rune:pacifying',
@@ -205,6 +202,28 @@ describe('weapon property rune rules', () => {
 
     expect(entry?.rules).toMatchObject([{ key: 'Note', selectors: ['etched-attack'], title: 'Returning' }]);
   });
+
+  test.each([
+    { slug: 'rune:extending', reach: 60 },
+    { slug: 'rune:extending-greater', reach: 120 },
+  ])(
+    '$slug gives the weapon it is etched on a reach of $reach feet while the Extend toggle is on',
+    ({ slug, reach }) => {
+      const entry = RUNES.find((each) => each.slug === slug);
+
+      expect(entry?.rules).toMatchObject([
+        { key: 'RollOption', option: 'option:extend-weapon', toggleable: true },
+        {
+          key: 'AdjustStrike',
+          property: 'reach',
+          mode: 'override',
+          value: reach,
+          etched: true,
+          predicate: ['option:extend-weapon'],
+        },
+      ]);
+    },
+  );
 
   test('mythic striking makes the weapon roll five weapon damage dice', () => {
     const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-striking');

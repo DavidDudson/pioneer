@@ -27,6 +27,7 @@ const adjustStrikeJson: Arbitrary<object> = oneof(
   adjustment('materials', constant('add'), slug),
   adjustment('property-runes', constant('add'), slug),
   adjustment('range-increment', numericModes, ruleValue),
+  adjustment('reach', numericModes, ruleValue),
 );
 
 /** Valid rule elements of every `key` the SDK knows, as plain JSON (unparsed). */

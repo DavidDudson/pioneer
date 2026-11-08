@@ -1,7 +1,15 @@
 import { adjustStrike, alterItem } from '@pioneer/rules/engine';
 import type { AlteredItem, ItemNumbers, ModifierInputs } from '@pioneer/rules/engine';
 import { FormulaValue } from '@pioneer/rules/formula';
-import { ContentKind, NumericItemProperty, RollOptionTail, slugName, Trait, WeaponCategory } from '@pioneer/rules/sdk';
+import {
+  ContentKind,
+  Feet,
+  NumericItemProperty,
+  RollOptionTail,
+  slugName,
+  Trait,
+  WeaponCategory,
+} from '@pioneer/rules/sdk';
 import type { DamageType, InventoryItemId, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
@@ -122,6 +130,12 @@ export interface AlteredContext {
   readonly favored?: boolean;
   /** The inventory line the item is, which an `etched` adjustment of its Strike is read against. */
   readonly item?: InventoryItemId | undefined;
+}
+
+/** The length in feet an altered weapon has for `property` (its range increment, its reach); none when it has none. */
+export function feetOf(item: AlteredItem, property: NumericItemProperty): Feet | undefined {
+  const feet = item.numbers.get(property);
+  return feet === undefined ? undefined : Feet.parse(feet);
 }
 
 export function alteredItem(
