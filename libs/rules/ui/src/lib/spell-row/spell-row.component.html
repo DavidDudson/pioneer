@@ -1,5 +1,5 @@
 <fr-stack gap="3xs">
-  <fr-stack direction="horizontal" gap="xs" align="center">
+  <fr-stack direction="horizontal" gap="xs" [align]="Align.Center">
     <fr-stack grow>
       <fr-hover-card>
         @if (panel(); as link) {
@@ -20,7 +20,7 @@
     <pio-use-buttons [line]="use()" />
   </fr-stack>
   <fr-stack direction="horizontal" gap="xs" justify="between">
-    <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+    <fr-stack direction="horizontal" gap="xs" wrap [align]="Align.Center">
       <fr-text variant="caption" tone="muted">{{ rankKey() | transloco: { rank: spell().rank } }}</fr-text>
       <pio-chip-list [chips]="spell().traits" />
     </fr-stack>
