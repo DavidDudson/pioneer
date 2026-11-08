@@ -1,7 +1,8 @@
 import type { ResolveReference } from '@pioneer/rules/formula';
 import { summarisePredicate, Truth } from '@pioneer/rules/predicate';
-import { parentOptions, RuleElementKey } from '@pioneer/rules/sdk';
+import { ModifierTarget, parentOptions, RuleElementKey } from '@pioneer/rules/sdk';
 import type {
+  CriticalHitCheckElement,
   DamageAdjustmentSubject,
   ImmunityElement,
   ProficiencyBonusTable,
@@ -12,7 +13,14 @@ import type {
 import { battleFormInPlay } from './battle-form';
 import { formDefences } from './battle-form-defences';
 import { amountOf, DefenceStatusKind, failed, NONE } from './defence-lines';
-import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine, Valued } from './defence-lines';
+import type {
+  AdjustmentLine,
+  CriticalHitCheckLine,
+  Defences,
+  DefenceStatus,
+  ImmunityLine,
+  Valued,
+} from './defence-lines';
 import type { StatisticContent } from './derive-statistics';
 import { labelOf } from './modifier';
 import { proficiencyBonuses } from './proficiency-bonuses';
@@ -24,7 +32,7 @@ import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 
 export { DefenceStatusKind } from './defence-lines';
-export type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine } from './defence-lines';
+export type { AdjustmentLine, CriticalHitCheckLine, Defences, DefenceStatus, ImmunityLine } from './defence-lines';
 
 /** How a predicate gates a defence: dropped when false, applied when true, conditional when unknown. */
 function gate(rule: RuleInPlay, context: RuleContext): DefenceStatus | undefined {
@@ -128,6 +136,31 @@ function adjustmentLines(
   }));
 }
 
+const AC = ModifierTarget.parse('ac');
+
+/** The line one `CriticalHitCheck` element gives, when it reaches AC and its predicate does not fail. */
+function criticalHitCheckLine(
+  rule: RuleInPlay,
+  element: CriticalHitCheckElement,
+  context: RuleContext,
+): CriticalHitCheckLine | undefined {
+  const status = element.selectors.includes(AC) ? gate(rule, context) : undefined;
+  return status === undefined
+    ? undefined
+    : { id: ruleIdOf(rule), label: labelOf(rule), origin: rule.origin, dc: element.dc, status };
+}
+
+/** The flat checks of the `CriticalHitCheck` elements in play, in id order. */
+function criticalHitChecksOf(rules: readonly RuleInPlay[], context: RuleContext): readonly CriticalHitCheckLine[] {
+  const lines = rules.flatMap((rule) => {
+    const { element } = rule;
+    const line =
+      element.key === RuleElementKey.CriticalHitCheck ? criticalHitCheckLine(rule, element, context) : undefined;
+    return line === undefined ? [] : [line];
+  });
+  return lines.toSorted((left, right) => Number(left.id > right.id) - Number(left.id < right.id));
+}
+
 /** What defence formulas read: the character's inputs and the item's level, never other statistics. */
 function defenceContext(
   proficiencyBonus: ProficiencyBonusTable,
@@ -175,5 +208,6 @@ export function deriveDefences(
     immunities: inOrder(immunities),
     weaknesses: highestPerType(inOrder(weaknesses)),
     resistances: highestPerType(inOrder(resistances)),
+    criticalHitChecks: criticalHitChecksOf(modifiers.rules, context),
   };
 }

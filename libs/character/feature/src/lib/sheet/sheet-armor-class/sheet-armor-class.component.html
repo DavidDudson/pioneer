@@ -17,6 +17,7 @@
           [defences]="picks.defences()"
           [entryNames]="picks.entryNames()"
           [originNames]="sheet.originNames()"
+          (checkRolled)="rollCriticalHitCheck($event)"
         />
       </ng-template>
     </fr-async-region>

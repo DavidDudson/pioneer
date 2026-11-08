@@ -1,5 +1,11 @@
 import { DefenceStatusKind, EngineMessage, RuleId } from '@pioneer/rules/engine';
-import type { AdjustmentLine, Defences, DefenceStatus, ImmunityLine } from '@pioneer/rules/engine';
+import type {
+  AdjustmentLine,
+  CriticalHitCheckLine,
+  Defences,
+  DefenceStatus,
+  ImmunityLine,
+} from '@pioneer/rules/engine';
 import { Negated, PredicateMessage, SummaryKind } from '@pioneer/rules/predicate';
 import {
   ContentId,
@@ -7,6 +13,7 @@ import {
   ContentText,
   DamageAmount,
   DamageException,
+  Dc,
   EntrySlug,
   Immunity,
   Origin,
@@ -21,6 +28,7 @@ const PLAYER_CORE = PackId.parse('player-core');
 export const FIRE_RING = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('equipment:fire-resistance-ring')));
 export const RAGE = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('action:rage')));
 export const DWARF = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('ancestry:dwarf')));
+export const FORTIFIED_ARMOR = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('rune:fortification')));
 export const GOLEM_FORM = ContentId.parse(contentId(PLAYER_CORE, EntrySlug.parse('spell:golem-form')));
 export const ADAMANTINE = DamageException.parse('adamantine');
 export const SLEEP = Immunity.parse('sleep');
@@ -31,6 +39,7 @@ export const ENTRY_NAMES: ReadonlyMap<ContentId, string> = new Map([
   [RAGE, 'Rage'],
   [DWARF, 'Dwarf'],
   [GOLEM_FORM, 'Golem Form'],
+  [FORTIFIED_ARMOR, 'Fortification'],
 ]);
 
 const APPLIED: DefenceStatus = { kind: DefenceStatusKind.Applied };
@@ -89,6 +98,11 @@ export function adjustment(
   };
 }
 
+/** The flat check a fortification rune gives: DC `dc` when a critical hit lands on AC. */
+export function criticalHitCheck(entry: ContentId, dc: number, status: DefenceStatus = APPLIED): CriticalHitCheckLine {
+  return { id: RuleId.parse(`${entry}#0`), label: { entry }, origin: origin(entry), dc: Dc.parse(dc), status };
+}
+
 /** A failed line: its value past `DamageAmount`'s bound. */
 export const OUT_OF_RANGE: DefenceStatus = {
   kind: DefenceStatusKind.Failed,
@@ -102,7 +116,15 @@ const RING_FIRE = 10;
 const DWARF_FIRE = 5;
 const RAGE_PHYSICAL = 3;
 
-export const NO_DEFENCES: Defences = { immunities: [], weaknesses: [], resistances: [] };
+export const NO_DEFENCES: Defences = { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [] };
+
+const FORTIFICATION_DC = 17;
+
+/** A wearer of fortification armour: only the flat check, no resistances, immunities or weaknesses. */
+export const FORTIFIED_DEFENCES: Defences = {
+  ...NO_DEFENCES,
+  criticalHitChecks: [criticalHitCheck(FORTIFIED_ARMOR, FORTIFICATION_DC)],
+};
 
 /** A barbarian in a fire resistance ring: one of each list, a group, an exception, conditional and superseded. */
 export const BARBARIAN_DEFENCES: Defences = {
@@ -116,6 +138,7 @@ export const BARBARIAN_DEFENCES: Defences = {
     }),
     adjustment(RAGE, 'physical', { value: RAGE_PHYSICAL, exceptions: ['adamantine'], status: WHILE_RAGING }),
   ],
+  criticalHitChecks: [],
 };
 
 const FORM_FIRE = 10;
@@ -124,6 +147,7 @@ const FORM_FIRE = 10;
 export const FORM_DEFENCES: Defences = {
   immunities: [{ ...immunity(GOLEM_FORM, 'poison'), fromForm: true }],
   weaknesses: [],
+  criticalHitChecks: [],
   resistances: [
     { ...adjustment(GOLEM_FORM, 'fire', { value: FORM_FIRE }), fromForm: true },
     adjustment(DWARF, 'fire', {

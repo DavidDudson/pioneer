@@ -5,7 +5,7 @@ import type { CharacterDocument } from './character-document';
 import { rulesInPlay } from './character-statistics';
 import type { StatisticSources } from './character-statistics';
 
-const NO_DEFENCE_LINES: Defences = { immunities: [], weaknesses: [], resistances: [] };
+const NO_DEFENCE_LINES: Defences = { immunities: [], weaknesses: [], resistances: [], criticalHitChecks: [] };
 
 /**
  * The character's immunities, weaknesses and resistances (`deriveDefences`) with the rule elements in play, so a
