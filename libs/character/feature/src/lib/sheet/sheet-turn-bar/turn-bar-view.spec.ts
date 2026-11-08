@@ -6,6 +6,7 @@ import {
   ConditionInstanceId,
   endTurn,
   FRESH_PLAY,
+  InventoryItemId,
   QuickenedAction,
   TurnPhase,
 } from '@pioneer/character/domain';
@@ -15,7 +16,7 @@ import { RandomSeed, seededRandom } from '@pioneer/rules/dice/testing';
 import { ContentId, DamageFormula, DamageType, HitPoints, NO_DEFENCES } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { PipState, turnBarView, turnLog } from './turn-bar-view';
+import { pipKey, PipState, turnBarView, turnLog } from './turn-bar-view';
 
 describe(turnBarView, () => {
   it('has no pips outside a turn, and only Start turn to press out of the encounter', () => {
@@ -47,6 +48,38 @@ describe(turnBarView, () => {
     ]);
     expect(view.pips.at(-1)?.restriction).toBe('Strike only');
     expect([view.canStart, view.canEnd, view.canLeave]).toStrictEqual([false, true, true]);
+  });
+
+  describe('a quickened action limited to a Strike with a weapon', () => {
+    const sword = InventoryItemId.parse('00000000-0000-4000-8000-0000000000f1');
+    const turn = {
+      phase: TurnPhase.Turn,
+      actions: ActionCount.parse(3),
+      quickened: QuickenedAction.parse(1),
+      quickenedFor: { strikeWith: sword },
+      reactionUsed: false,
+      attacks: AttackCount.parse(0),
+    };
+
+    /** The last pip's flag, weapon name and message key, with `weaponName` as the sheet's lookup. */
+    function lastPip(
+      weaponName?: () => string,
+    ): readonly [boolean | undefined, string | undefined, string | undefined] {
+      const pip = turnBarView(turn, weaponName).pips.at(-1);
+      return [pip?.strikeOnly, pip?.weapon, pip === undefined ? undefined : pipKey(pip)];
+    }
+
+    it('names the weapon when the sheet knows it', () => {
+      expect(lastPip(() => 'Rapid blade')).toStrictEqual([
+        true,
+        'Rapid blade',
+        'character.sheet.turn.pipQuickenedStrikeWith',
+      ]);
+    });
+
+    it('says it is a Strike with a quickstrike weapon when it does not', () => {
+      expect(lastPip()).toStrictEqual([true, undefined, 'character.sheet.turn.pipQuickenedStrike']);
+    });
   });
 });
 

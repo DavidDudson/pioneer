@@ -5,6 +5,7 @@ import * as z from 'zod';
 
 import { ActionRestriction } from './conditions';
 import type { ActiveCondition } from './conditions';
+import { InventoryItemId } from './inventory';
 import { conditionEnded, conditionLowered } from './turn-events';
 import type { TurnEvent } from './turn-events';
 
@@ -43,6 +44,13 @@ export const TurnPhase = {
 export type TurnPhase = ValueOf<typeof TurnPhase>;
 
 /**
+ * What limits the quickened action: a note a condition's source gave ("only to Strike or Stride"), or that it may only
+ * be spent on a Strike with the weapon of an inventory item (a quickstrike rune's).
+ */
+export const QuickenedRestriction = z.union([ActionRestriction, z.strictObject({ strikeWith: InventoryItemId })]);
+export type QuickenedRestriction = z.infer<typeof QuickenedRestriction>;
+
+/**
  * The turn as play state: the phase, the actions left, the quickened action left (a separate pip, as the source may
  * limit what it buys) with its restriction, whether the reaction is spent, and the attacks made, which set the multiple
  * attack penalty of the next one.
@@ -51,7 +59,7 @@ export const TurnStateSchema = z.strictObject({
   phase: z.enum(TurnPhase).default(TurnPhase.OutOfEncounter),
   actions: ActionCount.default(NONE),
   quickened: QuickenedAction.default(NO_QUICKENED),
-  quickenedFor: ActionRestriction.optional(),
+  quickenedFor: QuickenedRestriction.optional(),
   reactionUsed: z.boolean().default(false),
   attacks: AttackCount.default(NO_ATTACKS),
 });
@@ -128,25 +136,45 @@ function stunnedAfter(
 }
 
 /**
+ * What limits the quickened action of a turn: the condition's own note, or, when the action comes from a quickstrike
+ * rune alone, a Strike with the weapon `wielded`. A quickened condition on the character wins, as it is the player's.
+ */
+function restrictionOf(
+  quicker: ActiveCondition | undefined,
+  wielded: InventoryItemId | undefined,
+): QuickenedRestriction | undefined {
+  if (quicker !== undefined) {
+    return quicker.restriction;
+  }
+  return wielded === undefined ? undefined : { strikeWith: wielded };
+}
+
+/**
  * The actions a turn starts with (Player Core): 3, one more from quickened (kept apart, as its source may limit it),
  * fewer by slowed and by stunned, which come out of the ordinary actions first. Stunned then goes down by the actions
- * it took and ends at 0. The reaction is back.
+ * it took and ends at 0. The reaction is back. `granted` are the inventory items of the wielded runes that give quickened
+ * (quickstrike), the first of which gives the extra action when no quickened condition does.
  */
-export function refilled(conditions: readonly ActiveCondition[], economy: EconomyConditions): Refill {
+export function refilled(
+  conditions: readonly ActiveCondition[],
+  economy: EconomyConditions,
+  granted: readonly InventoryItemId[] = [],
+): Refill {
   const quicker = conditions.find(({ condition }) => condition === economy.quickened);
   const slowed = strongest(conditions, economy.slowed);
   const stunned = conditions.some(({ condition, value }) => condition === economy.stunned && value === undefined)
     ? ActionCount.parse(ACTIONS_MAX)
     : strongest(conditions, economy.stunned);
   const ordinaryLeft = Math.max(TURN_ACTIONS - slowed, 0);
-  const extra = quicker === undefined ? 0 : 1;
+  const wielded = granted.at(0);
+  const extra = quicker === undefined && wielded === undefined ? 0 : 1;
   const lost = ActionCount.parse(Math.min(stunned, ordinaryLeft + extra));
   const quickened = QuickenedAction.parse(extra - Math.max(lost - ordinaryLeft, 0));
   const turn: TurnState = {
     phase: TurnPhase.Turn,
     actions: ActionCount.parse(Math.max(ordinaryLeft - lost, 0)),
     quickened,
-    quickenedFor: quickened === ONE_QUICKENED ? quicker?.restriction : undefined,
+    quickenedFor: quickened === ONE_QUICKENED ? restrictionOf(quicker, wielded) : undefined,
     reactionUsed: false,
     attacks: NO_ATTACKS,
   };

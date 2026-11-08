@@ -1,5 +1,5 @@
 import { TURN_ACTIONS, TurnEventKind, TurnPhase } from '@pioneer/character/domain';
-import type { TurnEvent, TurnState } from '@pioneer/character/domain';
+import type { InventoryItemId, QuickenedRestriction, TurnEvent, TurnState } from '@pioneer/character/domain';
 import { BadgeTone } from '@pioneer/frontier';
 import { rollView } from '@pioneer/play/ui';
 import type { RollView } from '@pioneer/play/ui';
@@ -19,6 +19,10 @@ export interface ActionPip {
   readonly quickened: boolean;
   /** What the quickened action's source limits it to, when it does. */
   readonly restriction: string | undefined;
+  /** The name of the weapon the quickened action is limited to a Strike with; none when it is not, or the weapon is unknown. */
+  readonly weapon: string | undefined;
+  /** Whether the quickened action is limited to a Strike with a weapon, named or not. */
+  readonly strikeOnly: boolean;
 }
 
 /** The turn as the bar shows it. */
@@ -46,7 +50,7 @@ export function phaseKey(phase: TurnPhase): string {
 }
 
 /** The pips of a turn: the ordinary actions, spent or left, then the quickened one. Only a running turn has any. */
-function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState): readonly ActionPip[] {
+function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState, weaponName: WeaponName): readonly ActionPip[] {
   if (phase !== TurnPhase.Turn) {
     return [];
   }
@@ -54,10 +58,26 @@ function pipsOf({ phase, actions, quickened, quickenedFor }: TurnState): readonl
     state: index < actions ? PipState.Left : PipState.Spent,
     quickened: false,
     restriction: undefined,
+    weapon: undefined,
+    strikeOnly: false,
   }));
-  const extra: ActionPip[] =
-    quickened > 0 ? [{ state: PipState.Left, quickened: true, restriction: quickenedFor }] : [];
+  const extra: ActionPip[] = quickened > 0 ? [quickenedPip(quickenedFor, weaponName)] : [];
   return [...ordinary, ...extra];
+}
+
+/** The name of the weapon of an inventory item, when the sheet knows it. */
+export type WeaponName = (item: InventoryItemId) => string | undefined;
+
+/** The quickened pip: its limit is a note, or a Strike with a weapon (named when the sheet knows its name). */
+function quickenedPip(limit: QuickenedRestriction | undefined, weaponName: WeaponName): ActionPip {
+  const strike = typeof limit === 'object';
+  return {
+    state: PipState.Left,
+    quickened: true,
+    restriction: typeof limit === 'string' ? limit : undefined,
+    weapon: strike ? weaponName(limit.strikeWith) : undefined,
+    strikeOnly: strike,
+  };
 }
 
 /** The tone of a pip: the quickened one apart, a spent one quiet. */
@@ -71,16 +91,21 @@ export function pipTone(pip: ActionPip): BadgeTone {
 /** The message key that words a pip. */
 export function pipKey(pip: ActionPip): string {
   if (pip.quickened) {
+    if (pip.strikeOnly) {
+      return pip.weapon === undefined
+        ? 'character.sheet.turn.pipQuickenedStrike'
+        : 'character.sheet.turn.pipQuickenedStrikeWith';
+    }
     return pip.restriction === undefined ? 'character.sheet.turn.pipQuickened' : 'character.sheet.turn.pipQuickenedFor';
   }
   return pip.state === PipState.Left ? 'character.sheet.turn.pipLeft' : 'character.sheet.turn.pipSpent';
 }
 
 /** What the turn bar shows of `turn`, and which of its buttons do anything now. */
-export function turnBarView(turn: TurnState): TurnBarView {
+export function turnBarView(turn: TurnState, weaponName: WeaponName = () => undefined): TurnBarView {
   return {
     phase: turn.phase,
-    pips: pipsOf(turn),
+    pips: pipsOf(turn, weaponName),
     reactionUsed: turn.reactionUsed,
     attacks: turn.phase === TurnPhase.Turn ? turn.attacks : undefined,
     canEnter: turn.phase === TurnPhase.OutOfEncounter,

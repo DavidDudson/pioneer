@@ -553,6 +553,8 @@
       "pipSpent": "Spent",
       "pipQuickened": "Quickened action",
       "pipQuickenedFor": "Quickened action: {restriction}",
+      "pipQuickenedStrike": "Quickened action: only to Strike with a quickstrike weapon",
+      "pipQuickenedStrikeWith": "Quickened action: only to Strike with {weapon}",
       "reactionReady": "Reaction ready",
       "reactionSpent": "Reaction spent",
       "attacksMade": "{count, plural, one {# attack made} other {# attacks made}}",

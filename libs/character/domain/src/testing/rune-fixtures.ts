@@ -1,5 +1,7 @@
 import type { MagicItemFields } from '@pioneer/rules/sdk/testing';
 
+import { clumsyFixtureId } from './condition-fixture-ids';
+
 /** The property runes `ITEM_FIXTURES` holds, by name. */
 export const RuneFixture = {
   /** A weapon rune that gives +1 status to Perception, so a test sees its rules work. */
@@ -20,6 +22,8 @@ export const RuneFixture = {
   /** Alignment weapon runes, each refused on a weapon with the other. */
   Holy: 'holy',
   Unholy: 'unholy',
+  /** A weapon rune that grants the clumsy condition (as quickstrike grants quickened) while the weapon is wielded. */
+  Quickstrike: 'quickstrike',
 } as const;
 export type RuneFixture = (typeof RuneFixture)[keyof typeof RuneFixture];
 
@@ -51,6 +55,7 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.EnergyVulnerabilityGreater]: weaponRune(),
   [RuneFixture.Holy]: weaponRune('without-unholy-rune'),
   [RuneFixture.Unholy]: weaponRune('without-holy-rune'),
+  [RuneFixture.Quickstrike]: { ...weaponRune(), rules: [{ key: 'GrantItem', item: clumsyFixtureId() }] },
   [RuneFixture.EnergyResistant]: armorRune(),
   [RuneFixture.EnergyResistantGreater]: armorRune(),
   [RuneFixture.Shadow]: {
