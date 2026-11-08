@@ -1,4 +1,6 @@
-import type { ActionCost, ContentId, SpellRank, TargetValue } from '@pioneer/rules/sdk';
+import type { ActionCost, ContentId, DamageNode, SpellRank, TargetValue } from '@pioneer/rules/sdk';
+
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 
 /** One way of casting: action glyphs (a variable cost runs from `cost` to `upTo`), or a time worded. */
 export type SingleSpellCostLine =
@@ -14,6 +16,8 @@ export interface SpellEffectLine {
   /** Unique among the spell's parts: the part's key. */
   readonly key: string;
   readonly text: string;
+  /** The part as damage or healing in text, which the roll button rolls on the sheet. */
+  readonly roll: DamageNode;
 }
 
 /** What a spell, or one of its variants, takes and does at the rank it is cast; a field the spell has none of is left out. */
@@ -46,5 +50,9 @@ export interface SpellDetailLine extends SpellFieldsLine {
   readonly counteract: boolean;
   /** Badges, as message keys: "Cantrip", "Focus", "Signature". */
   readonly tags: readonly string[];
+  /** Its traits, named. */
+  readonly traits: readonly Chip[];
+  /** Where it comes from, worded ("Animist spellcasting", a feat or an item); absent when the list says so already. */
+  readonly source: string | undefined;
   readonly variants: readonly SpellVariantLine[];
 }

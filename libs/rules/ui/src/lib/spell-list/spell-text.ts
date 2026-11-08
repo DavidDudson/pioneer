@@ -1,6 +1,7 @@
 import type { SpellCast } from '@pioneer/rules/engine';
 import {
   DamageKind,
+  InlineKind,
   SpellDurationEnd,
   SpellDurationType,
   SpellRangeType,
@@ -221,6 +222,11 @@ export function effectLines(damage: SpellCast['damage'], translate: Translate): 
     }
     return {
       key: part.key,
+      roll: {
+        type: InlineKind.Damage,
+        instances: [{ formula: part.formula, damageType: part.damageType, category: part.category }],
+        healing: heals && !harms ? true : undefined,
+      },
       text: translate(key, {
         formula: part.formula,
         hasCategory: part.category === undefined ? NO : YES,

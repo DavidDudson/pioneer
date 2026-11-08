@@ -10,10 +10,10 @@
         <fr-list gap="2xs">
           @for (spell of entry.spells; track spell.key) {
             <fr-list-item>
-              <fr-stack direction="horizontal" gap="xs" align="center" wrap>
-                <pio-focus-spell-row [spell]="spell" />
+              <pio-focus-spell-row [spell]="spell" />
+              @if (!spell.detail) {
                 <fr-badge>{{ Message.Rank | transloco: { rank: spell.rank } }}</fr-badge>
-              </fr-stack>
+              }
             </fr-list-item>
           }
         </fr-list>

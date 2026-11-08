@@ -1,17 +1,15 @@
-<fr-stack direction="horizontal" gap="xs" align="start">
-  <fr-stack grow>
-    @if (spell().detail; as detail) {
-      <pio-spell-details [spell]="detail" />
-    } @else {
-      <fr-stack direction="horizontal" gap="xs" align="center">
-        <pio-content-preview [entry]="spell().id">
-          <fr-text tabindex="0">{{ spell().name }}</fr-text>
-        </pio-content-preview>
-        @for (tag of tags(); track tag) {
-          <fr-badge>{{ tag | transloco }}</fr-badge>
-        }
-      </fr-stack>
-    }
+@if (spell().detail; as detail) {
+  <pio-spell-row [spell]="detail" [use]="spell().use" />
+} @else {
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    <fr-stack direction="horizontal" gap="xs" align="center" grow>
+      <pio-content-preview [entry]="spell().id">
+        <fr-text tabindex="0">{{ spell().name }}</fr-text>
+      </pio-content-preview>
+      @for (tag of tags(); track tag) {
+        <fr-badge>{{ tag | transloco }}</fr-badge>
+      }
+    </fr-stack>
+    <pio-use-buttons [line]="spell().use" />
   </fr-stack>
-  <pio-use-buttons [line]="spell().use" />
-</fr-stack>
+}

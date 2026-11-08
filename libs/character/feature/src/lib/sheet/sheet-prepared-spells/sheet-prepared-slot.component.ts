@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { InlineField, Stack, Text } from '@pioneer/frontier';
-import { SpellDetails, SpellPicker, UseButtons } from '@pioneer/rules/ui';
+import { SpellPicker, SpellRow, UseButtons } from '@pioneer/rules/ui';
 
 import {
   SheetSlotFilterPanel,
@@ -16,7 +16,7 @@ import type { PreparedField } from '../sheet-spell-picks';
  */
 @Component({
   selector: 'pio-sheet-prepared-slot',
-  imports: [InlineField, SheetSlotFilterPanel, SpellDetails, SpellPicker, Stack, Text, TranslocoPipe, UseButtons],
+  imports: [InlineField, SheetSlotFilterPanel, SpellPicker, SpellRow, Stack, Text, TranslocoPipe, UseButtons],
   templateUrl: './sheet-prepared-slot.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

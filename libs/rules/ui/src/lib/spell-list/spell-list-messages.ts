@@ -36,6 +36,8 @@ export const SpellListMessage = {
   DefenceDc: 'rules.spellList.defence.dc',
   DefenceAc: 'rules.spellList.defence.ac',
   Counteract: 'rules.spellList.counteract',
+  Rank: 'rules.spellList.rank',
+  Roll: 'rules.spellList.roll',
   TagCantrip: 'rules.spellList.tag.cantrip',
   TagFocus: 'rules.spellList.tag.focus',
   TagInnate: 'rules.spellList.tag.innate',

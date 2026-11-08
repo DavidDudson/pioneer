@@ -1463,6 +1463,8 @@
     },
     "spellList": {
       "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
+      "roll": "Roll {effect}",
       "none": "No spell",
       "costTo": "to",
       "or": "or",
