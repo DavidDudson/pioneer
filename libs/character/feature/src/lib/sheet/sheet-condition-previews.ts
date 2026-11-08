@@ -2,10 +2,11 @@ import type { ActiveCondition, Character } from '@pioneer/character/domain';
 import { EffectMode } from '@pioneer/rules/engine';
 import { ConditionValue, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import { conditionCard } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
-import { endingsFor, heldConditionEndings } from './sheet-condition-endings';
+import { heldConditionEndings } from './sheet-condition-endings';
 import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
@@ -61,8 +62,10 @@ export function genericConditionPreview(
   if (registry === undefined || condition?.kind !== ContentKind.Condition || preview === undefined) {
     return undefined;
   }
-  const endings = endingsFor(registry, new Set(), { endings: condition.data.recovery, value: undefined });
-  return endings.length === 0 ? preview : { ...preview, endings };
+  return conditionCard(condition, preview, (source) => {
+    const entry = sheetEntry(registry, source);
+    return entry === undefined ? undefined : { id: source, name: entry.name };
+  });
 }
 
 /** What a condition previews as on `character`: as it applies when held, else as any character sees it. */

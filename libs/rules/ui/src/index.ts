@@ -37,6 +37,13 @@ export {
   provideEntryPreviews,
   SidePanelParam,
 } from './lib/entry-preview/entry-preview';
+export { conditionCard } from './lib/entry-preview/condition-card';
+export {
+  checkAgainst,
+  conditionEndings,
+  type EndingSourceOf,
+  type HeldCondition,
+} from './lib/entry-preview/condition-endings';
 export {
   INLINE_ROLLER,
   type InlineCheckRoll,
