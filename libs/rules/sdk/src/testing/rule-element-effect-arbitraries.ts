@@ -121,6 +121,7 @@ const criticalArmorDamage = record({
   amount: constant({ type: 'equal' }),
   target: constant({ type: 'armor' }),
 });
+const criticalRange = element('CriticalRange', { selectors: targets, natural: integer({ min: 2, max: 19 }) });
 const criticalEffect = element('CriticalEffect', {
   selectors: targets,
   effect: oneof(criticalCondition, criticalArmorDamage),
@@ -139,4 +140,5 @@ export const effectElements: readonly Arbitrary<object>[] = [
   criticalHitCheck,
   criticalWeakness,
   criticalEffect,
+  criticalRange,
 ];

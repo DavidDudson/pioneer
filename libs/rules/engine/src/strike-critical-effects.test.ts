@@ -36,3 +36,35 @@ describe('Strike critical effects from rule elements', () => {
     ).toEqual([]);
   });
 });
+
+describe('Strike critical range from rule elements', () => {
+  const keen = { key: 'CriticalRange', selectors: ['strike-attack-roll'], natural: 19 };
+
+  test('a CriticalRange reaching the attack roll is on the Strike, with its origin', () => {
+    const range: unknown = strikeOf([[keen, 'keen']])?.criticalRange;
+
+    expect(range).toEqual({ natural: 19, origin: inPlay(keen, 'keen').origin });
+  });
+
+  test('the lowest of several ranges is the Strike critical range', () => {
+    const sharper = { ...keen, natural: 18 };
+    const range: unknown = strikeOf([
+      [keen, 'a'],
+      [sharper, 'b'],
+    ])?.criticalRange;
+
+    expect(range).toEqual({ natural: 18, origin: inPlay(sharper, 'b').origin });
+  });
+
+  test('a CriticalRange for other rolls, or whose predicate fails, is not on the Strike', () => {
+    const elsewhere = { ...keen, selectors: ['perception'] };
+    const calm = { ...keen, predicate: ['self:effect:calm'] };
+
+    expect(
+      strikeOf([
+        [elsewhere, 'a'],
+        [calm, 'b'],
+      ])?.criticalRange,
+    ).toBeUndefined();
+  });
+});

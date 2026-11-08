@@ -462,6 +462,7 @@ export {
   CriticalSaveStatistic,
 } from './rule-element-critical-effect';
 export type { CriticalDuration, CriticalSave } from './rule-element-critical-effect';
+export { CriticalRangeElement, NaturalRoll } from './rule-element-critical-range';
 export { CriticalWeaknessElement } from './rule-element-critical-weakness';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
 export { criticalSpecializationOf } from './critical-specialization';

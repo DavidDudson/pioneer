@@ -12,8 +12,10 @@ const ETCHED_DAMAGE = 'etched-damage';
  * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
  * land; a new book's rune must get rules or be listed here.
  *
- * Why the weapon-changing runes stay here: keen needs a critical range the Strike has no concept of; quickstrike grants
- * a conditional action; returning, extending and shifting are activations or movement the sheet does not model.
+ * Why the weapon-changing runes stay here: quickstrike gives quickened, which the play state holds as an applied condition
+ * (with its action restriction) and no rule derives; extending gives its reach through an activation (Extend) the sheet
+ * does not model; returning changes no number (the weapon flies back after a thrown Strike); shifting swaps the weapon
+ * for another, a choice the sheet does not model.
  *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
  * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
@@ -31,7 +33,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:extending',
   'rune:extending-greater',
   'rune:grievous',
-  'rune:keen',
   'rune:mythic-striking',
   'rune:mythic-weapon-potency',
   'rune:pacifying',

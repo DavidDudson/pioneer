@@ -20,6 +20,8 @@ import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 import { criticallyAffectedBy } from './strike-critical-effects';
 import type { CriticalEffect } from './strike-critical-effects';
+import { criticallyRangedBy } from './strike-critical-range';
+import type { CriticalRange } from './strike-critical-range';
 import { notedBy } from './strike-notes';
 import type { StrikeNote } from './strike-notes';
 import { isFlatSplash, splashFor } from './strike-splash';
@@ -33,6 +35,7 @@ export { NoteRoll } from './strike-notes';
 export type { StrikeNote } from './strike-notes';
 export type { RuleSplash } from './strike-splash';
 export type { CriticalEffect } from './strike-critical-effects';
+export type { CriticalRange } from './strike-critical-range';
 export type { CriticalWeakness } from './strike-weaknesses';
 export { ETCHED_DAMAGE } from './strike-targets';
 export type { StrikeTargets } from './strike-targets';
@@ -64,6 +67,8 @@ export interface StrikeRules {
   readonly weaknesses: readonly CriticalWeakness[];
   /** What a critical hit does besides its damage: conditions on the target, damage to others or to its armor. */
   readonly criticalEffects: readonly CriticalEffect[];
+  /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (a keen weapon's 19). */
+  readonly criticalRange: CriticalRange | undefined;
   readonly notes: readonly StrikeNote[];
   /**
    * The elements that would change the Strike if their situation held (the target is undead) and that no roll has
@@ -176,6 +181,8 @@ interface Reading extends DiceAndType {
   readonly splash: readonly PendingSplash[];
   readonly weaknesses: readonly CriticalWeakness[];
   readonly criticalEffects: readonly CriticalEffect[];
+  /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (a keen weapon's 19). */
+  readonly criticalRange: CriticalRange | undefined;
   readonly notes: readonly StrikeNote[];
   readonly conditional: readonly RuleId[];
 }
@@ -219,6 +226,7 @@ function applied(
     notes: notedBy(reading.notes, rule, targets),
     weaknesses: weakenedBy(reading.weaknesses, rule, targets),
     criticalEffects: criticallyAffectedBy(reading.criticalEffects, rule, targets),
+    criticalRange: criticallyRangedBy(reading.criticalRange, rule, targets),
   };
 }
 
@@ -230,6 +238,7 @@ function changedBy(before: Reading, after: Reading): boolean {
   return (
     after.dice !== before.dice ||
     after.damageType !== before.damageType ||
+    after.criticalRange?.natural !== before.criticalRange?.natural ||
     GIVEN.some((given) => after[given].length !== before[given].length)
   );
 }
@@ -253,6 +262,7 @@ export function strikeRules(inputs: ModifierInputs, scope: StrikeScope, targets:
     notes: [],
     weaknesses: [],
     criticalEffects: [],
+    criticalRange: undefined,
     conditional: [],
   };
   let reading = start;

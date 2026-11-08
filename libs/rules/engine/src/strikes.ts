@@ -6,6 +6,7 @@ import type { ModifierInputs, RuleId } from './rule-in-play';
 import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
 import type { CriticalEffect } from './strike-critical-effects';
+import type { CriticalRange } from './strike-critical-range';
 import { strikeRules } from './strike-rules';
 import type { ExtraDice, RuleSplash, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
 import type { CriticalWeakness } from './strike-weaknesses';
@@ -61,6 +62,8 @@ export interface Strike {
   readonly weaknesses: readonly CriticalWeakness[];
   /** What a critical hit with this Strike does besides its damage (`CriticalEffect` elements). */
   readonly criticalEffects: readonly CriticalEffect[];
+  /** The natural roll from which a successful attack is a critical hit, when a rule lowers it (`CriticalRange` elements). */
+  readonly criticalRange: CriticalRange | undefined;
   /** The rule elements that would change this Strike if a roll claimed their situation (`StrikeRules.conditional`). */
   readonly conditional: readonly RuleId[];
   readonly map: MultipleAttackPenalty;
@@ -187,6 +190,7 @@ export function deriveStrikes(
       notes: changes?.notes ?? [],
       weaknesses: changes?.weaknesses ?? [],
       criticalEffects: changes?.criticalEffects ?? [],
+      criticalRange: changes?.criticalRange,
       conditional: changes?.conditional ?? [],
       map: multipleAttackPenalty(weapon),
     };

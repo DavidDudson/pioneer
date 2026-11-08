@@ -38,6 +38,8 @@ export const StrikesMessage = {
   ExtraDice: 'rules.strikes.extraDice',
   /** "On a critical hit, the target gains weakness 5 to fire until the end of your next turn": what an energy vulnerability rune does. */
   CriticalWeakness: 'rules.strikes.criticalWeakness',
+  /** "Keen: a natural 19 on the attack is a critical hit, as long as it succeeds". */
+  CriticalRange: 'rules.strikes.criticalRange',
   /** "Replaced by your form: Longsword, Dagger. The base sheet lists them.": the weapon Strikes a form replaces. */
   Suppressed: 'rules.strikes.suppressed',
   /** "On a critical success": the degrees of success a note shows on. */

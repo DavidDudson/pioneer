@@ -58,6 +58,7 @@ export const RuleElementKey = {
   CriticalHitCheck: 'CriticalHitCheck',
   CriticalWeakness: 'CriticalWeakness',
   CriticalEffect: 'CriticalEffect',
+  CriticalRange: 'CriticalRange',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

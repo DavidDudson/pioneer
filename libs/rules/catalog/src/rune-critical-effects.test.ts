@@ -81,3 +81,13 @@ describe('critical effects of the rooting family', () => {
     ]);
   });
 });
+
+describe('critical range of the keen rune', () => {
+  test('a natural 19 is a critical hit for the weapon it is etched on', () => {
+    const rules: readonly unknown[] = RUNES.filter((rune) => rune.slug === 'rune:keen').flatMap(
+      ({ rules: own }) => own,
+    );
+
+    expect(rules).toStrictEqual([{ key: 'CriticalRange', selectors: [ETCHED_DAMAGE], natural: 19 }]);
+  });
+});
