@@ -1,0 +1,11 @@
+version: 1
+
+project-management:
+  name: github
+  project: DavidDudson/pioneer
+
+# Only the cheap, file-scoped commands. typecheck, test and build are per Nx project and CI runs the full
+# set (see CLAUDE.md "Checks"), so they are left unset rather than pointed at `nx affected`.
+commands:
+  lint: .claude/scripts/run-check.sh bunx oxlint
+  format: bun fmt
