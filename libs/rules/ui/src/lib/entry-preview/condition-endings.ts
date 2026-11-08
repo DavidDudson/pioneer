@@ -26,6 +26,12 @@ function dcAt(dc: ConditionDc | undefined, value: ConditionValue | undefined): n
   return parts['byValue'] === undefined ? base : base + (value ?? 0);
 }
 
+/** Whether the DC of the check an ending carries adds the condition's value to its base. */
+function dcFollowsValue(ending: ConditionEnding): boolean {
+  const dc = ending.kind === 'check' || ending.kind === 'action' ? ending.check?.dc : undefined;
+  return dc !== undefined && DC_PARTS.exec(dc)?.groups?.['byValue'] !== undefined;
+}
+
 /** The DC of the check an ending carries, if it carries one. */
 function checkDc(ending: ConditionEnding, value: ConditionValue | undefined): number | undefined {
   return ending.kind === 'check' || ending.kind === 'action' ? dcAt(ending.check?.dc, value) : undefined;
@@ -63,6 +69,7 @@ export function conditionEndings(
       kind: ending.kind,
       text: ending.text,
       ...(dc === undefined ? {} : { dc }),
+      ...(dc !== undefined && dcFollowsValue(ending) ? { dcByValue: true as const } : {}),
       against: rolledAt(rolls, checkAgainst(ending)),
       ...(action === undefined ? {} : { action }),
       held: sources,

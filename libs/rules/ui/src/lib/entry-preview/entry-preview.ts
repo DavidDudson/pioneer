@@ -52,6 +52,8 @@ export interface PreviewEnding {
   readonly text: RichText;
   /** The DC of a check at the value the character holds; absent for a flat or another creature's DC, or no check. */
   readonly dc?: number;
+  /** Set when the DC adds the condition's value to its base, so the card can work it out at a value a mention names. */
+  readonly dcByValue?: true;
   /** The statistics the character may roll for the check, as it has them; empty for a flat check or no check. */
   readonly against: readonly PreviewEndingStatistic[];
   /** The action that ends it, which anyone can take; absent where the ending names none. */
@@ -85,6 +87,8 @@ export interface EntryPreview {
   readonly sources: readonly SourceRef[];
   /** The value of a valued condition the character has (frightened 2), shown beside the name. */
   readonly value?: ConditionValue;
+  /** Set for a condition that carries a value, so a mention that names one (frightened 2) can show the card at it. */
+  readonly valued?: true;
   /**
    * What the entry would do to the character, or is doing, with its value applied. Absent when the preview is not
    * for a character (the public browser); empty when it changes nothing.

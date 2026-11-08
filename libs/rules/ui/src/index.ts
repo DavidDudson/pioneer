@@ -37,7 +37,7 @@ export {
   provideEntryPreviews,
   SidePanelParam,
 } from './lib/entry-preview/entry-preview';
-export { conditionCard } from './lib/entry-preview/condition-card';
+export { atValue, conditionCard } from './lib/entry-preview/condition-card';
 export {
   checkAgainst,
   conditionEndings,

@@ -1,9 +1,9 @@
-import { ContentId, ContentKind, ContentRegistry, RichText } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentId, ContentKind, ContentRegistry, RichText } from '@pioneer/rules/sdk';
 import type { ContentEntry } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { describe, expect, it } from 'vitest';
 
-import { conditionCard } from './condition-card';
+import { atValue, conditionCard } from './condition-card';
 import type { EntryPreview } from './entry-preview';
 
 const TEXT = RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'Rest ends it.' }] }]);
@@ -57,5 +57,35 @@ describe(conditionCard, () => {
     const card = conditionCard(entryNamed(ContentKind.Feat, 'toughness'), CARD, () => undefined);
 
     expect(card).toBe(CARD);
+  });
+});
+
+describe(atValue, () => {
+  const VALUE = ConditionValue.parse(2);
+  const valued: EntryPreview = {
+    ...CARD,
+    valued: true,
+    endings: [
+      { kind: 'check', text: TEXT, dc: 10, dcByValue: true, against: [], held: [] },
+      { kind: 'check', text: TEXT, dc: 15, against: [], held: [] },
+    ],
+  };
+
+  it('shows the value beside the name and works a DC that follows it out at that value', () => {
+    const card = atValue(valued, VALUE);
+
+    expect(card.value).toBe(2);
+    expect(card.endings?.map(({ dc }) => dc)).toStrictEqual([12, 15]);
+  });
+
+  it('leaves a card that carries no value, or a mention that names none, as it is', () => {
+    expect(atValue(CARD, VALUE)).toBe(CARD);
+    expect(atValue(valued, undefined)).toBe(valued);
+  });
+
+  it("leaves the character's own value as it is", () => {
+    const own: EntryPreview = { ...valued, value: ConditionValue.parse(3) };
+
+    expect(atValue(own, VALUE)).toBe(own);
   });
 });

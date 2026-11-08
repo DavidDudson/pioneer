@@ -1,4 +1,4 @@
-<pio-content-preview [entry]="node().id">
+<pio-content-preview [entry]="node().id" [value]="value()">
   @if (target(); as to) {
     <fr-link [to]="to">{{ label() ?? (unnamed | transloco) }}</fr-link>
   } @else {
