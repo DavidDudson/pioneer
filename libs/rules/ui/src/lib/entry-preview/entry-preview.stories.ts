@@ -5,6 +5,7 @@ import { SpellRank } from '@pioneer/rules/sdk';
 import { FIREBALL as FIREBALL_DATA } from '../testing/spell-fixtures';
 import { EntryPreviewView } from './entry-preview.component';
 import {
+  CLUMSY_ENDINGS_PREVIEW,
   CLUMSY_PREVIEW,
   FIREBALL,
   FIREBALL_PREVIEW,
@@ -67,4 +68,9 @@ export const SpellRanks: EntryPreviewStory = {
       },
     },
   },
+};
+
+/** A condition the character has, with how it ends: by itself, by a check at its value, by an action, and by what the character has. */
+export const ConditionEndings: EntryPreviewStory = {
+  args: { preview: CLUMSY_ENDINGS_PREVIEW },
 };

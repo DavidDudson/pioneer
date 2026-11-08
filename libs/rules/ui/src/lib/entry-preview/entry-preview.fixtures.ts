@@ -157,3 +157,38 @@ export const CLUMSY_PREVIEW: EntryPreview = {
 export const FIREBALL_PREVIEWS: EntryPreviews = {
   preview: (id): EntryPreview | undefined => (id === FIREBALL ? FIREBALL_PREVIEW : undefined),
 };
+
+const ENDING_SOURCE_NAME = ContentText.parse('Treat Condition');
+
+function endingText(text: string): RichText {
+  return RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text }] }]);
+}
+
+/** Clumsy 2 with the ways it ends: the check at its value, an action anyone can take, and a feat the character has. */
+export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
+  ...CLUMSY_PREVIEW,
+  endings: [
+    {
+      kind: 'automatic',
+      text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
+      held: [],
+    },
+    {
+      kind: 'check',
+      text: endingText('A flat check ends the condition.'),
+      dc: 12,
+      held: [],
+    },
+    {
+      kind: 'action',
+      text: endingText('You can spend an action to steady yourself.'),
+      action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
+      held: [],
+    },
+    {
+      kind: 'others',
+      text: endingText('A spell or ability that restores coordination can lower or remove it.'),
+      held: [{ id: ContentId.parse(FIREBALL), name: ENDING_SOURCE_NAME }],
+    },
+  ],
+};

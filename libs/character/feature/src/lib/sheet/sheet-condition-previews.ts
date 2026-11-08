@@ -5,6 +5,7 @@ import type { ContentId, ContentRegistry } from '@pioneer/rules/sdk';
 import type { EntryPreview, EntryPreviews } from '@pioneer/rules/ui';
 
 import { injectStatisticLink } from './sheet-breakdown/sheet-breakdown';
+import { heldConditionEndings } from './sheet-condition-endings';
 import { sheetEntryEffects } from './sheet-entry-effects';
 import { sheetEntry, sheetEntryPreview } from './sheet-entry-previews';
 
@@ -34,6 +35,7 @@ export function heldConditionPreview(
     return undefined;
   }
   const value = valueOf(active);
+  const endings = heldConditionEndings(registry, character, { endings: condition.data.recovery, value });
   return {
     ...preview,
     ...(value === undefined ? {} : { value }),
@@ -41,6 +43,7 @@ export function heldConditionPreview(
       entry: condition,
       mode: EffectMode.Applying,
     }),
+    ...(endings.length === 0 ? {} : { endings }),
   };
 }
 

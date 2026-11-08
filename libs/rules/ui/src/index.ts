@@ -28,6 +28,8 @@ export {
   type EntryPreviews,
   type PanelLink,
   type PreviewEffect,
+  type PreviewEnding,
+  type PreviewEndingSource,
   type PreviewRanks,
   type StatisticLink,
   panelQuery,

@@ -6,6 +6,7 @@ import type { LinkTarget } from '@pioneer/frontier';
 import type { EffectLine, SpellAtRank } from '@pioneer/rules/engine';
 import { slugName } from '@pioneer/rules/sdk';
 import type {
+  ConditionEnding,
   ConditionValue,
   ContentEntry,
   ContentId,
@@ -29,6 +30,25 @@ export interface PreviewEffect {
   readonly sense?: string;
   /** The names of the traits a weakness or resistance makes exceptions for, in the line's order. */
   readonly exceptions?: readonly string[];
+}
+
+/** An entry the character has that eases a condition: a spell it knows, a feat it took, a consumable it carries. */
+export interface PreviewEndingSource {
+  readonly id: ContentId;
+  readonly name: ContentText;
+}
+
+/** One way a condition the character has ends or eases, as that character meets it. */
+export interface PreviewEnding {
+  readonly kind: ConditionEnding['kind'];
+  /** The rule text, as content gives it. */
+  readonly text: RichText;
+  /** The DC of a check at the value the character holds; absent for a flat or another creature's DC, or no check. */
+  readonly dc?: number;
+  /** The action that ends it, which anyone can take; absent where the ending names none. */
+  readonly action?: PreviewEndingSource;
+  /** What the character has that ends or eases it; empty when it has nothing, or the ending names nothing. */
+  readonly held: readonly PreviewEndingSource[];
 }
 
 /** A spell across the ranks it can be cast at: the card offers a pick and shows the spell as cast at that rank. */
@@ -61,6 +81,8 @@ export interface EntryPreview {
    * for a character (the public browser); empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
+  /** How a condition the character has ends or eases, with what the character has to do it. */
+  readonly endings?: readonly PreviewEnding[];
   /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */
   readonly ranks?: PreviewRanks;
   /** A creature's stat block, shown in place of the generic card. */

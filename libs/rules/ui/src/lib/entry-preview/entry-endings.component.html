@@ -1,0 +1,32 @@
+<fr-stack gap="xs">
+  <fr-text weight="medium">{{ Message.Endings | transloco }}</fr-text>
+  @for (ending of listed(); track $index) {
+    <fr-stack gap="3xs">
+      <fr-stack gap="2xs" direction="horizontal" align="center">
+        <fr-text variant="caption" weight="medium">{{ KindMessage[ending.kind] | transloco }}</fr-text>
+        @if (ending.dc; as dc) {
+          <fr-badge>{{ Message.EndingDc | transloco: { dc } }}</fr-badge>
+        }
+      </fr-stack>
+      <pio-rich-text [text]="ending.text" />
+      @if (ending.action; as action) {
+        <fr-text variant="caption"
+          >{{ Message.EndingAction | transloco }}
+          <pio-content-preview [entry]="action.id">{{ action.name }}</pio-content-preview></fr-text
+        >
+      }
+      @if (ending.held.length > 0) {
+        <fr-text variant="caption" tone="muted">{{ Message.EndingHeld | transloco }}</fr-text>
+        <fr-list gap="3xs">
+          @for (source of ending.held; track source.id) {
+            <fr-list-item
+              ><fr-text variant="caption"
+                ><pio-content-preview [entry]="source.id">{{ source.name }}</pio-content-preview></fr-text
+              ></fr-list-item
+            >
+          }
+        </fr-list>
+      }
+    </fr-stack>
+  }
+</fr-stack>
