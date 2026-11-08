@@ -69,6 +69,7 @@ describe('CharacterSheetPage hero and focus points', () => {
   it("shows a bard's focus pool of 1 beside the hero points", async () => {
     const { root } = await openSheet(as('bard'), {
       tab: SheetMode.Encounter,
+      section: 'spellcasting',
       play: spentOf({ 'focus-points': 1 }),
       packs: SPELL_PACKS,
     });

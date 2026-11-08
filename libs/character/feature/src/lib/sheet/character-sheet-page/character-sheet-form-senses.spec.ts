@@ -31,7 +31,7 @@ describe('CharacterSheetPage form senses', () => {
   }, PREBUILD_TIMEOUT);
 
   it('lists the character’s senses with where each comes from', async () => {
-    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, section: 'senses', packs: PACKS });
 
     await vi.waitFor(() => {
       expect(sensesOf(root)).toMatch(/Low-Light Vision \(precise\)/u);
@@ -40,7 +40,12 @@ describe('CharacterSheetPage form senses', () => {
   });
 
   it('marks the senses a battle form gives as from the form, and offers the character’s own', async () => {
-    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, play: flytrap, packs: PACKS });
+    const { root } = await openSheet(MERISIEL, {
+      tab: SheetMode.Encounter,
+      section: 'senses',
+      play: flytrap,
+      packs: PACKS,
+    });
 
     await vi.waitFor(() => {
       expect(sensesOf(root)).toMatch(/Low-Light Vision \(precise\)\s*from [^;]*Plant Form/u);

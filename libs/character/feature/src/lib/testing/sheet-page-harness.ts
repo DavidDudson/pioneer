@@ -191,8 +191,12 @@ function bundleOf(character: object, options: SheetOptions): object {
 /** Answers the sheet's read of its character with the bundle, and the panels' reads of what the bundle leaves out. */
 async function answerReads(character: object, options: SheetOptions): Promise<void> {
   await answerSheetBundle(bundleOf(character, options));
-  // Plan (the rule-breaking warning) and Exploration (the inventory) read what the campaign approved; Encounter and Downtime don't.
-  if (options.tab === undefined || options.tab === SheetMode.Plan || options.tab === SheetMode.Exploration) {
+  // Plan (the rule-breaking warning) and the Exploration inventory read what the campaign approved; Encounter and Downtime don't, and neither does an Exploration section that is not the inventory, which builds nothing of it.
+  const readsApprovals =
+    options.tab === undefined ||
+    options.tab === SheetMode.Plan ||
+    (options.tab === SheetMode.Exploration && options.section === 'inventory');
+  if (readsApprovals) {
     await answerItemApprovalsRead();
   }
 }

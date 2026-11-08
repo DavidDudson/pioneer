@@ -10,7 +10,7 @@ import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 import { ACTION_CONTENT_KINDS } from '../sheet-actions';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'strikes');
 
 const PLAY_URL = `/api/characters/${id}/play`;
 const CHARACTER_URL = `/api/characters/${id}`;

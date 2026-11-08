@@ -86,7 +86,7 @@ describe('acknowledging a rule-breaking item on a character outside a campaign',
         url: `/api/characters/${id}/item-acknowledgements`,
       }),
     );
-    expect(sent.request.body).toStrictEqual({ item: cloakId(INVESTED_MAX), rule: RuleBreak.Invested });
+    expect(sent.request.body).toStrictEqual({ item: cloakId(INVESTED_MAX), rule: RuleBreak.Invested, rune: undefined });
     sent.flush(acknowledgedOnce);
     await answerApprovalsRefetch(acknowledgedOnce);
     await settle();

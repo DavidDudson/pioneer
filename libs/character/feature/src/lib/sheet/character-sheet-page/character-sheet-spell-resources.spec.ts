@@ -46,7 +46,12 @@ function buttonOf(root: HTMLElement, name: string): HTMLButtonElement {
 }
 
 async function openSpells(character: object, resources: object = {}): Promise<OpenSheet> {
-  return openSheet(character, { tab: SheetMode.Encounter, play: spentOf(resources), packs: PACKS });
+  return openSheet(character, {
+    tab: SheetMode.Encounter,
+    section: 'spellcasting',
+    play: spentOf(resources),
+    packs: PACKS,
+  });
 }
 
 describe('CharacterSheetPage spell resources panel', () => {

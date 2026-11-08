@@ -22,7 +22,7 @@ const PICKS: PackContentsLoader = {
       [picks.otherEntries],
     ),
 };
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'languages');
 const openPlan = openerAt(SheetMode.Plan);
 const PACKS = [...TEST_PACKS, PICKS];
 

@@ -46,7 +46,7 @@ describe('CharacterSheetPage actions', () => {
   }, PREBUILD_TIMEOUT);
 
   it('lists on the Encounter tab what the character can do now, grouped by cost', async () => {
-    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, section: 'actions', packs: PACKS });
     await openActionKind(root, 'Basic actions');
 
     await vi.waitFor(() => {
@@ -61,7 +61,7 @@ describe('CharacterSheetPage actions', () => {
   });
 
   it('lists the downtime actions on the Downtime tab', async () => {
-    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Downtime, packs: PACKS });
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Downtime, section: 'actions', packs: PACKS });
     await openActionKind(root, 'Basic actions');
 
     await vi.waitFor(() => {
@@ -71,7 +71,7 @@ describe('CharacterSheetPage actions', () => {
   });
 
   it('lists every action in the All view, with why the ones that cannot be used cannot', async () => {
-    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, section: 'actions', packs: PACKS });
     await openActionKind(root, 'Basic actions');
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');
@@ -89,7 +89,7 @@ describe('CharacterSheetPage actions', () => {
     TestBed.configureTestingModule({
       providers: [{ provide: RANDOM_SOURCE, useValue: scriptedRandom([DieFace.parse(12)]) }],
     });
-    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, section: 'actions', packs: PACKS });
     await openActionKind(root, 'Basic actions');
     const button = await vi.waitFor(() =>
       present(actionsSection(root).querySelector<HTMLButtonElement>('button[aria-label^="Roll "]')),
@@ -105,7 +105,7 @@ describe('CharacterSheetPage actions', () => {
   it('spends the action from the turn when Use is pressed', async () => {
     const turn = { phase: 'turn', actions: 3, quickened: 0, reactionUsed: false };
     const play = { revision: 1, play: { hp: { damage: 0, temp: 0 }, turn, spendLog: [] } };
-    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, packs: PACKS, play });
+    const { root } = await openSheet(FIGHTER, { tab: SheetMode.Encounter, section: 'actions', packs: PACKS, play });
     await openActionKind(root, 'Basic actions');
     await vi.waitFor(() => {
       expect(rowNames(root)).toContain('Stride');

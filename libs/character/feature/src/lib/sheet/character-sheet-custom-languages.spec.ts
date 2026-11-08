@@ -7,7 +7,7 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../testing/provide
 import { id, MERISIEL, openerAt, present } from '../testing/sheet-page-harness';
 import { TEST_PACKS } from '../testing/test-packs';
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'languages');
 
 /** Merisiel carrying the `customLanguages` an import kept by name. */
 function carrying(customLanguages: readonly string[]): object {
