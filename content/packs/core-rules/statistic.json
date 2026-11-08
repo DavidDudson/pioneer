@@ -881,10 +881,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:str",
@@ -905,10 +917,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:dex",
@@ -929,10 +953,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:con",
@@ -953,10 +989,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:int",
@@ -977,10 +1025,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:wis",
@@ -1001,10 +1061,22 @@
     "sources": [
       {
         "kind": "book",
-        "book": "player-core"
+        "book": "player-core",
+        "page": 400,
+        "aon": "https://2e.aonprd.com/Rules.aspx?ID=2280"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nearly all checks allow you to add an attribute modifier to the roll. Attribute modifiers represent your raw capability. Exactly which attribute modifier you use is determined by what you're trying to accomplish."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "attribute:cha",
