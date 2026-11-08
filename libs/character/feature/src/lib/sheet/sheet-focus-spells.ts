@@ -35,13 +35,16 @@ export function sheetFocus(
   return {
     rank: focus.rank,
     pool: focus.pool,
-    entries: focus.entries.map(({ entry, spells }) => ({
-      key: entry.slug,
-      tradition: entry.tradition,
-      spells: spells.map((spell) =>
-        focusSpellLine({ registry, content, rank: focus.rank }, spell, { translate, spend }),
-      ),
-    })),
+    entries: focus.entries.map(({ entry, spells }) => {
+      const source = content.lookup.entry(entry.origin.entry)?.name ?? entry.origin.entry;
+      return {
+        key: entry.slug,
+        tradition: entry.tradition,
+        spells: spells.map((spell) =>
+          focusSpellLine({ registry, content, rank: focus.rank, source }, spell, { translate, spend }),
+        ),
+      };
+    }),
   };
 }
 
@@ -50,10 +53,12 @@ interface FocusSpellContext {
   readonly registry: ContentRegistry;
   readonly content: SlotContent;
   readonly rank: SpellRank;
+  /** The name of the entry that gave the spell. */
+  readonly source: string;
 }
 
 function focusSpellLine(
-  { registry, content, rank }: FocusSpellContext,
+  { registry, content, rank, source }: FocusSpellContext,
   { id, name, cantrip }: SpellOption,
   { translate, spend }: FocusWords,
 ): FocusSpellLine {
@@ -72,6 +77,7 @@ function focusSpellLine(
             name,
             rank,
             tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagFocus],
+            source,
           },
           translate,
         );
@@ -95,25 +101,29 @@ export function sheetInnate(
     return undefined;
   }
   return {
-    entries: innate.map(({ entry, spells }) => ({
-      key: entry.slug,
-      tradition: entry.tradition,
-      spells: spells.map(({ spell: { id, name, cantrip }, rank }) => {
-        const detail: SpellDetailLine | undefined =
-          translate === undefined
-            ? undefined
-            : sheetSpellDetail(
-                registry,
-                {
-                  id,
-                  name,
-                  rank,
-                  tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagInnate],
-                },
-                translate,
-              );
-        return { key: id, id, name, cantrip, detail, rank };
-      }),
-    })),
+    entries: innate.map(({ entry, spells }) => {
+      const source = content.lookup.entry(entry.origin.entry)?.name ?? entry.origin.entry;
+      return {
+        key: entry.slug,
+        tradition: entry.tradition,
+        spells: spells.map(({ spell: { id, name, cantrip }, rank }) => {
+          const detail: SpellDetailLine | undefined =
+            translate === undefined
+              ? undefined
+              : sheetSpellDetail(
+                  registry,
+                  {
+                    id,
+                    name,
+                    rank,
+                    tags: [cantrip ? SpellListMessage.TagCantrip : SpellListMessage.TagInnate],
+                    source,
+                  },
+                  translate,
+                );
+          return { key: id, id, name, cantrip, detail, rank };
+        }),
+      };
+    }),
   };
 }

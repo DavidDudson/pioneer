@@ -94,13 +94,31 @@ describe('CharacterSheetPage spell repertoire', () => {
   });
 });
 
-/** The labelled fields of each spell detailed under `root` as "Term: value", in order. */
-function detailsIn(root: HTMLElement): string[][] {
-  return [...root.querySelectorAll('pio-spell-details')].map((details) =>
-    [...details.querySelectorAll('fr-description-item')].map((row) =>
-      [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
-    ),
+/** The name of a spell row, which is where a keyboard reaches its summary. */
+function nameOf(row: Element): HTMLElement {
+  return present(row.querySelector<HTMLElement>('fr-hover-card [tabindex="0"], fr-hover-card a'));
+}
+
+/** The rank line of each spell row under `root`, as its second row words it. */
+function ranksIn(root: HTMLElement): string[] {
+  return [...root.querySelectorAll('pio-spell-row')].map((row) =>
+    textOf(present([...row.querySelectorAll('fr-text')].find((text) => text.closest('fr-hover-card') === null))),
   );
+}
+
+/** The labelled fields of the summary a spell row shows on focus, as "Term: value", closed again after. */
+async function summaryOf(row: Element): Promise<string[]> {
+  const name = nameOf(row);
+  name.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+  const card = await vi.waitFor(() => present(document.querySelector<HTMLElement>('[role="tooltip"]')));
+  const fields = [...card.querySelectorAll('fr-description-item')].map((item) =>
+    [...item.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
+  );
+  name.dispatchEvent(new FocusEvent('focusout', { bubbles: true }));
+  await vi.waitFor(() => {
+    expect(document.querySelector('[role="tooltip"]')).toBeNull();
+  });
+  return fields;
 }
 
 describe('CharacterSheetPage spell details', () => {
@@ -108,7 +126,7 @@ describe('CharacterSheetPage spell details', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('details a repertoire spell under its picker at the rank it is cast', async () => {
+  it('shows a repertoire spell under its picker at the rank it is cast, and summarises it on focus', async () => {
     const choices = { 'repertoire:bard:1:0': SOOTHE, 'signature:bard:1': SOOTHE };
     const { root } = await openSheet(bard(3, choices), { packs: SPELL_PACKS });
     const pickers = await pickersOf(root);
@@ -116,11 +134,19 @@ describe('CharacterSheetPage spell details', () => {
     const soothe = ['Range: 30 feet', 'Targets: 1 willing creature', 'Duration: 1 minute'];
 
     await vi.waitFor(() => {
-      expect(detailsIn(pickers)).toStrictEqual([
-        [...soothe.slice(0, 2), 'Effect: 1d10+4 healing', soothe[2]],
-        [...soothe.slice(0, 2), 'Effect: 2d10+8 healing', soothe[2]],
-      ]);
+      expect(ranksIn(pickers)).toStrictEqual(['1st rank', '2nd rank']);
     });
+    const [first, second] = [...pickers.querySelectorAll('pio-spell-row')];
+    await expect(summaryOf(present(first))).resolves.toStrictEqual([
+      ...soothe.slice(0, 2),
+      'Effect: 1d10+4 healing',
+      soothe[2],
+    ]);
+    await expect(summaryOf(present(second))).resolves.toStrictEqual([
+      ...soothe.slice(0, 2),
+      'Effect: 2d10+8 healing',
+      soothe[2],
+    ]);
   });
 });
 

@@ -27,9 +27,10 @@
     </fr-inline-field>
   }
   @if (slot().detail(); as detail) {
-    <pio-spell-details [spell]="detail" />
+    <pio-spell-row [spell]="detail" [use]="slot().use()" />
+  } @else {
+    <fr-stack direction="horizontal" gap="xs">
+      <pio-use-buttons [line]="slot().use()" />
+    </fr-stack>
   }
-  <fr-stack direction="horizontal" gap="xs">
-    <pio-use-buttons [line]="slot().use()" />
-  </fr-stack>
 </fr-stack>

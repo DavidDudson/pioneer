@@ -44,19 +44,40 @@ async function focusOf(root: HTMLElement): Promise<HTMLElement> {
   );
 }
 
-/** Each spell's name and badges: the first row of its details. */
+/** The text of a row's second line that opens it: its rank, or cantrip, before its traits and source. */
+function rankOf(row: Element): Element {
+  return present([...row.querySelectorAll('fr-text')].find((text) => text.closest('fr-hover-card') === null));
+}
+
+/** The element of a row that shows its name, which is where a keyboard reaches its summary. */
+function nameOf(row: Element): HTMLElement {
+  return present(row.querySelector<HTMLElement>('fr-hover-card [tabindex="0"], fr-hover-card a'));
+}
+
+/** Each spell's name and rank (or cantrip) as its two rows show them. */
 function spellsIn(focus: HTMLElement): string[] {
-  return [...focus.querySelectorAll('pio-spell-details')].map((details) =>
-    [...details.querySelectorAll('pio-content-preview fr-text, fr-badge')].map((part) => textOf(part)).join(' '),
+  return [...focus.querySelectorAll('pio-spell-row')].map((row) =>
+    [textOf(nameOf(row)), textOf(rankOf(row))].join(' '),
   );
 }
 
-/** Each spell's labelled fields as "Term: value", under its name. */
-function fieldsOf(focus: HTMLElement, name: string): string[] {
-  const details = [...focus.querySelectorAll('pio-spell-details')].find((each) => textOf(each).startsWith(name));
-  return [...(details?.querySelectorAll('fr-description-item') ?? [])].map((row) =>
-    [...row.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
-  );
+/** What a spell row's summary shows: its labelled fields as "Term: value", and all its text. */
+interface SpellSummary {
+  readonly fields: string[];
+  readonly text: string;
+}
+
+/** The summary the spell called `name` shows on focus: shown on focus. */
+async function summaryOf(focus: HTMLElement, name: string): Promise<SpellSummary> {
+  const row = [...focus.querySelectorAll('pio-spell-row')].find((each) => textOf(nameOf(each)) === name);
+  nameOf(present(row)).dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+  const card = await vi.waitFor(() => present(document.querySelector<HTMLElement>('[role="tooltip"]')));
+  return {
+    fields: [...card.querySelectorAll('fr-description-item')].map((item) =>
+      [...item.querySelectorAll('[role=term], [role=definition]')].map((part) => textOf(part)).join(': '),
+    ),
+    text: textOf(card),
+  };
 }
 
 /** The play state of a character in its own turn with all three actions. */
@@ -71,15 +92,16 @@ describe('CharacterSheetPage focus spells', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it("details a bard's composition spells by cost, area and duration", async () => {
+  it("summarises a bard's composition spell by cost, area and duration on focus", async () => {
     const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS });
     const focus = await focusOf(root);
 
     await vi.waitFor(() => {
-      expect(fieldsOf(focus, 'Courageous Anthem')).toStrictEqual(['Area: 60-foot emanation', 'Duration: 1 round']);
+      expect(spellsIn(focus)).toContain('Courageous Anthem Cantrip');
     });
-    expect(textOf(focus)).toContain('Reaction');
-    expect(textOf(focus)).toContain('Single action');
+    const summary = await summaryOf(focus, 'Courageous Anthem');
+    expect(summary.fields).toStrictEqual(['Area: 60-foot emanation', 'Duration: 1 round']);
+    expect(summary.text).toContain('Single action');
   });
 
   it("lists a bard's composition spells, the cantrip marked, with a focus pool of 1", async () => {
@@ -87,7 +109,7 @@ describe('CharacterSheetPage focus spells', () => {
     const focus = await focusOf(root);
 
     await vi.waitFor(() => {
-      expect(spellsIn(focus)).toStrictEqual(['Counter Performance Focus', 'Courageous Anthem Cantrip']);
+      expect(spellsIn(focus)).toStrictEqual(['Counter Performance 1st rank', 'Courageous Anthem Cantrip']);
     });
     expect(textOf(focus)).toContain('Focus pool: 1 Focus Point');
     expect(textOf(focus)).toContain('Cast at 1st rank, cantrips too');
@@ -99,14 +121,11 @@ describe('CharacterSheetPage focus spells', () => {
     const focus = await focusOf(root);
 
     await vi.waitFor(() => {
-      expect(spellsIn(focus)).toStrictEqual(['Force Bolt Focus']);
+      expect(spellsIn(focus)).toStrictEqual(['Force Bolt 3rd rank']);
     });
     expect(textOf(focus)).toContain('Cast at 3rd rank, cantrips too');
-    expect(fieldsOf(focus, 'Force Bolt')).toStrictEqual([
-      'Range: 30 feet',
-      'Targets: 1 creature',
-      'Effect: 2d4+2 force',
-    ]);
+    const summary = await summaryOf(focus, 'Force Bolt');
+    expect(summary.fields).toStrictEqual(['Range: 30 feet', 'Targets: 1 creature', 'Effect: 2d4+2 force']);
   });
 
   it('shows no focus spells for a character with no focus entry', async () => {
@@ -122,7 +141,7 @@ describe('CharacterSheetPage focus spells', () => {
     const { root } = await openSheet(as('bard', 1), { packs: SPELL_PACKS, play: ownTurn() });
     const focus = await focusOf(root);
     await vi.waitFor(() => {
-      expect(spellsIn(focus)).toContain('Counter Performance Focus');
+      expect(spellsIn(focus)).toContain('Counter Performance 1st rank');
     });
 
     const buttons = [...focus.querySelectorAll('pio-use-buttons button')];

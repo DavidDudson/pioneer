@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { ContentId, contentId, EntrySlug, PackId, SpellRank } from '@pioneer/rules/sdk';
+import { ContentId, contentId, DamageFormula, EntrySlug, InlineKind, PackId, SpellRank } from '@pioneer/rules/sdk';
+import type { DamageNode } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
 import type { SpellDetailLine } from './spell-detail-line';
@@ -17,6 +18,8 @@ const meta: Meta<SpellDetails> = {
 };
 export default meta;
 
+const ROLL: DamageNode = { type: InlineKind.Damage, instances: [{ formula: DamageFormula.parse('1d6') }] };
+
 const NO_FIELDS = { range: undefined, area: undefined, targets: undefined, defence: undefined, duration: undefined };
 
 /** Fireball in a 5th-rank slot: the damage has grown by two steps of +2d6. */
@@ -29,10 +32,12 @@ const FIREBALL: SpellDetailLine = {
   range: '500 feet',
   area: '20-foot burst',
   defence: 'basic Reflex',
-  effects: [{ key: '0', text: '10d6 fire' }],
+  effects: [{ key: '0', text: '10d6 fire', roll: ROLL }],
   targetValues: [],
   counteract: false,
   tags: [],
+  traits: [],
+  source: undefined,
   variants: [],
 };
 
@@ -44,24 +49,26 @@ const HEAL: SpellDetailLine = {
   rank: SpellRank.parse(3),
   cost: { kind: 'actions', cost: 'one', upTo: 'three' },
   targets: 'you or 1 willing creature',
-  effects: [{ key: '0', text: '3d8 damage or healing' }],
+  effects: [{ key: '0', text: '3d8 damage or healing', roll: ROLL }],
   targetValues: [],
   counteract: false,
   tags: [],
+  traits: [],
+  source: undefined,
   variants: [
     {
       ...NO_FIELDS,
       name: 'One action',
       cost: { kind: 'actions', cost: 'one', upTo: undefined },
       range: 'touch',
-      effects: [{ key: '0', text: '3d8 damage or healing' }],
+      effects: [{ key: '0', text: '3d8 damage or healing', roll: ROLL }],
     },
     {
       ...NO_FIELDS,
       name: 'Two actions',
       cost: { kind: 'actions', cost: 'two', upTo: undefined },
       range: '30 feet',
-      effects: [{ key: '0', text: '3d8 damage or healing' }],
+      effects: [{ key: '0', text: '3d8 damage or healing', roll: ROLL }],
     },
   ],
 };
@@ -80,6 +87,8 @@ const DISPEL_MAGIC: SpellDetailLine = {
   targetValues: [],
   counteract: true,
   tags: [SpellListMessage.TagSignature],
+  traits: [],
+  source: undefined,
   variants: [],
 };
 

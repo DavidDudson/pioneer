@@ -4,16 +4,16 @@ import { Badge, Stack, Text } from '@pioneer/frontier';
 
 import { UseButtons } from '../actions/use-buttons.component';
 import { ContentPreview } from '../entry-preview/content-preview.component';
-import { SpellDetails } from '../spell-list/spell-details.component';
+import { SpellRow } from '../spell-row/spell-row.component';
 import type { FocusSpellLine } from './focus-spells-line';
 
 /**
- * One focus spell: its details at the focus rank when the caller worded them (#484), otherwise its name with a badge per
+ * One focus spell as a compact spell row (`pio-spell-row`) when the caller worded it (#484), otherwise its name with a badge per
  * tag, as message keys ("Cantrip").
  */
 @Component({
   selector: 'pio-focus-spell-row',
-  imports: [Badge, ContentPreview, SpellDetails, Stack, Text, TranslocoPipe, UseButtons],
+  imports: [Badge, ContentPreview, SpellRow, Stack, Text, TranslocoPipe, UseButtons],
   templateUrl: './focus-spell-row.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
