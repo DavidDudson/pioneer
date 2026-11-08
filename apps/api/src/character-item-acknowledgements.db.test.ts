@@ -32,6 +32,8 @@ describe.skipIf(adminUrl === undefined)('character item acknowledgements over po
   let database: TestDatabase;
   let repository: DrizzleCharacterItemAcknowledgementRepository;
   let kyra: Character;
+  /** The character's id comes from its name, so each test names its own. */
+  let characterCount = 0;
 
   /** An acknowledgement of the rope's invested rule, at `value` unless it says otherwise. */
   function acknowledgement(over: Partial<ItemAcknowledgement> = {}): ItemAcknowledgement {
@@ -58,7 +60,10 @@ describe.skipIf(adminUrl === undefined)('character item acknowledgements over po
   // Rows are archived, never deleted, so each test gets a character of its own.
   beforeEach(async () => {
     const characters = new DrizzleCharacterRepository(database.db);
-    kyra = new CharacterBuilder().named('Kyra').ownedBy(amiri).build();
+    kyra = new CharacterBuilder()
+      .named(`Kyra ${(characterCount += 1)}`)
+      .ownedBy(amiri)
+      .build();
     await characters.insert(kyra, { actor: amiri, command: CharacterCommand.CreateCharacter });
   });
 
