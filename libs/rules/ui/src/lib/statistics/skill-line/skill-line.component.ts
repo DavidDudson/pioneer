@@ -51,11 +51,17 @@ export class SkillLine {
   public readonly rankSources = input<readonly RankSource[]>([]);
   /** The skill two sources train, worded, for the rank's popover. */
   public readonly rankNote = input<string | undefined>();
+  /** Roll it as one d20 plus its total, though it is no check. */
+  public readonly flat = input(false);
   public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
   protected readonly roller = inject(STATISTIC_ROLLER, { optional: true });
   protected readonly inline = ButtonVariant.Inline;
-  /** Only a check is rolled, and only where the page rolls; a DC or a value shows its total, the breakdown on hover. */
-  protected readonly rollable = computed((): boolean => this.roller !== null && this.kind() === StatisticKind.Check);
+  /** Only a check, or a DC or value marked flat, is rolled, and only where the page rolls; the rest show their total, the breakdown on hover. */
+  protected readonly rollable = computed(
+    (): boolean =>
+      this.roller !== null &&
+      (this.kind() === StatisticKind.Check || (this.flat() && this.roller.rollFlat !== undefined)),
+  );
 }

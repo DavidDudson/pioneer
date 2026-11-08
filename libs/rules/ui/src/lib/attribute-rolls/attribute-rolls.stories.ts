@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { AttributeModifiers } from '@pioneer/rules/sdk';
 import { expect, within } from 'storybook/test';
 
-import { FIGHTER_MODIFIERS } from '../testing/attributes-fixtures';
+import { FIGHTER_CHECKS } from '../testing/attributes-fixtures';
 import { AttributeRolls } from './attribute-rolls.component';
 
 type AttributeRollsStory = StoryObj<AttributeRolls>;
@@ -13,19 +12,14 @@ const meta: Meta<AttributeRolls> = {
 };
 export default meta;
 
-/** While the content the boosts come from loads. */
+/** While the statistics the checks come from load. */
 export const Loading: AttributeRollsStory = {
-  args: { modifiers: undefined },
+  args: { statistics: undefined },
 };
 
-/** A new character with nothing picked: every modifier +0. */
-export const Unbuilt: AttributeRollsStory = {
-  args: { modifiers: AttributeModifiers.none },
-};
-
-/** Each modifier is a button that rolls that attribute's flat check. */
+/** Each modifier is a roll button that rolls that attribute's check. */
 export const Fighter: AttributeRollsStory = {
-  args: { modifiers: FIGHTER_MODIFIERS },
+  args: { statistics: FIGHTER_CHECKS },
   play: async ({ canvasElement }) => {
     await expect(within(canvasElement).getByRole('button', { name: 'Roll Strength +4' })).toBeVisible();
   },

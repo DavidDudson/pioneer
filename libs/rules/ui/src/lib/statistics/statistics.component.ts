@@ -44,6 +44,14 @@ export interface NamedStatistic {
   readonly rankSources?: readonly RankSource[] | undefined;
   /** The situations a roll of it can claim, when the page lets the player claim them. */
   readonly situations?: StatisticSituations | undefined;
+  /** Roll it as one d20 plus its total, though it is no check: a DC, or the proficiency bonus. */
+  readonly flat?: boolean | undefined;
+}
+
+/** What a row says about its conditional lines: each worded, and a toggle for those whose situation can be claimed. */
+interface ShownConditions {
+  readonly conditions: readonly string[];
+  readonly toggles: readonly ConditionToggle[];
 }
 
 /** A statistic as shown: its total, its conditional lines and breakdown, or why it has none. */
@@ -68,6 +76,7 @@ type ShownStatistic =
       readonly rankSources: readonly RankSource[];
       readonly rankNote: string | undefined;
       readonly statistic: StatisticValue;
+      readonly flat: boolean;
     }
   | { readonly ok: false; readonly key: Selector; readonly name: string; readonly error: string };
 
@@ -151,11 +160,43 @@ export class StatisticsView {
     return this.#i18n.translate(StatisticsMessage.FromForm, { form: name });
   }
 
+  /** "computed 18" when a set override pinned the total; undefined otherwise. */
+  #unpinned(result: StatisticValue, style: Intl.NumberFormatOptions): string | undefined {
+    return result.pinnedBy === undefined
+      ? undefined
+      : this.#i18n.translate(StatisticsMessage.Computed, { computed: this.#format.number(result.computed, style) });
+  }
+
+  /** The conditional lines worded, and the toggles for those whose situation the player can claim. */
+  #conditionsOf(result: StatisticValue, situations: StatisticSituations | undefined): ShownConditions {
+    const words = this.#words();
+    const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
+    return {
+      conditions: conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id))),
+      toggles: offered.map((line): ConditionToggle => ({
+        id: line.modifier.id,
+        text: conditionalLineText(line, words),
+        on: situations?.claimed.has(line.modifier.id) === true,
+      })),
+    };
+  }
+
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
     return this.statistics()?.map(
-      ({ name: contentName, nameKey, kind, result, note, rankNote, rank, rankSources, situations }): ShownStatistic => {
+      ({
+        name: contentName,
+        nameKey,
+        kind,
+        result,
+        note,
+        rankNote,
+        rank,
+        rankSources,
+        situations,
+        flat,
+      }): ShownStatistic => {
         const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
         if (!result.ok) {
           return {
@@ -167,21 +208,9 @@ export class StatisticsView {
         }
         const style = numberStyle(kind);
         const total = this.#format.number(result.total, style);
-        const unpinned =
-          result.pinnedBy === undefined
-            ? undefined
-            : this.#i18n.translate(StatisticsMessage.Computed, {
-                computed: this.#format.number(result.computed, style),
-              });
-        const words = this.#words();
+        const unpinned = this.#unpinned(result, style);
         const fromForm = this.#fromForm(result);
-        const offered = this.#roller?.claim === undefined ? [] : (situations?.offered ?? []);
-        const conditions = conditionalLines(result, words, new Set(offered.map(({ modifier }) => modifier.id)));
-        const toggles = offered.map((line): ConditionToggle => ({
-          id: line.modifier.id,
-          text: conditionalLineText(line, words),
-          on: situations?.claimed.has(line.modifier.id) === true,
-        }));
+        const { conditions, toggles } = this.#conditionsOf(result, situations);
         return {
           ok: true,
           key: result.selector,
@@ -197,6 +226,7 @@ export class StatisticsView {
           rankSources: rankSources ?? [],
           rankNote,
           statistic: result,
+          flat: flat === true,
         };
       },
     );

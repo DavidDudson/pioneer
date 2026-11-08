@@ -117,8 +117,9 @@ function sorted(selectors: readonly string[]): readonly string[] {
   return selectors.toSorted();
 }
 
-function skillsKeyedTo(attribute: Attribute): readonly string[] {
-  return Object.entries(SKILLS).flatMap(([slug, key]) => (key === attribute ? [`skill:${slug}`] : []));
+function checksKeyedTo(attribute: Attribute): readonly string[] {
+  const skills = Object.entries(SKILLS).flatMap(([slug, key]) => (key === attribute ? [`skill:${slug}`] : []));
+  return [`attribute:${attribute}`, ...skills];
 }
 
 describe('core rules pack', () => {
@@ -244,7 +245,7 @@ describe('core rules pack', () => {
     expect(reachedBy('attack-roll')).toStrictEqual(sorted(STRIKES));
     expect(reachedBy('strike-attack-roll')).toStrictEqual(sorted(STRIKES));
     expect(reachedBy('str-based')).toStrictEqual(
-      sorted([...skillsKeyedTo(Attribute.Strength), ...STRIKES, ...STRIKE_DAMAGES]),
+      sorted([...checksKeyedTo(Attribute.Strength), ...STRIKES, ...STRIKE_DAMAGES]),
     );
     expect(reachedBy('damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
     expect(reachedBy('strike-damage')).toStrictEqual(sorted(STRIKE_DAMAGES));
@@ -254,11 +255,11 @@ describe('core rules pack', () => {
     expect(reachedBy('land-speed')).toStrictEqual(['speed:land']);
     expect(reachedBy('fly-speed')).toStrictEqual(['speed:fly']);
     expect(reachedBy('class')).toStrictEqual(['class-dc']);
-    expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...skillsKeyedTo(Attribute.Dexterity)]));
+    expect(reachedBy('dex-based')).toStrictEqual(sorted(['ac', 'save:reflex', ...checksKeyedTo(Attribute.Dexterity)]));
     expect(reachedBy('wis-based')).toStrictEqual(
-      sorted(['save:will', 'perception', ...skillsKeyedTo(Attribute.Wisdom)]),
+      sorted(['save:will', 'perception', ...checksKeyedTo(Attribute.Wisdom)]),
     );
-    expect(reachedBy('int-based')).toStrictEqual(sorted([...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]));
+    expect(reachedBy('int-based')).toStrictEqual(sorted([...checksKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]));
   });
 
   test('spell domains route to the spell attack or the DC, and the attribute domain to both', () => {
@@ -267,7 +268,7 @@ describe('core rules pack', () => {
     expect(reachedBy('attack-roll', core, wizard)).toStrictEqual(['spell-attack:arcane', 'spell-attack:innate']);
     expect(reachedBy('spell-dc', core, wizard)).toStrictEqual(['spell-dc:arcane', 'spell-dc:innate']);
     expect(reachedBy('int-based', core, wizard)).toStrictEqual(
-      sorted([...arcane, ...skillsKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]),
+      sorted([...arcane, ...checksKeyedTo(Attribute.Intelligence), ...LORE_SELECTORS]),
     );
   });
 

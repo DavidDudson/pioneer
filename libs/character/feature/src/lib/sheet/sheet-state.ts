@@ -3,9 +3,9 @@ import type { Signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { itemContent, maxHitPoints, resourceMaxima, withPlay } from '@pioneer/character/domain';
 import type { Character, ResourceMaxima } from '@pioneer/character/domain';
-import type { RuleId, VitalsInPlay } from '@pioneer/rules/engine';
+import type { RuleId, StatisticValue, VitalsInPlay } from '@pioneer/rules/engine';
 import { FocusPoints, SpellPreparation } from '@pioneer/rules/sdk';
-import type { ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
+import type { Attribute, ContentRegistry, HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { EntryPreviews, Investment, NamedStatistic, OriginNames, Vital } from '@pioneer/rules/ui';
 
 import { CharacterStore } from '../data/character-store';
@@ -26,7 +26,7 @@ import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
-import { namedStatistics, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
+import { namedStatistics, sheetAttributeChecks, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 // oxlint-disable-next-line import/max-dependencies -- the state every region of the sheet reads: the character, its forms and what the engine derives
 import { sheetArmorClass, sheetVitals } from './sheet-vitals';
 
@@ -194,6 +194,13 @@ export class SheetState {
     return registry === undefined || character === undefined || statistics === undefined
       ? undefined
       : sheetVitals(registry, character, { statistics, entryNames: this.picks.entryNames() });
+  });
+
+  /** Each attribute's check, for the attribute roll buttons; undefined while the character or the content loads. */
+  public readonly attributeChecks = computed((): ReadonlyMap<Attribute, StatisticValue> | undefined => {
+    const registry = this.#engineRegistry();
+    const character = this.character();
+    return registry === undefined || character === undefined ? undefined : sheetAttributeChecks(registry, character);
   });
 
   /** Armor Class with its rank and what sets it, for its block; undefined while it loads. */

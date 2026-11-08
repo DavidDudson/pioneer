@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
+import { Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
-import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
+import { ENTRY_NAMES, statistic, term } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { FIGHTER_VITALS } from '../testing/vitals-fixtures';
 import type { Vital } from './vital';
@@ -27,7 +28,18 @@ function textOf(element: Element | null | undefined): string | undefined {
   return element?.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
+function dc(name: string, selector: string): Vital {
+  const result = statistic(selector, { base: [term('10', 10), term('@prof.class-dc', 5)] });
+  return { statistic: { name, kind: StatisticKind.Dc, result }, rank: Proficiency.Trained };
+}
+
 describe(VitalsView, () => {
+  it('lists the DCs as Class DC, Spell DC, Proficiency, then Luck', async () => {
+    const host = await render([dc('Class DC', 'class-dc'), dc('Arcane Spell DC', 'spell-dc:arcane')]);
+    const names = [...host.querySelectorAll('fr-surface fr-list-item')].map((row) => textOf(row)?.split(' ')[0]);
+    expect(names).toStrictEqual(['Class', 'Arcane', 'Proficiency5', 'Luck0']);
+  });
+
   it('shows Armor Class as a row laid out as a skill, with its total and its rank read out by name', async () => {
     const host = await render(FIGHTER_VITALS);
     const row = present(host.querySelector('fr-surface fr-list-item'));

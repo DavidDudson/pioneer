@@ -2,17 +2,16 @@
   @for (row of rows(); track row.attribute) {
     <fr-stack direction="horizontal" justify="between" align="center" gap="xs">
       <fr-text>{{ row.shortName | transloco }}</fr-text>
-      @if (row.modifier === undefined) {
-        <fr-skeleton width="xs" />
+      @if (row.statistic; as statistic) {
+        <pio-statistic-roll
+          [name]="row.name | transloco"
+          [kind]="Check"
+          [statistic]="statistic"
+          [entryNames]="entryNames()"
+          [originNames]="originNames()"
+        />
       } @else {
-        <fr-button
-          [variant]="outline"
-          [size]="small"
-          [ariaLabel]="Message.Roll | transloco: { name: row.name | transloco, modifier: row.label }"
-          (pressed)="rolled.emit({ name: row.name, modifier: row.modifier })"
-        >
-          <fr-text monospace minWidth="modifier">{{ row.label }}</fr-text>
-        </fr-button>
+        <fr-skeleton width="xs" />
       }
     </fr-stack>
   }
