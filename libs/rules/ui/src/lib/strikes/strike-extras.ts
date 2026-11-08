@@ -1,5 +1,5 @@
 import type { TranslocoService } from '@jsverse/transloco';
-import type { CriticalEffect, ExtraDice } from '@pioneer/rules/engine';
+import type { CriticalEffect, CriticalRange, ExtraDice } from '@pioneer/rules/engine';
 import {
   CriticalCondition,
   CriticalDamageAmountType,
@@ -20,6 +20,7 @@ import {
 } from './strikes-messages';
 /** The message of each condition a critical hit can give. */
 const CONDITION_MESSAGES: Readonly<Record<CriticalCondition, string>> = {
+  [CriticalCondition.Clumsy]: 'rules.strikes.criticalEffect.conditions.clumsy',
   [CriticalCondition.Deafened]: 'rules.strikes.criticalEffect.conditions.deafened',
   [CriticalCondition.Immobilized]: 'rules.strikes.criticalEffect.conditions.immobilized',
   [CriticalCondition.Slowed]: 'rules.strikes.criticalEffect.conditions.slowed',
@@ -93,4 +94,9 @@ export function extraDiceText(
     category: category === undefined ? '' : say(DAMAGE_CATEGORY_MESSAGES[category]),
     ...yesNo({ critical, ignoresResistance }),
   });
+}
+
+/** "Keen: a natural 19 on the attack is a critical hit, as long as it succeeds": a rune or feat that widens the range. */
+export function criticalRangeText(i18n: TranslocoService, source: string, { natural }: CriticalRange): string {
+  return i18n.translate(StrikesMessage.CriticalRange, { source, natural });
 }

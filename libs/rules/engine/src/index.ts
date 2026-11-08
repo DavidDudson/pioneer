@@ -72,6 +72,7 @@ export {
 } from './vitals-in-play';
 export {
   type CriticalEffect,
+  type CriticalRange,
   type CriticalWeakness,
   type ExtraDice,
   NoteRoll,

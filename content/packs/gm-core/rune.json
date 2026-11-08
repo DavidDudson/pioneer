@@ -3377,7 +3377,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalRange",
+        "selectors": ["etched-damage"],
+        "natural": 19
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.hg3IogR8ue2IWwgS"
     },

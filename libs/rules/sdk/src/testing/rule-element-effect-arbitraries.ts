@@ -112,7 +112,7 @@ const timedDuration = record({
 const criticalDuration = oneof(constant({ type: 'next-turn-end' }), constant({ type: 'permanent' }), timedDuration);
 const criticalCondition = record({
   kind: constant('condition'),
-  condition: constantFrom('deafened', 'immobilized', 'slowed'),
+  condition: constantFrom('clumsy', 'deafened', 'immobilized', 'slowed'),
   duration: criticalDuration,
 });
 const criticalArmorDamage = record({
@@ -121,6 +121,7 @@ const criticalArmorDamage = record({
   amount: constant({ type: 'equal' }),
   target: constant({ type: 'armor' }),
 });
+const criticalRange = element('CriticalRange', { selectors: targets, natural: integer({ min: 2, max: 19 }) });
 const criticalEffect = element('CriticalEffect', {
   selectors: targets,
   effect: oneof(criticalCondition, criticalArmorDamage),
@@ -139,4 +140,5 @@ export const effectElements: readonly Arbitrary<object>[] = [
   criticalHitCheck,
   criticalWeakness,
   criticalEffect,
+  criticalRange,
 ];

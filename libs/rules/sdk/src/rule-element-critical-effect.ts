@@ -11,6 +11,7 @@ import { DiceCount, DieSize } from './weapon';
 
 /** The conditions a critical hit can put on its target; the Strike words each from its own message key (ADR-0009). */
 export const CriticalCondition = {
+  Clumsy: 'clumsy',
   Deafened: 'deafened',
   Immobilized: 'immobilized',
   Slowed: 'slowed',

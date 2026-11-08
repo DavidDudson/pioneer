@@ -31,6 +31,7 @@ describe('StrikesView rule elements', () => {
     expect(text).toContain(
       'Gloom Walker: on a critical hit, the target is Slowed 1 until the end of your next turn, unless it succeeds at a DC 24 Fortitude save',
     );
+    expect(text).toContain('Gloom Walker: a natural 19 on the attack is a critical hit, as long as it succeeds');
   });
 
   it('shows a note on the roll it is for, with its title and the degrees it shows on', async () => {
