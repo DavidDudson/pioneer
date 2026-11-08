@@ -9,7 +9,7 @@ import { id, MERISIEL, openerAt } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'spellcasting');
 
 const PLAY_URL = `/api/characters/${id}/play`;
 
