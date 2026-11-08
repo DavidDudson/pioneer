@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input } from '@an
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Section, SectionBody, Stack } from '@pioneer/frontier';
-import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
+import { ActionMode } from '@pioneer/rules/sdk';
 import { DefencesView, ENTRY_PREVIEWS, SensesView, SpellcastingView, StrikesView } from '@pioneer/rules/ui';
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
 
@@ -73,10 +73,6 @@ export class SheetEncounterTab {
   });
   /** Whether the character has a spellcasting entry, so its spell picks load. */
   protected readonly casts = computed(() => (this.picks.spellcasting()?.length ?? 0) > 0);
-  /** Whether one of its entries is a focus entry. */
-  protected readonly focuses = computed(
-    () => this.picks.spellcasting()?.some((entry) => entry.preparation === SpellPreparation.Focus) ?? false,
-  );
 
   public constructor() {
     rememberTab(SheetMode.Encounter);

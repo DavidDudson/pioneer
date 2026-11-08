@@ -4,8 +4,8 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { heldCount } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, Grid, Segmented, Skeleton, Stack } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
-import { ENTRY_PREVIEWS, FocusSpellsView, InnateSpellsView, SpellAccessListView } from '@pioneer/rules/ui';
-import type { EntryPreviews, FocusLine, InnateLine } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS, SpellRowList } from '@pioneer/rules/ui';
+import type { EntryPreviews, FocusLine, InnateLine, SpellRowLine } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
@@ -15,28 +15,21 @@ import { sheetCounted } from '../sheet-counted';
 import { injectFilterSources } from '../sheet-filter-sources';
 import { sheetFocus, sheetInnate } from '../sheet-focus-spells';
 import { SheetFormLimits } from '../sheet-form-limits/sheet-form-limits.component';
-import { sheetSpellAccess, SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
-import type { SheetSpellAccess } from '../sheet-prepared-spells';
+import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { sheetSectionPreviews } from '../sheet-section-previews';
+import { sheetSpellList } from '../sheet-spell-list';
 import { preparedFieldsOf } from '../sheet-spell-picks';
 import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
-import {
-  filterFocus,
-  filterInnate,
-  filterPrepared,
-  SPELL_TARGET_FILTER_MESSAGES,
-  SpellTargetFilter,
-} from '../sheet-spell-targets';
 // oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
+import { SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
-import { SpellAccess } from '../spell-access/spell-access.component';
 
 /**
- * The open character's spell picks under its spellcasting entries (#478): a pick per prepared slot, its focus spells
- * (ADR-0050), and the uncommon and rare spells it has access to. The spells load only once the character has an entry, so a sheet without one never
- * fetches them.
+ * The open character's spells (#1784): every spell it can cast, prepared, spontaneous, focus or innate, as one alphabetical
+ * list with a row per source, and under it a picker per prepared slot (#478). The spells load only once the character has
+ * an entry, so a sheet without one never fetches them.
  */
 @Component({
   selector: 'pio-sheet-spells',
@@ -44,16 +37,13 @@ import { SpellAccess } from '../spell-access/spell-access.component';
     AsyncData,
     AsyncPending,
     AsyncRegion,
-    FocusSpellsView,
     Grid,
-    InnateSpellsView,
     SheetFormLimits,
     SheetPreparedSpells,
     SheetSpellResources,
     Segmented,
     Skeleton,
-    SpellAccess,
-    SpellAccessListView,
+    SpellRowList,
     Stack,
     TranslocoPipe,
   ],
@@ -64,8 +54,6 @@ import { SpellAccess } from '../spell-access/spell-access.component';
 export class SheetSpells {
   /** Whether the character has a spellcasting entry. */
   public readonly casts = input(false);
-  /** Whether one of its entries is a focus entry, so its focus spells show a placeholder while they load. */
-  public readonly focuses = input(false);
 
   readonly #store = inject(CharacterStore);
   readonly #filters = injectFilterSources();
@@ -138,22 +126,8 @@ export class SheetSpells {
       label: this.#i18n.translate(SPELL_TARGET_FILTER_MESSAGES[value]),
     })),
   );
-  /** The prepared and repertoire picks that pass the filter. */
-  protected readonly shownPrepared = computed(() => filterPrepared(this.prepared(), this.targetFilter()));
-  /** The focus spells that pass the filter. */
-  protected readonly shownFocus = computed((): FocusLine | undefined => {
-    const focusLine = this.focus();
-    return focusLine === undefined ? undefined : filterFocus(focusLine, this.targetFilter());
-  });
-  /** The innate spells that pass the filter. */
-  protected readonly shownInnate = computed((): InnateLine | undefined => {
-    const innateLine = this.innate();
-    return innateLine === undefined ? undefined : filterInnate(innateLine, this.targetFilter());
-  });
-  /** The uncommon and rare spells the build has access to, and those it may add; undefined while the spells load. */
-  protected readonly access = computed((): SheetSpellAccess | undefined => {
-    const registry = this.spells.data();
-    const character = this.#store.selected();
-    return registry === undefined || character === undefined ? undefined : sheetSpellAccess(registry, character);
-  });
+  /** Every spell the character can cast, one row per source, that passes the filter. */
+  protected readonly spellList = computed((): readonly SpellRowLine[] =>
+    sheetSpellList({ focus: this.focus(), innate: this.innate(), prepared: this.prepared() }, this.targetFilter()),
+  );
 }

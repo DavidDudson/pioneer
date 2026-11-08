@@ -1447,18 +1447,6 @@
       "notOnList": "Not on any of your spell lists",
       "rankTooHigh": "You cast no spell of {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank yet"
     },
-    "focusSpells": {
-      "heading": "Focus spells",
-      "pool": "Focus pool: {points, plural, one {# Focus Point} other {# Focus Points}}",
-      "castAt": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank, cantrips too",
-      "cantrip": "Cantrip",
-      "none": "No focus spells yet. A choice that grants them may still be open."
-    },
-    "innateSpells": {
-      "heading": "Innate spells",
-      "rank": "Cast at {rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
-      "none": "No innate spells yet. A choice that grants them may still be open."
-    },
     "proficiency": {
       "untrained": "Untrained",
       "trained": "Trained",
@@ -1500,6 +1488,7 @@
       "rank": "{rank, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} rank",
       "roll": "Roll {effect}",
       "none": "No spell",
+      "empty": "No spells yet. A choice that grants them may still be open.",
       "costTo": "to",
       "or": "or",
       "range": {
