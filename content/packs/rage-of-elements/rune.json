@@ -132,7 +132,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "immobilized",
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      },
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "clumsy",
+          "value": 1,
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.yGgsoSA8EaaEsYZn"
     },
@@ -195,7 +223,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "immobilized",
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      },
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "clumsy",
+          "value": 1,
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.T5KifnxLN3vWuUJa"
     },
@@ -258,7 +314,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "immobilized",
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      },
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "clumsy",
+          "value": 1,
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.h4n9PdQrOkCrJ9sY"
     },
@@ -321,7 +405,35 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "immobilized",
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      },
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "effect": {
+          "kind": "condition",
+          "condition": "clumsy",
+          "value": 1,
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "round"
+          }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.aXqCFjLSSjC3a1Mq"
     },

@@ -112,7 +112,7 @@ const timedDuration = record({
 const criticalDuration = oneof(constant({ type: 'next-turn-end' }), constant({ type: 'permanent' }), timedDuration);
 const criticalCondition = record({
   kind: constant('condition'),
-  condition: constantFrom('deafened', 'immobilized', 'slowed'),
+  condition: constantFrom('clumsy', 'deafened', 'immobilized', 'slowed'),
   duration: criticalDuration,
 });
 const criticalArmorDamage = record({

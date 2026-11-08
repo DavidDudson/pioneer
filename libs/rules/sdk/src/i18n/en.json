@@ -1025,6 +1025,7 @@
         "damageArmor": "{source}: on a critical hit, the target's armor, or its raised shield, takes {amount} {type} damage, before Hardness",
         "equalDamage": "equal",
         "conditions": {
+          "clumsy": "Clumsy",
           "deafened": "Deafened",
           "immobilized": "Immobilized",
           "slowed": "Slowed"

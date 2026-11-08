@@ -20,6 +20,7 @@ import {
 } from './strikes-messages';
 /** The message of each condition a critical hit can give. */
 const CONDITION_MESSAGES: Readonly<Record<CriticalCondition, string>> = {
+  [CriticalCondition.Clumsy]: 'rules.strikes.criticalEffect.conditions.clumsy',
   [CriticalCondition.Deafened]: 'rules.strikes.criticalEffect.conditions.deafened',
   [CriticalCondition.Immobilized]: 'rules.strikes.criticalEffect.conditions.immobilized',
   [CriticalCondition.Slowed]: 'rules.strikes.criticalEffect.conditions.slowed',
