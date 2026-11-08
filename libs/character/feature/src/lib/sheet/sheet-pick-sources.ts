@@ -17,6 +17,8 @@ export interface BuildPickSources {
   readonly registry: Signal<ContentRegistry | undefined>;
   /** The registry the engine derives from: with the item kinds once the character carries equipment. */
   readonly engineRegistry: Signal<ContentRegistry | undefined>;
+  /** The registry the Plan tab reads slot statuses over: with the feat and spell kinds, so those picks resolve. */
+  readonly timelineRegistry: Signal<ContentRegistry | undefined>;
   readonly character: Signal<Character | undefined>;
   /** The slots as the server read them. */
   readonly slots: Signal<readonly CharacterSlot[] | undefined>;

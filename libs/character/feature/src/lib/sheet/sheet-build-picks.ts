@@ -184,7 +184,7 @@ export function sheetBuildPicks(sources: BuildPickSources): BuildPicks {
         ? undefined
         : sheetChoices(slots, registry === undefined ? undefined : sheetSlotContent(registry).lookup);
     }),
-    timeline: loaded(sources, sheetTimeline),
+    timeline: loaded({ ...sources, registry: sources.timelineRegistry }, sheetTimeline),
     ...engineReads(sources),
     ...pickFields(sources),
   };
