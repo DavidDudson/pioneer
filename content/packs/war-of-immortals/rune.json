@@ -235,7 +235,14 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.5PuhK1jPUkMqGShH"
     },
@@ -359,7 +366,15 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "DamageAlteration",
+        "selectors": ["etched-damage"],
+        "property": "dice-number",
+        "mode": "override",
+        "value": 5
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.OIvT5kbtYWcRc1k2"
     },

@@ -19,8 +19,9 @@ const ETCHED_DAMAGE = 'etched-damage';
  *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
  * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
- * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic runes
- * need the mythic rules.
+ * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic potency
+ * runes raise the item bonus on top of the potency rune and give an item a fourth property slot, which no element aims
+ * at the etched item.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
@@ -33,7 +34,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:extending',
   'rune:extending-greater',
   'rune:grievous',
-  'rune:mythic-striking',
   'rune:mythic-weapon-potency',
   'rune:pacifying',
   'rune:quickstrike',
@@ -91,7 +91,6 @@ const ARMOUR_GAPS: ReadonlySet<string> = new Set([
   'rune:moonweave-greater',
   'rune:moonweave-major',
   'rune:mythic-armor-potency',
-  'rune:mythic-resilient',
   'rune:portable',
   'rune:quenching',
   'rune:quenching-greater',
@@ -117,9 +116,10 @@ interface BonusRune {
   readonly actions?: readonly string[];
 }
 
-/** The armour runes that give an item bonus: to a skill, or to a Speed. */
+/** The armour runes that give an item bonus: to a skill, a Speed or every save. */
 const BONUS_RUNES: readonly BonusRune[] = [
   { slug: 'rune:soaring', selector: 'fly-speed', bonus: 10 },
+  { slug: 'rune:mythic-resilient', selector: 'saving-throw', bonus: 4 },
   { slug: 'rune:shadow', selector: 'skill:stealth', bonus: 1 },
   { slug: 'rune:shadow-greater', selector: 'skill:stealth', bonus: 2 },
   { slug: 'rune:shadow-major', selector: 'skill:stealth', bonus: 3 },
@@ -199,6 +199,14 @@ describe('weapon property rune rules', () => {
         damageType: 'bleed',
         category: 'persistent',
       },
+    ]);
+  });
+
+  test('mythic striking makes the weapon roll five weapon damage dice', () => {
+    const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-striking');
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'DamageAlteration', selectors: [ETCHED_DAMAGE], property: 'dice-number', mode: 'override', value: 5 },
     ]);
   });
 });
