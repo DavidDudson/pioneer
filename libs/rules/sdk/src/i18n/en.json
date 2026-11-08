@@ -1054,6 +1054,7 @@
         }
       },
       "rangeIncrement": "Range increment {range} ft",
+      "reach": "Reach {reach} ft",
       "materials": "Made of {materials}",
       "propertyRunes": "Property runes: {runes}",
       "quantity": "{count} in stack",

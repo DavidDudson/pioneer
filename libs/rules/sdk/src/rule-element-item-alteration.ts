@@ -27,6 +27,7 @@ export const NumericItemProperty = {
   Hardness: 'hardness',
   HitPointsMax: 'hp-max',
   RangeIncrement: 'range-increment',
+  Reach: 'reach',
   SpeedPenalty: 'speed-penalty',
   Strength: 'strength',
   DamageDice: 'damage-dice',

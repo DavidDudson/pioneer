@@ -7,7 +7,6 @@ import {
   AttributeModifier,
   CheckPenalty,
   ContentKind,
-  Feet,
   ItemCount,
   Level,
   Modifier,
@@ -32,7 +31,7 @@ import { environmentRoots } from './environments';
 import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
-import { alteredItem } from './item-alteration-inputs';
+import { alteredItem, feetOf } from './item-alteration-inputs';
 import { itemRunes, workingPropertyRunes } from './item-runes';
 import { itemSlugs, NO_PICKED_ITEMS, ownedItems, pickedItems } from './owned-items';
 import type { PickedItems } from './owned-items';
@@ -127,7 +126,6 @@ function weaponInputs(
       favored: favoredBy(favored, entry.data.baseItem),
       item: each.item.id,
     });
-    const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
     return [
       {
         slug,
@@ -137,7 +135,8 @@ function weaponInputs(
         traits: altered.traits,
         materials: altered.materials,
         propertyRunes: altered.propertyRunes,
-        range: range === undefined ? undefined : Feet.parse(range),
+        range: feetOf(altered, NumericItemProperty.RangeIncrement),
+        reach: feetOf(altered, NumericItemProperty.Reach),
         potency: potency === undefined ? undefined : RuneGrade.parse(potency),
         striking: runes.striking,
         damage:

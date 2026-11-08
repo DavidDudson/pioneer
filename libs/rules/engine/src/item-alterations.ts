@@ -265,12 +265,11 @@ function adjustedBy(weapon: AlteredItem, { element, itemLevel }: AdjustmentInPla
       const propertyRunes = withValue(weapon.propertyRunes, TraitAlterationMode.Add, element.value);
       return propertyRunes === weapon.propertyRunes ? weapon : { ...weapon, propertyRunes };
     }
-    case StrikeProperty.RangeIncrement: {
-      return numberAltered(
-        weapon,
-        { property: NumericItemProperty.RangeIncrement, mode: element.mode, value: element.value },
-        itemLevel,
-      );
+    case StrikeProperty.RangeIncrement:
+    case StrikeProperty.Reach: {
+      const reach = element.property === StrikeProperty.Reach;
+      const property = reach ? NumericItemProperty.Reach : NumericItemProperty.RangeIncrement;
+      return numberAltered(weapon, { property, mode: element.mode, value: element.value }, itemLevel);
     }
     default: {
       return element satisfies never;

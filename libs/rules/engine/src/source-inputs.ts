@@ -51,6 +51,8 @@ export interface WeaponInputs {
   readonly propertyRunes?: readonly Slug[] | undefined;
   /** The range increment of a ranged weapon, which attacks with Dexterity. A melee weapon, thrown ones included, has none. */
   readonly range?: Feet | undefined;
+  /** The reach a rule element gives a melee Strike with it, in feet, when longer than its wielder's own (an extending rune's); none otherwise. */
+  readonly reach?: Feet | undefined;
   /**
    * Its item bonus to attack rolls: the potency rune's grade, or the bonus it has without runes (a bomb's). It reaches
    * its Strike as an `item` modifier, so it competes with other item bonuses (`weaponPotencies`).
@@ -122,6 +124,7 @@ const WeaponInputsJson = z.strictObject({
   group: z.enum(WeaponGroup).optional(),
   rollOptions: z.array(RollOptionTail).readonly().optional(),
   range: Feet.optional(),
+  reach: Feet.optional(),
   potency: RuneGrade.optional(),
   striking: RuneGrade.optional(),
   label: ContentText.optional(),
