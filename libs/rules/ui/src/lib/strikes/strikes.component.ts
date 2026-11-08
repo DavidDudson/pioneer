@@ -18,7 +18,7 @@ import type { ConditionToggle } from '../statistics/statistic-conditions/statist
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import type { NamedStrike, StrikeSituations, StrikesShield } from './named-strike';
-import { criticalEffectText, criticalRangeText, extraDiceText } from './strike-extras';
+import { criticalEffectText, criticalRangeText, extraDiceText, reachText } from './strike-extras';
 import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
@@ -241,7 +241,7 @@ export class StrikesView {
   }
 
   /** "Plus 1d6 fire precision" for each die a rule element adds to the damage, and "3 bludgeoning splash" for splash it adds. */
-  #extras({ damage, weaknesses, criticalEffects, criticalRange }: Strike): readonly string[] {
+  #extras({ damage, weaknesses, criticalEffects, criticalRange, weapon }: Strike): readonly string[] {
     const dice = (damage?.extra ?? []).map((extra) => extraDiceText(this.#i18n, extra));
     const splash = (damage?.ruleSplash ?? []).map((each) => this.#amountOfType(StrikesMessage.Splash, each));
     const weakness = weaknesses.map((each) => this.#amountOfType(StrikesMessage.CriticalWeakness, each));
@@ -252,7 +252,8 @@ export class StrikesView {
       criticalRange === undefined
         ? []
         : [criticalRangeText(this.#i18n, this.#nameOf(criticalRange.origin.entry), criticalRange)];
-    return [...dice, ...splash, ...weakness, ...effects, ...range];
+    const reach = weapon.reach === undefined ? [] : [reachText(this.#i18n, this.#format.number(weapon.reach))];
+    return [...dice, ...splash, ...weakness, ...effects, ...range, ...reach];
   }
 
   /** The display name of an entry, or its id while the names load. */

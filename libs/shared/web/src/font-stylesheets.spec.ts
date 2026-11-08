@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BodyFont, MonoFont } from '@pioneer/shared/kernel';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { FontStylesheets } from './font-stylesheets';
 
@@ -9,12 +9,17 @@ function stylesheets(): string[] {
   return [...document.head.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].map((link) => link.href);
 }
 
+function removeLinks(): void {
+  for (const link of TestBed.inject(DOCUMENT).head.querySelectorAll('link')) {
+    link.remove();
+  }
+}
+
 describe(FontStylesheets, () => {
-  afterEach(() => {
-    for (const link of TestBed.inject(DOCUMENT).head.querySelectorAll('link')) {
-      link.remove();
-    }
-  });
+  // Another spec in the same worker may have left its links in the shared document.
+  beforeEach(removeLinks);
+
+  afterEach(removeLinks);
 
   it('loads the wordmark, body and mono faces from Google Fonts', () => {
     TestBed.inject(FontStylesheets).load(BodyFont.Thematic, MonoFont.Standard);

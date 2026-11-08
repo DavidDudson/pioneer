@@ -10,7 +10,7 @@
           </fr-badge>
           @for (pip of bar.pips; track $index) {
             <fr-badge [tone]="pipTone(pip)">
-              {{ pipKey(pip) | transloco: { restriction: pip.restriction } }}
+              {{ pipKey(pip) | transloco: { restriction: pip.restriction, weapon: pip.weapon } }}
             </fr-badge>
           }
           <fr-badge [tone]="bar.reactionUsed ? badgeTone.Neutral : badgeTone.Success">

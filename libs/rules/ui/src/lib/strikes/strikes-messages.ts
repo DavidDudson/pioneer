@@ -28,6 +28,8 @@ export const StrikesMessage = {
   Splash: 'rules.strikes.splash',
   /** "Range increment 20 ft": how far a ranged or thrown Strike reaches before each penalty. */
   RangeIncrement: 'rules.strikes.rangeIncrement',
+  /** "Reach 60 ft": how far a melee Strike reaches when a rule element lengthens it (an extending rune). */
+  Reach: 'rules.strikes.reach',
   /** "Made of cold iron": the precious materials an item alteration gives a weapon. */
   Materials: 'rules.strikes.materials',
   /** "Property runes: flaming": the runes an item alteration gives a weapon. */

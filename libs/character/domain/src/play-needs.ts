@@ -9,6 +9,7 @@ import { isRestCommand } from './rest-types';
 import { isSpendCommand } from './spend-commands';
 import { SpendCommandField } from './spend-log';
 import { isToggleCommand } from './toggle-commands';
+import { isShapeCommand } from './weapon-shapes';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
 // oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
@@ -18,6 +19,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
   }
   if (
     isToggleCommand(command) ||
+    isShapeCommand(command) ||
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
@@ -70,6 +72,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
   }
   if (
     isToggleCommand(command) ||
+    isShapeCommand(command) ||
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||
@@ -123,6 +126,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
   if (
     isRestCommand(command) ||
     isToggleCommand(command) ||
+    isShapeCommand(command) ||
     isEffectCommand(command) ||
     isActiveSpellCommand(command) ||
     isSpendCommand(command) ||

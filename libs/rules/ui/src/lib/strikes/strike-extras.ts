@@ -100,3 +100,8 @@ export function extraDiceText(
 export function criticalRangeText(i18n: TranslocoService, source: string, { natural }: CriticalRange): string {
   return i18n.translate(StrikesMessage.CriticalRange, { source, natural });
 }
+
+/** "Reach 60 ft": how far a melee Strike reaches when a rule element lengthens it; `feet` is already formatted. */
+export function reachText(i18n: TranslocoService, feet: string): string {
+  return i18n.translate(StrikesMessage.Reach, { reach: feet });
+}

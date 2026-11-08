@@ -393,7 +393,8 @@ export { KeyItemId } from './key-item-id';
 export { type KeyItemLine, keyItemLine, keyItemRefusal, withKeyItem, withKeyLink, withoutKeyItem } from './key-items';
 export { type ActiveItem, activeItems } from './active-items';
 export { runeChoices } from './etched-rune-rules';
-export { buildRules, type EquippedInputs, equippedInputs, equippedRules, type EquippedRules } from './equipped';
+export { buildRules, equippedRules, type EquippedRules } from './equipped';
+export { type EquippedInputs, equippedInputs } from './equipped-inputs';
 export { type HeldShield, heldShields, type ShieldGrant } from './held-shields';
 export {
   characterStatisticInputs,
@@ -676,6 +677,7 @@ export {
   unconsciousCondition,
   type EconomyConditions,
   type TurnCommand,
+  type QuickenedRestriction,
   type TurnState,
 } from './turn-state';
 export { outOfAir } from './suffocation-unconscious';
@@ -890,3 +892,19 @@ export {
 } from './custom-effect-schema';
 export { CORE_TREASURE_BY_LEVEL, treasureAt, type TreasureByLevel, TreasureByLevelSchema } from './treasure-by-level';
 export { slotCandidates } from './slot-candidates';
+export {
+  applyShapeCommand,
+  hasShiftingRune,
+  isShapeCommand,
+  ShapeCommandField,
+  type ShapeCommand,
+  ShapeCommandSchema,
+  ShapeProblem,
+  shapeProblem,
+  type ShapeReads,
+  type Shapes,
+  SHAPES_MAX,
+  shapesFor,
+  ShapesSchema,
+  shapedInventory,
+} from './weapon-shapes';

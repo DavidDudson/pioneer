@@ -1542,7 +1542,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:extend-weapon",
+        "toggleable": true,
+        "display": {
+          "label": "Extend the weapon to a reach of 60 feet"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "reach",
+        "mode": "override",
+        "value": 60,
+        "etched": true,
+        "predicate": ["option:extend-weapon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.bJORQsO9E1JCJh6i"
     },
@@ -1639,7 +1656,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:extend-weapon",
+        "toggleable": true,
+        "display": {
+          "label": "Extend the weapon to a reach of 120 feet"
+        }
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "reach",
+        "mode": "override",
+        "value": 120,
+        "etched": true,
+        "predicate": ["option:extend-weapon"]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.WHwprq9Xym2DOr2x"
     },
@@ -3447,7 +3481,12 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.KnZL0xPWDzQx9vWQ"
     },
@@ -4257,7 +4296,24 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["etched-attack"],
+        "title": "Returning",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "On a thrown Strike, the weapon flies back to your hand once the Strike is complete. If your hands are full when it returns, it falls to the ground in your space."
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qlunQzfnzPQpMG6U"
     },

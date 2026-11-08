@@ -33,12 +33,12 @@ function textOf(element: Element): string {
   return element.textContent.replaceAll(/\s+/gu, ' ').trim();
 }
 
-/** The focus spells list once its spells load, past the placeholder shown while they do. */
+/** The spell list once its spells load, past the placeholder shown while they do. */
 async function focusOf(root: HTMLElement): Promise<HTMLElement> {
   return vi.waitFor(() =>
     present(
-      [...root.querySelectorAll<HTMLElement>('pio-focus-spells')].find(
-        (each) => each.querySelector('fr-heading') !== null,
+      [...root.querySelectorAll<HTMLElement>('pio-spell-row-list')].find(
+        (each) => each.querySelector('pio-spell-row, fr-empty-state') !== null,
       ),
     ),
   );
@@ -111,9 +111,7 @@ describe('CharacterSheetPage focus spells', () => {
     await vi.waitFor(() => {
       expect(spellsIn(focus)).toStrictEqual(['Counter Performance 1st rank', 'Courageous Anthem Cantrip']);
     });
-    expect(textOf(focus)).toContain('Focus pool: 1 Focus Point');
-    expect(textOf(focus)).toContain('Cast at 1st rank, cantrips too');
-    expect(textOf(focus)).toContain('Occult');
+    expect(textOf(focus)).toContain('Composition Spells');
   });
 
   it("casts a wizard's school spell at half the level, rounded up", async () => {
@@ -123,7 +121,6 @@ describe('CharacterSheetPage focus spells', () => {
     await vi.waitFor(() => {
       expect(spellsIn(focus)).toStrictEqual(['Force Bolt 3rd rank']);
     });
-    expect(textOf(focus)).toContain('Cast at 3rd rank, cantrips too');
     const summary = await summaryOf(focus, 'Force Bolt');
     expect(summary.fields).toStrictEqual(['Range: 30 feet', 'Targets: 1 creature', 'Effect: 2d4+2 force']);
   });
@@ -134,7 +131,7 @@ describe('CharacterSheetPage focus spells', () => {
     await vi.waitFor(() => {
       expect(root.querySelector('pio-sheet-prepared-spells')).not.toBeNull();
     });
-    expect(root.querySelector('pio-focus-spells')).toBeNull();
+    expect(root.querySelector('pio-spell-row-list pio-spell-row')).toBeNull();
   });
 
   it('casts a focus spell as a spend that pays a Focus Point and takes its reaction', async () => {

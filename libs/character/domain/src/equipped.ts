@@ -1,25 +1,11 @@
-import { battleFormInPlay, factsUnderForm, NO_MODIFIERS } from '@pioneer/rules/engine';
-import type { ArmorInputs, FormInPlay, ModifierInputs, RuleInPlay, WeaponInputs } from '@pioneer/rules/engine';
+import { battleFormInPlay, factsUnderForm } from '@pioneer/rules/engine';
+import type { FormInPlay, ModifierInputs, RuleInPlay } from '@pioneer/rules/engine';
 import { resolveGrants } from '@pioneer/rules/grants';
 import type { GrantResolution, GrantRoot, ToggleSlot } from '@pioneer/rules/grants';
 import type { PredicateFacts } from '@pioneer/rules/predicate';
-import {
-  AttributeModifier,
-  CheckPenalty,
-  ContentKind,
-  Feet,
-  ItemCount,
-  Level,
-  Modifier,
-  NumericItemProperty,
-  RuneGrade,
-  SlotKey,
-  Trait,
-} from '@pioneer/rules/sdk';
-import type { BaseWeapon, RuleSlug, Slug } from '@pioneer/rules/sdk';
+import { Level, SlotKey } from '@pioneer/rules/sdk';
 
-import { activeItems, inventoryHop, itemsIn, originOf } from './active-items';
-import type { ActiveItem } from './active-items';
+import { activeItems, inventoryHop } from './active-items';
 import type { CharacterDocument } from './character-document';
 import { conditionRoots } from './conditions';
 import { exclusiveEffects } from './effect-exclusivity';
@@ -29,166 +15,14 @@ import { encumberedRoots } from './encumbered-roots';
 import { equippedRulesOf, fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
 import { environmentRoots } from './environments';
-import type { Inventory, InventoryItemId } from './inventory';
-import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
-import { alteredItem } from './item-alteration-inputs';
-import { itemRunes, workingPropertyRunes } from './item-runes';
-import { itemSlugs, NO_PICKED_ITEMS, ownedItems, pickedItems } from './owned-items';
+import { workingPropertyRunes } from './item-runes';
+import { ownedItems, pickedItems } from './owned-items';
 import type { PickedItems } from './owned-items';
-import { NO_RUNES } from './rune-etching';
 import { attributesAt } from './slot-offer';
 import type { SlotContent } from './slot-offer';
 import { toggleStates } from './toggle-commands';
-
-/** What the worn armour and held weapons give the statistics. */
-export interface EquippedInputs {
-  readonly armor?: ArmorInputs;
-  /** The worn armour's Dexterity cap, when it has one. */
-  readonly dexterityCap?: AttributeModifier;
-  readonly weapons: readonly WeaponInputs[];
-}
-
-const NO_POTENCY = 0;
-
-/** The trait of an item used up when thrown: its stack shrinks with each use. */
-const CONSUMABLE = Trait.parse('consumable');
-
-/**
- * The worn armour's bonus to AC and Dexterity cap, and while its runes work (it is invested, `activeState`) its
- * potency rune's bonus to AC and resilient rune's to saves.
- */
-function armorInputs(
-  active: ActiveItem | undefined,
-  rules: ModifierInputs,
-  picked: readonly RuleSlug[],
-): Pick<EquippedInputs, 'armor' | 'dexterityCap'> {
-  if (active?.entry.kind !== ContentKind.Armor) {
-    return {};
-  }
-  const { item, entry } = active;
-  const { numbers } = alteredItem(rules, entry, { picked });
-  const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
-  const dexCap = numbers.get(NumericItemProperty.DexCap);
-  const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
-  const strength = numbers.get(NumericItemProperty.Strength);
-  const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
-  const armor = {
-    bonus: Modifier.parse(acBonus + (runes.potency ?? NO_POTENCY)),
-    resilient: runes.resilient,
-    checkPenalty: checkPenalty === undefined || checkPenalty === 0 ? undefined : CheckPenalty.parse(checkPenalty),
-    strength: strength === undefined ? undefined : AttributeModifier.parse(strength),
-    origin: originOf(active),
-  };
-  return dexCap === undefined ? { armor } : { armor, dexterityCap: AttributeModifier.parse(dexCap) };
-}
-
-/** The rule elements in play and their facts, with the items the character's `ChoiceSet`s picked, when it knows them. */
-interface PickingRules extends ModifierInputs {
-  readonly picked?: PickedItems;
-}
-
-/** What else a held weapon's inputs read: the base weapons a deity favours, the rules in play, and the items' names and picks. */
-interface WeaponContext {
-  readonly favored: ReadonlySet<BaseWeapon>;
-  readonly rules: ModifierInputs;
-  /** Each inventory line's slug (`itemSlugs`). */
-  readonly slugs: ReadonlyMap<InventoryItemId, Slug>;
-  readonly picked: PickedItems;
-}
-
-/** Whether the deity favours the weapon whose base is `base`. */
-function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefined): boolean {
-  return base !== undefined && favored.has(base);
-}
-
-/**
- * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
- * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
- */
-function weaponInputs(
-  active: readonly ActiveItem[],
-  { favored, rules, slugs, picked }: WeaponContext,
-): readonly WeaponInputs[] {
-  return active.flatMap((each): WeaponInputs[] => {
-    const { entry } = each;
-    if (entry.kind !== ContentKind.Weapon) {
-      return [];
-    }
-    const slug = slugs.get(each.item.id);
-    if (slug === undefined) {
-      return [];
-    }
-    const flags = picked.get(slug);
-    const runes = itemRunes(each.item, entry);
-    const potency = runes.potency ?? entry.data.itemBonus;
-    const altered = alteredItem(rules, entry, {
-      picked: flags,
-      favored: favoredBy(favored, entry.data.baseItem),
-      item: each.item.id,
-    });
-    const range = altered.numbers.get(NumericItemProperty.RangeIncrement);
-    return [
-      {
-        slug,
-        category: entry.data.category,
-        group: entry.data.group,
-        rollOptions: altered.rollOptions,
-        traits: altered.traits,
-        materials: altered.materials,
-        propertyRunes: altered.propertyRunes,
-        range: range === undefined ? undefined : Feet.parse(range),
-        potency: potency === undefined ? undefined : RuneGrade.parse(potency),
-        striking: runes.striking,
-        damage:
-          altered.damageType === undefined
-            ? entry.data.damage
-            : { ...entry.data.damage, damageType: altered.damageType },
-        splash: entry.data.splash,
-        quantity: entry.traits.includes(CONSUMABLE) ? ItemCount.parse(each.item.quantity) : undefined,
-        favored: favoredBy(favored, entry.data.baseItem),
-        picked: flags,
-        origin: originOf(each),
-      },
-    ];
-  });
-}
-
-/** What else shapes the equipment's inputs besides the inventory and its content. */
-export interface EquippedContext {
-  /** The base weapons the character's deity favours (`favoredWeapons`); none when absent. */
-  readonly favored?: ReadonlySet<BaseWeapon>;
-  /**
-   * The rule elements in play, whose `ItemAlteration`s change the equipment (`alteredItem`); none when absent. Asked
-   * for only when armour or a weapon is equipped, as reading them resolves the character's grants.
-   */
-  readonly rules?: () => PickingRules;
-}
-
-/**
- * What the character's equipment gives its statistics: the worn armour's bonus and Dexterity cap, and a Strike for
- * each held weapon, as the `ItemAlteration` elements in play change them. These are physical benefits, so an
- * invested-trait item gives them uninvested (`equippedState`). Stowed and dropped items, and items not carried as they
- * are used, give nothing.
- */
-export function equippedInputs(
-  inventory: Inventory,
-  content: ItemContent,
-  { favored = new Set(), rules = () => NO_MODIFIERS }: EquippedContext = {},
-): EquippedInputs {
-  const slugs = itemSlugs(inventory, content);
-  const active = itemsIn(inventory, content, equippedState);
-  const worn = active.find(({ entry }) => entry.kind === ContentKind.Armor);
-  const altering = active.some(({ entry }) => entry.kind === ContentKind.Armor || entry.kind === ContentKind.Weapon);
-  const inPlay: PickingRules = altering ? rules() : NO_MODIFIERS;
-  const picked = inPlay.picked ?? NO_PICKED_ITEMS;
-  const wornSlug = worn === undefined ? undefined : slugs.get(worn.item.id);
-  const wornPicks = wornSlug === undefined ? [] : (picked.get(wornSlug) ?? []);
-  return {
-    ...armorInputs(worn, inPlay, wornPicks),
-    weapons: weaponInputs(active, { favored, rules: inPlay, slugs, picked }),
-  };
-}
+import { shapedInventory } from './weapon-shapes';
 
 /** The rules in play and the facts they read, with the `RollOption` toggles the character's items offer. */
 export interface EquippedRules extends ModifierInputs {
@@ -249,8 +83,9 @@ export interface EquippedGrants {
 
 /** What the character's active items and conditions put in play, and the facts that holds (see `equippedRules`). */
 export function equippedGrants(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedGrants {
-  const resolution = equippedResolution(document, content, slots);
-  const rules = rulesOf(resolution, { inventory: document.inventory, content }, fromInventory);
+  const shaped = shapedDocument(document, content, slots);
+  const resolution = equippedResolution(shaped, content, slots);
+  const rules = rulesOf(resolution, { inventory: shaped.inventory, content }, fromInventory);
   const inputs = { rules, facts: resolution.facts };
   return {
     items: resolution.items.filter(({ origin }) => fromInventory(origin)),
@@ -268,9 +103,10 @@ export function equippedGrants(document: CharacterDocument, content: ItemContent
  * predicate sees its ancestry and class. Rule elements of the build itself arrive with the builder (Epic 3.3).
  */
 export function equippedRules(document: CharacterDocument, content: ItemContent, slots: SlotContent): EquippedRules {
-  const resolution = equippedResolution(document, content, slots);
+  const shaped = shapedDocument(document, content, slots);
+  const resolution = equippedResolution(shaped, content, slots);
   const toggles = resolution.toggles.filter(({ origin }) => fromInventory(origin));
-  const rules = equippedRulesOf(resolution, { inventory: document.inventory, content }, slots.lookup);
+  const rules = equippedRulesOf(resolution, { inventory: shaped.inventory, content }, slots.lookup);
   return {
     rules,
     facts: factsUnderForm({ rules, facts: resolution.facts }),
@@ -289,6 +125,19 @@ export function buildRules(
   content: ItemContent,
   slots: SlotContent,
 ): readonly RuleInPlay[] {
-  const resolution = equippedResolution(document, content, slots);
-  return rulesOf(resolution, { inventory: document.inventory, content }, (origin) => !fromInventory(origin));
+  const shaped = shapedDocument(document, content, slots);
+  const resolution = equippedResolution(shaped, content, slots);
+  return rulesOf(resolution, { inventory: shaped.inventory, content }, (origin) => !fromInventory(origin));
+}
+
+/** `document` with each shifted item as the weapon it has taken the shape of (`shapedInventory`). */
+export function shapedDocument(
+  document: CharacterDocument,
+  content: ItemContent,
+  slots: SlotContent,
+): CharacterDocument {
+  const { runes } = slots;
+  return runes === undefined
+    ? document
+    : { ...document, inventory: shapedInventory(document.inventory, document.play.shapes, { items: content, runes }) };
 }

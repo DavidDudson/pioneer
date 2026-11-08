@@ -35,7 +35,7 @@ describe('AdjustStrike', () => {
   });
 
   test('an unknown property is rejected', () => {
-    expect(RuleElement.safeParse({ key: 'AdjustStrike', property: 'reach', mode: 'add', value: 5 }).success).toBe(
+    expect(RuleElement.safeParse({ key: 'AdjustStrike', property: 'speed', mode: 'add', value: 5 }).success).toBe(
       false,
     );
   });

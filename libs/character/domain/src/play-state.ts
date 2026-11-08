@@ -44,6 +44,7 @@ import { SpendCommandField, SpendCommandSchema, SpendLogSchema } from './spend-l
 import { ToggleCommandField, ToggleCommandSchema, TogglesSchema } from './toggle-commands';
 import { TurnEventSchema } from './turn-events';
 import { OUT_OF_ENCOUNTER, TurnCommandSchema, TurnStateSchema } from './turn-state';
+import { ShapeCommandField, ShapeCommandSchema, ShapesSchema } from './weapon-shapes';
 
 export { currentHitPoints, withTempHitPoints } from './hit-point-edits';
 
@@ -86,6 +87,8 @@ export const PlayStateSchema = z.strictObject({
   /** The sustained spells the character has cast and keeps up. */
   activeSpells: ActiveSpellsSchema,
   toggles: TogglesSchema,
+  /** The weapon each shapeshifting item has taken the shape of (a shifting rune), by its inventory item. */
+  shapes: ShapesSchema,
   /** The damage each shield has taken, by its inventory item; the shield's own Hit Points come from its content. */
   shields: ShieldDamageSchema,
   turn: TurnStateSchema.default(OUT_OF_ENCOUNTER),
@@ -133,6 +136,8 @@ export const PlayCommandField = {
   ...ConsumableCommandField,
   /** A `RollOption` toggle set on or off (`toggle-commands.ts`). */
   ...ToggleCommandField,
+  /** A weapon shifted into another shape (`weapon-shapes.ts`). */
+  ...ShapeCommandField,
   ...ExplorationCommandField,
   /** An environment turned on or off (`environments.ts`). */
   ...EnvironmentCommandField,
@@ -165,6 +170,7 @@ export const PlayCommandSchema = z.discriminatedUnion('field', [
   ...ShieldCommandSchema.options,
   ...ConsumableCommandSchema.options,
   ...ToggleCommandSchema.options,
+  ...ShapeCommandSchema.options,
   ...ExplorationCommandSchema.options,
   ...EnvironmentCommandSchema.options,
   ...BreathCommandSchema.options,

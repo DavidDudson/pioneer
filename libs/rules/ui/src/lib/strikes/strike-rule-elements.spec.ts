@@ -34,6 +34,12 @@ describe('StrikesView rule elements', () => {
     expect(text).toContain('Gloom Walker: a natural 19 on the attack is a critical hit, as long as it succeeds');
   });
 
+  it('shows the reach a rule element gives the weapon', async () => {
+    const host = await render();
+
+    expect(textOf(host)).toContain('Reach 60 ft');
+  });
+
   it('shows a note on the roll it is for, with its title and the degrees it shows on', async () => {
     const host = await render();
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { lapsingSpells, TurnCommandField, TurnPhase } from '@pioneer/character/domain';
-import type { ActiveSpell, TurnCommand } from '@pioneer/character/domain';
+import type { ActiveSpell, InventoryItemId, TurnCommand } from '@pioneer/character/domain';
 import {
   AsyncButton,
   AsyncData,
@@ -20,6 +20,7 @@ import { SheetAttacksMade } from '../sheet-attacks-made/sheet-attacks-made.compo
 import { describeSaveError } from '../sheet-field';
 import { SheetInitiative } from '../sheet-initiative/sheet-initiative.component';
 import { SheetLapsing } from '../sheet-lapsing/sheet-lapsing.component';
+import { SheetState } from '../sheet-state';
 import { phaseKey, pipKey, pipTone, turnBarView, turnLog } from './turn-bar-view';
 import type { TurnBarView, TurnLogLine } from './turn-bar-view';
 
@@ -51,6 +52,7 @@ import type { TurnBarView, TurnLogLine } from './turn-bar-view';
 export class SheetTurnBar {
   readonly #i18n = inject(TranslocoService);
   readonly #play = inject(PlayStore);
+  readonly #sheet = inject(SheetState);
   #rolled = 0;
 
   public constructor() {
@@ -71,8 +73,14 @@ export class SheetTurnBar {
 
   protected readonly bar = computed((): TurnBarView | undefined => {
     const read = this.#play.play.data();
-    return read === undefined ? undefined : turnBarView(read.play.turn);
+    return read === undefined ? undefined : turnBarView(read.play.turn, (item) => this.#weaponName(item));
   });
+
+  /** The name of the weapon of an inventory item: the player's name for it, else its content's. */
+  #weaponName(item: InventoryItemId): string | undefined {
+    const line = this.#sheet.character()?.document.inventory.items.find(({ id }) => id === item);
+    return line === undefined ? undefined : (line.name ?? this.#sheet.picks.entryNames().get(line.item));
+  }
 
   /** What the last Start turn or End turn did, in order. */
   protected readonly log = signal<readonly TurnLogLine[]>([]);

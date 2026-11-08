@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, HoverCard, HoverCardContent, Link, Stack, Text } from '@pioneer/frontier';
+import { Button, HoverCard, HoverCardContent, Link, Stack, StackAlign, Text } from '@pioneer/frontier';
 
 import type { UsableLine } from '../actions/action-user';
 import { UseButtons } from '../actions/use-buttons.component';
@@ -41,6 +41,7 @@ export class SpellRow {
   protected readonly roller = inject(INLINE_ROLLER, { optional: true });
 
   protected readonly Message = { Roll: SpellListMessage.Roll } as const;
+  protected readonly Align = StackAlign;
 
   /** Where the name opens the spell in the page's side panel; none when the page has no panel. */
   protected readonly panel = computed((): PanelLink | undefined => this.#previews.panel?.(this.spell().id));

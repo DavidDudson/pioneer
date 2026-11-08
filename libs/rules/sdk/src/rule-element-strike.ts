@@ -58,6 +58,7 @@ export const StrikeProperty = {
   Materials: 'materials',
   PropertyRunes: 'property-runes',
   RangeIncrement: 'range-increment',
+  Reach: 'reach',
 } as const;
 export type StrikeProperty = ValueOf<typeof StrikeProperty>;
 
@@ -77,7 +78,8 @@ const adjustmentBase = {
 /**
  * Changes the Strikes of the character's weapons that satisfy `strikes`, as Foundry pf2e's `AdjustStrike` does
  * (ADR-0008): a trait added or removed (`holy`), a material (`silver`) or a property rune (`ghost-touch`) a weapon
- * counts as having for the Strike, or its range increment. The `property` decides which modes and values fit.
+ * counts as having for the Strike, its range increment, or the reach it has (a melee weapon's, in feet, when it is
+ * longer than the wielder's own). The `property` decides which modes and values fit.
  */
 export const AdjustStrikeElement = z.discriminatedUnion('property', [
   z.strictObject({
@@ -101,6 +103,12 @@ export const AdjustStrikeElement = z.discriminatedUnion('property', [
   z.strictObject({
     ...adjustmentBase,
     property: z.literal(StrikeProperty.RangeIncrement),
+    mode: z.enum(NumericAlterationMode),
+    value: RuleValue,
+  }),
+  z.strictObject({
+    ...adjustmentBase,
+    property: z.literal(StrikeProperty.Reach),
     mode: z.enum(NumericAlterationMode),
     value: RuleValue,
   }),

@@ -72,11 +72,14 @@ describe(propertyRuneOptions, () => {
     const offered = propertyRuneOptions(content, { item, entry: entryOf(inventory, Armoury.Sword) }, compare);
     expect(offered.map(({ label }) => label)).toStrictEqual([
       'Bane',
+      'Crushing',
       'Energy-vulnerability',
       'Energy-vulnerability-greater',
       'Frost',
       'Holy',
       'Keen',
+      'Quickstrike',
+      'Shifting',
       'Shock',
       'Unholy',
     ]);

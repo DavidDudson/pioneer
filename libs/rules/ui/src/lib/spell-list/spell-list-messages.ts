@@ -4,6 +4,7 @@ import { SpellTimeUnit, TargetKind } from '@pioneer/rules/sdk';
 export const SpellListMessage = {
   CastAt: 'rules.spellList.castAt',
   None: 'rules.spellList.none',
+  Empty: 'rules.spellList.empty',
   CostTo: 'rules.spellList.costTo',
   Or: 'rules.spellList.or',
   And: 'rules.spellList.and',

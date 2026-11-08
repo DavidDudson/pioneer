@@ -19,6 +19,8 @@ import { featContent } from './feat-content';
 import type { FeatContent } from './feat-content';
 import { itemContent } from './inventory-content';
 import type { ItemContent } from './inventory-content';
+import { runeContent } from './item-runes';
+import type { RuneContent } from './item-runes';
 import { languageContent } from './language-content';
 import type { LanguageContent } from './language-content';
 import type { LanguageReads } from './language-levels';
@@ -52,6 +54,8 @@ export interface SlotContent {
   readonly situation?: readonly RollOption[] | undefined;
   /** The items the loaded packs offer, which the character's inventory is read against; none when absent. */
   readonly items?: ItemContent | undefined;
+  /** The runes the loaded packs offer, which a shifting weapon's property runes are read against; none when absent. */
+  readonly runes?: RuneContent | undefined;
 }
 
 /**
@@ -75,6 +79,7 @@ export function slotContent(
     spells: spellContent(registry),
     feats: featContent(registry),
     items: itemContent(registry),
+    runes: runeContent(registry),
   };
 }
 

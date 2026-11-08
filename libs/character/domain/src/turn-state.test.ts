@@ -4,6 +4,7 @@ import { ConditionValue, ContentId } from '@pioneer/rules/sdk';
 
 import { ActionRestriction, ConditionInstanceId, UNLIMITED } from './conditions';
 import type { ActiveCondition } from './conditions';
+import { InventoryItemId } from './inventory';
 import { TurnEventKind } from './turn-events';
 import { ActionCount, AttackCount, QuickenedAction, refilled, turnEnded, TurnPhase } from './turn-state';
 import type { EconomyConditions, TurnState } from './turn-state';
@@ -45,7 +46,36 @@ describe('refilled', () => {
   test('quickened adds one action of its own, with the restriction its source gives', () => {
     const { turn } = refilled([held(QUICKENED, 1, { restriction: 'Strike or Stride only' })], ECONOMY);
     expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 3, 1]);
-    expect(String(turn.quickenedFor)).toBe('Strike or Stride only');
+    expect(turn.quickenedFor).toStrictEqual(ActionRestriction.parse('Strike or Stride only'));
+  });
+
+  describe('a quickstrike rune on a wielded weapon', () => {
+    const SWORD = InventoryItemId.parse('00000000-0000-4000-8000-0000000000f1');
+    const BOW = InventoryItemId.parse('00000000-0000-4000-8000-0000000000f2');
+
+    test('gives a quickened action that is only for a Strike with that weapon', () => {
+      const { turn } = refilled([], ECONOMY, [SWORD]);
+      expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 3, 1]);
+      expect(turn.quickenedFor).toStrictEqual({ strikeWith: SWORD });
+    });
+
+    test('with two such weapons gives one action, tied to the first', () => {
+      const { turn } = refilled([], ECONOMY, [SWORD, BOW]);
+      expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 3, 1]);
+      expect(turn.quickenedFor).toStrictEqual({ strikeWith: SWORD });
+    });
+
+    test('yields to a quickened condition the player put on, with that one`s own note', () => {
+      const { turn } = refilled([held(QUICKENED, 1, { restriction: 'Stride only' })], ECONOMY, [SWORD]);
+      expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 3, 1]);
+      expect(turn.quickenedFor).toStrictEqual(ActionRestriction.parse('Stride only'));
+    });
+
+    test('is taken by stunned only after the ordinary actions, like any quickened action', () => {
+      const { turn } = refilled([held(STUNNED, 1, { value: 4 })], ECONOMY, [SWORD]);
+      expect(economyOf(turn)).toStrictEqual([TurnPhase.Turn, 0, 0]);
+      expect(turn.quickenedFor).toBeUndefined();
+    });
   });
 
   test('slowed takes its value from the ordinary actions', () => {

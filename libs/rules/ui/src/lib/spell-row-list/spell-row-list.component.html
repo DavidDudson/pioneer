@@ -1,0 +1,17 @@
+@let spells = lines();
+@if (spells === undefined) {
+  <fr-stack gap="sm">
+    <fr-skeleton width="md" />
+    <fr-skeleton width="md" />
+  </fr-stack>
+} @else if (spells.length === 0) {
+  <fr-empty-state [title]="Message.Empty | transloco" />
+} @else {
+  <fr-list gap="2xs">
+    @for (spell of spells; track spell.key) {
+      <fr-list-item>
+        <pio-spell-row [spell]="spell.detail" [use]="spell.use" />
+      </fr-list-item>
+    }
+  </fr-list>
+}

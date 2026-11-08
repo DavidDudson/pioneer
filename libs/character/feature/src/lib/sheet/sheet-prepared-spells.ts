@@ -2,7 +2,6 @@ import {
   availableSpellsToYou,
   characterGrants,
   characterSpellcasting,
-  needsAccess,
   preparedReads,
   preparedSlots,
   signatureSlots,
@@ -21,17 +20,8 @@ import type {
 } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { ContentKind, SlotRank, SpellPreparation } from '@pioneer/rules/sdk';
-import type {
-  ContentId,
-  ContentRegistry,
-  FilterState,
-  MagicTradition,
-  SlotKey,
-  Slug,
-  SpellRank,
-} from '@pioneer/rules/sdk';
+import type { ContentRegistry, FilterState, MagicTradition, SlotKey, Slug, SpellRank } from '@pioneer/rules/sdk';
 import { SpellListMessage } from '@pioneer/rules/ui';
-import type { SpellAccessLine } from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -115,9 +105,16 @@ function slotLabel({ slot, pool }: NamedSlot, place: number): MessageDescriptor 
     : message('character.sheet.prepared.rankSlot', { rank: slot.rank, number: place });
 }
 
-/** A slot's pick as the sheet details it, cast at `rank`. */
-function spellOf(pick: SpellOption | undefined, rank: SpellRank, tags: readonly string[]): SpellOnSheet | undefined {
-  return pick === undefined ? undefined : { id: pick.id, name: pick.name, rank, tags };
+/** A slot's pick as the sheet details it, cast at `rank`, from the entry or pool named `source`. */
+/** How a slot's spell is cast and listed: the rank, the badges and where it comes from. */
+interface SpellContext {
+  readonly rank: SpellRank;
+  readonly tags: readonly string[];
+  readonly source: string | undefined;
+}
+
+function spellOf(pick: SpellOption | undefined, { rank, tags, source }: SpellContext): SpellOnSheet | undefined {
+  return pick === undefined ? undefined : { id: pick.id, name: pick.name, rank, tags, source };
 }
 
 /** "3rd rank signature spell". */
@@ -195,12 +192,15 @@ function cantripTags(rank: PreparedSlot['rank']): readonly string[] {
   return rank === SlotRank.Cantrip ? [SpellListMessage.TagCantrip] : [];
 }
 
+/** What a signature slot is read against: the server's slots, the content, and the entry that gives the spell. */
+interface SignatureContext {
+  readonly slots: readonly CharacterSlot[];
+  readonly content: SlotContent;
+  readonly source: string | undefined;
+}
+
 /** A signature slot as the sheet lists it: the repertoire spells of its rank it offers, and where its pick is cast. */
-function signatureField(
-  signature: SignatureSlot,
-  slots: readonly CharacterSlot[],
-  content: SlotContent,
-): SheetPreparedSlot {
+function signatureField(signature: SignatureSlot, { slots, content, source }: SignatureContext): SheetPreparedSlot {
   return {
     key: signature.key,
     label: signatureLabel(signature),
@@ -213,8 +213,18 @@ function signatureField(
     reason: reasonOf(slots, signature.key),
     slotKey: slotCountKey(signature.entry, undefined, signature.rank),
     preset: undefined,
-    spell: spellOf(signature.pick, signature.castRanks.at(-1) ?? signature.rank, [SpellListMessage.TagSignature]),
+    spell: spellOf(signature.pick, {
+      rank: signature.castRanks.at(-1) ?? signature.rank,
+      tags: [SpellListMessage.TagSignature],
+      source,
+    }),
   };
+}
+
+/** The name of the entry that gave each spellcasting entry, by the entry's slug. */
+function entryNamesOf(character: Character, content: SlotContent): ReadonlyMap<string, string> {
+  const entries = characterSpellcasting(characterGrants(character.document, content));
+  return new Map(entries.map(({ slug, origin }) => [slug, content.lookup.entry(origin.entry)?.name ?? origin.entry]));
 }
 
 /**
@@ -230,6 +240,8 @@ export function sheetPreparedSlots(
   slots: readonly CharacterSlot[],
 ): readonly SheetPreparedEntry[] {
   const content = sheetSlotContent(registry);
+  const entryNames = entryNamesOf(character, content);
+  const sourceOf = ({ slot, pool }: NamedSlot): string | undefined => pool ?? entryNames.get(slot.entry);
   const sheetSlot = (named: NamedSlot, index: number): SheetPreparedSlot => ({
     key: named.slot.key,
     label: slotLabel(named, index + 1),
@@ -242,7 +254,11 @@ export function sheetPreparedSlots(
     reason: reasonOf(slots, named.slot.key),
     slotKey: slotKeyOf(named.slot),
     preset: availableSpellsToYou(named.slot),
-    spell: spellOf(named.slot.pick, named.slot.castRank, cantripTags(named.slot.rank)),
+    spell: spellOf(named.slot.pick, {
+      rank: named.slot.castRank,
+      tags: cantripTags(named.slot.rank),
+      source: sourceOf(named),
+    }),
   });
   const reads = preparedReads(character.document, content);
   const signatures = signatureSlots(character.document, reads);
@@ -259,36 +275,11 @@ export function sheetPreparedSlots(
         note: rankNote(rankFirst) ?? signatureNote(signature),
         slots: [
           ...rankSlots.map((slot, index) => sheetSlot(slot, index)),
-          ...(signature === undefined ? [] : [signatureField(signature, slots, content)]),
+          ...(signature === undefined
+            ? []
+            : [signatureField(signature, { slots, content, source: entryNames.get(signature.entry) })]),
         ],
       };
     }),
   }));
-}
-
-/** The uncommon and rare spells the build has access to, and those it may add. */
-export interface SheetSpellAccess {
-  readonly granted: readonly SpellAccessLine[];
-  /** Uncommon and rare spells of the traditions of the character's entries it has no access to yet, by name. */
-  readonly offered: readonly SpellOption[];
-}
-
-/**
- * The build's spell access (#478): each spell it lists, and the uncommon and rare spells of its entries' traditions it
- * may add. A character with no spellcasting entry is offered none.
- */
-export function sheetSpellAccess(registry: ContentRegistry, character: Character): SheetSpellAccess {
-  const content = sheetSlotContent(registry);
-  const { spellAccess } = character.document.build;
-  const granted = new Set<ContentId>(spellAccess);
-  const traditions = new Set(
-    characterSpellcasting(characterGrants(character.document, content)).map((entry) => entry.tradition),
-  );
-  const offered = content.spells.spells
-    .filter((spell) => needsAccess(spell.rarity) && !granted.has(spell.id))
-    .filter((spell) => spell.traditions.some((tradition) => traditions.has(tradition)));
-  return {
-    granted: spellAccess.map((spell) => ({ spell, name: content.spells.spell(spell)?.name })),
-    offered,
-  };
 }
