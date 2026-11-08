@@ -199,3 +199,30 @@ export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
     },
   ],
 };
+
+/** Clumsy for a reader who lacks it: its entry and the ways it ends at its base, with no value, effects or held entries. */
+export const CLUMSY_NOT_HELD_PREVIEW: EntryPreview = {
+  name: CLUMSY_PREVIEW.name,
+  level: undefined,
+  traits: CLUMSY_PREVIEW.traits,
+  summary: CLUMSY_PREVIEW.summary,
+  sources: CLUMSY_PREVIEW.sources,
+  endings: [
+    {
+      kind: 'automatic',
+      text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
+      against: [],
+      held: [],
+    },
+    {
+      kind: 'action',
+      text: endingText('You can spend an action to steady yourself.'),
+      action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
+      against: [],
+      held: [],
+    },
+  ],
+};
+
+/** The id the clumsy fixtures stand for, as a reference to it names it. */
+export const CLUMSY_ID = ContentId.parse(CLUMSY);
