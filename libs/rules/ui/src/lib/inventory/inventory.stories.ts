@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
 import { expect, within } from 'storybook/test';
 
-import { FIGHTER_INVENTORY, RUNED_INVENTORY } from '../testing/inventory-fixtures';
+import { CHOSEN_RUNES_INVENTORY, FIGHTER_INVENTORY, RUNED_INVENTORY } from '../testing/inventory-fixtures';
 import { InventoryView } from './inventory.component';
 
 type InventoryStory = StoryObj<InventoryView>;
@@ -40,5 +40,16 @@ export const Runed: InventoryStory = {
     const canvas = within(canvasElement);
     await expect(await canvas.findByText(/Breastplate/u)).toBeVisible();
     await expect(await canvas.findByText(/Steel Shield/u)).toBeVisible();
+  },
+};
+
+/** Armour etched twice with Energy Resistant: the name carries each choice, so the two read as two runes. */
+export const ChosenRunes: InventoryStory = {
+  args: { groups: CHOSEN_RUNES_INVENTORY },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(
+      await canvas.findByText(/Energy Resistant \(fire\) Energy Resistant \(cold\) Leather Armor/u),
+    ).toBeVisible();
   },
 };

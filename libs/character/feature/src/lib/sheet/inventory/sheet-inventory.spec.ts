@@ -140,11 +140,24 @@ describe(sheetInventory, () => {
     expect(present(held).lines[0]?.runes).toStrictEqual({
       potency: 1,
       fundamental: [{ rune: FundamentalRune.Striking, grade: 2 }],
-      property: ['Flaming'],
+      property: [{ name: 'Flaming', choice: undefined }],
     });
   });
 
-  it('gives no runes for an item without any, or a specific item, whose name has them', () => {
+  it('gives each property rune with its choice, so one rune etched twice reads as two', () => {
+    let etched = stock([[sword, ItemFixture.LeatherArmor, undefined]]);
+    const rune = runeFixtureId(RuneFixture.EnergyResistant);
+    for (const choice of ['fire', 'cold']) {
+      etched = etchRune(etched, sword, { type: RuneType.Property, rune, choice: RuneChoice.parse(choice) });
+    }
+    const property = present(sheetInventory(etched, runed)[0]).lines[0]?.runes?.property;
+    expect(property).toStrictEqual([
+      { name: 'Energy-resistant', choice: 'fire' },
+      { name: 'Energy-resistant', choice: 'cold' },
+    ]);
+  });
+
+  it('gives no runes for an item without any or a specific item, whose name has them', () => {
     const plain = stock([[sword, ItemFixture.Longsword, undefined]]);
     expect(present(sheetInventory(plain, runed)[0]).lines[0]?.runes).toBeUndefined();
     const tongue = stock([[sword, ItemFixture.FlameTongue, undefined]]);
