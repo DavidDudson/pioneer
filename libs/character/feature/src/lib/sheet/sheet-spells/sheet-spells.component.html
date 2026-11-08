@@ -3,9 +3,6 @@
   <fr-async-region>
     <ng-template frAsyncPending>
       <fr-stack gap="md">
-        @if (focuses()) {
-          <pio-focus-spells [focus]="undefined" />
-        }
         <fr-stack gap="sm">
           <fr-skeleton width="md" />
           <fr-grid [columns]="3">
@@ -14,7 +11,6 @@
             <fr-stack gap="3xs"><fr-skeleton width="sm" /><fr-skeleton width="md" /></fr-stack>
           </fr-grid>
         </fr-stack>
-        <pio-spell-access-list [lines]="undefined" />
       </fr-stack>
     </ng-template>
     <ng-template [frAsyncData]="spells">
@@ -26,16 +22,8 @@
             [ariaLabel]="'character.sheet.spellTargets.label' | transloco"
             [(value)]="targetFilter"
           />
-          @if (shownFocus(); as focusLine) {
-            <pio-focus-spells [focus]="focusLine" />
-          }
-          @if (shownInnate(); as innateLine) {
-            <pio-innate-spells [innate]="innateLine" />
-          }
-          <pio-sheet-prepared-spells [entries]="shownPrepared()" />
-          @if (access(); as spellAccess) {
-            <pio-spell-access [access]="spellAccess" />
-          }
+          <pio-spell-row-list [lines]="spellList()" />
+          <pio-sheet-prepared-spells [entries]="prepared()" />
         </fr-stack>
       </fr-stack>
     </ng-template>

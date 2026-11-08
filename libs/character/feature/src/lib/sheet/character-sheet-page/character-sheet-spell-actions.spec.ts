@@ -36,7 +36,7 @@ function playOf(turn: object): object {
 }
 
 function useButtons(root: HTMLElement): HTMLButtonElement[] {
-  return [...root.querySelectorAll<HTMLButtonElement>('pio-sheet-prepared-spells pio-use-buttons button')];
+  return [...root.querySelectorAll<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')];
 }
 
 function labels(buttons: readonly HTMLButtonElement[]): string[] {

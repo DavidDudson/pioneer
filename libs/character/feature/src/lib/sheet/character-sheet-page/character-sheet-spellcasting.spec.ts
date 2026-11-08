@@ -7,7 +7,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { openPickerTable } from '../../testing/feat-table-testing';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { id, MERISIEL, openerAt, patchedOf, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
@@ -78,7 +78,7 @@ function playOf(turn: object): object {
 }
 
 function useButtons(root: HTMLElement): HTMLButtonElement[] {
-  return [...root.querySelectorAll<HTMLButtonElement>('pio-sheet-prepared-spells pio-use-buttons button')];
+  return [...root.querySelectorAll<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')];
 }
 
 describe('CharacterSheetPage spellcasting', () => {
@@ -126,8 +126,6 @@ describe('CharacterSheetPage spellcasting', () => {
     });
     const rankHeadings = [...prepared.querySelectorAll('fr-heading')].map((heading) => textOf(heading));
     expect(rankHeadings).toStrictEqual(['Prepared spells: Arcane', 'Cantrips, cast at 1st rank', '1st rank']);
-    const access = present(section(root).querySelector('pio-spell-access'));
-    expect(textOf(access)).toContain('No access to uncommon, rare or unique spells yet.');
   });
 
   // Skipped: the spell table renders no rows in this harness (#734).
@@ -178,27 +176,6 @@ describe('CharacterSheetPage spellcasting', () => {
 
     await vi.waitFor(() => {
       expect(textOf(section(root))).toContain('the character no longer has access to it');
-    });
-  });
-
-  it('removes access to a spell and moves focus to the spell picker', async () => {
-    const { root } = await openSheet(as('wizard', { spellAccess: [DETECT_SCRYING] }), { packs: SPELL_PACKS });
-    const remove = await vi.waitFor(() =>
-      present(
-        section(root).querySelector<HTMLElement>('pio-spell-access-list button[aria-label="Remove Detect Scrying"]'),
-      ),
-    );
-
-    remove.click();
-    const request = await vi.waitFor(() =>
-      TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),
-    );
-    expect(request.request.body).toMatchObject({ patch: { field: 'revokeSpellAccess', spell: DETECT_SCRYING } });
-    request.flush(patchedOf({ ...as('wizard'), version: 2 }, []));
-    await vi.waitFor(() => {
-      expect(document.activeElement).toBe(
-        section(root).querySelector('pio-spell-access fr-picker-field button[aria-haspopup="grid"]'),
-      );
     });
   });
 

@@ -99,9 +99,14 @@ function nameOf(row: Element): HTMLElement {
   return present(row.querySelector<HTMLElement>('fr-hover-card [tabindex="0"], fr-hover-card a'));
 }
 
-/** The rank line of each spell row under `root`, as its second row words it. */
-function ranksIn(root: HTMLElement): string[] {
-  return [...root.querySelectorAll('pio-spell-row')].map((row) =>
+/** The spell rows of Soothe under `list`. */
+function soothes(list: HTMLElement): Element[] {
+  return [...list.querySelectorAll('pio-spell-row')].filter((row) => textOf(nameOf(row)).startsWith('Soothe'));
+}
+
+/** The rank line of each given spell row, as its second row words it. */
+function ranksIn(rows: readonly Element[]): string[] {
+  return rows.map((row) =>
     textOf(present([...row.querySelectorAll('fr-text')].find((text) => text.closest('fr-hover-card') === null))),
   );
 }
@@ -126,17 +131,17 @@ describe('CharacterSheetPage spell details', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
-  it('shows a repertoire spell under its picker at the rank it is cast, and summarises it on focus', async () => {
+  it('lists a repertoire spell in the spell list at the rank it is cast, and summarises it on focus', async () => {
     const choices = { 'repertoire:bard:1:0': SOOTHE, 'signature:bard:1': SOOTHE };
     const { root } = await openSheet(bard(3, choices), { packs: SPELL_PACKS });
-    const pickers = await pickersOf(root);
+    const list = await vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-spell-row-list')));
 
     const soothe = ['Range: 30 feet', 'Targets: 1 willing creature', 'Duration: 1 minute'];
 
     await vi.waitFor(() => {
-      expect(ranksIn(pickers)).toStrictEqual(['1st rank', '2nd rank']);
+      expect(ranksIn(soothes(list))).toStrictEqual(['1st rank', '2nd rank']);
     });
-    const [first, second] = [...pickers.querySelectorAll('pio-spell-row')];
+    const [first, second] = soothes(list);
     await expect(summaryOf(present(first))).resolves.toStrictEqual([
       ...soothe.slice(0, 2),
       'Effect: 1d10+4 healing',

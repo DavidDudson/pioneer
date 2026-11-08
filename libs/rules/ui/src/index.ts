@@ -87,9 +87,7 @@ export { LanguagesView, type RemoveLanguage } from './lib/languages/languages.co
 export { type AddLanguage, LanguageAdd } from './lib/languages/language-add.component';
 export { TRADITION_MESSAGES } from './lib/spellcasting/spellcasting-messages';
 export { type FocusEntryLine, type FocusLine, type FocusSpellLine } from './lib/focus-spells/focus-spells-line';
-export { FocusSpellsView } from './lib/focus-spells/focus-spells.component';
 export { type InnateEntryLine, type InnateLine, type InnateSpellLine } from './lib/innate-spells/innate-spells-line';
-export { InnateSpellsView } from './lib/innate-spells/innate-spells.component';
 export {
   type StaffCastOptionLine,
   type StaffCastRequest,
@@ -188,6 +186,8 @@ export {
 } from './lib/spell-list/spell-detail-line-of';
 export { SpellDetails } from './lib/spell-list/spell-details.component';
 export { SpellRow } from './lib/spell-row/spell-row.component';
+export { type SpellRowLine } from './lib/spell-row-list/spell-row-line';
+export { SpellRowList } from './lib/spell-row-list/spell-row-list.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';
 export { SpellPicker } from './lib/spell-picker/spell-picker.component';

@@ -1,11 +1,10 @@
 import type { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { ContentId, FocusPoints, SpellRank } from '@pioneer/rules/sdk';
+import { ContentId } from '@pioneer/rules/sdk';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { describe, expect, it, vi } from 'vitest';
 
-import { FocusSpellsView } from '../focus-spells/focus-spells.component';
 import { InventoryView } from '../inventory/inventory.component';
 import { KitContents } from '../shop/kit-contents/kit-contents.component';
 import { kitLine } from '../shop/kit-contents/kit-contents.fixtures';
@@ -26,23 +25,6 @@ interface Row<Host> {
 }
 
 const ROWS: readonly Row<unknown>[] = [
-  {
-    name: 'focus spell',
-    component: FocusSpellsView,
-    inputs: {
-      focus: {
-        rank: SpellRank.parse(1),
-        pool: FocusPoints.parse(1),
-        entries: [
-          {
-            key: 'bard-focus',
-            tradition: 'occult',
-            spells: [{ key: 'fireball', id: SPELL, name: 'Fireball', cantrip: false }],
-          },
-        ],
-      },
-    },
-  },
   {
     name: 'spell access',
     component: SpellAccessListView,
