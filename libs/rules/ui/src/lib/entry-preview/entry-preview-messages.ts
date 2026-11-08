@@ -1,4 +1,5 @@
 import { EffectStatusKind } from '@pioneer/rules/engine';
+import type { ConditionEnding } from '@pioneer/rules/sdk';
 
 /** Message keys the entry preview renders with, spelled out so the key check sees them. */
 export const EntryPreviewMessage = {
@@ -20,7 +21,24 @@ export const EntryPreviewMessage = {
   EffectSense: 'rules.entryPreview.effectSense',
   /** A rule element the summary does not cover yet, with the element's name. */
   EffectNotSummarised: 'rules.entryPreview.effectNotSummarised',
+  /** The heading over the ways a held condition ends. */
+  Endings: 'rules.entryPreview.endings',
+  /** "DC 12": a recovery check at the value the character holds. */
+  EndingDc: 'rules.entryPreview.endingDc',
+  /** Leads the action that ends a condition. */
+  EndingAction: 'rules.entryPreview.endingAction',
+  /** Leads what the character has that eases a condition. */
+  EndingHeld: 'rules.entryPreview.endingHeld',
 } as const;
+
+/** What each kind of ending is called over its text. */
+export const ENDING_KIND_MESSAGES: Readonly<Record<ConditionEnding['kind'], string>> = {
+  automatic: 'rules.entryPreview.endingKind.automatic',
+  check: 'rules.entryPreview.endingKind.check',
+  action: 'rules.entryPreview.endingKind.action',
+  others: 'rules.entryPreview.endingKind.others',
+  source: 'rules.entryPreview.endingKind.source',
+};
 
 /** The status a line that does not simply count is marked with. */
 export type MarkedEffectStatus = Exclude<EffectStatusKind, typeof EffectStatusKind.Applied>;

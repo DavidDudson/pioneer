@@ -97,6 +97,7 @@ export { FeatCategory, PrerequisiteClause, Take, UNLIMITED } from './feat';
 export {
   ConditionChange,
   ConditionData,
+  ConditionDc,
   ConditionEffect,
   ConditionEnding,
   ConditionGroup,
