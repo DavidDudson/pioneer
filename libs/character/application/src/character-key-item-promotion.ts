@@ -1,5 +1,12 @@
 import { CharacterCommand, itemContent, keyItemLine, runeContent, withKeyLink } from '@pioneer/character/domain';
-import type { CharacterId, InventoryItemId, ItemRunes, KeyItemId } from '@pioneer/character/domain';
+import type {
+  CharacterId,
+  EtchedRune,
+  InventoryItemId,
+  ItemRunes,
+  KeyItemId,
+  RuneChoice,
+} from '@pioneer/character/domain';
 import type { ContentId } from '@pioneer/rules/sdk';
 import { ConflictError, message, NotFoundError } from '@pioneer/shared/kernel';
 import type { Clock, UserId } from '@pioneer/shared/kernel';
@@ -8,10 +15,16 @@ import { contentOfCharacter } from './character-content';
 import type { CharacterContentSource } from './character-content';
 import type { CharacterRepository } from './character-repository';
 
-/** A property rune on a line, with the name the campaign shows for it. */
+/** `etched` as a key item copies it: its name, or the content id when no loaded pack has it, and its choice if it has one. */
+function promotable({ rune, choice }: EtchedRune, name: string | undefined): PromotableRune {
+  return choice === undefined ? { rune, name: name ?? rune } : { rune, name: name ?? rune, choice };
+}
+
+/** A property rune on a line, with the name the campaign shows for it and the choice it was etched for. */
 interface PromotableRune {
   readonly rune: ContentId;
   readonly name: string;
+  readonly choice?: RuneChoice;
 }
 
 /** A line and the key item it becomes the holder copy of. */
@@ -63,7 +76,7 @@ export class CharacterKeyItemPromotion {
       itemName,
       name: line.name ?? itemName,
       runes: line.runes,
-      property: (line.runes?.property ?? []).map(({ rune }) => ({ rune, name: runes.get(rune)?.name ?? rune })),
+      property: (line.runes?.property ?? []).map((etched) => promotable(etched, runes.get(etched.rune)?.name)),
       keyItem: line.keyItem,
     };
   }

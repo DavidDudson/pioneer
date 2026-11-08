@@ -37,8 +37,21 @@ const KeyReinforcingGrade = Pg.smallint().min(1).max(REINFORCING_GRADE_MAX).bran
 /** The most property runes a stored line holds; the table's own cap does not bind a key item. */
 const KEY_ITEM_PROPERTY_RUNES_MAX = 20;
 
-/** A property rune on a key item, by content id, with the name the campaign shows for it. */
-export const KeyPropertyRune = z.strictObject({ rune: ReviewedRuneId, name: ReviewedName });
+const KEY_RUNE_CHOICE_MAX_LENGTH = 64;
+
+/** What the crafter chose when etching a rune made for one thing: an energy's damage type, a creature type. */
+export const KeyRuneChoice = z.string().min(1).max(KEY_RUNE_CHOICE_MAX_LENGTH).brand<'RuneChoice'>();
+export type KeyRuneChoice = z.output<typeof KeyRuneChoice>;
+
+/**
+ * A property rune on a key item, by content id, with the name the campaign shows for it and the choice it was etched
+ * for when it takes one.
+ */
+export const KeyPropertyRune = z.strictObject({
+  rune: ReviewedRuneId,
+  name: ReviewedName,
+  choice: KeyRuneChoice.optional(),
+});
 export type KeyPropertyRune = z.output<typeof KeyPropertyRune>;
 
 /**
