@@ -124,6 +124,8 @@ export interface SheetOptions {
   readonly packs?: readonly PackContentsLoader[];
   /** The tab to open, Plan by default; `NO_TAB` opens the character's own address, which opens the last tab. */
   readonly tab?: SheetMode | typeof NO_TAB;
+  /** The section of the tab to open, by its path; a tab builds only the section it shows, the first by default. */
+  readonly section?: string;
   /** The play state the server read; undamaged, at revision 1, by default. */
   readonly play?: object;
   /** The sections where the server has the user showing grant-only feats; none by default. */
@@ -156,8 +158,11 @@ export function present<TValue>(value: TValue | null | undefined): TValue {
   return value;
 }
 
-function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan): string {
-  return tab === NO_TAB ? `/characters/${id}` : `/characters/${id}/${tab}`;
+function sheetUrl(tab: SheetMode | typeof NO_TAB = SheetMode.Plan, section?: string): string {
+  if (tab === NO_TAB) {
+    return `/characters/${id}`;
+  }
+  return section === undefined ? `/characters/${id}/${tab}` : `/characters/${id}/${tab}/${section}`;
 }
 
 /** The harness behind each sheet `openSheet` rendered, by its root. */
@@ -206,7 +211,7 @@ export async function openSheet(character: object = MERISIEL, options: SheetOpti
       ...(options.providers ?? []),
     ],
   });
-  const harness = await RouterTestingHarness.create(sheetUrl(options.tab));
+  const harness = await RouterTestingHarness.create(sheetUrl(options.tab, options.section));
   const host: unknown = harness.fixture.nativeElement;
   if (!(host instanceof HTMLElement)) {
     throw new TypeError('Expected the harness to render an element');
@@ -249,6 +254,7 @@ export function harnessOf(root: HTMLElement): RouterTestingHarness {
 export type SheetOpener = (character?: object, options?: SheetOptions) => Promise<OpenSheet>;
 
 /** `openSheet` at `tab` unless told otherwise, for a spec whose sections are on one tab. */
-export function openerAt(tab: SheetMode): SheetOpener {
-  return async (character = MERISIEL, options = {}) => openSheet(character, { tab, ...options });
+export function openerAt(tab: SheetMode, section?: string): SheetOpener {
+  return async (character = MERISIEL, options = {}) =>
+    openSheet(character, { tab, ...(section === undefined ? {} : { section }), ...options });
 }

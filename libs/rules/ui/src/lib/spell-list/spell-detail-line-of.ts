@@ -2,6 +2,7 @@ import type { SpellAtRank, SpellCast } from '@pioneer/rules/engine';
 import { CastTimeType, targetValues } from '@pioneer/rules/sdk';
 import type { ContentId, SingleCastTime } from '@pioneer/rules/sdk';
 
+import type { Chip } from '../picker-cells/chip-list/chip-list.component';
 import type {
   SingleSpellCostLine,
   SpellCostLine,
@@ -18,6 +19,8 @@ export interface SpellIdentity {
   readonly id: ContentId;
   readonly name: string;
   readonly tags: readonly string[];
+  readonly traits?: readonly Chip[] | undefined;
+  readonly source?: string | undefined;
 }
 
 function singleCostOf(time: SingleCastTime, translate: Translate): SingleSpellCostLine {
@@ -70,5 +73,7 @@ export function spellDetailLine(who: SpellIdentity, cast: SpellAtRank, translate
     targetValues: targetValues(cast),
     counteract: cast.counteraction,
     tags: who.tags,
+    traits: who.traits ?? [],
+    source: who.source,
   };
 }

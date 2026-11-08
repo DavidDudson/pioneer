@@ -28,6 +28,8 @@ export {
   type EntryPreviews,
   type PanelLink,
   type PreviewEffect,
+  type PreviewEnding,
+  type PreviewEndingSource,
   type PreviewRanks,
   type StatisticLink,
   panelQuery,
@@ -130,6 +132,7 @@ export {
   type GradedRuneLine,
   injectRunedName,
   type LineRunes,
+  type PropertyRuneLine,
   RuneMessage,
   runeChoiceLabel,
   type RunedNamer,
@@ -184,6 +187,7 @@ export {
   spellDetailLine,
 } from './lib/spell-list/spell-detail-line-of';
 export { SpellDetails } from './lib/spell-list/spell-details.component';
+export { SpellRow } from './lib/spell-row/spell-row.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';
 export { SpellPicker } from './lib/spell-picker/spell-picker.component';

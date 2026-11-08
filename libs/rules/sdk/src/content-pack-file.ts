@@ -31,13 +31,14 @@ interface PackDefinitions {
   readonly otherEntries: ContentEntry[];
 }
 
-type PackParts = z.input<typeof ContentPackSchema>;
+type PackParts = z.output<typeof ContentPackSchema>;
 
 /** Files an entry as a definition `ContentRegistry` serves, or with the kinds it doesn't serve yet. */
 function addDefinition(definitions: PackDefinitions, entry: ContentEntry): void {
   const { slug, name, sources } = entry;
   if (entry.kind === ContentKind.Ancestry) {
-    definitions.ancestries.push({ slug, name, sources, traits: entry.traits, rules: entry.rules, ...entry.data });
+    const { reach: _reach, ...data } = entry.data;
+    definitions.ancestries.push({ slug, name, sources, traits: entry.traits, rules: entry.rules, ...data });
   } else if (entry.kind === ContentKind.Creature) {
     definitions.creatures.push({ slug, name, sources, traits: entry.traits, level: entry.level, ...entry.data });
   } else if (entry.kind === ContentKind.Statistic) {
@@ -117,7 +118,7 @@ function packParts({ file, entries }: PackContents): PackParts {
   for (const entry of entries) {
     addDefinition(definitions, entry);
   }
-  return { manifest, proficiencyBonus, rollOptionNamespaces, ...definitions };
+  return { manifest, proficiencyBonus, rollOptionNamespaces: rollOptionNamespaces ?? {}, ...definitions };
 }
 
 /** The `ContentPack` a pack's JSON files describe: `packContentsFromFiles`, then `contentPackFromContents`. */

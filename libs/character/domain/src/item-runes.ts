@@ -1,5 +1,5 @@
 import { ContentKind, RunedItem, RuneType } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, RuneGrade } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
@@ -7,7 +7,7 @@ import type { InventoryItem } from './inventory';
 import type { ItemContent, ItemEntry } from './inventory-content';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
-import { NO_RUNES } from './rune-etching';
+import { NO_RUNES, RuneChoice } from './rune-etching';
 import type { EtchedRune, ItemRunes } from './rune-etching';
 
 /** A rune content entry. */
@@ -58,17 +58,25 @@ export function runedItemOf(entry: ItemEntry | undefined): RunedItem | undefined
   }
 }
 
-/** Printed runes with their property runes as etched runes: a printed rune carries no choice of its own. */
-type PrintedEtched<TRunes extends PrintedRunes> = Omit<TRunes, 'property'> & {
-  readonly property: readonly EtchedRune[];
-};
-
+/** The runes a weapon or armour is printed with: its fundamental grades, its property runes and what each is for. */
 interface PrintedRunes {
+  readonly potency?: RuneGrade | undefined;
+  readonly striking?: RuneGrade | undefined;
+  readonly resilient?: RuneGrade | undefined;
   readonly property: readonly ContentId[];
+  /** The energy a rune was printed for, by rune: Foundry's `propertyEnergy`. */
+  readonly propertyEnergy?: Readonly<Record<ContentId, string>> | undefined;
 }
 
-function printedEtched<TRunes extends PrintedRunes>(runes: TRunes): PrintedEtched<TRunes> {
-  return { ...runes, property: runes.property.map((rune) => ({ rune })) };
+/** Printed runes as etched ones: each property rune with the energy the item was printed for, when it names one. */
+function printedEtched({ propertyEnergy, property, ...grades }: PrintedRunes): ItemRunes {
+  return {
+    ...grades,
+    property: property.map((rune) => {
+      const choice = RuneChoice.safeParse(propertyEnergy?.[rune]);
+      return choice.success ? { rune, choice: choice.data } : { rune };
+    }),
+  };
 }
 
 /** The runes a specific magic item comes with; none for any other item. A shield's integrated weapon's are its own. */

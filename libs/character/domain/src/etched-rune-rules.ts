@@ -23,6 +23,8 @@ import { RuneChoice } from './rune-etching';
 
 const LESSER_RESISTANCE = DamageAmount.parse(5);
 const GREATER_RESISTANCE = DamageAmount.parse(10);
+const LESSER_WEAKNESS = DamageAmount.parse(5);
+const GREATER_WEAKNESS = DamageAmount.parse(10);
 
 /** The energies an energy-resistant rune is made for (GM Core). */
 const RUNE_ENERGIES: readonly RuneChoice[] = [
@@ -31,6 +33,9 @@ const RUNE_ENERGIES: readonly RuneChoice[] = [
   DamageType.Electricity,
   DamageType.Fire,
 ].map((energy) => RuneChoice.parse(energy));
+
+/** The energies an energy vulnerability rune is made for (Impossible Magic): the four, and sonic. */
+const VULNERABILITY_ENERGIES: readonly RuneChoice[] = [...RUNE_ENERGIES, RuneChoice.parse(DamageType.Sonic)];
 
 /** The creature types a bane rune is made for (Impossible Magic): fungus and plant are one choice, for both traits. */
 const BANE_CREATURE_TYPES: readonly RuneChoice[] = [
@@ -71,10 +76,25 @@ function resistance(value: DamageAmount): ChosenRune {
   };
 }
 
-/** The runes made for a choice, by their entry slug: energy-resistant (GM Core) and bane (Impossible Magic). */
+function vulnerability(value: DamageAmount): ChosenRune {
+  return {
+    choices: VULNERABILITY_ENERGIES,
+    element: (choice) => ({
+      key: RuleElementKey.CriticalWeakness,
+      selectors: [ETCHED_DAMAGE],
+      type: choice,
+      value,
+    }),
+    distinct: false,
+  };
+}
+
+/** The runes made for a choice, by their entry slug: energy-resistant (GM Core), and bane and energy vulnerability (Impossible Magic). */
 const CHOSEN_RUNES: ReadonlyMap<Slug, ChosenRune> = new Map([
   [Slug.parse('energy-resistant'), resistance(LESSER_RESISTANCE)],
   [Slug.parse('energy-resistant-greater'), resistance(GREATER_RESISTANCE)],
+  [Slug.parse('energy-vulnerability'), vulnerability(LESSER_WEAKNESS)],
+  [Slug.parse('energy-vulnerability-greater'), vulnerability(GREATER_WEAKNESS)],
   [
     Slug.parse('bane'),
     {

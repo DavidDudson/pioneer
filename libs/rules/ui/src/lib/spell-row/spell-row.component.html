@@ -1,0 +1,31 @@
+<fr-stack gap="3xs">
+  <fr-stack direction="horizontal" gap="xs" align="center">
+    <fr-stack grow>
+      <fr-hover-card>
+        @if (panel(); as link) {
+          <fr-link [to]="link.to" [queryParams]="link.queryParams">{{ spell().name }}</fr-link>
+        } @else {
+          <fr-text weight="semibold" tabindex="0">{{ spell().name }}</fr-text>
+        }
+        <ng-template frHoverCardContent><pio-spell-details [spell]="spell()" /></ng-template>
+      </fr-hover-card>
+    </fr-stack>
+    @if (roller) {
+      @for (part of spell().effects; track part.key) {
+        <fr-button size="sm" [ariaLabel]="Message.Roll | transloco: { effect: part.text }" (click)="roll(part)">
+          {{ part.text }}
+        </fr-button>
+      }
+    }
+    <pio-use-buttons [line]="use()" />
+  </fr-stack>
+  <fr-stack direction="horizontal" gap="xs" justify="between">
+    <fr-stack direction="horizontal" gap="xs" align="center" wrap>
+      <fr-text variant="caption" tone="muted">{{ rankKey() | transloco: { rank: spell().rank } }}</fr-text>
+      <pio-chip-list [chips]="spell().traits" />
+    </fr-stack>
+    @if (spell().source; as source) {
+      <fr-text variant="caption" tone="muted">{{ source }}</fr-text>
+    }
+  </fr-stack>
+</fr-stack>

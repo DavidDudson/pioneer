@@ -22,6 +22,7 @@ const CONDITION_REFS_MAX = 8;
 const ENDINGS_MAX = 12;
 const LOWER_BY_MAX = 9;
 const CHECK_SELECTORS_MAX = 4;
+const OTHERS_BY_MAX = 24;
 
 /** What ends or eases a condition for the character without anyone editing it. */
 export const ConditionTrigger = {
@@ -57,10 +58,11 @@ export type ConditionChange = z.infer<typeof ConditionChange>;
  * A DC as a whole number or `10 + @value` (the condition's current value), which the sheet evaluates for the value the
  * character holds: the Dying recovery check is `10 + @value`, persistent damage's flat check is `15`.
  */
-const ConditionDc = z
+export const ConditionDc = z
   .string()
   .regex(/^\d{1,2}(?<value> \+ @value)?$/u)
   .brand<'ConditionDc'>();
+export type ConditionDc = z.infer<typeof ConditionDc>;
 
 /**
  * A check that ends or eases a condition. `against` is the statistics the character may roll (`save:fortitude`,
@@ -95,8 +97,15 @@ export const ConditionEnding = z.discriminatedUnion('kind', [
     change: ConditionChange,
     ...endingText,
   }),
-  /** Restored by named spells, features or items; what a character has that does this is on those entries. */
-  z.strictObject({ kind: z.literal('others'), ...endingText }),
+  /**
+   * Restored by spells, features or items; `by` names the entries that do it, so the sheet can say which of them the
+   * character has. Empty where the rules name none (an ability the character may have, with no entry of its own).
+   */
+  z.strictObject({
+    kind: z.literal('others'),
+    by: z.array(ContentId).max(OTHERS_BY_MAX).readonly().default([]),
+    ...endingText,
+  }),
   /** Only the condition's source ends it: the effect, creature or hazard that imposed it. */
   z.strictObject({ kind: z.literal('source'), ...endingText }),
 ]);

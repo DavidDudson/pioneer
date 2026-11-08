@@ -215,6 +215,8 @@ export function claimableStrike(claimed: boolean): readonly NamedStrike[] {
   ];
 }
 
+const FLAME_WEAKNESS = DamageAmount.parse(5);
+
 const FLAME_DICE: ExtraDice = {
   count: DiceCount.parse(1),
   die: 'd6',
@@ -225,7 +227,7 @@ const FLAME_DICE: ExtraDice = {
   origin: origin(GLOOM_WALKER),
 };
 
-/** A longsword with a precision die of fire damage, a critical-hit-only die of cold, and notes on each roll. */
+/** A longsword with a precision die of fire damage, a critical-hit-only die of cold, a weakness on a critical hit, and notes on each roll. */
 export const ELEMENT_STRIKE: readonly NamedStrike[] = [
   {
     name: 'Longsword',
@@ -236,6 +238,7 @@ export const ELEMENT_STRIKE: readonly NamedStrike[] = [
         ...longswordDamage(),
         extra: [FLAME_DICE, { ...FLAME_DICE, damageType: 'cold', category: undefined, critical: true }],
       },
+      weaknesses: [{ damageType: 'fire', amount: FLAME_WEAKNESS, origin: origin(GLOOM_WALKER) }],
       notes: [
         {
           roll: NoteRoll.Attack,

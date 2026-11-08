@@ -8,7 +8,7 @@ import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'spellcasting');
 
 /** Player Core with its spells, for the spell pickers. */
 const SPELL_PACKS = cutTo(SPELL_CONTENT_KINDS);

@@ -1,13 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 
-import { FundamentalRune, RuneGrade } from '@pioneer/rules/sdk';
+import { ContentKind, FundamentalRune, RuneGrade } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
 
 import type { Inventory, InventoryItemId } from './inventory';
+import type { ItemEntry } from './inventory-content';
 import { itemRunes, runeApplied, workingPropertyRunes } from './item-runes';
 import type { RuneEntry } from './item-runes';
 import { eraseRune, etchRune, transferRune } from './rune-edits';
-import { ItemRunesSchema, NO_RUNES } from './rune-etching';
+import { ItemRunesSchema, NO_RUNES, RuneChoice } from './rune-etching';
 import type { ItemRunes } from './rune-etching';
 import {
   Armoury,
@@ -84,6 +85,34 @@ describe('etching runes', () => {
     expect(runesOf(upgraded, Armoury.Tongue).potency).toBe(RuneGrade.parse(2));
     const erased = eraseRune(upgraded, Armoury.Tongue, POTENCY);
     expect(runesOf(erased, Armoury.Tongue).potency).toBe(RuneGrade.parse(1));
+  });
+});
+
+describe('printed runes made for an energy', () => {
+  const line = lineOf(armoury(), Armoury.Tongue);
+  const tongue = content.get(line.item);
+
+  /** The Flame Tongue fixture printed with its Flaming rune made for `energy`, or for none. */
+  function printedFor(energy: object | undefined): ItemEntry | undefined {
+    if (tongue?.kind !== ContentKind.Weapon || tongue.data.runes === undefined) {
+      return tongue;
+    }
+    return {
+      ...tongue,
+      data: { ...tongue.data, runes: { ...tongue.data.runes, propertyEnergy: energy } },
+    } as ItemEntry;
+  }
+
+  test("carry the energy as the etched rune's choice", () => {
+    const entry = printedFor({ [FLAMING_ID]: 'cold' });
+
+    expect(itemRunes(line, entry).property).toStrictEqual([{ rune: FLAMING_ID, choice: RuneChoice.parse('cold') }]);
+  });
+
+  test('carry no choice for a rune the energy does not name', () => {
+    const entry = printedFor({ [runeFixtureId(RuneFixture.Frost)]: 'cold' });
+
+    expect(itemRunes(line, entry).property).toStrictEqual([{ rune: FLAMING_ID }]);
   });
 });
 

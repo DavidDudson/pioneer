@@ -36,6 +36,7 @@ import type {
   InventoryLine,
   LineLoad,
   LineRunes,
+  PropertyRuneLine,
   RuneBadgeData,
 } from '@pioneer/rules/ui';
 
@@ -75,8 +76,8 @@ const GRADED_RUNES: readonly GradedRune[] = [
 ];
 
 /**
- * The runes `item`'s name reads: its potency, its other fundamental runes by grade, and its property runes by name, a
- * rune no loaded pack has left out. None for an item with no runes, or a specific item, whose name has them.
+ * The runes `item`'s name reads: its potency, its other fundamental runes by grade, and its property runes by name and choice, a
+ * rune no loaded pack has left out, each with the choice its crafter made. None for an item with no runes, or a specific item, whose name has them.
  */
 export function lineRunes(
   item: InventoryItem,
@@ -93,9 +94,9 @@ export function lineRunes(
       const grade = etched[rune];
       return grade === undefined ? [] : [{ rune, grade }];
     }),
-    property: etched.property.flatMap(({ rune: id }) => {
+    property: etched.property.flatMap(({ rune: id, choice }): PropertyRuneLine[] => {
       const name = runes.get(id)?.name;
-      return name === undefined ? [] : [name];
+      return name === undefined ? [] : [{ name, choice }];
     }),
   };
 }

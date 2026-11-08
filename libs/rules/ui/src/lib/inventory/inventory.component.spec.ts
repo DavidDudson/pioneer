@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 
-import { FIGHTER_INVENTORY } from '../testing/inventory-fixtures';
+import { CHOSEN_RUNES_INVENTORY, FIGHTER_INVENTORY } from '../testing/inventory-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { InventoryPlacement } from './inventory-line';
 import type { InventoryGroup, InventoryLine } from './inventory-line';
@@ -53,11 +53,16 @@ describe(InventoryView, () => {
   });
 
   it("names an item with its runes, and a renamed one's content beside it", async () => {
-    const runes = { potency: 2, fundamental: [], property: ['Shadow'] };
+    const runes = { potency: 2, fundamental: [], property: [{ name: 'Shadow', choice: undefined }] };
     const [worn] = FIGHTER_INVENTORY;
     const armor = { ...worn?.lines[0], name: 'Lucky coat', contentName: 'Leather Armor', runes };
     const shown = rows(await render([{ placement: InventoryPlacement.Worn, lines: [armor as InventoryLine] }]));
     expect(shown[0]?.slice(0, 2)).toStrictEqual(['Lucky coat', '(+2 Shadow Leather Armor)']);
+  });
+
+  it('names each rune etched for a choice with it, so two etchings of one rune read as two', async () => {
+    const shown = rows(await render(CHOSEN_RUNES_INVENTORY));
+    expect(shown[0]?.[0]).toBe('Energy Resistant (fire) Energy Resistant (cold) Leather Armor');
   });
 
   it('lists what a container holds beneath it, nested as deep as it goes', async () => {

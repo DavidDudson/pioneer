@@ -115,3 +115,23 @@ describe('energy-resistant runes', () => {
     expect(rulesOfArmor(energyRune(RuneFixture.EnergyResistant, 'sonic'))).toStrictEqual([]);
   });
 });
+
+describe('energy vulnerability runes', () => {
+  test('give a critical hit a weakness to the energy their crafter chose, 5 and 10 by grade', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.EnergyVulnerability, 'fire'))).toStrictEqual([
+      { key: 'CriticalWeakness', selectors: ['etched-damage'], type: 'fire', value: DamageAmount.parse(5) },
+    ]);
+    expect(rulesOfSword(energyRune(RuneFixture.EnergyVulnerabilityGreater, 'sonic'))).toStrictEqual([
+      { key: 'CriticalWeakness', selectors: ['etched-damage'], type: 'sonic', value: DamageAmount.parse(10) },
+    ]);
+  });
+
+  test('give nothing when etched with no choice', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.EnergyVulnerability))).toStrictEqual([]);
+  });
+
+  test('give nothing for a choice that is no energy they are made for', () => {
+    expect(rulesOfSword(energyRune(RuneFixture.EnergyVulnerability, 'hope'))).toStrictEqual([]);
+    expect(rulesOfSword(energyRune(RuneFixture.EnergyVulnerabilityGreater, 'force'))).toStrictEqual([]);
+  });
+});

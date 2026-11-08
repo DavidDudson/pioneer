@@ -3,7 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Text } from '@pioneer/frontier';
 import { NoteRoll } from '@pioneer/rules/engine';
-import type { ExtraDice, StatisticResult, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
+import type { CriticalWeakness, StatisticResult, Strike, StrikeDamage, WeaponInputs } from '@pioneer/rules/engine';
 import { OriginHopKind, StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId, Slug } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
@@ -18,10 +18,11 @@ import type { ConditionToggle } from '../statistics/statistic-conditions/statist
 import { STATISTIC_ROLLER } from '../statistics/statistic-roller';
 import { StatisticsMessage } from '../statistics/statistics-messages';
 import type { NamedStrike, StrikeSituations, StrikesShield } from './named-strike';
+import { extraDiceText } from './strike-extra-dice';
 import type { ShownNote } from './strike-notes.component';
 import { StrikeRow } from './strike-row.component';
 import type { ShownAttack, ShownStrike } from './strike-row.component';
-import { DAMAGE_CATEGORY_MESSAGES, NOTE_DEGREE_MESSAGES, StrikesMessage, yesNo } from './strikes-messages';
+import { NOTE_DEGREE_MESSAGES, StrikesMessage } from './strikes-messages';
 
 export type { NamedStrike, StrikeOffer, StrikeSituations, StrikesShield } from './named-strike';
 
@@ -240,29 +241,20 @@ export class StrikesView {
   }
 
   /** "Plus 1d6 fire precision" for each die a rule element adds to the damage, and "3 bludgeoning splash" for splash it adds. */
-  #extras({ damage }: Strike): readonly string[] {
-    const dice = (damage?.extra ?? []).map((extra) => this.#extra(extra));
-    const splash = (damage?.ruleSplash ?? []).map(({ amount, damageType }) =>
-      this.#say(StrikesMessage.Splash, {
-        amount: this.#format.number(amount),
-        type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]),
-      }),
-    );
-    return [...dice, ...splash];
+  #extras({ damage, weaknesses }: Strike): readonly string[] {
+    const dice = (damage?.extra ?? []).map((extra) => extraDiceText(this.#i18n, extra));
+    const splash = (damage?.ruleSplash ?? []).map((each) => this.#amountOfType(StrikesMessage.Splash, each));
+    const weakness = weaknesses.map((each) => this.#amountOfType(StrikesMessage.CriticalWeakness, each));
+    return [...dice, ...splash, ...weakness];
+  }
+
+  /** A message of an amount of one damage type, such as a splash or a weakness: "1 fire splash". */
+  #amountOfType(key: string, { amount, damageType }: CriticalWeakness): string {
+    return this.#say(key, { amount: this.#format.number(amount), type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]) });
   }
 
   #say(key: string, params?: Readonly<Record<string, string | number>>): string {
     return this.#i18n.translate(key, params);
-  }
-
-  #extra({ count, die, damageType, category, critical, ignoresResistance }: ExtraDice): string {
-    return this.#say(StrikesMessage.ExtraDice, {
-      dice: `${count}${die}`,
-      type: this.#say(DAMAGE_TYPE_MESSAGES[damageType]),
-      hasCategory: category === undefined ? 'no' : 'yes',
-      category: category === undefined ? '' : this.#say(DAMAGE_CATEGORY_MESSAGES[category]),
-      ...yesNo({ critical, ignoresResistance }),
-    });
   }
 
   /** The notes on one of the Strike's rolls, each with the degrees of success it shows on. */
