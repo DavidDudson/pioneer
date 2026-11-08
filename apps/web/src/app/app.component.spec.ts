@@ -7,7 +7,7 @@ import { provideRouter } from '@angular/router';
 import { ColorMode, Theme, ThemeChoice, ThemeStore } from '@pioneer/frontier';
 import { provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { App } from './app.component';
 import { appMessages } from './messages';
@@ -65,8 +65,19 @@ function accountPanel(): HTMLElement {
   }
   return panel;
 }
+/** The shell reads its header height with a `ResizeObserver`, which jsdom lacks. */
+class FakeResizeObserver {
+  public readonly observe = vi.fn<() => void>();
+  public readonly disconnect = vi.fn<() => void>();
+}
+
 describe(App, () => {
+  beforeEach(() => {
+    vi.stubGlobal('ResizeObserver', FakeResizeObserver);
+  });
+
   afterEach(() => {
+    vi.unstubAllGlobals();
     localStorage.clear();
   });
 
@@ -170,7 +181,7 @@ describe(App, () => {
 
     await openMenu(element, 'Account menu');
     await fixture.whenStable();
-    const trigger = accountPanel().querySelector<HTMLButtonElement>('button[aria-label="Theme"]');
+    const trigger = accountPanel().querySelector<HTMLButtonElement>('button[aria-label="Dynamic (Theme)"]');
     expect(trigger?.textContent.trim()).toBe('Dynamic');
     trigger?.click();
     await fixture.whenStable();
