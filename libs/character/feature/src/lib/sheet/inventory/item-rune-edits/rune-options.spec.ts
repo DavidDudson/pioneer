@@ -77,6 +77,7 @@ describe(propertyRuneOptions, () => {
       'Frost',
       'Holy',
       'Keen',
+      'Quickstrike',
       'Shock',
       'Unholy',
     ]);

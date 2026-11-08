@@ -1,6 +1,6 @@
 import { RollTotal } from '@pioneer/rules/dice';
 import type { RandomSource } from '@pioneer/rules/dice';
-import { damageTargetOf, statisticContent } from '@pioneer/rules/engine';
+import { damageTargetOf, inventoryItemOf, statisticContent } from '@pioneer/rules/engine';
 import type { RecoveryInPlay } from '@pioneer/rules/engine';
 import { ConditionTrigger, NO_DEFENCES, Selector } from '@pioneer/rules/sdk';
 import type { ContentId, DamageTarget } from '@pioneer/rules/sdk';
@@ -12,6 +12,9 @@ import type { StatisticSources } from './character-statistics';
 import { passTime } from './environment-time';
 import { environmentContent } from './environments';
 import type { EnvironmentContent } from './environments';
+import { equippedGrants } from './equipped';
+import type { InventoryItemId } from './inventory';
+import { itemContent } from './inventory-content';
 import type { PlayLimits, PlayState } from './play-state';
 import { conditionRecovery } from './rest-limits';
 import type { RecoveryConditions } from './rest-types';
@@ -40,6 +43,8 @@ export interface TurnCommandInputs {
   readonly easing: RecoveryConditions;
   /** The conditions that change the actions a turn starts with. */
   readonly economy: EconomyConditions;
+  /** The inventory items of the wielded runes that give quickened (quickstrike), which add the extra action to a turn. */
+  readonly grantedQuickened: readonly InventoryItemId[];
   /** The Unconscious condition of the content, which running out of air puts on the character. */
   readonly unconscious: ContentId | undefined;
   /** The character's Fortitude modifier, worked out only when a save against suffocation needs it. */
@@ -51,7 +56,7 @@ export interface TurnCommandInputs {
 /** Start turn: the bookkeeping, then the actions and the reaction refilled from the conditions that are left, and the spend log cleared. */
 function started(play: PlayState, inputs: TurnCommandInputs, random: RandomSource): TurnOutcome {
   const begun = startTurn(play, { limits: inputs.limits, recovery: inputs.recovery }, random);
-  const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy);
+  const { turn, conditions, events } = refilled(begun.play.conditions, inputs.economy, inputs.grantedQuickened);
   return {
     play: { ...begun.play, turn, conditions: [...conditions], spendLog: [] },
     events: [...begun.events, ...events],
@@ -137,6 +142,19 @@ function fortitudeOf(sources: StatisticSources, document: CharacterDocument): Ro
   return result?.ok === true ? RollTotal.parse(result.total) : NO_MODIFIER;
 }
 
+/** The inventory items whose runes grant the quickened condition while they are wielded (quickstrike), each once. */
+function quickenedByItems(
+  { registry, slots }: StatisticSources,
+  document: CharacterDocument,
+  { quickened }: EconomyConditions,
+): readonly InventoryItemId[] {
+  const granted = equippedGrants(document, itemContent(registry), slots).items.flatMap(({ entry, origin }) => {
+    const item = entry.id === quickened ? inventoryItemOf(origin) : undefined;
+    return item === undefined ? [] : [item];
+  });
+  return [...new Set(granted)];
+}
+
 /**
  * What the turn cycle reads for a character, from the build and the content: its fast healing and regeneration, the
  * defences persistent damage goes through, what the end of a turn eases and the conditions that change its actions.
@@ -148,12 +166,14 @@ export function turnCommandInputs(
 ): TurnCommandInputs {
   const { registry } = sources;
   const content = statisticContent(registry);
+  const economy = economyConditions(registry);
   return {
     limits,
     recovery: characterVitals(sources, document)?.recovery ?? [],
     defences: content === undefined ? NO_DEFENCES : damageTargetOf(characterDefences(document, sources)),
     easing: conditionRecovery(registry, ConditionTrigger.TurnEnd),
-    economy: economyConditions(registry),
+    economy,
+    grantedQuickened: quickenedByItems(sources, document, economy),
     unconscious: unconsciousCondition(registry),
     fortitude: () => fortitudeOf(sources, document),
     environments: environmentContent(registry),

@@ -676,6 +676,7 @@ export {
   unconsciousCondition,
   type EconomyConditions,
   type TurnCommand,
+  type QuickenedRestriction,
   type TurnState,
 } from './turn-state';
 export { outOfAir } from './suffocation-unconscious';

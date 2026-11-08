@@ -6,14 +6,15 @@ import type { ContentEntry } from '@pioneer/rules/sdk';
 import { loadRunes } from './rune-fixtures';
 
 const ETCHED_DAMAGE = 'etched-damage';
+/** The Quickened condition of Player Core, which a quickstrike rune grants. */
+const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
 
 /**
  * Weapon property runes with no activation and no rules yet: each needs an engine gap closed first (a critical
  * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
  * land; a new book's rune must get rules or be listed here.
  *
- * Why the weapon-changing runes stay here: quickstrike gives quickened, which the play state holds as an applied condition
- * (with its action restriction) and no rule derives; shifting swaps the weapon for another, a choice the sheet does not model.
+ * Why the weapon-changing runes stay here: shifting swaps the weapon for another, a choice the sheet does not model.
  *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
  * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
@@ -32,7 +33,6 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:grievous',
   'rune:mythic-weapon-potency',
   'rune:pacifying',
-  'rune:quickstrike',
   'rune:shifting',
   'rune:spell-reservoir',
   'rune:underwater',
@@ -224,6 +224,12 @@ describe('weapon property rune rules', () => {
       ]);
     },
   );
+
+  test('quickstrike grants the quickened condition while the weapon is wielded', () => {
+    const entry = RUNES.find(({ slug }) => slug === 'rune:quickstrike');
+
+    expect(entry?.rules).toMatchObject([{ key: 'GrantItem', item: QUICKENED }]);
+  });
 
   test('mythic striking makes the weapon roll five weapon damage dice', () => {
     const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-striking');
