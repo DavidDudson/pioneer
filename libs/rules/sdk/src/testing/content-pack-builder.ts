@@ -265,7 +265,7 @@ export class ContentPackBuilder {
     this.#entries.push({
       kind: ContentKind.Condition,
       name,
-      data: { valued: false, overrides: [], implies: [], recovery: {}, ...fields },
+      data: { valued: false, overrides: [], implies: [], recovery: [], ...fields },
       rules,
     });
     return this;

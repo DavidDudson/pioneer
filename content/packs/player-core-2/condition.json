@@ -33,7 +33,22 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cursebound lasts until the curse that caused it ends. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 ]

@@ -28,6 +28,7 @@ const FIELD_MAX = 64;
 const OVERRIDES_MAX = 64;
 
 const FoundryConditionSystem = z.looseObject({
+  description: z.looseObject({ value: z.string().default('') }).optional(),
   value: z.looseObject({ isValued: z.boolean() }),
   group: z.string().max(FIELD_MAX).nullish(),
   overrides: z.array(z.string().max(FIELD_MAX)).max(OVERRIDES_MAX).default([]),
@@ -44,6 +45,16 @@ function groupOf(group: string | null | undefined, log: GapLog): ConditionGroup 
     report(log, { reason: KindDataGapReason.UnmappedValue, field: 'group', raw: group });
   }
   return known.data;
+}
+
+/**
+ * Foundry has no field for how a condition ends: it is in the description's prose. The importer does not map prose, so a
+ * description that is there is reported against `recovery`, with its text, for the curated endings to be checked against.
+ */
+function reportRecovery(description: string | undefined, log: GapLog): void {
+  if (description !== undefined && description !== '') {
+    report(log, { reason: KindDataGapReason.UnmappedField, field: 'recovery', raw: description });
+  }
 }
 
 function overridesOf(slugs: readonly string[], references: EntryReferences, log: GapLog): ContentId[] {
@@ -78,6 +89,7 @@ export function conditionData({ document, envelope, references, log }: KindInput
   }
   const { value, group, overrides } = system.data;
   const known = groupOf(group, log);
+  reportRecovery(system.data.description?.value, log);
   return {
     valued: value.isValued,
     ...(known === undefined ? {} : { group: known }),

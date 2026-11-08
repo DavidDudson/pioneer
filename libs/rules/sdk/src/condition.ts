@@ -2,6 +2,8 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ContentId } from './content-id';
+import { RichText } from './rich-text';
+import { Selector } from './selector';
 
 /**
  * How Foundry pf2e groups conditions on the sheet. A group says nothing about stacking: Dying, Wounded and Doomed
@@ -16,28 +18,91 @@ export const ConditionGroup = {
 } as const;
 export type ConditionGroup = ValueOf<typeof ConditionGroup>;
 const ConditionGroupSchema = z.enum(ConditionGroup);
-
 const CONDITION_REFS_MAX = 8;
+const ENDINGS_MAX = 12;
+const LOWER_BY_MAX = 9;
+const CHECK_SELECTORS_MAX = 4;
 
 /** What ends or eases a condition for the character without anyone editing it. */
 export const ConditionTrigger = {
-  /** The Rest action (Player Core, Resting). */
+  /** The Rest action or a full night (Player Core, Resting). */
   Rest: 'rest',
+  /** The start of the character's turn. */
+  TurnStart: 'turn-start',
   /** The end of the character's turn. */
   TurnEnd: 'turn-end',
+  /** The condition's own duration runs out. */
+  DurationEnd: 'duration-end',
 } as const;
 export type ConditionTrigger = ValueOf<typeof ConditionTrigger>;
 
-/** What a trigger does to the condition: end it, or lower its value by 1 (it ends at 0). */
+/** What an ending does to the condition: end it, or lower its value (it ends at 0). */
 export const ConditionEffect = {
   Remove: 'remove',
   Lower: 'lower',
 } as const;
 export type ConditionEffect = ValueOf<typeof ConditionEffect>;
 
-/** How a condition recovers, by trigger: Fatigued is removed by Rest, Drained is lowered by it, Frightened is lowered at the end of the turn. */
-export const ConditionRecovery = z.partialRecord(z.enum(ConditionTrigger), z.enum(ConditionEffect)).readonly();
-export type ConditionRecovery = z.infer<typeof ConditionRecovery>;
+/** How many points a lowering takes off. */
+const LowerBy = z.int().min(1).max(LOWER_BY_MAX).brand<'LowerBy'>();
+
+/** What an ending does: remove the condition, or lower its value by `by` (1 when absent). */
+export const ConditionChange = z.strictObject({
+  effect: z.enum(ConditionEffect),
+  by: LowerBy.optional(),
+});
+export type ConditionChange = z.infer<typeof ConditionChange>;
+
+/**
+ * A DC as a whole number or `10 + @value` (the condition's current value), which the sheet evaluates for the value the
+ * character holds: the Dying recovery check is `10 + @value`, persistent damage's flat check is `15`.
+ */
+export const ConditionDc = z
+  .string()
+  .regex(/^\d{1,2}(?<value> \+ @value)?$/u)
+  .brand<'ConditionDc'>();
+export type ConditionDc = z.infer<typeof ConditionDc>;
+
+/**
+ * A check that ends or eases a condition. `against` is the statistics the character may roll (`save:fortitude`,
+ * `skill:athletics`), empty for a flat check; `dc` is absent when it is another creature's (Escape).
+ */
+export const ConditionCheck = z.strictObject({
+  against: z.array(Selector).max(CHECK_SELECTORS_MAX).readonly(),
+  dc: ConditionDc.optional(),
+  /** The DC when someone helps, where the rules give one (persistent damage, DC 10 when assisted). */
+  assistedDc: ConditionDc.optional(),
+});
+export type ConditionCheck = z.infer<typeof ConditionCheck>;
+
+/** Fields every ending has: its rule text, as content in the source locale (ADR-0009), never built in code. */
+const endingText = { text: RichText } as const;
+
+/** How a condition ends or eases, by kind (Player Core, Conditions). */
+export const ConditionEnding = z.discriminatedUnion('kind', [
+  /** Happens by itself: at a trigger, the condition changes. */
+  z.strictObject({
+    kind: z.literal('automatic'),
+    trigger: z.enum(ConditionTrigger),
+    change: ConditionChange,
+    ...endingText,
+  }),
+  /** A check the character rolls (a recovery check, a flat check), whose success changes the condition. */
+  z.strictObject({ kind: z.literal('check'), check: ConditionCheck, change: ConditionChange, ...endingText }),
+  /** An action anyone can take (Stand, Escape, Treat Wounds); `action` links its entry where there is one. */
+  z.strictObject({
+    kind: z.literal('action'),
+    action: ContentId.optional(),
+    check: ConditionCheck.optional(),
+    change: ConditionChange,
+    ...endingText,
+  }),
+  /** Restored by named spells, features or items; what a character has that does this is on those entries. */
+  z.strictObject({ kind: z.literal('others'), ...endingText }),
+  /** Only the condition's source ends it: the effect, creature or hazard that imposed it. */
+  z.strictObject({ kind: z.literal('source'), ...endingText }),
+]);
+export type ConditionEnding = z.infer<typeof ConditionEnding>;
 
 /**
  * A condition's `data` on the `ContentEntry` envelope. What it does to statistics is in `rules`; this is what the
@@ -54,7 +119,7 @@ export const ConditionData = z.strictObject({
    * `rules`, which is what applies it; this list is what the sheet shows.
    */
   implies: z.array(ContentId).max(CONDITION_REFS_MAX).readonly(),
-  /** How it recovers, by trigger; empty for a condition only an edit or its own duration ends. */
-  recovery: ConditionRecovery.default({}),
+  /** Every way it ends or eases, each with its rule text; Player Core conditions always have at least one. */
+  recovery: z.array(ConditionEnding).max(ENDINGS_MAX).readonly().default([]),
 });
 export type ConditionData = z.infer<typeof ConditionData>;

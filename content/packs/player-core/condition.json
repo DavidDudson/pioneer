@@ -55,7 +55,36 @@
       "group": "senses",
       "overrides": ["943dfd55-ad09-5abf-9138-95a6149d3302"],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blinded lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that restores sight, such as a restoration or healing spell, ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -102,7 +131,25 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Repairing the item removes the broken condition."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -149,7 +196,36 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Clumsy lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A restoration spell or similar ability can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -205,7 +281,22 @@
       "group": "senses",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Concealed lasts while the mist, darkness or other source of concealment does. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -323,7 +414,22 @@
       "valued": false,
       "overrides": [],
       "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Confused lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -369,7 +475,22 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You stay controlled until the effect or creature controlling you ends it, or its duration runs out."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -416,7 +537,22 @@
       "group": "senses",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Dazzled lasts while the bright light, glare or other source does. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -496,7 +632,36 @@
       "group": "senses",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Deafened lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that restores hearing ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -552,7 +717,26 @@
       "group": "death",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "rest",
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A full night's rest lowers your doomed value by 1."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -615,9 +799,40 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": {
-        "rest": "lower"
-      }
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "rest",
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A full night's rest lowers your drained value by 1."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A restoration spell or similar ability can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -687,7 +902,65 @@
       "group": "death",
       "overrides": [],
       "implies": ["e1a78dad-4887-518e-9120-e58b7009ebfd"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "check",
+          "check": {
+            "against": [],
+            "dc": "10 + @value"
+          },
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the start of each of your turns you attempt a recovery flat check against DC 10 plus your dying value; success lowers dying by 1."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "action",
+          "action": "e03baa02-2fea-552f-9996-c41bfa074713",
+          "check": {
+            "against": ["skill:medicine"],
+            "dc": "15"
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Someone can stabilize you with Administer First Aid, a DC 15 Medicine check, which removes dying."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Any healing that restores Hit Points ends dying; you remain unconscious and gain or raise wounded."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -746,7 +1019,22 @@
       "valued": false,
       "overrides": [],
       "implies": ["69f88e3c-d871-5fb9-82c6-120348a7c0e8"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Encumbered lasts while you carry more Bulk than your limit. Dropping or stowing enough gear ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -793,7 +1081,36 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Enfeebled lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A restoration spell or similar ability can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -855,7 +1172,22 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fascinated ends when the effect that caused it ends, or when you or an ally are subject to a hostile act."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -910,9 +1242,40 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {
-        "rest": "remove"
-      }
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "rest",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A full night's rest removes the fatigued condition."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A restoration spell or similar ability can remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -966,7 +1329,22 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You flee until the effect that caused it ends, or its duration runs out."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1019,7 +1397,22 @@
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attitudes change over time and with what the character does; the condition ends when the creature's attitude changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1065,9 +1458,40 @@
       "valued": true,
       "overrides": [],
       "implies": [],
-      "recovery": {
-        "turn-end": "lower"
-      }
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "turn-end",
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the end of each of your turns, the value of your frightened condition drops by 1."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that bolsters courage can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1139,7 +1563,43 @@
       "valued": false,
       "overrides": [],
       "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "2ae74030-e87a-55ee-955c-fb9870392d44",
+          "check": {
+            "against": ["skill:athletics", "skill:acrobatics"]
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can Escape against the DC of the effect or creature holding you, with Athletics, Acrobatics or an unarmed attack modifier; success removes grabbed."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Grabbed also ends if the creature holding you lets go, moves away or is incapacitated."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1192,7 +1652,22 @@
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attitudes change over time and with what the character does; the condition ends when the creature's attitude changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1282,7 +1757,40 @@
       "group": "detection",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "d45207be-e539-50ce-9463-f4edc3671076",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature that Seeks and finds you makes you observed to it instead of hidden."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hidden also ends if you act in a way that reveals your position."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1335,7 +1843,22 @@
         "f71f2666-3e15-5d4b-9bc5-7047a68e1018"
       ],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attitudes change over time and with what the character does; the condition ends when the creature's attitude changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1404,7 +1927,43 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "2ae74030-e87a-55ee-955c-fb9870392d44",
+          "check": {
+            "against": ["skill:athletics", "skill:acrobatics"]
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "When something holds you in place you can Escape against its DC; success removes immobilized."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Immobilized ends when the effect holding you ends. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1448,7 +2007,22 @@
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attitudes change over time and with what the character does; the condition ends when the creature's attitude changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1527,7 +2101,22 @@
       "group": "senses",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Invisible lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1599,7 +2188,22 @@
       "group": "detection",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Observed is what creatures are by default; it changes when you become hidden, undetected or unnoticed."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1645,7 +2249,22 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Off-guard lasts while the circumstance that caused it does. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1742,7 +2361,36 @@
       "valued": false,
       "overrides": [],
       "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Paralyzed lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that frees you from paralysis ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1789,7 +2437,44 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "check",
+          "check": {
+            "against": [],
+            "dc": "15",
+            "assistedDc": "10"
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "At the end of each of your turns after taking the damage, you attempt a DC 15 flat check; success ends the persistent damage."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Healing and effects that counteract the source end persistent damage without a check."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1858,7 +2543,36 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Petrified lasts until the effect that caused it is undone. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that reverses petrification, such as one that turns stone to flesh, ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1976,7 +2690,26 @@
       "valued": false,
       "overrides": [],
       "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "667bebee-bb47-5bf2-b54e-7955517106a6",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can Stand, which takes an action, to stop being prone."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2014,7 +2747,22 @@
       "valued": false,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Quickened lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2122,7 +2870,43 @@
       "valued": false,
       "overrides": ["cab530ff-ca20-5f0a-8a5e-b9fdb322b146"],
       "implies": ["071324e5-bb4c-5ed2-9e2f-28185b65ded7", "64278392-4910-5a32-b819-56f6e54952dd"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "2ae74030-e87a-55ee-955c-fb9870392d44",
+          "check": {
+            "against": ["skill:athletics", "skill:acrobatics"]
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can Escape against the DC of the effect or creature restraining you; success removes restrained."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Restrained also ends if the effect that restrains you ends or its duration runs out."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2177,7 +2961,42 @@
       "valued": true,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "check": {
+            "against": ["save:fortitude"]
+          },
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can spend an action to retch, attempting a Fortitude save against the DC of the source; success lowers sickened by 1, a critical success by 2."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A spell or ability that cures sickness or poison can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2215,7 +3034,26 @@
       "valued": true,
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "duration-end",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Slowed ends when the duration of the effect that caused it runs out."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2270,7 +3108,44 @@
       "valued": true,
       "overrides": ["13584c6a-a624-511c-a5de-0c36a9136b9e"],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "automatic",
+          "trigger": "turn-start",
+          "change": {
+            "effect": "lower"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If stunned has no duration, you lose actions at the start of your turn equal to its value, and its value drops by the number of actions lost."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "automatic",
+          "trigger": "duration-end",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If stunned has a duration, it ends when the duration runs out."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2333,7 +3208,36 @@
       "group": "abilities",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stupefied lasts for the duration of the effect that caused it. It lasts until the effect, creature or hazard that imposed it ends it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A restoration spell or similar ability can lower or remove it."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2546,7 +3450,36 @@
       "group": "death",
       "overrides": [],
       "implies": ["5d63458a-cde5-5d64-8fea-b920f04f36b7", "071324e5-bb4c-5ed2-9e2f-28185b65ded7"],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Healing that restores Hit Points to a creature at 0 wakes it; so does being shaken or hurt, depending on how you fell unconscious."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If you fell asleep or were knocked out by an effect, you wake when that effect or its duration ends."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2627,7 +3560,40 @@
       "group": "detection",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "d45207be-e539-50ce-9463-f4edc3671076",
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A creature that Seeks and pinpoints you ends undetected for it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Undetected also ends if you act in a way that reveals your position."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2680,7 +3646,22 @@
         "2546bdb8-3708-5414-ada6-f17e73d81768"
       ],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Attitudes change over time and with what the character does; the condition ends when the creature's attitude changes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2727,7 +3708,22 @@
       "group": "detection",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "source",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Unnoticed ends when a creature notices you, usually because you act in a way that reveals you."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2791,7 +3787,43 @@
       "group": "death",
       "overrides": [],
       "implies": [],
-      "recovery": {}
+      "recovery": [
+        {
+          "kind": "action",
+          "action": "18c1b923-595b-5203-a0be-010205e51c44",
+          "check": {
+            "against": ["skill:medicine"]
+          },
+          "change": {
+            "effect": "remove"
+          },
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Successfully restoring Hit Points to you with Treat Wounds removes the wounded condition."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "others",
+          "text": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "If you are restored to full Hit Points by any means and then rest for 10 minutes, wounded ends."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 ]

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import {
   ConditionEffect,
+  ConditionTrigger,
   ConditionValue,
   ContentId,
   ContentKind,
@@ -11,7 +12,7 @@ import {
   Slug,
   SpellRank,
 } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { automaticEnding, ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 import { assert, boolean, constantFrom, integer, property, record } from 'fast-check';
 
 import { ConditionDurationKind, ConditionInstanceId } from './conditions';
@@ -152,8 +153,13 @@ describe('restoring actions', () => {
 });
 
 const CONDITIONS = new ContentPackBuilder()
-  .withCondition('fatigued', [], { recovery: { rest: ConditionEffect.Remove } })
-  .withCondition('drained', [], { valued: true, recovery: { rest: ConditionEffect.Lower } });
+  .withCondition('fatigued', [], {
+    recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Remove })],
+  })
+  .withCondition('drained', [], {
+    valued: true,
+    recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Lower })],
+  });
 const REGISTRY = new ContentRegistry();
 REGISTRY.register(CONDITIONS.build());
 const FATIGUED = ContentId.parse(CONDITIONS.idOf(ContentKind.Condition, 'fatigued'));

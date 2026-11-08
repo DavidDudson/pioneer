@@ -100,7 +100,7 @@ const ancestryFeatureData: Arbitrary<object> = withOptional(constant({}), { acti
 
 const conditionRefs: Arbitrary<string[]> = uniqueArray(contentIdJson, { maxLength: LIST_MAX });
 const conditionData: Arbitrary<object> = withOptional(
-  record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant({}) }),
+  record({ valued: boolean(), overrides: conditionRefs, implies: conditionRefs, recovery: constant([]) }),
   { group: constantFrom(...Object.values(ConditionGroup)) },
 );
 

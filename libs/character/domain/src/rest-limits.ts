@@ -17,8 +17,8 @@ export function conditionRecovery(registry: ContentRegistry, trigger: ConditionT
       if (entry.kind !== ContentKind.Condition) {
         return [];
       }
-      const effect = entry.data.recovery[trigger];
-      return effect === undefined ? [] : [[entry.id, effect] as const];
+      const ending = entry.data.recovery.find((each) => each.kind === 'automatic' && each.trigger === trigger);
+      return ending?.kind === 'automatic' ? [[entry.id, ending.change] as const] : [];
     }),
   );
 }
