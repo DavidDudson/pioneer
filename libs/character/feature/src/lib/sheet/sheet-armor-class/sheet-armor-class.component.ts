@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 import { AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Surface } from '@pioneer/frontier';
-import { ArmorClass, DefenceIcons } from '@pioneer/rules/ui';
+import { ArmorClass, DefenceIcons, DefencesMessage } from '@pioneer/rules/ui';
+import type { CriticalHitRoll } from '@pioneer/rules/ui';
 
+import { SheetRolls } from '../sheet-rolls';
 import { SheetState } from '../sheet-state';
 
 /**
@@ -18,4 +21,12 @@ import { SheetState } from '../sheet-state';
 export class SheetArmorClass {
   protected readonly sheet = inject(SheetState);
   protected readonly picks = this.sheet.picks;
+  readonly #rolls = inject(SheetRolls);
+  readonly #i18n = inject(TranslocoService);
+
+  /** Rolls the flat check of a fortification rune: the card compares the d20 with the check's DC. */
+  protected rollCriticalHitCheck({ dc }: CriticalHitRoll): void {
+    this.#rolls.typeDc(dc);
+    this.#rolls.rollFlat(this.#i18n.translate(DefencesMessage.CriticalHitCheckName), 0);
+  }
 }

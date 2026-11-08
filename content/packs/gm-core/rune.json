@@ -2322,7 +2322,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalHitCheck",
+        "selectors": ["ac"],
+        "dc": 17
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.8buhFcGwuaJRrp0y"
     },
@@ -2386,7 +2392,13 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalHitCheck",
+        "selectors": ["ac"],
+        "dc": 14
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.ujWnpVMkbTljMGN9"
     },

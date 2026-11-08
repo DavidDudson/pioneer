@@ -22,6 +22,12 @@ export const DefencesMessage = {
   /** A failed line that was conditional: the error, then that it applies only in some situations. */
   FailedConditional: 'rules.defences.failedConditional',
   SupersededBy: 'rules.defences.supersededBy',
+  CriticalHitChecks: 'rules.defences.criticalHitChecks',
+  /** "When you are critically hit, attempt a DC 17 flat check. On a success, it becomes a normal hit." */
+  CriticalHitCheck: 'rules.defences.criticalHitCheck',
+  CriticalHitCheckRoll: 'rules.defences.criticalHitCheckRoll',
+  /** What the roll card calls the check. */
+  CriticalHitCheckName: 'rules.defences.criticalHitCheckName',
 } as const;
 
 export const DAMAGE_GROUP_MESSAGES: Readonly<Record<DamageGroup, string>> = {

@@ -91,8 +91,6 @@ const ARMOUR_GAPS: ReadonlySet<string> = new Set([
   'rune:assisting',
   'rune:energy-resistant',
   'rune:energy-resistant-greater',
-  'rune:fortification',
-  'rune:fortification-greater',
   'rune:gliding',
   'rune:malleable',
   'rune:mobile',
@@ -135,6 +133,12 @@ const BONUS_RUNES: readonly BonusRune[] = [
   { slug: 'rune:slick', selector: 'skill:acrobatics', bonus: 1, actions: ['action:escape', 'action:squeeze'] },
   { slug: 'rune:slick-greater', selector: 'skill:acrobatics', bonus: 2, actions: ['action:escape', 'action:squeeze'] },
   { slug: 'rune:slick-major', selector: 'skill:acrobatics', bonus: 3, actions: ['action:escape', 'action:squeeze'] },
+];
+
+/** The flat check DC of each fortification grade, which the wearer rolls when a critical hit lands on their AC. */
+const FORTIFICATION_DCS: readonly (readonly [string, number])[] = [
+  ['rune:fortification', 17],
+  ['rune:fortification-greater', 14],
 ];
 
 /** The rule an armour bonus rune is expected to carry. */
@@ -214,5 +218,11 @@ describe('armour property rune rules', () => {
     const entry = RUNES.find(({ slug }) => slug === rune.slug);
 
     expect(entry?.rules).toMatchObject([expectedBonus(rune)]);
+  });
+
+  test.each(FORTIFICATION_DCS)('%s asks a flat check against DC %i when a critical hit lands on AC', (slug, dc) => {
+    const entry = RUNES.find((rune) => rune.slug === slug);
+
+    expect(entry?.rules).toMatchObject([{ key: 'CriticalHitCheck', selectors: ['ac'], dc }]);
   });
 });

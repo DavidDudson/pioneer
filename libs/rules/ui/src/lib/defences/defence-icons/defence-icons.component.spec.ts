@@ -8,6 +8,7 @@ import {
   BARBARIAN_DEFENCES,
   DWARF,
   ENTRY_NAMES,
+  FORTIFIED_DEFENCES,
   NO_DEFENCES,
   OUT_OF_RANGE,
 } from '../../testing/defences-fixtures';
@@ -61,5 +62,17 @@ describe(DefenceIcons, () => {
       ],
     });
     expect(iconsOf(host)).toStrictEqual([]);
+  });
+});
+
+describe(`${DefenceIcons.name} critical hit checks`, () => {
+  it('shows an icon for the flat check that turns a critical hit into a hit', async () => {
+    const host = await render(FORTIFIED_DEFENCES);
+    expect(iconsOf(host)).toStrictEqual(['Critical hit checks']);
+  });
+
+  it('shows it after the defence kinds the character has', async () => {
+    const host = await render({ ...BARBARIAN_DEFENCES, criticalHitChecks: FORTIFIED_DEFENCES.criticalHitChecks });
+    expect(iconsOf(host)).toStrictEqual(['Resistances', 'Immunities', 'Weaknesses', 'Critical hit checks']);
   });
 });

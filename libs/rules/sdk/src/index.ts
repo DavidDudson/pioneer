@@ -443,6 +443,7 @@ export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-l
 export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
+export { CriticalHitCheckElement } from './rule-element-critical-hit-check';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
 export { criticalSpecializationOf } from './critical-specialization';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';

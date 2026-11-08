@@ -41,16 +41,7 @@ import {
   targets,
   withOptional,
 } from './rule-element-arbitrary-kit';
-import {
-  adjustDegreeOfSuccess,
-  aura,
-  battleForm,
-  creatureSize,
-  fastHealing,
-  rollTwice,
-  substituteRoll,
-  tempHp,
-} from './rule-element-effect-arbitraries';
+import { effectElements } from './rule-element-effect-arbitraries';
 
 const ruleValue = oneof(ruleNumber, validFormulaText);
 const nonAttributeTypes = Object.values(ModifierType).filter((type) => type !== ModifierType.Attribute);
@@ -291,12 +282,5 @@ export const ruleElementJson: Arbitrary<object> = oneof(
   damageAlteration,
   note,
   criticalSpecialization,
-  fastHealing,
-  tempHp,
-  creatureSize,
-  battleForm,
-  adjustDegreeOfSuccess,
-  rollTwice,
-  substituteRoll,
-  aura,
+  ...effectElements,
 );

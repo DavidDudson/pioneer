@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideShieldAlert, LucideShieldBan, LucideShieldHalf } from '@lucide/angular';
+import { LucideShieldAlert, LucideShieldBan, LucideShieldCheck, LucideShieldHalf } from '@lucide/angular';
 import type { LucideIcon } from '@lucide/angular';
 import { Button, HoverCard, HoverCardContent, Icon, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
@@ -9,6 +9,8 @@ import type { ContentId, DamageException, Immunity } from '@pioneer/rules/sdk';
 
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
 import type { OriginNames } from '../../origin-chain/origin-names';
+import { CriticalHitChecks, isActiveCheck } from '../critical-hit-checks/critical-hit-checks.component';
+import type { CriticalHitRoll } from '../critical-hit-checks/critical-hit-checks.component';
 import { DefenceKind } from '../defence-kind';
 import { DefencesMessage } from '../defences-messages';
 import { DefencesView } from '../defences.component';
@@ -60,7 +62,8 @@ function linesOf(defences: Defences, kind: DefenceKind): readonly (ImmunityLine 
 
 /**
  * An icon for each of resistances, immunities and weaknesses the character has in force, each opening the lines of its
- * kind on hover. Nothing shows while the character has none, or while the defences load.
+ * kind on hover, and one for the flat checks that turn a critical hit into a hit, which asks for the roll. Nothing
+ * shows while the character has none, or while the defences load.
  *
  * Read-only and presentational (ADR-0028): the caller passes the engine's `Defences` and the names the lines refer to.
  *
@@ -70,7 +73,7 @@ function linesOf(defences: Defences, kind: DefenceKind): readonly (ImmunityLine 
  */
 @Component({
   selector: 'pio-defence-icons',
-  imports: [Button, DefencesView, HoverCard, HoverCardContent, Icon, Stack, TranslocoPipe],
+  imports: [Button, CriticalHitChecks, DefencesView, HoverCard, HoverCardContent, Icon, Stack, TranslocoPipe],
   templateUrl: './defence-icons.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -81,7 +84,14 @@ export class DefenceIcons {
   public readonly immunityNames = input<ReadonlyMap<Immunity, string>>(new Map());
   public readonly exceptionNames = input<ReadonlyMap<DamageException, string>>(new Map());
   public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
+  /** A critical hit check's roll was asked for. */
+  public readonly checkRolled = output<CriticalHitRoll>();
 
+  protected readonly checkIcon = LucideShieldCheck;
+  protected readonly checkLabel = DefencesMessage.CriticalHitChecks;
+  protected readonly hasChecks = computed(
+    (): boolean => this.defences()?.criticalHitChecks.some((check) => isActiveCheck(check)) ?? false,
+  );
   protected readonly active = computed((): readonly ActiveKind[] => {
     const defences = this.defences();
     if (defences === undefined) {

@@ -4,6 +4,7 @@ import { DamageAmount } from '@pioneer/rules/sdk';
 import type {
   DamageAdjustmentSubject,
   DamageException,
+  Dc,
   Immunity,
   Origin,
   Predicate,
@@ -70,14 +71,25 @@ export interface AdjustmentLine {
   readonly fromForm?: true;
 }
 
+/** One flat check from a `CriticalHitCheck` element: made when a critical hit lands on AC, and a success makes it a hit. */
+export interface CriticalHitCheckLine {
+  readonly id: RuleId;
+  readonly label: ModifierLabel;
+  readonly origin: Origin;
+  readonly dc: Dc;
+  readonly status: DefenceStatus;
+}
+
 /**
  * A character's immunities, weaknesses and resistances (rules-engine.md, "Defences"), each line in type order, then
- * id order. A defence whose predicate is false is left out.
+ * id order, and the flat checks that turn a critical hit into a hit. A defence whose predicate is false is left out.
  */
 export interface Defences {
   readonly immunities: readonly ImmunityLine[];
   readonly weaknesses: readonly AdjustmentLine[];
   readonly resistances: readonly AdjustmentLine[];
+  /** In id order; the lowest DC is the one that helps most. */
+  readonly criticalHitChecks: readonly CriticalHitCheckLine[];
 }
 
 /** The most a weakness or resistance can be: `DamageAmount`'s bound. */

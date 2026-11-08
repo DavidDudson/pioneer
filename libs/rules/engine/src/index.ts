@@ -29,6 +29,7 @@ export {
 } from './strikes';
 export {
   type AdjustmentLine,
+  type CriticalHitCheckLine,
   type Defences,
   type DefenceStatus,
   DefenceStatusKind,
