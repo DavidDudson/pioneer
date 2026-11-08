@@ -7,6 +7,7 @@ import type { WeaponInputs } from './source-inputs';
 import type { StatisticResult } from './statistic-result';
 import { strikeRules } from './strike-rules';
 import type { ExtraDice, RuleSplash, StrikeNote, StrikeRules, StrikeScope } from './strike-rules';
+import type { CriticalWeakness } from './strike-weaknesses';
 
 /** The family each weapon's attack roll is derived under: `strike:<weapon slug>`. */
 const ATTACK = 'strike';
@@ -55,6 +56,8 @@ export interface Strike {
   readonly damage: StrikeDamage | undefined;
   /** The `Note` elements that reach the attack or damage roll. */
   readonly notes: readonly StrikeNote[];
+  /** The weaknesses a critical hit with this Strike gives its target (`CriticalWeakness` elements). */
+  readonly weaknesses: readonly CriticalWeakness[];
   /** The rule elements that would change this Strike if a roll claimed their situation (`StrikeRules.conditional`). */
   readonly conditional: readonly RuleId[];
   readonly map: MultipleAttackPenalty;
@@ -179,6 +182,7 @@ export function deriveStrikes(
       attack: results.get(Selector.parse(`${ATTACK}:${weapon.slug}`)),
       damage: damageOf(weapon, results, changes),
       notes: changes?.notes ?? [],
+      weaknesses: changes?.weaknesses ?? [],
       conditional: changes?.conditional ?? [],
       map: multipleAttackPenalty(weapon),
     };

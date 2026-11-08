@@ -56,6 +56,7 @@ export const RuleElementKey = {
   GrantShield: 'GrantShield',
   CriticalSpecialization: 'CriticalSpecialization',
   CriticalHitCheck: 'CriticalHitCheck',
+  CriticalWeakness: 'CriticalWeakness',
 } as const;
 export type RuleElementKey = ValueOf<typeof RuleElementKey>;
 

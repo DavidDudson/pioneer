@@ -98,6 +98,12 @@ const criticalHitCheck = element('CriticalHitCheck', {
   dc: integer({ min: 1, max: FLAT_DC_MAX }),
 });
 
+const criticalWeakness = element('CriticalWeakness', {
+  selectors: targets,
+  type: damageType,
+  value: integer({ min: 1, max: SMALLINT_MAX }),
+});
+
 /** The effect-group elements, for `ruleElementJson` to draw from. */
 export const effectElements: readonly Arbitrary<object>[] = [
   fastHealing,
@@ -109,4 +115,5 @@ export const effectElements: readonly Arbitrary<object>[] = [
   substituteRoll,
   aura,
   criticalHitCheck,
+  criticalWeakness,
 ];
