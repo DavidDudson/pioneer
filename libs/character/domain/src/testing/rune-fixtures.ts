@@ -24,6 +24,10 @@ export const RuneFixture = {
   Unholy: 'unholy',
   /** A weapon rune that grants the clumsy condition (as quickstrike grants quickened) while the weapon is wielded. */
   Quickstrike: 'quickstrike',
+  /** A weapon rune that lets the weapon take the shape of another (the slug is the real shifting rune's). */
+  Shifting: 'shifting',
+  /** A weapon rune for bludgeoning weapons only, which a weapon shifted into another damage type can't keep. */
+  Crushing: 'crushing',
 } as const;
 export type RuneFixture = (typeof RuneFixture)[keyof typeof RuneFixture];
 
@@ -56,6 +60,8 @@ export const RUNES: Readonly<Record<RuneFixture, MagicItemFields>> = {
   [RuneFixture.Holy]: weaponRune('without-unholy-rune'),
   [RuneFixture.Unholy]: weaponRune('without-holy-rune'),
   [RuneFixture.Quickstrike]: { ...weaponRune(), rules: [{ key: 'GrantItem', item: clumsyFixtureId() }] },
+  [RuneFixture.Shifting]: weaponRune(),
+  [RuneFixture.Crushing]: weaponRune('bludgeoning'),
   [RuneFixture.EnergyResistant]: armorRune(),
   [RuneFixture.EnergyResistantGreater]: armorRune(),
   [RuneFixture.Shadow]: {
