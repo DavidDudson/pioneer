@@ -3,6 +3,9 @@
     <fr-stack gap="md">
       <fr-heading variant="subheading" [level]="2" [anchor]="anchor()">{{ heading() }}</fr-heading>
       <ng-content />
+      @if (opened() && body(); as body) {
+        <ng-container [ngTemplateOutlet]="body.template" />
+      }
     </fr-stack>
   </fr-surface>
 </section>

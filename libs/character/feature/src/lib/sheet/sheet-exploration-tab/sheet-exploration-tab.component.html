@@ -6,7 +6,9 @@
     [anchor]="sections.roleplay.anchor"
     [heading]="sections.roleplay.headingKey | transloco"
   >
-    <pio-sheet-roleplay-section />
+    <ng-template frSectionBody>
+      <pio-sheet-roleplay-section />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -14,7 +16,9 @@
     [anchor]="sections.explorationActivity.anchor"
     [heading]="sections.explorationActivity.headingKey | transloco"
   >
-    <pio-sheet-exploration-activity />
+    <ng-template frSectionBody>
+      <pio-sheet-exploration-activity />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -22,7 +26,9 @@
     [anchor]="sections.actions.anchor"
     [heading]="sections.actions.headingKey | transloco"
   >
-    <pio-sheet-actions [mode]="Mode" />
+    <ng-template frSectionBody>
+      <pio-sheet-actions [mode]="Mode" />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -30,12 +36,14 @@
     [anchor]="sections.deity.anchor"
     [heading]="sections.deity.headingKey | transloco"
   >
-    <fr-async-region>
-      <ng-template frAsyncPending><pio-deity loading /></ng-template>
-      <ng-template let-content [frAsyncData]="sheet.registry">
-        <pio-sheet-deity-section [field]="deity" [registry]="content" />
-      </ng-template>
-    </fr-async-region>
+    <ng-template frSectionBody>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-deity loading /></ng-template>
+        <ng-template let-content [frAsyncData]="sheet.registry">
+          <pio-sheet-deity-section [field]="deity" [registry]="content" />
+        </ng-template>
+      </fr-async-region>
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -43,7 +51,9 @@
     [anchor]="sections.languages.anchor"
     [heading]="sections.languages.headingKey | transloco"
   >
-    <pio-sheet-languages-section />
+    <ng-template frSectionBody>
+      <pio-sheet-languages-section />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -51,10 +61,12 @@
     [anchor]="sections.inventory.anchor"
     [heading]="sections.inventory.headingKey | transloco"
   >
-    <pio-inventory-section
-      [investments]="sheet.investments()"
-      [engine]="sheet.engineQuery()"
-      [melded]="sheet.melded()"
-    />
+    <ng-template frSectionBody>
+      <pio-inventory-section
+        [investments]="sheet.investments()"
+        [engine]="sheet.engineQuery()"
+        [melded]="sheet.melded()"
+      />
+    </ng-template>
   </fr-section>
 </fr-stack>
