@@ -22,6 +22,8 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import type { ContentLookup, EntryFacts, GrantEntry, Replacement } from './grant-entry';
+import { heldEntry, lazyEntry, lookupOf } from './held-entries';
+import type { HeldEntry } from './held-entries';
 import { replacementsOf } from './replacements';
 
 /**
@@ -272,28 +274,27 @@ function isHeldBack(
   return state.unsupported.has(contentPackId(pack.id)) || (legacy && !state.legacyContent);
 }
 
-function packEntries(pack: ContentPack, state: LookupState): GrantEntry[] {
+function heldEnvelope(entry: ContentEntry, pack: ContentPack, state: LookupState): HeldEntry | undefined {
+  const read = entry.sources.length > 0 && ENVELOPE_KINDS.has(entry.kind);
+  return read ? lazyEntry(entry.id, entry.kind, () => envelopeEntry(entry, pack, state)) : undefined;
+}
+
+function packEntries(pack: ContentPack, state: LookupState): HeldEntry[] {
   return [
-    ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each, state) ?? []),
-    ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []),
-    ...pack.otherEntries.flatMap((each) => envelopeEntry(each, pack, state) ?? []),
+    ...pack.ancestries.flatMap((each) => ancestryEntry(pack, each, state) ?? []).map((each) => heldEntry(each)),
+    ...pack.variantRules.flatMap((each) => variantEntry(pack, each) ?? []).map((each) => heldEntry(each)),
+    ...pack.otherEntries.flatMap((each) => heldEnvelope(each, pack, state) ?? []),
   ];
 }
 
 /**
  * The registry's content as grants read it: ancestries, heritages, backgrounds and classes, the kinds a character
  * picks in its root slots, the class features and feats they grant, and carried items. Other kinds join as the
- * registry holds them. Built once per registry; lookups are by id and by kind. Legacy entries are held back as
- * unsupported unless `legacyContent` says the character has them on.
+ * registry holds them. Built once per registry; lookups are by id and by kind, and an envelope entry is converted when
+ * first read. Legacy entries are held back as unsupported unless `legacyContent` says the character has them on.
  */
 export function grantLookup(registry: ContentRegistry, legacyContent = false): ContentLookup {
   const unsupported = unsupportedPacksOf(registry);
   const state: LookupState = { unsupported, legacyContent, replacements: replacementsOf(registry, unsupported) };
-  const entries = registry.packs.flatMap((pack) => packEntries(pack, state));
-  const byId = new Map(entries.map((entry) => [entry.id, entry]));
-  const byKind = Map.groupBy(entries, (entry) => entry.kind);
-  return {
-    entry: (id: ContentId): GrantEntry | undefined => byId.get(id),
-    ofKind: (kind: ContentKind): readonly GrantEntry[] => byKind.get(kind) ?? [],
-  };
+  return lookupOf(registry.packs.flatMap((pack) => packEntries(pack, state)));
 }
