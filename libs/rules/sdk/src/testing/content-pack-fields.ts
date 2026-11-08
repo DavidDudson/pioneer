@@ -1,4 +1,4 @@
-import type { ConditionRecovery } from '../condition';
+import type { ConditionEnding } from '../condition';
 import type { RichText } from '../rich-text';
 
 /** A deity's `data` as tests give it: any field left out is empty, and the category is `deity`. */
@@ -24,7 +24,7 @@ export interface ConditionFields {
   /** Whether it carries a value (Clumsy 1). */
   readonly valued?: boolean;
   /** How it recovers, by trigger (Fatigued is removed by Rest). */
-  readonly recovery?: ConditionRecovery;
+  readonly recovery?: readonly ConditionEnding[];
 }
 
 /** What a test action has beyond its cost. */

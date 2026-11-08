@@ -1,5 +1,6 @@
-import { ConditionEffect, ConditionValue, HitPoints } from '@pioneer/rules/sdk';
+import { HitPoints } from '@pioneer/rules/sdk';
 
+import { easeCondition } from './condition-ease';
 import type { ActiveCondition } from './conditions';
 import { Boundary } from './counted-resources';
 import type { CountedMaximum, SlotCountKey, UseCountKey } from './counted-resources';
@@ -71,12 +72,12 @@ interface EasedCondition {
 
 /** One condition after Rest: gone if the content removes it, a point lower if it lowers it (gone at 0), else as it was. */
 function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions): EasedCondition {
-  const effect = recovery.get(condition.condition);
-  if (effect === undefined) {
+  const change = recovery.get(condition.condition);
+  if (change === undefined) {
     return { kept: [condition], change: undefined };
   }
-  const value = condition.value ?? ConditionValue.parse(1);
-  if (effect === ConditionEffect.Remove || value <= 1) {
+  const eased = easeCondition(condition, change);
+  if (eased.ended) {
     return {
       kept: [],
       change: {
@@ -85,7 +86,7 @@ function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions
       },
     };
   }
-  const lowered = ConditionValue.parse(value - 1);
+  const lowered = eased.value;
   return {
     kept: [{ ...condition, value: lowered }],
     change: {
@@ -96,7 +97,7 @@ function easedCondition(condition: ActiveCondition, recovery: RecoveryConditions
   };
 }
 
-/** Rest removes or lowers by 1 each condition the content eases on Rest. */
+/** Rest removes or lowers each condition the content eases on Rest. */
 function withConditionsEased<Play extends RestPlay>(
   outcome: RestOutcome<Play>,
   { recovery }: RestLimits,

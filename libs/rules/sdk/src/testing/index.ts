@@ -4,6 +4,7 @@
  */
 export { ContentPackBuilder } from './content-pack-builder';
 export type { MagicItemFields } from './content-pack-fields';
+export { automaticEnding } from './condition-endings';
 export { fixedContent } from './fixed-content';
 export { installRulesFakes } from './fakes';
 export {

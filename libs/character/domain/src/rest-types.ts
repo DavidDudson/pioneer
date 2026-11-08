@@ -1,5 +1,5 @@
 import { ChoiceValue, SlotKey } from '@pioneer/rules/sdk';
-import type { ConditionEffect, ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
+import type { ConditionChange, ConditionValue, ContentId, HitPoints } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -106,8 +106,8 @@ export type RestChange =
       readonly key: SlotCountKey;
     };
 
-/** What Rest does to each condition the content says it eases, by id: remove it, or lower it by 1. None without content. */
-export type RecoveryConditions = ReadonlyMap<ContentId, ConditionEffect>;
+/** What Rest does to each condition the content says it eases, by id: remove it, or lower it. None without content. */
+export type RecoveryConditions = ReadonlyMap<ContentId, ConditionChange>;
 
 /** What a restoring action reads besides the play state. */
 export interface RestLimits {

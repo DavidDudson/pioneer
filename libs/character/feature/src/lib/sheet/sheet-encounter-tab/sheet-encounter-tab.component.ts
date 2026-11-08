@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode, TurnPhase } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Section, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Section, SectionBody, Stack } from '@pioneer/frontier';
 import { ActionMode, SpellPreparation } from '@pioneer/rules/sdk';
 import { DefencesView, ENTRY_PREVIEWS, SensesView, SpellcastingView, StrikesView } from '@pioneer/rules/ui';
 import type { EntryPreviews, NamedStrike } from '@pioneer/rules/ui';
@@ -35,6 +35,7 @@ import { SheetTurnPanel } from '../sheet-turn-panel/sheet-turn-panel.component';
     DefencesView,
     SensesView,
     Section,
+    SectionBody,
     SheetCastItems,
     SheetSpells,
     SheetSpendLog,

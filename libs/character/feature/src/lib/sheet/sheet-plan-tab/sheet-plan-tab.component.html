@@ -36,80 +36,82 @@
         [anchor]="sections.identity.anchor"
         [heading]="sections.identity.headingKey | transloco"
       >
-        <fr-stack gap="lg">
-          <fr-stack gap="sm">
-            <fr-heading variant="subheading" [level]="3">{{
-              'character.sheet.identityGroup.character' | transloco
-            }}</fr-heading>
-            <fr-grid [columns]="3">
-              <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
-                <fr-text-input
-                  frInlineEditor
-                  [ariaLabel]="'character.sheet.name' | transloco"
-                  [value]="name.draft()"
-                  (valueChange)="name.change($event)"
-                  (committed)="name.flushSoon()"
-                  (cancelled)="name.cancel()"
-                />
-              </fr-inline-field>
-            </fr-grid>
+        <ng-template frSectionBody>
+          <fr-stack gap="lg">
+            <fr-stack gap="sm">
+              <fr-heading variant="subheading" [level]="3">{{
+                'character.sheet.identityGroup.character' | transloco
+              }}</fr-heading>
+              <fr-grid [columns]="3">
+                <fr-inline-field [label]="'character.sheet.name' | transloco" [edit]="name">
+                  <fr-text-input
+                    frInlineEditor
+                    [ariaLabel]="'character.sheet.name' | transloco"
+                    [value]="name.draft()"
+                    (valueChange)="name.change($event)"
+                    (committed)="name.flushSoon()"
+                    (cancelled)="name.cancel()"
+                  />
+                </fr-inline-field>
+              </fr-grid>
+            </fr-stack>
+            <fr-stack gap="sm">
+              <fr-heading variant="subheading" [level]="3">{{
+                'character.sheet.identityGroup.origin' | transloco
+              }}</fr-heading>
+              <fr-grid [columns]="3">
+                <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
+                  <pio-ancestry-picker
+                    frInlineEditor
+                    [rows]="origins.ancestries()"
+                    [loading]="origins.loading()"
+                    [ariaLabel]="'character.sheet.ancestry' | transloco"
+                    [placeholder]="'character.sheet.ancestryPlaceholder' | transloco"
+                    [value]="ancestry.draft()"
+                    (valueChange)="ancestry.change($event)"
+                    (committed)="ancestry.flushSoon()"
+                    (cancelled)="ancestry.cancel()"
+                  />
+                </fr-inline-field>
+                <fr-inline-field #heritageField [label]="'character.sheet.heritage' | transloco" [edit]="heritage">
+                  <pio-heritage-picker
+                    frInlineEditor
+                    [rows]="origins.heritages()"
+                    [loading]="origins.loading()"
+                    [ariaLabel]="'character.sheet.heritage' | transloco"
+                    [placeholder]="'character.sheet.heritagePlaceholder' | transloco"
+                    [value]="heritage.draft()"
+                    (valueChange)="heritage.change($event)"
+                    (committed)="heritage.flushSoon()"
+                    (cancelled)="heritage.cancel()"
+                  />
+                </fr-inline-field>
+                <fr-inline-field [label]="'character.sheet.background' | transloco" [edit]="background">
+                  <pio-background-picker
+                    frInlineEditor
+                    [rows]="origins.backgrounds()"
+                    [loading]="origins.loading()"
+                    [ariaLabel]="'character.sheet.background' | transloco"
+                    [placeholder]="'character.sheet.backgroundPlaceholder' | transloco"
+                    [value]="background.draft()"
+                    (valueChange)="background.change($event)"
+                    (committed)="background.flushSoon()"
+                    (cancelled)="background.cancel()"
+                  />
+                </fr-inline-field>
+              </fr-grid>
+            </fr-stack>
+            <fr-stack gap="sm">
+              <fr-heading variant="subheading" [level]="3">{{
+                'character.sheet.identityGroup.class' | transloco
+              }}</fr-heading>
+              <pio-sheet-class-fields [picks]="picks" [classField]="characterClass" />
+              @if (picks.hasSecondClass()) {
+                <pio-sheet-class-fields [picks]="picks" [classField]="secondClass" [second]="true" />
+              }
+            </fr-stack>
           </fr-stack>
-          <fr-stack gap="sm">
-            <fr-heading variant="subheading" [level]="3">{{
-              'character.sheet.identityGroup.origin' | transloco
-            }}</fr-heading>
-            <fr-grid [columns]="3">
-              <fr-inline-field [label]="'character.sheet.ancestry' | transloco" [edit]="ancestry">
-                <pio-ancestry-picker
-                  frInlineEditor
-                  [rows]="origins.ancestries()"
-                  [loading]="origins.loading()"
-                  [ariaLabel]="'character.sheet.ancestry' | transloco"
-                  [placeholder]="'character.sheet.ancestryPlaceholder' | transloco"
-                  [value]="ancestry.draft()"
-                  (valueChange)="ancestry.change($event)"
-                  (committed)="ancestry.flushSoon()"
-                  (cancelled)="ancestry.cancel()"
-                />
-              </fr-inline-field>
-              <fr-inline-field #heritageField [label]="'character.sheet.heritage' | transloco" [edit]="heritage">
-                <pio-heritage-picker
-                  frInlineEditor
-                  [rows]="origins.heritages()"
-                  [loading]="origins.loading()"
-                  [ariaLabel]="'character.sheet.heritage' | transloco"
-                  [placeholder]="'character.sheet.heritagePlaceholder' | transloco"
-                  [value]="heritage.draft()"
-                  (valueChange)="heritage.change($event)"
-                  (committed)="heritage.flushSoon()"
-                  (cancelled)="heritage.cancel()"
-                />
-              </fr-inline-field>
-              <fr-inline-field [label]="'character.sheet.background' | transloco" [edit]="background">
-                <pio-background-picker
-                  frInlineEditor
-                  [rows]="origins.backgrounds()"
-                  [loading]="origins.loading()"
-                  [ariaLabel]="'character.sheet.background' | transloco"
-                  [placeholder]="'character.sheet.backgroundPlaceholder' | transloco"
-                  [value]="background.draft()"
-                  (valueChange)="background.change($event)"
-                  (committed)="background.flushSoon()"
-                  (cancelled)="background.cancel()"
-                />
-              </fr-inline-field>
-            </fr-grid>
-          </fr-stack>
-          <fr-stack gap="sm">
-            <fr-heading variant="subheading" [level]="3">{{
-              'character.sheet.identityGroup.class' | transloco
-            }}</fr-heading>
-            <pio-sheet-class-fields [picks]="picks" [classField]="characterClass" />
-            @if (picks.hasSecondClass()) {
-              <pio-sheet-class-fields [picks]="picks" [classField]="secondClass" [second]="true" />
-            }
-          </fr-stack>
-        </fr-stack>
+        </ng-template>
       </fr-section>
 
       <fr-section
@@ -117,12 +119,14 @@
         [anchor]="sections.attributes.anchor"
         [heading]="sections.attributes.headingKey | transloco"
       >
-        <fr-async-region>
-          <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
-          <ng-template [frAsyncData]="registry">
-            <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
-          </ng-template>
-        </fr-async-region>
+        <ng-template frSectionBody>
+          <fr-async-region>
+            <ng-template frAsyncPending><pio-attributes [modifiers]="undefined" /></ng-template>
+            <ng-template [frAsyncData]="registry">
+              <pio-attributes [modifiers]="picks.attributes()?.modifiers" [open]="picks.attributes()?.open ?? []" />
+            </ng-template>
+          </fr-async-region>
+        </ng-template>
       </fr-section>
 
       @if (plannedLevel(); as planned) {

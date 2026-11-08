@@ -56,7 +56,7 @@ const CONTENT: EffectContent = new Map<ContentId, EffectTerms>([
 const INPUTS: EndTurnInputs = {
   limits: { ...within(MAX), effects: CONTENT },
   defences: NO_DEFENCES,
-  recovery: new Map([[FRIGHTENED, ConditionEffect.Lower]]),
+  recovery: new Map([[FRIGHTENED, { effect: ConditionEffect.Lower }]]),
 };
 
 const burning = (assisted = false, id = 1): ActiveCondition => ({
@@ -161,6 +161,17 @@ describe('endTurn: the rest of the end of the turn', () => {
     const { play, events } = finish(playing({ conditions: [frightened(1)] }), faces(1));
     expect(play.conditions).toEqual([]);
     expect(events).toMatchObject([{ kind: TurnEventKind.ConditionEnded }]);
+  });
+
+  test('frightened 3 is lowered at each turn end and is gone after the third', () => {
+    const first = finish(playing({ conditions: [frightened(3)] }), faces(1)).play;
+    const second = finish(playing({ conditions: first.conditions }), faces(1)).play;
+    const third = finish(playing({ conditions: second.conditions }), faces(1)).play;
+    expect([first, second, third].map(({ conditions }) => conditions[0]?.value)).toEqual([
+      ConditionValue.parse(2),
+      ConditionValue.parse(1),
+      undefined,
+    ]);
   });
 
   test('persistent damage comes first, then frightened, then expiries', () => {

@@ -20,13 +20,13 @@ import {
 
 describe('translateKindData: condition values', () => {
   test('valued, and group when Foundry sets one', () => {
-    expect(dataOf([FRIGHTENED], 'frightened')).toEqual({ valued: true, overrides: [], implies: [], recovery: {} });
+    expect(dataOf([FRIGHTENED], 'frightened')).toEqual({ valued: true, overrides: [], implies: [], recovery: [] });
     expect(dataOf([DAZZLED], 'dazzled')).toEqual({
       valued: false,
       group: 'senses',
       overrides: [],
       implies: [],
-      recovery: {},
+      recovery: [],
     });
   });
 
@@ -46,13 +46,29 @@ describe('translateKindData: condition values', () => {
       valued: false,
       overrides: [],
       implies: [],
-      recovery: {},
+      recovery: [],
     });
     expect(gapsOf(translation)).toContainEqual({
       reason: KindDataGapReason.UnmappedValue,
       field: 'group',
       raw: 'moods',
     });
+  });
+
+  test('how a condition ends is in its description prose, so the description is reported against recovery', () => {
+    const prose = '<p>The value decreases by 1 at the end of each of your turns.</p>';
+    const translation = translate([condition('qqqqqqqqqqqqqqqq', 'Odd', { description: { value: prose } })]);
+
+    expect(gapsOf(translation)).toContainEqual({
+      reason: KindDataGapReason.UnmappedField,
+      field: 'recovery',
+      raw: prose,
+    });
+    expect(entryOf(translation, 'odd')?.kindData?.data).toMatchObject({ recovery: [] });
+  });
+
+  test('a condition without a description reports no recovery gap', () => {
+    expect(gapsOf(translate([FRIGHTENED])).map(({ field }) => field)).not.toContain('recovery');
   });
 
   test('overrides resolve condition slugs to ids, or are reported', () => {

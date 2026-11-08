@@ -5,13 +5,14 @@ import {
   AttributeModifier,
   AttributeModifiers,
   ConditionEffect,
+  ConditionTrigger,
   ContentId,
   ContentKind,
   ContentRegistry,
   HitPoints,
   Level,
 } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { automaticEnding, ContentPackBuilder } from '@pioneer/rules/sdk/testing';
 
 import { restHealing, restRecovery } from './rest-limits';
 
@@ -34,8 +35,13 @@ describe('restHealing', () => {
 
 describe('restRecovery', () => {
   const pack = new ContentPackBuilder()
-    .withCondition('fatigued', [], { recovery: { rest: ConditionEffect.Remove } })
-    .withCondition('drained', [], { valued: true, recovery: { rest: ConditionEffect.Lower } })
+    .withCondition('fatigued', [], {
+      recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Remove })],
+    })
+    .withCondition('drained', [], {
+      valued: true,
+      recovery: [automaticEnding(ConditionTrigger.Rest, { effect: ConditionEffect.Lower })],
+    })
     .withCondition('blinded');
   const registry = new ContentRegistry();
   registry.register(pack.build());
@@ -45,8 +51,8 @@ describe('restRecovery', () => {
   test('maps each condition the content eases on Rest to what Rest does to it', () => {
     expect(restRecovery(registry)).toEqual(
       new Map([
-        [fatigued, ConditionEffect.Remove],
-        [drained, ConditionEffect.Lower],
+        [fatigued, { effect: ConditionEffect.Remove }],
+        [drained, { effect: ConditionEffect.Lower }],
       ]),
     );
   });

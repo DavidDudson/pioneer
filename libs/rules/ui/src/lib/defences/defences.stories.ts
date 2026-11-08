@@ -68,6 +68,7 @@ export const Conditional: DefencesStory = {
       immunities: [immunity(RAGE, 'mental', WHILE_RAGING)],
       weaknesses: [],
       resistances: [adjustment(DWARF, 'cold', { value: 2, status: IN_DARKNESS })],
+      criticalHitChecks: [],
     },
   },
 };

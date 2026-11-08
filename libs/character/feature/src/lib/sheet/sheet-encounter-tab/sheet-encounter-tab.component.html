@@ -9,15 +9,17 @@
     [anchor]="sections.defences.anchor"
     [heading]="sections.defences.headingKey | transloco"
   >
-    <fr-async-region>
-      <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
-      <ng-template [frAsyncData]="sheet.registry"
-        ><pio-defences
-          [defences]="picks.defences()"
-          [entryNames]="picks.entryNames()"
-          [originNames]="sheet.originNames()"
-      /></ng-template>
-    </fr-async-region>
+    <ng-template frSectionBody>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-defences [defences]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.registry"
+          ><pio-defences
+            [defences]="picks.defences()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
+        /></ng-template>
+      </fr-async-region>
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -25,15 +27,17 @@
     [anchor]="sections.senses.anchor"
     [heading]="sections.senses.headingKey | transloco"
   >
-    <fr-async-region>
-      <ng-template frAsyncPending><pio-senses [senses]="undefined" /></ng-template>
-      <ng-template [frAsyncData]="sheet.engineQuery()"
-        ><pio-senses
-          [senses]="picks.senses()?.senses"
-          [own]="picks.senses()?.own ?? []"
-          [entryNames]="picks.entryNames()"
-      /></ng-template>
-    </fr-async-region>
+    <ng-template frSectionBody>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-senses [senses]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()"
+          ><pio-senses
+            [senses]="picks.senses()?.senses"
+            [own]="picks.senses()?.own ?? []"
+            [entryNames]="picks.entryNames()"
+        /></ng-template>
+      </fr-async-region>
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -41,20 +45,22 @@
     [anchor]="sections.strikes.anchor"
     [heading]="sections.strikes.headingKey | transloco"
   >
-    <fr-async-region>
-      <ng-template frAsyncPending><pio-strikes [strikes]="undefined" /></ng-template>
-      <ng-template [frAsyncData]="sheet.engineQuery()"
-        ><pio-strikes
-          [strikes]="strikes()"
-          [attacksMade]="attacksMade()"
-          [shields]="picks.shields()"
-          [suppressed]="picks.suppressedStrikes()"
-          [entryNames]="picks.entryNames()"
-          [originNames]="sheet.originNames()"
-      /></ng-template>
-    </fr-async-region>
-    <pio-sheet-shields />
-    <pio-sheet-consumables />
+    <ng-template frSectionBody>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-strikes [strikes]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.engineQuery()"
+          ><pio-strikes
+            [strikes]="strikes()"
+            [attacksMade]="attacksMade()"
+            [shields]="picks.shields()"
+            [suppressed]="picks.suppressedStrikes()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
+        /></ng-template>
+      </fr-async-region>
+      <pio-sheet-shields />
+      <pio-sheet-consumables />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -62,7 +68,9 @@
     [anchor]="sections.actions.anchor"
     [heading]="sections.actions.headingKey | transloco"
   >
-    <pio-sheet-actions [mode]="Mode" />
+    <ng-template frSectionBody>
+      <pio-sheet-actions [mode]="Mode" />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -70,16 +78,18 @@
     [anchor]="sections.spellcasting.anchor"
     [heading]="sections.spellcasting.headingKey | transloco"
   >
-    <fr-async-region>
-      <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
-      <ng-template [frAsyncData]="sheet.registry"
-        ><pio-spellcasting
-          [entries]="picks.spellcasting()"
-          [entryNames]="picks.entryNames()"
-          [originNames]="sheet.originNames()"
-      /></ng-template>
-    </fr-async-region>
-    <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
-    <pio-sheet-cast-items />
+    <ng-template frSectionBody>
+      <fr-async-region>
+        <ng-template frAsyncPending><pio-spellcasting [entries]="undefined" /></ng-template>
+        <ng-template [frAsyncData]="sheet.registry"
+          ><pio-spellcasting
+            [entries]="picks.spellcasting()"
+            [entryNames]="picks.entryNames()"
+            [originNames]="sheet.originNames()"
+        /></ng-template>
+      </fr-async-region>
+      <pio-sheet-spells [casts]="casts()" [focuses]="focuses()" />
+      <pio-sheet-cast-items />
+    </ng-template>
   </fr-section>
 </fr-stack>

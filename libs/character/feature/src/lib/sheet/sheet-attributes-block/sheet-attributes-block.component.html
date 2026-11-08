@@ -1,9 +1,14 @@
 @for (group of groups; track group[0]) {
   <fr-surface padding="xs">
     <fr-async-region>
-      <ng-template frAsyncPending><pio-attribute-rolls [modifiers]="undefined" [attributes]="group" /></ng-template>
+      <ng-template frAsyncPending><pio-attribute-rolls [statistics]="undefined" [attributes]="group" /></ng-template>
       <ng-template [frAsyncData]="sheet.registry">
-        <pio-attribute-rolls [modifiers]="picks.attributes()?.modifiers" [attributes]="group" (rolled)="roll($event)" />
+        <pio-attribute-rolls
+          [statistics]="sheet.attributeChecks()"
+          [attributes]="group"
+          [entryNames]="picks.entryNames()"
+          [originNames]="sheet.originNames()"
+        />
       </ng-template>
     </fr-async-region>
   </fr-surface>

@@ -906,7 +906,11 @@
       "fromForm": "from {form}",
       "appliesWhen": "Applies when {summary}.",
       "failedConditional": "{error} It applies only in some situations.",
-      "supersededBy": "{name} counts instead."
+      "supersededBy": "{name} counts instead.",
+      "criticalHitChecks": "Critical hit checks",
+      "criticalHitCheck": "When you are critically hit, attempt a DC {dc} flat check. On a success, it becomes a normal hit.",
+      "criticalHitCheckRoll": "Roll the DC {dc} flat check",
+      "criticalHitCheckName": "Critical hit flat check"
     },
     "breakdown": {
       "base": "Base {value}",
@@ -1438,7 +1442,8 @@
     },
     "vitals": {
       "unarmored": "Unarmored",
-      "proficiency": "Proficiency"
+      "proficiency": "Proficiency",
+      "luck": "Luck"
     },
     "form": {
       "active": "In form: {name}",

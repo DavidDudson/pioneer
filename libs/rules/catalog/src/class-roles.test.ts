@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ClassRole, ContentKind, ContentRegistry, isLegacyLicense } from '@pioneer/rules/sdk';
+import { ClassRole, ContentKind, ContentRegistry } from '@pioneer/rules/sdk';
 
 import { contentCatalog } from './index';
 
@@ -8,9 +8,7 @@ import { contentCatalog } from './index';
 
 const registry = new ContentRegistry();
 await Promise.all(contentCatalog.map(async (loader) => registry.load(loader)));
-/** Legacy packs are imported unreviewed and held back until legacy content is on, so they name no roles. */
 const classes = registry.packs
-  .filter((pack) => !isLegacyLicense(pack.manifest.license))
   .flatMap((pack) => pack.otherEntries)
   .flatMap((entry) => (entry.kind === ContentKind.Class ? [entry] : []));
 

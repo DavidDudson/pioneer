@@ -44,3 +44,19 @@ describe('withPolymorphTraits: effects of polymorph feats', () => {
     expect(traitsOf(translate([GIANTS_STATURE, spellEffect]), 'spell-effect-giants-stature')).toEqual([]);
   });
 });
+
+describe('withPolymorphTraits: spells committed in the pack', () => {
+  const humanoid = spellEffectOf('9mHwG1tEhU8oLq0b', 'Spell Effect: Humanoid Form');
+
+  test('an effect takes the trait from a committed polymorph spell the import does not hold', () => {
+    const forms = translate([humanoid], { polymorph: [{ type: 'spell', name: 'Humanoid Form' }] });
+
+    expect(traitsOf(forms, 'spell-effect-humanoid-form')).toEqual([POLYMORPH]);
+  });
+
+  test('a committed feat does not give its trait to a Spell Effect of the same name', () => {
+    const forms = translate([humanoid], { polymorph: [{ type: 'feat', name: 'Humanoid Form' }] });
+
+    expect(traitsOf(forms, 'spell-effect-humanoid-form')).toEqual([]);
+  });
+});

@@ -1,4 +1,4 @@
-export { AttributeRolls, type AttributeRoll } from './lib/attribute-rolls/attribute-rolls.component';
+export { AttributeRolls } from './lib/attribute-rolls/attribute-rolls.component';
 export { AttributesView, type OpenBoostLine } from './lib/attributes/attributes.component';
 export { ATTRIBUTE_MESSAGES } from './lib/attributes/attributes-messages';
 export { BreakdownView } from './lib/breakdown/breakdown.component';
@@ -7,8 +7,13 @@ export { numberStyle } from './lib/breakdown/number-style';
 export { OriginChainView } from './lib/origin-chain/origin-chain.component';
 export { NO_ORIGIN_NAMES, type OriginNames } from './lib/origin-chain/origin-names';
 export { ArmorClass } from './lib/armor-class/armor-class.component';
+export {
+  CriticalHitChecks,
+  type CriticalHitRoll,
+} from './lib/defences/critical-hit-checks/critical-hit-checks.component';
 export { DefenceIcons } from './lib/defences/defence-icons/defence-icons.component';
 export { DefenceKind } from './lib/defences/defence-kind';
+export { DefencesMessage } from './lib/defences/defences-messages';
 export { DefencesView } from './lib/defences/defences.component';
 export { SenseIcons } from './lib/senses/sense-icons/sense-icons.component';
 export { SensesView } from './lib/senses/senses.component';

@@ -1,68 +1,57 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Button, ButtonVariant, LocaleFormat, Size, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { Attribute } from '@pioneer/rules/sdk';
-import type { AttributeModifier, AttributeModifiers } from '@pioneer/rules/sdk';
+import { Skeleton, Stack, Text } from '@pioneer/frontier';
+import type { StatisticValue } from '@pioneer/rules/engine';
+import { Attribute, StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId } from '@pioneer/rules/sdk';
 
 import { ATTRIBUTE_MESSAGES, ATTRIBUTE_SHORT_MESSAGES } from '../attributes/attributes-messages';
-import { StatisticsMessage } from '../statistics/statistics-messages';
+import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
+import type { OriginNames } from '../origin-chain/origin-names';
+import { StatisticRoll } from '../statistics/statistic-roll/statistic-roll.component';
 
-/** A flat check asked for: the attribute's message key, and the modifier added to the d20. */
-export interface AttributeRoll {
-  readonly name: string;
-  readonly modifier: AttributeModifier;
-}
-
-/** One row: the attribute's name key and its modifier, unset while the modifiers load. */
+/** One row: the attribute's name key and its check, unset while the statistics load. */
 interface AttributeRow {
   readonly attribute: Attribute;
   readonly name: string;
   readonly shortName: string;
-  readonly modifier: AttributeModifier | undefined;
-  readonly label: string;
+  readonly statistic: StatisticValue | undefined;
 }
 
-/** A modifier always shows its sign, `+0` included. */
-const SIGNED: Intl.NumberFormatOptions = { signDisplay: 'always' };
-
 /**
- * The attributes (six unless `attributes` narrows them) as rows, each its name on the left and its modifier on the right as a button that asks for a
- * flat check: a d20 plus that modifier. Presentational (ADR-0028): the page rolls the dice, this only says which
- * attribute was pressed.
+ * The attributes (six unless `attributes` narrows them) as rows, each its name on the left and its check on the right
+ * as a roll button: a d20 plus the attribute's modifier, coloured and marked like any other roll by what the character
+ * has that reaches it (a bonus or penalty, fortune or misfortune, a shifted degree of success, a conditional line).
+ * The page rolls the dice through `STATISTIC_ROLLER` (ADR-0028); this only lists them.
  *
  * ```html
- * <pio-attribute-rolls [modifiers]="modifiers()" (rolled)="roll($event)" />
+ * <pio-attribute-rolls [statistics]="checks()" />
  * ```
  */
 @Component({
   selector: 'pio-attribute-rolls',
-  imports: [Button, Skeleton, Stack, Text, TranslocoPipe],
+  imports: [Skeleton, Stack, StatisticRoll, Text, TranslocoPipe],
   templateUrl: './attribute-rolls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AttributeRolls {
-  /** The modifiers the boosts give, or undefined while they load. */
-  public readonly modifiers = input<AttributeModifiers | undefined>();
+  /** Each attribute's check as the engine derived it, or undefined while the statistics load. */
+  public readonly statistics = input<ReadonlyMap<Attribute, StatisticValue> | undefined>();
   /** Which attributes to list, in this order; all six by default. */
   public readonly attributes = input<readonly Attribute[]>(Object.values(Attribute));
-  /** An attribute's flat check was asked for. */
-  public readonly rolled = output<AttributeRoll>();
+  /** Display names of the entries the breakdown lines come from. */
+  public readonly entryNames = input<ReadonlyMap<ContentId, string>>(new Map());
+  /** Names for what the breakdown lines' origin chains refer to beyond entries. */
+  public readonly originNames = input<OriginNames>(NO_ORIGIN_NAMES);
 
-  readonly #format = inject(LocaleFormat);
-  protected readonly Message = StatisticsMessage;
-  protected readonly outline = ButtonVariant.OutlineSubtle;
-  protected readonly small = Size.Sm;
+  protected readonly Check = StatisticKind.Check;
   protected readonly rows = computed((): readonly AttributeRow[] => {
-    const modifiers = this.modifiers();
-    return this.attributes().map((attribute) => {
-      const modifier = modifiers?.get(attribute);
-      return {
-        attribute,
-        name: ATTRIBUTE_MESSAGES[attribute],
-        shortName: ATTRIBUTE_SHORT_MESSAGES[attribute],
-        modifier,
-        label: modifier === undefined ? '' : this.#format.number(modifier, SIGNED),
-      };
-    });
+    const statistics = this.statistics();
+    return this.attributes().map((attribute) => ({
+      attribute,
+      name: ATTRIBUTE_MESSAGES[attribute],
+      shortName: ATTRIBUTE_SHORT_MESSAGES[attribute],
+      statistic: statistics?.get(attribute),
+    }));
   });
 }

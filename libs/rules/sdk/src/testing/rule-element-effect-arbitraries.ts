@@ -23,13 +23,13 @@ import {
 const feet = integer({ min: 0, max: SMALLINT_MAX });
 const damageType = anyOf(DamageType);
 
-export const fastHealing = element(
+const fastHealing = element(
   'FastHealing',
   { value: modifierValue },
   { type: anyOf(FastHealingType), deactivatedBy: uniqueArray(damageType, { minLength: 1, maxLength: LIST_MAX }) },
 );
-export const tempHp = element('TempHP', { value: modifierValue });
-export const creatureSize = element(
+const tempHp = element('TempHP', { value: modifierValue });
+const creatureSize = element(
   'CreatureSize',
   { value: oneof(anyOf(Size), integer({ min: -SIZE_STEPS_MAX, max: SIZE_STEPS_MAX })) },
   {
@@ -50,7 +50,7 @@ const formBracket = record(
   { start: integer({ min: 1, max: SPELL_RANK_MAX }), size: anyOf(Size) },
   { requiredKeys: ['start'] },
 );
-export const battleForm = element(
+const battleForm = element(
   'BattleForm',
   { form: formStatistics },
   { brackets: array(formBracket, { maxLength: LIST_MAX }) },
@@ -65,13 +65,13 @@ const adjustment: Arbitrary<object> = record(
   { requiredKeys: [] },
 ).filter((fields) => Object.keys(fields).length > 0);
 
-export const adjustDegreeOfSuccess = element(
+const adjustDegreeOfSuccess = element(
   'AdjustDegreeOfSuccess',
   { selectors: targets, adjustment },
   { checkType: anyOf(AdjustedCheck) },
 );
-export const rollTwice = element('RollTwice', { selectors: targets, keep: anyOf(RollKept) });
-export const substituteRoll = element('SubstituteRoll', {
+const rollTwice = element('RollTwice', { selectors: targets, keep: anyOf(RollKept) });
+const substituteRoll = element('SubstituteRoll', {
   selectors: targets,
   slug: slugText,
   value: integer({ min: 1, max: ROLL_MAX }),
@@ -82,7 +82,7 @@ const auraEffect = withOptional(record({ effect: uuid() }), {
   includesSelf: boolean(),
   events: uniqueArray(anyOf(AuraEvent), { minLength: 1, maxLength: LIST_MAX }),
 });
-export const aura = element(
+const aura = element(
   'Aura',
   { radius: oneof(feet, validFormulaText) },
   {
@@ -91,3 +91,22 @@ export const aura = element(
     effects: array(auraEffect, { maxLength: LIST_MAX }),
   },
 );
+
+const FLAT_DC_MAX = 20;
+const criticalHitCheck = element('CriticalHitCheck', {
+  selectors: targets,
+  dc: integer({ min: 1, max: FLAT_DC_MAX }),
+});
+
+/** The effect-group elements, for `ruleElementJson` to draw from. */
+export const effectElements: readonly Arbitrary<object>[] = [
+  fastHealing,
+  tempHp,
+  creatureSize,
+  battleForm,
+  adjustDegreeOfSuccess,
+  rollTwice,
+  substituteRoll,
+  aura,
+  criticalHitCheck,
+];

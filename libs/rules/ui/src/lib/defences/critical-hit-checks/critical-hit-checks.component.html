@@ -1,0 +1,15 @@
+<fr-stack gap="xs">
+  @for (check of active(); track $index) {
+    <fr-stack direction="horizontal" justify="between" align="center" gap="sm">
+      <fr-text>{{ Message.CriticalHitCheck | transloco: { dc: check.dc } }}</fr-text>
+      <fr-button
+        [variant]="outline"
+        [size]="small"
+        [ariaLabel]="Message.CriticalHitCheckRoll | transloco: { dc: check.dc }"
+        (pressed)="rolled.emit({ dc: check.dc })"
+      >
+        <fr-text monospace>{{ check.dc }}</fr-text>
+      </fr-button>
+    </fr-stack>
+  }
+</fr-stack>

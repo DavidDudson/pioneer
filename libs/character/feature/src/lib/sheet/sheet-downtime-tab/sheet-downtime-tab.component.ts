@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
-import { Section, Stack } from '@pioneer/frontier';
+import { Section, SectionBody, Stack } from '@pioneer/frontier';
 import { ActionMode } from '@pioneer/rules/sdk';
 
 import { SheetActions } from '../sheet-actions/sheet-actions.component';
@@ -17,7 +17,7 @@ import { Shop } from '../shop/shop.component';
  */
 @Component({
   selector: 'pio-sheet-downtime-tab',
-  imports: [SheetSectionTabs, SheetActions, Section, SheetRest, Shop, Stack, TranslocoPipe],
+  imports: [SheetSectionTabs, SheetActions, Section, SectionBody, SheetRest, Shop, Stack, TranslocoPipe],
   templateUrl: './sheet-downtime-tab.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

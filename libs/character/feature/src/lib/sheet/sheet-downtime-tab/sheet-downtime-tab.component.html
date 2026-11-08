@@ -6,7 +6,9 @@
     [anchor]="sections.rest.anchor"
     [heading]="sections.rest.headingKey | transloco"
   >
-    <pio-sheet-rest />
+    <ng-template frSectionBody>
+      <pio-sheet-rest />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -14,7 +16,9 @@
     [anchor]="sections.actions.anchor"
     [heading]="sections.actions.headingKey | transloco"
   >
-    <pio-sheet-actions [mode]="Mode" />
+    <ng-template frSectionBody>
+      <pio-sheet-actions [mode]="Mode" />
+    </ng-template>
   </fr-section>
 
   <fr-section
@@ -22,6 +26,8 @@
     [anchor]="sections.downtime.anchor"
     [heading]="sections.downtime.headingKey | transloco"
   >
-    <pio-shop />
+    <ng-template frSectionBody>
+      <pio-shop />
+    </ng-template>
   </fr-section>
 </fr-stack>

@@ -94,7 +94,14 @@ export { SPELL_RANK_MAX, SpellRank } from './spell-rank';
 export { uniqueItems } from './unique-items';
 export { MagicTradition, MagicTraditionSchema, SpellcastingTraditionData } from './spellcasting-tradition';
 export { FeatCategory, PrerequisiteClause, Take, UNLIMITED } from './feat';
-export { ConditionData, ConditionEffect, ConditionGroup, ConditionRecovery, ConditionTrigger } from './condition';
+export {
+  ConditionChange,
+  ConditionData,
+  ConditionEffect,
+  ConditionEnding,
+  ConditionGroup,
+  ConditionTrigger,
+} from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';
 export {
   EnvironmentConsequence,
@@ -443,6 +450,7 @@ export { LanguageAccess, LanguageCount, LanguageElement } from './rule-element-l
 export { ActorTraitsElement } from './rule-element-actor-traits';
 export { AdjustStrikeElement, StrikeElement, StrikeProperty } from './rule-element-strike';
 export { NoteElement } from './rule-element-note';
+export { CriticalHitCheckElement } from './rule-element-critical-hit-check';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
 export { criticalSpecializationOf } from './critical-specialization';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';

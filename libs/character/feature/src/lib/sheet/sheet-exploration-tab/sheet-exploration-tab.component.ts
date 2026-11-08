@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { DEITY_SLOT, SheetMode } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Section, Stack } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Section, SectionBody, Stack } from '@pioneer/frontier';
 import { ActionMode } from '@pioneer/rules/sdk';
 import { DeityView } from '@pioneer/rules/ui';
 
@@ -31,6 +31,7 @@ import { rememberTab } from '../sheet-tab';
     DeityView,
     InventorySection,
     Section,
+    SectionBody,
     SheetDeitySection,
     SheetExplorationActivity,
     SheetLanguagesSection,
