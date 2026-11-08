@@ -1,7 +1,7 @@
 import { characterStatistics, characterVitals, withPlay } from '@pioneer/character/domain';
 import type { ActiveEffect, Character } from '@pioneer/character/domain';
-import type { StatisticResult, VitalsInPlay } from '@pioneer/rules/engine';
-import { HitPoints, Selector } from '@pioneer/rules/sdk';
+import type { StatisticResult, StatisticValue, VitalsInPlay } from '@pioneer/rules/engine';
+import { Attribute, HitPoints, Selector } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
 
@@ -62,6 +62,23 @@ export function sheetStatistics(registry: ContentRegistry, character: Character)
     }
     return [{ name: entry.definition.name, kind: entry.definition.kind, result }];
   });
+}
+
+/**
+ * Each attribute's check (`attribute:str`) as the engine derives it for a character, so what reaches Strength-based
+ * rolls shows on its roll button. An attribute no registered pack defines a statistic for is left out.
+ */
+export function sheetAttributeChecks(
+  registry: ContentRegistry,
+  character: Character,
+): ReadonlyMap<Attribute, StatisticValue> {
+  const results = sheetDerivation(registry, character);
+  return new Map(
+    Object.values(Attribute).flatMap((attribute): [Attribute, StatisticValue][] => {
+      const result = results.get(Selector.parse(`attribute:${attribute}`));
+      return result?.ok === true ? [[attribute, result]] : [];
+    }),
+  );
 }
 
 /**

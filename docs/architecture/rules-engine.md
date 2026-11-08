@@ -55,6 +55,7 @@ these statistics in code rather than as items. So far it holds:
 | Will         | `save:will`                                              | `check` | `@attr.wis + @prof.save.will`                     | `check`, `saving-throw`, `wis-based`                         |
 | Perception   | `perception`                                             | `check` | `@attr.wis + @prof.perception`                    | `check`, `wis-based`                                         |
 | Skills       | `skill:<slug>`                                           | `check` | `@attr.<key> + @prof.skill.<slug>`                | `check`, `skill-check`, `<key>-based`                        |
+| Attributes   | `attribute:<key>`                                        | `check` | `@attr.<key>`                                     | `check`, `attribute-check`, `<key>-based`                    |
 | Hit Points   | `hp:max`                                                 | `value` | `@ancestry.hp + (@class.hp + @attr.con) * @level` | `hp`                                                         |
 | Speed        | `speed:land`                                             | `value` | `@ancestry.speed`                                 | `speed`, `all-speeds`, `land-speed`                          |
 | Other Speeds | `speed:fly`, `speed:swim`, `speed:climb`, `speed:burrow` | `value` | `0`                                               | `speed`, `all-speeds`, `<type>-speed`                        |
@@ -72,6 +73,7 @@ Domains use one vocabulary, following Foundry's names so imported selectors keep
 - `<attribute>-based` (`str-based` to `cha-based`): every statistic keyed to that attribute.
 - `saving-throw`: the three saves.
 - `skill-check`: the 16 skills and every Lore.
+- `attribute-check`: the six attribute checks, a flat d20 plus the modifier, so fortune and the like reach them.
 - `lore`: every Lore.
 - `hp`: maximum Hit Points.
 - `speed` and `all-speeds`: every Speed. `<type>-speed` (`land-speed`): one movement type, as in Foundry.

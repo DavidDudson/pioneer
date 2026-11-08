@@ -146,3 +146,43 @@ describe(StatisticRoll, () => {
     });
   });
 });
+
+interface Flat {
+  readonly fixture: ComponentFixture<StatisticRoll>;
+  readonly flats: number[];
+}
+
+async function renderFlat(kind: StatisticKind): Promise<Flat> {
+  const flats: number[] = [];
+  TestBed.configureTestingModule({
+    providers: [
+      provideRulesUiI18nTesting(),
+      {
+        provide: STATISTIC_ROLLER,
+        useValue: {
+          roll: (): undefined => undefined,
+          rollFlat: (_name: string, modifier: number): void => {
+            flats.push(modifier);
+          },
+        },
+      },
+    ],
+  });
+  const fixture = TestBed.createComponent(StatisticRoll);
+  fixture.componentRef.setInput('name', 'Class DC');
+  fixture.componentRef.setInput('kind', kind);
+  fixture.componentRef.setInput('flat', true);
+  fixture.componentRef.setInput('statistic', statistic('class-dc', { base: [term('25', 25)] }));
+  await fixture.whenStable();
+  return { fixture, flats };
+}
+
+describe('a flat roll', () => {
+  it('rolls one d20 plus the total of a DC', async () => {
+    const { fixture, flats } = await renderFlat(StatisticKind.Dc);
+    const button = (fixture.nativeElement as HTMLElement).querySelector('button');
+    expect(button?.textContent.trim()).toBe('+25');
+    button?.click();
+    expect(flats).toStrictEqual([25]);
+  });
+});

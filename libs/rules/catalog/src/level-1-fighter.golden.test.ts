@@ -170,6 +170,9 @@ function golden({ bonus, mark }: ProficiencyTable): Record<string, Checked> {
     // Strength damage on a melee or thrown weapon, whatever it attacks with.
     'strike-damage:longsword': statistic([attribute('str', '@weapon.damage')]),
     'strike-damage:javelin': statistic([attribute('str', '@weapon.damage')]),
+    ...Object.fromEntries(
+      (Object.keys(ATTRIBUTES) as AttributeSlug[]).map((key) => [`attribute:${key}`, statistic([attribute(key)])]),
+    ),
     'skill:acrobatics': skill('acrobatics', 'dex', Trained),
     'skill:arcana': skill('arcana', 'int', Untrained),
     'skill:athletics': skill('athletics', 'str', Trained),
@@ -229,6 +232,12 @@ describe('Level 1 Fighter (golden)', () => {
       'strike:javelin': 6,
       'strike-damage:longsword': 4,
       'strike-damage:javelin': 4,
+      'attribute:str': 4,
+      'attribute:dex': 1,
+      'attribute:con': 2,
+      'attribute:int': 0,
+      'attribute:wis': 1,
+      'attribute:cha': 1,
       'skill:acrobatics': 4,
       'skill:arcana': 0,
       'skill:athletics': 7,

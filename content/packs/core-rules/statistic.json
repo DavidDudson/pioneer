@@ -869,5 +869,149 @@
       "base": "4",
       "kind": "value"
     }
+  },
+  {
+    "id": "3385aede-145e-5f1a-b288-f082b231716a",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:strength",
+    "name": "Strength",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:str",
+      "domains": ["check", "attribute-check", "str-based"],
+      "base": "@attr.str",
+      "kind": "check",
+      "keyAttribute": "str"
+    }
+  },
+  {
+    "id": "8b205465-7a72-55c3-a43a-1a4199d7a75d",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:dexterity",
+    "name": "Dexterity",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:dex",
+      "domains": ["check", "attribute-check", "dex-based"],
+      "base": "@attr.dex",
+      "kind": "check",
+      "keyAttribute": "dex"
+    }
+  },
+  {
+    "id": "a413c878-282d-5983-b1ea-22fd32504f92",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:constitution",
+    "name": "Constitution",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:con",
+      "domains": ["check", "attribute-check", "con-based"],
+      "base": "@attr.con",
+      "kind": "check",
+      "keyAttribute": "con"
+    }
+  },
+  {
+    "id": "89a443d1-be5e-5d34-912d-c1b5876428f4",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:intelligence",
+    "name": "Intelligence",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:int",
+      "domains": ["check", "attribute-check", "int-based"],
+      "base": "@attr.int",
+      "kind": "check",
+      "keyAttribute": "int"
+    }
+  },
+  {
+    "id": "285f8bf1-ac63-5fee-9e5c-a63f75828c97",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:wisdom",
+    "name": "Wisdom",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:wis",
+      "domains": ["check", "attribute-check", "wis-based"],
+      "base": "@attr.wis",
+      "kind": "check",
+      "keyAttribute": "wis"
+    }
+  },
+  {
+    "id": "dad5a1ba-d088-59dd-bdcc-a6845f884696",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:charisma",
+    "name": "Charisma",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "data": {
+      "selector": "attribute:cha",
+      "domains": ["check", "attribute-check", "cha-based"],
+      "base": "@attr.cha",
+      "kind": "check",
+      "keyAttribute": "cha"
+    }
   }
 ]

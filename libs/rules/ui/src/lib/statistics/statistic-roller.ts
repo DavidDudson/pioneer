@@ -14,6 +14,8 @@ export interface RollableStatistic {
  */
 export interface StatisticRoller {
   readonly roll: (rollable: RollableStatistic) => void;
+  /** Rolls one d20 plus `modifier` with no statistic behind it, for a DC or a value shown as a roll; unset where it cannot be. */
+  readonly rollFlat?: (name: string, modifier: number) => void;
   /** Claims the situation of a conditional line for the next roll of a statistic, or lets it go; unset where it cannot be. */
   readonly claim?: (selector: Selector, rule: RuleId, on: boolean) => void;
 }

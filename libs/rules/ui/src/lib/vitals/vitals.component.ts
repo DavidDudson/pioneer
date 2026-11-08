@@ -56,9 +56,13 @@ function groupOf({ statistic }: Vital): VitalGroup | undefined {
   return selector === CLASS_DC || selector.startsWith(SPELL_DC_PREFIX) ? VitalGroup.Dcs : undefined;
 }
 
-/** A vital as a skill-style row: its statistic with the rank the row shows as a badge, and what sets it as its note. */
-function rowOf({ statistic, rank }: Vital, rankNote?: string): NamedStatistic {
-  return { ...statistic, rank, rankNote };
+/**
+ * A vital as a skill-style row: its statistic with the rank the row shows as a badge, and what sets it as its note.
+ * A DC rolls as one d20 plus its total.
+ */
+function rowOf(vital: Vital, rankNote?: string): NamedStatistic {
+  const { statistic, rank } = vital;
+  return { ...statistic, rank, rankNote, flat: groupOf(vital) === VitalGroup.Dcs };
 }
 
 function tileOf({ statistic }: Vital): VitalTile {
@@ -149,7 +153,9 @@ export class VitalsView {
       overrides: [],
       pinnedBy: undefined,
     };
-    return [{ name: this.#i18n.translate(VitalsMessage.Proficiency), kind: StatisticKind.Value, result: shown }];
+    return [
+      { name: this.#i18n.translate(VitalsMessage.Proficiency), kind: StatisticKind.Value, result: shown, flat: true },
+    ];
   }
 
   /** What sets Armor Class, worded: the worn armour's name, or unarmored. Other vitals have none. */
