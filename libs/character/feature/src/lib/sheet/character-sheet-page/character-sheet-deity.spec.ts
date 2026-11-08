@@ -7,7 +7,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { openPickerTable } from '../../testing/feat-table-testing';
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'deity');
 
 const SARENRAE = contentId(PackId.parse('divine-mysteries'), EntrySlug.parse('deity:sarenrae'));
 

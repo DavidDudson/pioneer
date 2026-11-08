@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'inventory');
 
 const COMB = '4f0c2a1e-6b1d-4c1a-8f3e-2d9a7b5c1e01';
 

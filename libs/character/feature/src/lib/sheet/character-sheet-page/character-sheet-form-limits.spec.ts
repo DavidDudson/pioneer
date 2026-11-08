@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { CHARACTER_CONTENT_KINDS } from '../../data/content-registry-query';
 import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/provide-server-state-testing';
-import { MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
+import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { summaryOf, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
 
@@ -81,7 +81,12 @@ describe('CharacterSheetPage form limits', () => {
   }, PREBUILD_TIMEOUT);
 
   it('says in the spellcasting section that the form forbids casting', async () => {
-    const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
+    const { root } = await openSheet(CLERIC, {
+      tab: SheetMode.Encounter,
+      section: 'spellcasting',
+      play: plant,
+      packs: PACKS,
+    });
 
     await vi.waitFor(
       () => {
@@ -94,7 +99,12 @@ describe('CharacterSheetPage form limits', () => {
   });
 
   it('gives the Cast a Spell action the form as the reason it is unavailable', async () => {
-    const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
+    const { root } = await openSheet(CLERIC, {
+      tab: SheetMode.Encounter,
+      section: 'actions',
+      play: plant,
+      packs: PACKS,
+    });
 
     await vi.waitFor(
       () => {
@@ -109,7 +119,14 @@ describe('CharacterSheetPage form limits', () => {
   });
 
   it('says nothing of casting in a form that lets the character cast', async () => {
-    const { root } = await openSheet(CLERIC, { tab: SheetMode.Encounter, play: humanoid, packs: PACKS });
+    const { harness, root } = await openSheet(CLERIC, {
+      tab: SheetMode.Encounter,
+      section: 'spellcasting',
+      play: humanoid,
+      packs: PACKS,
+    });
+    // A tab builds a section when it is first shown, and keeps it, so visit both.
+    await harness.navigateByUrl(`/characters/${id}/encounter/actions`);
 
     await settled(root, ['sheet-spellcasting', 'sheet-actions']);
 

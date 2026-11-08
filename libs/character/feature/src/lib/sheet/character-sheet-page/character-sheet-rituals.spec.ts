@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { MERISIEL, openerAt } from '../../testing/sheet-page-harness';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'spellcasting');
 
 /** A ritual no loaded pack has, as an import keeps one whose pack was since unloaded. */
 const SUMMON_DREAD = contentId(PackId.parse('player-core'), EntrySlug.parse('ritual:summon-dread'));

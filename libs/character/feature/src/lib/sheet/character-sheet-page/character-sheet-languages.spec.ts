@@ -8,7 +8,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { harnessOf, id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'languages');
 
 function language(name: string): string {
   return contentId(PackId.parse('core-rules'), EntrySlug.parse(`language:${name}`));

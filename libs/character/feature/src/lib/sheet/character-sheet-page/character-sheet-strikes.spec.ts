@@ -29,7 +29,7 @@ describe('CharacterSheetPage Strikes', () => {
     const choices = { class: playerCoreClassId('cleric'), 'boost:1:class:0': 'wis', deity: IRORI };
     const { root } = await openSheet(
       { ...MERISIEL, build: { choices: { ...MERISIEL.build.choices, ...choices } } },
-      { tab: SheetMode.Encounter },
+      { tab: SheetMode.Encounter, section: 'strikes' },
     );
 
     // A finesse fist: Dexterity +2 over Strength, and trained +3 at 1st level as the favoured weapon.
@@ -45,7 +45,7 @@ describe('CharacterSheetPage Strikes', () => {
   });
 
   it('says there are none without a held weapon or a fist', async () => {
-    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter });
+    const { root } = await openSheet(MERISIEL, { tab: SheetMode.Encounter, section: 'strikes' });
 
     await vi.waitFor(() => {
       expect(textOf(strikesSection(root))).toContain('No Strikes listed yet. Hold a weapon to add its Strike.');
@@ -96,7 +96,7 @@ describe('CharacterSheetPage Strike conditional lines', () => {
   }, PREBUILD_TIMEOUT);
 
   it("counts a claimed line in a held weapon's attack, and leaves the total as it was when let go", async () => {
-    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, section: 'strikes', packs: PACKS });
     const before = await vi.waitFor(() => attackBonus(root));
 
     const claim = await undeadToggle(root);

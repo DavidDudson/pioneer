@@ -37,7 +37,11 @@ describe('CharacterSheetPage item alterations', () => {
   }, PREBUILD_TIMEOUT);
 
   it('shows the shield and the weapon as the worn charm’s alterations change them', async () => {
-    const { root } = await openSheet(wearingCharm(true), { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(wearingCharm(true), {
+      tab: SheetMode.Encounter,
+      section: 'strikes',
+      packs: PACKS,
+    });
 
     await vi.waitFor(() => {
       const strikes = textOf(root);
@@ -49,7 +53,11 @@ describe('CharacterSheetPage item alterations', () => {
   });
 
   it('shows them unchanged while the charm is not invested', async () => {
-    const { root } = await openSheet(wearingCharm(false), { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(wearingCharm(false), {
+      tab: SheetMode.Encounter,
+      section: 'strikes',
+      packs: PACKS,
+    });
 
     await vi.waitFor(() => {
       const strikes = textOf(root);

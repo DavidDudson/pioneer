@@ -32,7 +32,7 @@ describe('CharacterSheetPage Strike rule elements', () => {
   }, PREBUILD_TIMEOUT);
 
   it('lists the dice and the note a held weapon’s rule elements give its Strike', async () => {
-    const { root } = await openSheet(EMBER_SWORDSWOMAN, { tab: SheetMode.Encounter, packs: PACKS });
+    const { root } = await openSheet(EMBER_SWORDSWOMAN, { tab: SheetMode.Encounter, section: 'strikes', packs: PACKS });
 
     await vi.waitFor(() => {
       const strikes = textOf(root);

@@ -20,7 +20,7 @@ const PACKS = cutTo([...CHARACTER_CONTENT_KINDS, ContentKind.Action]);
 
 const AVOID_NOTICE = 'c51e323a-8364-5dc1-89f7-4f3216a699a8';
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'exploration-activity');
 
 /** The play state of a full-health character doing `exploration`, at `revision`. */
 function playWith(exploration: string | undefined, revision = 1): object {

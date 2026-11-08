@@ -18,7 +18,7 @@ const PACKS = [...cutTo(CHARACTER_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 const UNDERWATER = underwaterFixtureId();
 const NO_SPEECH = "You can't speak underwater.";
 
-const openSheet = openerAt(SheetMode.Exploration);
+const openSheet = openerAt(SheetMode.Exploration, 'environments');
 
 /** The play state of a full-health character in `environments`, at `revision`. */
 function playIn(environments: readonly string[], revision = 1): object {

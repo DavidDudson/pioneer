@@ -9,7 +9,7 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'strikes');
 
 const PLAY_URL = `/api/characters/${id}/play`;
 

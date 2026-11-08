@@ -58,7 +58,12 @@ describe('CharacterSheetPage Strikes in a form', () => {
   }, PREBUILD_TIMEOUT);
 
   it("lists the form's Strikes in place of the held weapon, and says where the weapon went", async () => {
-    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
+    const { root } = await openSheet(SWORDSWOMAN, {
+      tab: SheetMode.Encounter,
+      section: 'strikes',
+      play: plant,
+      packs: PACKS,
+    });
 
     await vi.waitFor(() => {
       expect(textOf(strikesSection(root))).toContain('Replaced by your form: Hunter');
@@ -68,7 +73,12 @@ describe('CharacterSheetPage Strikes in a form', () => {
   });
 
   it('lists the held weapon again in the base view, with nothing replaced', async () => {
-    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, play: plant, packs: PACKS });
+    const { root } = await openSheet(SWORDSWOMAN, {
+      tab: SheetMode.Encounter,
+      section: 'strikes',
+      play: plant,
+      packs: PACKS,
+    });
     await vi.waitFor(() => {
       expect(textOf(strikesSection(root))).toContain('Replaced by your form');
     });
@@ -86,7 +96,12 @@ describe('CharacterSheetPage Strikes in a form', () => {
   });
 
   it('keeps the held weapon in a form that is no battle form', async () => {
-    const { root } = await openSheet(SWORDSWOMAN, { tab: SheetMode.Encounter, play: humanoid, packs: PACKS });
+    const { root } = await openSheet(SWORDSWOMAN, {
+      tab: SheetMode.Encounter,
+      section: 'strikes',
+      play: humanoid,
+      packs: PACKS,
+    });
 
     await vi.waitFor(() => {
       expect(rowsOf(root).some((row) => row.includes('Hunter'))).toBe(true);

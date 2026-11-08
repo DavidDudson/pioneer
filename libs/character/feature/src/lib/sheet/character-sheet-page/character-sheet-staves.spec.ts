@@ -7,7 +7,7 @@ import { MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { cutTo } from '../../testing/test-packs';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
 
-const openSheet = openerAt(SheetMode.Encounter);
+const openSheet = openerAt(SheetMode.Encounter, 'spellcasting');
 
 /** Player Core with its spells, and the fixture items among them the fire staff. */
 const PACKS = [...cutTo(SPELL_CONTENT_KINDS), ITEM_FIXTURE_FILES];
