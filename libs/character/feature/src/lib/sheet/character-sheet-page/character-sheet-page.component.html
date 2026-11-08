@@ -16,9 +16,11 @@
             <fr-stack direction="horizontal" justify="end" align="center" gap="sm" wrap>
               <pio-sheet-header-actions />
             </fr-stack>
-            <pio-sheet-form />
-            <pio-sheet-form-picker />
-            <pio-sheet-last-roll />
+            @defer (on idle) {
+              <pio-sheet-form />
+              <pio-sheet-form-picker />
+              <pio-sheet-last-roll />
+            }
           </fr-stack>
 
           <router-outlet />
@@ -40,4 +42,6 @@
   </fr-page-body>
   <pio-sheet-drawers ngProjectAs="fr-drawer" />
 </fr-page>
-<pio-sheet-side-panel />
+@defer (on idle) {
+  <pio-sheet-side-panel />
+}

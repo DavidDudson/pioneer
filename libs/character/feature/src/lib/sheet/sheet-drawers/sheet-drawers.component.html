@@ -3,6 +3,8 @@
     <ng-container [ngComponentOutlet]="panel" />
   </fr-drawer>
 }
-<pio-sheet-breakdown />
-<pio-sheet-override-drawer />
-<pio-sheet-configuration-drawer />
+@defer (on idle) {
+  <pio-sheet-breakdown />
+  <pio-sheet-override-drawer />
+  <pio-sheet-configuration-drawer />
+}
