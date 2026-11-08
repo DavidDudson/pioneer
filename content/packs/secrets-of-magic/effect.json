@@ -5283,7 +5283,7 @@
     "name": "Spell Effect: Angel Form (Monadic Deva)",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -5597,7 +5597,7 @@
     "name": "Spell Effect: Angel Form (Movanic Deva)",
     "level": 7,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -7457,7 +7457,7 @@
     "name": "Spell Effect: Daemon Form (Ceustodaemon)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8556,7 +8556,7 @@
     "name": "Spell Effect: Daemon Form (Piscodaemon)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -8905,7 +8905,7 @@
     "name": "Spell Effect: Demon Form (Babau)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9272,7 +9272,7 @@
     "name": "Spell Effect: Demon Form (Hezrou)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9580,7 +9580,7 @@
     "name": "Spell Effect: Demon Form (Nabasu)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -9872,7 +9872,7 @@
     "name": "Spell Effect: Demon Form (Vrock)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10215,7 +10215,7 @@
     "name": "Spell Effect: Devil Form (Barbazu)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10579,7 +10579,7 @@
     "name": "Spell Effect: Devil Form (Erinys)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -10901,7 +10901,7 @@
     "name": "Spell Effect: Devil Form (Osyluth)",
     "level": 6,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",
@@ -16877,7 +16877,7 @@
     "name": "Spell Effect: Juvenile Companion",
     "level": 1,
     "rarity": "common",
-    "traits": [],
+    "traits": ["polymorph"],
     "sources": [
       {
         "kind": "book",

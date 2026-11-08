@@ -49,7 +49,7 @@ import type {
   Sha256,
 } from '@pioneer/interop/foundry';
 import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
-import { BookId, PackId } from '@pioneer/rules/sdk';
+import { BookId, PackId, Trait } from '@pioneer/rules/sdk';
 
 import { formatCoverage, formatCreatureCoverage } from './coverage-table.ts';
 import { formatCreatures } from './creature-report.ts';
@@ -60,6 +60,7 @@ import { appendLegacy, applyOutcomes, applyRules, committedEntries, previousImpo
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
+const POLYMORPH = Trait.parse('polymorph');
 const UNREADABLE_SHOWN = 20;
 const FAILURES_SHOWN = 20;
 const KEYS_SHOWN = 15;
@@ -313,6 +314,10 @@ console.log(formatReport(dryRunReport(selection), selection));
 const creatures = selectCreatures(release, books, bookRegistry.books);
 console.log(formatCreatures(creatures));
 const known = await knownEntries(targets);
+const committed = await committedEntries(targets);
+const polymorph = committed.flatMap(({ kind, name, traits }) =>
+  traits.includes(POLYMORPH) ? [{ type: kind, name }] : [],
+);
 const translation = translateImport([...selection.selected, ...creatures.selected.map((each) => creatureEntry(each))], {
   pack,
   vocabularyPack: VOCABULARY_PACK,
@@ -322,12 +327,13 @@ const translation = translateImport([...selection.selected, ...creatures.selecte
   known,
   documents: release.documents,
   journals: release.journals,
+  polymorph,
 });
 console.log(formatTranslation(translation.envelopes));
 console.log(formatKindData(translation));
 const generated = packOutput(translation, { known });
 // Page numbers and AoN links on the entries the import replaces carry over to the imported entry with the same slug.
-const carried = carrySources(generated.entries, await committedEntries(targets));
+const carried = carrySources(generated.entries, committed);
 const output = { ...generated, entries: replaced === undefined ? carried : withLegacyLinks(carried, replaced) };
 console.log(formatLeftOut(output.backlog));
 console.log(formatCoverage(importCoverage(output.entries, output.backlog)));
