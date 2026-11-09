@@ -319,7 +319,7 @@ Issue types are organisation-only, so this personal repository uses labels for t
   "blocked by" relationship, and the board's Ready column only holds unblocked work.
 - **Epics ship as stacks.** Before work starts, an epic is split into story sub-issues, each one full-stack slice,
   chained with "blocked by" in build order. The epic is delivered as GitHub stacked PRs (`gh stack`): one story
-  per layer, one PR per layer that closes its story, bottom layer first. See `.claude/skills/stack`.
+  per layer, one PR per layer that closes its story, bottom layer first. See `ship-pr` (stacked PRs) and `.overbridge/ext/start-item/read-item.md`.
 - **Translatable from day one.** Every UI ticket adds its strings as message keys in the `en` source locale; no
   literal user-facing text in templates or engine output.
 - Areas are feature domains, not layers.

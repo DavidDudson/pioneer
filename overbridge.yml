@@ -10,6 +10,9 @@ commands:
   lint: .claude/scripts/run-check.sh bunx oxlint
   format: bun fmt
 
+# Agents, skills and terminals run commands in the Nix dev shell (the agent shell does not load direnv).
+shell: .claude/scripts/devshell.sh
+
 # One dev stack per workspace. {port} is the web port from the pool; the API sits 1200 below it (4200 -> 3000) and
 # Postgres 50129 above it (4200 -> 54329), so all three ports are unique per running workspace and match the
 # defaults in flake.nix. start and stop both set PGPORT so db-down hits the database db-up started.
