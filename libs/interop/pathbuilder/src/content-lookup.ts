@@ -1,4 +1,4 @@
-import { ContentKind } from '@pioneer/rules/sdk';
+import { ContentKind, effectiveLicense, isLegacyLicense } from '@pioneer/rules/sdk';
 import type { ContentRegistry, ContentText, ExternalId } from '@pioneer/rules/sdk';
 import type { Uuid } from '@pioneer/shared/kernel';
 
@@ -26,6 +26,8 @@ export interface ContentLookup {
 /** What a lookup indexes per entry. `externalIds.pathbuilder` holds Pathbuilder's name when it differs. */
 export interface LookupEntry extends ContentMatch {
   readonly externalIds?: { readonly pathbuilder?: ExternalId };
+  /** A pre-remaster entry: it matches only when no current entry does (the remaster Champion beats the legacy one). */
+  readonly legacy?: boolean;
 }
 
 /**
@@ -79,11 +81,13 @@ function withinOneEdit(left: string, right: string): boolean {
 
 /**
  * Index of one kind's entries: Pathbuilder ids (their names) win over our names when both match, then pre-remaster
- * names, then a lone name one typo away.
+ * names, then the pre-remaster entries (the legacy Champion, when the remaster Champion has the name too),
+ * then a lone name one typo away.
  */
 class NameIndex {
   readonly #byExternal = new Map<string, ContentMatch>();
   readonly #byName = new Map<string, ContentMatch>();
+  readonly #byLegacyName = new Map<string, ContentMatch>();
   readonly #legacy: ReadonlyMap<string, string>;
 
   public constructor(entries: readonly LookupEntry[], legacy: ReadonlyMap<string, string> = new Map()) {
@@ -94,13 +98,13 @@ class NameIndex {
       if (external !== undefined) {
         this.#byExternal.set(matchKey(external), match);
       }
-      this.#byName.set(matchKey(entry.name), match);
+      (entry.legacy === true ? this.#byLegacyName : this.#byName).set(matchKey(entry.name), match);
     }
   }
 
   public resolve(name: PathbuilderName): ContentMatch | undefined {
     const key = matchKey(name);
-    return this.#exact(key) ?? this.#exact(this.#legacy.get(key)) ?? this.#nearby(key);
+    return this.#exact(key) ?? this.#exact(this.#legacy.get(key)) ?? this.#byLegacyName.get(key) ?? this.#nearby(key);
   }
 
   #exact(key: string | undefined): ContentMatch | undefined {
@@ -143,7 +147,11 @@ function envelopeEntries(registry: ContentRegistry, ...kinds: readonly ContentKi
         return [];
       }
       const pathbuilder = entry.externalIds?.pathbuilder;
-      const match: ContentMatch = { id: entry.id, name: entry.name };
+      const match: LookupEntry = {
+        id: entry.id,
+        name: entry.name,
+        ...(isLegacyLicense(effectiveLicense(entry, pack.manifest)) ? { legacy: true } : {}),
+      };
       return [pathbuilder === undefined ? match : { ...match, externalIds: { pathbuilder } }];
     }),
   );

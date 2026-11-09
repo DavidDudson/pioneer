@@ -77,3 +77,26 @@ describe('typos', () => {
     expect(resolvedId(ImportKind.Item, 'Shield Blocking')).toBeUndefined();
   });
 });
+
+describe('legacy entries', () => {
+  const legacyId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b06');
+  const remasterId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b07');
+  const onlyLegacyId = Uuid.parse('6f1f7a52-6a43-4d1e-8f6e-6d1cbb1e7b08');
+  const classes: ContentLookup = entryLookup({
+    [ImportKind.Class]: [
+      { ...item(legacyId, 'Champion'), legacy: true },
+      item(remasterId, 'Champion'),
+      { ...item(onlyLegacyId, 'Alchemist Legacy'), legacy: true },
+    ],
+  });
+  const resolved = (name: string): Uuid | undefined =>
+    classes.resolve(ImportKind.Class, PathbuilderName.parse(name))?.id;
+
+  test('a name both a remaster entry and a legacy entry have resolves to the remaster entry', () => {
+    expect(resolved('Champion')).toBe(remasterId);
+  });
+
+  test('a name only a legacy entry has still resolves to it', () => {
+    expect(resolved('Alchemist Legacy')).toBe(onlyLegacyId);
+  });
+});
