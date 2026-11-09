@@ -1,0 +1,19 @@
+@let line = spell();
+@if (!prepared()) {
+  <fr-text variant="caption" tone="subtle">{{ Message.NotPrepared | transloco }}</fr-text>
+}
+<fr-text variant="caption" tone="subtle">
+  @if (line.rank === cantrip) {
+    {{ Message.Cantrip | transloco }}
+  } @else {
+    {{ Message.Cost | transloco: { charges: line.charges } }}
+  }
+</fr-text>
+@if (line.blocked; as blocked) {
+  <fr-text variant="caption" tone="subtle">{{ blocks[blocked] | transloco: { rank: line.rank } }}</fr-text>
+}
+<pio-staff-cast-buttons
+  [spell]="line"
+  [busy]="busy()"
+  (cast)="act.emit({ kind: 'staff', request: { staff: staff(), spell: line.id, slot: $event } })"
+/>

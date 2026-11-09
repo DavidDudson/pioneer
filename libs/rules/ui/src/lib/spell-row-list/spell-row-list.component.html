@@ -7,10 +7,17 @@
 } @else if (spells.length === 0) {
   <fr-empty-state [title]="Message.Empty | transloco" />
 } @else {
+  @if (error(); as failure) {
+    <fr-text element="p" variant="caption" tone="danger">{{ failure }}</fr-text>
+  }
   <fr-list gap="2xs">
     @for (spell of spells; track spell.key) {
       <fr-list-item>
-        <pio-spell-row [spell]="spell.detail" [use]="spell.use" />
+        <pio-spell-row [spell]="spell.detail" [use]="spell.use">
+          @if (spell.item; as item) {
+            <pio-spell-item-controls [item]="item" [busy]="busy()" (act)="itemAction.emit($event)" />
+          }
+        </pio-spell-row>
       </fr-list-item>
     }
   </fr-list>

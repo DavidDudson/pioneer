@@ -52,9 +52,12 @@ function rolling(...faces: readonly number[]): void {
   });
 }
 
-/** The wand's section once its spell loads, past the empty host shown until it does. */
+/** The spell list once a wand's row is in it. */
 async function wandsOf(root: HTMLElement): Promise<HTMLElement> {
-  return vi.waitFor(() => present(root.querySelector<HTMLElement>('pio-wand-spells')));
+  return vi.waitFor(() => {
+    present(root.querySelector('pio-wand-controls'));
+    return present(root.querySelector<HTMLElement>('pio-spell-row-list'));
+  });
 }
 
 function buttonOf(wands: HTMLElement, name: string): HTMLButtonElement {
@@ -71,27 +74,27 @@ describe('CharacterSheetPage wands', () => {
     const wands = await wandsOf(root);
 
     await vi.waitFor(() => {
-      expect(textOf(wands)).toContain('1 of 1 cast today');
+      expect(textOf(wands)).toContain('1/1 casts');
     });
     expect(textOf(wands)).toContain('Fireball');
     expect(buttonOf(wands, 'Cast').disabled).toBe(false);
     expect(buttonOf(wands, 'Overcharge').disabled).toBe(true);
   });
 
-  it('shows no section for a wand that is stowed', async () => {
+  it('lists no row for a wand that is stowed', async () => {
     const { root } = await openSheet(wizardWith({ carry: { state: 'stowed' } }), { packs: PACKS });
 
     await vi.waitFor(() => {
       expect(root.querySelector('pio-sheet-prepared-spells')).not.toBeNull();
     });
-    expect(root.querySelector('pio-wand-spells')).toBeNull();
+    expect(root.querySelector('pio-wand-controls')).toBeNull();
   });
 
   it('casts the day spell at the revision last read, and then offers the overcharge', async () => {
     const { root } = await openSheet(wizardWith({}), { play: spentOf({}), packs: PACKS });
     const wands = await wandsOf(root);
     await vi.waitFor(() => {
-      expect(textOf(wands)).toContain('1 of 1 cast today');
+      expect(textOf(wands)).toContain('1/1 casts');
     });
 
     buttonOf(wands, 'Cast').click();
@@ -105,7 +108,7 @@ describe('CharacterSheetPage wands', () => {
       request.flush(spentOf(CAST_SPENT, 2));
     });
     await vi.waitFor(() => {
-      expect(textOf(wands)).toContain('0 of 1 cast today');
+      expect(textOf(wands)).toContain('0/1 casts');
       expect(buttonOf(wands, 'Cast').disabled).toBe(true);
       expect(buttonOf(wands, 'Overcharge').disabled).toBe(false);
     });

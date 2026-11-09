@@ -96,7 +96,6 @@ export {
   type StaffSpellLine,
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
-export { StaffSpellsView } from './lib/staff-spells/staff-spells.component';
 export { STAFF_SPELL_BLOCK_MESSAGES } from './lib/staff-spells/staff-spells-messages';
 export {
   type WandCheckLine,
@@ -105,7 +104,6 @@ export {
   type WandCountLine,
   type WandLine,
 } from './lib/wand-spells/wand-spells-line';
-export { WandSpellsView } from './lib/wand-spells/wand-spells.component';
 export { type SpellAccessLine } from './lib/spell-access/spell-access-line';
 export { type RemoveSpellAccess, SpellAccessListView } from './lib/spell-access/spell-access-list.component';
 export {
@@ -187,6 +185,12 @@ export {
 export { SpellDetails } from './lib/spell-list/spell-details.component';
 export { SpellRow } from './lib/spell-row/spell-row.component';
 export { type SpellRowLine } from './lib/spell-row-list/spell-row-line';
+export {
+  type ScrollLine,
+  type SpellItemEvent,
+  type SpellItemLine,
+  type WandAction,
+} from './lib/spell-row-list/spell-item';
 export { SpellRowList } from './lib/spell-row-list/spell-row-list.component';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';

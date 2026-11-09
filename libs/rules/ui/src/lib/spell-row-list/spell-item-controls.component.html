@@ -1,0 +1,29 @@
+@let line = item();
+@switch (line.kind) {
+  @case ('wand') {
+    <pio-wand-row-controls [wand]="line.wand" [busy]="busy()" (act)="act.emit($event)" />
+  }
+  @case ('staff') {
+    <pio-staff-row-controls
+      [staff]="line.staff"
+      [prepared]="line.prepared"
+      [spell]="line.spell"
+      [busy]="busy()"
+      (act)="act.emit($event)"
+    />
+  }
+  @case ('scroll') {
+    <fr-stack direction="horizontal" gap="xs" wrap>
+      <fr-button
+        [variant]="primary"
+        [disabled]="busy() || !line.scroll.castable"
+        (pressed)="act.emit({ kind: 'scroll', key: line.scroll.key })"
+      >
+        {{ Message.Cast | transloco }}
+      </fr-button>
+    </fr-stack>
+  }
+  @default {
+    <ng-container />
+  }
+}

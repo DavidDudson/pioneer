@@ -65,3 +65,63 @@ export const Empty: SpellRowListStory = {
 };
 
 export const Loading: SpellRowListStory = { args: { lines: undefined } };
+
+const FIREBALL = spellId('fireball');
+
+const WAND: SpellRowLine = {
+  key: 'wand:1',
+  detail: detail({ slug: 'fireball', name: 'Fireball', source: 'Wand of Fireball (1/1 casts)' }),
+  item: {
+    kind: 'wand',
+    wand: {
+      key: 'wand-1',
+      name: 'Wand of Fireball',
+      id: FIREBALL,
+      spell: 'Fireball',
+      rank: SpellRank.parse(1),
+      broken: false,
+      blocked: undefined,
+      use: { left: 1, max: 1 },
+      castable: true,
+      overchargeable: false,
+      check: undefined,
+    },
+  },
+};
+
+const STAFF: SpellRowLine = {
+  key: 'staff:1:daze',
+  detail: detail({ slug: 'daze', name: 'Daze', source: 'Staff of Power (3/4 charges)' }),
+  item: {
+    kind: 'staff',
+    staff: 'staff-1',
+    prepared: true,
+    spell: {
+      key: 'daze',
+      id: spellId('daze'),
+      name: 'Daze',
+      rank: SpellRank.parse(1),
+      charges: 1,
+      blocked: undefined,
+      options: [{ slot: undefined, charges: 1, slotRank: undefined }],
+      heightenedTo: undefined,
+    },
+  },
+};
+
+const SCROLL: SpellRowLine = {
+  key: 'scroll:1',
+  detail: detail({ slug: 'heal', name: 'Heal', source: 'Scroll of Heal' }),
+  item: { kind: 'scroll', scroll: { key: 'scroll-1', castable: true } },
+};
+
+/** Spells cast from a wand, a staff and a scroll are rows of the list, each with the controls of its item. */
+export const WithItems: SpellRowListStory = {
+  args: { lines: [...LINES, WAND, STAFF, SCROLL] },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Wand of Fireball (1/1 casts)')).toBeVisible();
+    await expect(canvas.getByRole('button', { name: 'Overcharge' })).toBeDisabled();
+    await expect(canvas.getAllByRole('button', { name: 'Cast' })[0]).toBeEnabled();
+  },
+};

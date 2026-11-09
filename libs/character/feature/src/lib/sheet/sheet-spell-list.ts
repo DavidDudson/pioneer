@@ -9,10 +9,12 @@ export interface SpellOrigins {
   readonly focus: FocusLine | undefined;
   readonly innate: InnateLine | undefined;
   readonly prepared: readonly PreparedEntryFields[];
+  /** The rows of the wands, staves and scrolls the character carries. */
+  readonly items?: readonly SpellRowLine[];
 }
 
 /** The spells every origin holds, one line each, before they are sorted. */
-function linesOf({ focus, innate, prepared }: SpellOrigins): SpellRowLine[] {
+function linesOf({ focus, innate, prepared, items = [] }: SpellOrigins): SpellRowLine[] {
   const fromFocus = (focus?.entries ?? []).flatMap((entry) =>
     entry.spells.flatMap(({ key, detail, use }) =>
       detail === undefined ? [] : [{ key: `focus:${entry.key}:${key}`, detail, use }],
@@ -31,7 +33,7 @@ function linesOf({ focus, innate, prepared }: SpellOrigins): SpellRowLine[] {
       }),
     ),
   );
-  return [...fromFocus, ...fromInnate, ...fromPrepared];
+  return [...fromFocus, ...fromInnate, ...fromPrepared, ...items];
 }
 
 /**

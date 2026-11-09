@@ -1,0 +1,16 @@
+@let line = wand();
+@if (line.broken) {
+  <fr-text variant="caption" tone="subtle">{{ Message.Broken | transloco }}</fr-text>
+}
+@if (line.blocked; as blocked) {
+  <fr-text variant="caption" tone="subtle">{{ blocks[blocked] | transloco: { rank: line.rank } }}</fr-text>
+}
+<pio-wand-controls
+  [line]="line"
+  [busy]="busy()"
+  (cast)="act.emit({ kind: 'wand', action: 'cast', key: $event })"
+  (overcharge)="act.emit({ kind: 'wand', action: 'overcharge', key: $event })"
+  (confirm)="act.emit({ kind: 'wand', action: 'confirm', key: $event })"
+  (decline)="act.emit({ kind: 'wand', action: 'decline', key: $event })"
+  (repair)="act.emit({ kind: 'wand', action: 'repair', key: $event })"
+/>

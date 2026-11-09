@@ -22,10 +22,22 @@
             [ariaLabel]="'character.sheet.spellTargets.label' | transloco"
             [(value)]="targetFilter"
           />
-          <pio-spell-row-list [lines]="spellList()" />
+          <pio-spell-row-list
+            [lines]="spellList()"
+            [busy]="items.busy()"
+            [error]="items.error()"
+            (itemAction)="items.act($event)"
+          />
           <pio-sheet-prepared-spells [entries]="prepared()" />
         </fr-stack>
       </fr-stack>
     </ng-template>
   </fr-async-region>
+} @else if (spellList().length > 0) {
+  <pio-spell-row-list
+    [lines]="spellList()"
+    [busy]="items.busy()"
+    [error]="items.error()"
+    (itemAction)="items.act($event)"
+  />
 }
