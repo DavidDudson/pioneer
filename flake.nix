@@ -88,7 +88,8 @@
               ws_offset=$(( $(printf '%s' "$ws_name" | cksum | cut -d' ' -f1) % 100 ))
             fi
             unset ws_name
-            export PGPORT=$(( 54329 + ws_offset ))
+            # An explicit PGPORT wins: overbridge.yml derives it from the app's pool port, which cannot collide.
+            export PGPORT="''${PGPORT:-$(( 54329 + ws_offset ))}"
             # Not PORT: the Angular dev server reads PORT too. api:serve maps it.
             export API_PORT="''${API_PORT:-$(( 3000 + ws_offset ))}"
             export WEB_PORT="''${WEB_PORT:-$(( 4200 + ws_offset ))}"

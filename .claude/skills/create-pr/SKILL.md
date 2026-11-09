@@ -182,7 +182,7 @@ EOF
 
 `Closes #n` links the PR so the board moves the issue to In progress and to Done on merge.
 
-Then, inside a ws workspace: `overbridge pr <repo>`.
+Then, inside an overbridge workspace: `overbridge pr <repo>`.
 
 ## 6. Request the first Copilot review
 
