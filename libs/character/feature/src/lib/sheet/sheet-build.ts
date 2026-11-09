@@ -121,6 +121,8 @@ export function sheetRootOptions(
 /** The class's subclass slot (a doctrine, muse, order or school) and what it offers, by name. */
 export interface SheetSubclass {
   readonly key: SlotKey;
+  /** What the class calls it, from the entry that asks: "Druidic Order", "Muse", "Doctrine". */
+  readonly name: string | undefined;
   readonly options: readonly SelectOption<string>[];
 }
 
@@ -138,7 +140,11 @@ export function sheetSubclass(
   const slot = find(characterGrants(character.document, content), content.lookup, classContent(registry));
   return slot === undefined
     ? undefined
-    : { key: slot.key, options: slot.options.map((option) => ({ value: option.value, label: option.label })) };
+    : {
+        key: slot.key,
+        name: content.lookup.entry(slot.origin.entry)?.name,
+        options: slot.options.map((option) => ({ value: option.value, label: option.label })),
+      };
 }
 
 /** The class's key attribute slot and the attributes it allows; undefined when the class allows only one. */

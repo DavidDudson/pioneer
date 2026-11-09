@@ -170,6 +170,7 @@ export class SheetPlanTab {
 
   public constructor() {
     rememberTab(SheetMode.Plan);
+    this.sheet.timelineWanted.set(true);
   }
 
   /** Dismissing removes the focused Dismiss button with the notice, so focus moves to the heritage picker it names. */

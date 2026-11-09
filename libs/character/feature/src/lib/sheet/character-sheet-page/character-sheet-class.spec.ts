@@ -59,7 +59,7 @@ describe('CharacterSheetPage class', () => {
     const { root } = await openSheet(cleric(), { slots: [CLERIC_SLOT] });
 
     await vi.waitFor(() => {
-      expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class', 'Subclass']);
+      expect(labels(root)).toStrictEqual(['Name', 'Ancestry', 'Heritage', 'Background', 'Class', 'Doctrine']);
     });
     expect(fieldNamed(root, 'Class').textContent).toContain('Cleric');
   });
@@ -71,14 +71,14 @@ describe('CharacterSheetPage class', () => {
     await vi.waitFor(() => {
       expect(labels(root)).toContain('Key attribute');
     });
-    expect(labels(root)).not.toContain('Subclass');
+    expect(labels(root)).not.toContain('Doctrine');
   });
 
   it('asks a thief rogue for no key attribute: Dexterity is its only one', async () => {
     const { root } = await openSheet(rogue('thief'));
 
     await vi.waitFor(() => {
-      expect(labels(root)).toContain('Subclass');
+      expect(labels(root)).toContain("Rogue's Racket");
     });
     expect(labels(root)).not.toContain('Key attribute');
   });
@@ -115,7 +115,7 @@ describe('CharacterSheetPage class', () => {
 
   it('picks a subclass in the slot the class feature opens', async () => {
     const { root } = await openSheet(cleric());
-    await pickRow(root, { label: 'Subclass', type: SubclassPicker }, 'Warpriest');
+    await pickRow(root, { label: 'Doctrine', type: SubclassPicker }, 'Warpriest');
 
     const request = await vi.waitFor(() =>
       TestBed.inject(HttpTestingController).expectOne({ method: 'PATCH', url: `/api/characters/${id}` }),

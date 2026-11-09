@@ -27,7 +27,7 @@ pack
   .withSpell('read-fate', { rank: 1, traditions: [], traits: ['focus'] })
   .withSpell('shield', { rank: 1, traditions: [], traits: ['cantrip', 'focus'] });
 const spellId = (name: string): string => pack.idOf(ContentKind.Spell, name);
-const knows = (spell: string, predicate: readonly string[]): object => ({
+const knows = (spell: string, predicate: readonly (string | object)[]): object => ({
   key: 'FocusSpells',
   entry: 'champion-focus',
   spells: [spellId(spell)],
@@ -44,10 +44,11 @@ pack
         choices: [
           { value: 'hands', label: 'Lay on Hands' },
           { value: 'fate', label: 'Read Fate' },
+          { value: 'variant', label: 'Fated Variant' },
         ],
       },
       knows('lay-on-hands', ['devotion:hands']),
-      knows('read-fate', ['devotion:fate']),
+      knows('read-fate', [{ or: ['devotion:fate', 'devotion:variant'] }]),
       { key: 'FocusSpells', entry: 'champion-focus', spells: [spellId('shield')] },
     ],
   })
@@ -92,6 +93,17 @@ describe('placeFocus', () => {
 
     expect(Object.values(choices).map(String)).toStrictEqual(['fate']);
     expect(gaps).toStrictEqual([]);
+  });
+
+  test('of two options that give the spell, picks the one the export names', () => {
+    const named = {
+      ...exporting('divine', [], ['Read Fate']),
+      names: [{ kind: ImportKind.ClassFeature, name: PathbuilderName.parse('Fated Variant') }],
+    };
+
+    const { choices } = placeFocus(character('champion'), content, named);
+
+    expect(Object.values(choices).map(String)).toStrictEqual(['variant']);
   });
 
   test('picks nothing when the focus entries already have what the export lists', () => {

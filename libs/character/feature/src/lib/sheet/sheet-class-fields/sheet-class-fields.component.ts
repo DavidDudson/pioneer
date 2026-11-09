@@ -46,4 +46,6 @@ export class SheetClassFields {
   protected readonly rows = injectClassRows(inject(SheetState), () => this.second());
   protected readonly classPicks = computed((): ClassPicks => (this.second() ? this.picks().second : this.picks()));
   protected readonly labels = computed((): ClassLabels => (this.second() ? SECOND_LABELS : FIRST_LABELS));
+  /** What the class calls its subclass ("Druidic Order", "Muse"); undefined until the content loads or when it names none. */
+  protected readonly subclassName = computed((): string | undefined => this.classPicks().subclass()?.name);
 }

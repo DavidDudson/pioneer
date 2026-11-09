@@ -5,6 +5,7 @@ import { ContentId, RuleElementKey, SlotRank } from '@pioneer/rules/sdk';
 
 import { openPicks, picking } from './choice-search';
 import type { ChoicePick } from './choice-search';
+import { matchKey } from './content-lookup';
 import { ImportKind, PathbuilderName } from './import-kind';
 import type { PathbuilderImport } from './read-pathbuilder-export';
 import { SpellGapReason } from './spell-listing';
@@ -16,6 +17,8 @@ interface Placed {
   readonly choices: SpellPicks;
   /** The picks still allowed: one for each spell wanted, so a pick that undoes another cannot go on for ever. */
   readonly passes: number;
+  /** The names the export carries, by `matchKey`: an option with one of them is the one the export means. */
+  readonly exported: ReadonlySet<string>;
 }
 
 /** The picks that make the character's focus entries have the focus spells an export lists, and those they still lack. */
@@ -128,29 +131,46 @@ function answersFocus(content: SpellPlacementContent, slot: ChoiceSlot): boolean
   );
 }
 
-/** The first open choice option that gives the character one of the `left` spells, if any does. */
-function helpful(
+/** The label of the option a pick answers with. */
+function labelOf(
   document: CharacterDocument,
   content: SpellPlacementContent,
-  left: readonly Listed[],
-): ChoicePick | undefined {
-  return openPicks(document, content, (slot) => answersFocus(content, slot)).find((pick) => {
+  [key, value]: ChoicePick,
+): string | undefined {
+  return characterGrants(document, content.slots)
+    .open.find((slot) => slot.key === key)
+    ?.options.find((option) => option.value === value)?.label;
+}
+
+/**
+ * The open choice option that gives the character one of the `left` spells, if any does: the first, unless the export
+ * names another (Cultivation Order is a variant of Leaf Order and gives the same order spell).
+ */
+function helpful(placed: Placed, content: SpellPlacementContent, left: readonly Listed[]): ChoicePick | undefined {
+  const { document, exported } = placed;
+  const helping = openPicks(document, content, (slot) => answersFocus(content, slot)).filter((pick) => {
     const have = held(picking(document, pick), content);
     return left.some((spell) => have.has(spell.key));
   });
+  const meant = helping.find((pick) => {
+    const label = labelOf(document, content, pick);
+    return label !== undefined && exported.has(matchKey(label));
+  });
+  return meant ?? helping[0];
 }
 
 /** The picks that give the wanted spells, one choice at a time: each makes the character hold one more of them. */
 function pickChoices(placed: Placed, content: SpellPlacementContent, wanted: readonly Listed[]): Placed {
   const have = held(placed.document, content);
   const left = wanted.filter((spell) => !have.has(spell.key));
-  const pick = left.length === 0 || placed.passes === 0 ? undefined : helpful(placed.document, content, left);
+  const pick = left.length === 0 || placed.passes === 0 ? undefined : helpful(placed, content, left);
   if (pick === undefined) {
     return placed;
   }
   const [slot, value] = pick;
   return pickChoices(
     {
+      ...placed,
       document: picking(placed.document, pick),
       choices: { ...placed.choices, [slot]: value },
       passes: placed.passes - 1,
@@ -194,6 +214,7 @@ export function placeFocus(
   value: PathbuilderImport,
 ): FocusPlacement {
   const wanted = listed(value, content);
-  const placed = pickChoices({ document, choices: {}, passes: wanted.length }, content, wanted);
+  const exported = new Set(value.names.map((each) => matchKey(each.name)));
+  const placed = pickChoices({ document, choices: {}, passes: wanted.length, exported }, content, wanted);
   return { choices: placed.choices, gaps: lacking(placed.document, content, wanted) };
 }

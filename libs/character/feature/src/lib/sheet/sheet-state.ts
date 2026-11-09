@@ -18,6 +18,7 @@ import { activeFormOf, withoutForms } from './sheet-effects';
 import type { EffectView } from './sheet-effects';
 import { sheetFetchingPreviews } from './sheet-entry-previews';
 import { EQUIPMENT_CONTENT_KINDS, readsEquipment, sheetInvestments } from './sheet-equipment';
+import { FEAT_CONTENT_KINDS } from './sheet-feats';
 import { sheetFocus } from './sheet-focus-spells';
 import { sheetIdentity } from './sheet-identity';
 import type { IdentityParams } from './sheet-identity';
@@ -26,8 +27,8 @@ import type { PlayedInputs } from './sheet-played';
 import { SPELL_CONTENT_KINDS } from './sheet-prepared-spells';
 import { claimSituation, NO_CLAIMS } from './sheet-situations';
 import type { SituationClaims } from './sheet-situations';
-import { namedStatistics, sheetAttributeChecks, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 // oxlint-disable-next-line import/max-dependencies -- the state every region of the sheet reads: the character, its forms and what the engine derives
+import { namedStatistics, sheetAttributeChecks, sheetDerivation, sheetVitalsInPlay } from './sheet-statistics';
 import { sheetArmorClass, sheetVitals } from './sheet-vitals';
 
 /**
@@ -120,6 +121,12 @@ export class SheetState {
     readsEquipment(this.#full()) ? this.equipment.data() : this.registry.data(),
   );
 
+  /** Set by the Plan tab: its slot statuses are read over the feat and spell kinds, which no other tab loads for them. */
+  public readonly timelineWanted = signal(false);
+  readonly #timelineQuery = injectContentRegistry([...new Set([...FEAT_CONTENT_KINDS, ...SPELL_CONTENT_KINDS])], () =>
+    this.timelineWanted(),
+  );
+
   /** The registry the engine reads, for a roll that derives a statistic again; undefined while it loads. */
   public readonly engine: Signal<ContentRegistry | undefined> = this.#engineRegistry;
 
@@ -168,6 +175,7 @@ export class SheetState {
   public readonly picks: BuildPicks = sheetBuildPicks({
     registry: this.registry.data,
     engineRegistry: this.#engineRegistry,
+    timelineRegistry: this.#timelineQuery.data,
     character: this.character,
     slots: this.store.slots,
     select: async (slot, selection, loreName) => this.store.selectSlot(slot, selection, loreName),
