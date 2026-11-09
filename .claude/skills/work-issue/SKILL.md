@@ -73,7 +73,7 @@ the scratchpad for the PR.
 
 ## 6. Feedback loop
 
-1. When CI and reviewers finish, run `resolve-coderabbit`.
+1. When CI and reviewers finish, run `resolve-feedback`.
 2. If CI fails, read the failing job (`gh run view <id> --log-failed`), fix the cause, push, and wait again.
 3. Repeat until: CI green, no threads awaiting a reply, no unfixed blockers. Cap at **five** feedback rounds in
    total; then stop and summarise what is left.

@@ -21,19 +21,17 @@ Project management is GitHub only: milestones M0-M12 and i18n, epics as issues, 
 
 Repo skills in `.claude/skills`:
 
-| Skill                | Use                                                                               |
-| -------------------- | --------------------------------------------------------------------------------- |
-| `work-issue`         | Board issue to reviewed PR: pick, branch, build, review, PR, feedback loop        |
-| `stack`              | Epic to story sub-issues to stacked PRs (`gh stack`)                              |
-| `review`             | Pre-PR persona review against repo rules and ADRs, findings verified              |
-| `create-pr`          | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
-| `resolve-coderabbit` | Verify and fix or decline CodeRabbit and Copilot threads, reply in each           |
-| `pickup`             | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
-| `reimport`           | Re-run the Foundry content import                                                 |
+| Skill        | Use                                                                               |
+| ------------ | --------------------------------------------------------------------------------- |
+| `work-issue` | Board issue to reviewed PR: pick, branch, build, review, PR, feedback loop        |
+| `stack`      | Epic to story sub-issues to stacked PRs (`gh stack`)                              |
+| `review`     | Pre-PR persona review against repo rules and ADRs, findings verified              |
+| `create-pr`  | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
+| `pickup`     | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
+| `reimport`   | Re-run the Foundry content import                                                 |
 
-Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON),
-`.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background) and
-`.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
+Review feedback and waiting for reviewers belong to overbridge's `ship-pr` and `resolve-feedback` skills.
+Helper: `.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
 
 PRs that change UI carry before/after screenshots. Pages behind auth: sign in locally through the dev bypass,
 `/api/auth/dev/<dev user id>?returnTo=<path>` (`create-pr` step 4).

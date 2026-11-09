@@ -61,9 +61,8 @@ anything the new main broke, and push with `git push --force-with-lease`.
 
 ## 4. Feedback
 
-Run `resolve-coderabbit` for the PR. If the rebase changed a lot, re-request Copilot once
-(`gh pr edit <pr> --add-reviewer "@copilot"`) and wait for it with
-`.claude/scripts/wait-for-review.sh <pr> copilot` in the background.
+Run `resolve-feedback` for the PR. If the rebase changed a lot, re-request Copilot once
+(`gh pr edit <pr> --add-reviewer "@copilot"`); `resolve-feedback` waits for it.
 
 ## 5. Finish the work
 
