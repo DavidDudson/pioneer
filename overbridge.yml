@@ -9,3 +9,13 @@ project-management:
 commands:
   lint: .claude/scripts/run-check.sh bunx oxlint
   format: bun fmt
+
+# One dev stack per workspace. {port} is the web port from the pool; the API sits 1200 below it (4200 -> 3000),
+# matching the defaults in flake.nix. Postgres runs on a per-workspace port the devshell derives from the name.
+apps:
+  - id: web
+    label: web
+    start: WEB_PORT={port} API_PORT=$(({port} - 1200)) .claude/scripts/devshell.sh just dev
+    stop: .claude/scripts/devshell.sh just db-down
+    ports: [4200, 4201, 4202, 4203, 4204, 4205, 4206, 4207]
+    ready: { http: 'http://localhost:{port}' }

@@ -17,7 +17,7 @@ db-up:
 db-down:
     pg_ctl status >/dev/null 2>&1 && pg_ctl stop || true
 
-# API + web dev servers (web:serve pulls in api:serve). Ports are offset per ws workspace, see flake.nix.
+# API + web dev servers (web:serve pulls in api:serve). Ports are offset per overbridge workspace, see flake.nix.
 dev: db-up
     #!/usr/bin/env bash
     set -euo pipefail
