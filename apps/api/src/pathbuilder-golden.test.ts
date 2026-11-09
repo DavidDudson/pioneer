@@ -62,9 +62,7 @@ describe('Pathbuilder exports over the official packs', () => {
         'perception: Pathbuilder 21, Pioneer 20',
         'skill:acrobatics: Pathbuilder 16, Pioneer 3',
         'skill:arcana: Pathbuilder 18, Pioneer 16',
-        'skill:crafting: Pathbuilder 16, Pioneer 3',
         'skill:diplomacy: Pathbuilder 15, Pioneer 13',
-        'skill:intimidation: Pathbuilder 13, Pioneer 0',
         'skill:medicine: Pathbuilder 18, Pioneer 5',
         'skill:nature: Pathbuilder 24, Pioneer 18',
         'skill:performance: Pathbuilder 13, Pioneer 0',
@@ -74,9 +72,7 @@ describe('Pathbuilder exports over the official packs', () => {
         'spell-dc:dream-magic: Pathbuilder 28, Pioneer 30',
         'skill:acrobatics: Pathbuilder trained, Pioneer untrained',
         'skill:arcana: Pathbuilder expert, Pioneer trained',
-        'skill:crafting: Pathbuilder trained, Pioneer untrained',
         'skill:diplomacy: Pathbuilder expert, Pioneer trained',
-        'skill:intimidation: Pathbuilder trained, Pioneer untrained',
         'skill:medicine: Pathbuilder trained, Pioneer untrained',
         'skill:nature: Pathbuilder master, Pioneer trained',
         'skill:performance: Pathbuilder trained, Pioneer untrained',
@@ -181,7 +177,7 @@ describe('Pathbuilder spells over the official packs', () => {
       const { character, report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(spellPickCount(character.document.build.choices)).toBe(21);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
-        'Animist Prepared no-entry: 12',
+        'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
         'Vigilant Goloma no-entry: 1',
         'divine wis focus no-entry: 3',

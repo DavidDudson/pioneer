@@ -131,15 +131,15 @@ function answersFocus(content: SpellPlacementContent, slot: ChoiceSlot): boolean
   );
 }
 
-/** The label of the option a pick answers with. */
-function labelOf(
-  document: CharacterDocument,
-  content: SpellPlacementContent,
-  [key, value]: ChoicePick,
-): string | undefined {
-  return characterGrants(document, content.slots)
-    .open.find((slot) => slot.key === key)
-    ?.options.find((option) => option.value === value)?.label;
+/** An option that is an entry itself only helps when that entry gives focus spells: a pick of any other entry does not. */
+function mayGiveFocus(content: SpellPlacementContent, [, value]: ChoicePick): boolean {
+  const offered = ContentId.safeParse(value);
+  return !offered.success || givesFocus(content, offered.data, GRANT_DEPTH - 1);
+}
+
+/** The label of the option a pick answers with, among the document's open choices. */
+function labelOf(open: readonly ChoiceSlot[], [key, value]: ChoicePick): string | undefined {
+  return open.find((slot) => slot.key === key)?.options.find((option) => option.value === value)?.label;
 }
 
 /**
@@ -149,11 +149,15 @@ function labelOf(
 function helpful(placed: Placed, content: SpellPlacementContent, left: readonly Listed[]): ChoicePick | undefined {
   const { document, exported } = placed;
   const helping = openPicks(document, content, (slot) => answersFocus(content, slot)).filter((pick) => {
+    if (!mayGiveFocus(content, pick)) {
+      return false;
+    }
     const have = held(picking(document, pick), content);
     return left.some((spell) => have.has(spell.key));
   });
+  const { open } = characterGrants(document, content.slots);
   const meant = helping.find((pick) => {
-    const label = labelOf(document, content, pick);
+    const label = labelOf(open, pick);
     return label !== undefined && exported.has(matchKey(label));
   });
   return meant ?? helping[0];
