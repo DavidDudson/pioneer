@@ -69,6 +69,7 @@ export {
   ReinforcingGrade,
   RuneData,
   RunedItem,
+  RUNE_GRADE_MAX,
   RuneGrade,
   RuneType,
 } from './rune';
@@ -81,6 +82,7 @@ export {
   WeaponDamage,
   WeaponData,
   WeaponGroup,
+  ItemBonus,
 } from './weapon';
 export { FormEffects, spellEffectId } from './form-effects';
 export type { SpellEffectEntry } from './form-effects';
@@ -442,6 +444,7 @@ export {
   NumericItemProperty,
   TraitAlterationMode,
 } from './rule-element-item-alteration';
+export { raisesPotency } from './potency-element';
 export { DefenceValue, ImmunityElement, ResistanceElement, WeaknessElement } from './rule-element-defences';
 export { SenseElement } from './rule-element-sense';
 export { LiftRestrictionElement } from './rule-element-lift-restriction';
@@ -460,13 +463,14 @@ export {
   CriticalDurationType,
   CriticalEffectElement,
   CriticalEffectKind,
+  CriticalTrigger,
   CriticalSaveStatistic,
 } from './rule-element-critical-effect';
 export type { CriticalDuration, CriticalSave } from './rule-element-critical-effect';
 export { CriticalRangeElement, NaturalRoll } from './rule-element-critical-range';
 export { CriticalWeaknessElement } from './rule-element-critical-weakness';
 export { CriticalSpecializationElement } from './rule-element-critical-specialization';
-export { criticalSpecializationOf } from './critical-specialization';
+export { criticalSpecializationOf, grievousSpecializationOf } from './critical-specialization';
 export { FastHealingElement, FastHealingType, TempHPElement } from './rule-element-healing';
 export { BattleFormBracket, BattleFormElement, BattleFormVariant, FormMovement } from './rule-element-battle-form';
 export { CreatureSizeElement, SizeSteps } from './rule-element-creature-size';

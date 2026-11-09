@@ -4,8 +4,10 @@ import {
   itemRunes,
   printedRunes,
   propertyRoom,
+  readerOf,
   runeChoices,
   runedItemOf,
+  slottedRunes,
 } from '@pioneer/character/domain';
 import type {
   Inventory,
@@ -13,6 +15,7 @@ import type {
   InventoryItemId,
   ItemEntry,
   RuneChoice,
+  RuneContent,
   RunedContent,
   RuneEntry,
   RuneRef,
@@ -47,9 +50,10 @@ export function printedGrade(rune: FundamentalRune, entry: ItemEntry | undefined
 }
 
 /** Whether `item` has room for another property rune: never on a specific item, else one per grade of potency. */
-export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefined): boolean {
+export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefined, content: RuneContent): boolean {
   const runes = itemRunes(item, entry);
-  return !isSpecific(entry) && runes.property.length < propertyRoom(runes);
+  const read = readerOf(content);
+  return !isSpecific(entry) && slottedRunes(runes, read).length < propertyRoom(runes, read);
 }
 
 /**

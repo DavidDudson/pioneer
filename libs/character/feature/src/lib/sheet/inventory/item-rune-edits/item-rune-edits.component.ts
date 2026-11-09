@@ -191,7 +191,7 @@ export class ItemRuneEdits {
     computed(() => {
       const item = this.#item();
       const entry = this.#entry();
-      if (item === undefined || !hasPropertyRoom(item, entry)) {
+      if (item === undefined || !hasPropertyRoom(item, entry, this.content().runes)) {
         return [];
       }
       const entries = propertyRuneEntries(this.content(), { item, entry }, (left, right) =>
@@ -206,7 +206,7 @@ export class ItemRuneEdits {
   protected readonly needsPotency = computed(() => {
     const item = this.#item();
     const entry = this.#entry();
-    if (item === undefined || hasPropertyRoom(item, entry)) {
+    if (item === undefined || hasPropertyRoom(item, entry, this.content().runes)) {
       return false;
     }
     return propertyRuneOptions(this.content(), { item, entry }, () => 0).length > 0;

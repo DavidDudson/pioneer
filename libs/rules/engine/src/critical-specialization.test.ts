@@ -96,6 +96,25 @@ describe('CriticalSpecialization', () => {
     expect(strikeOf([gated], SWORD, ['self:level:5'])?.notes).toEqual([]);
   });
 
+  test('a grievous element adds the further benefit of the weapon group, not the specialization itself', () => {
+    const notes = strikeOf([{ ...ELEMENT, grievous: true }], SWORD)?.notes;
+
+    expect(notes?.map(({ roll, outcome }) => [roll, outcome])).toEqual([['damage', ['criticalSuccess']]]);
+    expect(JSON.stringify(notes?.at(0)?.text)).toContain('Grievous (sword).');
+    expect(JSON.stringify(notes?.at(0)?.text)).toContain('off-guard until the end of your next turn');
+  });
+
+  test('a grievous element gives nothing to a group it has no benefit for, or to a weapon with none', () => {
+    const bomb = { ...LONGSWORD, group: 'bomb', rollOptions: ['group:bomb'] };
+
+    expect(strikeOf([{ ...ELEMENT, grievous: true }], bomb)?.notes).toEqual([]);
+    expect(strikeOf([{ ...ELEMENT, grievous: true }], LONGSWORD)?.notes).toEqual([]);
+  });
+
+  test('an etched grievous element does not reach a weapon its rune is not etched onto', () => {
+    expect(strikeOf([{ ...ELEMENT, grievous: true, etched: true }], SWORD)?.notes).toEqual([]);
+  });
+
   test('is given once when two elements reach the same group', () => {
     expect(strikeOf([ELEMENT, ELEMENT], SWORD)?.notes).toHaveLength(1);
   });

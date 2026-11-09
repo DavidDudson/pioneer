@@ -6,7 +6,7 @@ import { DamageTypeSchema } from './damage';
 import { ConditionValue } from './origin';
 import { DurationCount, DurationUnitSchema } from './rich-text';
 import { ModifierTargets, ruleElementBase, RuleElementKey } from './rule-element-base';
-import { Dc, Feet } from './units';
+import { Dc, Feet, Modifier } from './units';
 import { DiceCount, DieSize } from './weapon';
 
 /** The conditions a critical hit can put on its target; the Strike words each from its own message key (ADR-0009). */
@@ -38,7 +38,12 @@ export type CriticalSaveStatistic = ValueOf<typeof CriticalSaveStatistic>;
 const CriticalSave = z.strictObject({ statistic: z.enum(CriticalSaveStatistic), dc: Dc });
 export type CriticalSave = z.infer<typeof CriticalSave>;
 
-export const CriticalEffectKind = { Condition: 'condition', Damage: 'damage' } as const;
+export const CriticalEffectKind = {
+  Condition: 'condition',
+  Damage: 'damage',
+  Pacify: 'pacify',
+  Decapitate: 'decapitate',
+} as const;
 export type CriticalEffectKind = ValueOf<typeof CriticalEffectKind>;
 
 /**
@@ -86,14 +91,42 @@ const DamageEffect = z.strictObject({
 });
 
 /**
+ * What makes an effect happen: a critical hit (the default), any hit that deals damage, or a natural 20 that is a
+ * critical hit. The Strike words it from this field (ADR-0009); the engine does not roll for the player.
+ */
+export const CriticalTrigger = { Critical: 'critical', Hit: 'hit', NaturalTwenty: 'natural-twenty' } as const;
+export type CriticalTrigger = ValueOf<typeof CriticalTrigger>;
+
+/**
+ * The target must succeed at `save` or be pacified: `penalty` to its attack rolls that do not deal nonlethal damage
+ * for `duration`. Shown on the Strike; the engine applies nothing to the target.
+ */
+const PacifyEffect = z.strictObject({
+  kind: z.literal(CriticalEffectKind.Pacify),
+  penalty: Modifier,
+  duration: CriticalDuration,
+  save: CriticalSave,
+});
+
+/** A target with a head that fails `save` is decapitated, which kills it unless it needs no head to live. */
+const DecapitateEffect = z.strictObject({
+  kind: z.literal(CriticalEffectKind.Decapitate),
+  save: CriticalSave,
+});
+
+/**
  * What a critical hit with a Strike `selectors` reaches does besides its damage: a condition on the target, which a
  * save can prevent, or damage to creatures near it or to its armor. Frost, thundering, shock and corrosive runes carry
- * one. The Strike words it from the fields, so the element holds no text (ADR-0009).
+ * one. A `trigger` of `hit` or `natural-twenty` says it happens on another outcome (pacifying, vorpal), and `reaction`
+ * that the wielder spends a reaction to use it. The Strike words it from the fields, so the element holds no text
+ * (ADR-0009).
  */
 export const CriticalEffectElement = z.strictObject({
   key: z.literal(RuleElementKey.CriticalEffect),
   selectors: ModifierTargets,
-  effect: z.discriminatedUnion('kind', [ConditionEffect, DamageEffect]),
+  effect: z.discriminatedUnion('kind', [ConditionEffect, DamageEffect, PacifyEffect, DecapitateEffect]),
+  trigger: z.enum(CriticalTrigger).optional(),
+  reaction: z.literal(true).optional(),
   ...ruleElementBase,
 });
 export type CriticalEffectElement = z.infer<typeof CriticalEffectElement>;

@@ -5,7 +5,7 @@ import type * as z from 'zod';
 
 import type { Inventory, InventoryItemId } from './inventory';
 import { CarryState } from './item-carry';
-import { isSpecific, itemRunes, propertyRoom } from './item-runes';
+import { isSpecific, itemRunes, propertyRoom, readerOf, slottedRunes } from './item-runes';
 import type { RunedContent } from './item-runes';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
@@ -71,15 +71,17 @@ function propertyViolations(content: RunedContent, inventory: Inventory, limits:
       return [];
     }
     const runes = itemRunes(item, line.entry);
-    const room = propertyRoom(runes, limits);
+    const read = readerOf(content.runes);
+    const room = propertyRoom(runes, read, limits);
+    const slotted = slottedRunes(runes, read).length;
     const count: CountViolation[] =
-      runes.property.length > room
+      slotted > room
         ? [
             {
               item: item.id,
               rule: RuleBreak.PropertyRunes,
               limit: RuleCount.parse(room),
-              actual: RuleCount.parse(runes.property.length),
+              actual: RuleCount.parse(slotted),
             },
           ]
         : [];

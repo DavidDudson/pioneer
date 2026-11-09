@@ -2955,7 +2955,7 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [{ "key": "CriticalSpecialization", "grievous": true, "etched": true }],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qUnDHEXteUQGE8yp"
     },
@@ -6156,7 +6156,18 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "trigger": "natural-twenty",
+        "reaction": true,
+        "effect": {
+          "kind": "decapitate",
+          "save": { "statistic": "fortitude", "dc": 37 }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.6xaxxKfvXED6LfIY"
     },

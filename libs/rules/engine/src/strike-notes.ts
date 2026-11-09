@@ -1,5 +1,10 @@
-import { criticalSpecializationOf, DegreeOfSuccess, RuleElementKey } from '@pioneer/rules/sdk';
-import type { ContentText, NoteElement, Origin, RichText } from '@pioneer/rules/sdk';
+import {
+  criticalSpecializationOf,
+  DegreeOfSuccess,
+  grievousSpecializationOf,
+  RuleElementKey,
+} from '@pioneer/rules/sdk';
+import type { ContentText, CriticalSpecializationElement, NoteElement, Origin, RichText } from '@pioneer/rules/sdk';
 
 import type { RuleInPlay } from './rule-in-play';
 import { ETCHED_ATTACK, ETCHED_DAMAGE, ownsStrike, reaches } from './strike-targets';
@@ -33,16 +38,28 @@ function notesOf(rule: RuleInPlay, element: NoteElement, targets: StrikeTargets)
   ];
 }
 
-/** `notes` with the critical specialization of the Strike's weapon group, unless it has a group without one or already has it. */
+/** A rule in play whose element is a `CriticalSpecialization`. */
+type SpecializingRule = RuleInPlay & { readonly element: CriticalSpecializationElement };
+
+/**
+ * `notes` with the critical specialization of the Strike's weapon group, unless it has a group without one or already
+ * has it. A grievous element adds the group's further benefit instead, and an etched one only to the weapon it is
+ * etched onto.
+ */
 function withCriticalSpecialization(
   notes: readonly StrikeNote[],
-  rule: RuleInPlay,
-  { group }: StrikeTargets,
+  rule: SpecializingRule,
+  targets: StrikeTargets,
 ): readonly StrikeNote[] {
-  if (group === undefined) {
+  const { group } = targets;
+  const { element } = rule;
+  if (group === undefined || (element.etched === true && !ownsStrike(rule, targets))) {
     return notes;
   }
-  const text = criticalSpecializationOf(group);
+  const text = element.grievous === true ? grievousSpecializationOf(group) : criticalSpecializationOf(group);
+  if (text === undefined) {
+    return notes;
+  }
   return notes.some((note) => note.outcome !== undefined && JSON.stringify(note.text) === JSON.stringify(text))
     ? notes
     : [
@@ -64,6 +81,6 @@ export function notedBy(notes: readonly StrikeNote[], rule: RuleInPlay, targets:
     return [...notes, ...notesOf(rule, element, targets)];
   }
   return element.key === RuleElementKey.CriticalSpecialization
-    ? withCriticalSpecialization(notes, rule, targets)
+    ? withCriticalSpecialization(notes, { ...rule, element }, targets)
     : notes;
 }

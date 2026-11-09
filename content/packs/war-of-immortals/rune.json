@@ -106,7 +106,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [],
+        "etched": true,
+        "property": "potency",
+        "mode": "upgrade",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.fJKwvqNEkHPChfrR"
     },
@@ -498,7 +507,16 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "ItemAlteration",
+        "items": [],
+        "etched": true,
+        "property": "potency",
+        "mode": "upgrade",
+        "value": 4
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.p1oT9B3kdPGJUy3u"
     },

@@ -7,7 +7,6 @@ import {
   ItemCount,
   Modifier,
   NumericItemProperty,
-  RuneGrade,
   Trait,
 } from '@pioneer/rules/sdk';
 import type { BaseWeapon, RuleSlug, Slug } from '@pioneer/rules/sdk';
@@ -17,7 +16,7 @@ import type { ActiveItem } from './active-items';
 import type { Inventory, InventoryItemId } from './inventory';
 import { activeState, equippedState } from './inventory-content';
 import type { ItemContent } from './inventory-content';
-import { alteredItem, feetOf } from './item-alteration-inputs';
+import { alteredItem, feetOf, potencyOf } from './item-alteration-inputs';
 import { itemRunes } from './item-runes';
 import { itemSlugs, NO_PICKED_ITEMS } from './owned-items';
 import type { PickedItems } from './owned-items';
@@ -48,14 +47,15 @@ function armorInputs(
     return {};
   }
   const { item, entry } = active;
-  const { numbers } = alteredItem(rules, entry, { picked });
+  const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
+  const altered = alteredItem(rules, entry, { picked, item: item.id, potency: runes.potency });
+  const { numbers } = altered;
   const acBonus = numbers.get(NumericItemProperty.AcBonus) ?? entry.data.acBonus;
   const dexCap = numbers.get(NumericItemProperty.DexCap);
   const checkPenalty = numbers.get(NumericItemProperty.CheckPenalty);
   const strength = numbers.get(NumericItemProperty.Strength);
-  const runes = activeState(item, entry) === undefined ? NO_RUNES : itemRunes(item, entry);
   const armor = {
-    bonus: Modifier.parse(acBonus + (runes.potency ?? NO_POTENCY)),
+    bonus: Modifier.parse(acBonus + (potencyOf(altered) ?? NO_POTENCY)),
     resilient: runes.resilient,
     checkPenalty: checkPenalty === undefined || checkPenalty === 0 ? undefined : CheckPenalty.parse(checkPenalty),
     strength: strength === undefined ? undefined : AttributeModifier.parse(strength),
@@ -102,11 +102,11 @@ function weaponInputs(
     }
     const flags = picked.get(slug);
     const runes = itemRunes(each.item, entry);
-    const potency = runes.potency ?? entry.data.itemBonus;
     const altered = alteredItem(rules, entry, {
       picked: flags,
       favored: favoredBy(favored, entry.data.baseItem),
       item: each.item.id,
+      potency: runes.potency ?? entry.data.itemBonus,
     });
     return [
       {
@@ -119,7 +119,7 @@ function weaponInputs(
         propertyRunes: altered.propertyRunes,
         range: feetOf(altered, NumericItemProperty.RangeIncrement),
         reach: feetOf(altered, NumericItemProperty.Reach),
-        potency: potency === undefined ? undefined : RuneGrade.parse(potency),
+        potency: potencyOf(altered),
         striking: runes.striking,
         damage:
           altered.damageType === undefined

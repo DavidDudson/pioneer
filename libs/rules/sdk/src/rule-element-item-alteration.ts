@@ -31,6 +31,8 @@ export const NumericItemProperty = {
   SpeedPenalty: 'speed-penalty',
   Strength: 'strength',
   DamageDice: 'damage-dice',
+  /** The item's potency grade: a weapon's item bonus to attack, or what an armour adds to its AC bonus. */
+  Potency: 'potency',
 } as const;
 export type NumericItemProperty = ValueOf<typeof NumericItemProperty>;
 
@@ -54,6 +56,8 @@ const OverrideMode = z.literal(NumericAlterationMode.Override);
 const alterationBase = {
   key: z.literal(RuleElementKey.ItemAlteration),
   items: Predicate,
+  /** Reaches only the inventory item the rune is etched onto, as `AdjustStrike`'s `etched` does. */
+  etched: z.literal(true).optional(),
 };
 
 /**

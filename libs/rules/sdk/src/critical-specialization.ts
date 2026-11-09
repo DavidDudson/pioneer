@@ -48,3 +48,49 @@ export function criticalSpecializationOf(group: WeaponGroup): RichText {
     },
   ];
 }
+
+/**
+ * The additional benefit a grievous rune gives a weapon group's critical specialization (Archives of Nethys, Grievous).
+ * A bomb has none.
+ */
+const GRIEVOUS_EFFECTS: Readonly<Partial<Record<WeaponGroup, string>>> = {
+  [WeaponGroup.Axe]: 'You can damage a third creature, with the same restrictions.',
+  [WeaponGroup.Bow]: 'The Athletics check to pull the missile free is DC 20.',
+  [WeaponGroup.Brawling]: 'The target takes a -4 circumstance penalty to its save.',
+  [WeaponGroup.Club]: 'You can knock the target up to 15 feet away.',
+  [WeaponGroup.Crossbow]:
+    'If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile, as the bow critical specialization.',
+  [WeaponGroup.Dart]: 'The base persistent bleed damage increases to 2d6.',
+  [WeaponGroup.Firearm]: 'The target takes a -4 circumstance penalty to its save.',
+  [WeaponGroup.Flail]:
+    "You move the target 5 feet. You can't move it away from you, but you can move it in another direction of your choice.",
+  [WeaponGroup.Hammer]: 'You can also knock the target 5 feet away from you.',
+  [WeaponGroup.Knife]:
+    'The target takes a -5-foot status penalty to its Speed while it has the persistent bleed damage.',
+  [WeaponGroup.Pick]: 'The extra damage from the critical specialization effect increases to 4 per weapon damage die.',
+  [WeaponGroup.Polearm]: 'You can move the target up to 10 feet.',
+  [WeaponGroup.Shield]: 'You can knock the target up to 10 feet away.',
+  [WeaponGroup.Sling]: 'The target also takes a -10-foot status penalty to its Speed for 1 round if it fails the save.',
+  [WeaponGroup.Spear]: 'The clumsy condition lasts for 2 rounds.',
+  [WeaponGroup.Sword]: 'The target is off-guard until the end of your next turn.',
+};
+
+/** What a grievous rune adds to a weapon group's critical specialization, headed by the group's name, as a note's text; undefined for a group with none. */
+export function grievousSpecializationOf(group: WeaponGroup): RichText | undefined {
+  const effect = GRIEVOUS_EFFECTS[group];
+  return effect === undefined
+    ? undefined
+    : [
+        {
+          type: BlockKind.Paragraph,
+          content: [
+            {
+              type: InlineKind.Text,
+              text: RichTextString.parse(`Grievous (${group}).`),
+              marks: [TextMark.Strong],
+            },
+            { type: InlineKind.Text, text: RichTextString.parse(` ${effect}`) },
+          ],
+        },
+      ];
+}
