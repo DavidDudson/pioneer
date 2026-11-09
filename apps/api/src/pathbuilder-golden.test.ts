@@ -177,7 +177,7 @@ describe('Pathbuilder spells over the official packs', () => {
       const { character, report } = await service.importPathbuilder(actor, briarRoseExport);
       expect(spellPickCount(character.document.build.choices)).toBe(21);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
-        'Animist Prepared no-entry: 12',
+        'Animist Prepared no-entry: 13',
         'Animist Apparition no-entry: 21',
         'Vigilant Goloma no-entry: 1',
         'divine wis focus no-entry: 3',
