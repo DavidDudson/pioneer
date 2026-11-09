@@ -79,15 +79,20 @@
           shellHook = ''
             export PGDATA="$PWD/.data/postgres"
             export PGHOST=127.0.0.1
-            # Offset dev ports by the ws workspace number (ws3 -> +3) so parallel
-            # workspaces don't collide. 0 outside a workspace (main checkout, CI).
-            ws_offset="''${WS_NAME:-$(basename "$(dirname "$PWD")")}"
-            ws_offset="''${ws_offset#ws}"
-            case "$ws_offset" in ""|*[!0-9]*) ws_offset=0 ;; esac
-            export PGPORT=$(( 54329 + ws_offset ))
+            # Offset dev ports by a stable hash of the overbridge workspace name (gh-pioneer-12, ...), 0-99,
+            # so parallel workspaces rarely collide. 0 outside a workspace (main checkout, CI).
+            ws_name="''${OVERBRIDGE_NAME:-}"
+            case "$PWD" in "$HOME"/workspaces/*/*) ws_name="''${ws_name:-''${PWD#"$HOME"/workspaces/}}"; ws_name="''${ws_name%%/*}" ;; esac
+            ws_offset=0
+            if [ -n "$ws_name" ]; then
+              ws_offset=$(( $(printf '%s' "$ws_name" | cksum | cut -d' ' -f1) % 100 ))
+            fi
+            unset ws_name
+            # An explicit PGPORT wins: overbridge.yml derives it from the app's pool port, which cannot collide.
+            export PGPORT="''${PGPORT:-$(( 54329 + ws_offset ))}"
             # Not PORT: the Angular dev server reads PORT too. api:serve maps it.
-            export API_PORT=$(( 3000 + ws_offset ))
-            export WEB_PORT=$(( 4200 + ws_offset ))
+            export API_PORT="''${API_PORT:-$(( 3000 + ws_offset ))}"
+            export WEB_PORT="''${WEB_PORT:-$(( 4200 + ws_offset ))}"
             unset ws_offset
             export DATABASE_URL="''${DATABASE_URL:-postgres://$USER@127.0.0.1:$PGPORT/pioneer}"
             # Separate database: DB tests create and drop their own databases on it.

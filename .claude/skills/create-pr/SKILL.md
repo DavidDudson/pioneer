@@ -1,7 +1,7 @@
 ---
 name: create-pr
 description: Create a Pioneer pull request the repo's way. Reviews first, commits with a conventional message, pushes,
-takes before/after screenshots of UI changes, opens the PR linked to its issue, records it in the ws workspace,
+takes before/after screenshots of UI changes, opens the PR linked to its issue, records it in the overbridge workspace,
 requests the first Copilot review and waits for Copilot and CodeRabbit. Use when the user says "create a PR", "open a
 PR", "ship it", "raise a PR", or when work-issue or pickup reaches the PR step.
 argument-hint: '[issue-number] [--draft]'
@@ -11,8 +11,8 @@ argument-hint: '[issue-number] [--draft]'
 
 ## 1. Preconditions
 
-- On a feature branch, never `main`. Inside a ws workspace (`$WS_NAME` set or cwd under `~/workspaces/<ws>`),
-  branches come only from `ws checkout <repo> <branch>`; never `git switch`/`git checkout <branch>`.
+- On a feature branch, never `main`. Inside an overbridge workspace (`$OVERBRIDGE_NAME` set or cwd under `~/workspaces/<ws>`),
+  branches come only from `overbridge checkout <repo> <branch>`; never `git switch`/`git checkout <branch>`.
 - Branch name: `<type>/<issue>-<slug>`, for example `feat/7-i18n-foundation`. Types match `committed.toml`.
 - Find the issue: the argument, else the number in the branch name, else ask. Read it with `gh issue view <n>`.
   A PR closes stories, not epics: if the issue is an epic, close the story instead and mention the epic.
@@ -70,7 +70,7 @@ place. Name files `<screen>-before.png` / `<screen>-after.png` in the scratchpad
 ### What to capture
 
 - **Pages** in the running app: `just dev` in the background (Postgres, API on `$API_PORT`, web on `$WEB_PORT`;
-  ports are offset per ws workspace). `just db-reset` reseeds if the data is wrong; it wipes local data, so ask
+  ports are offset per overbridge workspace). `just db-reset` reseeds if the data is wrong; it wipes local data, so ask
   first.
 - **Components** in Storybook, for `ui` and frontier components with a story (ADR-0028):
   `bunx nx storybook frontier` (port 6007) or `bunx nx storybook rules-ui` (6008); `apps/storybook` (6006) composes
@@ -182,7 +182,7 @@ EOF
 
 `Closes #n` links the PR so the board moves the issue to In progress and to Done on merge.
 
-Then, inside a ws workspace: `ws pr <repo>`.
+Then, inside an overbridge workspace: `overbridge pr <repo>`.
 
 ## 6. Request the first Copilot review
 

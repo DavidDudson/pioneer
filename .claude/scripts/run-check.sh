@@ -3,7 +3,7 @@
 #
 #   .claude/scripts/run-check.sh bunx nx run content-feature:test --include="**/entry-page.component.spec.ts"
 #
-# Every workspace shares one lock (`$WS_ROOT/.check-queue.lock`, default ~/workspaces), so concurrent sessions queue
+# Every workspace shares one lock (`$OVERBRIDGE_ROOT/.check-queue.lock`, default ~/workspaces), so concurrent sessions queue
 # instead of competing for CPU. Before taking its turn it waits until the 1-minute load average is under
 # MAX_LOAD_PERCENT (default 70) of the core count, then holds the lock while the command runs.
 #
@@ -37,7 +37,7 @@ if [ -n "${RUN_CHECK_HELD:-}" ]; then
   exec "$here/devshell.sh" "$@"
 fi
 
-root="${WS_ROOT:-$HOME/workspaces}"
+root="${OVERBRIDGE_ROOT:-${WS_ROOT:-$HOME/workspaces}}"
 lock="$root/.check-queue.lock"
 holder="$root/.check-queue.holder" # the holder's session id, workspace, start time and command
 sample="$root/.check-queue.sample" # the last CPU sample any waiter took: session id, CPU seconds, since when
@@ -118,7 +118,7 @@ export RUN_CHECK_HELD=1
 # session id the waiters watch.
 setsid --wait timeout -k 10 "$max_run" "$here/devshell.sh" "$@" 9>&- &
 runner=$!
-printf '%s\t%s\t%s\t%s\n' "$runner" "${WS_NAME:-unknown}" "$(date +%s)" "$*" >"$holder"
+printf '%s\t%s\t%s\t%s\n' "$runner" "${OVERBRIDGE_NAME:-${WS_NAME:-unknown}}" "$(date +%s)" "$*" >"$holder"
 trap 'rm -f "$holder" "$sample"' EXIT
 
 status=0

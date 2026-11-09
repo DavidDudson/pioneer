@@ -40,11 +40,11 @@ list in your report.
 
 ## 2. Create the stack
 
-Branch per layer: `<type>/<story>-<slug>`. In a ws workspace, claim the bottom branch first so the work belongs
+Branch per layer: `<type>/<story>-<slug>`. In an overbridge workspace, claim the bottom branch first so the work belongs
 to this workspace, then let `gh stack` create the rest on top of it:
 
 ```sh
-ws checkout pioneer feat/101-locale-core      # bottom layer, claimed by this workspace
+overbridge checkout pioneer feat/101-locale-core      # bottom layer, claimed by this workspace
 gh stack init feat/101-locale-core            # adopt it as a stack on main
 # build layer 1, commit (conventional), run review skill
 gh stack add feat/102-route-scopes            # new layer on top, switches to it
@@ -53,8 +53,8 @@ gh stack add feat/102-route-scopes            # new layer on top, switches to it
 
 `gh stack up`, `gh stack down`, `gh stack top`, `gh stack bottom` and `gh stack checkout` move between layers of
 this stack; they are fine inside the workspace. Never use them to reach branches another workspace claims. Keep
-the ws claim on the layer being worked (`ws checkout pioneer <branch>` when you switch focus for a long session)
-and run `ws pr pioneer` after PRs exist.
+the overbridge claim on the layer being worked (`overbridge checkout pioneer <branch>` when you switch focus for a long
+session) and run `overbridge pr pioneer` after PRs exist.
 
 Work bottom-up. Finish, review and commit a layer before adding the next. If a lower layer needs a change, go
 down, fix it there, and restack (below), rather than patching it in a higher layer.

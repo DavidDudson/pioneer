@@ -16,7 +16,7 @@ argument-hint: '[pr-number | issue-number]'
 - **No argument:** gather candidates and choose.
 
   ```sh
-  ws status                                                   # branches/PRs this workspace already claims
+  overbridge status                                                   # branches/PRs this workspace already claims
   gh pr list --author "@me" --state open --json number,title,headRefName,isDraft,updatedAt
   gh project item-list 2 --owner DavidDudson --limit 200 --format json \
     | jq '[.items[] | select(.status == "In progress" or .status == "In review")]'
@@ -28,8 +28,8 @@ argument-hint: '[pr-number | issue-number]'
 
 ## 2. Check out
 
-Inside a ws workspace: `ws checkout pioneer #<pr>`. If it refuses because another workspace claims it, stop and
-tell the user. Outside ws: `gh pr checkout <pr>`.
+Inside an overbridge workspace: `overbridge checkout pioneer #<pr>`. If it refuses because another workspace claims it,
+stop and tell the user. Outside overbridge: `gh pr checkout <pr>`.
 
 Read the PR (`gh pr view <pr> --comments`), its linked issue and epic, and `git log origin/main..HEAD` to rebuild
 context: what was planned, what is done, what is left.
@@ -37,7 +37,7 @@ context: what was planned, what is done, what is left.
 ## 3. Update to latest main
 
 **Stack?** If the PR is a layer of a stack (`gh stack view --json`, or the PR shows a stack on GitHub), check out
-with `gh stack checkout <pr>` after the ws claim, update with `gh stack sync`, and resolve conflicts with
+with `gh stack checkout <pr>` after the overbridge claim, update with `gh stack sync`, and resolve conflicts with
 `gh stack rebase` / `gh stack rebase --continue` (see the `stack` skill). Then continue at step 4 for every open
 layer, lowest first.
 

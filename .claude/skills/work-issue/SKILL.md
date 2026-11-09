@@ -37,8 +37,8 @@ progress, merged → Done), except that you move an epic to In progress when its
 A story that is a layer of an epic's stack gets its branch from `gh stack add` (see the `stack` skill). A
 standalone story:
 
-Inside a ws workspace: `ws checkout pioneer <type>/<n>-<slug>`. If `ws checkout` refuses (claimed elsewhere), stop
-and tell the user. Outside ws: `git fetch origin && git switch -c <type>/<n>-<slug> origin/main`.
+Inside an overbridge workspace: `overbridge checkout pioneer <type>/<n>-<slug>`. If `overbridge checkout` refuses
+(claimed elsewhere), stop and tell the user. Outside overbridge: `git fetch origin && git switch -c <type>/<n>-<slug> origin/main`.
 
 If the issue belongs to an epic still in Backlog or Ready, move the epic to In progress on the board.
 
