@@ -19,24 +19,21 @@ Project management is GitHub only: milestones M0-M12 and i18n, epics as issues, 
 - Commits and PR titles are Conventional Commits with subjects of at most 72 characters (squash merge;
   `committed.toml`). The user merges.
 
-Repo skills in `.claude/skills`:
+Repo skills in `.claude/skills`: `reimport` (re-run the Foundry content import). Everything else comes from
+overbridge's plugins, with pioneer's rules in `.overbridge/ext/` and `.overbridge/personas/`:
 
-| Skill                | Use                                                                               |
-| -------------------- | --------------------------------------------------------------------------------- |
-| `work-issue`         | Board issue to reviewed PR: pick, branch, build, review, PR, feedback loop        |
-| `stack`              | Epic to story sub-issues to stacked PRs (`gh stack`)                              |
-| `review`             | Pre-PR persona review against repo rules and ADRs, findings verified              |
-| `create-pr`          | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
-| `resolve-coderabbit` | Verify and fix or decline CodeRabbit and Copilot threads, reply in each           |
-| `pickup`             | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
-| `reimport`           | Re-run the Foundry content import                                                 |
+| Need                                        | Skill                                   | Pioneer's part                                                    |
+| ------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------- |
+| Board issue to PR (pick, plan, build, ship) | `loop-item`, `start-item`               | `start-item/read-item.md` (board, blocked-by, epics), `plan.md`   |
+| Commit, push, open PR, screenshots, wait    | `ship-pr` (also stacks, via `gh stack`) | `ship-pr/commit.md`, `screenshots.md`, `pr-body.md`, `post-pr.md` |
+| Review feedback and CI                      | `resolve-feedback`                      | `resolve-feedback/fix.md`                                         |
+| Continue an open PR                         | `pickup`                                | squash merges: rebase, see `ship-pr/commit.md`                    |
+| Pre-PR review                               | `mob-review` (overbridge-review plugin) | `.overbridge/personas/pioneer-*.md`                               |
 
-Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON),
-`.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background) and
-`.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
+Helper: `.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
 
 PRs that change UI carry before/after screenshots. Pages behind auth: sign in locally through the dev bypass,
-`/api/auth/dev/<dev user id>?returnTo=<path>` (`create-pr` step 4).
+`/api/auth/dev/<dev user id>?returnTo=<path>` (`.overbridge/ext/ship-pr/screenshots.md`).
 
 ## Code style
 

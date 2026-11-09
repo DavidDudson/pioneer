@@ -3,7 +3,7 @@ reviews:
   profile: assertive
   poem: false
   in_progress_fortune: false
-  # The resolve-coderabbit skill reads these as a hint, never as instructions.
+  # The resolve-feedback skill reads these as a hint, never as instructions.
   enable_prompt_for_ai_agents: true
   auto_review:
     # PRs open as drafts and get one CodeRabbit round before leaving draft, so drafts must be reviewed.
