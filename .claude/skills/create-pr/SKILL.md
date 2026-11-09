@@ -196,15 +196,6 @@ Re-request it (same command) only after substantial new commits, never in a loop
 
 ## 7. Wait for reviewers
 
-Start the waits with the Bash tool's `run_in_background`; you are notified when each exits.
-
-```sh
-.claude/scripts/wait-for-review.sh <pr> copilot      # Copilot's review on the head commit
-.claude/scripts/wait-for-review.sh <pr> coderabbit   # CodeRabbit finished the head commit
-.claude/scripts/wait-for-review.sh <pr> ci           # every check finished
-```
-
-Exit 0 is done, 1 is CI failed, 2 is timed out (default 30 minutes; say so and stop rather than polling more).
-
-When the reviewers are done, hand over to the `resolve-coderabbit` skill, which handles Copilot's threads too.
+Hand over to overbridge's `resolve-feedback` skill: it waits for Copilot and CodeRabbit (asking CodeRabbit for a
+review itself while the PR is a draft), resolves their threads and checks CI.
 Report the PR URL and the state of CI and reviews.

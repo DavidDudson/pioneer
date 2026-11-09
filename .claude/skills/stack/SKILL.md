@@ -84,8 +84,7 @@ characters (see `create-pr`). Then for every PR in the stack (`gh stack view --j
 
 - Mark ready when the layer is complete: `gh pr ready <pr>`.
 - Request Copilot once per PR: `gh pr edit <pr> --add-reviewer "@copilot"`.
-- Wait for reviewers per PR with `.claude/scripts/wait-for-review.sh <pr> <copilot|coderabbit|ci>` in the
-  background, then run `resolve-coderabbit` per PR, lowest layer first.
+- Run `resolve-feedback` per PR (it waits for Copilot and CodeRabbit), lowest layer first.
 - If a title ever has to change after the PR is open, the check needs a new event: it reads
   `github.event.pull_request.title`, and `gh run rerun` replays the old payload with the old title. Push the
   next commit (a `synchronize` event carries the new title), or with nothing to push,
