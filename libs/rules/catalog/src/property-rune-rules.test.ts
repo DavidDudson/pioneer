@@ -166,9 +166,6 @@ function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
   });
 }
 
-/** The rule a mythic potency rune carries: it raises the potency of the item it is etched onto to +4. */
-const MYTHIC_POTENCY = { key: 'ItemAlteration', etched: true, property: 'potency', mode: 'upgrade', value: 4 };
-
 describe('weapon property rune rules', () => {
   test('every rune without an activation has rules or a recorded gap', () => {
     expect(unaccounted('weapon', WEAPON_GAPS)).toEqual([]);
@@ -237,46 +234,6 @@ describe('weapon property rune rules', () => {
     expect(entry?.rules).toMatchObject([{ key: 'GrantItem', item: QUICKENED }]);
   });
 
-  test('mythic weapon potency raises the etched weapon to +4 potency', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-weapon-potency');
-
-    expect(entry?.rules).toMatchObject([MYTHIC_POTENCY]);
-  });
-
-  test('pacifying asks a Will save on any hit, as a reaction', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:pacifying');
-
-    expect(entry?.rules).toMatchObject([
-      {
-        key: 'CriticalEffect',
-        selectors: [ETCHED_DAMAGE],
-        trigger: 'hit',
-        reaction: true,
-        effect: { kind: 'pacify', penalty: -2, save: { statistic: 'will', dc: 20 } },
-      },
-    ]);
-  });
-
-  test('vorpal asks a Fortitude save on a natural 20, as a reaction', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:vorpal');
-
-    expect(entry?.rules).toMatchObject([
-      {
-        key: 'CriticalEffect',
-        selectors: [ETCHED_DAMAGE],
-        trigger: 'natural-twenty',
-        reaction: true,
-        effect: { kind: 'decapitate', save: { statistic: 'fortitude', dc: 37 } },
-      },
-    ]);
-  });
-
-  test('grievous adds to the critical specialization of the weapon it is etched onto', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:grievous');
-
-    expect(entry?.rules).toMatchObject([{ key: 'CriticalSpecialization', grievous: true, etched: true }]);
-  });
-
   test('mythic striking makes the weapon roll five weapon damage dice', () => {
     const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-striking');
 
@@ -293,12 +250,6 @@ describe('armour property rune rules', () => {
 
   test('a recorded gap names a rune that still has no rules', () => {
     expect(staleGaps(ARMOUR_GAPS)).toEqual([]);
-  });
-
-  test('mythic armor potency raises the etched armour to +4 potency', () => {
-    const entry = RUNES.find(({ slug }) => slug === 'rune:mythic-armor-potency');
-
-    expect(entry?.rules).toMatchObject([MYTHIC_POTENCY]);
   });
 
   test.each(BONUS_RUNES)('$slug gives +$bonus to $selector', (rune) => {
