@@ -125,9 +125,9 @@ describe('a rune made for a choice', () => {
 describe(hasPropertyRoom, () => {
   it('has room while there are fewer property runes than the potency grade', () => {
     const inventory = flamingSword();
-    expect(hasPropertyRoom(lineOf(inventory, Armoury.Sword), entryOf(inventory, Armoury.Sword))).toBe(false);
+    expect(hasPropertyRoom(lineOf(inventory, Armoury.Sword), entryOf(inventory, Armoury.Sword), new Map())).toBe(false);
     const roomy = etchRune(inventory, Armoury.Sword, fundamental(FundamentalRune.Potency, 2));
-    expect(hasPropertyRoom(lineOf(roomy, Armoury.Sword), entryOf(roomy, Armoury.Sword))).toBe(true);
+    expect(hasPropertyRoom(lineOf(roomy, Armoury.Sword), entryOf(roomy, Armoury.Sword), new Map())).toBe(true);
   });
 });
 

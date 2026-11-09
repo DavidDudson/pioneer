@@ -1,4 +1,4 @@
-import { CriticalDurationType, DamageDiceCategory, DegreeOfSuccess } from '@pioneer/rules/sdk';
+import { CriticalDurationType, CriticalTrigger, DamageDiceCategory, DegreeOfSuccess } from '@pioneer/rules/sdk';
 
 /** Message keys the Strikes list renders with, spelled out so the key check sees them. */
 export const StrikesMessage = {
@@ -76,8 +76,21 @@ export const CriticalEffectMessage = {
   DamageOthers: 'rules.strikes.criticalEffect.damageOthers',
   /** "Corrosive: on a critical hit, the target's armor, or its raised shield, takes 3d6 acid damage, before Hardness". */
   DamageArmor: 'rules.strikes.criticalEffect.damageArmor',
+  /** "Pacifying: when you damage a creature, the target must succeed at a DC 20 Will save or be pacified, taking -2 to attack rolls…". */
+  Pacify: 'rules.strikes.criticalEffect.pacify',
+  /** "Vorpal: on a natural 20 that is a critical hit…, a target with a head must succeed at a DC 37 Fortitude save or be decapitated…". */
+  Decapitate: 'rules.strikes.criticalEffect.decapitate',
+  /** "{when}, as a reaction": what makes a reaction effect happen, ahead of what it does. */
+  Reaction: 'rules.strikes.criticalEffect.reaction',
   /** "equal": the damage as much as the Strike dealt. */
   EqualDamage: 'rules.strikes.criticalEffect.equalDamage',
+} as const;
+
+/** What makes an effect happen, by trigger. */
+export const CRITICAL_TRIGGER_MESSAGES = {
+  [CriticalTrigger.Critical]: 'rules.strikes.criticalEffect.trigger.critical',
+  [CriticalTrigger.Hit]: 'rules.strikes.criticalEffect.trigger.hit',
+  [CriticalTrigger.NaturalTwenty]: 'rules.strikes.criticalEffect.trigger.naturalTwenty',
 } as const;
 
 /** How long a condition from a critical hit lasts, by kind of duration. */

@@ -312,8 +312,12 @@ invested or identified is play state, not content.
   `etched-damage`, which reaches only the Strike of the weapon the rune is etched on, not every Strike the character
   has (`strike-rules.ts`). The energy runes (corrosive, flaming, frost, shock, thundering, and their greater grades)
   carry their extra damage that way. The greater grades ignore resistance (`ignoreResistance`), and Wounding's
-  bleed is the same element. Their critical-hit effects (a condition, a save, damage to other creatures) are `Note`
-  elements on the critical hit: shown on the Strike, not applied. The rest are recorded gaps in
+  bleed is the same element. Their critical-hit effects (a condition, a save, damage to other creatures) are
+  `CriticalEffect` elements: shown on the Strike, not applied. A `trigger` of `hit` (pacifying's Will save when you damage
+  a creature) or `natural-twenty` (vorpal's decapitation) and `reaction` say when one happens. Grievous is a
+  `CriticalSpecialization` that is `grievous` and `etched`: the further benefit of the weapon group, on the critical
+  hit note. A mythic potency rune is an `etched` `ItemAlteration` of `potency` that upgrades it to 4; such a rune takes
+  no property slot of its own (ADR-0078). The rest are recorded gaps in
   `property-rune-rules.test.ts` until the engine can express them, and the runes with an activation belong to the
   weapon activations story. An armour property
   rune that gives an item bonus (shadow's Stealth, slick's Acrobatics to Escape and Squeeze) is a `FlatModifier`; the

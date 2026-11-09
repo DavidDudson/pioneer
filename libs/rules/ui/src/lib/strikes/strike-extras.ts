@@ -7,12 +7,14 @@ import {
   CriticalDurationType,
   CriticalEffectKind,
   CriticalSaveStatistic as SaveStatistic,
+  CriticalTrigger,
 } from '@pioneer/rules/sdk';
 import type { CriticalDuration, CriticalSaveStatistic } from '@pioneer/rules/sdk';
 
 import { DAMAGE_TYPE_MESSAGES, DURATION_MESSAGES } from '../rich-text/rich-text-messages';
 import {
   CRITICAL_DURATION_MESSAGES,
+  CRITICAL_TRIGGER_MESSAGES,
   CriticalEffectMessage,
   DAMAGE_CATEGORY_MESSAGES,
   StrikesMessage,
@@ -45,16 +47,44 @@ function durationText(say: Say, duration: CriticalDuration): string {
   return say(CRITICAL_DURATION_MESSAGES[duration.type]);
 }
 
+/** What makes an effect happen, in words: "on a critical hit", or "when you damage a creature, as a reaction". */
+function whenText(say: Say, { trigger = CriticalTrigger.Critical, reaction }: CriticalEffect): string {
+  const when = say(CRITICAL_TRIGGER_MESSAGES[trigger]);
+  return reaction === true ? say(CriticalEffectMessage.Reaction, { when }) : when;
+}
+
+/** The effect that is a save against a rune's own harm: pacified, or decapitated. */
+function saveEffectText(
+  say: Say,
+  { source, when }: { readonly source: string; readonly when: string },
+  effect: Extract<CriticalEffect['effect'], { readonly kind: 'pacify' | 'decapitate' }>,
+): string {
+  const save = { source, when, dc: effect.save.dc, save: say(SAVE_MESSAGES[effect.save.statistic]) };
+  return effect.kind === CriticalEffectKind.Pacify
+    ? say(CriticalEffectMessage.Pacify, {
+        ...save,
+        penalty: effect.penalty,
+        duration: durationText(say, effect.duration),
+      })
+    : say(CriticalEffectMessage.Decapitate, save);
+}
+
 /**
- * What a critical hit does besides its damage, as a line led by the name of the rune or feat it comes from: "Frost: on
- * a critical hit, the target is Slowed 1 until the end of your next turn, unless it succeeds at a DC 24 Fortitude save".
+ * What a hit does besides its damage, as a line led by the name of the rune or feat it comes from: "Frost: on a
+ * critical hit, the target is Slowed 1 until the end of your next turn, unless it succeeds at a DC 24 Fortitude save".
  */
-export function criticalEffectText(i18n: TranslocoService, source: string, { effect }: CriticalEffect): string {
+export function criticalEffectText(i18n: TranslocoService, source: string, strike: CriticalEffect): string {
   const say: Say = (key, params): string => i18n.translate(key, params);
+  const { effect } = strike;
+  const when = whenText(say, strike);
+  if (effect.kind === CriticalEffectKind.Pacify || effect.kind === CriticalEffectKind.Decapitate) {
+    return saveEffectText(say, { source, when }, effect);
+  }
   if (effect.kind === CriticalEffectKind.Condition) {
     const worse = effect.criticalFailureDuration;
     return say(CriticalEffectMessage.Condition, {
       source,
+      when,
       condition: say(CONDITION_MESSAGES[effect.condition]),
       hasValue: effect.value === undefined ? 'no' : 'yes',
       value: effect.value ?? 0,
@@ -72,6 +102,7 @@ export function criticalEffectText(i18n: TranslocoService, source: string, { eff
       : `${effect.amount.count}${effect.amount.die}`;
   const damage = {
     source,
+    when,
     amount,
     type: say(DAMAGE_TYPE_MESSAGES[effect.damageType]),
     ignores: effect.ignoresResistance === true ? 'yes' : 'no',

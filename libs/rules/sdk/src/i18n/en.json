@@ -1032,10 +1032,18 @@
       "criticalWeakness": "On a critical hit, the target gains weakness {amount} to {type} until the end of your next turn",
       "criticalRange": "{source}: a natural {natural} on the attack is a critical hit, as long as it succeeds",
       "criticalEffect": {
-        "condition": "{source}: on a critical hit, the target is {condition}{hasValue, select, yes { {value}} other {}} {duration}{hasSave, select, yes {, unless it succeeds at a DC {dc} {save}} other {}}{hasWorse, select, yes { ({worse} on a critical failure)} other {}}",
-        "damageOthers": "{source}: on a critical hit, {amount} {type} damage{ignores, select, yes {, ignoring resistance,} other {}} to up to {count} other creatures within {range} ft of the target",
-        "damageArmor": "{source}: on a critical hit, the target's armor, or its raised shield, takes {amount} {type} damage, before Hardness",
+        "condition": "{source}: {when}, the target is {condition}{hasValue, select, yes { {value}} other {}} {duration}{hasSave, select, yes {, unless it succeeds at a DC {dc} {save}} other {}}{hasWorse, select, yes { ({worse} on a critical failure)} other {}}",
+        "damageOthers": "{source}: {when}, {amount} {type} damage{ignores, select, yes {, ignoring resistance,} other {}} to up to {count} other creatures within {range} ft of the target",
+        "damageArmor": "{source}: {when}, the target's armor, or its raised shield, takes {amount} {type} damage, before Hardness",
+        "pacify": "{source}: {when}, the target must succeed at a DC {dc} {save} or be pacified, taking {penalty} to attack rolls that don't deal nonlethal damage {duration}",
+        "decapitate": "{source}: {when}, a target with a head must succeed at a DC {dc} {save} or be decapitated, which kills it unless it needs no head to live",
         "equalDamage": "equal",
+        "trigger": {
+          "critical": "on a critical hit",
+          "hit": "when you damage a creature",
+          "naturalTwenty": "on a natural 20 that is a critical hit with a slashing Strike"
+        },
+        "reaction": "{when}, as a reaction",
         "conditions": {
           "clumsy": "Clumsy",
           "deafened": "Deafened",

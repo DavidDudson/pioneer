@@ -90,7 +90,15 @@ export {
   type StrikeScope,
   strikeRules,
 } from './strike-rules';
-export { adjustStrike, type AlterableItem, type AlteredItem, alterItem, type ItemNumbers } from './item-alterations';
+export { adjustStrike } from './adjust-strike';
+export {
+  type AlterableItem,
+  type AlteredItem,
+  alterItem,
+  type ItemNumbers,
+  type PotencyChange,
+  potencyAfter,
+} from './item-alterations';
 export { type AlteredAction, alterAction } from './altered-action';
 export {
   type ActionCandidate,

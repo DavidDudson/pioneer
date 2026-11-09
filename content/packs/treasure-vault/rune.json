@@ -1656,7 +1656,20 @@
         ]
       }
     ],
-    "rules": [],
+    "rules": [
+      {
+        "key": "CriticalEffect",
+        "selectors": ["etched-damage"],
+        "trigger": "hit",
+        "reaction": true,
+        "effect": {
+          "kind": "pacify",
+          "penalty": -2,
+          "duration": { "type": "time", "count": 1, "unit": "minute" },
+          "save": { "statistic": "will", "dc": 20 }
+        }
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.R8I13CDRzvpVXOVe"
     },
