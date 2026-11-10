@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, DOCUMENT, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideLink } from '@lucide/angular';
 import type { CampaignId, InviteSummary, InviteToken } from '@pioneer/campaign/domain';
 import {
   AsyncButton,
@@ -19,6 +18,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { Link } from 'lucide';
 
 import { CampaignStore } from '../../data/campaign-store';
 
@@ -58,7 +58,7 @@ export class CampaignInvitePanel {
   /** One revoke action per invite, so each button keeps the same action across renders. */
   readonly #revokes = new Map<string, () => Promise<void>>();
 
-  protected readonly emptyIcon = LucideLink;
+  protected readonly emptyIcon = Link;
   /** The link made last; its token can't be fetched again, so it lives only here. */
   protected readonly newLink = signal<string | undefined>(undefined);
 

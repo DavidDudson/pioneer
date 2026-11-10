@@ -1,6 +1,6 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { LucideDices } from '@lucide/angular';
+import { Dices } from 'lucide';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { EmptyState } from './empty-state.component';
@@ -48,7 +48,7 @@ describe(EmptyState, () => {
   it('shows no icon unless given one, and then as decoration', async () => {
     const plain = await render({});
     expect(plain.querySelector('svg')).toBeNull();
-    const withIcon = await render({ icon: LucideDices });
+    const withIcon = await render({ icon: Dices });
     expect(withIcon.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');
   });
 

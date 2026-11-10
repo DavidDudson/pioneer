@@ -1,7 +1,6 @@
 import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideKeyRound } from '@lucide/angular';
 import {
   AsyncData,
   AsyncPending,
@@ -19,6 +18,7 @@ import { IdentityContract, OAuthProvider, returnPathOr } from '@pioneer/identity
 import type { ReturnPath } from '@pioneer/identity/domain';
 import { ApiClient } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
+import { KeyRound } from 'lucide';
 
 /** Button text per provider, spelled out so the message check sees every key. */
 const CONTINUE_WITH = {
@@ -56,7 +56,7 @@ export class SignInPage {
   protected readonly extras = inject(SIGN_IN_EXTRAS);
   readonly #api = inject(ApiClient);
   protected readonly continueWith = CONTINUE_WITH;
-  protected readonly unavailableIcon = LucideKeyRound;
+  protected readonly unavailableIcon = KeyRound;
   protected readonly destination = computed<ReturnPath>(() => returnPathOr(this.returnTo()));
   protected readonly providers = injectQuery(() => ({
     queryKey: ['identity', 'providers'] as const,

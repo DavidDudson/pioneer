@@ -17,11 +17,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideChevronDown } from '@lucide/angular';
 import { injectDebouncer } from '@tanstack/angular-pacer';
 import { functionalUpdate, injectTable } from '@tanstack/angular-table';
 import type { Row, SortingState, Updater } from '@tanstack/angular-table';
 import { cva } from 'class-variance-authority';
+import { ChevronDown } from 'lucide';
 
 import { TABLE_FEATURES } from '../../data/table/table-features';
 import type { TableColumn, TableFeatureSet } from '../../data/table/table-features';
@@ -53,7 +53,9 @@ function keepFocus(event: Event): void {
   }
 }
 
-const triggerLabelVariants = cva('', { variants: { empty: { true: 'text-fg-subtle', false: '' } } });
+const triggerLabelVariants = cva('', {
+  variants: { empty: { true: 'text-fg-subtle', false: '' } },
+});
 
 /**
  * Plain single pick from a table, opened inline below the trigger (never a popover): a search box, sortable
@@ -155,7 +157,7 @@ export class Picker<TValue extends string, TRow extends object> extends Control 
   protected readonly labelClasses = computed(() => triggerLabelVariants({ empty: this.pickedLabel() === undefined }));
 
   protected readonly panelId = uniqueId('fr-picker');
-  protected readonly CaretIcon = LucideChevronDown;
+  protected readonly CaretIcon = ChevronDown;
   protected readonly triggerClasses = controlVariants({ trigger: true });
   protected readonly panelClasses = pickerPanelClasses;
   protected readonly searchClasses = pickerSearchClasses;

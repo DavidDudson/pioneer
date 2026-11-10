@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import type { LucideIcon } from '@lucide/angular';
 
+import type { IconGlyph } from '../../icon/icon-glyph';
 import { Badge, BadgeTone } from '../badge/badge.component';
 
 /**
@@ -17,5 +17,5 @@ import { Badge, BadgeTone } from '../badge/badge.component';
 export class Tag {
   public readonly label = input.required<string>();
   public readonly tone = input<BadgeTone>(BadgeTone.Neutral);
-  public readonly icon = input<LucideIcon | undefined>(undefined);
+  public readonly icon = input<IconGlyph | undefined>(undefined);
 }

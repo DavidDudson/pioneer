@@ -1,6 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideMoon } from '@lucide/angular';
+import { Moon } from 'lucide';
 import { expect, within } from 'storybook/test';
 
 import { Button } from '../../actions/button/button.component';
@@ -20,11 +20,15 @@ type ShellStory = StoryObj<Shell>;
 const meta: Meta<Shell> = {
   title: 'Layout/Shell',
   component: Shell,
-  decorators: [moduleMetadata({ imports: [Button, Icon, Link, Page, PageBody, PageHeader, Stack, Surface, Text] })],
+  decorators: [
+    moduleMetadata({
+      imports: [Button, Icon, Link, Page, PageBody, PageHeader, Stack, Surface, Text],
+    }),
+  ],
   args: { brand: 'Pioneer', badge: 'Pre-Alpha' },
   parameters: { layout: 'fullscreen' },
   render: (args) => ({
-    props: { ...args, moon: LucideMoon },
+    props: { ...args, moon: Moon },
     template: `
       <fr-shell ${argsToTemplate(args)}>
         <fr-text frShellSearch>Search goes here</fr-text>

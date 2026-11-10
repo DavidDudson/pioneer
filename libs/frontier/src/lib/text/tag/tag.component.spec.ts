@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { LucideFlame } from '@lucide/angular';
+import { Flame } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
 import { BadgeTone } from '../badge/badge.component';
@@ -27,7 +27,7 @@ describe(Tag, () => {
   });
 
   it('draws a leading icon when given one', async () => {
-    const host = await render({ label: 'Fire', icon: LucideFlame });
+    const host = await render({ label: 'Fire', icon: Flame });
     expect(host.querySelector('fr-icon')).not.toBeNull();
   });
 });

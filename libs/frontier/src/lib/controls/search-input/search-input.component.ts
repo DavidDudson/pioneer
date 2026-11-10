@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output, viewChild } from '@angular/core';
 import type { ElementRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideSearch, LucideX } from '@lucide/angular';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import { injectDebouncer } from '@tanstack/angular-pacer';
+import { Search, X } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
@@ -35,8 +35,8 @@ export class SearchInput extends Control {
   /** The query, debounced. Not fired when `value` is set from outside. */
   public readonly searched = output<string>();
 
-  protected readonly SearchIcon = LucideSearch;
-  protected readonly ClearIcon = LucideX;
+  protected readonly SearchIcon = Search;
+  protected readonly ClearIcon = X;
   protected readonly iconSlotClasses = computed(() => adornmentVariants({ edge: 'start', disabled: this.disabled() }));
   protected readonly clearSlotClasses = adornmentVariants({ edge: 'end' });
   protected readonly classes = controlVariants({ adorned: true });

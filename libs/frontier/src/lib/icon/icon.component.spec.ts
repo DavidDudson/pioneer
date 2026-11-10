@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LucideCheck } from '@lucide/angular';
+import { Check } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
 import { Size } from '../tokens';
@@ -8,7 +8,7 @@ import { Icon } from './icon.component';
 
 async function render(inputs: Record<string, unknown>): Promise<SVGElement> {
   const fixture = TestBed.createComponent(Icon);
-  fixture.componentRef.setInput('icon', LucideCheck);
+  fixture.componentRef.setInput('icon', Check);
   for (const [name, value] of Object.entries(inputs)) {
     fixture.componentRef.setInput(name, value);
   }
@@ -25,6 +25,11 @@ describe(Icon, () => {
     );
     expect(effects.length).toBeGreaterThan(0);
     expect(new Set(effects)).toStrictEqual(new Set(['non-scaling-stroke']));
+  });
+
+  it('draws the shapes of a Lucide icon', async () => {
+    const svg = await render({});
+    expect(svg.querySelector('path')?.getAttribute('d')).toBe('M20 6 9 17l-5-5');
   });
 
   it('is decorative without a label', async () => {

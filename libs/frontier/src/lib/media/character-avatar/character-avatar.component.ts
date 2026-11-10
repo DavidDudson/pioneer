@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideDroplet, LucideSkull } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { Droplet, Skull } from 'lucide';
 
 import { meterTone } from '../../feedback/meter/meter-tone';
 import type { MeterTone } from '../../feedback/meter/meter-tone';
@@ -157,14 +157,18 @@ export class CharacterAvatar {
       return undefined;
     }
     return cue === WoundCue.Dying
-      ? { icon: LucideSkull, key: 'frontier.characterAvatar.dying' }
-      : { icon: LucideDroplet, key: 'frontier.characterAvatar.bloodied' };
+      ? { icon: Skull, key: 'frontier.characterAvatar.dying' }
+      : { icon: Droplet, key: 'frontier.characterAvatar.bloodied' };
   });
 
   /** HP as non-negative amounts: current never past max, temp never negative. */
   readonly #amounts = computed(() => {
     const max = Math.max(this.max() ?? 0, 0);
-    return { max, current: Math.min(Math.max(this.current() ?? 0, 0), max), temp: Math.max(this.temp(), 0) };
+    return {
+      max,
+      current: Math.min(Math.max(this.current() ?? 0, 0), max),
+      temp: Math.max(this.temp(), 0),
+    };
   });
 
   protected readonly hasBar = computed(() => this.#amounts().max > 0);
@@ -194,7 +198,11 @@ export class CharacterAvatar {
 
   protected readonly numbers = computed(() => {
     const { max, current, temp } = this.#amounts();
-    return { current: this.#format.number(current), max: this.#format.number(max), temp: this.#format.number(temp) };
+    return {
+      current: this.#format.number(current),
+      max: this.#format.number(max),
+      temp: this.#format.number(temp),
+    };
   });
 
   protected readonly arcPath = ARC_PATH;

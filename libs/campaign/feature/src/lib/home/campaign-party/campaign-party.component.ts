@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideUsers } from '@lucide/angular';
 import { CampaignRole } from '@pioneer/campaign/domain';
 import type { CampaignId, CharacterId, PartyCharacter } from '@pioneer/campaign/domain';
 import {
@@ -19,6 +18,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { Users } from 'lucide';
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignAttachPicker } from '../campaign-attach-picker/campaign-attach-picker.component';
@@ -72,7 +72,7 @@ export class CampaignPartyPanel {
   );
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideUsers;
+  protected readonly emptyIcon = Users;
   /**
    * Characters detached since the party loaded. Their rows stay, marked, until it next loads, so the
    * focused Detach button and its tick survive; detaching again is harmless.

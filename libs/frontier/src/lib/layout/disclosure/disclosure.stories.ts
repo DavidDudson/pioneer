@@ -1,5 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { ChevronDown, ChevronUp } from 'lucide';
 import { expect, fn, waitFor } from 'storybook/test';
 
 import { pressKeys } from '../../testing/story-keyboard';
@@ -95,8 +96,9 @@ function disclosureParts(canvasElement: HTMLElement): DisclosureParts {
   return { details, summary };
 }
 
+/** The path the chevron is drawn with. */
 function chevron(summary: HTMLElement): string | undefined {
-  return summary.querySelector('svg')?.getAttribute('class') ?? undefined;
+  return summary.querySelector('svg path')?.getAttribute('d') ?? undefined;
 }
 
 /** The Keyboard story's `openChange` spy. */
@@ -111,7 +113,7 @@ async function expectKeyToggles(key: string, open: boolean, { details, summary }
   });
   await expect(details.open).toBe(open);
   await waitFor(async () => {
-    await expect(chevron(summary)).toContain(open ? 'chevron-up' : 'chevron-down');
+    await expect(chevron(summary)).toBe((open ? ChevronUp : ChevronDown)[0]?.[1]['d']);
   });
 }
 

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideDices } from '@lucide/angular';
 import {
   Button,
   EmptyState,
@@ -41,6 +40,7 @@ import type {
 import { Dc } from '@pioneer/rules/sdk';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import { Dices } from 'lucide';
 
 import { DamageTargetEditor } from '../damage-target-editor/damage-target-editor.component';
 
@@ -96,7 +96,7 @@ export class DicePlaygroundPage {
   readonly #format = inject(LocaleFormat);
   #rolled = 0;
 
-  protected readonly emptyIcon = LucideDices;
+  protected readonly emptyIcon = Dices;
   protected readonly text = signal(STARTING_EXPRESSION);
   readonly #outcome = computed((): ParseOutcome => parseDiceExpression(DiceExpressionText.parse(this.text())));
   protected readonly error = computed((): MessageDescriptor | undefined => {

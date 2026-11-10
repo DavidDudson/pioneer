@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideChevronRight } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { ChevronRight } from 'lucide';
 
 import { Skeleton } from '../../feedback/skeleton/skeleton.component';
 import { Icon } from '../../icon/icon.component';
@@ -53,7 +53,7 @@ export class Breadcrumbs {
   public readonly items = input.required<readonly BreadcrumbItem[]>();
 
   protected readonly itemClasses = itemClasses;
-  protected readonly separator = LucideChevronRight;
+  protected readonly separator = ChevronRight;
   protected readonly listClasses = listClasses;
   protected readonly currentClasses = currentClasses;
   protected readonly textClasses = textClasses;

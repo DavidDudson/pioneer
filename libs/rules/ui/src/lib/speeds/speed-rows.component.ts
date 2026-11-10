@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideBird, LucideFootprints, LucideMountain, LucideShovel, LucideWavesHorizontal } from '@lucide/angular';
-import type { LucideIcon } from '@lucide/angular';
+import type { IconGlyph } from '@pioneer/frontier';
 import {
   Button,
   ButtonVariant,
@@ -16,6 +15,7 @@ import {
 import type { StatisticValue } from '@pioneer/rules/engine';
 import { StatisticKind } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { Bird, Footprints, Mountain, Shovel, WavesHorizontal } from 'lucide';
 
 import { BreakdownView } from '../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../origin-chain/origin-names';
@@ -33,18 +33,18 @@ export interface SpeedRow {
 interface ShownSpeed {
   readonly movement: Movement;
   readonly name: string;
-  readonly icon: LucideIcon;
+  readonly icon: IconGlyph;
   readonly total: string | undefined;
   readonly statistic: StatisticValue | undefined;
   readonly kind: StatisticKind;
 }
 
-const ICONS: Readonly<Record<Movement, LucideIcon>> = {
-  [Movement.Walk]: LucideFootprints,
-  [Movement.Swim]: LucideWavesHorizontal,
-  [Movement.Fly]: LucideBird,
-  [Movement.Climb]: LucideMountain,
-  [Movement.Burrow]: LucideShovel,
+const ICONS: Readonly<Record<Movement, IconGlyph>> = {
+  [Movement.Walk]: Footprints,
+  [Movement.Swim]: WavesHorizontal,
+  [Movement.Fly]: Bird,
+  [Movement.Climb]: Mountain,
+  [Movement.Burrow]: Shovel,
 };
 
 /**

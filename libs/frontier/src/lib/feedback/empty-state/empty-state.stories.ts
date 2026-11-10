@@ -1,6 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideDices, LucideSearchX, LucideUsers } from '@lucide/angular';
+import { Dices, SearchX, Users } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
 import { Surface } from '../../layout/surface/surface.component';
@@ -15,7 +15,7 @@ const meta: Meta<EmptyState> = {
   decorators: [moduleMetadata({ imports: [Button, Surface] })],
   argTypes: { icon: { control: false } },
   args: {
-    icon: LucideDices,
+    icon: Dices,
     title: 'No rolls yet',
     description: 'Enter an expression and roll; results show here.',
   },
@@ -30,10 +30,12 @@ export default meta;
 
 export const Default: EmptyStateStory = {};
 
-export const TitleOnly: EmptyStateStory = { args: { icon: undefined, title: 'None.', description: undefined } };
+export const TitleOnly: EmptyStateStory = {
+  args: { icon: undefined, title: 'None.', description: undefined },
+};
 
 export const WithAction: EmptyStateStory = {
-  args: { icon: LucideUsers, title: 'No characters yet', description: 'Create one to get started.' },
+  args: { icon: Users, title: 'No characters yet', description: 'Create one to get started.' },
   render: (args) => ({
     props: args,
     template: `
@@ -46,7 +48,11 @@ export const WithAction: EmptyStateStory = {
 
 /** A search with no matches, inside a surface, with a way back. */
 export const NoResults: EmptyStateStory = {
-  args: { icon: LucideSearchX, title: 'No feats match', description: 'Try fewer filters or a shorter search.' },
+  args: {
+    icon: SearchX,
+    title: 'No feats match',
+    description: 'Try fewer filters or a shorter search.',
+  },
   render: (args) => ({
     props: args,
     template: `

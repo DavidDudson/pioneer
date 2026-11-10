@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { LucideMoon } from '@lucide/angular';
+import { Moon } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
 import { Segmented } from './segmented.component';
@@ -82,7 +82,7 @@ describe(Segmented, () => {
   it('shows an option with an icon as an icon-only button named by its label', () => {
     const fixture = TestBed.createComponent(Segmented<string>);
     fixture.componentRef.setInput('options', [
-      { value: 'dark', label: 'Dark', icon: LucideMoon },
+      { value: 'dark', label: 'Dark', icon: Moon },
       { value: 'light', label: 'Light' },
     ]);
     fixture.detectChanges();

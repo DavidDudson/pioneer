@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
-import { LucideGift } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { Gift } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
 import { LocaleFormat } from '../../locale/locale-format';
@@ -39,7 +39,7 @@ export class GiftBadge {
   /** The count in the active locale, only when there are several; the button then grows past a square. */
   protected readonly shownCount = computed(() => (this.count() > 1 ? this.#format.number(this.count()) : undefined));
 
-  protected readonly icon = LucideGift;
+  protected readonly icon = Gift;
   protected readonly size = Size.Sm;
   protected readonly giftClasses = giftClasses;
 }

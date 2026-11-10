@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import type { LucideIcon } from '@lucide/angular';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
 
+import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
 
 export const BadgeTone = {
@@ -127,7 +127,7 @@ const badgeVariants = cva('inline-flex items-center gap-3xs border px-2xs text-c
 export class Badge {
   public readonly tone = input<BadgeTone>(BadgeTone.Neutral);
   public readonly variant = input<BadgeVariant>(BadgeVariant.Subtle);
-  public readonly icon = input<LucideIcon | undefined>(undefined);
+  public readonly icon = input<IconGlyph | undefined>(undefined);
 
   protected readonly classes = computed(() => badgeVariants({ tone: this.tone(), variant: this.variant() }));
 }

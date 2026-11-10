@@ -1,10 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideDownload } from '@lucide/angular';
 import { AsyncButton, ButtonVariant, Icon, Stack } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import { ApiError } from '@pioneer/shared/web';
+import { Download } from 'lucide';
 
 import { CharacterStore } from '../../data/character-store';
 import { exportFileName, saveJsonFile } from '../sheet-export-file';
@@ -24,7 +24,7 @@ export class SheetExport {
   readonly #i18n = inject(TranslocoService);
   readonly #store = inject(CharacterStore);
 
-  protected readonly icon = LucideDownload;
+  protected readonly icon = Download;
   protected readonly variant = ButtonVariant.Menu;
 
   protected readonly download = async (): Promise<void> => {

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { LucideLoaderCircle } from '@lucide/angular';
+import { LoaderCircle } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
 import { Size } from '../../tokens';
@@ -21,5 +21,5 @@ export class Spinner {
   public readonly size = input<Size>(Size.Sm);
   public readonly label = input<string | undefined>(undefined);
 
-  protected readonly LoaderIcon = LucideLoaderCircle;
+  protected readonly LoaderIcon = LoaderCircle;
 }

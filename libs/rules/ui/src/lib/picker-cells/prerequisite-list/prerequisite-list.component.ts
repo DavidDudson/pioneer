@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideCheck, LucideCircleQuestionMark, LucideX } from '@lucide/angular';
 import { Glyph, Icon, List, ListItem, Stack, Text, Tone } from '@pioneer/frontier';
+import { Check, CircleQuestionMark, X } from 'lucide';
 
 import { PickerCellMessage } from '../picker-cell-messages';
 
@@ -18,19 +18,19 @@ export interface PrerequisiteLine {
 /** What each state shows: its icon, the tone of the icon and of the text, and the words a screen reader says. */
 const STATE_VIEWS = {
   [PrerequisiteState.Met]: {
-    icon: LucideCheck,
+    icon: Check,
     iconTone: Tone.Success,
     textTone: Tone.Default,
     spoken: PickerCellMessage.PrerequisiteMet,
   },
   [PrerequisiteState.Unmet]: {
-    icon: LucideX,
+    icon: X,
     iconTone: Tone.Danger,
     textTone: Tone.Danger,
     spoken: PickerCellMessage.PrerequisiteUnmet,
   },
   [PrerequisiteState.Unknown]: {
-    icon: LucideCircleQuestionMark,
+    icon: CircleQuestionMark,
     iconTone: Tone.Muted,
     textTone: Tone.Muted,
     spoken: PickerCellMessage.PrerequisiteUnknown,

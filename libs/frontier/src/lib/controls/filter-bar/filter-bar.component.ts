@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, model, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideX } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { X } from 'lucide';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
@@ -51,7 +51,7 @@ export class FilterBar {
   protected readonly chipClasses = chipClasses;
   protected readonly ButtonVariant = ButtonVariant;
   protected readonly Size = Size;
-  protected readonly closeIcon = LucideX;
+  protected readonly closeIcon = X;
 
   readonly #transloco = inject(TranslocoService);
   /** Whether the panel is open. */

@@ -1,6 +1,6 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideFlame } from '@lucide/angular';
+import { Flame } from 'lucide';
 
 import { BadgeTone } from '../badge/badge.component';
 import { Tag } from './tag.component';
@@ -26,4 +26,4 @@ export default meta;
 
 export const Default: TagStory = {};
 
-export const WithIcon: TagStory = { args: { icon: LucideFlame, tone: BadgeTone.Danger } };
+export const WithIcon: TagStory = { args: { icon: Flame, tone: BadgeTone.Danger } };

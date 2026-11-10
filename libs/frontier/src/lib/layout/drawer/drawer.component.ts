@@ -16,8 +16,8 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideX } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { X } from 'lucide';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
@@ -107,7 +107,7 @@ export class Drawer {
   /** The query parameter that carries `open`; rename it when a page holds more than one drawer. */
   public readonly param = input(DRAWER_PARAM);
 
-  protected readonly closeIcon = LucideX;
+  protected readonly closeIcon = X;
   protected readonly ButtonVariant = ButtonVariant;
   protected readonly contentClasses = contentClasses;
   protected readonly headerClasses = headerClasses;

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideBookOpen } from '@lucide/angular';
 import {
   Badge,
   BadgeTone,
@@ -23,6 +22,7 @@ import {
 } from '@pioneer/rules/sdk';
 import type { Book, ContentLicense, SourceRef } from '@pioneer/rules/sdk';
 import type { ValueOf } from '@pioneer/shared/kernel';
+import { BookOpen } from 'lucide';
 
 import { SOURCE_TYPE_MESSAGES, SourceBadgeMessage } from './source-badge-messages';
 import { SOURCE_TONES } from './source-badge-tones';
@@ -54,7 +54,10 @@ interface DetailLink {
   readonly label: string;
 }
 
-const phrase = (key: string, params: Readonly<Record<string, string>> = {}): Phrase => ({ key, params });
+const phrase = (key: string, params: Readonly<Record<string, string>> = {}): Phrase => ({
+  key,
+  params,
+});
 
 const row = (label: string, text: string | undefined): readonly DetailRow[] =>
   text === undefined ? [] : [{ label, text }];
@@ -97,7 +100,7 @@ export class SourceBadge {
   protected readonly Message = SourceBadgeMessage;
   protected readonly Variant = ButtonVariant;
   protected readonly BadgeTone = BadgeTone;
-  protected readonly icon = LucideBookOpen;
+  protected readonly icon = BookOpen;
 
   protected readonly type = computed(() =>
     sourceType({ source: this.source(), book: this.book(), license: this.license() }),

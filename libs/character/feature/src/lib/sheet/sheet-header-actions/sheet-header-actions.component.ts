@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideEllipsis } from '@lucide/angular';
 import { Dropdown, Stack } from '@pioneer/frontier';
+import { Ellipsis } from 'lucide';
 
 import { SheetActiveCount } from '../sheet-active-count/sheet-active-count.component';
 import { SheetConfigurationButton } from '../sheet-configuration/sheet-configuration-button.component';
@@ -29,6 +29,6 @@ import { SheetSaveStatus } from '../sheet-save-status/sheet-save-status.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SheetHeaderActions {
-  protected readonly menuIcon = LucideEllipsis;
+  protected readonly menuIcon = Ellipsis;
   protected readonly menuOpen = signal(false);
 }

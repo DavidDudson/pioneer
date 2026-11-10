@@ -87,6 +87,7 @@ export { ToggleButtonField } from './lib/forms/toggle-button-field/toggle-button
 // Icons (Lucide)
 export { ActionIcon, ActionIconCost } from './lib/icon/action-icon.component';
 export { Icon } from './lib/icon/icon.component';
+export type { IconGlyph } from './lib/icon/icon-glyph';
 
 // Inline edit
 export { InlineEdit, type InlineEditOptions, InlineEditStatus } from './lib/inline-edit/inline-edit';

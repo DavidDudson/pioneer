@@ -1,10 +1,10 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 import type { FormValueControl, ValidationError } from '@angular/forms/signals';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideTable } from '@lucide/angular';
 import { rollOn } from '@pioneer/character/domain';
 import type { RollTable } from '@pioneer/character/domain';
 import { Button, Icon, RefreshableField } from '@pioneer/frontier';
+import { Table } from 'lucide';
 
 import { cryptoPicks } from './crypto-picks';
 
@@ -36,7 +36,7 @@ export class RollTableInput implements FormValueControl<string> {
   /** Whether the table's drawer is open; the page that holds the drawer binds it. */
   public readonly tableOpen = model(false);
 
-  protected readonly TableIcon = LucideTable;
+  protected readonly TableIcon = Table;
 
   /** One roll on the table. */
   protected readonly roll = async (): Promise<string> => rollOn(cryptoPicks, this.table());

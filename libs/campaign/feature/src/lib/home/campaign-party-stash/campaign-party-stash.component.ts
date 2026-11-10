@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackage } from '@lucide/angular';
 import type { PartyStash } from '@pioneer/campaign/domain';
 import {
   AsyncData,
@@ -14,6 +13,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { Package } from 'lucide';
 
 import { CampaignPartyStashStore } from '../../data/campaign-party-stash-store';
 import { CampaignPartyStashLine } from '../campaign-party-stash-line/campaign-party-stash-line.component';
@@ -54,7 +54,7 @@ export class CampaignPartyStashPanel {
   protected readonly store = inject(CampaignPartyStashStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucidePackage;
+  protected readonly emptyIcon = Package;
 
   protected readonly containerName = containerName;
 }

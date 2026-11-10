@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import type { LucideIcon } from '@lucide/angular';
+import type { IconGlyph } from '@pioneer/frontier';
 import { Icon, LocaleFormat, Stack, Text } from '@pioneer/frontier';
 
 import { CONDITION_NAMES, ConditionBadgeMessage } from './condition-badge-messages';
@@ -16,7 +16,7 @@ export interface ConditionLine {
 /** One row of the list: the icon, the message key of the name, and the value in the active locale. */
 interface ConditionRow {
   readonly slug: string;
-  readonly icon: LucideIcon;
+  readonly icon: IconGlyph;
   readonly name: string;
   readonly value: string | undefined;
 }

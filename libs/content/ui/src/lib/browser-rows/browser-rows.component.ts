@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackageSearch } from '@lucide/angular';
 import { Button, ButtonVariant, EmptyState, List, ListItem, Stack, Text } from '@pioneer/frontier';
 import { Table } from '@pioneer/frontier/data';
 import type { TableColumn, TableViewSort } from '@pioneer/frontier/data';
+import { PackageSearch } from 'lucide';
 
 import type { BrowseRow } from '../browse-row';
 import type { ContentBrowserList } from '../browser-list';
@@ -46,7 +46,7 @@ export class BrowserRows {
 
   protected readonly Message = RowsMessage;
   protected readonly Variant = ButtonVariant;
-  protected readonly emptyIcon = LucidePackageSearch;
+  protected readonly emptyIcon = PackageSearch;
   protected readonly rowId = rowId;
   protected readonly hasMore = computed(() => this.list().rows.length < this.list().total);
 }

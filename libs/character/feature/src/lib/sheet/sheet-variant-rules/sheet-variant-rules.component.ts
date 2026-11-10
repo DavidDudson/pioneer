@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideDices } from '@lucide/angular';
 import type { CharacterVariantRules, VariantRuleOption } from '@pioneer/character/domain';
 import { AsyncData, AsyncPending, AsyncRegion, EmptyState, List, Message, Skeleton, Stack } from '@pioneer/frontier';
+import { Dices } from 'lucide';
 
 import { CharacterVariantStore } from '../../data/character-variant-store';
 import { SheetVariantRuleRow } from './sheet-variant-rule-row.component';
@@ -53,7 +53,7 @@ export class SheetVariantRules {
   protected readonly store = inject(CharacterVariantStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideDices;
+  protected readonly emptyIcon = Dices;
 
   protected readonly linesOf = variantRuleLines;
 }

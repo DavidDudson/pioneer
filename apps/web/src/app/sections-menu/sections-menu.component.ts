@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideMenu } from '@lucide/angular';
 import { Dropdown, Link, Stack } from '@pioneer/frontier';
+import { Menu } from 'lucide';
 
 /** The site's sections, in an icon-only dropdown beside the account menu. */
 @Component({
@@ -11,5 +11,5 @@ import { Dropdown, Link, Stack } from '@pioneer/frontier';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionsMenu {
-  protected readonly icon = LucideMenu;
+  protected readonly icon = Menu;
 }

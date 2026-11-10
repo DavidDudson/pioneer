@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import type { LucideIcon } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
 
+import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
 import { Stack } from '../../layout/stack/stack.component';
 import { Text } from '../../text/text/text.component';
@@ -31,7 +31,7 @@ const actionVariants = cva('flex flex-wrap items-center gap-sm pt-xs empty:hidde
 })
 export class EmptyState {
   /** Decorative; the title carries the meaning. */
-  public readonly icon = input<LucideIcon | undefined>(undefined);
+  public readonly icon = input<IconGlyph | undefined>(undefined);
   public readonly title = input.required<string>();
   public readonly description = input<string | undefined>(undefined);
 

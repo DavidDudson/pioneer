@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideHandHeart } from '@lucide/angular';
 import type { PendingTransfers } from '@pioneer/campaign/domain';
 import {
   AsyncData,
@@ -14,6 +13,7 @@ import {
   Stack,
   Surface,
 } from '@pioneer/frontier';
+import { HandHeart } from 'lucide';
 
 import { CampaignTransferStore } from '../../data/campaign-transfer-store';
 import { CampaignTransferRow } from '../campaign-transfer-row/campaign-transfer-row.component';
@@ -54,7 +54,7 @@ export class CampaignTransfersPanel {
   protected readonly store = inject(CampaignTransferStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideHandHeart;
+  protected readonly emptyIcon = HandHeart;
 
   protected readonly incoming = incomingCount;
 }

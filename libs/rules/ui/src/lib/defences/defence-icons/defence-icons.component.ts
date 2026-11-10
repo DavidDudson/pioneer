@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideShieldAlert, LucideShieldBan, LucideShieldCheck, LucideShieldHalf } from '@lucide/angular';
-import type { LucideIcon } from '@lucide/angular';
+import type { IconGlyph } from '@pioneer/frontier';
 import { Button, HoverCard, HoverCardContent, Icon, Stack } from '@pioneer/frontier';
 import { DefenceStatusKind } from '@pioneer/rules/engine';
 import type { AdjustmentLine, Defences, ImmunityLine } from '@pioneer/rules/engine';
 import type { ContentId, DamageException, Immunity } from '@pioneer/rules/sdk';
+import { ShieldAlert, ShieldBan, ShieldCheck, ShieldHalf } from 'lucide';
 
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
 import type { OriginNames } from '../../origin-chain/origin-names';
@@ -18,7 +18,7 @@ import { DefencesView } from '../defences.component';
 /** One kind the character has, with the icon and the message naming it. */
 interface ActiveKind {
   readonly kind: DefenceKind;
-  readonly icon: LucideIcon;
+  readonly icon: IconGlyph;
   readonly label: string;
   /** The kind as the one-item list `pio-defences` takes. */
   readonly kinds: readonly DefenceKind[];
@@ -28,19 +28,19 @@ interface ActiveKind {
 const KINDS: readonly ActiveKind[] = [
   {
     kind: DefenceKind.Resistances,
-    icon: LucideShieldHalf,
+    icon: ShieldHalf,
     label: DefencesMessage.Resistances,
     kinds: [DefenceKind.Resistances],
   },
   {
     kind: DefenceKind.Immunities,
-    icon: LucideShieldBan,
+    icon: ShieldBan,
     label: DefencesMessage.Immunities,
     kinds: [DefenceKind.Immunities],
   },
   {
     kind: DefenceKind.Weaknesses,
-    icon: LucideShieldAlert,
+    icon: ShieldAlert,
     label: DefencesMessage.Weaknesses,
     kinds: [DefenceKind.Weaknesses],
   },
@@ -87,7 +87,7 @@ export class DefenceIcons {
   /** A critical hit check's roll was asked for. */
   public readonly checkRolled = output<CriticalHitRoll>();
 
-  protected readonly checkIcon = LucideShieldCheck;
+  protected readonly checkIcon = ShieldCheck;
   protected readonly checkLabel = DefencesMessage.CriticalHitChecks;
   protected readonly hasChecks = computed(
     (): boolean => this.defences()?.criticalHitChecks.some((check) => isActiveCheck(check)) ?? false,

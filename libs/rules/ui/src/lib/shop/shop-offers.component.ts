@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, model } fr
 import type { Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucidePackageSearch } from '@lucide/angular';
 import { EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { PackageSearch } from 'lucide';
 import { filter, merge } from 'rxjs';
 
 import { coinsText, priceCoins, RARITY_BADGES, ShopMessage } from './shop-offer';
@@ -45,7 +45,7 @@ export class ShopOffersView {
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
   protected readonly Message = ShopMessage;
-  protected readonly emptyIcon = LucidePackageSearch;
+  protected readonly emptyIcon = PackageSearch;
   protected readonly loadingRows = LOADING_ROWS;
 
   protected readonly rows: Signal<readonly OfferRow[]> = computed(() => {
@@ -58,7 +58,10 @@ export class ShopOffersView {
         line:
           offer.level === undefined
             ? this.#i18n.translate(ShopMessage.LineNoLevel, { price })
-            : this.#i18n.translate(ShopMessage.Line, { level: this.#format.number(offer.level), price }),
+            : this.#i18n.translate(ShopMessage.Line, {
+                level: this.#format.number(offer.level),
+                price,
+              }),
       };
     });
   });
@@ -82,6 +85,9 @@ export class ShopOffersView {
     );
     return price.per === undefined
       ? coins
-      : this.#i18n.translate(ShopMessage.PricePer, { price: coins, per: this.#format.number(price.per) });
+      : this.#i18n.translate(ShopMessage.PricePer, {
+          price: coins,
+          per: this.#format.number(price.per),
+        });
   }
 }
