@@ -19,7 +19,7 @@ export const FIRE_STAFF_SPELLS = {
   fireball: { rank: 3, traditions: ['arcane', 'primal'] },
 } as const;
 
-export const FIRE_STAFF: MagicItemFields & { readonly kind: ContentKind } = {
+const FIRE_STAFF: MagicItemFields & { readonly kind: ContentKind } = {
   kind: ContentKind.Weapon,
   level: FIRE_STAFF_LEVEL,
   data: {
@@ -41,7 +41,7 @@ const FIREBALL_WAND_LEVEL = 5;
 const FIREBALL_RANK = 3;
 
 /** A wand of Fireball (3rd rank): cast once a day, and kept when spent. */
-export const FIREBALL_WAND: MagicItemFields & { readonly kind: ContentKind } = {
+const FIREBALL_WAND: MagicItemFields & { readonly kind: ContentKind } = {
   kind: ContentKind.Consumable,
   level: FIREBALL_WAND_LEVEL,
   data: {
@@ -55,7 +55,7 @@ export const FIREBALL_WAND: MagicItemFields & { readonly kind: ContentKind } = {
 };
 
 /** A scroll of Fireball (3rd rank): the spell cast once, and the scroll gone. */
-export const FIREBALL_SCROLL: MagicItemFields & { readonly kind: ContentKind } = {
+const FIREBALL_SCROLL: MagicItemFields & { readonly kind: ContentKind } = {
   kind: ContentKind.Consumable,
   level: FIREBALL_WAND_LEVEL,
   data: {
