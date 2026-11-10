@@ -3,6 +3,12 @@ import { DefaultTranspiler } from '@jsverse/transloco';
 import type { TranslocoTranspiler, TranspileParams } from '@jsverse/transloco';
 
 /**
+ * The compiler's own chunk, requested as soon as this module loads so it arrives beside the entry bundle rather than
+ * after it. A failed fetch rejects `load()`, so the app fails to start loudly.
+ */
+const COMPILER = import('@jsverse/transloco-messageformat');
+
+/**
  * Transloco's ICU transpiler, with the message compiler fetched on demand. `@messageformat/core` is about 100 kB of
  * parser, compiler and plural rules, so it loads in its own chunk, beside the first locale's messages, instead of
  * inside the entry bundle. Until `load()` resolves it only fills `{{ }}` placeholders; the locale loader waits for it
@@ -29,7 +35,7 @@ export class LazyIcuTranspiler extends DefaultTranspiler {
   async #fetch(): Promise<void> {
     const done = this.#pending.add();
     try {
-      const { MessageFormatTranspiler } = await import('@jsverse/transloco-messageformat');
+      const { MessageFormatTranspiler } = await COMPILER;
       // The transpiler is built here, not by DI, so it needs an injection context for transloco's own `inject` calls.
       const icu = runInInjectionContext(this.#injector, () => new MessageFormatTranspiler({}));
       if (this.#lang !== undefined) {
