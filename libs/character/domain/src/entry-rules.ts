@@ -1,6 +1,6 @@
-import { RuleInPlay } from '@pioneer/rules/engine';
+import type { RuleInPlay } from '@pioneer/rules/engine';
 import type { ContentLookup, GrantEntry, GrantResolution } from '@pioneer/rules/grants';
-import { ContentKind, Level, OriginHopKind } from '@pioneer/rules/sdk';
+import { ContentKind, Level, OriginHopKind, RuleIndex } from '@pioneer/rules/sdk';
 import type { Origin } from '@pioneer/rules/sdk';
 
 import { chosenRuneRules } from './etched-rune-rules';
@@ -34,7 +34,11 @@ function itemLevelOf({ content, inventory }: EntryContext, { entry, origin }: Re
   return level === undefined ? undefined : Level.parse(level);
 }
 
-/** The rule elements of the resolved entries whose origin `keep` accepts, each with its origin and place in the entry. */
+/**
+ * The rule elements of the resolved entries whose origin `keep` accepts, each with its origin and place in the entry.
+ * An entry's elements were parsed when its content loaded and never change, so they are placed as they are, not
+ * parsed again on every read.
+ */
 export function rulesOf(
   resolution: GrantResolution,
   context: EntryContext,
@@ -42,17 +46,16 @@ export function rulesOf(
 ): RuleInPlay[] {
   return resolution.items
     .filter(({ origin }) => keep(origin))
-    .flatMap(({ entry, origin, value }) =>
-      entry.rules.map((element, rule) =>
-        RuleInPlay.parse({
-          element,
-          origin,
-          rule,
-          itemLevel: itemLevelOf(context, { entry, origin }),
-          conditionValue: value,
-        }),
-      ),
-    );
+    .flatMap(({ entry, origin, value }) => {
+      const itemLevel = itemLevelOf(context, { entry, origin });
+      return entry.rules.map((element, rule): RuleInPlay => ({
+        element,
+        origin,
+        rule: RuleIndex.parse(rule),
+        itemLevel,
+        conditionValue: value,
+      }));
+    });
 }
 
 /** The rule elements of the inventory's resolved entries, and the resistances its runes' choices give. */
