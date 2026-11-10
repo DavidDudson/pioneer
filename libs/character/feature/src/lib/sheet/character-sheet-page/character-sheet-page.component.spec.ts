@@ -16,6 +16,17 @@ describe('CharacterSheetPage', () => {
     await prebuildServerStateTesting();
   }, PREBUILD_TIMEOUT);
 
+  it('marks the performance timeline once the header can show, and once the engine numbers can', async () => {
+    performance.clearMarks();
+
+    await openSheet();
+
+    await vi.waitFor(() => {
+      expect(performance.getEntriesByName('sheet:header')).toHaveLength(1);
+      expect(performance.getEntriesByName('sheet:ready')).toHaveLength(1);
+    });
+  });
+
   it('puts each section on its tab, each a region under a level 2 heading', async () => {
     const { root } = await openSheet();
 
