@@ -1,6 +1,15 @@
-import { ConditionDc, ConditionValue, ContentId, ContentKind, ContentRegistry, RichText } from '@pioneer/rules/sdk';
+import {
+  ConditionDc,
+  ConditionValue,
+  ContentId,
+  ContentKind,
+  ContentRegistry,
+  RichText,
+  Selector,
+} from '@pioneer/rules/sdk';
 import type { ConditionEnding } from '@pioneer/rules/sdk';
 import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import type { PreviewEndingStatistic } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
 import { endingsFor } from './sheet-condition-endings';
@@ -20,6 +29,9 @@ const TREAT = ContentId.parse(pack.idOf(ContentKind.Feat, 'treat-condition'));
 const MEDIC = ContentId.parse(pack.idOf(ContentKind.Feat, 'legendary-medic'));
 const STAND = ContentId.parse(pack.idOf(ContentKind.Action, 'stand'));
 const LACKED = ContentId.parse('00000000-0000-4000-8000-0000000000aa');
+
+const FORTITUDE = Selector.parse('save:fortitude');
+const WILL = Selector.parse('save:will');
 
 const others = (by: readonly ContentId[]): ConditionEnding => ({ kind: 'others', by, text: TEXT });
 const check = (dc?: ConditionDc): ConditionEnding => ({
@@ -76,5 +88,22 @@ describe(endingsFor, () => {
     });
 
     expect(ending?.action?.name).toBe('Stand');
+  });
+
+  it('gives the modifier the character rolls at for each statistic the check names, leaving out one it has no total for', () => {
+    const rolls = new Map<Selector, PreviewEndingStatistic>([[FORTITUDE, { name: 'Fortitude', modifier: 7 }]]);
+    const [ending] = endingsFor(registry, new Set(), {
+      endings: [{ kind: 'check', check: { against: [FORTITUDE, WILL] }, change: { effect: 'remove' }, text: TEXT }],
+      value: undefined,
+      rolls,
+    });
+
+    expect(ending?.against).toStrictEqual([{ name: 'Fortitude', modifier: 7 }]);
+  });
+
+  it('rolls nothing for an ending without a check', () => {
+    const [ending] = endingsFor(registry, new Set(), { endings: [others([])], value: undefined });
+
+    expect(ending?.against).toStrictEqual([]);
   });
 });

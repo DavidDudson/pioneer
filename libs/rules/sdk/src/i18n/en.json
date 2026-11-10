@@ -133,8 +133,11 @@
       "level": "Level {level}",
       "effects": "Changes for this character",
       "noEffects": "Changes no statistic.",
+      "values": "What each value does",
+      "stage": "Value {value}",
       "endings": "How this character can end it",
       "endingDc": "DC {dc}",
+      "endingAgainst": "{statistic} {modifier}",
       "endingAction": "Action:",
       "endingHeld": "You have:",
       "endingKind": {

@@ -4,8 +4,9 @@ import type { Type } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { HoverCard, HoverCardContent, Link, Skeleton, Stack, Text, Tone } from '@pioneer/frontier';
 import type { LinkTarget } from '@pioneer/frontier';
-import type { ContentId, ContentText } from '@pioneer/rules/sdk';
+import type { ConditionValue, ContentId, ContentText } from '@pioneer/rules/sdk';
 
+import { atValue } from './condition-card';
 import { canPreview, ENTRY_PREVIEWS } from './entry-preview';
 import type { EntryPreview } from './entry-preview';
 import { EntryPreviewMessage } from './entry-preview-messages';
@@ -71,6 +72,8 @@ const LOADING_LINES = ['name', 'summary'];
 })
 export class ContentPreview {
   public readonly entry = input.required<ContentId>();
+  /** The value a mention of a condition names ("Frightened 2"), which its card shows when the reader has none of their own. */
+  public readonly value = input<ConditionValue | undefined>();
 
   readonly #previews = inject(ENTRY_PREVIEWS);
   readonly #card = signal<Type<EntryPreviewView> | undefined>(undefined);
@@ -88,7 +91,8 @@ export class ContentPreview {
   /** The preview the page holds, or else the one fetched for this entry. */
   protected readonly shown = computed((): EntryPreview | undefined => {
     const fetched = this.#fetched();
-    return this.#previews.preview(this.entry()) ?? (fetched?.id === this.entry() ? fetched.value : undefined);
+    const preview = this.#previews.preview(this.entry()) ?? (fetched?.id === this.entry() ? fetched.value : undefined);
+    return preview === undefined ? undefined : atValue(preview, this.value());
   });
   /** The words that stand in for the entry when it failed to load or is not there; none while it loads or shows. */
   protected readonly notice = computed((): Notice | undefined => {

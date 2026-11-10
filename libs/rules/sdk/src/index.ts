@@ -103,6 +103,8 @@ export {
   ConditionEffect,
   ConditionEnding,
   ConditionGroup,
+  ConditionStage,
+  ConditionValues,
   ConditionTrigger,
 } from './condition';
 export { ContentKind, ContentKindSchema } from './content-kind';

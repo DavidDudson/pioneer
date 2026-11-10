@@ -21,6 +21,7 @@
   } @else if (preview().effects; as effects) {
     <pio-entry-effects [effects]="effects" />
   }
+  <pio-entry-values [values]="preview().values" [current]="preview().value" />
   <pio-entry-endings [endings]="preview().endings" />
   <pio-source-line [sources]="preview().sources" />
 </fr-stack>

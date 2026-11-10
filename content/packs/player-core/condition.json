@@ -238,7 +238,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to Dexterity-based rolls and DCs, including AC, Reflex saves, ranged attack rolls, and skill checks using Acrobatics, Stealth, and Thievery."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -750,7 +764,54 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "staged",
+        "stages": [
+          {
+            "value": 1,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You die at dying 3."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 2,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You die at dying 2."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 3,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You die at dying 1."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -852,7 +913,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to Constitution-based rolls and DCs, such as Fortitude saves. You also lose Hit Points equal to your level times the value, and your maximum Hit Points are reduced by the same amount."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -980,7 +1055,68 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "staged",
+        "stages": [
+          {
+            "value": 1,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You are unconscious at 0 Hit Points, and make a recovery check at the start of each of your turns."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 2,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You are unconscious and make recovery checks against a DC of 10 plus the value."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 3,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You are unconscious and make recovery checks against a DC of 10 plus the value."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 4,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You die."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1143,7 +1279,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to Strength-based rolls and DCs, including Strength-based melee attack rolls, Strength-based damage rolls, and skill checks using Athletics."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1532,7 +1682,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to all your checks and DCs."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3050,7 +3214,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to all your checks and DCs. You can't willingly ingest anything, including elixirs and potions."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3107,7 +3285,54 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "staged",
+        "stages": [
+          {
+            "value": 1,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You have 1 fewer action at the start of each of your turns."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 2,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You have 2 fewer actions at the start of each of your turns."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 3,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You have 3 fewer actions at the start of each of your turns, so you can't act."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3199,7 +3424,68 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "staged",
+        "stages": [
+          {
+            "value": 1,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You lose 1 action, then the value drops to nothing."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 2,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You lose 2 actions, then the value drops to nothing."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 3,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You lose all 3 of your actions on your turn."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 4,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "You lose all 3 of your actions on your turn, leaving you stunned 1; the next turn you lose 1 more."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3302,7 +3588,21 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "formula",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You take a status penalty equal to the value to Intelligence-, Wisdom-, and Charisma-based rolls and DCs, including Will saves, spell attack rolls, spell DCs, and skill checks using those attributes. Whenever you Cast a Spell, it is disrupted unless you succeed at a flat check with a DC equal to 5 plus the value."
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3888,7 +4188,54 @@
             }
           ]
         }
-      ]
+      ],
+      "values": {
+        "kind": "staged",
+        "stages": [
+          {
+            "value": 1,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "When you next become dying, its value is 1 higher."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 2,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "When you next become dying, its value is 2 higher."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "value": 3,
+            "text": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "When you next become dying, its value is 3 higher, so you die at once if it would reach 4."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   }
 ]

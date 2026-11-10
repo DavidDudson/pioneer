@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
 import type { LinkTarget } from '@pioneer/frontier';
-import { ContentId, contentId, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
+import { ConditionValue, ContentId, contentId, EntrySlug, PackId, RichText } from '@pioneer/rules/sdk';
 import { describe, expect, it, vi } from 'vitest';
 
 import { RichTextView } from '../rich-text/rich-text.component';
@@ -10,7 +10,7 @@ import { provideRichTextTesting } from '../testing/provide-rich-text-testing';
 import { ContentPreview } from './content-preview.component';
 import { provideEntryPreviews } from './entry-preview';
 import type { EntryPreview } from './entry-preview';
-import { CLUMSY_PREVIEW, FIREBALL, FIREBALL_PREVIEW } from './entry-preview.fixtures';
+import { CLUMSY_NOT_HELD_PREVIEW, CLUMSY_PREVIEW, FIREBALL, FIREBALL_PREVIEW } from './entry-preview.fixtures';
 
 const OTHER = ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('condition:clumsy')));
 
@@ -227,6 +227,51 @@ describe('content preview', () => {
         fixture.detectChanges();
         expect(card()?.textContent).toContain('not in the content');
       });
+    });
+  });
+
+  describe('a mention of a valued condition that names a value', () => {
+    const MENTION = RichText.parse([{ type: 'paragraph', content: [{ type: 'ref', id: OTHER, label: 'Clumsy 2' }] }]);
+    const NOT_HELD: EntryPreview = {
+      ...CLUMSY_NOT_HELD_PREVIEW,
+      valued: true,
+      endings: [
+        {
+          kind: 'check',
+          text: RichText.parse([{ type: 'paragraph', content: [{ type: 'text', text: 'A flat check.' }] }]),
+          dc: 10,
+          dcByValue: true,
+          against: [],
+          held: [],
+        },
+      ],
+    };
+
+    async function mention(preview: EntryPreview): Promise<ComponentFixture<RichTextView>> {
+      TestBed.configureTestingModule({
+        providers: [provideRichTextTesting(), provideEntryPreviews({ preview: (): EntryPreview => preview })],
+      });
+      const fixture = TestBed.createComponent(RichTextView);
+      fixture.componentRef.setInput('text', MENTION);
+      fixture.detectChanges();
+      tabStop(fixture)?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+      await vi.waitFor(() => {
+        fixture.detectChanges();
+        expect(card()?.textContent).toContain('A flat check.');
+      });
+      return fixture;
+    }
+
+    it('works the DC out at the value the mention names', async () => {
+      await mention(NOT_HELD);
+
+      expect(card()?.textContent).toContain('DC 12');
+    });
+
+    it("keeps the character's own value when the reader holds the condition", async () => {
+      await mention({ ...NOT_HELD, value: ConditionValue.parse(3) });
+
+      expect(card()?.textContent).toContain('DC 10');
     });
   });
 });
