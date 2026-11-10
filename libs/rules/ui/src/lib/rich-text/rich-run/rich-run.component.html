@@ -7,5 +7,5 @@
 } @else if (emphasis()) {
   <fr-text element="em">{{ node().text }}</fr-text>
 } @else {
-  {{ node().text }}
+  <ng-container>{{ node().text }}</ng-container>
 }

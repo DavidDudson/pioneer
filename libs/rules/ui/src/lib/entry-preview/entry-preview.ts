@@ -8,6 +8,7 @@ import { slugName } from '@pioneer/rules/sdk';
 import type {
   ConditionEnding,
   ConditionValue,
+  ConditionValues,
   ContentEntry,
   ContentId,
   ContentLevel,
@@ -38,6 +39,13 @@ export interface PreviewEndingSource {
   readonly name: ContentText;
 }
 
+/** A statistic the character may roll to end a condition, with the modifier it rolls at. */
+export interface PreviewEndingStatistic {
+  readonly name: string;
+  /** The statistic's total for the character now, conditions it holds included. */
+  readonly modifier: number;
+}
+
 /** One way a condition the character has ends or eases, as that character meets it. */
 export interface PreviewEnding {
   readonly kind: ConditionEnding['kind'];
@@ -45,6 +53,10 @@ export interface PreviewEnding {
   readonly text: RichText;
   /** The DC of a check at the value the character holds; absent for a flat or another creature's DC, or no check. */
   readonly dc?: number;
+  /** Set when the DC adds the condition's value to its base, so the card can work it out at a value a mention names. */
+  readonly dcByValue?: true;
+  /** The statistics the character may roll for the check, as it has them; empty for a flat check or no check. */
+  readonly against: readonly PreviewEndingStatistic[];
   /** The action that ends it, which anyone can take; absent where the ending names none. */
   readonly action?: PreviewEndingSource;
   /** What the character has that ends or eases it; empty when it has nothing, or the ending names nothing. */
@@ -76,11 +88,15 @@ export interface EntryPreview {
   readonly sources: readonly SourceRef[];
   /** The value of a valued condition the character has (frightened 2), shown beside the name. */
   readonly value?: ConditionValue;
+  /** Set for a condition that carries a value, so a mention that names one (frightened 2) can show the card at it. */
+  readonly valued?: true;
   /**
    * What the entry would do to the character, or is doing, with its value applied. Absent when the preview is not
    * for a character (the public browser); empty when it changes nothing.
    */
   readonly effects?: readonly PreviewEffect[];
+  /** What each value of a valued condition means: its stages, or the rule that scales with the value. */
+  readonly values?: ConditionValues;
   /** How a condition the character has ends or eases, with what the character has to do it. */
   readonly endings?: readonly PreviewEnding[];
   /** A spell's ranks, shown as a pick of the rank to cast it at in place of `effects`. */

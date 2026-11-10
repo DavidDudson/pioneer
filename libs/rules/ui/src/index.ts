@@ -30,12 +30,20 @@ export {
   type PreviewEffect,
   type PreviewEnding,
   type PreviewEndingSource,
+  type PreviewEndingStatistic,
   type PreviewRanks,
   type StatisticLink,
   panelQuery,
   provideEntryPreviews,
   SidePanelParam,
 } from './lib/entry-preview/entry-preview';
+export { atValue, conditionCard } from './lib/entry-preview/condition-card';
+export {
+  checkAgainst,
+  conditionEndings,
+  type EndingSourceOf,
+  type HeldCondition,
+} from './lib/entry-preview/condition-endings';
 export {
   INLINE_ROLLER,
   type InlineCheckRoll,

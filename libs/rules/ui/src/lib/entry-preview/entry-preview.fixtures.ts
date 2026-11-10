@@ -171,24 +171,92 @@ export const CLUMSY_ENDINGS_PREVIEW: EntryPreview = {
     {
       kind: 'automatic',
       text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
+      against: [],
       held: [],
     },
     {
       kind: 'check',
       text: endingText('A flat check ends the condition.'),
       dc: 12,
+      against: [
+        { name: 'Fortitude', modifier: 7 },
+        { name: 'Will', modifier: -1 },
+      ],
       held: [],
     },
     {
       kind: 'action',
       text: endingText('You can spend an action to steady yourself.'),
       action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
+      against: [],
       held: [],
     },
     {
       kind: 'others',
       text: endingText('A spell or ability that restores coordination can lower or remove it.'),
+      against: [],
       held: [{ id: ContentId.parse(FIREBALL), name: ENDING_SOURCE_NAME }],
     },
   ],
+};
+
+/** Clumsy for a reader who lacks it: its entry and the ways it ends at its base, with no value, effects or held entries. */
+export const CLUMSY_NOT_HELD_PREVIEW: EntryPreview = {
+  name: CLUMSY_PREVIEW.name,
+  level: undefined,
+  traits: CLUMSY_PREVIEW.traits,
+  summary: CLUMSY_PREVIEW.summary,
+  sources: CLUMSY_PREVIEW.sources,
+  endings: [
+    {
+      kind: 'automatic',
+      text: endingText('At the end of your turn, the value of your clumsy condition drops by 1.'),
+      against: [],
+      held: [],
+    },
+    {
+      kind: 'action',
+      text: endingText('You can spend an action to steady yourself.'),
+      action: { id: ContentId.parse(CLUMSY), name: ContentText.parse('Steady') },
+      against: [],
+      held: [],
+    },
+  ],
+};
+
+/** The id the clumsy fixtures stand for, as a reference to it names it. */
+export const CLUMSY_ID = ContentId.parse(CLUMSY);
+
+function para(text: string): RichText {
+  return endingText(text);
+}
+
+/** Clumsy as any reader sees it: one rule that scales with the value. */
+export const CLUMSY_FORMULA_PREVIEW: EntryPreview = {
+  ...CLUMSY_NOT_HELD_PREVIEW,
+  valued: true,
+  values: {
+    kind: 'formula',
+    text: para('You take a status penalty equal to the value to Dexterity-based rolls and DCs.'),
+  },
+};
+
+const THIRD = ConditionValue.parse(3);
+const FOURTH = ConditionValue.parse(4);
+
+/** Dying held at 2: every value listed, with the held one marked. */
+export const DYING_STAGES_PREVIEW: EntryPreview = {
+  ...CLUMSY_NOT_HELD_PREVIEW,
+  name: ContentText.parse('Dying'),
+  valued: true,
+  value: ConditionValue.parse(2),
+  values: {
+    kind: 'staged',
+    stages: [
+      { value: ConditionValue.parse(1), text: para('You are unconscious and make a recovery check each turn.') },
+      { value: ConditionValue.parse(2), text: para('You are unconscious and the recovery check DC is higher.') },
+      { value: THIRD, text: para('You are unconscious and close to death.') },
+      { value: FOURTH, text: para('You die.') },
+    ],
+  },
 };

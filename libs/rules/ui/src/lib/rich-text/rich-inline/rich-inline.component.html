@@ -1,4 +1,4 @@
-@for (node of content(); track $index) {
+@for (node of nodes(); track $index) {
   @if (node.type === 'text') {
     <pio-rich-run [node]="node" />
   } @else if (node.type === 'ref') {

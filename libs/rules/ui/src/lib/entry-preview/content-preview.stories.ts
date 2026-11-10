@@ -6,7 +6,13 @@ import { ContentId } from '@pioneer/rules/sdk';
 import { ContentPreview } from './content-preview.component';
 import { provideEntryPreviews } from './entry-preview';
 import type { EntryPreview } from './entry-preview';
-import { FIREBALL, FIREBALL_PREVIEW } from './entry-preview.fixtures';
+import {
+  CLUMSY_ENDINGS_PREVIEW,
+  CLUMSY_ID,
+  CLUMSY_NOT_HELD_PREVIEW,
+  FIREBALL,
+  FIREBALL_PREVIEW,
+} from './entry-preview.fixtures';
 
 type ContentPreviewStory = StoryObj<ContentPreview>;
 
@@ -60,6 +66,28 @@ export const Failed: ContentPreviewStory = {
           },
         }),
       ],
+    }),
+  ],
+};
+
+/** A condition the character holds: its value, what it does to their statistics and how they can end it. */
+export const ConditionHeld: ContentPreviewStory = {
+  args: { entry: CLUMSY_ID },
+  render: (args) => ({ props: args, template: `<pio-content-preview [entry]="entry">Clumsy 2</pio-content-preview>` }),
+  decorators: [
+    applicationConfig({
+      providers: [provideEntryPreviews({ preview: (): EntryPreview => CLUMSY_ENDINGS_PREVIEW })],
+    }),
+  ],
+};
+
+/** A condition the reader lacks: the generic rule and the ways it ends, with no value or effects of their own. */
+export const ConditionNotHeld: ContentPreviewStory = {
+  args: { entry: CLUMSY_ID },
+  render: (args) => ({ props: args, template: `<pio-content-preview [entry]="entry">Clumsy</pio-content-preview>` }),
+  decorators: [
+    applicationConfig({
+      providers: [provideEntryPreviews({ preview: (): EntryPreview => CLUMSY_NOT_HELD_PREVIEW })],
     }),
   ],
 };
