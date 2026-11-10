@@ -14,7 +14,7 @@ else in the entry changes, so descriptions, hand-fixed rules, `dismiss` flags an
 
 ## Steps
 
-1. Clean tree on the branch (`overbridge status`). Run everything in the devshell (`.claude/scripts/devshell.sh`).
+1. Clean tree on the branch (`overbridge status`). Run everything in the devshell (`overbridge shell pioneer -- <cmd>`).
 2. Name the keys the translator change covers: the element it translates, and the elements that read what it
    translates (a `ChoiceSet` and the `Resistance`, `FlatModifier` rules that read its pick).
 3. Dry run: `just content-import --pack <pack> --book <book> --dry-run`. Read the counts.

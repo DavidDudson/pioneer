@@ -1,5 +1,17 @@
-import { ContentKind, RunedItem, RuneType } from '@pioneer/rules/sdk';
-import type { ContentEntry, ContentId, ContentRegistry, RuneGrade } from '@pioneer/rules/sdk';
+import { potencyAfter } from '@pioneer/rules/engine';
+import type { PotencyChange } from '@pioneer/rules/engine';
+import { FormulaValue } from '@pioneer/rules/formula';
+import type { ContentLookup } from '@pioneer/rules/grants';
+import {
+  ContentKind,
+  NumericItemProperty,
+  raisesPotency,
+  RUNE_GRADE_MAX,
+  RunedItem,
+  RuneGrade,
+  RuneType,
+} from '@pioneer/rules/sdk';
+import type { ContentEntry, ContentId, ContentRegistry, RuleElement } from '@pioneer/rules/sdk';
 import { Pg } from '@pioneer/shared/kernel';
 import type * as z from 'zod';
 
@@ -142,34 +154,102 @@ export function hasRunes(runes: ItemRunes): boolean {
 export const PropertyRuneCount = Pg.smallint().nonnegative().brand<'PropertyRuneCount'>();
 export type PropertyRuneCount = z.infer<typeof PropertyRuneCount>;
 
-/** How many property runes `runes` holds room for: the limit's per grade of its potency rune. */
-export function propertyRoom(runes: ItemRunes, limits: RuleLimits = CORE_RULE_LIMITS): PropertyRuneCount {
-  return PropertyRuneCount.parse((runes.potency ?? 0) * limits.propertyRunesPerGrade);
+/** What a rune's rules say about its item. */
+export interface RuneRules {
+  readonly rules: readonly RuleElement[];
+}
+
+/** Reads a rune's rules by id; undefined for a rune the loaded packs lack. */
+export type RuneReader = (rune: ContentId) => RuneRules | undefined;
+
+/** Reads runes through `lookup`; a content entry that is not a rune reads as none. */
+export function runeReader(lookup: ContentLookup): RuneReader {
+  return (rune) => {
+    const entry = lookup.entry(rune);
+    return entry?.kind === ContentKind.Rune ? entry : undefined;
+  };
+}
+
+/** The reader over a map of runes. */
+export function readerOf(content: RuneContent): RuneReader {
+  return (rune) => content.get(rune);
+}
+
+/** The potency changes the etched `rune` makes to its item: those of its `raisesPotency` rules. */
+function potencyChangesOf(rune: RuneRules | undefined): readonly PotencyChange[] {
+  const changes: PotencyChange[] = [];
+  for (const element of rune?.rules ?? []) {
+    if (raisesPotency(element) && element.property === NumericItemProperty.Potency) {
+      changes.push({ mode: element.mode, value: element.value });
+    }
+  }
+  return changes;
 }
 
 /**
- * The etched property runes that work on `item`. A specific item's all work; on any other, as many as its potency
- * rune's grade, first etched first. The rest stay etched, doing nothing, until a potency rune is etched high enough.
+ * Whether `rune` takes no property rune slot: it raises the potency of the item it is etched onto (a mythic potency
+ * rune), so the room it makes cannot be spent on itself (ADR-0078).
+ */
+export function takesNoSlot(rune: RuneRules | undefined): boolean {
+  return potencyChangesOf(rune).length > 0;
+}
+
+/** The grade of potency `runes` give an item: its potency rune's, raised by the etched runes that raise it. */
+export function itemPotency(runes: ItemRunes, read: RuneReader): RuneGrade | undefined {
+  const changes = runes.property.flatMap(({ rune }) => potencyChangesOf(read(rune)));
+  const grade = potencyAfter(runes.potency === undefined ? undefined : FormulaValue.parse(runes.potency), changes);
+  return grade === undefined || grade < 1 ? undefined : RuneGrade.parse(Math.min(grade, RUNE_GRADE_MAX));
+}
+
+/** The etched property runes of `runes` that take one of its slots: all but those that raise its potency. */
+export function slottedRunes(runes: ItemRunes, read: RuneReader): readonly EtchedRune[] {
+  return runes.property.filter(({ rune }) => !takesNoSlot(read(rune)));
+}
+
+/**
+ * How many property runes `runes` holds room for: the limit's per grade of its potency, which a rune that raises it
+ * counts. A mythic potency rune makes room for a fourth and takes none itself.
+ */
+export function propertyRoom(
+  runes: ItemRunes,
+  read: RuneReader,
+  limits: RuleLimits = CORE_RULE_LIMITS,
+): PropertyRuneCount {
+  return PropertyRuneCount.parse((itemPotency(runes, read) ?? 0) * limits.propertyRunesPerGrade);
+}
+
+/**
+ * The etched property runes that work on `item`. A specific item's all work; on any other, the runes that raise
+ * potency and as many of the rest as its potency's grade, first etched first. The rest stay etched, doing nothing,
+ * until a potency rune is etched high enough.
  */
 export function workingEtchedRunes(
   item: InventoryItem,
   entry: ItemEntry | undefined,
-  limits: RuleLimits = CORE_RULE_LIMITS,
+  read: RuneReader,
 ): readonly EtchedRune[] {
   const runes = itemRunes(item, entry);
-  return isSpecific(entry) ? runes.property : runes.property.slice(0, propertyRoom(runes, limits));
+  if (isSpecific(entry)) {
+    return runes.property;
+  }
+  const room = propertyRoom(runes, read);
+  let slotted = 0;
+  return runes.property.filter(({ rune }) => {
+    if (takesNoSlot(read(rune))) {
+      return true;
+    }
+    slotted += 1;
+    return slotted <= room;
+  });
 }
 
-/**
- * The property runes that work on `item`. A specific item's all work; on any other, as many as its potency rune's
- * grade, first etched first. The rest stay etched, doing nothing, until a potency rune is etched high enough.
- */
+/** The property runes that work on `item` (`workingEtchedRunes`). */
 export function workingPropertyRunes(
   item: InventoryItem,
   entry: ItemEntry | undefined,
-  limits: RuleLimits = CORE_RULE_LIMITS,
+  read: RuneReader,
 ): readonly ContentId[] {
-  return workingEtchedRunes(item, entry, limits).map(({ rune }) => rune);
+  return workingEtchedRunes(item, entry, read).map(({ rune }) => rune);
 }
 
 /**

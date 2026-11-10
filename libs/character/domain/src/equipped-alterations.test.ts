@@ -3,7 +3,16 @@ import { describe, expect, test } from 'bun:test';
 import type { ModifierInputs } from '@pioneer/rules/engine';
 import { inPlay } from '@pioneer/rules/engine/testing';
 import { PredicateFacts } from '@pioneer/rules/predicate';
-import { AttributeModifier, BaseWeapon, Hardness, HitPoints, Slug, Trait } from '@pioneer/rules/sdk';
+import {
+  AttributeModifier,
+  BaseWeapon,
+  Hardness,
+  HitPoints,
+  Modifier,
+  RuneGrade,
+  Slug,
+  Trait,
+} from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES, installRulesFakes } from '@pioneer/rules/sdk/testing';
 
 import { equippedInputs } from './equipped-inputs';
@@ -109,6 +118,27 @@ describe('equipped items with ItemAlteration elements', () => {
       materials: [Slug.parse('cold-iron')],
     });
     expect(weapon?.traits).toContain(Trait.parse('agile'));
+  });
+
+  test('a potency alteration raises a weapon to +4 attack and armour to +4 on top of its own bonus', () => {
+    const rules = altering([alteration([], { property: 'potency', mode: 'upgrade', value: 4 }), 'mythic']);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+    const { armor } = equippedInputs(carrying(ItemFixture.LeatherArmor, WORN), content, { rules: () => rules });
+
+    expect(weapon?.potency).toBe(RuneGrade.parse(4));
+    expect(armor?.bonus).toBe(Modifier.parse(5));
+  });
+
+  test('an etched potency alteration does not reach an item its rune is not etched onto', () => {
+    const rules = altering([
+      { ...alteration([], { property: 'potency', mode: 'upgrade', value: 4 }), etched: true },
+      'x',
+    ]);
+
+    const [weapon] = equippedInputs(carrying(ItemFixture.Longsword, HELD), content, { rules: () => rules }).weapons;
+
+    expect(weapon?.potency).toBeUndefined();
   });
 
   test('without alterations the content stands', () => {

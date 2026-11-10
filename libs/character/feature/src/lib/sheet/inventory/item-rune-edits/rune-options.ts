@@ -4,8 +4,11 @@ import {
   itemRunes,
   printedRunes,
   propertyRoom,
+  readerOf,
   runeChoices,
   runedItemOf,
+  slottedRunes,
+  takesNoSlot,
 } from '@pioneer/character/domain';
 import type {
   Inventory,
@@ -13,6 +16,7 @@ import type {
   InventoryItemId,
   ItemEntry,
   RuneChoice,
+  RuneContent,
   RunedContent,
   RuneEntry,
   RuneRef,
@@ -47,9 +51,10 @@ export function printedGrade(rune: FundamentalRune, entry: ItemEntry | undefined
 }
 
 /** Whether `item` has room for another property rune: never on a specific item, else one per grade of potency. */
-export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefined): boolean {
+export function hasPropertyRoom(item: InventoryItem, entry: ItemEntry | undefined, content: RuneContent): boolean {
   const runes = itemRunes(item, entry);
-  return !isSpecific(entry) && runes.property.length < propertyRoom(runes);
+  const read = readerOf(content);
+  return !isSpecific(entry) && slottedRunes(runes, read).length < propertyRoom(runes, read);
 }
 
 /**
@@ -74,6 +79,23 @@ export function propertyRuneEntries(
         (!etched.some((each) => each.rune === rune.id) || runeChoices(rune).length > 0),
     )
     .toSorted((left, right) => compare(left.name, right.name));
+}
+
+/**
+ * The property runes `item` can etch now: all it can take while it has room, and once it is full only those that take
+ * no slot (a mythic potency rune, ADR-0078), which make room of their own.
+ */
+export function offerableRuneEntries(
+  content: RunedContent,
+  slot: { readonly item: InventoryItem; readonly entry: ItemEntry | undefined },
+  compare: (left: string, right: string) => number,
+): readonly RuneEntry[] {
+  const entries = propertyRuneEntries(content, slot, compare);
+  if (hasPropertyRoom(slot.item, slot.entry, content.runes)) {
+    return entries;
+  }
+  const read = readerOf(content.runes);
+  return entries.filter(({ id }) => takesNoSlot(read(id)));
 }
 
 /** The property runes `item` can take, by name, as a select offers them. */

@@ -11,9 +11,11 @@ import {
   itemRunes,
   partitionApproved,
   propertyRoom,
+  readerOf,
   runeApplied,
   runeChoices,
   runedItemOf,
+  slottedRunes,
   workingPropertyRunes,
 } from '@pioneer/character/domain';
 import type {
@@ -138,7 +140,7 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
   }
   const etched = itemRunes(item, entry);
   const etchable = !isSpecific(entry);
-  const working = new Set(workingPropertyRunes(item, entry));
+  const working = new Set(workingPropertyRunes(item, entry, readerOf(runes)));
   const named = etched.property.flatMap(({ rune: id, choice }): RuneBadgeData[] => {
     const rune = runes.get(id);
     if (rune === undefined) {
@@ -148,7 +150,10 @@ function runeBadges(item: InventoryItem, entry: ItemEntry | undefined, runes: Ru
     const badge: RuneBadgeData = { kind: RuneBadgeKind.Property, id, name: rune.name };
     return [{ ...badge, ...(choice === undefined ? {} : { choice }), ...(note === undefined ? {} : { note }) }];
   });
-  const room = kind === RunedItem.Shield ? 0 : propertyRoom(etched) - etched.property.length;
+  const room =
+    kind === RunedItem.Shield
+      ? 0
+      : propertyRoom(etched, readerOf(runes)) - slottedRunes(etched, readerOf(runes)).length;
   const free = etchable ? Math.max(0, room) : 0;
   return [
     ...BADGE_FUNDAMENTALS[kind].flatMap((rune) => fundamentalBadge(rune, etched[rune], etchable)),

@@ -85,7 +85,8 @@ const TAGS_MAX = 16;
 const ITEM_BONUS_MAX = 4;
 
 /** An item bonus to attack rolls the weapon has without runes: +1 on a moderate bomb. */
-const ItemBonus = Pg.smallint().positive().max(ITEM_BONUS_MAX).brand<'ItemBonus'>();
+export const ItemBonus = Pg.smallint().positive().max(ITEM_BONUS_MAX).brand<'ItemBonus'>();
+export type ItemBonus = z.infer<typeof ItemBonus>;
 
 /** A specific magic weapon's runes ("+1 striking flaming"); a weapon that isn't one has none. */
 export const WeaponRunes = z.strictObject({

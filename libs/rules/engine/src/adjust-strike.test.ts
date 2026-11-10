@@ -5,7 +5,7 @@ import { PredicateFacts } from '@pioneer/rules/predicate';
 import { DamageType, InventoryItemId, NumericItemProperty, RollOptionTail, Slug, Trait } from '@pioneer/rules/sdk';
 import { CORE_NAMESPACES } from '@pioneer/rules/sdk/testing';
 
-import { adjustStrike } from './item-alterations';
+import { adjustStrike } from './adjust-strike';
 import type { AlteredItem } from './item-alterations';
 import { inPlay } from './testing';
 

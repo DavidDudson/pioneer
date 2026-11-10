@@ -15,10 +15,8 @@ const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
  * land; a new book's rune must get rules or be listed here.
  *
  * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
- * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; pacifying gives a save the Strike cannot apply; spell reservoir, coating, conducting, animated
- * and authorized are activations or item state; underwater changes a penalty no roll here reads; the mythic potency
- * runes raise the item bonus on top of the potency rune and give an item a fourth property slot, which no element aims
- * at the etched item.
+ * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; spell reservoir, coating, conducting, animated
+ * and authorized are activations or item state; underwater changes a penalty no roll here reads.
  */
 const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:animated',
@@ -28,12 +26,8 @@ const WEAPON_GAPS: ReadonlySet<string> = new Set([
   'rune:conducting',
   'rune:energy-vulnerability',
   'rune:energy-vulnerability-greater',
-  'rune:grievous',
-  'rune:mythic-weapon-potency',
-  'rune:pacifying',
   'rune:spell-reservoir',
   'rune:underwater',
-  'rune:vorpal',
 ]);
 
 /**
@@ -88,7 +82,6 @@ const ARMOUR_GAPS: ReadonlySet<string> = new Set([
   'rune:moonweave',
   'rune:moonweave-greater',
   'rune:moonweave-major',
-  'rune:mythic-armor-potency',
   'rune:portable',
   'rune:quenching',
   'rune:quenching-greater',

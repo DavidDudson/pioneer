@@ -17,7 +17,7 @@ import {
 import { activeItems, inventoryHop } from './active-items';
 import type { Inventory } from './inventory';
 import type { ItemContent } from './inventory-content';
-import { workingEtchedRunes } from './item-runes';
+import { runeReader, workingEtchedRunes } from './item-runes';
 import type { RuneEntry } from './item-runes';
 import { RuneChoice } from './rune-etching';
 
@@ -119,7 +119,7 @@ const CHOSEN_RUNES: ReadonlyMap<Slug, ChosenRune> = new Map([
  */
 export function chosenRuneRules(inventory: Inventory, content: ItemContent, lookup: ContentLookup): RuleInPlay[] {
   return activeItems(inventory, content).flatMap((active) =>
-    workingEtchedRunes(active.item, active.entry).flatMap(({ rune, choice }, etching) => {
+    workingEtchedRunes(active.item, active.entry, runeReader(lookup)).flatMap(({ rune, choice }, etching) => {
       const entry = lookup.entry(rune);
       const made = entry?.kind === ContentKind.Rune ? CHOSEN_RUNES.get(entry.slug) : undefined;
       if (entry === undefined || made === undefined || choice === undefined || !made.choices.includes(choice)) {

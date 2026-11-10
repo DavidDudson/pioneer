@@ -19,24 +19,21 @@ Project management is GitHub only: milestones M0-M12 and i18n, epics as issues, 
 - Commits and PR titles are Conventional Commits with subjects of at most 72 characters (squash merge;
   `committed.toml`). The user merges.
 
-Repo skills in `.claude/skills`:
+Repo skills in `.claude/skills`: `reimport` (re-run the Foundry content import). Everything else comes from
+overbridge's plugins, with pioneer's rules in `.overbridge/ext/` and `.overbridge/personas/`:
 
-| Skill                | Use                                                                               |
-| -------------------- | --------------------------------------------------------------------------------- |
-| `work-issue`         | Board issue to reviewed PR: pick, branch, build, review, PR, feedback loop        |
-| `stack`              | Epic to story sub-issues to stacked PRs (`gh stack`)                              |
-| `review`             | Pre-PR persona review against repo rules and ADRs, findings verified              |
-| `create-pr`          | Review, commit, push, before/after screenshots, open PR, request Copilot, wait    |
-| `resolve-coderabbit` | Verify and fix or decline CodeRabbit and Copilot threads, reply in each           |
-| `pickup`             | Continue an in-progress PR or ticket: rebase on main, conflicts, feedback, finish |
-| `reimport`           | Re-run the Foundry content import                                                 |
+| Need                                        | Skill                                   | Pioneer's part                                                    |
+| ------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------- |
+| Board issue to PR (pick, plan, build, ship) | `loop-item`, `start-item`               | `start-item/read-item.md` (board, blocked-by, epics), `plan.md`   |
+| Commit, push, open PR, screenshots, wait    | `ship-pr` (also stacks, via `gh stack`) | `ship-pr/commit.md`, `screenshots.md`, `pr-body.md`, `post-pr.md` |
+| Review feedback and CI                      | `resolve-feedback`                      | `resolve-feedback/fix.md`                                         |
+| Continue an open PR                         | `pickup`                                | squash merges: rebase, see `ship-pr/commit.md`                    |
+| Pre-PR review                               | `mob-review` (overbridge-review plugin) | `.overbridge/personas/pioneer-*.md`                               |
 
-Helpers: `.claude/scripts/pr-threads.sh` (unresolved review threads as JSON),
-`.claude/scripts/wait-for-review.sh` (block until Copilot, CodeRabbit or CI finish; run in the background) and
-`.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
+Helper: `.claude/scripts/pr-screenshots.sh` (upload PR screenshots to the `pr-screenshots` branch, print Markdown links).
 
 PRs that change UI carry before/after screenshots. Pages behind auth: sign in locally through the dev bypass,
-`/api/auth/dev/<dev user id>?returnTo=<path>` (`create-pr` step 4).
+`/api/auth/dev/<dev user id>?returnTo=<path>` (`.overbridge/ext/ship-pr/screenshots.md`).
 
 ## Code style
 
@@ -69,11 +66,12 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 touched project's `typecheck`, and the specs next to the change (`bunx nx run <project>:test --include="**/<name>.spec.ts"`).
 Never run `bun run affected`, `nx affected`, `bun run lint:workspace` or `bun run check` locally: the affected space
 is often large and they use a lot of CPU. Run every lint, typecheck or test command through
-`.claude/scripts/run-check.sh <command>`: it waits until the machine's load is under 70% of its cores and holds one
-lock shared by all workspaces, so only one workspace runs checks at a time (the others queue). Check `uptime` first if
-you are unsure how busy the machine is. A run is killed after 3 minutes (180 s). If one times out, stop and ask the
-user whether to allow 6 minutes; only on their explicit approval rerun with `MAX_RUN_SECONDS=360`, the one other value
-accepted. Never raise it on your own, and never wrap the call in a longer timeout or the background to get round it.
+`overbridge check pioneer -- <command>`. It runs the command in the dev shell, once the machine's load is under 70% of
+its cores. It also takes a turn in a queue shared by all workspaces, so only one workspace runs checks at a time and
+the others wait. Check `uptime` first if you are unsure how busy the machine is. A run is killed after 3 minutes
+(180 s, exit 124). If one times out, stop and ask the user whether to allow 6 minutes. Rerun with
+`--timeout-seconds 360` only after they say yes. Never raise the limit on your own. Never wrap the call in a longer
+timeout or run it in the background to get round it.
 `just db-up` for Postgres only when a db test you run needs it. CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
 A `plan` job runs first (`tools/ci-plan-run.ts`): it keeps the entries of `.github/ci-jobs.json` that cover a project the
@@ -82,9 +80,9 @@ little else. A new project needs no entry; a new job group does.
 
 ### Formatters and linters
 
-Run these in the devshell. The agent shell does not load direnv, so `.claude/scripts/run-check.sh <cmd>` enters it for
-you (after its turn in the queue), and `.claude/scripts/devshell.sh <cmd>` does the same without queueing: use that for
-`git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
+Run these in the devshell. The agent shell does not load direnv, so `overbridge check pioneer -- <cmd>` enters the
+shell for you once its turn comes in the queue. `overbridge shell pioneer -- <cmd>` enters it without queueing: use
+that for `git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
 file-level ones on staged files, then typecheck the Nx projects that own them (and `tools/`), specs included, so a type
 error fails the commit, not CI (a type error in a spec breaks the build like one in source); `bun run lint:workspace`
 runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier` or any other way: the formatter is `bun fmt`,

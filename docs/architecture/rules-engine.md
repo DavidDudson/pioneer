@@ -448,7 +448,7 @@ because that is the dataset we import and the system we export to (see
 | Proficiency | `Proficiency` (raise a rank), `MartialProficiency`, `ProficiencyBonus` (replace the bonus table)                                                                                                                                                                                                                                                                                                                                                                       |
 | Magic       | `SpellcastingEntry` (a spellcasting entry: tradition, attribute, preparation), `SpellSlots` (slots or cantrips for an entry), `PoolSpells` (the spells a pool takes), `DeitySpells` (the deity's spells join an entry's list), `SignatureSpells` (signature spells for a spontaneous entry), `FocusSpells` (a focus entry's focus spells), `InnateSpells` (the spells an innate entry casts), `RepertoireSpells` (spells a spontaneous entry must know, one slot each) |
 | Checks      | `RollTwice`, `SubstituteRoll`, `AdjustDegreeOfSuccess`, `RollNote`                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`                                                                                                                                                                                                                                                                                                                                                                                   |
+| Strikes     | `Strike`, `AdjustStrike`, `DamageDice`, `DamageAlteration`, `CriticalSpecialization`, `CriticalEffect`, `CriticalRange`                                                                                                                                                                                                                                                                                                                                                |
 | Defences    | `Immunity`, `Weakness`, `Resistance`, `TempHitPoints`, `FastHealing`                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Creature    | `BaseSpeed`, `Sense`, `CreatureSize`, `BattleForm`, `Language`, `ActorTraits`, `SpecialResource`, `SpecialStatistic`, `Aura`                                                                                                                                                                                                                                                                                                                                           |
 | Actions     | `GrantAction` (an action becomes available, with its own predicate)                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -456,6 +456,11 @@ because that is the dataset we import and the system we export to (see
 Each element is a discriminated union member with its own zod schema in `libs/rules/sdk`. Every element has an
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
 importer reports Foundry elements it cannot translate rather than dropping them silently.
+
+A `CriticalEffect` happens on a critical hit unless its `trigger` says otherwise: `hit` (any hit that deals damage,
+pacifying) or `natural-twenty` (a natural 20 that is a critical hit, vorpal). `reaction` marks one the wielder
+spends a reaction on. Besides a condition or damage, its effect can be `pacify` or `decapitate`, each against a save.
+The Strike only shows these effects, worded from the fields; the engine applies nothing to the target.
 
 The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` raises one statistic's rank on its
 selector, weapon and armour categories included (`attack:martial`), standing in for Foundry's rank
@@ -866,8 +871,10 @@ numbers from its content. An element that depends on the situation gives nothing
 found:
 
 - A numeric property (`ac-bonus`, `check-penalty`, `dex-cap`, `hardness`, `hp-max`, `range-increment`,
-  `speed-penalty`, `strength`) changes by its `mode`, never below 0. An item with no value for the property (armour
+  `speed-penalty`, `strength`, `potency`) changes by its `mode`, never below 0. An item with no value for the property (armour
   with no Dexterity cap, a melee weapon's range increment) takes one from `upgrade`, `downgrade` and `override` only.
+- An `etched` element reaches only the inventory item the rune it comes from is etched onto. `potency` is the grade the
+  item's runes give, which a mythic potency rune upgrades to 4 (ADR-0078).
 - `traits`, `materials` and `property-runes` add or remove one value; `damage-type` overrides the weapon's.
 - A value that is a formula reads no references, as the item is read before the character's numbers are known. One that
   needs them has no value and changes nothing.

@@ -6,11 +6,13 @@ import {
   Feet,
   NumericItemProperty,
   RollOptionTail,
+  RUNE_GRADE_MAX,
+  RuneGrade,
   slugName,
   Trait,
   WeaponCategory,
 } from '@pioneer/rules/sdk';
-import type { DamageType, InventoryItemId, RuleSlug, Slug } from '@pioneer/rules/sdk';
+import type { DamageType, InventoryItemId, ItemBonus, RuleSlug, Slug } from '@pioneer/rules/sdk';
 
 import type { ItemEntry } from './inventory-content';
 
@@ -130,6 +132,8 @@ export interface AlteredContext {
   readonly favored?: boolean;
   /** The inventory line the item is, which an `etched` adjustment of its Strike is read against. */
   readonly item?: InventoryItemId | undefined;
+  /** The grade of potency the item's runes give, which an `etched` potency alteration raises; absent for none. */
+  readonly potency?: ItemBonus | RuneGrade | undefined;
 }
 
 /** The length in feet an altered weapon has for `property` (its range increment, its reach); none when it has none. */
@@ -141,11 +145,11 @@ export function feetOf(item: AlteredItem, property: NumericItemProperty): Feet |
 export function alteredItem(
   rules: ModifierInputs,
   entry: ItemEntry,
-  { picked = [], favored = false, item }: AlteredContext = {},
+  { picked = [], favored = false, item, potency }: AlteredContext = {},
 ): AlteredItem {
   const altered = alterItem(rules, {
     rollOptions: [...rollOptionsOf(entry, favored), ...picked.map((flag) => RollOptionTail.parse(`picked:${flag}`))],
-    numbers: numbersOf(entry),
+    numbers: withPotency(numbersOf(entry), potency),
     traits: entry.traits,
     damageType: damageTypeOf(entry),
     materials: materialsOf(entry),
@@ -153,4 +157,15 @@ export function alteredItem(
     inventoryItem: item,
   });
   return entry.kind === ContentKind.Weapon ? adjustStrike(rules, altered) : altered;
+}
+
+/** `held` with the item's potency among its numbers, when it has any. */
+function withPotency(held: ItemNumbers, potency: ItemBonus | RuneGrade | undefined): ItemNumbers {
+  return potency === undefined ? held : new Map(held).set(NumericItemProperty.Potency, FormulaValue.parse(potency));
+}
+
+/** The grade of potency an altered item has, held to the highest a rune gives; undefined when it has none. */
+export function potencyOf({ numbers: held }: AlteredItem): RuneGrade | undefined {
+  const potency = held.get(NumericItemProperty.Potency);
+  return potency === undefined || potency < 1 ? undefined : RuneGrade.parse(Math.min(potency, RUNE_GRADE_MAX));
 }

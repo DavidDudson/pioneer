@@ -21,7 +21,30 @@ describe('Strike critical effects from rule elements', () => {
 
     const effects: readonly unknown[] | undefined = strike?.criticalEffects;
 
-    expect(effects).toEqual([{ effect: frost.effect, origin: inPlay(frost, 'frost').origin }]);
+    expect(effects).toEqual([
+      { effect: frost.effect, trigger: undefined, reaction: undefined, origin: inPlay(frost, 'frost').origin },
+    ]);
+  });
+
+  test('a trigger and a reaction come through to the Strike', () => {
+    const pacifying = {
+      key: 'CriticalEffect',
+      selectors: ['strike-damage'],
+      trigger: 'hit',
+      reaction: true,
+      effect: {
+        kind: 'pacify',
+        penalty: -2,
+        duration: { type: 'time', count: 1, unit: 'minute' },
+        save: { statistic: 'will', dc: 20 },
+      },
+    };
+
+    const effects: readonly unknown[] | undefined = strikeOf([[pacifying, 'pacifying']])?.criticalEffects;
+
+    expect(effects).toEqual([
+      { effect: pacifying.effect, trigger: 'hit', reaction: true, origin: inPlay(pacifying, 'pacifying').origin },
+    ]);
   });
 
   test('a CriticalEffect for other rolls, or whose predicate fails, is not on the Strike', () => {

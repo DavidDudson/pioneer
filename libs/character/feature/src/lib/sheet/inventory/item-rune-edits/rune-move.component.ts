@@ -135,7 +135,7 @@ export class RuneMove {
                 value: id,
                 label: names.get(id) ?? id,
                 kind: this.#i18n.translate(ITEM_KIND_KEYS[runed]),
-                ...slotsOf(item, entry),
+                ...slotsOf(item, entry, this.content().runes),
               },
             ];
       });

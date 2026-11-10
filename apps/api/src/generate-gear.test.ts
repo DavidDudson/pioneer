@@ -16,6 +16,7 @@ import {
   itemRunes,
   itemsValue,
   propertyRoom,
+  readerOf,
   Seed,
   treasureAt,
 } from '@pioneer/character/domain';
@@ -151,7 +152,7 @@ describe('a themed weapon etched with runes', () => {
         .filter((line) => items.get(line.item)?.kind === ContentKind.Weapon && line.runes !== undefined)
         .map((line) => ({
           names: (line.runes?.property ?? []).map(({ rune }) => rune),
-          room: propertyRoom(itemRunes(line, items.get(line.item)), CORE_RULE_LIMITS),
+          room: propertyRoom(itemRunes(line, items.get(line.item)), readerOf(runed.runes), CORE_RULE_LIMITS),
         }));
     });
   }

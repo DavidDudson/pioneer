@@ -9,7 +9,7 @@ import { physicalFields } from './physical-item';
 import { uniqueItems } from './unique-items';
 
 /** The grade of a potency, striking or resilient rune: +1 to +4, striking to mythic striking. */
-const RUNE_GRADE_MAX = 4;
+export const RUNE_GRADE_MAX = 4;
 export const RuneGrade = Pg.smallint().min(1).max(RUNE_GRADE_MAX).brand<'RuneGrade'>();
 export type RuneGrade = z.infer<typeof RuneGrade>;
 

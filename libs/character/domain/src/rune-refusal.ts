@@ -8,7 +8,16 @@ import { meetsRestriction } from './etching-restriction';
 import { InventoryRefusalField } from './inventory';
 import type { Inventory, InventoryItem, InventoryItemId, InventoryRefusal } from './inventory';
 import type { ItemEntry } from './inventory-content';
-import { isSpecific, itemRunes, printedRunes, propertyRoom, runedItemOf } from './item-runes';
+import {
+  isSpecific,
+  itemRunes,
+  printedRunes,
+  propertyRoom,
+  readerOf,
+  runedItemOf,
+  slottedRunes,
+  takesNoSlot,
+} from './item-runes';
 import type { RuneContent, RunedContent } from './item-runes';
 import { CORE_RULE_LIMITS } from './rule-limits';
 import type { RuleLimits } from './rule-limits';
@@ -113,8 +122,13 @@ function propertyRoomRefusal(
   if (current.property.some((each) => sameEtchedRune(each, etching))) {
     return runeRefused(message('character.validation.runeEtched'));
   }
-  const room = propertyRoom(current, reads.limits);
-  return current.property.length >= room
+  const read = readerOf(reads.runes);
+  // A rune that raises potency takes no slot, so a full item still takes it.
+  if (takesNoSlot(read(etching.rune))) {
+    return undefined;
+  }
+  const room = propertyRoom(current, read, reads.limits);
+  return slottedRunes(current, read).length >= room
     ? runeRefused(message('character.validation.propertyRunesFull', { maximum: room }))
     : undefined;
 }

@@ -1,7 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(.claude/scripts/devshell.sh git push*)",
+      "Bash(overbridge shell pioneer -- git push*)",
       "Bash(gh api repos/*/pulls/*/comments/*/replies *)",
       "Bash(gh api graphql -f query='mutation*resolveReviewThread*)"
     ]

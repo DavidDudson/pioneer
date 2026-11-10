@@ -339,6 +339,34 @@
             "or": ["class:druid", "feat:order-explorer:leaf-order"]
           }
         ]
+      },
+      {
+        "key": "SpellcastingEntry",
+        "slug": "druid-focus",
+        "tradition": "primal",
+        "attribute": "wis",
+        "preparation": "focus",
+        "predicate": [
+          {
+            "not": "feat:order-explorer:leaf-order"
+          },
+          {
+            "not": "feat:druid-dedication:leaf-order"
+          }
+        ]
+      },
+      {
+        "key": "FocusSpells",
+        "entry": "druid-focus",
+        "spells": ["3a58c6de-a5f2-5276-9f44-4ccb246152c5"],
+        "predicate": [
+          {
+            "not": "feat:order-explorer:leaf-order"
+          },
+          {
+            "not": "feat:druid-dedication:leaf-order"
+          }
+        ]
       }
     ],
     "externalIds": {

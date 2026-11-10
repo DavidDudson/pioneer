@@ -92,13 +92,13 @@ describe(etchedRows, () => {
 
 describe(slotsOf, () => {
   it('counts the property runes etched against the room its potency rune gives', () => {
-    const { used, room } = slotsOf(LINE, SWORD);
+    const { used, room } = slotsOf(LINE, SWORD, new Map());
 
     expect(used).toBe(1);
     expect(room).toBeGreaterThanOrEqual(1);
   });
 
   it('has none for an item that is not there', () => {
-    expect(slotsOf(undefined, SWORD)).toStrictEqual({ used: 0, room: 0 });
+    expect(slotsOf(undefined, SWORD, new Map())).toStrictEqual({ used: 0, room: 0 });
   });
 });

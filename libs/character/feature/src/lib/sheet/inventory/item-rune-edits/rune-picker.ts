@@ -1,9 +1,10 @@
 import type { TranslocoService } from '@jsverse/transloco';
-import { itemRunes, propertyRoom, runedItemOf } from '@pioneer/character/domain';
+import { itemRunes, propertyRoom, readerOf, runedItemOf, slottedRunes } from '@pioneer/character/domain';
 import type {
   InventoryItem,
   InventoryItemId,
   ItemEntry,
+  RuneContent,
   RunedContent,
   RuneEntry,
   RuneRef,
@@ -259,10 +260,11 @@ export interface Slots {
 }
 
 /** The property slots `item` has used, and its room for them. */
-export function slotsOf(item: InventoryItem | undefined, entry: ItemEntry | undefined): Slots {
+export function slotsOf(item: InventoryItem | undefined, entry: ItemEntry | undefined, content: RuneContent): Slots {
   if (item === undefined) {
     return { used: 0, room: 0 };
   }
   const runes = itemRunes(item, entry);
-  return { used: runes.property.length, room: propertyRoom(runes) };
+  const read = readerOf(content);
+  return { used: slottedRunes(runes, read).length, room: propertyRoom(runes, read) };
 }

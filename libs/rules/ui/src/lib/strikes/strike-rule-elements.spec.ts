@@ -40,6 +40,18 @@ describe('StrikesView rule elements', () => {
     expect(textOf(host)).toContain('Reach 60 ft');
   });
 
+  it('words a save on a hit and a natural 20 as a reaction', async () => {
+    const host = await render();
+
+    const text = textOf(host);
+    expect(text).toContain(
+      "Gloom Walker: when you damage a creature, as a reaction, the target must succeed at a DC 20 Will save or be pacified, taking -2 to attack rolls that don't deal nonlethal damage for 1 minute",
+    );
+    expect(text).toContain(
+      'Gloom Walker: on a natural 20 that is a critical hit, as a reaction, if the Strike deals slashing damage, a target with a head must succeed at a DC 37 Fortitude save or be decapitated, which kills it unless it needs no head to live',
+    );
+  });
+
   it('shows a note on the roll it is for, with its title and the degrees it shows on', async () => {
     const host = await render();
 

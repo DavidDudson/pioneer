@@ -16,7 +16,7 @@ import { equippedRulesOf, fromInventory, rulesOf } from './entry-rules';
 import type { Resolved } from './entry-rules';
 import { environmentRoots } from './environments';
 import type { ItemContent } from './inventory-content';
-import { workingPropertyRunes } from './item-runes';
+import { runeReader, workingPropertyRunes } from './item-runes';
 import { ownedItems, pickedItems } from './owned-items';
 import type { PickedItems } from './owned-items';
 import { attributesAt } from './slot-offer';
@@ -45,7 +45,10 @@ function equippedResolution(document: CharacterDocument, content: ItemContent, s
   const roots: GrantRoot[] = [
     ...active.flatMap((each) => {
       const hop = inventoryHop(each);
-      return [each.entry.id, ...workingPropertyRunes(each.item, each.entry)].map((entry) => ({ entry, hop }));
+      return [each.entry.id, ...workingPropertyRunes(each.item, each.entry, runeReader(lookup))].map((entry) => ({
+        entry,
+        hop,
+      }));
     }),
     ...encumberedRoots(document, content, slots),
     ...conditionRoots(document.play.conditions),
