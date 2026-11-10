@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind, FundamentalRune, RuleElement, RuneGrade } from '@pioneer/rules/sdk';
-import type { ContentId } from '@pioneer/rules/sdk';
+import { ContentId, ContentKind, FundamentalRune, RuleElement, RuneGrade } from '@pioneer/rules/sdk';
 
 import type { Inventory, InventoryItemId } from './inventory';
 import type { ItemEntry } from './inventory-content';
@@ -183,7 +182,8 @@ describe('runes the engine applies', () => {
 });
 
 describe('a rune that raises potency', () => {
-  const MYTHIC_ID = runeFixtureId(RuneFixture.Frost);
+  /** A rune of its own, so no fixture the item's other runes use stands in for it. */
+  const MYTHIC_ID = ContentId.parse('00000000-0000-4000-8000-00000000a001');
   const SHOCK_ID = runeFixtureId(RuneFixture.Shock);
   const KEEN_ID = runeFixtureId(RuneFixture.Keen);
   const mythic: RuneRules = {
@@ -223,15 +223,16 @@ describe('a rune that raises potency', () => {
   });
 
   test('works even when other runes fill the item before it is etched', () => {
-    const etched = runes({
-      potency: 1,
-      property: [{ rune: FLAMING_ID }, { rune: SHOCK_ID }, { rune: MYTHIC_ID }],
-    });
+    const full = runes({ potency: 3, property: [{ rune: FLAMING_ID }, { rune: SHOCK_ID }, { rune: KEEN_ID }] });
+    const etched = { ...full, property: [...full.property, { rune: MYTHIC_ID }] };
+    expect(propertyRoom(full, read)).toBe(PropertyRuneCount.parse(3));
+    expect(slottedRunes(full, read)).toHaveLength(3);
     const item = { ...lineOf(armoury(), Armoury.Sword), runes: etched };
 
     expect(workingEtchedRunes(item, content.get(item.item), read).map(({ rune }) => rune)).toStrictEqual([
       FLAMING_ID,
       SHOCK_ID,
+      KEEN_ID,
       MYTHIC_ID,
     ]);
   });

@@ -48,7 +48,7 @@ describe('StrikesView rule elements', () => {
       "Gloom Walker: when you damage a creature, as a reaction, the target must succeed at a DC 20 Will save or be pacified, taking -2 to attack rolls that don't deal nonlethal damage for 1 minute",
     );
     expect(text).toContain(
-      'Gloom Walker: on a natural 20 that is a critical hit with a slashing Strike, as a reaction, a target with a head must succeed at a DC 37 Fortitude save or be decapitated, which kills it unless it needs no head to live',
+      'Gloom Walker: on a natural 20 that is a critical hit, as a reaction, if the Strike deals slashing damage, a target with a head must succeed at a DC 37 Fortitude save or be decapitated, which kills it unless it needs no head to live',
     );
   });
 

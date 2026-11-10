@@ -28,8 +28,8 @@ import {
   etchedRunes,
   fundamentalRunesFor,
   hasPropertyRoom,
+  offerableRuneEntries,
   printedGrade,
-  propertyRuneEntries,
   propertyRuneOptions,
   runeKey,
 } from './rune-options';
@@ -186,15 +186,15 @@ export class ItemRuneEdits {
     );
   });
 
-  /** The property runes the item can take, while it has room for one, as rows for the picker. */
+  /** The property runes the item can etch now (`offerableRuneEntries`), as rows for the picker. */
   protected readonly propertyPicker = new PickerRows<RuneRow>(
     computed(() => {
       const item = this.#item();
       const entry = this.#entry();
-      if (item === undefined || !hasPropertyRoom(item, entry, this.content().runes)) {
+      if (item === undefined) {
         return [];
       }
-      const entries = propertyRuneEntries(this.content(), { item, entry }, (left, right) =>
+      const entries = offerableRuneEntries(this.content(), { item, entry }, (left, right) =>
         this.#format.compare(left, right),
       );
       return propertyRows(entries, this.#words());
@@ -202,14 +202,15 @@ export class ItemRuneEdits {
     RUNE_ORDER,
   );
 
-  /** Whether the item could take a property rune, but its potency rune leaves no room. */
+  /** Whether the item could take a property rune, but its potency rune leaves no room and none takes no slot. */
   protected readonly needsPotency = computed(() => {
     const item = this.#item();
     const entry = this.#entry();
     if (item === undefined || hasPropertyRoom(item, entry, this.content().runes)) {
       return false;
     }
-    return propertyRuneOptions(this.content(), { item, entry }, () => 0).length > 0;
+    const offered = offerableRuneEntries(this.content(), { item, entry }, () => 0);
+    return offered.length === 0 && propertyRuneOptions(this.content(), { item, entry }, () => 0).length > 0;
   });
 
   protected readonly model = signal<AddRuneModel>(EMPTY_ADD);
