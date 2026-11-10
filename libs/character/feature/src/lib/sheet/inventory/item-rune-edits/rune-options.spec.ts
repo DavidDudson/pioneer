@@ -13,7 +13,7 @@ import {
   runeFixtureContent,
   runeFixtureId,
 } from '@pioneer/character/domain/testing';
-import { FundamentalRune, RuneType } from '@pioneer/rules/sdk';
+import { ContentId, ContentText, FundamentalRune, RuleElement, RuneType } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -21,6 +21,8 @@ import {
   fundamentalRunesFor,
   gradeChoices,
   hasPropertyRoom,
+  offerableRuneEntries,
+  propertyRuneEntries,
   propertyRuneOptions,
   runeKey,
   runeOfKey,
@@ -119,6 +121,50 @@ describe('a rune made for a choice', () => {
   it('is keyed by its choice, so the same rune etched for two types is two keys', () => {
     expect(runeKey(resisting('fire'))).not.toBe(runeKey(resisting('cold')));
     expect(runeKey(propertyRune(RuneFixture.Flaming))).toBe(`property:${runeFixtureId(RuneFixture.Flaming)}`);
+  });
+});
+
+describe(offerableRuneEntries, () => {
+  const MYTHIC_ID = ContentId.parse('00000000-0000-4000-8000-00000000a001');
+  const frost = content.runes.get(runeFixtureId(RuneFixture.Frost));
+  if (frost === undefined) {
+    throw new Error('the frost rune fixture is missing');
+  }
+  const mythic = {
+    ...frost,
+    id: MYTHIC_ID,
+    name: ContentText.parse('Mythic'),
+    rules: [
+      RuleElement.parse({
+        key: 'ItemAlteration',
+        items: [],
+        etched: true,
+        property: 'potency',
+        mode: 'upgrade',
+        value: 4,
+      }),
+    ],
+  };
+  const withMythic = { ...content, runes: new Map([...content.runes, [MYTHIC_ID, mythic]]) };
+
+  it('offers a rune that takes no slot even when the item is full, and nothing else', () => {
+    const inventory = flamingSword();
+    const item = lineOf(inventory, Armoury.Sword);
+    const slot = { item, entry: entryOf(inventory, Armoury.Sword) };
+
+    expect(hasPropertyRoom(item, slot.entry, withMythic.runes)).toBe(false);
+    expect(offerableRuneEntries(withMythic, slot, compare).map(({ id }) => id)).toStrictEqual([MYTHIC_ID]);
+  });
+
+  it('offers every rune while the item has room', () => {
+    const inventory = etchRune(flamingSword(), Armoury.Sword, fundamental(FundamentalRune.Potency, 2));
+    const slot = { item: lineOf(inventory, Armoury.Sword), entry: entryOf(inventory, Armoury.Sword) };
+
+    expect(hasPropertyRoom(slot.item, slot.entry, withMythic.runes)).toBe(true);
+    expect(offerableRuneEntries(withMythic, slot, compare)).toStrictEqual(
+      propertyRuneEntries(withMythic, slot, compare),
+    );
+    expect(offerableRuneEntries(withMythic, slot, compare).length).toBeGreaterThan(1);
   });
 });
 

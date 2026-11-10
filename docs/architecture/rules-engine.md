@@ -457,6 +457,11 @@ Each element is a discriminated union member with its own zod schema in `libs/ru
 optional `predicate`, a `priority`, and an optional `display` hint. Unknown keys are a validation error; the
 importer reports Foundry elements it cannot translate rather than dropping them silently.
 
+A `CriticalEffect` happens on a critical hit unless its `trigger` says otherwise: `hit` (any hit that deals damage,
+pacifying) or `natural-twenty` (a natural 20 that is a critical hit, vorpal). `reaction` marks one the wielder
+spends a reaction on. Besides a condition or damage, its effect can be `pacify` or `decapitate`, each against a save.
+The Strike only shows these effects, worded from the fields; the engine applies nothing to the target.
+
 The Structure, Numbers and Proficiency groups are in the SDK. `Proficiency` raises one statistic's rank on its
 selector, weapon and armour categories included (`attack:martial`), standing in for Foundry's rank
 `ActiveEffectLike` upgrades. `ProficiencyBonus` is Pioneer's own: it replaces the proficiency bonus table,
