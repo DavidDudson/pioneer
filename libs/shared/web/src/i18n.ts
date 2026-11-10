@@ -7,11 +7,11 @@ import {
   provideAppInitializer,
 } from '@angular/core';
 import type { EnvironmentProviders } from '@angular/core';
-import { provideTransloco, TranslocoService } from '@jsverse/transloco';
+import { provideTransloco, TRANSLOCO_TRANSPILER, TranslocoService } from '@jsverse/transloco';
 import type { Translation, TranslocoLoader } from '@jsverse/transloco';
-import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { Locale, LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 
+import { LazyIcuTranspiler } from './lazy-icu-transpiler';
 import { LocalePreferences } from './locale-preferences';
 import { rememberLoadedLanguages } from './remember-loaded-languages';
 
@@ -51,7 +51,12 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
       },
       loader: MessageLoader,
     }),
-    provideTranslocoMessageformat(),
+    LazyIcuTranspiler,
+    { provide: TRANSLOCO_TRANSPILER, useExisting: LazyIcuTranspiler },
+    // Starts with the messages fetch below; the shell waits for both.
+    provideAppInitializer(async () => {
+      await inject(LazyIcuTranspiler).load();
+    }),
     provideAppInitializer(() => {
       rememberLoadedLanguages(inject(TranslocoService));
     }),
