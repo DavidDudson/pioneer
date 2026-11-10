@@ -80,13 +80,13 @@ little else. A new project needs no entry; a new job group does.
 
 ### Formatters and linters
 
-Run these in the devshell. The agent shell does not load direnv, so `overbridge check pioneer -- <cmd>` enters the
-shell for you once its turn comes in the queue. `overbridge shell pioneer -- <cmd>` enters it without queueing: use
-that for `git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
+Run these in the devshell. The agent shell does not load direnv, so `overbridge check pioneer -- <cmd>` enters the shell
+for you once its turn comes in the queue. `overbridge shell pioneer -- <cmd>` enters it without queueing: use that for
+`git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
 file-level ones on staged files, then typecheck the Nx projects that own them (and `tools/`), specs included, so a type
 error fails the commit, not CI (a type error in a spec breaks the build like one in source); `bun run lint:workspace`
-runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier` or any other way: the formatter is `bun fmt`,
-and one Prettier pass rewrites unrelated files.
+runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier` or any other way: the formatter is `bun
+fmt`, and one Prettier pass rewrites unrelated files.
 
 | Tool                                                   | Owns                                                   | Check                                                                     | Fix                                    |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------------------------- | -------------------------------------- |
