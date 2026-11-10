@@ -39,6 +39,7 @@ import { filter, from, merge } from 'rxjs';
 
 import { AncestryOptions } from '../../data/ancestry-options';
 import { CHARACTER_LIST_EXTRAS } from '../../data/character-list-extras';
+import { injectCharacterList } from '../../data/character-list-query';
 import { CharacterStore } from '../../data/character-store';
 import { CreateCharacterForm } from '../../data/create-character-form';
 
@@ -85,6 +86,7 @@ const characterKey = (character: Character): string => character.id;
 })
 export class CharacterListPage {
   protected readonly store = inject(CharacterStore);
+  protected readonly characters = injectCharacterList();
   protected readonly ancestries = inject(AncestryOptions);
   readonly #extraLoaders = inject(CHARACTER_LIST_EXTRAS);
   readonly #extrasLoaded = Promise.all(this.#extraLoaders.map(async (load) => load()));

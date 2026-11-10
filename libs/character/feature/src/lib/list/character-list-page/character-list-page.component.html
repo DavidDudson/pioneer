@@ -59,7 +59,7 @@
             }
           </fr-stack>
         </ng-template>
-        <ng-template let-characters [frAsyncData]="store.list">
+        <ng-template let-characters [frAsyncData]="characters">
           <fr-virtual-list gap="md" estimate="md" [itemKey]="characterKey">
             <ng-template let-character [frVirtualItem]="characters">
               <fr-surface>

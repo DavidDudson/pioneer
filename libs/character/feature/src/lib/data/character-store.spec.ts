@@ -91,7 +91,14 @@ describe(CharacterStore, () => {
     store = TestBed.inject(CharacterStore);
     http = TestBed.inject(HttpTestingController);
     TestBed.tick();
-    http.expectOne('/api/characters').flush([]);
+  });
+
+  it('does not read the character list, which only the list page shows', () => {
+    store.select(id);
+    TestBed.tick();
+
+    http.expectNone('/api/characters');
+    expect(store.selected()).toBeUndefined();
   });
 
   it('decodes the selected character into a class', async () => {
