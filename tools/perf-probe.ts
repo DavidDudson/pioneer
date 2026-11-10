@@ -19,9 +19,10 @@ import { brotliCompressSync, gzipSync } from 'node:zlib';
 
 import { SQL } from 'bun';
 
+import { createCharacter, signIn } from './dev-session.ts';
+
 const DEFAULT_RUNS = 20;
 const DEFAULT_OUT = 'tmp/perf-probe.json';
-const DEV_PLAYER_ID = '00000000-0000-4000-8000-00000000de02';
 const MEDIAN = 0.5;
 const P95 = 0.95;
 const DECIMALS = 100;
@@ -64,8 +65,6 @@ if (databaseUrl === undefined) {
   throw new Error('DATABASE_URL is not set; run this in the devshell');
 }
 const db = new SQL(databaseUrl);
-const origin = Bun.env['PUBLIC_ORIGIN'] ?? 'http://localhost:4200';
-const writeHeaders = { origin, 'sec-fetch-site': 'same-origin', 'content-type': 'application/json' };
 
 interface Measure {
   readonly path: string;
@@ -105,31 +104,6 @@ async function statementsSince(mark: number): Promise<number> {
   await Bun.sleep(SETTLE_MS);
   const added = await Bun.file(pgLog).slice(mark).text();
   return added.split('\n').filter((line) => STATEMENT_LINE.test(line)).length;
-}
-
-async function signIn(): Promise<string> {
-  const response = await fetch(`${api}/api/auth/dev/${DEV_PLAYER_ID}`, {
-    redirect: 'manual',
-    headers: { 'sec-fetch-site': 'same-origin' },
-  });
-  const cookie = response.headers.getSetCookie()[0]?.split(';')[0];
-  if (cookie === undefined) {
-    throw new Error(`Dev sign-in failed with ${response.status}; is the API running with the dev entrypoint?`);
-  }
-  return cookie;
-}
-
-async function createCharacter(cookie: string): Promise<string> {
-  const [ancestry] = await db<
-    { readonly id: string }[]
-  >`select id from content_entries where kind = 'ancestry' limit 1`;
-  const response = await fetch(`${api}/api/characters`, {
-    method: 'POST',
-    headers: { ...writeHeaders, cookie },
-    body: JSON.stringify({ name: 'Perf Probe', ancestry: ancestry?.id }),
-  });
-  const created = (await response.json()) as { readonly id: string };
-  return created.id;
 }
 
 interface Sizes {
@@ -213,8 +187,8 @@ async function wholeLoad(cookie: string, characterId: string): Promise<WholeLoad
 
 await db.unsafe("alter system set log_statement = 'all'");
 await db`select pg_reload_conf()`;
-const cookie = await signIn();
-const characterId = values.character ?? (await createCharacter(cookie));
+const cookie = await signIn(api);
+const characterId = values.character ?? (await createCharacter({ api, cookie }, db, 'Perf Probe'));
 const endpoints: Measure[] = [];
 for (const suffix of [...SHEET_ENDPOINTS, BUNDLE_ENDPOINT]) {
   // oxlint-disable-next-line eslint/no-await-in-loop

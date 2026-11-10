@@ -408,6 +408,7 @@
         "libs/frontier/scripts/*.ts",
         "tools/deploy-production.ts",
         "tools/perf-probe.ts",
+        "tools/sheet-waterfall.ts",
         "tools/ci-plan-run.ts",
         "tools/content-coverage.ts",
         "tools/propose-aon.ts",
