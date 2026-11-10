@@ -57,13 +57,19 @@ function tabStop(fixture: ComponentFixture<RichTextView>): Element | null {
   return (fixture.nativeElement as HTMLElement).querySelector('[tabindex="0"]');
 }
 
+/** The card's code loads on first open, which a cold CI worker can take longer over than `vi.waitFor`'s second. */
+const CARD_LOAD_TIMEOUT = 5000;
+
 /** Focuses the reference and waits for the card, which loads on first open. */
 async function open(fixture: ComponentFixture<RichTextView>): Promise<void> {
   tabStop(fixture)?.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
-  await vi.waitFor(() => {
-    fixture.detectChanges();
-    expect(card()?.textContent).toContain('A roaring blast of fire');
-  });
+  await vi.waitFor(
+    () => {
+      fixture.detectChanges();
+      expect(card()?.textContent).toContain('A roaring blast of fire');
+    },
+    { timeout: CARD_LOAD_TIMEOUT },
+  );
 }
 
 function renderFetching(load: () => Promise<EntryPreview | undefined>): ComponentFixture<RichTextView> {
