@@ -27,7 +27,8 @@ jobs:
   # keeps its reason: the character feature suite is split in parts because one worker's memory grows with every file
   # (the sheet page specs, the heaviest, by name); the api's character generation is split in four by the generate-*
   # configurations, which name the Player Core classes between them (a class added to that test goes in one of them
-  # too); the rules-ui stories took over 5 minutes on a cold cache, so they run in three shards. A new project needs
+  # too), and its spell picks in four by the generate-spells-* ones, which name the casters and non-casters (a class
+  # added to that test goes in one of them too); the rules-ui stories took over 5 minutes on a cold cache, so they run in three shards. A new project needs
   # no entry: the "rest" entries take every project the others do not name.
   plan:
     name: Plan

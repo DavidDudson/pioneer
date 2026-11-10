@@ -85,6 +85,31 @@
       "args": "--projects=api --configuration=generation"
     },
     {
+      "name": "server api themes",
+      "id": "server-api-themes",
+      "args": "--projects=api --configuration=generate-themes"
+    },
+    {
+      "name": "server api spells 1",
+      "id": "server-api-spells-1",
+      "args": "--projects=api --configuration=generate-spells-1"
+    },
+    {
+      "name": "server api spells 2",
+      "id": "server-api-spells-2",
+      "args": "--projects=api --configuration=generate-spells-2"
+    },
+    {
+      "name": "server api spells 3",
+      "id": "server-api-spells-3",
+      "args": "--projects=api --configuration=generate-spells-3"
+    },
+    {
+      "name": "server api spells 4",
+      "id": "server-api-spells-4",
+      "args": "--projects=api --configuration=generate-spells-4"
+    },
+    {
       "name": "server api binary",
       "id": "server-api-binary",
       "args": "--projects=api --configuration=binary"
