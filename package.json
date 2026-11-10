@@ -21,6 +21,7 @@
     "typecheck:tools": "tsc --noEmit -p tools/tsconfig.json && tsc --noEmit -p libs/frontier/scripts/tsconfig.json",
     "bench": "bun tools/bench.ts",
     "perf:probe": "bun tools/perf-probe.ts",
+    "perf:sheet": "bun tools/sheet-waterfall.ts",
     "check:messages": "bun tools/check-message-keys.ts",
     "check:components": "bun tools/check-component-coverage.ts",
     "check:contrast": "bun tools/check-token-contrast.ts",

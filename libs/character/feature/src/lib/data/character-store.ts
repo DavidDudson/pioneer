@@ -52,11 +52,6 @@ export class CharacterStore {
   readonly #cleared = signal<readonly ClearedPick[]>([]);
   readonly #edits = new EditTracker(this.#selectedId.asReadonly());
 
-  public readonly list = injectQuery(() => ({
-    queryKey: characterKeys.list(),
-    queryFn: async (): Promise<Character[]> => this.#api.call(CharacterContract.list, { params: {}, body: undefined }),
-  }));
-
   readonly #selected = injectQuery(() => {
     const id = this.#selectedId();
     return {

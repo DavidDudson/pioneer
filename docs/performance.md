@@ -121,3 +121,62 @@ at 4 on the probe; what goes is the `document` and play-state read and its parse
 
 `connect` sets the connection `TimeZone` to UTC. A `timestamptz` comes back as text in the session's zone, so a
 database set to another zone returned `sessions.expires_at` shifted in dev.
+
+### Browser waterfall
+
+The API probe above counts what the server does. `bun run perf:sheet` (`tools/sheet-waterfall.ts`) counts what a browser
+does: it signs in as the dev player, opens a level 1 character's sheet in a fresh Chromium context (cold: no HTTP cache,
+no IndexedDB), waits for the sheet to paint, waits for the network to go quiet and the bundles to be kept, then reloads
+(warm, the next visit). It needs the dev stack and `DATABASE_URL`, as `perf:probe` does. Every request to `/api/` is
+recorded from the page's own resource timing, and two marks the sheet sets once per load give the paint times:
+`sheet:header` when the character's header can show (the sheet bundle has arrived) and `sheet:ready` when the engine's
+numbers can show (the content they derive from has loaded too).
+
+Measured on the dev stack (unbundled, uncompressed), median of 7 loads each, on an idle machine. Timings move with the
+machine and the dev server: compare runs from one stack, and trust the request counts more than the milliseconds.
+
+| Load         | Requests | Bytes     | Header (`sheet:header`) | Ready (`sheet:ready`) |
+| ------------ | -------- | --------- | ----------------------- | --------------------- |
+| Cold, before | 3,231    | 3,305,504 | 936 ms                  | 2,077 ms              |
+| Cold, after  | 986      | 3,304,248 | 996 ms                  | 1,612 ms              |
+| Warm, before | 6        | 6,151     | 796 ms                  | 1,004 ms              |
+| Warm, after  | 5        | 4,895     | 817 ms                  | 943 ms                |
+
+The header time is the same within the noise: it waits on `/me`, the page chunk and the sheet bundle, none of which
+changed. What moved is everything after it. The cold waterfall, after (start to end, ms from navigation):
+
+| Request                          | Start | End   | Bytes   |
+| -------------------------------- | ----- | ----- | ------- |
+| `/api/me`                        | 956   | 973   | 492     |
+| `/api/me/preferences`            | 995   | 1,016 | 302     |
+| `/api/content/manifest`          | 1,080 | 1,093 | 124,680 |
+| `/api/characters/:id/sheet`      | 1,093 | 1,104 | 3,779   |
+| `/api/characters/:id/sheet-mode` | 1,093 | 1,105 | 322     |
+| `/api/content/bundles/*`         | 1,142 | 1,562 | 3.17 MB |
+
+What the browser measurement found, and the cuts that follow:
+
+- **Content bundles were fetched many times over.** A cold load made 3,225 bundle requests. The sheet builds about 25
+  registries at once, and each asked the cache for the same official bundles; none knew another's fetch was in
+  flight. `ContentBundleCache.bundle` now shares one read between asks made while it is in flight: 986 requests, the same
+  3.3 MB.
+- **Content started only after the sheet bundle.** `injectContentRegistry` waits for the character's packs and variant
+  rules before it builds, so the manifest was not asked for until `/sheet` had answered, and the bundles after the
+  manifest. The official manifest and bundles do not depend on the character, so the registry query now calls
+  `ContentLoader.warm` at once. The manifest now starts with `/sheet`, and the registry's own build joins what is
+  already in flight.
+- **The manifest waited for IndexedDB.** `ContentBundleCache` wrote the manifest and evicted old bundles before it
+  answered. Both now run after it answers; the offline fallback is unchanged.
+- **The character list loaded on every sheet.** `GET /api/characters` ran before `/sheet`, because the character store
+  held the list's query and the store exists on every character page. Nothing on a sheet reads it. The query is now
+  `injectCharacterList()`, injected only by the list page.
+
+Allies and item approvals already load only when their tab or panel asks. Not changed, with the reason:
+
+- `/sheet-mode` still goes out beside `/sheet`, though the bundle could carry it. Asking only once the sheet is in made
+  4 of the 6 header specs time out in `openSheet`, and the other sheet specs that open the sheet are likely to follow;
+  I did not find why, and the request is 322 bytes, so it stays. Putting the sheet mode in the bundle for the owner
+  would remove it with no such wait; that is an API change, so it is not made here.
+- `/me/preferences` waits on `/me` but blocks nothing on the sheet.
+- About 980 bundle requests remain on a cold load. Many are the idle prefetch and the per-kind and per-pack split of
+  the bundles; fewer, larger bundles would cut them and is a content-delivery change.
