@@ -35,6 +35,11 @@ export class ContentBundleCache {
   /** Homebrew manifests and bundles of this session, kept in memory only: they are private to the signed-in user. */
   readonly #homebrewManifests = new Map<string, Promise<ContentManifest>>();
   readonly #homebrewBodies = new Map<BundlePath, Promise<unknown>>();
+  /**
+   * Official bundles being read or fetched right now. The sheet builds a dozen registries at once, each asking for the
+   * same files, so a second ask for a bundle in flight joins the first rather than fetching it again.
+   */
+  readonly #bundlesInFlight = new Map<BundlePath, Promise<unknown>>();
 
   /** The current manifest, read once a session. A failed read is not kept, so the next ask tries again. */
   public async manifest(): Promise<ContentManifest> {
@@ -110,9 +115,21 @@ export class ContentBundleCache {
     }
   }
 
-  /** A bundle's body: from the store when kept, else fetched and kept. */
+  /** A bundle's body: from the store when kept, else fetched and kept. Asks made while it is read share one read. */
   public async bundle(pack: PackId, file: BundleFile): Promise<unknown> {
     const path = bundlePath(pack, file);
+    const reading = this.#bundlesInFlight.get(path) ?? this.#readOrFetch(pack, file, path);
+    this.#bundlesInFlight.set(path, reading);
+    try {
+      return await reading;
+    } finally {
+      if (this.#bundlesInFlight.get(path) === reading) {
+        this.#bundlesInFlight.delete(path);
+      }
+    }
+  }
+
+  async #readOrFetch(pack: PackId, file: BundleFile, path: BundlePath): Promise<unknown> {
     const kept = await this.#read(path);
     if (kept !== undefined) {
       return kept;
@@ -125,8 +142,9 @@ export class ContentBundleCache {
   async #readManifest(): Promise<ContentManifest> {
     try {
       const manifest = await this.#delivery.manifest();
-      await this.#write(MANIFEST_KEY, manifest);
-      await this.#evict(manifest);
+      // Kept in the background: only the next session reads it, and the sheet's content waits on this answer.
+      // oxlint-disable-next-line typescript/no-floating-promises -- #keep catches every error, so it never rejects
+      this.#keep(manifest);
       return manifest;
     } catch (error) {
       const kept = ContentManifest.safeParse(await this.#read(MANIFEST_KEY));
@@ -135,6 +153,12 @@ export class ContentBundleCache {
       }
       throw error;
     }
+  }
+
+  /** Keeps `manifest` for offline starts, then removes the bundles it no longer names. */
+  async #keep(manifest: ContentManifest): Promise<void> {
+    await this.#write(MANIFEST_KEY, manifest);
+    await this.#evict(manifest);
   }
 
   /** Removes every bundle `manifest` no longer names. */

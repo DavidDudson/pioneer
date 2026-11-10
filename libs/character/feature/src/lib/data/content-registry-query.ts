@@ -1,4 +1,4 @@
-import { inject } from '@angular/core';
+import { effect, inject } from '@angular/core';
 import type { CharacterPacks, CharacterVariantRules } from '@pioneer/character/domain';
 import { ContentLoader } from '@pioneer/rules/data-access';
 import { ContentKind, putUnsupportedPacks } from '@pioneer/rules/sdk';
@@ -117,6 +117,14 @@ export function injectContentRegistry(
   const loader = inject(ContentLoader);
   const packs = inject(CharacterPackStore, { optional: true });
   const variants = inject(CharacterVariantStore, { optional: true });
+  const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
+  // The official content does not depend on the character: fetch it now, and the build joins it in flight.
+  effect(() => {
+    if (enabled()) {
+      // oxlint-disable-next-line typescript/no-floating-promises -- warm catches every error, so it never rejects
+      loader.warm(loaded);
+    }
+  });
   return injectQuery(() => {
     // Off the sheet nothing is homebrew and no variant rule is on. On it the registry waits for both lists.
     // It then builds once, over the right packs and variant rules.
@@ -128,7 +136,6 @@ export function injectContentRegistry(
       unsupported: unsupportedOf(listing?.data()),
       variants: variantsOf(enabledVariants?.data()),
     };
-    const loaded = variants === null ? kinds : [...new Set([...kinds, ContentKind.VariantRule])];
     return { ...contentRegistryQuery(loader, loaded, content), enabled: enabled() && !waiting };
   });
 }

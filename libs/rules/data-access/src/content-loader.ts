@@ -101,6 +101,27 @@ export class ContentLoader {
   }
 
   /**
+   * Fetches the manifest and the official bundles of `kinds` into the store, so a `registry` of them asked for next
+   * finds them held. For a page that knows what it will need before it knows everything its registry is built over
+   * (the sheet's waits for the character's packs). Never rejects: a failed fetch is only fetched again by `registry`.
+   */
+  public async warm(kinds: readonly ContentKind[]): Promise<void> {
+    try {
+      const manifest = await this.#cache.manifest();
+      await Promise.all(
+        manifest.packs.map(async (pack) =>
+          Promise.all([
+            this.#official(pack.id, pack.file),
+            ...kindsIn(pack, kinds).map(async (bundles) => fetchKind(pack.id, bundles, this.#official)),
+          ]),
+        ),
+      );
+    } catch {
+      // Not warmed: `registry` fetches what it needs.
+    }
+  }
+
+  /**
    * The entries whose name or description match the words of `query`, best first, as the server finds them. Unlike
    * the bundles it is not kept in the browser, so it fails offline.
    */

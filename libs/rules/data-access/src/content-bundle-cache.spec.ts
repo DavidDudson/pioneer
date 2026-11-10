@@ -3,6 +3,7 @@ import { bundlePath, contentId, EntrySlug, packContentsFromFiles, PackId } from 
 import type { BundleFile, ContentManifest, PackContents, PackContentsLoader } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
+import { MANIFEST_KEY } from './bundle-store';
 import type { BundleStore } from './bundle-store';
 import { ContentBundleCache } from './content-bundle-cache';
 import { MemoryBundleStore } from './memory-bundle-store';
@@ -62,6 +63,39 @@ async function refused(): Promise<never> {
 /** A store whose every call fails. */
 const brokenStore: BundleStore = { read: refused, write: refused, keys: refused, remove: refused };
 
+/** Lets the store calls the cache makes in the background finish. */
+async function settle(): Promise<void> {
+  await new Promise<void>((resolve) => {
+    setTimeout(resolve, 0);
+  });
+}
+
+interface SlowStore {
+  readonly store: BundleStore;
+  /** Lets the writes held back go through. */
+  readonly release: () => void;
+}
+
+/** A store whose writes wait until `release` is called. */
+function slowWrites(): SlowStore {
+  const memory = new MemoryBundleStore();
+  const gate = Promise.withResolvers<undefined>();
+  return {
+    store: {
+      read: memory.read,
+      keys: memory.keys,
+      remove: memory.remove,
+      write: async (key, body): Promise<void> => {
+        await gate.promise;
+        await memory.write(key, body);
+      },
+    },
+    release: (): void => {
+      gate.resolve(undefined);
+    },
+  };
+}
+
 describe(ContentBundleCache, () => {
   it('fetches a bundle it does not hold, and keeps it', async () => {
     const store = new MemoryBundleStore();
@@ -106,6 +140,7 @@ describe(ContentBundleCache, () => {
     const { cache } = visit(store, homebrew('Common (Taldane)'));
     const newNames = languageNames(await cache.manifest());
     await cache.bundle(PACK, newNames);
+    await settle();
 
     expect(newNames).not.toBe(oldNames);
     await expect(store.keys()).resolves.toStrictEqual(['manifest', bundlePath(PACK, newNames)]);
@@ -117,6 +152,7 @@ describe(ContentBundleCache, () => {
     const manifest = await first.cache.manifest();
     const names = languageNames(manifest);
     await first.cache.bundle(PACK, names);
+    await settle();
 
     const { cache, delivery } = visit(store);
     delivery.offline = true;
@@ -146,5 +182,44 @@ describe(ContentBundleCache, () => {
     await cache.bundle(PACK, names);
 
     expect(delivery.requests).toStrictEqual(['manifest', `${PACK}/${names}`, `${PACK}/${names}`]);
+  });
+
+  it('answers the manifest without waiting for the store to keep it', async () => {
+    const { store, release } = slowWrites();
+    const { cache } = visit(store);
+
+    const manifest = await cache.manifest();
+
+    expect(manifest.packs).toHaveLength(1);
+    await expect(store.read(MANIFEST_KEY)).resolves.toBeUndefined();
+    release();
+    await settle();
+    await expect(store.read(MANIFEST_KEY)).resolves.toStrictEqual(manifest);
+  });
+
+  it('shares one fetch between asks for a bundle made while it is in flight', async () => {
+    const { cache, delivery } = visit(new MemoryBundleStore());
+    const names = languageNames(await cache.manifest());
+
+    const [first, second, third] = await Promise.all([
+      cache.bundle(PACK, names),
+      cache.bundle(PACK, names),
+      cache.bundle(PACK, names),
+    ]);
+
+    expect(second).toBe(first);
+    expect(third).toBe(first);
+    expect(delivery.requests).toStrictEqual(['manifest', `${PACK}/${names}`]);
+  });
+
+  it('does not keep a failed bundle read, so the next ask fetches again', async () => {
+    const { cache, delivery } = visit(new MemoryBundleStore());
+    const names = languageNames(await cache.manifest());
+    delivery.offline = true;
+
+    await expect(cache.bundle(PACK, names)).rejects.toThrow('Failed to fetch');
+    delivery.offline = false;
+
+    await expect(cache.bundle(PACK, names)).resolves.toBeDefined();
   });
 });
