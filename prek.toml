@@ -132,7 +132,7 @@ id = "pushed-specs"
 name = "specs the push changes"
 language = "system"
 # Through the check queue, which waits for the machine to be quiet and runs one check at a time across workspaces.
-entry = ".claude/scripts/run-check.sh bun tools/pushed-specs.ts"
+entry = "overbridge check -- bun tools/pushed-specs.ts"
 files = "\\.(spec|test)\\.ts$"
 stages = ["pre-push"]
 

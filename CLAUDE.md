@@ -66,11 +66,12 @@ relax a rule without a reason recorded beside it. Rules that trip agents most:
 touched project's `typecheck`, and the specs next to the change (`bunx nx run <project>:test --include="**/<name>.spec.ts"`).
 Never run `bun run affected`, `nx affected`, `bun run lint:workspace` or `bun run check` locally: the affected space
 is often large and they use a lot of CPU. Run every lint, typecheck or test command through
-`.claude/scripts/run-check.sh <command>`: it waits until the machine's load is under 70% of its cores and holds one
-lock shared by all workspaces, so only one workspace runs checks at a time (the others queue). Check `uptime` first if
-you are unsure how busy the machine is. A run is killed after 3 minutes (180 s). If one times out, stop and ask the
-user whether to allow 6 minutes; only on their explicit approval rerun with `MAX_RUN_SECONDS=360`, the one other value
-accepted. Never raise it on your own, and never wrap the call in a longer timeout or the background to get round it.
+`overbridge check pioneer -- <command>`. It runs the command in the dev shell, once the machine's load is under 70% of
+its cores. It also takes a turn in a queue shared by all workspaces, so only one workspace runs checks at a time and
+the others wait. Check `uptime` first if you are unsure how busy the machine is. A run is killed after 3 minutes
+(180 s, exit 124). If one times out, stop and ask the user whether to allow 6 minutes. Rerun with
+`--timeout-seconds 360` only after they say yes. Never raise the limit on your own. Never wrap the call in a longer
+timeout or run it in the background to get round it.
 `just db-up` for Postgres only when a db test you run needs it. CI runs
 `bun run check` split across parallel jobs (the `ci:*` scripts); a new `check` target goes in one of them too.
 A `plan` job runs first (`tools/ci-plan-run.ts`): it keeps the entries of `.github/ci-jobs.json` that cover a project the
@@ -79,9 +80,9 @@ little else. A new project needs no entry; a new job group does.
 
 ### Formatters and linters
 
-Run these in the devshell. The agent shell does not load direnv, so `.claude/scripts/run-check.sh <cmd>` enters it for
-you (after its turn in the queue), and `.claude/scripts/devshell.sh <cmd>` does the same without queueing: use that for
-`git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
+Run these in the devshell. The agent shell does not load direnv, so `overbridge check pioneer -- <cmd>` enters the
+shell for you once its turn comes in the queue. `overbridge shell pioneer -- <cmd>` enters it without queueing: use
+that for `git commit` and `git push`, whose hooks need `typos`, `prek` and the rest. Hooks (`just hooks`, `prek.toml`) run the
 file-level ones on staged files, then typecheck the Nx projects that own them (and `tools/`), specs included, so a type
 error fails the commit, not CI (a type error in a spec breaks the build like one in source); `bun run lint:workspace`
 runs the whole-repo ones (CI). **Never run Prettier**, with `bunx prettier` or any other way: the formatter is `bun fmt`,

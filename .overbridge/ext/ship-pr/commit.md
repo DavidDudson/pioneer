@@ -14,7 +14,7 @@
   ```
 
 - Commit and push through the dev shell, because the pre-commit and pre-push hooks (`prek`) live in it:
-  `.claude/scripts/devshell.sh git commit ...` and `.claude/scripts/devshell.sh git push -u origin HEAD`. A hook that
+  `overbridge shell pioneer -- git commit ...` and `overbridge shell pioneer -- git push -u origin HEAD`. A hook that
   reformats a file aborts the commit: restage and commit again. Use `--force-with-lease` when a rebase rewrote a
   pushed branch.
 - If GitHub refuses an HTTPS push that touches `.github/workflows` (the token lacks the `workflow` scope), push over

@@ -5,13 +5,18 @@ project-management:
   project: DavidDudson/pioneer
 
 # Only the cheap, file-scoped commands. typecheck, test and build are per Nx project and CI runs the full
-# set (see CLAUDE.md "Checks"), so they are left unset rather than pointed at `nx affected`.
+# set (see CLAUDE.md "Checks"), so they are left unset rather than pointed at `nx affected`. Skills run lint through
+# `overbridge check`, which queues it across workspaces in the dev shell.
 commands:
-  lint: .claude/scripts/run-check.sh bunx oxlint
+  lint: bunx oxlint
   format: bun fmt
 
-# Agents, skills and terminals run commands in the Nix dev shell (the agent shell does not load direnv).
-shell: .claude/scripts/devshell.sh
+# Agents, skills and terminals run commands in the Nix dev shell (the agent shell does not load direnv). overbridge
+# caches the shell's env, keyed on the flake files, so later commands skip `nix develop`'s start-up.
+shell:
+  enter: nix develop --command
+  env: nix develop --command env -0
+  key: [flake.nix, flake.lock]
 
 # One dev stack per workspace. {port} is the web port from the pool; the API sits 1200 below it (4200 -> 3000) and
 # Postgres 50129 above it (4200 -> 54329), so all three ports are unique per running workspace and match the
@@ -19,7 +24,7 @@ shell: .claude/scripts/devshell.sh
 apps:
   - id: web
     label: web
-    start: WEB_PORT={port} API_PORT=$(({port} - 1200)) PGPORT=$(({port} + 50129)) .claude/scripts/devshell.sh just dev
-    stop: PGPORT=$(({port} + 50129)) .claude/scripts/devshell.sh just db-down
+    start: WEB_PORT={port} API_PORT=$(({port} - 1200)) PGPORT=$(({port} + 50129)) nix develop --command just dev
+    stop: PGPORT=$(({port} + 50129)) nix develop --command just db-down
     ports: [4200, 4201, 4202, 4203, 4204, 4205, 4206, 4207]
     ready: { http: 'http://localhost:{port}' }
