@@ -53,7 +53,7 @@ function buttonIn(root: HTMLElement, name: string): HTMLButtonElement {
 async function openPicker(): Promise<Opened> {
   const { harness, root } = await openSheet(DRUID, { packs: PACKS, play: PLAY });
   const cast = await vi.waitFor(() =>
-    present(root.querySelector<HTMLButtonElement>('pio-sheet-prepared-spells pio-use-buttons button')),
+    present(root.querySelector<HTMLButtonElement>('pio-spell-row-list pio-use-buttons button')),
   );
   cast.click();
   await vi.waitFor(() => {

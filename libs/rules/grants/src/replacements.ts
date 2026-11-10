@@ -7,7 +7,7 @@ import type { Replacement } from './grant-entry';
  * The remaster entries that replace each legacy one, by the legacy entry's id: those whose `supersedes` names it and
  * whose pack is in force and not itself legacy, as a pick can only be changed to something the character may hold.
  */
-export function replacementsOf(
+function replacementsOf(
   registry: ContentRegistry,
   unsupported: ReadonlySet<ContentPackId>,
 ): ReadonlyMap<ContentId, readonly Replacement[]> {
