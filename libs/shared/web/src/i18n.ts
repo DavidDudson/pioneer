@@ -23,13 +23,16 @@ const LOCALE_MESSAGES = new InjectionToken<LocaleMessages>('LOCALE_MESSAGES');
 @Injectable()
 class MessageLoader implements TranslocoLoader {
   readonly #messages = inject(LOCALE_MESSAGES);
+  readonly #icu = inject(LazyIcuTranspiler);
 
   public async getTranslation(lang: string): Promise<Translation> {
     const locale = LocaleSchema.safeParse(lang);
     if (!locale.success) {
       throw new Error(`No messages for locale "${lang}"`);
     }
-    return this.#messages[locale.data]();
+    // Messages are ICU strings: none may exist before the compiler that reads them.
+    const [translation] = await Promise.all([this.#messages[locale.data](), this.#icu.load()]);
+    return translation;
   }
 }
 
@@ -53,10 +56,6 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
     }),
     LazyIcuTranspiler,
     { provide: TRANSLOCO_TRANSPILER, useExisting: LazyIcuTranspiler },
-    // Starts with the messages fetch below; the shell waits for both.
-    provideAppInitializer(async () => {
-      await inject(LazyIcuTranspiler).load();
-    }),
     provideAppInitializer(() => {
       rememberLoadedLanguages(inject(TranslocoService));
     }),
