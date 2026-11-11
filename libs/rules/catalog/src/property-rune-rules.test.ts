@@ -10,25 +10,28 @@ const ETCHED_DAMAGE = 'etched-damage';
 const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
 
 /**
- * Weapon property runes with no activation and no rules yet: each needs an engine gap closed first (a critical
- * effect, a trait or property the Strike has no way to take, a condition on the target). Remove a slug when its rules
- * land; a new book's rune must get rules or be listed here.
- *
- * Why the target-dependent runes stay here: bane names a creature type the crafter picks, and energy vulnerability an energy; the engine builds their
- * damage and weakness from the etched choice (`chosenRuneRules`), so their `rules` stay empty; spell reservoir, coating, conducting, animated
- * and authorized are activations or item state; underwater changes a penalty no roll here reads.
+ * Weapon property runes with no activation and no rules in the pack, each with why: a new book's rune must get rules
+ * or be listed here with a reason. Remove an entry when its rules land.
  */
-const WEAPON_GAPS: ReadonlySet<string> = new Set([
-  'rune:animated',
-  'rune:authorized',
-  'rune:bane',
-  'rune:coating',
-  'rune:conducting',
-  'rune:energy-vulnerability',
-  'rune:energy-vulnerability-greater',
-  'rune:spell-reservoir',
-  'rune:underwater',
+const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
+  ['rune:animated', 'the weapon fights on its own once released: item state with no Strike of the wielder to change'],
+  ['rune:authorized', 'damages a wielder who is not the owner: needs who the rightful owner is, which no state holds'],
+  [
+    'rune:bane',
+    'the engine builds its damage from the etched creature type (`chosenRuneRules`), so `rules` stay empty',
+  ],
+  ['rune:coating', 'an extradimensional space for poisons and oils: item state, no rule changes a Strike'],
+  [
+    'rune:conducting',
+    'needs the resonant trait and a chosen energy that gives two elements (1d8, then 1d8 persistent on a critical hit)',
+  ],
+  ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
+  ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
+  ['rune:spell-reservoir', 'holds a spell cast into the weapon for later: item state, not a rule'],
+  ['rune:underwater', 'removes the penalties for fighting in water, which no roll here reads'],
 ]);
+
+const WEAPON_GAP_SLUGS: ReadonlySet<string> = new Set(WEAPON_GAPS.keys());
 
 /**
  * Weapon property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
@@ -168,11 +171,17 @@ function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
 
 describe('weapon property rune rules', () => {
   test('every rune without an activation has rules or a recorded gap', () => {
-    expect(unaccounted('weapon', WEAPON_GAPS)).toEqual([]);
+    expect(unaccounted('weapon', WEAPON_GAP_SLUGS)).toEqual([]);
   });
 
   test('a recorded gap names a rune that still has no rules', () => {
-    expect(staleGaps(WEAPON_GAPS)).toEqual([]);
+    expect(staleGaps(WEAPON_GAP_SLUGS)).toEqual([]);
+  });
+
+  test('every recorded weapon gap says why', () => {
+    const unexplained = [...WEAPON_GAPS].filter(([, reason]) => reason.trim() === '').map(([slug]) => slug);
+
+    expect(unexplained).toEqual([]);
   });
 
   test('a rune modelled in play is in the content, and has no rules of its own', () => {
