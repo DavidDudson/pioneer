@@ -1,10 +1,10 @@
 import type { ActionLine } from './action-line';
 
-export type { UsePayment } from './action-line';
+export type { UsePayment, UsePayOption } from './action-line';
 
 /** What using something needs to know of it: what it is, its cost and how much of it the turn can pay. */
 export type UsableLine = Pick<ActionLine, 'id' | 'name' | 'cost' | 'upTo' | 'affordable' | 'affordableUpTo'> &
-  Partial<Pick<ActionLine, 'status' | 'payment'>> & {
+  Partial<Pick<ActionLine, 'status' | 'payment' | 'payOptions'>> & {
     /** Whether using it is an attack, which moves the multiple attack penalty on. */
     readonly attack?: true | undefined;
   };

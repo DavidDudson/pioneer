@@ -78,4 +78,16 @@ describe('spendOf for a staff', () => {
   it('is not marked as a spell of the character’s own', () => {
     expect(spendOf(registry, staffUse)).not.toHaveProperty('cast');
   });
+
+  it('records the slot a cast paid with, so taking the spend back gives the slot back with the charges', () => {
+    const slotted: ActionUse = {
+      ...staffUse,
+      line: { ...staffUse.line, payment: { staff: { item: STAFF, spell: BARRIER, slot: 'wizard:2' } } },
+    };
+
+    expect(spendOf(registry, slotted)).toMatchObject({
+      action: BARRIER,
+      staff: { item: STAFF, spell: BARRIER, slot: 'wizard:2' },
+    });
+  });
 });

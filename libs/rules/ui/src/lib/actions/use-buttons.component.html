@@ -1,9 +1,15 @@
 @if (usable()) {
-  @for (count of counts(); track count) {
-    <fr-async-button size="sm" [action]="useFor(count)">
-      {{ useKey(count) | transloco: { count } }}
+  @for (option of payOptions(); track $index) {
+    <fr-async-button size="sm" [action]="useWith(option)">
+      {{ option.label.key | transloco: option.label.params }}
     </fr-async-button>
   } @empty {
-    <fr-async-button size="sm" [action]="useFor(undefined)">{{ Message.Use | transloco }}</fr-async-button>
+    @for (count of counts(); track count) {
+      <fr-async-button size="sm" [action]="useFor(count)">
+        {{ useKey(count) | transloco: { count } }}
+      </fr-async-button>
+    } @empty {
+      <fr-async-button size="sm" [action]="useFor(undefined)">{{ Message.Use | transloco }}</fr-async-button>
+    }
   }
 }

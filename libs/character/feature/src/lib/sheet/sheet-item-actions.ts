@@ -14,8 +14,15 @@ import { ActionOriginKind, ActionStatus } from '@pioneer/rules/engine';
 import type { StatisticInputs } from '@pioneer/rules/engine';
 import { ActionMode, FrequencyPeriod, STAFF_CANTRIP } from '@pioneer/rules/sdk';
 import type { ActionCost, ContentId, ContentRegistry } from '@pioneer/rules/sdk';
-import { ActionResourceKind, STAFF_SPELL_BLOCK_MESSAGES } from '@pioneer/rules/ui';
-import type { ActionLine, ActionResource, UsePayment } from '@pioneer/rules/ui';
+import { ActionResourceKind, STAFF_SPELL_BLOCK_MESSAGES, StaffSpellsMessage } from '@pioneer/rules/ui';
+import type {
+  ActionLine,
+  ActionResource,
+  StaffCastOptionLine,
+  StaffSpellLine,
+  UsePayment,
+  UsePayOption,
+} from '@pioneer/rules/ui';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
 
@@ -51,6 +58,8 @@ interface ItemAction {
   readonly range: ActionCostRange | undefined;
   readonly resource: ActionResource;
   readonly payment: UsePayment;
+  /** The ways to pay when there is more than one, each with its button label. */
+  readonly payOptions?: readonly UsePayOption[];
   /** Why it cannot be used whatever the turn leaves. */
   /** The period it comes back over when its uses or charges are spent; absent otherwise. */
   readonly recharge?: FrequencyPeriod | undefined;
@@ -77,6 +86,7 @@ function lineOf(item: ItemAction, turn: TurnState | undefined): ActionLine {
     recharge: item.recharge,
     resource: item.resource,
     payment: item.payment,
+    payOptions: item.payOptions,
     roll: undefined,
     priority: undefined,
     dormant: false,
@@ -151,12 +161,21 @@ function activationActions(registry: ContentRegistry, character: Character, play
   });
 }
 
+/** The words for a way to cast `spell` from a staff, as the Staves section words it: the charges and the slot it spends. */
+function staffOptionLabel(option: StaffCastOptionLine, spell: StaffSpellLine): MessageDescriptor {
+  if (spell.heightenedTo !== undefined) {
+    return message(StaffSpellsMessage.CastCantrip, { rank: spell.heightenedTo });
+  }
+  return option.slotRank === undefined
+    ? message(StaffSpellsMessage.CastCharges, { charges: option.charges })
+    : message(StaffSpellsMessage.CastSlot, { charges: option.charges, rank: option.slotRank });
+}
+
 /** The spells of the staves the character holds, each cast with the staff's charges. */
 function staffActions(registry: ContentRegistry, character: Character, play: SheetItemPlay): ItemAction[] {
   const spells = spellContent(registry);
   return sheetStaves(registry, character, { resources: play.resources }).flatMap((staff) =>
     staff.spells.map((spell): ItemAction => {
-      const option = spell.options.find((each) => each.slot === undefined);
       const found = spells.anySpell(spell.id);
       const range = found === undefined ? undefined : spellCost(found);
       const reasons: MessageDescriptor[] = [];
@@ -166,7 +185,7 @@ function staffActions(registry: ContentRegistry, character: Character, play: She
         reasons.push(
           message(STAFF_SPELL_BLOCK_MESSAGES[spell.blocked], { rank: spell.rank === STAFF_CANTRIP ? 0 : spell.rank }),
         );
-      } else if (option === undefined) {
+      } else if (spell.options.length === 0) {
         reasons.push(message(ItemReasonMessage.NoCharges));
       }
       return {
@@ -177,6 +196,10 @@ function staffActions(registry: ContentRegistry, character: Character, play: She
         range,
         resource: { kind: ActionResourceKind.Charges, current: staff.charges?.left ?? 0, max: staff.charges?.max },
         payment: { staff: { item: staff.key, spell: spell.id } },
+        payOptions: spell.options.map((option): UsePayOption => ({
+          payment: { staff: { item: staff.key, spell: spell.id, slot: option.slot } },
+          label: staffOptionLabel(option, spell),
+        })),
         reasons,
         recharge: staff.charges?.left === 0 ? FrequencyPeriod.Day : undefined,
       };

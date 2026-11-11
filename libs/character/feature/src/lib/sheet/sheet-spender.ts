@@ -62,7 +62,13 @@ function paymentOf(payment: UsePayment | undefined): SpendPayment {
     ...(payment?.focus === true ? { focus: true as const } : {}),
     ...(payment?.staff === undefined
       ? {}
-      : { staff: { item: InventoryItemId.parse(payment.staff.item), spell: ContentId.parse(payment.staff.spell) } }),
+      : {
+          staff: {
+            item: InventoryItemId.parse(payment.staff.item),
+            spell: ContentId.parse(payment.staff.spell),
+            ...(payment.staff.slot === undefined ? {} : { slot: SlotCountKey.parse(payment.staff.slot) }),
+          },
+        }),
   };
 }
 
