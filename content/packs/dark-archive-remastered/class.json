@@ -1080,6 +1080,7 @@
       "additionalSkills": 3,
       "skillIncreaseLevels": [3, 5, 7, 9, 11, 13, 15, 17, 19],
       "roles": ["melee"]
-    }
+    },
+    "supersedes": ["54560ee9-ca9e-525d-ac3e-3582485e63e4"]
   }
 ]

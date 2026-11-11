@@ -48,6 +48,7 @@ describe('book registry', () => {
         'clockwork-mystery',
         'core-rulebook',
         'curtain-call',
+        'dark-archive',
         'dark-archive-remastered',
         'divine-mysteries',
         'draconic-codex',

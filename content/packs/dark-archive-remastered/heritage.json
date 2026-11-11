@@ -30,6 +30,7 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.heritages.Item.gKLTlzAVapXTQ86V"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["f32f9d90-5d89-510f-bc4d-6563710862d4"]
   }
 ]

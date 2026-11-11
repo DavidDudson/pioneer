@@ -221,7 +221,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["85e28cbd-2fa2-5876-9c22-d2e9e7337334"]
   },
   {
     "id": "181e9f45-149a-5b0b-a2b5-e0f6b62b788b",
@@ -344,7 +345,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["762ecdab-08f6-5ceb-a8b6-255cb555943c"]
   },
   {
     "id": "bd0e7faf-397c-5757-81d8-4d93a8350d0e",
@@ -493,7 +495,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["b4e6e156-d800-50bd-b58b-1ce8cdda68aa"]
   },
   {
     "id": "a5d71185-dafa-5941-abff-d35f24d66132",
@@ -583,7 +586,8 @@
         "type": "worn",
         "slot": "collar"
       }
-    }
+    },
+    "supersedes": ["33148e82-b55b-5a23-b812-bd7b6da95d4b"]
   },
   {
     "id": "460740a2-8290-5d33-a013-a996112d3841",
@@ -732,7 +736,8 @@
         "type": "worn",
         "slot": "cloak"
       }
-    }
+    },
+    "supersedes": ["4d122e58-2294-5155-9093-af30fc21cacd"]
   },
   {
     "id": "52c48a48-2795-520a-9672-ed177393a782",
@@ -934,7 +939,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["8c810611-df05-51df-a200-90cf9ac43cd5"]
   },
   {
     "id": "cc890ad1-a7c3-55ee-aa1f-57a37c7ecaa1",
@@ -1070,7 +1076,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["4af7f111-d1f6-5f90-8b16-071e7adcaea4"]
   },
   {
     "id": "82a27ad7-1cb9-5aff-b64f-462c3818908e",
@@ -1132,7 +1139,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["71958382-dab3-54d4-82a1-67e3b52fea33"]
   },
   {
     "id": "a417f13a-9502-5eb7-bbaf-4c07c798fae4",
@@ -1202,7 +1210,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["bb0a60cc-beb8-58dc-9af9-7b1ece64b9df"]
   },
   {
     "id": "065795fa-fec4-523c-956c-5541f057819a",
@@ -1343,7 +1352,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["7166098e-0198-5e87-b894-b586bd4d0b6d"]
   },
   {
     "id": "0bcf736c-6bbf-538a-89e7-35fe412aa091",
@@ -1462,7 +1472,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["6e85836d-23ab-5007-b6b4-be0841ea8416"]
   },
   {
     "id": "27ce9a17-8ae2-5ad9-b1d3-7db1360b249f",
@@ -1530,7 +1541,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["d285cad6-3a0b-507a-87d2-6d23e5af0e76"]
   },
   {
     "id": "5fddede5-b22b-5347-9e72-c8979dd0308e",
@@ -1819,7 +1831,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["76a49d36-f266-5e41-a709-898009a0e7de"]
   },
   {
     "id": "85d347b4-fd18-5a75-8b87-c1c130f3fc9c",
@@ -2029,7 +2042,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["a8553669-ceb4-5eb7-8d04-fc40cc5abde2"]
   },
   {
     "id": "e2d6ebeb-381c-5e26-a235-462d2acd5bb1",
@@ -2090,7 +2104,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["cc35809b-818f-5110-9ed0-b6609ae561ae"]
   },
   {
     "id": "d9e4a2e5-a48a-570a-a438-b2b0e31c51d3",
@@ -2261,7 +2276,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["9aa203d5-47d6-5766-a316-cc7481ab6727"]
   },
   {
     "id": "785d5e96-890f-5a15-ab4c-5f35dc5fd910",
@@ -2365,7 +2381,8 @@
         "type": "worn",
         "slot": "ring"
       }
-    }
+    },
+    "supersedes": ["a471c3ca-389c-5d93-9d50-e7c0308fb52c"]
   },
   {
     "id": "fe9454ec-2604-5103-b2d6-517ed54b7664",
@@ -2504,7 +2521,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["284a1abd-cb6f-5d3a-a834-c891d9da1b93"]
   },
   {
     "id": "376b78c2-7b2f-584f-b86c-661aa7f5ac08",
@@ -2584,7 +2602,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["3f46c78f-22dc-57fe-bc1d-f2f75fcc844a"]
   },
   {
     "id": "3a6674c4-942c-5838-95b0-b0ecbccc3805",
@@ -2712,7 +2731,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["4e95e436-a46c-52de-8431-1b47f63b84cd"]
   },
   {
     "id": "cce770d2-20ae-5105-a836-156b61066434",
@@ -2801,7 +2821,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["04a8cf43-9622-5543-aefe-6b32a36b5931"]
   },
   {
     "id": "d9b01f6f-5188-5a85-be2a-c48bf38076ca",
@@ -2938,7 +2959,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["65bdf83f-fdee-500d-91c9-8c539d33a1b8"]
   },
   {
     "id": "6947491b-d21f-57d4-9c65-ca72a734fcaa",
@@ -3034,7 +3056,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["eb348725-2243-511e-815b-0abfb075d76c"]
   },
   {
     "id": "5b29ac8f-0369-581f-9da0-7a282839e7cd",
@@ -3104,7 +3127,8 @@
         "type": "worn",
         "slot": "ring"
       }
-    }
+    },
+    "supersedes": ["7fe2cec2-1b04-56e0-abdc-7011fa4d4a79"]
   },
   {
     "id": "0657da34-f96f-53ba-ae29-7912bfaf5243",
@@ -3211,7 +3235,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["bea537f5-d2ed-5eef-88e8-92e6440c1edc"]
   },
   {
     "id": "29e17f42-ae95-501b-8d42-2195f504716c",
@@ -3350,7 +3375,8 @@
       "usage": {
         "type": "other"
       }
-    }
+    },
+    "supersedes": ["9bb40318-fbce-5378-b28c-4ce1c3da5b13"]
   },
   {
     "id": "efa4da2d-dee8-5ef1-8a5a-f438390df602",

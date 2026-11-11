@@ -82,6 +82,7 @@
         "striking": 1,
         "property": []
       }
-    }
+    },
+    "supersedes": ["487f2f10-9142-5488-878e-fac511c0f73d"]
   }
 ]

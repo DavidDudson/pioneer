@@ -82,7 +82,8 @@
         ["int", "wis"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["5f07a161-064e-5db1-9e93-700c37c0f64d"]
   },
   {
     "id": "79c1d4c9-25c6-5e8f-a55f-73df8d0af809",
@@ -179,7 +180,8 @@
         ["cha", "dex"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["de4f76ef-0774-5d48-bb5c-ca8a1970bf0c"]
   },
   {
     "id": "c720f59d-097d-58b5-bfad-2ad9d1c3a662",
@@ -271,6 +273,7 @@
         ["con", "int"],
         ["cha", "con", "dex", "int", "str", "wis"]
       ]
-    }
+    },
+    "supersedes": ["36414006-54dc-56d3-adc6-d6b2bb9dd1b9"]
   }
 ]

@@ -358,7 +358,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.6RAHnACKReBW68Sa"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["592d33e8-8e1b-5b3a-aefc-e5c089cb1167"]
   },
   {
     "id": "a9478002-ca8d-514e-9214-395f185516c7",
@@ -462,7 +463,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.8PjTI21Mif26XWY7"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["e43c1302-5710-5865-8ef1-65c51338da24"]
   },
   {
     "id": "986c2379-d0b4-5876-9b40-6e416d9d3fcc",
