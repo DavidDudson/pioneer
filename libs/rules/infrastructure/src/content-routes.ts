@@ -1,4 +1,4 @@
-import { ContentContract } from '@pioneer/rules/sdk';
+import { bundleEtag, ContentContract } from '@pioneer/rules/sdk';
 import { ContractRouter } from '@pioneer/shared/server';
 
 import type { StoredContentBundles } from './stored-content-bundles';
@@ -53,6 +53,7 @@ export function contentRoutes(bundles: StoredContentBundles): ContractRouter['ap
     .handle(ContentContract.bundle, async ({ params, responseHeaders }) => {
       const body = await bundles.bundle(params.pack, params.file);
       responseHeaders['cache-control'] = BUNDLE_CACHE_CONTROL;
+      responseHeaders.etag = bundleEtag(params.file);
       return body;
     }).app;
 }

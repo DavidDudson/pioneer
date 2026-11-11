@@ -43,6 +43,23 @@ max-age=10, stale-while-revalidate=60`, so an unchanged manifest costs a 304.
   in the edge app, `Dockerfile` or `infra/` compresses. The CDN in front is likely to add its own, but its behaviour
   could not be checked before production has a hostname.
 
+### Cacheable content endpoints
+
+| Endpoint                                    | Browser / edge                                               | Server                                                            | Invalidated by                                                       |
+| ------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `GET /content/manifest`                     | `public, max-age=10, stale-while-revalidate=60`, `ETag`, 304 | bundles built once per set of stored hashes; gzip kept per `ETag` | a stored official pack hash changes (re-seed, pack added or removed) |
+| `GET /content/bundles/:pack/:file`          | `public, max-age=31536000, immutable`, `ETag`                | gzip kept per `ETag`                                              | never: the hash is in the file name, so new content is a new name    |
+| `GET /content/homebrew/bundles/:pack/:file` | `private, immutable`, `ETag`                                 | gzip kept per `ETag`; the caller's access is checked first        | never: the hash is in the file name (a pack edit changes it)         |
+| `POST /content/homebrew/manifest`           | `private, max-age=10`                                        | bundles built per set of packs under their hashes                 | a stored homebrew or official hash changes (user edit)               |
+| `GET /content/search`                       | `public, max-age=60` / `private, max-age=10`                 | none                                                              | expiry                                                               |
+| `ContentRegistry` (`StoredContentSource`)   | n/a                                                          | one per hash set (`HashKeyedCache`, `PackSetCache`)               | stored hashes, read on every ask                                     |
+
+`apps/api/src/compression.ts` keeps the gzip of a GET body under its path and strong `ETag` (up to 1024 bodies, oldest
+dropped), so an origin miss skips `JSON.stringify` and gzip. A bundle's `ETag` is the hash already in its file name
+(`bundleEtag`). Measured on a 489 KB body that gzips poorly (random text, so the gzip cost is above the real
+manifest's), 200 requests in one process: a miss took 6.49 ms median (9.77 p95), a hit 0.07 ms (0.09 p95), the same
+317,612 bytes.
+
 ### Findings, by story
 
 - [#1716](https://github.com/DavidDudson/pioneer/issues/1716): one `GET /characters/:id/sheet` for the always-needed
@@ -53,8 +70,9 @@ max-age=10, stale-while-revalidate=60`, so an unchanged manifest costs a 304.
   the character document; memoise `readableBy`/`official`/`byIds` per request in the pack catalog; look up the attached
   campaign once per request.
 - [#1718](https://github.com/DavidDudson/pioneer/issues/1718): done; see "Response size and zod cost" below.
-- [#1721](https://github.com/DavidDudson/pioneer/issues/1721): done by the manifest `ETag` and `stale-while-revalidate`;
-  see "Response size and zod cost" for why the window stays short.
+- [#1721](https://github.com/DavidDudson/pioneer/issues/1721): the manifest `ETag` and `stale-while-revalidate`, then
+  bundle `ETag`s and a gzip cache keyed by them; see "Cacheable content endpoints", and "Response size and zod cost"
+  for why the manifest window stays short.
 
 `GET /characters/:id/sheet` is the API half of [#1716](https://github.com/DavidDudson/pioneer/issues/1716): the sheet,
 rule limits and, for the owner, play state, sheet mode, feat display, packs, variant rules, rule limit settings and

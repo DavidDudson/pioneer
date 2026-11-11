@@ -10,6 +10,7 @@ import {
 } from '@pioneer/rules/infrastructure';
 import {
   AncestryId,
+  bundleEtag,
   BundleFile,
   ContentId,
   contentId,
@@ -195,6 +196,8 @@ describe.skipIf(adminUrl === undefined)('content routes (postgres)', () => {
 
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toBe(BUNDLE_CACHE_CONTROL);
+    const file = BundleFile.parse(shard?.file);
+    expect(response.headers.get('etag')).toBe(bundleEtag(file));
     expect(await response.json()).toStrictEqual({ [dwarf]: text });
     const kind = await ancestries();
     const mechanics = await api.handle(get(`/content/bundles/${PACK}/${kind.mechanics}`));

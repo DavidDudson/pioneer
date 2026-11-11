@@ -1,5 +1,5 @@
 import type { HomebrewBundleService } from '@pioneer/homebrew/application';
-import { HomebrewContentContract } from '@pioneer/rules/sdk';
+import { bundleEtag, HomebrewContentContract } from '@pioneer/rules/sdk';
 import { ContractRouter } from '@pioneer/shared/server';
 import type { RequestAuthenticator } from '@pioneer/shared/server';
 
@@ -26,6 +26,7 @@ export function homebrewBundleRoutes(
     .handleSignedIn(HomebrewContentContract.bundle, auth, async ({ actor, params, responseHeaders }) => {
       const body = await service.bundle(actor, params.pack, params.file);
       responseHeaders['cache-control'] = HOMEBREW_BUNDLE_CACHE_CONTROL;
+      responseHeaders.etag = bundleEtag(params.file);
       return body;
     }).app;
 }

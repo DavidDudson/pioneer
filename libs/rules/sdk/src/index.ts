@@ -175,8 +175,10 @@ export { ContentEntry } from './content-entry';
 export {
   BundleBody,
   ByteCount,
+  BundleEtag,
   BundleFile,
   BundleHash,
+  bundleEtag,
   bundlePath,
   ContentContract,
   ContentManifest,
