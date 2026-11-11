@@ -258,7 +258,49 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.o71hqcfzhCKXcSml"
     },
     "data": {
-      "dedication": "650125d5-2b7b-5d93-b021-18623e635353"
+      "dedication": "650125d5-2b7b-5d93-b021-18623e635353",
+      "additionalFeats": [
+        {
+          "feat": "c2873029-b18c-5c30-a2b1-a205b7d18c85",
+          "level": 4
+        },
+        {
+          "feat": "aef515b3-1134-55a1-ad8e-9ba19f593145",
+          "level": 4
+        },
+        {
+          "feat": "9ca7c58b-ebf6-53e5-9414-4f585d38417d",
+          "level": 4
+        },
+        {
+          "feat": "43cc8300-15d4-5748-9e4b-7c0ec3b5cd14",
+          "level": 6
+        },
+        {
+          "feat": "ab8d7a95-168e-5632-aca6-2420added1e7",
+          "level": 6
+        },
+        {
+          "feat": "35922dfe-3f81-543b-9894-5b74ad78fdad",
+          "level": 6
+        },
+        {
+          "feat": "6c94f750-08e8-5e06-81a4-8c093d78bbba",
+          "level": 8
+        },
+        {
+          "feat": "b35237fb-7c37-50fa-bd34-5bdf3afd0c14",
+          "level": 10
+        },
+        {
+          "feat": "20174c34-8798-5dbd-8999-392bb65b93d8",
+          "level": 18
+        },
+        {
+          "feat": "e2838356-4e33-5eab-8e08-0ff2b441187c",
+          "level": 20
+        }
+      ]
     },
     "supersedes": ["f371a87d-cd7b-55a6-b9a1-68cd233da022"]
   },
@@ -475,7 +517,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.C3P0TycdFCN02p9u"
     },
     "data": {
-      "dedication": "29cf89d3-d1ed-5418-8e21-13a4f5e26c56"
+      "dedication": "29cf89d3-d1ed-5418-8e21-13a4f5e26c56",
+      "additionalFeats": [
+        {
+          "feat": "f43d7522-e385-5441-8b14-c6676c287fe3",
+          "level": 6
+        },
+        {
+          "feat": "67e34112-5e40-5943-b292-5584dffe6eb5",
+          "level": 8
+        },
+        {
+          "feat": "be7de1bc-ac66-55d9-b822-68ccc2b6529f",
+          "level": 8
+        },
+        {
+          "feat": "f46e6e2f-9ba5-5845-aa36-6ab64381ebd6",
+          "level": 10
+        },
+        {
+          "feat": "7a588dec-92f4-5f1a-bb6c-b6fad3a1f6a2",
+          "level": 12
+        },
+        {
+          "feat": "60f86ad2-03ee-5a06-8819-a88201545487",
+          "level": 12
+        }
+      ]
     },
     "supersedes": ["e2ad95c8-0738-5e2d-98f8-e8bd76a25772"]
   },
@@ -593,7 +661,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.4VMzG36Pm1oivS6Y"
     },
     "data": {
-      "dedication": "881bf709-8166-5473-85e0-d62822dbd07e"
+      "dedication": "881bf709-8166-5473-85e0-d62822dbd07e",
+      "additionalFeats": [
+        {
+          "feat": "3db48709-2677-516b-9959-27df285691e4",
+          "level": 4
+        },
+        {
+          "feat": "20f8545a-18c5-5e72-b29b-e54bcf3cbd7e",
+          "level": 4
+        },
+        {
+          "feat": "d734903b-c1e4-5772-8f1c-59f7e5fb13e0",
+          "level": 6
+        },
+        {
+          "feat": "6cd1d49b-a8f2-5a55-aeaa-3f74aaf1f903",
+          "level": 6
+        },
+        {
+          "feat": "0bc6f8fb-7ed6-57d1-9edb-4c67b6a837a3",
+          "level": 14
+        },
+        {
+          "feat": "1c7232a1-aa28-5add-91d8-c1eaf783df27",
+          "level": 14
+        }
+      ]
     },
     "supersedes": ["9260347c-5165-50ff-996f-ba246240707d"]
   },
@@ -1101,7 +1195,41 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.sAFWD8D0RKH4m25n"
     },
     "data": {
-      "dedication": "530bf885-c5f2-5563-9f8e-e0d792b7f575"
+      "dedication": "530bf885-c5f2-5563-9f8e-e0d792b7f575",
+      "additionalFeats": [
+        {
+          "feat": "89bf9d93-93b0-5e2d-a6e5-db2627b74b44",
+          "level": 4
+        },
+        {
+          "feat": "17080b02-fed5-56d1-bdb0-2171bbcba374",
+          "level": 4
+        },
+        {
+          "feat": "54d7d08d-1a3f-5d66-8bc3-63261d89f5d4",
+          "level": 6
+        },
+        {
+          "feat": "8998aed1-1911-542f-9cbb-6ba807bad1a7",
+          "level": 12
+        },
+        {
+          "feat": "670ba10b-5e84-5cc9-aca3-85ebabe7ef51",
+          "level": 16
+        },
+        {
+          "feat": "7637e9df-a38d-5725-838d-883d4b46e7ec",
+          "level": 16
+        },
+        {
+          "feat": "624675fa-a552-5360-8026-2fb1184aa351",
+          "level": 16
+        },
+        {
+          "feat": "68f45a79-57a9-5fb4-9092-0b51f342da2f",
+          "level": 18
+        }
+      ]
     },
     "supersedes": ["6edf52d0-d3b3-55b7-bf26-ec47501233ae"]
   },
@@ -1205,7 +1333,37 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.BwPUY2X7TSmlJj5c"
     },
     "data": {
-      "dedication": "5f0f0fdd-3ea2-5230-bcc9-64e5c848f123"
+      "dedication": "5f0f0fdd-3ea2-5230-bcc9-64e5c848f123",
+      "additionalFeats": [
+        {
+          "feat": "5a9b2284-f42c-5f2c-9166-3cafad81bffa",
+          "level": 4
+        },
+        {
+          "feat": "3cd1e369-6ddb-522a-9f08-a27468b67eed",
+          "level": 8
+        },
+        {
+          "feat": "6fe39b72-690e-50b4-ae8e-b30991f50ff4",
+          "level": 10
+        },
+        {
+          "feat": "bf231e83-2b69-5de2-adc9-5fb9d809484f",
+          "level": 12
+        },
+        {
+          "feat": "125b264c-681c-5728-8b13-3b2378bf6245",
+          "level": 14
+        },
+        {
+          "feat": "6a268260-250d-5ec3-bfa8-d2032944e44c",
+          "level": 14
+        },
+        {
+          "feat": "0dc26fbb-5d3b-5320-99fa-c1eef887f99b",
+          "level": 16
+        }
+      ]
     },
     "supersedes": ["96aaac3a-4cf9-5757-8a57-c54540c9db58"]
   },
@@ -1792,7 +1950,101 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.N01RLMQPaSeoHEuL"
     },
     "data": {
-      "dedication": "e397ae96-b5e2-58a9-912a-de9d6dcc1db1"
+      "dedication": "e397ae96-b5e2-58a9-912a-de9d6dcc1db1",
+      "additionalFeats": [
+        {
+          "feat": "b9aa2cd8-1a4b-5729-85ec-d6655686096f",
+          "level": 4
+        },
+        {
+          "feat": "72a215e0-48e2-5bda-aa68-f5fc4f785966",
+          "level": 4
+        },
+        {
+          "feat": "0b01caf9-ac6b-50b3-9206-979e04c06557",
+          "level": 4
+        },
+        {
+          "feat": "2067205a-eae1-5564-beac-b7cb28503875",
+          "level": 4
+        },
+        {
+          "feat": "09fd5419-28f8-5774-a1ce-6bbe2414d9bb",
+          "level": 4
+        },
+        {
+          "feat": "8bdbccb0-2601-5f17-993a-47fe33860573",
+          "level": 4
+        },
+        {
+          "feat": "0fdd5629-e1d7-50fb-b0ef-fd18752e936d",
+          "level": 4
+        },
+        {
+          "feat": "16bacd46-84c7-554b-8908-4f0a86e68925",
+          "level": 4
+        },
+        {
+          "feat": "95edd115-7943-59ec-b219-f42fd075164b",
+          "level": 4
+        },
+        {
+          "feat": "32bf9431-3a83-5808-ac8c-8fd6e96de85c",
+          "level": 4
+        },
+        {
+          "feat": "d937197f-2c85-5ed8-80df-df6302c7fcf5",
+          "level": 8
+        },
+        {
+          "feat": "4b7e7f64-0bdb-581d-bb4e-f4bf65a3b06f",
+          "level": 8
+        },
+        {
+          "feat": "ea63b0ee-3985-5b5c-98df-e0713dd4d515",
+          "level": 8
+        },
+        {
+          "feat": "c9ed1b9a-991a-5ff3-acab-f84da550f504",
+          "level": 8
+        },
+        {
+          "feat": "47563f58-329d-531f-a962-25eeda711544",
+          "level": 8
+        },
+        {
+          "feat": "f56a81bf-ee54-5374-9af2-9f1ca3703054",
+          "level": 8
+        },
+        {
+          "feat": "861bd3c5-3c42-5631-b53d-64c883c81a8a",
+          "level": 8
+        },
+        {
+          "feat": "6ec5ca74-cd8d-5386-93a6-bf0993cabf15",
+          "level": 8
+        },
+        {
+          "feat": "9cc255e0-5810-5b81-99e8-f77adb6ed94e",
+          "level": 8
+        },
+        {
+          "feat": "89e5afba-d0a9-55cb-b2a5-7ae8f5ab7a00",
+          "level": 10
+        },
+        {
+          "feat": "6d43c0fa-202f-5da9-a9ee-74c61ecc23be",
+          "level": 14
+        },
+        {
+          "feat": "bf84b93a-f115-56b2-b841-b6cc5f9f6b5a",
+          "level": 14
+        },
+        {
+          "feat": "f6926fee-aa2a-588b-9363-feb5774369fa",
+          "level": 16
+        }
+      ]
     },
     "supersedes": ["ca9395e6-9369-5cdb-9912-cdb6b32cc764"]
   },

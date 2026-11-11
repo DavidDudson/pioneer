@@ -169,7 +169,19 @@ Lists of attributes, slugs and ids name each item once.
   `dedicationLock?` is how many other archetype feats a character needs before another dedication (2 when
   absent; character-model.md, Archetype dedications). `additionalFeats?` is the feats of other sources it lists
   under "Additional Feats", each with the level the archetype gives it: a character holding the dedication can take
-  one as an archetype feat of that level, and it counts toward the dedication lock.
+  one as an archetype feat of that level, and it counts toward the dedication lock. The schema has no field for what an
+  archetype's list qualifies, so the three special cases are data without notes in the entry:
+  - A printed name that matches several feats (Mature Animal Companion as a druid and a ranger feat, Improved Twin
+    Riposte as a fighter and a ranger feat) lists each of them at the archetype's level; the prerequisites decide which
+    one a character can take. A name a legacy and a remaster entry share lists the remaster one. A remaster rename lists
+    the renamed feat (Point-Blank Shot is Point Blank Stance).
+  - Beastmaster's partial feats ("Initiate Warden (Heal Companion and Magic Hide only)", "Advanced Warden (Enlarge
+    Companion only)") list the whole feat: the restriction to some of the spells it grants is not modelled, and the
+    entry's text states it.
+  - Chelaxian Scion's eight per-heir lists are one list, each feat at each level any heir gives it (Knowledge is Power
+    at 4 and 8). The choice of heir is not modelled, so the picker offers every heir's feats.
+  - Living Vessel's additional feats are "your GM might determine" ones: pactbinder pact feats at the pactbinder's
+    levels, decided at the table. It has no `additionalFeats`.
 - **Deities.** `category` is `deity`, `pantheon`, `covenant` or `philosophy`. `sanctification` is `can` or `must`
   with `holy` and/or `unholy`. `domains` has `primary` and `alternate` domains, each one of Foundry's config keys
   (`DeityDomain`, apocryphal variants included; the import files Disorientation under `delirium`, Nothingness under
