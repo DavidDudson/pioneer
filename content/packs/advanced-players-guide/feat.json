@@ -406,6 +406,51 @@
     }
   },
   {
+    "id": "c3b5de3d-d388-5263-b3ed-badb9758d854",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:additional-shadow-magic",
+    "name": "Additional Shadow Magic",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an additional shadowdancer focus spell you haven't already selected from Shadow Magic. Increase the number of Focus Points in your pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NM5a1tF0OW5mVYdR"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadow Magic"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "853cc861-ce60-5010-b95f-aa94696f5b2b",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -17078,6 +17123,219 @@
     }
   },
   {
+    "id": "c9ed1b9a-991a-5ff3-acab-f84da550f504",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:gorilla-pound",
+    "name": "Gorilla Pound",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["emotion", "flourish", "mental", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in "
+          },
+          {
+            "type": "ref",
+            "id": "2067205a-eae1-5564-beac-b7cb28503875"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pound your chest before slamming into your foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": ", then make one gorilla slam Strike against the same target. If your Strike hits, you gain a circumstance bonus to the damage roll equal to triple the value of the target's "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If you have this feat, while you are in Gorilla Stance, you gain a "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": " Speed of 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:climb",
+        "mode": "upgrade",
+        "value": 15,
+        "predicate": ["self:effect:gorilla-stance"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.nRjyyDulHnP5OewA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Intimidation; Gorilla Stance"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are in "
+              },
+              {
+                "type": "ref",
+                "id": "2067205a-eae1-5564-beac-b7cb28503875"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "2067205a-eae1-5564-beac-b7cb28503875",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:gorilla-stance",
+    "name": "Gorilla Stance",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["monk", "stance"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You lower yourself to the ground and take an imposing, knuckle - walking stance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While in this stance, the only Strikes you can make are gorilla slam unarmed attacks. These deal 1d8 bludgeoning damage; are in the brawling group; and have the backswing, forceful, grapple, nonlethal, and unarmed traits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you are in Gorilla Stance, you gain a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": ", and if you roll a success on an Athletics check to Climb, you get a critical success instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.DqD7htz8Sd1dh3BT"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "782cd0ac-9dbc-520c-9cd7-835ef781ff19",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -32087,6 +32345,142 @@
     }
   },
   {
+    "id": "3513631a-117a-5c98-a43c-10fcc15cbc70",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadow-illusion",
+    "name": "Shadow Illusion",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With an artful eye, you shape shadows into illusory forms. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "04008949-7b2a-55dd-ad83-4f2f6fbdecaa"
+          },
+          {
+            "type": "text",
+            "text": " focus spell. Increase the number of Focus Points in your pool by 1. You become an expert in occult spell attack rolls and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.C4m59yjuDmZLnTqu"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadow Magic"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "b420b1bc-620f-52ba-a106-fea79a207ad6",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadow-magic",
+    "name": "Shadow Magic",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the ability to fuse and play with shadows by using focus spells specific to shadowdancers."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learn a shadowdancer focus spell of your choice: Dance of Darkness or Shadow Jump. If you don't already have one, you gain a focus pool of 1 Focus Point, which you can "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": " by meditating within an area of dim light or darkness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shadowdancer focus spells are occult spells. You become trained in occult spell attack rolls and spell DCs, and your spellcasting ability for these spells is Charisma."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.tha0L3Z6608JrUwN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowdancer Dedication"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "fa1bd27f-dec1-5983-9fe9-214ecfc29274",
     "pack": "advanced-players-guide",
     "kind": "feat",
@@ -32160,6 +32554,65 @@
             {
               "type": "text",
               "text": "expert in Stealth"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "80bfb802-0885-599d-9c47-13457338bdf6",
+    "pack": "advanced-players-guide",
+    "kind": "feat",
+    "slug": "feat:shadow-power",
+    "name": "Shadow Power",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can focus the shadows into a powerful blast. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "e1332e15-0861-56f8-95f5-7749561ac8ae"
+          },
+          {
+            "type": "text",
+            "text": " as an innate occult spell once per day. Its level is always 1 level lower than the rank of your shadowdancer focus spells. You become an expert in occult spell attack rolls and DCs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.F7Ao9p17ocf3JVvy"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadow Magic"
             }
           ]
         }

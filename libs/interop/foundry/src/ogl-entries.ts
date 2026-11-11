@@ -26,9 +26,17 @@ const OGL_ENTRIES: ReadonlyMap<string, BookId> = new Map([
     'unbelievable-luck',
     'unexpected-sharpshooter-dedication',
   ].map((slug): [string, BookId] => [slug, BookId.parse('guns-and-gears')]),
-  ['vital-luminance', BookId.parse('core-rulebook')],
-  ['eye-for-numbers', BookId.parse('advanced-players-guide')],
-  ['quick-change', BookId.parse('advanced-players-guide')],
+  ...['vital-luminance', 'brawling-focus'].map((slug): [string, BookId] => [slug, BookId.parse('core-rulebook')]),
+  ...[
+    'eye-for-numbers',
+    'quick-change',
+    'gorilla-stance',
+    'gorilla-pound',
+    'shadow-magic',
+    'additional-shadow-magic',
+    'shadow-illusion',
+    'shadow-power',
+  ].map((slug): [string, BookId] => [slug, BookId.parse('advanced-players-guide')]),
   ['verdant-sprout', BookId.parse('the-show-must-go-on')],
 ]);
 

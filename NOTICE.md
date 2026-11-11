@@ -57,7 +57,8 @@ page built from it), Repeating Crossbow, Repeating Heavy Crossbow and their maga
 They stay in the book's ORC pack, each entry carrying `license: OGL`, and are listed in `OGL_ENTRIES`
 (`libs/interop/foundry/src/ogl-entries.ts`).
 
-Four more are printed only in a pre-remaster book: Vital Luminance (Core Rulebook), Eye for Numbers and Quick Change
+Eleven more are printed only in a pre-remaster book: Vital Luminance and Brawling Focus (Core Rulebook), Eye for Numbers,
+Quick Change, Gorilla Stance, Gorilla Pound, Shadow Magic, Additional Shadow Magic, Shadow Illusion and Shadow Power
 (Advanced Player Guide) and Verdant Sprout (Pathfinder #151: The Show Must Go On). Each book is registered as
 `core-rulebook`, `advanced-players-guide` or `the-show-must-go-on`, OGL and not remaster, with a pack that holds
 only those listed items (`legacy: listed` in the book registry). Adding an item means adding the Section 15 notice of
