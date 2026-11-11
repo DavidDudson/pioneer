@@ -1,5 +1,5 @@
 import { NO_MODIFIERS } from '@pioneer/rules/engine';
-import type { ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
+import type { AlteredItem, ArmorInputs, ModifierInputs, WeaponInputs } from '@pioneer/rules/engine';
 import {
   AttributeModifier,
   CheckPenalty,
@@ -7,6 +7,7 @@ import {
   ItemCount,
   Modifier,
   NumericItemProperty,
+  RollOptionTail,
   Trait,
 } from '@pioneer/rules/sdk';
 import type { BaseWeapon, RuleSlug, Slug } from '@pioneer/rules/sdk';
@@ -84,6 +85,16 @@ function favoredBy(favored: ReadonlySet<BaseWeapon>, base: BaseWeapon | undefine
 }
 
 /**
+ * What a predicate over `item:` reads of a held weapon: its own roll options, its damage type (`damage:type:slashing`)
+ * and each property rune in force (`rune:property:underwater`), so an environment can tell a weapon etched for it.
+ */
+function strikeRollOptions(altered: AlteredItem): readonly RollOptionTail[] {
+  const damageType = altered.damageType === undefined ? [] : [`damage:type:${altered.damageType}`];
+  const runes = altered.propertyRunes.map((rune) => `rune:property:${rune}`);
+  return [...altered.rollOptions, ...[...damageType, ...runes].map((option) => RollOptionTail.parse(option))];
+}
+
+/**
  * Each held weapon as its Strike reads it: its potency is its rune's, or a bomb's own item bonus, and its striking
  * rune adds damage dice. One whose base the character's deity favours is marked so (ADR-0048).
  */
@@ -113,7 +124,7 @@ function weaponInputs(
         slug,
         category: entry.data.category,
         group: entry.data.group,
-        rollOptions: altered.rollOptions,
+        rollOptions: strikeRollOptions(altered),
         traits: altered.traits,
         materials: altered.materials,
         propertyRunes: altered.propertyRunes,

@@ -1,4 +1,5 @@
 import type { ResolveReference } from '@pioneer/rules/formula';
+import { RollOptionNamespace } from '@pioneer/rules/sdk';
 import type { ProficiencyBonusTable, Selector, StatisticDefinition } from '@pioneer/rules/sdk';
 
 import { armorBonus } from './armor-bonus';
@@ -11,12 +12,30 @@ import { proficiencyBonuses } from './proficiency-bonuses';
 import { applyRollEffects, collectRollEffects, rollEffectsInPlay } from './roll-effects';
 import { NO_ITEM, NO_MODIFIERS, NO_SITUATION } from './rule-in-play';
 import type { ItemScope, ModifierInputs } from './rule-in-play';
+import type { WeaponInputs } from './source-inputs';
 import { StatisticBases } from './statistic-bases';
 import { resolverFor } from './statistic-inputs';
 import type { StatisticInputs } from './statistic-inputs';
 import type { StatisticResult } from './statistic-result';
 import { finished } from './totals';
 import { weaponPotencies } from './weapon-potency';
+
+/** Where a predicate reads a weapon's own roll options (`item:damage:type:slashing`). */
+const ITEM_NAMESPACE = RollOptionNamespace.parse('item');
+/** The selector family of a weapon's Strike: `strike:<slug>`. */
+const STRIKE_PREFIX = 'strike:';
+
+/** The facts a Strike's attack is read against: the character's, and under `item:` the weapon's own roll options. */
+function strikeFacts(
+  facts: ModifierInputs['facts'],
+  selector: Selector,
+  weapons: readonly WeaponInputs[],
+): ModifierInputs['facts'] {
+  const weapon = selector.startsWith(STRIKE_PREFIX)
+    ? weapons.find(({ slug }) => `${STRIKE_PREFIX}${slug}` === selector)
+    : undefined;
+  return weapon === undefined ? facts : facts.withNamespace(ITEM_NAMESPACE, weapon.rollOptions ?? []);
+}
 
 /** The content a derivation reads: the statistic definitions and the proficiency bonus table, from the registry. */
 export interface StatisticContent {
@@ -59,7 +78,8 @@ export function deriveStatistics(
   const rollEffects = rollEffectsInPlay(rules);
   return new Map(
     bases.bases.map(({ definition, result }) => {
-      const lines = collectLines(definition, modifiers, { ...context, situation });
+      const lineFacts = strikeFacts(context.facts, definition.selector, inputs.weapons ?? []);
+      const lines = collectLines(definition, modifiers, { ...context, facts: lineFacts, situation });
       const sets = changes.set.get(definition.selector) ?? [];
       const finishedResult = finished(result, { lines, sets, context });
       const formed = applyForm(finishedResult, form, context.resolve(NO_ITEM));

@@ -145,3 +145,23 @@ describe('weapon potency', () => {
     expect(parsed.error?.issues.map(({ path }) => path)).toStrictEqual([['weapons', 0, 'origin']]);
   });
 });
+
+describe('a Strike read against its weapon', () => {
+  const PENALTY = inPlay(
+    { ...flatModifier('circumstance', -2, ['attack-roll']), predicate: [{ not: 'item:rune:property:underwater' }] },
+    'underwater',
+  );
+  const PLAIN = { slug: 'longsword', category: 'martial', traits: [] };
+
+  test('a rule that lets a rune lift it applies to a weapon without the rune', () => {
+    const result = strike(wielded({ ...PLAIN, rollOptions: ['type:weapon'] }), [PENALTY]);
+
+    expect(result).toMatchObject({ ok: true, total: BASE - 2 });
+  });
+
+  test('the rune lifts it for the weapon that has it', () => {
+    const result = strike(wielded({ ...PLAIN, rollOptions: ['rune:property:underwater'] }), [PENALTY]);
+
+    expect(result).toMatchObject({ ok: true, total: BASE });
+  });
+});
