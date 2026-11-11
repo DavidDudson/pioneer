@@ -1883,7 +1883,8 @@
         "type": "held",
         "hands": "two"
       }
-    }
+    },
+    "supersedes": ["bed220e4-035c-564d-beb9-8c506041bda1"]
   },
   {
     "id": "625e3fcd-9a58-5861-a7c9-b9444a5f0f48",

@@ -1,0 +1,3075 @@
+[
+  {
+    "id": "57b91501-37f9-5de5-bc60-bbab9dd49857",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-absorb-memories",
+    "name": "Effect: Absorb Memories",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to all skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1jrrnMwsfO97LXi4"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "0b12a104-60b3-5caf-93bd-7b50b635a660",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-activate-defenses",
+    "name": "Effect: Activate Defenses",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ya8r3IdzQ7QGNH8N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e3e49e3e-de2f-558f-ac07-bf37d5823e1e",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-air-of-sickness",
+    "name": "Effect: Air of Sickness",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 status penalty to saves made to resist diseases."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": -2,
+        "predicate": ["option:disease"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.XSXMGb5h4Um6YXiT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fefa4656-ab0d-5bf1-8016-a46c9a090f6f",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-barbed-net",
+    "name": "Effect: Barbed Net",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -10-foot circumstance penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HafP5vrdGdoqoFMo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "4fdf4fca-d391-5aec-af82-e49b38182142",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-bittersweet-dreams",
+    "name": "Effect: Bittersweet Dreams",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a status penalty to attack rolls, saving throws, and skill checks according to its save result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4FginnDcOt4wfedf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "9d4df1c5-e78e-509f-9fea-063c50bc3ba4",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-blood-wake",
+    "name": "Effect: Blood Wake",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -4 status penalty to Athletics checks to Swim."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "status",
+        "value": -4,
+        "predicate": ["action:swim"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.oORIapm28xioxPDp"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "78c09bc2-e081-5727-b55a-c6740de9ad22",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-bond-in-light",
+    "name": "Effect: Bond in Light",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature glows with bright light in a 20-foot emanation and dim light to 40 feet and has fast healing 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4bR1i7qzmSJ5No6O"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c48941b8-3b44-5c06-ab63-dd7372fea1dd",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-bully-the-departed",
+    "name": "Effect: Bully the Departed",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains regeneration 15 (deactivated by force or good), and deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "spirit"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage on its Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d8",
+        "damageType": "spirit"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gHczZWA34WQx4px0"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "2e35ff7a-e081-5857-9d98-ce2b0794bd55",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-challenge-foe",
+    "name": "Effect: Challenge Foe",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a circumstance bonus to damage equal to your number of weapon damage dice against your designated foe but take an equivalent circumstance penalty to damage against any other creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KuCh1JGrAidkKBav"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "91ef021e-182a-5403-8829-f0718ad2e24c",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-consume-organ",
+    "name": "Effect: Consume Organ",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains 15 temporary Hit Points and a +1 status bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 15
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Qa0HP5uCuqh4vxBh"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "36f45c60-359d-5627-a24c-d03929c67ddd",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-countered-by-fire",
+    "name": "Effect: Countered by Fire",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 circumstance penalty to attack rolls and AC, and its jaws Strike doesn't deal electricity damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "attack"],
+        "type": "circumstance",
+        "value": -1
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:countered-by-fire",
+        "value": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.a4bZrBNL17zPjDiH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f4d44a7a-6e35-5fe2-a0d9-e2dd9e5eafea",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-countered-by-water",
+    "name": "Effect: Countered by Water",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 circumstance penalty to attack rolls, and its jaws Strike doesn't deal fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": -1
+      },
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:countered-by-water",
+        "value": true
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.81XYZZ3H0GL8thdQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "b2248d19-e22c-5452-a41d-ffb3d2d19016",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-crush-chitin",
+    "name": "Effect: Crush Chitin",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 circumstance penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7OJrBAEah6YFLzcK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "629adf36-dbcd-59a8-a7fa-53a5fda14510",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-curl-up",
+    "name": "Effect: Curl Up",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QjgLHIgRXIk3KAOY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c2f97a4f-9df5-5b77-8656-cdfc3ae0e60c",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-death-gasp",
+    "name": "Effect: Death Gasp",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains the undead trait and becomes immune to bleed, death effects, disease, paralyzed, poison, and sleep."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["undead"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lyeRL7khixdlJsaf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "677ca8ea-8523-5a38-9fb4-e254dd773f6a",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-death-gasp-etioling",
+    "name": "Effect: Death Gasp (Etioling)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains the undead and incorporeal traits, a fly Speed of 25 feet, resistance 10 to all damage (except force, ghost touch, or vitality; double this resistance vs. non-magical) and becomes immune to bleed, death effects, disease, paralyzed, poison, and sleep."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["undead", "incorporeal"]
+      },
+      {
+        "key": "Immunity",
+        "type": ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25
+      },
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10,
+        "exceptions": ["force", "ghost-touch", "vitality"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5x0XpNftvx9uGbXt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2298c0b2-318e-5ab0-b14c-f6074d7b52a6",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-defensive-slam",
+    "name": "Effect: Defensive Slam",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.BsuYuFxE20mnRxbs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "56996c94-5bfd-5438-bf65-e5a7b857dcf5",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-despoiler",
+    "name": "Effect: Despoiler",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 circumstance penalty to all saving throws against poisons, diseases, and drugs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["option:poison", "option:disease", "option:drug"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.itdoXvcDo8wwmTME"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9f632a3e-e418-5741-a3f2-e4359256079b",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-divine-aegis",
+    "name": "Effect: Divine Aegis",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 circumstance bonus to saving throws against non-divine magical effects and a -1 circumstance penalty to saves against divine effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "slug": "divine-aegis-1",
+        "predicate": [
+          {
+            "or": ["option:arcane", "option:primal", "option:occult"]
+          }
+        ]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "slug": "divine-aegis-2",
+        "predicate": ["option:divine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.e4HoYakV7SvwvcrH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "827376a6-78f4-5495-8e2f-a59adcdfcf87",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-ectoplasmic-form-physical",
+    "name": "Effect: Ectoplasmic Form (Physical)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature loses the incorporeal trait, the immunity to precision damage and all resistances. It gains temporary hit points and an increased armor class according to the specific creature, its jaws strikes deal piercing and its claws strikes deal slashing damage instead of negative."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "remove": ["incorporeal"]
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spectral-jaws-damage"],
+        "override": {
+          "damageType": "piercing"
+        }
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["spectral-claw-damage"],
+        "override": {
+          "damageType": "slashing"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QMcmhifNQOPguv2t"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1be59e51-ac0b-572a-85d7-41206c8c7888",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-entangling-train",
+    "name": "Effect: Entangling Train",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -15-foot circumstance penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.dNs30jfFOJqhjFW7"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "134488de-39c1-5075-b39f-ed8aecd1ad62",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-fed-by-metal",
+    "name": "Effect: Fed by Metal",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 item bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OMJnZspk5YHai8yn"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "2b7e5e87-0ef7-5c0c-bf3f-2218bc5576d6",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-fed-by-wood",
+    "name": "Effect: Fed by Wood",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fire damage from the creature's jaws increases by one die."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4FMFRlEC923CnLI7"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "eb8a9478-7120-5bba-aee6-e7b474a1adbf",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-fettering-fedora",
+    "name": "Effect: Fettering Fedora",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -10-foot circumstance penalty to their Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FQrNDisx6noJnFaQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "41874581-faee-5608-9435-eb3afb12b576",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-fiery-form",
+    "name": "Effect: Fiery Form",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blood hag gains the fire trait and a fly Speed of 60 feet, becomes immune to fire, and emits light as a torch."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 60
+      },
+      {
+        "key": "ActorTraits",
+        "add": ["fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.H99PJXU5cvJ4Oycm"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "511d01f3-e750-5bc3-9917-7219b684d3c4",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-form-a-phalanx",
+    "name": "Effect: Form a Phalanx",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.l62iAFL3EO7wSsLL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "6e299e41-c5b1-52a5-b196-63b8e1f26cf8",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-furious-possession",
+    "name": "Effect: Furious Possession",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains 12 temporary Hit Points that are lost when the possession ends. During the possession, the creature has the pulse of rage aura. Each time the possessed creature makes a melee Strike, the spirit can substitute their ephemeral claw attack modifier, damage amount, or both in place of the creature's own statistics."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a092b76e-4b9a-5161-a9b2-475d58503936"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 12
+      },
+      {
+        "key": "Aura",
+        "slug": "pulse-of-rage",
+        "radius": 20,
+        "traits": ["emotion", "mental", "occult"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KpRRcLsAiIhJFE03"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c40a2c01-3675-5583-8802-aa5537e0e355",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-ganzi-resistance",
+    "name": "Effect: Ganzi Resistance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains an amount of resistance to acid, electricity, or sonic (chosen randomly each day) based on the specific creature."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.PFeGCDFOo2AjI6ib"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "955c3ad8-97ec-523b-8aaf-cf46e9b27545",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-gleaming-armor",
+    "name": "Effect: Gleaming Armor",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to AC and resistance to energy damage based on the specific creature."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CoPPOCyfADvybcxV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "5c0d1bac-bdf4-5069-96b5-6b61079d7d42",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-gloom-aura",
+    "name": "Effect: Gloom Aura",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 circumstance penalty to saving throws made to resist emotion effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": -1,
+        "predicate": ["option:emotion"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Me16QQGxpivWE2WW"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "1194c7cf-3e82-5d78-9ea2-867788806415",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-guardians-aegis",
+    "name": "Effect: Guardian's Aegis",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to saves against magical effects. The bonus increases to +2 if the effect originated from a demon or other chaotic evil fiend."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "slug": "guardians-aegis",
+        "predicate": [
+          {
+            "or": ["option:magical", "option:arcane", "option:divine", "option:primal", "option:occult"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "guardians-aegis",
+        "mode": "override",
+        "value": 2,
+        "predicate": ["origin:trait:fiend", "origin:trait:chaotic", "origin:trait:evil"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.AL7E03DYahfDhbcR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "bacdda18-5c65-5421-ab48-4bd073f71fc9",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-hurl-net",
+    "name": "Effect: Hurl Net",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -10-foot circumstance penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.q2D1QBalqBQfKzTc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ac593d59-648b-5a99-9afd-0d392b2d6be4",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-hurtful-critique",
+    "name": "Effect: Hurtful Critique",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 circumstance penalty to attack rolls (-2 on a critical failure)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HKyMZobjOsd6WFuo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4502435b-f13d-5e92-aa85-2d07e610fcbe",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-inspire-courage-love-siktempora",
+    "name": "Effect: Inspire Courage (Love Siktempora)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to attack rolls, damage rolls, and saves against fear effects."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["option:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.uFi8GhPkYY3ti40N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5435dfd8-ade7-5ae1-b52f-9c08dbf3cefc",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-inspire-defense-love-siktempora",
+    "name": "Effect: Inspire Defense (Love Siktempora)",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to AC and saving throws, as well as resistance 4 to physical damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2,
+        "display": {
+          "label": "Inspire Defense"
+        }
+      },
+      {
+        "key": "Resistance",
+        "type": ["physical"],
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.MKC2ne315YiCUiWd"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9f220ed6-7918-52a3-aae5-96e69e2ef488",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-inspire-envoy",
+    "name": "Effect: Inspire Envoy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a status bonus to attack rolls, AC, or all of the following: Perception, Will saves, and Charisma-based skill checks. The value of the bonus depends on the specific creature granting this effect."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "statistic",
+        "choices": [
+          {
+            "value": "atk",
+            "label": "Bonus to Attack"
+          },
+          {
+            "value": "ac",
+            "label": "Bonus to AC"
+          },
+          {
+            "value": "perc-will-cha",
+            "label": "Bonus to Will, Perception and Charisma-based skill checks"
+          }
+        ],
+        "prompt": "Granted Effect",
+        "rollOption": "inspire-envoy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.YDJnC3Bdc2GI6hX5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "ad939902-8a98-5ec4-9fc8-489309626fda",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-lost-plates",
+    "name": "Effect: Lost Plates",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a status penalty to AC equal to the number of lost plates."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": "@item.value * -1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.lt2t24E4hiByHhi3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "96871bc9-601e-5835-985f-7b3f09b05379",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-manipulate-luck-bad",
+    "name": "Effect: Manipulate Luck (Bad)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature must roll twice and use the lower result on its next d20 roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollTwice",
+        "selectors": ["all"],
+        "keep": "lower"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zzdOof9hHUf9s13H"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "198c2232-472b-5b3d-8ccd-a795f2c0e474",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-manipulate-luck-good",
+    "name": "Effect: Manipulate Luck (Good)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The affected creature can roll twice on one d20 roll within the next minute and use the higher result."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:manipulate-luck",
+        "toggleable": true
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["all"],
+        "keep": "higher",
+        "predicate": ["option:manipulate-luck"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.2DlOfFoYLGSlfugH"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9f58d341-86a1-5da2-888a-50b165a861ca",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-musk",
+    "name": "Effect: Musk",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -2 penalty to Stealth checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "untyped",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Mz1ihIHaHngdFhsA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "96e1f458-2b3c-520e-8858-ce9243e3101f",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-mutilating-bite",
+    "name": "Effect: Mutilating Bite",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature then takes a -1 status penalty to Charisma-based checks. This penalty is cumulative up to -3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-based"],
+        "type": "status",
+        "value": "@item.value * -1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LgZx5xotO08JzhVc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1
+      }
+    }
+  },
+  {
+    "id": "b5209d47-4c90-5f18-80bb-26c39089b415",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-nanite-surge-glow",
+    "name": "Effect: Nanite Surge (Glow)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature sheds dim light in a 10-foot emanation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.rRgVlTHiNEJ86T7N"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "80145fce-927a-56d5-80ff-46e68dcf9871",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-oceanic-armor",
+    "name": "Effect: Oceanic Armor",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.0jo8CUzw5lWehNg3"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "02586dc7-715a-502b-86cf-6678445c6a1c",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-pest-haven",
+    "name": "Effect: Pest Haven",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any animal swarm sharing a space with a skinstitch gains fast healing 3."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CM14G9kLI97aIC5h"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9f972003-7127-5d4d-a872-2b419a54a004",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-phalanx-fighter",
+    "name": "Effect: Phalanx Fighter",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.KjWPSJonzrZ8jv7X"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "d5106116-55f3-5955-a1d9-2f943cec65d2",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-praise-adachros",
+    "name": "Effect: Praise Adachros",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains +1 status bonus to attack rolls, perception checks, saving throws, and skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "perception", "saving-throw", "skill-check"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.qddahkHks1iLZ4sM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "1eabfac5-5b04-5a87-bb6e-04d3457b8f0a",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-pry",
+    "name": "Effect: Pry",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -1 status penalty to Charisma-based skill checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["cha-skill-check"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4q8Of8NM9DC8kWyK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a092b76e-4b9a-5161-a9b2-475d58503936",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-pulse-of-rage",
+    "name": "Effect: Pulse of Rage",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a –1 status penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.GC5441z8i7N8swk1"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "969b8c3d-e25e-5051-bf06-cabd59bd07d8",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-putrid-stench",
+    "name": "Effect: Putrid Stench",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -5-foot status penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": -5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.xmES7HVxM7L3j1EN"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "f0c34bc5-2129-5e3a-84c8-f4e825ee6d61",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-raise-guard",
+    "name": "Effect: Raise Guard",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.LohrnRXCQ0yVt8MK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "38a24c4d-0b20-5ffc-bd8d-1ec922ecc817",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-rapid-evolution-energy-gland",
+    "name": "Effect: Rapid Evolution - Energy Gland",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains energy damage resistance similar to the triggering type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.RBfd5qwFkuKxNb57"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c748e54f-072c-520f-97d5-b6ad067f5d0a",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-rapid-evolution-husk",
+    "name": "Effect: Rapid Evolution - Husk",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains physical damage resistance similar to the triggering type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iuy6AA6sQZUZkN9X"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8618a509-87ee-558d-89fe-63dea481b3eb",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-regression",
+    "name": "Effect: Regression",
+    "level": 11,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature shrinks one size and all of the target's proficiencies of expert and better are reduced to trained."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Rn1aE4uvq30iiH0Y"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a2b60467-fc22-5de9-ab32-c505b302538c",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-resonance",
+    "name": "Effect: Resonance",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to attack and damage rolls for effects with the selected trait; a creature with the elemental and selected traits gains this bonus to all attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.1dwMVgBHfT4qO4OS"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f9243700-99b7-5487-a980-39ef2fdebb68",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-runic-resistance",
+    "name": "Effect: Runic Resistance",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains resistance 5 to one damage type."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.P4bNtDVyknQwjTPo"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "285b139d-cdf4-5fe0-aab7-3176cc017815",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-sandstorm",
+    "name": "Effect: Sandstorm",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -4 circumstance penalty to Perception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "circumstance",
+        "value": -4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.f8rncEs06bqcn3LZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "58baead5-9a8c-586c-88b9-7a553180ca35",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-share-defenses",
+    "name": "Effect: Share Defenses",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains cold resistance 10."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["cold"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zqgntQXIEbulBgZX"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "381b045a-9946-569e-a138-5757ad05bee4",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-share-pain",
+    "name": "Effect: Share Pain",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a status penalty to its Speeds based on its save result."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iXVsVqttUGlfdIHS"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "5e2a4d4f-4526-5aaf-8e99-2fde4c34d9ed",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-sixfold-flurry",
+    "name": "Effect: Sixfold Flurry",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a circumstance bonus to AC based on the Strikes it chose not to take."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.zXIpCkTtFRkhwI4x"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "fbf6fb5a-b4c5-526d-a603-204b047ccd10",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-song-of-the-swamp",
+    "name": "Effect: Song of the Swamp",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to damage rolls and saves against fear."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:fear"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.hftFxE8JGJGzXAtU"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "8a86eacb-4c20-57c2-932c-1b07a945b08e",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-stick-a-fork-in-it",
+    "name": "Effect: Stick a Fork in It",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -10-foot circumstance penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.K3r1lfbtCTf3dFhV"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "68936170-30ef-58b4-8233-f6a828bb24ef",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-towering-stance-disbelieved",
+    "name": "Effect: Towering Stance (Disbelieved)",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature becomes Medium."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "medium"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.PxLWRiCbgpqOTLO9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "279d9d42-d61e-5d62-ad10-7ab74573d354",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-vent-energy",
+    "name": "Effect: Vent Energy",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The hadrinnex's weapon arm strikes deal an extra 2d6 energy damage according to the damage type in the energy gland."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HpX3bGlOkSp1PeWg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "e91d5674-9c2b-5d2d-8686-0d1c97dd9968",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-viscous-trap",
+    "name": "Effect: Viscous Trap",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature takes a -15-foot circumstance penalty to all Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.iWLAcND0iyW4NUZm"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c5f36292-0155-56ff-b495-8eb52fb3af00",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-waterlogged",
+    "name": "Effect: Waterlogged",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While waterlogged, the berberoka can use Spray Water, their size grows to Gargantuan, and their Speed is reduced to 15 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "gargantuan"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UxNq9uo1GpDYTi5Z"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "26cd6333-4158-5ec5-b7a2-748aaca487b5",
+    "pack": "bestiary-3",
+    "kind": "effect",
+    "slug": "effect:effect-wrath-of-spurned-hospitality",
+    "name": "Effect: Wrath of Spurned Hospitality",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nyktera gains a +2 status bonus to attack and damage rolls for their fist Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["fist-attack", "fist-damage"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.he0QiJSgJWNeIoxt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

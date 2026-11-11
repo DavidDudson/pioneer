@@ -1650,7 +1650,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["ed8772bf-dadd-56b9-8ac7-fe51aefdd6ba"]
   },
   {
     "id": "6ff7c29e-f3c7-5195-82d6-9bd299bcdb0a",

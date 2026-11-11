@@ -1,0 +1,1537 @@
+[
+  {
+    "id": "d01d0f75-09b2-530e-a58a-22b5d14f429e",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-consume-soul",
+    "name": "(Ravener) Consume Soul",
+    "rarity": "common",
+    "traits": ["death", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A living creature within 30 feet of the ravener dies"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ravener tears the creature's soul from its body with their maw and gulps it down. The dying creature must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The ravener tears off a small chunk of the creature's soul. If the victim is restored to life, they are "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 1"
+                },
+                {
+                  "type": "text",
+                  "text": " in addition to any other side effects of returning to life. The ravener adds a number of Hit Points to their soul ward equal to half the creature's level."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "As success, but the creature's soul is ravaged. The creature is "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+                  "label": "Drained 3"
+                },
+                {
+                  "type": "text",
+                  "text": " and the ravener adds a number of Hit Points to their soul ward equal to the creature's level."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the ravener devours the entire soul. The victim can't be restored to life as long as the ravener exists except via a 10th-rank effect such as "
+                },
+                {
+                  "type": "ref",
+                  "id": "65a4ac99-ec7a-5be0-b8ad-a6685eed2fc3"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "ref",
+                  "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+                },
+                {
+                  "type": "text",
+                  "text": ", and the ravener adds a number of Hit Points to their soul ward equal to twice the creature's level."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save with the same DC as the ravener's Breath Weapon."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ravener tears off a small chunk of the creature's soul. If the victim is restored to life, they are "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " in addition to any other side effects of returning to life. The ravener adds a number of Hit Points to their soul ward equal to half the creature's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As success, but the creature's soul is ravaged. The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": " and the ravener adds a number of Hit Points to their soul ward equal to the creature's level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the ravener devours the entire soul. The victim can't be restored to life as long as the ravener exists except via a 10th-rank effect such as "
+          },
+          {
+            "type": "ref",
+            "id": "65a4ac99-ec7a-5be0-b8ad-a6685eed2fc3"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": ", and the ravener adds a number of Hit Points to their soul ward equal to twice the creature's level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.VLCECgjkL5bNOxpx"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A living creature within 30 feet of the ravener dies"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a26ed702-7618-5ad2-870a-a9d6e13c2c01",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-cowering-fear",
+    "name": "(Ravener) Cowering Fear",
+    "rarity": "common",
+    "traits": ["aura", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "0 feet. "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A ravener's frightful presence causes creatures to cower in fear as well. As long as a creature is at least "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " or more as a result of the ravener's frightful presence, it is also "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " from the fear."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature that first enters the area must attempt a Will save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless of the result of the saving throw, the creature is temporarily immune to this monster's Frightful Presence for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected by the presence."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "cowering-fear",
+        "radius": 0,
+        "traits": ["emotion", "fear", "mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.6Alm4mLj3ORxCXC2"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "5e4ee94f-81b8-5e7c-a86c-fa675bed640c",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-discorporate",
+    "name": "(Ravener) Discorporate",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ravener takes excess damage to their soul ward but still has at least 51 Hit Points in their soul ward"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ravener draws deeply into their soul ward, discorporating their body into soul energy in order to escape. They take 50 damage to their soul ward and their physical body vanishes, reappearing 1d4 hours later in a random location within 1 mile from the location where they used Discorporate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HLPLYJ9bOazb2ZPX"
+    },
+    "data": {
+      "cost": "free",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ravener takes excess damage to their soul ward but still has at least 51 Hit Points in their soul ward"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "abb4a758-b636-5b7c-88d6-3498434e576b",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-soul-ward",
+    "name": "(Ravener) Soul Ward",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An intangible field of necromantic energy protects a ravener from total destruction. A soul ward has 150 maximum Hit Points, or 200 if the ravener is level 21 or higher."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever a ravener would be reduced below 1 Hit Point, all damage in excess of what would reduce them to 1 Hit Point is instead dealt to their soul ward. If this damage reduces the soul ward to fewer than 0 Hit Points, the ravener is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A soul ward's Hit Points can be restored only via specific ravener abilities such as Consume Soul, ravenous breath, or vicious criticals. A ravener who goes more than a week without successfully using Consume Soul to feed on a dying creature starves, and their soul ward loses {1d4} Hit Points each day until they feed. If the ravener's soul ward loses all its Hit Points while the ravener still has more than 1 HP, they become a Ravener Husk."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FsqVhavMWAoFro1L"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "fa6912fd-3517-5919-91ce-a30360687970",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-soulsense",
+    "name": "(Ravener) Soulsense",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A ravener senses the spiritual essence of living and undead creatures within the listed range. Creatures whose material bodies are one unit with their souls, like celestials and fiends, appear brighter to this sense."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.fYDrunTldWmFvfjl"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "c9602255-e7e5-59a6-afc9-87372c0db869",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:ravener-vicious-criticals",
+    "name": "(Ravener) Vicious Criticals",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ravener treats an attack roll as a critical hit on a roll of 19 or 20, as long as the attack roll was a success. Additionally, whenever the ravener makes a critical hit with one of their Strikes, the target must succeed on a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save or gain the "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " condition. If the target already has a drained value of greater than 0, their drained value instead increases by 1, to a maximum of drained 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever the ravener applies drain to a creature in this way, their soul ward gains 5 Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["attack-roll"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["check:roll:total:natural:19"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.XbHMVjHtbPaPr9P5"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dd49531c-7a1e-5ae5-9b1a-1b89f8723067",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-drink-blood",
+    "name": "(Vampire, Vrykolakas) Drink Blood",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vrykolakas' last action was a successful fangs Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vrykolakas sinks its fangs into that creature to drink its blood. This requires an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC. On a success, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " if a vrykolakas master uses this action), and the vrykolakas regains HP equal to 10% of its maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the vampire, but it increases the creature's drained condition value by 1. A vrykolakas can also consume blood that's been emptied into a vessel for sustenance, but it gains no HP from doing so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target creature's drained condition value decreases by 1 per week. A blood transfusion, which requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.98twzz56mMGN5Ftw"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The vrykolakas' last action was a successful fangs Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "22ec56a8-fc59-5646-b15c-57063898ef90",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-feral-possession",
+    "name": "(Vampire, Vrykolakas) Feral Possession",
+    "rarity": "common",
+    "traits": ["curse", "divine", "incapacitation", "mental", "possession"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vrykolakas is reduced to 0 Hit Points, and an animal is within 100 feet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Unlike most other undead, a vrykolakas isn't destroyed when it reaches 0 HP. Instead, it attempts to cast its spirit into an animal within 100 feet, which must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": " save (use a high DC for the vrykolakas's level)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a failure, the animal is possessed. This has the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "dc3bb06e-92bb-5b57-8b64-bc76e3d979ce"
+          },
+          {
+            "type": "text",
+            "text": " spell, but it lasts a number of days equal to the vrykolakas's level. This possession can't be counteracted with magic (though "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " works against it normally)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the animal succeeds at its save, the vrykolakas can attempt to possess a different animal within 100 feet. If at any point an animal critically succeeds at its save or no animal is within 100 feet, the vrykolakas fails to possess anything and is destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A vrykolakas possessing an animal seeks out its burial site immediately, burying itself there. While the vrykolakas is in this state of recovery, its animal host is "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ", and beheading it destroys the vrykolakas and kills its host. Removing the curse destroys the vrykolakas and returns the animal to normal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After 1d4 days, if the vrykolakas hasn't been destroyed, the animal dies and the vrykolakas rises in a new body that's identical to its previous one, formed from the animal's remains."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.oXRnrQQ04oi8OkDG"
+    },
+    "data": {
+      "cost": "free",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The vrykolakas is reduced to 0 Hit Points, and an animal is within 100 feet"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "98d99f1f-f03a-5009-8c99-8e26e9f211b0",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-bubonic-plague",
+    "name": "(Vampire, Vrykolakas Master) Bubonic Plague",
+    "rarity": "common",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " (use a high DC for the vrykolakas's level)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and fatigued (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": ", fatigued, and takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "bleed"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " every 1d20 minutes (1 day)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.haMVGGDY3mLuKy9s"
+    },
+    "data": {}
+  },
+  {
+    "id": "205de099-16a9-5857-8e18-ec17b26e5d79",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-change-shape",
+    "name": "(Vampire, Vrykolakas Master) Change Shape",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A vrykolakas master can transform into a form resembling the body it had in life, with the effects of humanoid form but with unlimited duration. It loses its fangs and claw Strikes but gains a +2 circumstance bonus to Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " in this form."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:change-shape",
+        "toggleable": true,
+        "display": {
+          "label": "Impersonating the Body It Had in Life"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["option:change-shape", "action:impersonate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sECjzfaYaW68vbLV"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "296d03c3-cb4c-5084-9010-43c75b9cc660",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-children-of-the-night",
+    "name": "(Vampire, Vrykolakas Master) Children of the Night",
+    "rarity": "common",
+    "traits": ["divine", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The presence of a vrykolakas master inspires savage creatures to crawl forth to do its bidding, including Rat Swarms, Wargs, Werewolves, and similar creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vrykolakas master can give telepathic orders to these creatures within 100 feet, but they can't communicate back."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.tKixfds07IRH2nnh"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "a2e03975-4d97-57ca-9cfb-2f50997ece74",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-create-spawn",
+    "name": "(Vampire, Vrykolakas Master) Create Spawn",
+    "rarity": "common",
+    "traits": ["divine", "downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If a creature dies after being reduced to 0 HP by Drink Blood, a vrykolakas master can turn this creature into a Vrykolakas Spawn by donating some of its own blood to the creature and burying it in earth for 3 nights."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Such vrykolakas spawn are generally friendly to the vrykolakas that created them, but they are not under its control and typically wander off on their own rampage within 1d6 days of their creation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QuHeuVNDnmOCS9M1"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b9f894f4-97a6-5909-834c-a8fd1879b29f",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-dominate-animal",
+    "name": "(Vampire, Vrykolakas Master) Dominate Animal",
+    "rarity": "common",
+    "traits": ["divine", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vrykolakas can cast "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " at will as a divine innate spell that affects only animals. The save DC is a high DC for the vrykolakas's level, and a creature that succeeds is immune to that vrykolakas's Dominate Animal for 24 hours. Destroying the vrykolakas ends the effect, but reducing it to 0 HP does not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A dominated animal takes a -4 circumstance penalty to saving throws against the vrykolakas's Feral Possession."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.zwgUxJBNFqWOuaBX"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "dd4d814e-0bce-51e5-aec4-042367af6da9",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-master-pestilential-aura",
+    "name": "(Vampire, Vrykolakas Master) Pestilential Aura",
+    "rarity": "common",
+    "traits": ["aura", "divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "5 feet. Creatures beginning their turn in the area while the vrykolakas is in its true form are exposed to bubonic plague."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "pestilential-aura",
+        "radius": 5,
+        "traits": ["divine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.s6JRMjgA7hSGUAYX"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "356159ad-63ba-536f-8430-b23b6f682f79",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-swift-tracker",
+    "name": "(Vampire, Vrykolakas) Swift Tracker",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The vrykolakas moves at full Speed while "
+          },
+          {
+            "type": "ref",
+            "id": "b81cfd58-ce40-526a-b3da-f3c218b5c566",
+            "label": "Tracking"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.br5Oup4USIUXQani"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "29100c5c-42de-5523-9629-bb38e7887e75",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:vampire-vrykolakas-vrykolakas-vulnerabilities",
+    "name": "(Vampire, Vrykolakas) Vrykolakas Vulnerabilities",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vrykolakas all have the following vulnerabilities."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Burial Site Bound",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A vrykolakas is bound to the place of its death or interment. It must return to this location once per week and bury itself in the earth for 24 hours, during which time it is "
+                },
+                {
+                  "type": "ref",
+                  "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+                },
+                {
+                  "type": "text",
+                  "text": " and can be beheaded. If it is unable to return to this site, it is reduced to 0 Hit Points and attempts to use Feral Corruption; if this host animal can't return to the burial site before the possession effect ends, the vrykolakas is destroyed and the animal host returns to normal."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vulnerable to Decapitation",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A vrykolakas that is beheaded can't use its Feral Possession, and a beheaded corpse cannot rise as a vrykolakas."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.5arYoSY5kcRo8TeM"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "e02659d2-6f97-5c9a-95bf-74af7c74421a",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:worm-that-walks-discorporate",
+    "name": "(Worm That Walks) Discorporate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the worm that walks is reduced to 0 HP, it discorporates and the component worms that make up its body disperse in every direction. If even a single worm escapes, the worm that walks will eventually re-form using a process that typically takes 1d10 days."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the exact circumstances and surroundings determine how long the worm that walks's foes have to dispatch the fleeing worms before they escape, usually its foes have only a single round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Typically, this requires the application of an area effect or splash weapon within 1 round to the space where the worm that walks collapsed. After any amount of area or splash damage is dealt to that space, the character dealing the damage must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 15
+          },
+          {
+            "type": "text",
+            "text": " check. Each subsequent area or splash damage effect performed on the area reduces the DC of this flat check by 2, to a minimum of DC 5. If any of these flat checks succeed, none of the worms escape, and the worm that walks is destroyed permanently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the GM's discretion, clever means of trapping or otherwise detaining the vermin may extend the time allowed to finish off the worm that walks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.QlrbnkeZu6M4kvOy"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "b926e650-9bcb-5608-98e2-54023a6d9f1b",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:worm-that-walks-squirming-embrace",
+    "name": "(Worm That Walks) Squirming Embrace",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The worm that walks Strides, ending its movement sharing a space with a creature, and deals piercing damage to the creature equal to "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plus an additional 1d8 for every 3 levels the worm that walks has. The creature can attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save with a DC of the worm that walks's spell DC - 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Zu6feO9NUZJlsKuc"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9f7fb8e9-ca81-5a1f-b395-e0ccfa4e8d37",
+    "pack": "bestiary-2",
+    "kind": "action",
+    "slug": "action:worm-that-walks-swarm-shape",
+    "name": "(Worm That Walks) Swarm Shape",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The worm that walks collapses into a shapeless swarm of worms. It drops all held, worn, and carried items."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While discorporated, the worm that walks can't use attack actions and can't cast spells, but it can move through areas small enough for its individual worms to fit without having to Squeeze. It can use the same action to coalesce back into its normal form."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.X2mdpb1Dhl890YbA"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  }
+]

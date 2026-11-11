@@ -1,0 +1,673 @@
+[
+  {
+    "id": "194dc0f3-08ea-5dee-b773-c7880aa638ae",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:ahriman",
+    "name": "Ahriman",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dread shadow known as Ahriman counts servants mainly among div as well as a scattering of followers throughout the mortal realm."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Foil rulers, the proud, and the powerful; ruin anything created by mortals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " create arts or crafts, serve a mortal, assist in mortal aims except to subvert and corrupt them"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.pCtJONJlhAugUXaG"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["darkness", "death", "destruction", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:deception"],
+      "weapons": ["whip"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "4f616729-3f27-5aee-a02e-426f121c6fa3"
+        },
+        {
+          "rank": 3,
+          "spell": "3c7ef298-5d47-58c4-a650-2bec5d4bda5d"
+        },
+        {
+          "rank": 5,
+          "spell": "be299a7f-cbd1-5497-a88b-1a90cc2cdcfc"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f1b9a34d-def6-56c4-9c2a-05461986df34",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:enkaar-the-malformed-prisoner",
+    "name": "Enkaar, the Malformed Prisoner",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This mutilated horror is the Forsaken patron of fetters, lethargy, and physical corruption."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.upRQcwjjaksc1g7h"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["spiked-chain"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 3,
+          "spell": "9aed7b61-843a-5ec7-b205-94e5369630f3"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "be6fc1d1-02f1-5975-9e3a-d7e38933aad8",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:eyes-that-watch",
+    "name": "Eyes That Watch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strange trio of feline eyes is the Forsaken patron of inferiority, cats, and strangers."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.pqrmviqboqjeS4z8"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["dagger"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 3,
+          "spell": "9aed7b61-843a-5ec7-b205-94e5369630f3"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "33f00132-8b56-5ad5-aee7-9ebe8046d938",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:grasping-iovett",
+    "name": "Grasping Iovett",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A beautiful form of indescribable variety, Iovett is the Forsaken patron of accidents, parasites, and reckless lust."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.XxIxEaW8NG952Bc0"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["shortsword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 2,
+          "spell": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "01e4d06d-4f3f-59a0-a7a5-6c7729e02529",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:husk",
+    "name": "Husk",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This androgynous creature is the Forsaken patron of emptiness, loneliness, and narcissism."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.Gy78DCwfY4ltBGI6"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["shortsword"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 2,
+          "spell": "306213b0-9e11-55d8-b630-8786ea86a27d"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "21c485a7-221f-5341-8f8a-411b76ee9b25",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:lady-razor",
+    "name": "Lady Razor",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stern magistrate forbids showing kindness or mercy to family members. Lady Razor is the Forsaken patron of family strife, suspicion, and vengeance."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.1LiO5bDQIlJmXk35"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["dagger"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 4,
+          "spell": "b0ec9594-b2b6-5d97-99b8-41cc7ffab5d0"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c5cba87d-87ed-5e05-9d75-54623212bc89",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:nyarlathotep-haunter-in-the-dark",
+    "name": "Nyarlathotep (Haunter in the Dark)",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nyarlathotep is often venerated by grioths in a bat-like incarnation with a three-lobed burning eye known as the Haunter in the Dark. His symbol is a circle with wing-shaped arms."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Create darkness, encourage authorities to bring the apocalypse"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " None"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.iKgERiIc8rt3fatf"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["darkness", "knowledge", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:occultism"],
+      "weapons": ["kukri"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+        },
+        {
+          "rank": 4,
+          "spell": "2b65b470-1daa-53ca-ab03-e8816b93c235"
+        },
+        {
+          "rank": 5,
+          "spell": "e1992d8c-d0af-53f2-8e46-5c1f89491e03"
+        }
+      ]
+    }
+  },
+  {
+    "id": "19c6abf3-2598-53fd-aaf3-28c9c807e465",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:reshmit-of-the-heavy-voice",
+    "name": "Reshmit of the Heavy Voice",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Taking the form of a massive shadow, Reshmit is the Forsaken patron of broken things, forgetting, and unexpected violence."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.FeMWwhaVbaoqu3q6"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["morningstar"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 4,
+          "spell": "1f048683-4c42-51f0-afdc-351f5fe3af2c"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "9930696b-0071-5dfe-9975-14d865ab1ab4",
+    "pack": "bestiary-3",
+    "kind": "deity",
+    "slug": "deity:thalaphyrr-martyr-minder",
+    "name": "Thalaphyrr Martyr-Minder",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Forsaken patron of failed heroics, imprisonment, and squandered time."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An owb prophet can transfer the power they gain from a Forsaken patron to those who worship them, effectively serving as a deity. Each owb prophet decides their own follower alignments, edicts, and anathema."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.9Z1vOSaLsEiAs2yN"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "darkness", "nightmares", "trickery"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:stealth"],
+      "weapons": ["spear"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "9d047a36-41e0-52cd-b23c-ef49e7d4ebf6"
+        },
+        {
+          "rank": 3,
+          "spell": "cfa1a3f3-2450-52eb-95d6-875232fd5219"
+        },
+        {
+          "rank": 5,
+          "spell": "6175ed4e-d059-512b-9338-b52825fcebb3"
+        }
+      ]
+    }
+  }
+]

@@ -1227,7 +1227,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["833432da-a5cd-558a-8857-b7ab968077b8"]
   },
   {
     "id": "dc5ab9f9-abc1-5a0b-b3d6-f970268a29ae",

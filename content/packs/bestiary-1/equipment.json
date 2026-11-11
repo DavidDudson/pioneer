@@ -1,0 +1,414 @@
+[
+  {
+    "id": "3b275a54-280a-5e5c-b9fb-993f057f0976",
+    "pack": "bestiary-1",
+    "kind": "equipment",
+    "slug": "equipment:demilich-eye-gem",
+    "name": "Demilich Eye Gem",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["arcane"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This glowing gem is harvested from a demilich and has an 8th-rank spell magically bonded to it. This item has the traits of the spell it contains."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The gem casts the 8th-rank spell it contains. This activation uses the same number of actions as Casting the Spell. Once the spell is cast, the gem's glow fades, but returns 24 hours later, when the spell can be used once again."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Demilich eye gems",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be crafted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Q4o8pEdxSY0bnJQZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "demilich-eye-gem",
+          "name": "Demilich Eye Gem",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fa64cc0e-159e-5ebd-8f62-a6d1165524f1",
+    "pack": "bestiary-1",
+    "kind": "equipment",
+    "slug": "equipment:heartstone",
+    "name": "Heartstone",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["invested", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gemstone grants its wearer a +2 item bonus to saving throws."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each "
+          },
+          {
+            "type": "text",
+            "text": "heartstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is powered by the spirit of a specific night hag. If it's separated from her for 24 hours (or she's been dead for 24 hours), it becomes a nonmagical gemstone. A heartstone allows the hag to use additional occult innate spells: "
+          },
+          {
+            "type": "ref",
+            "id": "35d46951-e831-5754-ba35-33749a9b04ee"
+          },
+          {
+            "type": "text",
+            "text": " (9th level) and "
+          },
+          {
+            "type": "ref",
+            "id": "98a3ee45-2e0d-5ce9-afe9-44814b692095"
+          },
+          {
+            "type": "text",
+            "text": " at will, and "
+          },
+          {
+            "type": "ref",
+            "id": "e1332e15-0861-56f8-95f5-7749561ac8ae"
+          },
+          {
+            "type": "text",
+            "text": " twice per day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be touching the "
+          },
+          {
+            "type": "text",
+            "text": "heartstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "heartstone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to counteract one disease affecting you (counteract rank 5, counteract modifier +18)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must be a night hag."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.yhw1mr4oDhzMQc3D"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "2e8078ee-7054-5cd0-b1a7-b89cfa36fadc",
+    "pack": "bestiary-1",
+    "kind": "equipment",
+    "slug": "equipment:lich-soul-cage",
+    "name": "Lich Soul Cage",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["arcane", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item is crafted by a spellcaster who wishes to become a lich. When a lich is destroyed, its soul flees to the "
+          },
+          {
+            "type": "text",
+            "text": "soul cage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". The phylactery then rebuilds the lich's undead body over the course of 1d10 days. Afterward, the lich manifests next to the "
+          },
+          {
+            "type": "text",
+            "text": "soul cage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", fully healed and in a new body (therefore, it lacks any equipment it had on its old body). A lich's "
+          },
+          {
+            "type": "text",
+            "text": "soul cage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " must be destroyed to prevent a lich from returning."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The standard "
+          },
+          {
+            "type": "text",
+            "text": "soul cage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a sealed metal box containing strips of parchment inscribed with magical phrases. This box has Hardness 9 and 36 HP, but some liches devise more durable or difficult-to-obtain "
+          },
+          {
+            "type": "text",
+            "text": "soul cages",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". A "
+          },
+          {
+            "type": "text",
+            "text": "soul cage",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " might also come in the form of a ring, an amulet, or a similar item; the specifics are up to the creator."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NEbr7nKuiluJgBHT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1600
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

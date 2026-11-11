@@ -99,7 +99,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["25a631e8-3354-59cd-b1a2-9e56043e9f37"]
   },
   {
     "id": "455b516d-bbd5-58cc-8ce8-9c49ee2fbf14",
@@ -321,7 +322,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["90c32c12-d752-5ca3-a579-7ec7c001f15e"]
   },
   {
     "id": "0806f511-50ac-5fb9-a49d-16a5dcba0a6c",
@@ -362,7 +364,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["89d711ff-03f2-5e6e-b3ef-eb720ea5304e"]
   },
   {
     "id": "20b1c141-ca89-5bb8-bec7-e72997fc8369",
@@ -403,7 +406,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["fdb59429-8849-564b-b76e-9630d1774746"]
   },
   {
     "id": "90a17d45-8a04-5f60-bb5a-612807c47373",
@@ -436,7 +440,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["c10c2d31-178f-5252-9c41-6e53b76006c2"]
   },
   {
     "id": "8ac90127-96ac-5dd9-ac1d-12c60963aeac",
@@ -496,7 +501,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["5e0f3b29-43ea-5ef9-9490-f79b7975f482"]
   },
   {
     "id": "d9b85f2e-f10c-58fa-be34-b0b34a0ad69d",
@@ -537,7 +543,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["aea6e2c0-c32a-579a-aabf-e8d742d7e22c"]
   },
   {
     "id": "d477ee41-3ff5-5240-be17-bf8c1ae29ccc",
@@ -1140,7 +1147,8 @@
     "data": {
       "cost": "one",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["0e31479f-4dcd-5298-bb63-9a508605f0f8"]
   },
   {
     "id": "0adda748-df7e-5438-abef-0925fd1be113",
@@ -1207,7 +1215,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["3239a98b-5612-51c0-8c39-527540afdc1f"]
   },
   {
     "id": "2f97b18e-8484-58f6-8368-399721537b28",
@@ -1258,7 +1267,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["7bc38eef-c6b8-59e7-8d1b-e8d582975f43"]
   },
   {
     "id": "545d4eaa-f622-5d5d-aa07-4dca2d70ddaf",
@@ -1369,7 +1379,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["baf5630e-773b-5023-8cc8-549c3618304f"]
   },
   {
     "id": "97a3d259-9f5f-5f9d-8f10-007c9237e934",
@@ -1506,7 +1517,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["079b6522-e330-55d4-8bf2-3d275822cb15"]
   },
   {
     "id": "a8c6c7de-3342-59da-acc8-7aaf7ae3d476",
@@ -1573,7 +1585,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["194876e3-39ab-5ae6-90f4-52623f600793"]
   },
   {
     "id": "a96f4a68-0330-5963-883d-844b284ca687",
@@ -1784,7 +1797,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["b37c185f-af78-5611-a013-932335dec165"]
   },
   {
     "id": "f541238c-9159-51d7-a39e-e6df6b6a40c5",
@@ -2002,7 +2016,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["a4435d5b-9e76-5665-aa5e-0017b7025458"]
   },
   {
     "id": "6e19ed68-b4da-508c-aed9-44a305bc2ffa",
@@ -2035,7 +2050,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["f7f1623c-f081-521a-a63a-a7fea8d312fa"]
   },
   {
     "id": "428266e6-e203-5ea6-aa05-56c3f61092aa",
@@ -2076,7 +2092,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["c728a907-497b-5ab1-9a0c-860f4025a557"]
   },
   {
     "id": "c12aa159-5095-5387-9f4a-89212f766722",
@@ -2143,7 +2160,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["fc808626-4bb2-5731-8e7e-b5f8cace079f"]
   },
   {
     "id": "e9ff4a47-f001-56b7-9744-cf0de5c906b7",
@@ -2210,7 +2228,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["58c69e9d-5a57-583b-9026-18a78af02034"]
   },
   {
     "id": "a59a49aa-bf6f-5b8d-9c4d-17169e65282b",
@@ -2275,7 +2294,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["8636c974-8208-5075-9a97-09c713a74405"]
   },
   {
     "id": "eb576e97-08da-5c98-9b49-22e460b37a11",
@@ -2308,7 +2328,8 @@
     },
     "data": {
       "category": "offensive"
-    }
+    },
+    "supersedes": ["7a3b7f0f-ebd1-596c-ac6c-38602002547f"]
   },
   {
     "id": "0fc79f44-54d1-5d72-889e-b9136a1d5932",
@@ -2374,6 +2395,7 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["5d18f0cc-fab8-51a6-ac81-c8e0cbfc3fe9"]
   }
 ]
