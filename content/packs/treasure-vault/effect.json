@@ -12697,6 +12697,52 @@
     }
   },
   {
+    "id": "3900f845-bea9-5151-8ede-6b5f2c94ee5d",
+    "pack": "treasure-vault",
+    "kind": "effect",
+    "slug": "effect:effect-tacticians-helm-charges",
+    "name": "Effect: Tactician's Helm Charges",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Current charges stored in your Tactician's Helm."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.nLwtvyLZZTZgFmKq"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 24,
+        "unit": "hour",
+        "expiry": "turn-start"
+      },
+      "badge": {
+        "type": "counter",
+        "value": 1,
+        "max": 2
+      }
+    }
+  },
+  {
     "id": "bf003312-c455-5149-8891-36f46512bd2c",
     "pack": "treasure-vault",
     "kind": "effect",
@@ -14219,6 +14265,75 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.2gRnUwzPylifTrUO"
     },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ee4d3cc2-44a6-5018-a621-d2ea58b1b02d",
+    "pack": "treasure-vault",
+    "kind": "effect",
+    "slug": "effect:effect-wyrm-claw-armor",
+    "name": "Effect: Wyrm Claw - Armor",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by "
+          },
+          {
+            "type": "ref",
+            "id": "d5fff031-fbae-571b-ac83-88e6d401d708"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you cast a conjuration spell by activating the "
+          },
+          {
+            "type": "text",
+            "text": "wyrm claw",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain resistance 5 to acid, cold, electricity, and fire for the next minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["acid", "cold", "electricity", "fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.WLvFC2eE80SEZpUg"
+    },
+    "license": "OGL",
     "data": {
       "category": "equipment",
       "duration": {

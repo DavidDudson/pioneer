@@ -57,7 +57,9 @@ Authorized, Buckle Armor, Purloining Cloak, Spraysling, Taw Launcher and Three-S
 Chain Reaction, Unbelievable Luck, Unexpected Sharpshooter Dedication (with the Unexpected Sharpshooter archetype
 page built from it), Repeating Crossbow, Repeating Heavy Crossbow and their magazines, which Foundry marks `OGL`.
 They stay in the book's ORC pack, each entry carrying `license: OGL`, and are listed in `OGL_ENTRIES`
-(`libs/interop/foundry/src/ogl-entries.ts`).
+(`libs/interop/foundry/src/ogl-entries.ts`). The same holds for the rest of those two books' pre-remaster printings that
+the remaster did not reprint: 22 more Treasure Vault entries and 25 more Guns & Gears entries, read from the legacy
+Foundry release (`legacyPin`) and listed in `OGL_ENTRIES` too.
 
 Eleven more are printed only in a pre-remaster book: Vital Luminance and Brawling Focus (Core Rulebook), Eye for Numbers,
 Quick Change, Gorilla Stance, Gorilla Pound, Shadow Magic, Additional Shadow Magic, Shadow Illusion and Shadow Power

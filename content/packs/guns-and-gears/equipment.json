@@ -2920,6 +2920,454 @@
     }
   },
   {
+    "id": "fc658f93-5e48-57c0-9e55-974ba56bd63a",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:lucky-draw-bandolier-greater",
+    "name": "Lucky Draw Bandolier (Greater)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This beige bandolier has a rectangular holster, which allows it to contain a standard-sized Harrow deck, and red pockets embroidered with goldwork in a strange but appealing mixture of Alkenstar and Varisian motifs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw a card from the bandolier and Interact to load the card into a gun or crossbow you're wielding that requires 1 action to reload. The drawn card immediately transforms into magical ammunition with a type depending on the drawn card's suit, and a new copy of that card returns to the deck, ready to be drawn again."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the card transforms into ammunition, it transforms into a firearm round or crossbow bolt appropriate for the weapon you chose to reload, even if magical ammunition of the drawn variety would normally be limited to ammunition of a different type (such as a storm arrow normally only being available in arrow form). Either draw a card from the Harrow deck or roll 1d6 to determine the suit of the card. The result determines the type of magical ammunition the card becomes, as per the table below. Magical ammunition created this way lasts 10 minutes or until you fire it, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "d6"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Ability (Suit)"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Ammunition"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Strength (Hammer)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Meteor shot"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dexterity (Key)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Storm arrow"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Constitution (Shield)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Corrosive ammunition"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Intelligence (Book)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Explosive shot"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wisdom (Star)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Terrifying ammunition"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Charisma (Crown)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fairy bullet"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iAfqKpHyJ6beLGjB"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "lucky-draw-bandolier-greater",
+          "name": "Lucky Draw Bandolier (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b60005d2-3469-50aa-85d1-cc2897201e86",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:magnetite-scope",
+    "name": "Magnetite Scope",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "More of a field projector than a scope, this small cylinder of magnetite has been enchanted to spread and accelerate the shrapnel of a scatter weapon further than the weapon's natural capabilities. Furthermore, some of the floating magnetite inside the scope's structure can help you when attempting to determine the your allies' locations. The magnetite scope grants you a +2 item bonus to Survival checks to Sense Direction when using the scope to assist you in navigating. This scope can only be attached to firearms with the scatter trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The next Strike you make this round with the gun to which the scope is attached has its scatter radius increased by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:sense-direction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xe6I5BIYHE7SXSax"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 800
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "firearm-scope"
+      }
+    }
+  },
+  {
+    "id": "fe35a753-79d1-55b3-b868-4372f0c3b0a0",
+    "pack": "guns-and-gears",
+    "kind": "equipment",
+    "slug": "equipment:magnetite-scope-greater",
+    "name": "Magnetite Scope (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "More of a field projector than a scope, this small cylinder of magnetite has been enchanted to spread and accelerate the shrapnel of a scatter weapon further than the weapon's natural capabilities. Furthermore, some of the floating magnetite inside the scope's structure can help you when attempting to determine the your allies' locations. The magnetite scope grants you a +3 item bonus to Survival checks to Sense Direction when using the scope to assist you in navigating. This scope can only be attached to firearms with the scatter trait."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The next Strike you make this round with the gun to which the scope is attached has its scatter radius increased by 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:survival"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:sense-direction"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YBmrRRh0jJTOZoUe"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 16000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "attached",
+        "to": "crossbow-or-firearm-scope"
+      }
+    }
+  },
+  {
     "id": "61e53c39-d3a8-54c7-87a0-1bc1da4b1736",
     "pack": "guns-and-gears",
     "kind": "equipment",

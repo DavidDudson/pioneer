@@ -1417,6 +1417,177 @@
     }
   },
   {
+    "id": "eef1d196-d2ad-5fae-a482-35b6c213209a",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:construct-innovation",
+    "name": "Construct Innovation",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your innovation is a mechanical creature, such as a clockwork construct made of cogs and gears. It's a prototype construct companion, and you can adjust most of its base statistics by taking feats at higher levels, such as Advanced Companion. If you use the Overdrive action, your construct gains the same Overdrive benefits you do, and it also takes the same amount of fire damage on a critical failure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You know how to spend additional time directing, controlling, or programming your construct innovation for a more complex plan of action. You can spend 2 actions to Command instead of 1 when commanding your construct companion; your construct companion can then use an additional action (normally 3 actions, rather than 2)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one initial construct modification to apply to your innovation, either from the following or from other initial construct modifications to which you have access. These modifications alter the construct's abilities or form."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Accelerated Mobility",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Actuated legs, efficient gears in the wheels or treads, or add-on boosters make your construct faster. Your innovation's Speed increases to 40 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Amphibious Construction",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Increased buoyancy, rudders, and a means of propulsion like a fluked tail or powerful propeller make your construct able to travel in water. Your innovation gains a swim Speed of 25 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Increased Size",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You built your construct innovation bigger than most. Your construct is Large. If you have this modification and your construct innovation becomes an advanced construct companion or otherwise gains the ability to become Large, you can immediately change increased size to a different initial construct modification."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Manual Dexterity",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your construct innovation has articulated hands or similar appendages with significant manual dexterity. It can perform manipulate actions with up to two of its limbs. As normal for a companion, it still can't wield weapons or held items that don't have the companion trait, and it can't activate items."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Projectile Launcher",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Your construct has a mounted dart launcher, embedded cannon, or similar armament. Your innovation gains a ranged unarmed attack that deals 1d4 bludgeoning or piercing damage (you choose when you pick this modification). The attack has the propulsive trait and a range increment of 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sensory Array",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Additional sensory devices give your innovation low-light vision and darkvision, as well as imprecise tremorsense out to a range of 30 feet."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wonder Gears",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You map specialized skills into your construct's crude intelligence. Your innovation becomes trained in Intimidation, Stealth, and Survival."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.o70O2FysDd7BS9e0"
+    },
+    "license": "OGL",
+    "data": {
+      "tags": ["inventor-innovation"]
+    }
+  },
+  {
     "id": "132829ad-6a40-5197-b1cc-7474dcddad18",
     "pack": "guns-and-gears",
     "kind": "class-feature",
@@ -1560,6 +1731,39 @@
         "weapon-innovation-modification"
       ]
     }
+  },
+  {
+    "id": "bb3a9c50-0b71-5d83-9c41-9fd0377d101e",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:energy-barrier",
+    "name": "Energy Barrier",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["inventor"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your armor's defenses ablate any kind of energy coming your way. While wearing your armor, you gain resistance to all energy damage (acid, cold, electricity, fire, force, sonic, vitality, and void damage) equal to 2 + half your level. You must have the harmonic oscillator, metallic reactance, or phlogistonic regulator modification to select this modification."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.vUt71oX9QNLAUmZn"
+    },
+    "license": "OGL",
+    "data": {}
   },
   {
     "id": "cb9cc7bd-59cc-5a9c-8aaf-d1044b11aee5",
@@ -4814,6 +5018,45 @@
     "data": {
       "tags": ["armor-innovation-modification"]
     }
+  },
+  {
+    "id": "665d63ed-4dc8-5ec6-98e8-c6ca5a4fd4ec",
+    "pack": "guns-and-gears",
+    "kind": "class-feature",
+    "slug": "class-feature:stubborn",
+    "name": "Stubborn",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["gunslinger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You don't like being told what to do, and you don't give up. Your proficiency rank for Will saves increases to expert. When you fail, but don't critically fail, a Will save against an effect that would give you the controlled condition, you can attempt a second save against the effect at the start of your next turn. On a successful second save, the controlled condition ends, though any other effects remain. As normal, failing this second save doesn't allow you to attempt a third save on the subsequent turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Wpdeh6EkcAKA60oH"
+    },
+    "license": "OGL",
+    "data": {}
   },
   {
     "id": "45d797d9-e612-522a-bdcf-f533bad9e4b7",

@@ -546,6 +546,67 @@
     }
   },
   {
+    "id": "0f685662-e5a4-5bb7-a359-f98fd07f396d",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:conjure-bullet",
+    "name": "Conjure Bullet",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure an ordinary level-0 bolt or bullet out of thin air and then immediately Interact to load it into your weapon. If the bolt or bullet isn't fired before the end of your turn, the effect is wasted."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KC6o1cvbr45xnMei"
+    },
+    "license": "OGL",
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "round"
+      }
+    }
+  },
+  {
     "id": "3467883d-5148-5c72-a9f4-7aebd0703836",
     "pack": "guns-and-gears",
     "kind": "action",
@@ -809,6 +870,95 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "02245549-3e32-5749-8d4b-9d23596f3d40",
+    "pack": "guns-and-gears",
+    "kind": "action",
+    "slug": "action:explode",
+    "name": "Explode",
+    "rarity": "common",
+    "traits": ["fire", "inventor", "manipulate", "unstable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You intentionally take your innovation beyond normal safety limits, making it explode and damage nearby creatures without damaging the innovation... hopefully. The explosion deals max(2, @actor.level)d6[@actor.flags.pf2e.inventor.explode] damage with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " around you (if you're wearing or holding the innovation) or around your innovation (if your innovation is a minion)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level, and every level thereafter, increase your explosion's damage by 1d6."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the breakthrough innovation class feature, you can choose either a 5-foot or "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " for the area when you use Explode; if you have the revolutionary innovation class feature, you can choose a 5-foot, 10-foot, or "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.naKVqd8POxcnGclz"
+    },
+    "license": "OGL",
+    "data": {
+      "cost": "two",
+      "category": "interaction"
     }
   },
   {
