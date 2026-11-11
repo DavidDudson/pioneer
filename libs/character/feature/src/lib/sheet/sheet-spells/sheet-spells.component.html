@@ -17,13 +17,9 @@
       <fr-stack horizontalFrom="lg" gap="lg" align="start">
         <pio-sheet-spell-resources />
         <fr-stack gap="md" grow>
-          <fr-segmented
-            [options]="targetOptions()"
-            [ariaLabel]="'character.sheet.spellTargets.label' | transloco"
-            [(value)]="targetFilter"
-          />
+          <pio-spell-filter [groups]="filters.groups()" (changed)="filters.pick($event)" (cleared)="filters.clear()" />
           <pio-spell-row-list
-            [lines]="spellList()"
+            [lines]="filters.list()"
             [busy]="items.busy()"
             [error]="items.error()"
             (itemAction)="items.act($event)"
@@ -33,9 +29,9 @@
       </fr-stack>
     </ng-template>
   </fr-async-region>
-} @else if (spellList().length > 0) {
+} @else if (filters.list().length > 0) {
   <pio-spell-row-list
-    [lines]="spellList()"
+    [lines]="filters.list()"
     [busy]="items.busy()"
     [error]="items.error()"
     (itemAction)="items.act($event)"

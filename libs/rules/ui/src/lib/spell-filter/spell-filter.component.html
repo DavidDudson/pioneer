@@ -1,0 +1,23 @@
+<fr-stack gap="2xs">
+  @for (group of shown(); track group.id) {
+    <fr-disclosure>
+      <fr-text frDisclosureSummary>{{
+        summaryKey(group) | transloco: { facet: group.label, count: count(group) }
+      }}</fr-text>
+      <fr-filter-chips
+        [ariaLabel]="group.label"
+        [options]="optionsOf(group)"
+        [value]="group.selected"
+        (valueChange)="pick(group, $event)"
+      />
+    </fr-disclosure>
+  }
+  @if (active(); as active) {
+    <fr-stack direction="horizontal" gap="xs" align="center">
+      <fr-text element="p" variant="caption" tone="muted">{{
+        Message.FilterActive | transloco: { filters: active }
+      }}</fr-text>
+      <fr-button [variant]="clearVariant" (pressed)="cleared.emit()">{{ Message.FilterClear | transloco }}</fr-button>
+    </fr-stack>
+  }
+</fr-stack>

@@ -3,9 +3,9 @@ import { TargetValue } from '@pioneer/rules/sdk';
 import type { FocusLine, InnateLine, SpellDetailLine, SpellRowLine } from '@pioneer/rules/ui';
 import { describe, expect, it } from 'vitest';
 
+import { NO_SPELL_FILTER, SpellFilterGroupId } from './sheet-spell-filter';
 import { sheetSpellList } from './sheet-spell-list';
 import type { PreparedEntryFields } from './sheet-spell-picks';
-import { SpellTargetFilter } from './sheet-spell-targets';
 
 interface Spell {
   readonly id: string;
@@ -15,7 +15,16 @@ interface Spell {
 }
 
 function detail({ id, name, source, targetValues = [] }: Spell): SpellDetailLine {
-  return { id, name, rank: 1, source, targetValues } as unknown as SpellDetailLine;
+  return {
+    id,
+    name,
+    rank: 1,
+    source,
+    targetValues,
+    traits: [],
+    effects: [],
+    cost: { kind: 'actions', cost: 'one', upTo: undefined },
+  } as unknown as SpellDetailLine;
 }
 
 function focusOf(...spells: readonly SpellDetailLine[]): FocusLine {
@@ -61,7 +70,7 @@ describe(sheetSpellList, () => {
         innate: innateOf(detail({ id: 'light', name: 'Light', source: 'Ancestry' })),
         prepared: preparedOf(detail({ id: 'daze', name: 'Daze', source: 'Cleric' })),
       },
-      SpellTargetFilter.All,
+      NO_SPELL_FILTER,
     );
 
     expect(namesOf(lines)).toStrictEqual(['Daze (Cleric)', 'Inspire Courage (Composition)', 'Light (Ancestry)']);
@@ -74,7 +83,7 @@ describe(sheetSpellList, () => {
         innate: innateOf(detail({ id: 'heal', name: 'Heal', source: 'Ancestry' })),
         prepared: preparedOf(detail({ id: 'heal', name: 'Heal', source: 'Cleric' })),
       },
-      SpellTargetFilter.All,
+      NO_SPELL_FILTER,
     );
 
     expect(namesOf(lines)).toStrictEqual(['Heal (Ancestry)', 'Heal (Cleric)']);
@@ -90,7 +99,7 @@ describe(sheetSpellList, () => {
           detail({ id: 'heal', name: 'Heal', source: 'Cleric' }),
         ),
       },
-      SpellTargetFilter.All,
+      NO_SPELL_FILTER,
     );
 
     expect(namesOf(lines)).toStrictEqual(['Heal (Cleric)']);
@@ -103,7 +112,7 @@ describe(sheetSpellList, () => {
         innate: undefined,
         prepared: preparedOf(undefined, detail({ id: 'daze', name: 'Daze', source: 'Cleric' })),
       },
-      SpellTargetFilter.All,
+      NO_SPELL_FILTER,
     );
 
     expect(namesOf(lines)).toStrictEqual(['Daze (Cleric)']);
@@ -119,7 +128,7 @@ describe(sheetSpellList, () => {
           detail({ id: 'burst', name: 'Burst', source: 'Cleric', targetValues: [TargetValue.Multiple] }),
         ),
       },
-      SpellTargetFilter.Multiple,
+      new Map([[SpellFilterGroupId.Target, new Set([TargetValue.Multiple])]]),
     );
 
     expect(namesOf(lines)).toStrictEqual(['Burst (Cleric)']);
