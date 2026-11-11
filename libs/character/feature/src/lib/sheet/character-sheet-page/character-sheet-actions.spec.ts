@@ -11,9 +11,9 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openActionKind, render, settle, summaryOf, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
-import { ACTION_CONTENT_KINDS } from '../sheet-actions';
+import { ACTION_STAFF_CONTENT_KINDS } from '../sheet-actions';
 
-const PACKS = cutTo(ACTION_CONTENT_KINDS);
+const PACKS = cutTo(ACTION_STAFF_CONTENT_KINDS);
 
 const FIGHTER = {
   ...MERISIEL,

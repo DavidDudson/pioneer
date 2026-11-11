@@ -8,13 +8,13 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harness';
 import { textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
-import { ACTION_CONTENT_KINDS } from '../sheet-actions';
+import { ACTION_STAFF_CONTENT_KINDS } from '../sheet-actions';
 
 const openSheet = openerAt(SheetMode.Encounter, 'strikes');
 
 const PLAY_URL = `/api/characters/${id}/play`;
 const CHARACTER_URL = `/api/characters/${id}`;
-const PACKS = [...cutTo(ACTION_CONTENT_KINDS), ITEM_FIXTURE_FILES];
+const PACKS = [...cutTo(ACTION_STAFF_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 
 const POTIONS = '88888888-8888-4888-8888-888888888888';
 /** The sheet derives again after each edit, which takes longer than the default wait. */

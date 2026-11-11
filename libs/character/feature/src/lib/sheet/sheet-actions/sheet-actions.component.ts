@@ -10,12 +10,12 @@ import { map } from 'rxjs';
 
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
-import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
+import { ACTION_CONTENT_KINDS, ACTION_STAFF_CONTENT_KINDS, sheetActions } from '../sheet-actions';
 import { SheetConsumableRoll } from '../sheet-consumable-roll/sheet-consumable-roll.component';
 import { sheetRestrictions } from '../sheet-environments';
 import { sheetInnateActions } from '../sheet-innate-actions';
 import { statisticInputsOf } from '../sheet-inputs';
-import { sheetItemActions } from '../sheet-item-actions';
+import { holdsStaff, sheetItemActions } from '../sheet-item-actions';
 import { SheetSpender } from '../sheet-spender';
 import { SheetState } from '../sheet-state';
 import { sheetStrikeActions } from '../sheet-strike-actions';
@@ -56,6 +56,14 @@ export class SheetActions {
 
   /** The registry with the actions and what grants them. */
   protected readonly registry = injectContentRegistry(ACTION_CONTENT_KINDS);
+  /** Whether the character holds a staff, known once the registry with the items has loaded. */
+  readonly #staff = computed((): boolean => {
+    const registry = this.registry.data();
+    const character = this.#sheet.character();
+    return registry !== undefined && character !== undefined && holdsStaff(registry, character);
+  });
+  /** The registry with the spells too, which a staff's spell rows need; loads only for a character holding a staff (#1834). */
+  readonly #staffRegistry = injectContentRegistry(ACTION_STAFF_CONTENT_KINDS, () => this.#staff());
   protected readonly playQuery = this.#play.play;
   protected readonly view = signal<ActionsViewKind>(ActionsViewKind.Now);
   protected readonly entryNames = this.#sheet.picks.entryNames;
@@ -91,7 +99,7 @@ export class SheetActions {
 
   /** The actions as the engine decides them for the character now; undefined while the content or play state loads. */
   protected readonly lines = computed((): readonly ActionLine[] | undefined => {
-    const registry = this.registry.data();
+    const registry = this.#staff() ? this.#staffRegistry.data() : this.registry.data();
     const character = this.#sheet.character();
     const read = this.#play.play.data();
     if (registry === undefined || character === undefined || read === undefined) {
