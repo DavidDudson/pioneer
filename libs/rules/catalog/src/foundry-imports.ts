@@ -43,6 +43,7 @@ export const FOUNDRY_IMPORTS: readonly FoundryImport[] = [
   imported('core-rulebook'),
   imported('advanced-players-guide'),
   imported('book-of-the-dead'),
+  imported('gamemastery-guide'),
   imported('the-show-must-go-on'),
   imported('impossible-magic'),
   imported('guns-and-gears'),

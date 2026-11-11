@@ -66,6 +66,7 @@ const ancestryGuide = PackId.parse('ancestry-guide');
 const coreRulebook = PackId.parse('core-rulebook');
 const advancedPlayersGuide = PackId.parse('advanced-players-guide');
 const bookOfTheDead = PackId.parse('book-of-the-dead');
+const gamemasteryGuide = PackId.parse('gamemastery-guide');
 const theShowMustGoOn = PackId.parse('the-show-must-go-on');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
@@ -92,6 +93,7 @@ describe('content catalog', () => {
       divineMysteries,
       draconicCodex,
       foolishHousekeeping,
+      gamemasteryGuide,
       gatewalkers,
       gmCore,
       gunsAndGears,

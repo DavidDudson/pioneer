@@ -1,0 +1,4063 @@
+[
+  {
+    "id": "039ea2d7-4b3d-549f-a723-e6668fe74476",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:board",
+    "name": "Board",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are adjacent to a point of entry on the vehicle you are attempting to board."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You board a vehicle through an open top, a door, a portal, or a hatch; if you're already on board, you can instead use this action to disembark into an empty space adjacent to the vehicle's point of entry. Using this action while the vehicle is in motion is challenging, requiring a successful Acrobatics or Athletics check with a DC equal to the vehicle's AC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.bG91dbtbgOnw7Ofx"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are adjacent to a point of entry on the vehicle you are attempting to board."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3a287af5-9c19-56c6-a64d-5998a9742e7b",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:bribe-contact",
+    "name": "Bribe Contact",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A bribe worth at least one-tenth of the Currency per Additional PC listed on Core Rulebook 509 (see table below). Doubling this amount grants a +2 circumstance bonus to the check."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You've successfully Gained a Contact. You offer a bribe to your contact to help the heist in some way. Attempt a hard or very hard Deception or Diplomacy check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The contact accepts the bribe and you gain 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You believe you successfully Bribed your Contact and gained 1 EP, but in fact the contact informs the opposition of the attempted bribery, adding 1 AP to the infiltration. The GM can reveal that this Edge Point grants no benefit at any point during the infiltration, as befits the story."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but adding 2 AP to the infiltration."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "NPC Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Minimum"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "+2 Bonus"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "NPC Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Minimum"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "+2 Bonus"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "70 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "140 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1 gp, 8 sp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3gp, 6sp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "100 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "200 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "150 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "300 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "10 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "14"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "225 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "450 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "15"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "325 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "650 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "12 gp, 5 sp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "16"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "500 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "36 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "750 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,500 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "25 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "50 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "18"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1,200 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2,400 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "35 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "70 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "19"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2,000 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4,000 gp"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "10"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "50 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "100 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3,500 gp"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7,000 gp"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IGPbMkKjnlFW1w1a"
+    },
+    "data": {
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You've successfully Gained a Contact. You offer a bribe to your contact to help the heist in some way. Attempt a hard or very hard Deception or Diplomacy check."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "5685e467-6951-53fd-9198-3206ad7520b4",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:bullying-press",
+    "name": "Bullying Press",
+    "rarity": "common",
+    "traits": ["flourish"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a melee Strike against your opponent, but haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Intimidation, and you rolled an Intimidation check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you hit, your opponent becomes "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ". If your opponent is using Perception for initiative when this ability is used, they become "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": " instead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TXqTIwNGULs3j6CH"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Intimidation, and you rolled an Intimidation check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a melee Strike against your opponent, but haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "c54b7414-d22c-5b2d-a401-9681f062e9d0",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:change-tradition-focus",
+    "name": "Change Tradition Focus",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in a duel and are trained in the skill for the tradition you're changing your focus to (Arcana for arcane, Occultism for occult, Nature for primal, or Religion for divine)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You change your tradition focus to another magical tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.s4s40hJr5uRLOqix"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are in a duel and are trained in the skill for the tradition you're changing your focus to (Arcana for arcane, Occultism for occult, Nature for primal, or Religion for divine)."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1ab541b3-b6e7-5137-8d15-7b5f8b029229",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:dancing-shadow",
+    "name": "Dancing Shadow",
+    "rarity": "common",
+    "traits": ["shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " shadow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The relic is a weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic's shadow detaches from your relic and dances through the air to attack an enemy. When you Activate the relic, designate a target. The relic's shadow flies up to 60 feet until it is adjacent to that foe and then makes a Strike against it, dealing 5d8 damage on a success or double that on a critical success; the damage type is of any type normally dealt by your relic. The shadow uses your attack bonus with the relic, and it uses and contributes to your multiple attack penalty. While this activation is in effect, you can use a single action, which has the attack and concentrate traits, to mentally direct the shadow to make another Strike against the same target. The shadow lasts until that target is reduced to 0 Hit Points, that target moves more than 400 feet from you, or that target moves to an area where no shadow could be cast, such as an area of complete darkness, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The shadow doesn't take up space, grant flanking, or have any other attributes a creature would, and it automatically follows the chosen foe. The shadow can't make any attack other than its Strike, and feats or spells that affect weapons do not apply to it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.y6qvt8ac3fF4snwU"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "c72228ce-9a40-5ffd-a156-97e7b87dfa54",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:deadly-spark",
+    "name": "Deadly Spark",
+    "rarity": "common",
+    "traits": ["air", "electricity"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " air"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A spark flashes out from the relic toward a creature within 20 feet. This spark deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d12",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save). The damage increases by 1d12 at 6th level and by another 1d12 every 4 levels thereafter."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "(1+max(0,floor((@level -2)/4)))d12",
+                "damageType": "electricity"
+              }
+            ],
+            "label": "Leveled electricity damage"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.vkNAmvpzqWrIw43j"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1ad91943-e915-590a-95a1-a31b82e262f2",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:deceptive-sidestep",
+    "name": "Deceptive Sidestep",
+    "rarity": "common",
+    "traits": ["misfortune"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An opponent hits, but does not critically hit you, with a melee Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Deception, and you rolled a Deception check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw your enemy in and pull away at the last moment. The triggering opponent must roll again and take the second result. If your opponent is using Intimidation for initiative when this ability is used, they also take a -2 circumstance penalty to the second attack roll."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.1LDOfV8jEka09eXr"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Deception, and you rolled a Deception check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An opponent hits, but does not critically hit you, with a melee Strike."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "e59ccbb5-c7ab-5bca-9118-35ba82f35c5f",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:discover",
+    "name": "Discover",
+    "rarity": "common",
+    "traits": ["concentrate", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You watch or study an NPC to learn more about that NPC's preferences. Attempt a Perception check or an appropriate skill check determined by the GM. The DC is found in the NPC's influence stat block."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose two of the options detailed in Success below; you can choose the same option twice to learn two pieces of information from the same category."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose one of the following: You learn which skill that can Influence the NPC has the lowest DC (skipping any skills that you already know), one of the NPC's personal biases, one of the NPC's resistances, or one of the NPC's weaknesses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn no information."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Choose a piece of information to learn about, as success, but the information is incorrect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JLPY5hl4qiJ1zLi1"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "10c200ed-fb4d-5a95-82b2-bdb26063965b",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:divine-retribution",
+    "name": "Divine Retribution",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celestial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The relic is a weapon."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Drawing upon divine fury, you single out a target that damaged you or an ally within the past round and fill your relic with divine vengeance against them. Make a Strike against that foe, dealing an additional damage die on a hit. If the target is evil, it is also "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn on a hit (or "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " on a critical hit)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:divine-retribution",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "predicate": ["option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Divine Retribution",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 2 until the start of your next turn on a critical hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Divine Retribution",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 1 until the start of your next turn on a hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.k2YHPUydoyEKdhmP"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "88f91c31-6d2f-5de4-b37d-116521cbf2ea",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:drive",
+    "name": "Drive",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle. You pilot your vehicle to move."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Decide how many actions you intend to spend before you begin Driving. The effects depend on the number of actions you spend. You can't Drive through spaces occupied by creatures, even if they are allies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Attempt a piloting check. On a success, the vehicle moves up to its Speed and can turn normally. On a failure, the vehicle moves its Speed in a straight line. On a critical failure, the vehicle moves its Speed in a straight line and becomes uncontrolled"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " (reckless) The vehicle moves up to twice its Speed in a straight line at the vehicle's current heading."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " (reckless) You take a -5 penalty on your piloting check to maintain control of the vehicle. The vehicle moves up to three times its Speed in a straight line at the vehicle's current heading."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uS3qDAgOkZ7b8ERL"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle. You pilot your vehicle to move."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f936bd52-b7ee-5f84-8baa-7298d5364e4f",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:dueling-counter",
+    "name": "Dueling Counter",
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your opponent Casts a Spell from the same tradition as your tradition focus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are in a duel and have a tradition focus."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Expend a prepared spell or spell slot. You then attempt to counteract the triggering spell with the expended spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.xGqOIheAOV12RGU4"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are in a duel and have a tradition focus."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your opponent Casts a Spell from the same tradition as your tradition focus."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "734cb217-afbe-511e-aed4-39b14abde013",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:ease-burden",
+    "name": "Ease Burden",
+    "rarity": "common",
+    "traits": ["earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " earth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic draws strength from the earth underfoot to lighten your load. As long as your relic is on your person and you are standing on the ground, you can carry 1 more Bulk than normal before becoming encumbered, and you increase your maximum Bulk by 2. At 6th level and every 4 levels thereafter, increase the Bulk you can carry before becoming encumbered by 1 and your maximum Bulk by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.Oko8SYegarqBkxhM"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c696e3f1-5a84-5ea1-a76b-b245af8066cc",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:encouraging-words",
+    "name": "Encouraging Words",
+    "rarity": "common",
+    "traits": ["auditory", "general", "linguistic", "mental", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Trained in Diplomacy"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target ally lost Stamina Points within the last round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You give an ally within 30 feet a quick pep talk, helping them recover. Attempt a Diplomacy check. The DC is usually 15, though the GM might adjust it based on the circumstances. If you have expert proficiency in Diplomacy, you can instead attempt a DC 20 check to increase the Stamina Points recovered by 5; if you have master proficiency, you can attempt a DC 30 check to increase the Stamina Points by 15; if you have legendary proficiency, you can attempt a DC 40 check to increase the Stamina Points by 25. No matter the result, the ally is temporarily immune to Encouraging Words until they either "
+          },
+          {
+            "type": "ref",
+            "id": "947fa02c-ab77-5e37-bcb3-9fc876277d29"
+          },
+          {
+            "type": "text",
+            "text": " or rest for the day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally recovers 2d8 Stamina Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally recovers 1d8 Stamina Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, but this can reduce only Stamina Points, never Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.e2ePMDa7ixbLRryj"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target ally lost Stamina Points within the last round"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "d877eacd-678e-53b6-8b68-8ce7dc6522dc",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:forge-documents",
+    "name": "Forge Documents",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You prepare forgeries that might serve as convincing props. Attempt a hard or very hard Society check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create convincing forgeries and gain 1 EP you can use only when presenting some form of paperwork."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create unconvincing documents. You gain 1 EP that (unknown to you) grants no benefit when used."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As a failure, but a PC who tries to use the Edge Point gets a critical failure, even if they use the Edge Point after rolling a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.7dq6bpYvLArJ5odx"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "4a2a1cd1-e8ec-5e17-a701-1099b266e5dc",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:fortify-camp",
+    "name": "Fortify Camp",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can spend time fortifying your camp for defense with a successful Crafting check (typically at a trained or expert DC). Anyone keeping watch or defending the camp gains a +2 circumstance bonus to initiative rolls and Perception checks to Seek creatures attempting to sneak up on the camp."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.KvVdGkUi0iJwapvD"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "e1ec12c8-9838-5cb4-be0b-7c05cca7c1dd",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:gain-contact",
+    "name": "Gain Contact",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You try to make contact with an individual who can aid you in the infiltration. Attempt a normal, hard, or very hard DC Diplomacy or Society check, or a check using a Lore skill appropriate to your prospective contact."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make contact and gain 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to make contact."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You insult or spook the contact in some way. Future attempts take a -2 circumstance penalty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Special",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Multiple critical failures might cause the contact to work against the PCs in some way, likely increasing the party's Awareness Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.MLchOIG6uLvzK3r0"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "08268e7e-2426-511e-acb5-b059e9687f13",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:gossip",
+    "name": "Gossip",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek out rumors about the infiltration's target. Attempt a normal, hard, or very hard Diplomacy check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain inside information about the location or group you're trying to infiltrate. This grants you a +2 circumstance bonus to future checks you attempt for preparation activities for this infiltration. If you share this information, those you share it with also gain this bonus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain inside information about the place or group you're attempting to infiltrate that aids your planning."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn nothing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You hear a few mistaken rumors and take a -2 circumstance penalty to your next check for a preparation activity. Word spreads around that you're asking after that group or individual, increasing your Awareness Points by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.BCp3tn2HATUOUEdQ"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "3e1e9b36-fbc4-5258-b5bb-03d593ebe948",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:holy-light",
+    "name": "Holy Light",
+    "rarity": "common",
+    "traits": ["good"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celestial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic shines with holy light. This creates bright light in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " around the item. Evil creatures in the area are "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and can't lower their frightened value below 1 as long as they remain in the light. Fiends in the area increase any weakness to holy they have by 5. You can Sustain this Activation for up to 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:divine-retribution",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "predicate": ["option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Holy Light",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 2 until the start of your next turn on a critical hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Holy Light",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 1 until the start of your next turn on a hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.ReTbL6UDEkkdkHAY"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "2ee76b91-c853-5504-a4db-55087e558016",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:influence",
+    "name": "Influence",
+    "rarity": "common",
+    "traits": ["concentrate", "linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to make a favorable impression on an NPC to convince the NPC to support your cause. Attempt a skill check to impress that NPC. The DC and skills which can apply can be found in the NPC's stat block."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 2 Influence Points with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 Influence Point with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain no Influence Points with the chosen NPC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You lose 1 Influence Point with the chosen NPC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.6Oe9dg3Lu10slyeC"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "10a36a0d-c649-5fbd-a31f-424c07f7a349",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:linguistic-nexus",
+    "name": "Linguistic Nexus",
+    "rarity": "common",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mind"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic grants you a powerful neural plasticity, and as a result, you can learn languages more easily. You learn an additional language of your choice for every 2 levels of the relic (minimum 1). You can retrain one of the languages from the relic with only a single week of downtime."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.ddxnMTdRXNUvYH7B"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "728c0017-702f-5612-991d-655b718e77c1",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:map-the-area",
+    "name": "Map the Area",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As long as your group has successfully Reconnoitered the hex, you can use this activity to create an accurate map of the hex with a successful Survival check (typically at a trained or expert DC). When you have an accurate map of the hex, the DC of any check to navigate that hex is reduced by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ba9EuLV1I2b1ue9P"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "6f235774-2414-5e00-a3d3-414537022ab5",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:obscure",
+    "name": "Obscure",
+    "rarity": "common",
+    "traits": ["illusion", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " shadow"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic absorbs light and wraps shadow around you, hiding you in darkness. As long as you are in dim light in an area of shadows, you can attempt a Stealth check to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", even if you aren't "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " against the creature, such as with a creature with darkvision."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.hi80qyUsXbaq2Wf4"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "62abe60a-c2f7-5cb8-9e5f-36aecf09df21",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:perception-filter",
+    "name": "Perception Filter",
+    "rarity": "common",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mind"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic reaches into the minds of nearby creatures and blocks your presence from their perceptions. For the next 10 minutes, a creature that enters a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 120
+          },
+          {
+            "type": "text",
+            "text": ", centered on you, must attempt a secret "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes a –2 status penalty to Perception checks to "
+                },
+                {
+                  "type": "ref",
+                  "id": "d45207be-e539-50ce-9463-f4edc3671076"
+                },
+                {
+                  "type": "text",
+                  "text": " or otherwise detect you."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "You filter all of the creature's senses, making it difficult for it to notice you. When you are "
+                },
+                {
+                  "type": "ref",
+                  "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+                },
+                {
+                  "type": "text",
+                  "text": " or undetected from the creature, it doesn't observe you as soon as you do anything other than "
+                },
+                {
+                  "type": "ref",
+                  "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+                },
+                {
+                  "type": "text",
+                  "text": ", or Step. If it rolls a Perception check to Seek or otherwise detect you, it gets the outcome one degree of success worse than what it rolled, and if you roll a Stealth check to Hide, Sneak, or otherwise escape its attention, you get the outcome one degree of success better than what you rolled against the creature. If you use a hostile action toward the creature, the effect ends for that creature after your hostile action is completed."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, but the effect doesn't end for that creature if you use a hostile action against it."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save, after which the creature is then temporarily immune for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes a –2 status penalty to Perception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " or otherwise detect you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You filter all of the creature's senses, making it difficult for it to notice you. When you are "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " or undetected from the creature, it doesn't observe you as soon as you do anything other than "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": ", or Step. If it rolls a Perception check to Seek or otherwise detect you, it gets the outcome one degree of success worse than what it rolled, and if you roll a Stealth check to Hide, Sneak, or otherwise escape its attention, you get the outcome one degree of success better than what you rolled against the creature. If you use a hostile action toward the creature, the effect ends for that creature after your hostile action is completed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the effect doesn't end for that creature if you use a hostile action against it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.7NQGN3kxiXetaTT4"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f84b9f31-1013-5e5b-a432-828a72b7b516",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:propelling-winds",
+    "name": "Propelling Winds",
+    "rarity": "common",
+    "traits": ["air"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " air"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The relic casts "
+          },
+          {
+            "type": "ref",
+            "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "type": "text",
+            "text": " targeting you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:divine-retribution",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "predicate": ["option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Propelling Winds",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 2 until the start of your next turn on a critical hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["criticalSuccess"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      },
+      {
+        "key": "Note",
+        "selectors": ["strike-damage"],
+        "title": "Propelling Winds",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "If the target is evil, it is also Enfeebled 1 until the start of your next turn on a hit."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success"],
+        "predicate": ["target:trait:evil", "option:divine-retribution"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.qL44lR8sZMWgY1r7"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "f4373af7-8395-5981-88a3-acc32417884f",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:raise-ramparts",
+    "name": "Raise Ramparts",
+    "rarity": "common",
+    "traits": ["earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " earth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic reshapes the earth around you. You cast 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "1516123c-bc37-5053-be15-24201abb1d02"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.m9UGL3VWfg9r6xHQ"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
+    }
+  },
+  {
+    "id": "59fff087-0672-58b9-9e4f-ab7fe774d002",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:rally",
+    "name": "Rally",
+    "rarity": "common",
+    "traits": ["auditory", "emotion", "exploration", "linguistic", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Prerequisites",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " trained in Diplomacy, Intimidation, or Performance"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 1 minute encouraging your ally. Though this action typically has the auditory and linguistic traits, if you're using the Performance skill, the GM might adjust the traits for this action to match the traits for your type of performance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attempt a DC 15 skill check. The GM might adjust this DC based on the circumstances, such as attempting to Rally an ally who just suffered a humiliating defeat."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally can spend 1 Resolve Point to regain all their Stamina Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can continue encouraging your ally for a total of 10 minutes. If you do, they can spend 1 Resolve Point to regain all their Stamina Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ally takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "mental"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, but this can reduce only Stamina Points, never Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.xJEkXFJgEfEida27"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "57f1a586-69d7-5a6d-a8d9-011dd8eac358",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:reconnoiter",
+    "name": "Reconnoiter",
+    "rarity": "common",
+    "traits": ["concentrate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend time surveying and exploring a specific area, getting the lay of the land and looking for unusual features and specific sites. Reconnoitering a single hex takes a number of hexploration activities equal to the number of Travel activities necessary to traverse the hex-1 for open terrain, 2 for difficult terrain, and 3 for greater difficult terrain. Traveling on roads doesn't lessen the time required to Reconnoiter. Once the hex has been Reconnoitered, you can Map the Area to reduce your chance of getting lost in that hex. You automatically find any special feature that doesn't require a check to find, and you attempt the appropriate checks to find hidden special features."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For instance, if you were looking for an obvious rock formation among some hills, you would spend 2 hexploration activities to Reconnoiter the hex, and you'd find the rock formation. But if you were looking for a hidden tengu monastery somewhere in some deep forests, after spending 2 activities to Reconnoiter the forest hex, you would have to succeed at a Perception check as part of your Reconnoiter activity to find the monastery."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.QIrJJ1pl4H6DctaQ"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "29ca0091-6037-5f7e-ae7b-333cacb1fbb2",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:repository-of-knowledge",
+    "name": "Repository of Knowledge",
+    "rarity": "common",
+    "traits": ["mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " mind"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your relic is imbued with the psychic impressions of ages past. While the relic is on your person, you are trained in 3 additional Lore skills of the GM's choice that fit the relic's history, decided at the time of gaining this gift. If the relic is 9th level, you instead have expert proficiency in these Lore skills, and if the relic is 17th level, you have master proficiency in these Lore skills."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.0HbksdcT2zNV5CUt"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5f9e39ea-00f1-5550-8a6b-e6b790c3d174",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:research",
+    "name": "Research",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "linguistic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You comb through information to learn more about the topic at hand. Choose your research topic, section of the library, or other division depending on the form of research, and attempt a skill check. The skills to use and the DC for the check depend on the choice you made."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 2 RP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain 1 RP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make a false discovery and lose 1 RP."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.t5nBkpjroaq7QBGK"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "7e28f2c3-b0ee-53ea-88ed-08c3974311d8",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:run-over",
+    "name": "Run Over",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "(reckless) You try to run over creatures with your vehicle, possibly also ramming one larger creature or object. If you maintain control of your vehicle, the vehicle moves up to twice its Speed in a straight line at the vehicle's current heading. You attempt to run over any creatures in your path two sizes smaller than the vehicle or smaller, and you can attempt to ram one target creature or object in your path one size smaller than the vehicle or larger."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature in your path, including a rammed target, takes the vehicle's collision damage (basic Reflex save at vehicle's collision DC). If the rammed target is a vehicle, its pilot can attempt a piloting check in place of this Reflex save, with the same results. If the target of your ram takes damage, you and your vehicle each take collision damage (no save) and your movement ends."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lID4rJHAVZB6tavf"
+    },
+    "data": {
+      "cost": "three",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "06924c9e-0c65-5e20-b52f-41254cbe412b",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:scout-location",
+    "name": "Scout Location",
+    "rarity": "common",
+    "traits": ["downtime", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend time observing the place or group you wish to infiltrate. Attempt a normal, hard, or very hard DC Perception, Society or Stealth check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You make observations that provide 1 EP."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn nothing particularly noteworthy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You misjudge some aspect of what you observed, gaining 1 EP that results in a critical failure instead of a success when used, even if a PC uses the Edge Point after rolling a failure."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EcDcowQ8vS6cEfXd"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "2e21bf6f-a186-599e-b920-d99f11c0cf2a",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:secure-disguises",
+    "name": "Secure Disguises",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek to procure or create disguises. Attempt a normal, hard, or very hard Crafting, Deception, Performance, or Society check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You procure or creates disguises, gaining 1 EP that can be used only to maintain a cover identity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your efforts result in an unusable disguise."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.iEYZ5PAim5Cvbila"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "950c44ea-8676-59f5-856c-ead278aecf67",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:sense-weakness",
+    "name": "Sense Weakness",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a melee Strike against your opponent, but haven't rolled yet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You're in a duel, you're trained in Perception, and you rolled a Perception check for initiative this round."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You pick a precise moment to attack, giving you an edge. Your opponent is "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " against the attack. If your opponent is using Deception for initiative when this ability is used, they are instead off-guard until the start of their next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.uWTQxEOj2pl45Kns"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You're in a duel, you're trained in Perception, and you rolled a Perception check for initiative this round."
+            }
+          ]
+        }
+      ],
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You attempt a melee Strike against your opponent, but haven't rolled yet."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "1816afba-761f-58dd-a0f9-60f578283079",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:shadow-smith",
+    "name": "Shadow Smith",
+    "rarity": "common",
+    "traits": ["shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " shadow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your relic pulls at nearby shadows, twisting them into the shape of a simple weapon or a simple tool or item, such as a rope or crowbar. It lasts until it is used for a single activity, until you use shadow smith again, or for 1 minute, whichever comes first, after which it dissipates."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.LuUOQ5HvoFK9xUs4"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "177fe811-e55d-5dd7-8756-7c5a4126a51e",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:shattered-earth",
+    "name": "Shattered Earth",
+    "rarity": "common",
+    "traits": ["earth"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " earth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Seismic pulses from your relic ripple through the nearby ground, shaking sharp fragments to the surface. A 10-foot-radius patch of stone or earth within 60 feet is transformed into difficult terrain. A creature that enters an affected square during a move action must succeed at an Acrobatics check or Reflex save or take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage; it needs to roll only once per move action even if it moves through several squares. At 6th level and every 4 levels thereafter, increase the damage by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.1mir8ZPc1sJNEKVM"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  },
+  {
+    "id": "5ef42936-d755-54e2-b8e1-e51a09872010",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:steel-your-resolve",
+    "name": "Steel Your Resolve",
+    "rarity": "common",
+    "traits": ["general"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Resolve Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regain Stamina Points equal to half your maximum."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.D2PNfIw7U6Ks0VY4"
+    },
+    "data": {
+      "cost": "one"
+    }
+  },
+  {
+    "id": "cdbb6956-0ecb-5bdb-9975-6b895caf066f",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:stop",
+    "name": "Stop",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are piloting a vehicle in motion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You bring the vehicle to a stop."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.9gDMkIfDifh61yLz"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are piloting a vehicle in motion."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "947fa02c-ab77-5e37-bcb3-9fc876277d29",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:take-a-breather",
+    "name": "Take a Breather",
+    "rarity": "common",
+    "traits": ["exploration", "stamina"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 Resolve Point"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You rest for 10 minutes and recover your stamina. After you complete this activity, you regain all your Stamina Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.qc0VsZ0UesnurUUB"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "072a08d0-fe17-53b4-8206-837c342fe64c",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:take-control",
+    "name": "Take Control",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are aboard the vehicle and adjacent to its controls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grab the reins, the wheel, or some other mechanism to control the vehicle. Attempt a piloting check; on a success, you become the vehicle's pilot, or regain control of the vehicle if it was uncontrolled. Some vehicles have complicated controls that cause this action to become a multi-action activity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yh9O9BQjwWrAIiuf"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are aboard the vehicle and adjacent to its controls."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8d79b87c-ee3e-5678-90d6-6bf52dcf7396",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:travel",
+    "name": "Travel",
+    "rarity": "common",
+    "traits": ["move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You progress toward moving into an adjacent hex. In open terrain, like a plain, using 1 Travel activity allows you to move from one hex to an adjacent hex. Traversing a hex with difficult terrain (such as a typical forest or desert) requires 2 Travel activities, and hexes of greater difficult terrain (such as a steep mountain or typical swamp) require 3 Travel activities to traverse. Traveling along a road uses a terrain type one step better than the surrounding terrain. For example, if you are traveling on a road over a mountain pass, the terrain is difficult terrain instead of greater difficult terrain."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Travel activity assumes you are walking overland. If you are flying or traveling on water, most hexes are open terrain, though there are exceptions. Flying into storms or high winds count as difficult or greater difficult terrain. Traveling down a river is open terrain, but traveling upriver is difficult or greater difficult terrain."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Z8aa6afUterlfh5i"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "b1702db5-a45a-55c5-9b84-023ba7fda3d7",
+    "pack": "gamemastery-guide",
+    "kind": "action",
+    "slug": "action:word-of-faith",
+    "name": "Word of Faith",
+    "rarity": "common",
+    "traits": ["healing", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aspect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " celestial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Placing your hand on yourself or an ally, you heal their wounds and bolster their spirit. The target regains"
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " HP per item level and reduces their "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62"
+          },
+          {
+            "type": "text",
+            "text": " value by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.adventure-specific-actions.Item.fSX1Ccn4GVD7OGzV"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive",
+      "frequency": {
+        "max": 1,
+        "per": "hour"
+      }
+    }
+  }
+]

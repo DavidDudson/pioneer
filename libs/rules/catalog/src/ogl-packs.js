@@ -120,3 +120,15 @@ export async function bookOfTheDeadPack() {
     import('@pioneer/content/packs/book-of-the-dead/weapon.json'),
   ]);
 }
+
+export async function gamemasteryGuidePack() {
+  return pack(import('@pioneer/content/packs/gamemastery-guide/pack.json'), [
+    import('@pioneer/content/packs/gamemastery-guide/action.json'),
+    import('@pioneer/content/packs/gamemastery-guide/consumable.json'),
+    import('@pioneer/content/packs/gamemastery-guide/effect.json'),
+    import('@pioneer/content/packs/gamemastery-guide/equipment.json'),
+    import('@pioneer/content/packs/gamemastery-guide/feat.json'),
+    import('@pioneer/content/packs/gamemastery-guide/treasure.json'),
+    import('@pioneer/content/packs/gamemastery-guide/weapon.json'),
+  ]);
+}

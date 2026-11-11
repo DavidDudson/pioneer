@@ -1,0 +1,1755 @@
+[
+  {
+    "id": "1ed238fc-c801-57ea-9d29-c68c59f76d14",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:bag-of-devouring-type-i",
+    "name": "Bag of Devouring Type I",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["cursed", "extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item appears to be and functions as a bag of holding, but is actually a feeding orifice of a bizarre extradimensional creature. Any animal or vegetable matter put in the bag has a chance of triggering the bag's interest. Whenever you reach into the bag to retrieve an item or place an animal or plant (or animal or plant product) within the bag, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 9
+          },
+          {
+            "type": "text",
+            "text": ". On a success, the bag ignores the intrusion. On a failure, the bag devours the triggering material, removing it from this realm of existence; the bag can't eat artifacts or other similarly hard-to-destroy items. If the triggering material is not entirely inside of the bag, such as when someone reaches a hand inside, the "
+          },
+          {
+            "type": "text",
+            "text": "bag of devouring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to pull it completely inside the bag using a Grapple action, with an Athletics bonus determined by the type of bag. On a success, it devours the victim or object entirely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athletics Bonus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +15; acts as a "
+          },
+          {
+            "type": "text",
+            "text": "type II bag of holding",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MN8SF2sArQhJg6QG"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 50,
+        "ignored": 50
+      }
+    }
+  },
+  {
+    "id": "31e00aa6-7c22-5fed-8fe6-819450a2bd79",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:bag-of-devouring-type-ii",
+    "name": "Bag of Devouring Type II",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["cursed", "extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item appears to be and functions as a bag of holding, but is actually a feeding orifice of a bizarre extradimensional creature. Any animal or vegetable matter put in the bag has a chance of triggering the bag's interest. Whenever you reach into the bag to retrieve an item or place an animal or plant (or animal or plant product) within the bag, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 9
+          },
+          {
+            "type": "text",
+            "text": ". On a success, the bag ignores the intrusion. On a failure, the bag devours the triggering material, removing it from this realm of existence; the bag can't eat artifacts or other similarly hard-to-destroy items. If the triggering material is not entirely inside of the bag, such as when someone reaches a hand inside, the "
+          },
+          {
+            "type": "text",
+            "text": "bag of devouring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to pull it completely inside the bag using a Grapple action, with an Athletics bonus determined by the type of bag. On a success, it devours the victim or object entirely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athletics Bonus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +21; acts as a "
+          },
+          {
+            "type": "text",
+            "text": "type III bag of holding",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EIBmADRICTyYzxik"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 100,
+        "ignored": 100
+      }
+    }
+  },
+  {
+    "id": "fe2c49ff-3eae-5e12-8a5d-fc9058cbb959",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:bag-of-devouring-type-iii",
+    "name": "Bag of Devouring Type III",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["cursed", "extradimensional", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item appears to be and functions as a bag of holding, but is actually a feeding orifice of a bizarre extradimensional creature. Any animal or vegetable matter put in the bag has a chance of triggering the bag's interest. Whenever you reach into the bag to retrieve an item or place an animal or plant (or animal or plant product) within the bag, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 9
+          },
+          {
+            "type": "text",
+            "text": ". On a success, the bag ignores the intrusion. On a failure, the bag devours the triggering material, removing it from this realm of existence; the bag can't eat artifacts or other similarly hard-to-destroy items. If the triggering material is not entirely inside of the bag, such as when someone reaches a hand inside, the "
+          },
+          {
+            "type": "text",
+            "text": "bag of devouring",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " attempts to pull it completely inside the bag using a Grapple action, with an Athletics bonus determined by the type of bag. On a success, it devours the victim or object entirely."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athletics Bonus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +24; acts as a "
+          },
+          {
+            "type": "text",
+            "text": "type IV bag of holding",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.n3kJYoTrzXYwlYaV"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "container": {
+        "capacity": 150,
+        "ignored": 150
+      }
+    }
+  },
+  {
+    "id": "b0351f0b-70a4-5784-9cd6-c72c5bc1de28",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:boots-of-dancing",
+    "name": "Boots of Dancing",
+    "level": 11,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These boots act as "
+          },
+          {
+            "type": "ref",
+            "id": "79070e82-a64f-58c4-98a8-72a7604f162e"
+          },
+          {
+            "type": "text",
+            "text": ", but they react wildly to strong physical exertion. While you wear the boots, the curse activates whenever you attempt an Athletics check or Stride more than once in a single round during an encounter. The boots cast an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2044ae9b-f82e-5da7-9208-fef06297ca5a"
+          },
+          {
+            "type": "text",
+            "text": " spell on you, and you automatically fail your save. Once the curse has activated for the first time, the boots fuse to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oxL8uExmIomunm5g"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1250
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d2c2afc5-289a-5cf2-a22c-25259d6215e0",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:deck-of-many-things",
+    "name": "Deck of Many Things",
+    "level": 22,
+    "rarity": "rare",
+    "traits": ["artifact", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These 22 cards of heavy vellum, usually stored in a box or a pouch, bear images or glyphs depicting symbols of magical power. Looking at a card without activating it shows the card face but has no magical effect. Once the deck is face down, the cards randomize themselves-if you look at the top card multiple times, you may find it changes. Any card removed from the deck goes missing after a few seconds, reappearing in the deck."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You declare how many cards you will draw facedown from the deck, then draw your first card. The card takes effect immediately. Any further cards must be drawn within the next hour, and any card you don't voluntarily draw flits off the deck and affects you anyway. You can never activate the same "
+          },
+          {
+            "type": "text",
+            "text": "deck of many things",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " again. Once a card is drawn, it produces its effect immediately and then disappears back into the deck, which immediately shuffles itself. (The Dullard and Jester are exceptions, as described in their entries below.) The effects of each card are as follows."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Gyi4IVrAVJRPJF2s"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9dc9831b-850c-5140-9f04-ad6a6677b824",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:elder-sign",
+    "name": "Elder Sign",
+    "level": 25,
+    "rarity": "rare",
+    "traits": ["artifact", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This stone tablet is carved with the symbol of a five-branched twig. There are only a limited number of elder signs, and each time one is destroyed, the universe's doom creeps inexorably closer. Reciting one of three different occult mantras ("
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check to do so correctly) allows three different activations. All three abilities work only on a creature connected to the Elder Mythos or a cosmic horror, such as a wendigo or gug; the activations refer to them as \"eldritch creatures.\""
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts a 10th-rank banishment spell on an eldritch creature. Even if the creature isn't extraplanar, the "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can still banish it, sending it back to the part of the Material Plane from which it originated. If the creature is a Great Old One, the "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " banishes it automatically (as if it critically failed its save) but is then forever destroyed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts dispel magic on an effect from an eldritch creature, using a counteract rank of 10 and +30 modifier for the roll."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts dimensional lock, though it wards against travel by only eldritch creatures. Each time the "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts "
+          },
+          {
+            "type": "text",
+            "text": "dimensional lock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " in this way, the previous "
+          },
+          {
+            "type": "text",
+            "text": "dimensional lock",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The only way to destroy an "
+          },
+          {
+            "type": "text",
+            "text": "elder sign",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is to use it to banish a Great Old One."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KEICt6Tusa3JdTE8"
+    },
+    "data": {
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6ed83e79-277c-53b7-8283-ffb8cd0aa349",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:essence-prism",
+    "name": "Essence Prism",
+    "level": 28,
+    "rarity": "unique",
+    "traits": ["artifact"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This enormous, multifaceted prism normally rests on a pedestal, eerily refracting many-colored lights even when no light source is present. In reality, the prism refracts the four magical essences into the visible spectrum. A creature adjacent to the prism can adjust its facets with an Interact action to change between two polarities. Two essences flow from two input streams into the prism, where the prism combines them into a single output stream; alternatively, a single essence flows from one input stream into the prism and is split into two output streams. A creature that enters and stays within an input essence stream for 1 minute is slowly encased in solid magic, at which point it is paralyzed until anyone reverses the prism's flow or finishes activating the prism. A creature stepping into an output essence stream is gently pushed back and out of the stream."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You alter and rearrange the facets of the essence prism, adjusting the essences to select for a single quality, which might be associated with mental essence, like a personality trait; material essence, like a physical quality; vital essence, like a belief or instinct; or spiritual essence, like an alignment component such as good or lawful. You must succeed at a secret DC 30 skill check with a skill associated with a magical tradition that uses the essence you chose (for instance, Arcana or Occultism for mental essence, as arcane and occult magic both use mental essence). On a failure, you accidentally set the prism for some other quality."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The prism has only one input stream, and a creature is encased in magic in the input stream"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Over the course of the next hour, the creature in the input stream has its essences refracted through the prism, creating two cocoons of magic in the output streams that each contain a new creature. At the end of the process, the original creature is gone, and the two new creatures break free of their cocoons. Each creature is part of the original, separated from the rest based on the last quality set by the prism's first activation. For instance, if you set the prism to \"good\", one creature would have all the original creature's good aspects and the other would be the original creature's evil side. Unless you selected a physical quality, both new creatures look just like the original. The new creatures are usually 2 levels lower than the original, but if the original creature was strongly biased with respect to the quality you chose (for instance, if splitting out the good and evil side of a redeemer), the stronger creature is 1 level lower and the weaker creature is 3 or more levels lower. If calibrated correctly, this activation can also reverse the effect of the third activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The prism has two input streams, and a creature is encased in magic in each of the input streams"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Over the course of the next hour, the essences of both creatures in the input streams are refracted through the prism, creating a cocoon of magic in the output stream that contains a new creature. At the end of the process, the original creatures are gone, and the new creature breaks free of its cocoon. The new creature is an amalgam of the originals, with a new personality blended from both, and is usually 1 or 2 levels higher than the higher level of the original creatures unless the lower-level creature was much weaker. This activation also reverses the effect of the second activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Forcing the "
+          },
+          {
+            "type": "text",
+            "text": "essence prism",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " to combine two incompatible demigods destroys the prism, though it might also result in a new divinity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.kwo4VKC9Qkplusxs"
+    },
+    "data": {
+      "bulk": 5,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c1be68aa-dea5-5c6d-ab07-43df25ac22ca",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:gloves-of-carelessness",
+    "name": "Gloves of Carelessness",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["cursed", "extradimensional", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These gloves appear and function as "
+          },
+          {
+            "type": "ref",
+            "id": "45fd8d2f-67b3-58f2-b1f3-48f65690fac9",
+            "label": "Gloves of Storing"
+          },
+          {
+            "type": "text",
+            "text": " but repel any item not stored in the gloves. When wearing them, whenever you Interact to draw or pick up an item, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": ". On a success, you do so as normal. On a failure, you instead fling the item 15 feet in a random direction. You can use a reaction to attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23
+          },
+          {
+            "type": "text",
+            "text": " save, causing the item to land at your feet instead if you succeed. Removing the stored item from the gloves does not trigger the item's curse. The first time the curse activates, the gloves fuse to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ftSaD4c5io4pP4OB"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "gloves"
+      }
+    }
+  },
+  {
+    "id": "09f9a015-b56f-5db5-902f-818f6120e6d4",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:horns-of-naraga",
+    "name": "Horns of Naraga",
+    "level": 26,
+    "rarity": "unique",
+    "traits": ["artifact", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This imposing helm bears the horns of a powerful black dragon. While wearing the "
+          },
+          {
+            "type": "text",
+            "text": "Horns of Naraga",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you gain greater darkvision and immunity to acid. If you are undead, you gain resistance 40 to vitality damage. If you are not undead, the helm quickly saps the life from you, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to you every round. If you die from this damage, you rise as an undead of an equal level in 1d4 rounds."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You touch a creature as part of an unarmed attack or melee spell attack roll"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. If you are an undead, you regain Hit Points equal to the void damage the creature took."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "Horns of Naraga",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " transform into Naraga, an Ancient Black Dragon. Naraga appears in an adjacent appropriate space, and if no such space is available, she does not appear. Naraga follows your commands without question. She remains for up to 1 hour or until you use an Interact action to dismiss her, after which she reverts back to the helm. If Naraga is slain, she immediately reverts back to the helm and can't be summoned for 1 week. You don't receive any of the helm's other benefits while it is transformed."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The helm is utterly obliterated if crushed between the jaws of an ancient black dragon's skull located in a desert while the sun is at its zenith."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e"
+      },
+      {
+        "key": "Immunity",
+        "type": ["acid"]
+      },
+      {
+        "key": "Resistance",
+        "type": ["vitality"],
+        "value": 40,
+        "predicate": ["self:mode:undead"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.SHzZSENlkz3Qy46j"
+    },
+    "data": {
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "horns-of-naraga",
+          "name": "Horns of Naraga",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "e481b8d8-1ee8-50e5-b9dd-c244dbfe32ae",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-strangulation",
+    "name": "Necklace of Strangulation",
+    "level": 15,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This beautiful necklace appears to be a magical item such as a necklace of fireballs or a pendant of the occult. When invested, it magically locks in place, suspiciously tightly, and fuses to you. When you enter a situation of extreme stress (as determined by the GM), the necklace tightens around your neck, suffocating you and dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "30",
+                "damageType": "bludgeoning"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to you at the end of each of your turns. Once per round, you can spend a single action to attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " check or "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 34
+          },
+          {
+            "type": "text",
+            "text": " save; success means you don't take the damage on your current turn, but you continue suffocating. The necklace loosens after you've been dead for a month."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.NLF4Z7jn44Sf3RGS"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "necklace"
+      }
+    }
+  },
+  {
+    "id": "442b8062-85d3-58fa-a661-bd9a19b82bc0",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:poisonous-cloak-type-i",
+    "name": "Poisonous Cloak Type I",
+    "level": 6,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This innocuous-looking cloak is associated with a type of poison, set at the cloak's creation. It often appears as a clandestine cloak or a cloak of the bat to the unaware. When you invest this cloak, you lose any resistance to poison damage, and anytime you take piercing or slashing damage in combat, you are exposed to the type of poison associated with the poisonous cloak with no onset, even if it's not an injury poison. Once the curse has activated for the first time, the cloak fuses to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " giant scorpion venom"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.65ZhBT2S8bCeEIgz"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "09ac486b-d8fb-5aef-b7e5-eb1a1686693e",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:poisonous-cloak-type-ii",
+    "name": "Poisonous Cloak Type II",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This innocuous-looking cloak is associated with a type of poison, set at the cloak's creation. It often appears as a clandestine cloak or a cloak of the bat to the unaware. When you invest this cloak, you lose any resistance to poison damage, and anytime you take piercing or slashing damage in combat, you are exposed to the type of poison associated with the poisonous cloak with no onset, even if it's not an injury poison. Once the curse has activated for the first time, the cloak fuses to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " wolfsbane"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BNShQdbxiPMisV60"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "15136e37-1c46-57e3-a10d-92d4378594f0",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:poisonous-cloak-type-iii",
+    "name": "Poisonous Cloak Type III",
+    "level": 13,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This innocuous-looking cloak is associated with a type of poison, set at the cloak's creation. It often appears as a clandestine cloak or a cloak of the bat to the unaware. When you invest this cloak, you lose any resistance to poison damage, and anytime you take piercing or slashing damage in combat, you are exposed to the type of poison associated with the poisonous cloak with no onset, even if it's not an injury poison. Once the curse has activated for the first time, the cloak fuses to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " purple worm venom"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.f8AI23xzAHyuU35m"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "735a5e4b-8b99-5fb9-84d8-a0b80ed22283",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:poisonous-cloak-type-iv",
+    "name": "Poisonous Cloak Type IV",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This innocuous-looking cloak is associated with a type of poison, set at the cloak's creation. It often appears as a clandestine cloak or a cloak of the bat to the unaware. When you invest this cloak, you lose any resistance to poison damage, and anytime you take piercing or slashing damage in combat, you are exposed to the type of poison associated with the poisonous cloak with no onset, even if it's not an injury poison. Once the curse has activated for the first time, the cloak fuses to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Poison",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " hemlock"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XbQrf5aYEWweje30"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "39b4e03b-9428-570e-9012-81b1e3149e81",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-truth",
+    "name": "Ring of Truth",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["cursed", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring appears to be a ring of lies, but when invested, close investigation reveals angelic wings and divine creatures hidden on the face of the ring. When you invest the ring, you are rendered unable to tell a deliberate lie, in either speech or writing. If you attempt to omit the truth or phrase things truthfully but deceptively, roll a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 11
+          },
+          {
+            "type": "text",
+            "text": "; on a failure, the ring itself blurts out the entire truth (as you believe it) as an answer. Keeping silent does not activate the ring's curse. Once the curse has activated for the first time, the ring fuses to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BKFuMxi0dXu7yFxe"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "f60e789b-c0a7-5cc8-abea-3d66a2a89628",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:sphere-of-annihilation",
+    "name": "Sphere of Annihilation",
+    "level": 27,
+    "rarity": "rare",
+    "traits": ["artifact", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "sphere of annihilation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a floating black sphere that pulls any matter that comes into contact with it into a void, destroying it utterly. Anything or anyone destroyed by the sphere can be brought back only by a deity's direct intervention. The sphere can't be counteracted by dispel magic or similar effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sphere stays entirely still until caused to move by a creature controlling it. Taking control of the sphere requires succeeding at an attempt to activate it. A talisman of the sphere makes it easier to control the sphere."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are within 40 feet of the sphere"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check to take control of the sphere. If someone else already controls the sphere, this check uses their Will DC if higher. If you succeed, you take control of the sphere. If you fail, the sphere moves 10 feet closer to you (or 20 feet on a critical failure). You keep control as long as you remain within 80 feet of the sphere and Sustain the Activation each round. When you Sustain the Activation, you must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:arcana",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:occultism",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": " check. If you succeed, you direct the sphere to move up to 10 feet in a straight line (or up to 20 feet on a critical success). On a failure, you lose control of the sphere, and it moves 10 feet closer to you in a straight line (or 20 feet on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When a gate spell is cast such that its rift overlaps a "
+          },
+          {
+            "type": "text",
+            "text": "sphere of annihilation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", roll d%. On a result of 1-50, the sphere is destroyed; on a 51-85, the spell is disrupted; and on a 86-100, everything within an "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 180
+          },
+          {
+            "type": "text",
+            "text": " of the sphere is pulled to another plane through a tear in the spatial fabric. If a "
+          },
+          {
+            "type": "text",
+            "text": "rod of cancellation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " touches the sphere, both items explode, dealing 14d6 bludgeoning damage ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 35,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save) to everything in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": " from the point of their destruction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B4DnQNcGl6nFVKHl"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d47bfd72-a9d3-5ca9-895d-45cc4f442cb9",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:stone-of-weight",
+    "name": "Stone of Weight",
+    "level": 2,
+    "rarity": "rare",
+    "traits": ["cursed", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Also known as a loadstone, this small stone appears nonmagical and has a lovely sheen, giving the impression that it could be a valuable or a notable item or a magic stone of some kind. When you've carried the stone on your person for 1 minute, its curse activates: the stone's size does not change, but it suddenly increases in weight to 5 Bulk. This additional weight does not cause the stone to deal more damage if thrown or used as a weapon. It reappears in your possessions within 1 minute if you discard it, and can't be destroyed or thrown away permanently, or even placed in a container that would reduce or negate its Bulk (like a bag of holding), until it is subject to a remove curse spell or similar magic effect. Once the curse has activated for the first time, the stone fuses to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EuEH4f3oDUQ4YFZS"
+    },
+    "data": {
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "eabdeb7c-50ac-5fde-99bd-d585f2939642",
+    "pack": "gamemastery-guide",
+    "kind": "equipment",
+    "slug": "equipment:talisman-of-the-sphere",
+    "name": "Talisman of the Sphere",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["artifact", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This loop of adamantine can be slung on a chain to be worn as a necklace, but must be held to convey its benefits. A creature that can't cast either arcane or occult spells takes 8d6 mental damage just from picking up the item, and they take that damage again at the start of each of their turns if they continue to hold it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the wielder can cast arcane or occult spells, they can use the talisman of the sphere to more easily control a sphere of annihilation. This reduces the DC of the check to control the sphere or Sustain the Activation by 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The talisman of the sphere is destroyed if touched by a sphere of annihilation."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.imBDGoQJnvfWYuLC"
+    },
+    "data": {
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

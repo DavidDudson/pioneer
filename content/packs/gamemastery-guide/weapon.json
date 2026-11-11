@@ -1,0 +1,292 @@
+[
+  {
+    "id": "01167498-001e-591d-9566-91dd9c5b2e56",
+    "pack": "gamemastery-guide",
+    "kind": "weapon",
+    "slug": "weapon:axe-of-the-dwarven-lords",
+    "name": "Axe of the Dwarven Lords",
+    "level": 26,
+    "rarity": "unique",
+    "traits": ["dwarf", "magical", "sweep", "thrown-30", "two-hand-d12"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blade of this "
+          },
+          {
+            "type": "text",
+            "text": "+4 major striking ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "bc974552-c0c5-57ac-9924-d474d2bdf9a0"
+          },
+          {
+            "type": "text",
+            "text": " ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "55822cf6-140a-55d9-9015-60f75cd52e5a"
+          },
+          {
+            "type": "text",
+            "text": " ",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "ref",
+            "id": "dd06f261-aa49-55df-aa1b-52807ce2dedd"
+          },
+          {
+            "type": "text",
+            "text": " dwarven waraxe",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is carved with an intricate design depicting countless generations of great dwarven warriors and leaders."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The axe has the thrown 30 feet weapon trait, in addition to the normal weapon traits for a dwarven waraxe. Strikes with the axe deal an additional 1d6 damage to orcs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the axe is in your possession, you gain a +4 item bonus when Crafting armor, jewelry, metalworking, stonemasonry, snares, traps, and weapons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are a dwarf, you gain greater darkvision while holding the axe. If you are not a dwarf, you are "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 4"
+          },
+          {
+            "type": "text",
+            "text": " while holding the axe, and if you are an orc, you are also "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 4"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 4"
+          },
+          {
+            "type": "text",
+            "text": " while holding it."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " envision, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per week"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The axe casts a 10th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " spell to conjure an elite elemental avalanche. The spell is automatically sustained, requiring no action on your part but still allowing you to command the elemental on each of your turns. You can Dismiss the Spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Destruction",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " If an orc beheads a dwarven king with the "
+          },
+          {
+            "type": "text",
+            "text": "Axe of the Dwarven Lords",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the axe rusts away to nothing."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 4,
+        "predicate": [
+          "action:craft",
+          {
+            "or": [
+              "option:armor",
+              "option:jewelry",
+              "option:metalworking",
+              "option:stonemasonry",
+              "option:snare",
+              "option:trap",
+              "option:weapon"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Sense",
+        "sense": "d9c41f9d-318a-5062-b129-db87b8f08f5e",
+        "predicate": ["self:trait:dwarf"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "value": 4,
+        "predicate": [
+          {
+            "not": "self:trait:dwarf"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+        "value": 4,
+        "predicate": ["self:trait:orc"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+        "value": 4,
+        "predicate": ["self:trait:orc"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tPwYYwxNqdGQp2nW"
+    },
+    "data": {
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "axe-of-the-dwarven-lords",
+          "name": "Axe of the Dwarven Lords",
+          "frequency": {
+            "max": 1,
+            "per": "week"
+          }
+        }
+      ],
+      "category": "advanced",
+      "group": "axe",
+      "baseItem": "dwarven-war-axe",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "slashing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 4,
+        "striking": 3,
+        "property": [
+          "bc974552-c0c5-57ac-9924-d474d2bdf9a0",
+          "55822cf6-140a-55d9-9015-60f75cd52e5a",
+          "dd06f261-aa49-55df-aa1b-52807ce2dedd"
+        ]
+      }
+    }
+  }
+]

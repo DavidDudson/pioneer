@@ -16,6 +16,7 @@ export const OFFICIAL_PACK_IDS = [
   'divine-mysteries',
   'draconic-codex',
   'foolish-housekeeping',
+  'gamemastery-guide',
   'gatewalkers',
   'gm-core',
   'guns-and-gears',
