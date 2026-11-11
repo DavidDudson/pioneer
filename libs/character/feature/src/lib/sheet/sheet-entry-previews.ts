@@ -1,5 +1,6 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
+import type { Params } from '@angular/router';
 import { equippedRules, itemContent } from '@pioneer/character/domain';
 import type { Character } from '@pioneer/character/domain';
 import type { LinkTarget } from '@pioneer/frontier';
@@ -8,7 +9,7 @@ import { alterAction, EffectMode, spellAtRank } from '@pioneer/rules/engine';
 import type { AlteredAction } from '@pioneer/rules/engine';
 import { ContentKind, Trait } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId, ContentRegistry, RichText, SpellRank } from '@pioneer/rules/sdk';
-import { entryTarget, panelQuery } from '@pioneer/rules/ui';
+import { entryTarget, panelQuery, slugPanelQuery } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, PanelLink, PreviewEffect, PreviewRanks } from '@pioneer/rules/ui';
 
 import { injectStatisticLink, pathOf } from './sheet-breakdown/sheet-breakdown';
@@ -206,6 +207,7 @@ export function sheetFetchingPreviews(
     load: async (id) => onCharacter(sheetEntryIn(await fetchKinds(), id)),
     target,
     panel,
+    statisticPanel: (slug) => panelLinkTo(slugPanelQuery(slug), { router, sidePanel }),
     statistic: injectStatisticLink(),
   };
 }
@@ -214,11 +216,18 @@ export function sheetFetchingPreviews(
  * Where `entry` opens in the side panel: the page being shown, with the drawer open on the entry. Offered once the app's
  * loader has delivered the panel; until then, or without one, a row opens nothing.
  */
-function panelLink(
-  entry: ContentEntry,
-  { router, sidePanel }: { readonly router: Router; readonly sidePanel: SheetSidePanelState | null },
-): PanelLink | undefined {
-  return sidePanel?.panel() === undefined ? undefined : { to: [pathOf(router.url)], queryParams: panelQuery(entry) };
+function panelLink(entry: ContentEntry, where: PanelWhere): PanelLink | undefined {
+  return panelLinkTo(panelQuery(entry), where);
+}
+
+/** The page and side panel a link to the panel is made for. */
+interface PanelWhere {
+  readonly router: Router;
+  readonly sidePanel: SheetSidePanelState | null;
+}
+
+function panelLinkTo(queryParams: Params, { router, sidePanel }: PanelWhere): PanelLink | undefined {
+  return sidePanel?.panel() === undefined ? undefined : { to: [pathOf(router.url)], queryParams };
 }
 
 function sheetEntryIn(registry: ContentRegistry | undefined, id: ContentId): ContentEntry | undefined {

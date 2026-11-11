@@ -1,4 +1,4 @@
-import { Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
+import { EntrySlug, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 
 import type { NamedStatistic } from '../statistics/statistics.component';
 import { FIGHTER_FORTITUDE } from './breakdown-fixtures';
@@ -6,6 +6,7 @@ import { FIGHTER_FORTITUDE } from './breakdown-fixtures';
 function skill(name: string, selector: string, rank: Proficiency): NamedStatistic {
   return {
     name,
+    slug: EntrySlug.parse(`statistic:${selector.slice('skill:'.length).replaceAll(':', '-')}`),
     kind: StatisticKind.Check,
     result: { ...FIGHTER_FORTITUDE, selector: Selector.parse(selector) },
     rank,

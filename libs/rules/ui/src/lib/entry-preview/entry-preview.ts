@@ -12,6 +12,7 @@ import type {
   ContentId,
   ContentLevel,
   ContentText,
+  EntrySlug,
   Level,
   RichText,
   Selector,
@@ -127,7 +128,12 @@ export interface PanelLink {
 
 /** The query parameters that open the side panel on `entry`. */
 export function panelQuery(entry: ContentEntry): Params {
-  return { [DRAWER_PARAM]: DRAWER_OPEN, [SidePanelParam.Entry]: entry.slug };
+  return slugPanelQuery(entry.slug);
+}
+
+/** The query parameters that open the side panel on the entry `slug` names. */
+export function slugPanelQuery(slug: EntrySlug): Params {
+  return { [DRAWER_PARAM]: DRAWER_OPEN, [SidePanelParam.Entry]: slug };
 }
 
 /** How a preview finds an entry. The page that shows it knows which content is loaded, so it provides this. */
@@ -144,6 +150,8 @@ export interface EntryPreviews {
   readonly target?: (id: ContentId) => LinkTarget | undefined;
   /** Where the entry opens in the page's side panel; none when the page has no panel loaded. */
   readonly panel?: (id: ContentId) => PanelLink | undefined;
+  /** Where the statistic entry `slug` names opens in the page's side panel, for a skill's name; none when the page has no panel loaded. */
+  readonly statisticPanel?: (slug: EntrySlug) => PanelLink | undefined;
   /**
    * Where the breakdown of the statistic `selector` opens, for the name in an effect line; none when the page shows
    * no breakdown, and the name is then plain text.

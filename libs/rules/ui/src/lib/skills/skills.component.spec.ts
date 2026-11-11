@@ -1,16 +1,34 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Proficiency } from '@pioneer/rules/sdk';
 import { describe, expect, it } from 'vitest';
 
+import { provideEntryPreviews } from '../entry-preview/entry-preview';
 import type { NamedStatistic } from '../statistics/statistics.component';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { provideRulesUiI18nTesting } from '../testing/provide-rich-text-testing';
 import { SKILL_STATISTICS } from '../testing/skill-fixtures';
 import { SkillsView } from './skills.component';
 
-async function render(statistics: readonly NamedStatistic[] | undefined): Promise<ComponentFixture<SkillsView>> {
-  TestBed.configureTestingModule({ providers: [provideRulesUiI18nTesting()] });
+async function render(
+  statistics: readonly NamedStatistic[] | undefined,
+  withPanel = false,
+): Promise<ComponentFixture<SkillsView>> {
+  TestBed.configureTestingModule({
+    providers: [
+      provideRulesUiI18nTesting(),
+      ...(withPanel
+        ? [
+            provideRouter([]),
+            provideEntryPreviews({
+              preview: (): undefined => undefined,
+              statisticPanel: (slug) => ({ to: ['/sheet'], queryParams: { drawer: 'open', se: slug } }),
+            }),
+          ]
+        : []),
+    ],
+  });
   const fixture = TestBed.createComponent(SkillsView);
   fixture.componentRef.setInput('statistics', statistics);
   fixture.componentRef.setInput('entryNames', ENTRY_NAMES);
@@ -77,6 +95,21 @@ describe(SkillsView, () => {
     const order = [...line.querySelectorAll('fr-text, pio-proficiency-badge')];
     expect(order.indexOf(name)).toBeLessThan(order.indexOf(badge));
     expect(line.querySelector('pio-breakdown')).toBeNull();
+  });
+
+  it("links a skill's name to its entry in the side panel when the page has one", async () => {
+    const host = hostOf(await render(SKILL_STATISTICS, true));
+
+    const link = present(host.querySelector('pio-skill-line fr-link'));
+    expect(link.textContent.trim()).toBe('Acrobatics');
+    expect(present(link.querySelector('a')).getAttribute('href')).toContain('se=statistic:acrobatics');
+  });
+
+  it('leaves the name plain text on a page with no side panel', async () => {
+    const host = hostOf(await render(SKILL_STATISTICS));
+
+    expect(host.querySelector('pio-skill-line fr-link')).toBeNull();
+    expect(present(host.querySelector('pio-skill-line fr-text')).textContent.trim()).toBe('Acrobatics');
   });
 
   it('says so when the character has no Lores', async () => {

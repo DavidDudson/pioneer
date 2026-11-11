@@ -1,5 +1,9 @@
 <fr-stack direction="horizontal" justify="between" align="center" gap="xs">
-  <fr-text>{{ name() }}</fr-text>
+  @if (panel(); as link) {
+    <fr-link [to]="link.to" [queryParams]="link.queryParams">{{ name() }}</fr-link>
+  } @else {
+    <fr-text>{{ name() }}</fr-text>
+  }
   <fr-stack direction="horizontal" gap="xs" align="center">
     <pio-proficiency-badge [rank]="rank()" [sources]="rankSources()" [note]="rankNote()" />
     @if (!rollable()) {
