@@ -63,7 +63,12 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:dip",
+        "selector": "skill:diplomacy",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:dreamlands",
         "rank": "trained"
       }
     ],
@@ -141,7 +146,12 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:occ",
+        "selector": "skill:occultism",
+        "rank": "trained"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:planar-rift",
         "rank": "trained"
       }
     ],
@@ -227,12 +237,17 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:thi",
+        "selector": "skill:thievery",
         "rank": "trained"
       },
       {
         "key": "GrantItem",
         "item": "a06803c2-05db-5614-a882-0eaa521f0140"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "skill:lore:engineering",
+        "rank": "trained"
       }
     ],
     "externalIds": {

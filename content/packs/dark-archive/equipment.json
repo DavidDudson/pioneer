@@ -2554,21 +2554,21 @@
       {
         "key": "FlatModifier",
         "selectors": ["skill:deception"],
-        "type": "circumstance",
+        "type": "item",
         "value": 2,
         "predicate": ["action:lie"]
       },
       {
         "key": "FlatModifier",
         "selectors": ["skill:performance"],
-        "type": "circumstance",
+        "type": "item",
         "value": 2,
         "predicate": ["option:storytelling"]
       },
       {
         "key": "FlatModifier",
         "selectors": ["deception-dc"],
-        "type": "circumstance",
+        "type": "item",
         "value": 2,
         "predicate": ["action:sense-motive"]
       }
