@@ -201,7 +201,7 @@ describe('Pathbuilder spells over the official packs', () => {
   );
 
   test(
-    "Mordred's Oracle fills its repertoire; the archetype caster has no entry",
+    "Mordred's Oracle fills its repertoire; the archetype caster has no entry; Lay on Hands and Read Fate are not granted",
     async () => {
       const { character, report } = await imported(mordredExport);
       expect(spellPickCount(character.document.build.choices)).toBe(18);
@@ -209,7 +209,10 @@ describe('Pathbuilder spells over the official packs', () => {
         'Oracle no-slot: 4',
         'Oracle not-offered: 6',
         'Archetype Sorcerer no-entry: 4',
-        'divine cha focus not-granted: 1',
+        // Read Fate, and Lay on Hands too.
+        // The legacy Core Rulebook feat Lasting Doubt now fills his Champion Feat 12 slot.
+        // That slot took the Blessed One Dedication, which granted Lay on Hands, before.
+        'divine cha focus not-granted: 2',
       ]);
     },
     LOAD_TIMEOUT_MS,
