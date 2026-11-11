@@ -6,13 +6,13 @@ import {
   PathbuilderImportService,
 } from '@pioneer/character/application';
 import { ImportKind } from '@pioneer/interop/pathbuilder';
-import type { Discrepancy, SpellGap } from '@pioneer/interop/pathbuilder';
+import type { Discrepancy, PathbuilderImportResponse, SpellGap } from '@pioneer/interop/pathbuilder';
 import { briarRoseExport, mordredExport } from '@pioneer/interop/pathbuilder/testing';
 import { contentCatalog } from '@pioneer/rules/catalog';
 import { ContentRegistry } from '@pioneer/rules/sdk';
 import { fixedClock, newId, UserId } from '@pioneer/shared/kernel';
 
-/** Time to load every official pack. */
+/** Time for the first import of an export over every official pack; later tests reuse it. */
 const LOAD_TIMEOUT_MS = 60_000;
 
 /** Every total and rank the engine derives for Mordred: AC, Hit Points, Speed, the ranks (saves, skills, armor, weapons, casting), DCs and the spell slots of the caster it pairs with. */
@@ -34,6 +34,19 @@ const service = new PathbuilderImportService(
   fixedClock('2026-10-16T10:00:00Z'),
 );
 
+const imports = new Map<unknown, Promise<PathbuilderImportResponse>>();
+
+/** Imports an export once; the tests only read the result, so they share it (an import over the packs takes tens of seconds). */
+const imported = async (exported: unknown): Promise<PathbuilderImportResponse> => {
+  const cached = imports.get(exported);
+  if (cached !== undefined) {
+    return cached;
+  }
+  const pending = service.importPathbuilder(actor, exported);
+  imports.set(exported, pending);
+  return pending;
+};
+
 /**
  * Pathbuilder's own exports imported over the official packs: what the engine derives that Pathbuilder computed
  * differently (#312). Pins the differences as they stand, so a change to the rules or the import shows up here.
@@ -51,7 +64,7 @@ describe('Pathbuilder exports over the official packs', () => {
   test(
     'Briar Rose differs in Hit Points, focus points and the skill ranks her build does not reach',
     async () => {
-      const { report } = await service.importPathbuilder(actor, briarRoseExport);
+      const { report } = await imported(briarRoseExport);
       expect(report.discrepancies.compared).toBe(COMPARED_BRIAR);
       /**
        * Dream Magic DC: accepted, not a bug. Pioneer has one spellcasting rank for every tradition (ADR-0040, as Foundry's pf2e keeps it), so the DC reads that one rank (30); Pathbuilder computes it differently (28).
@@ -87,7 +100,7 @@ describe('Pathbuilder exports over the official packs', () => {
   test(
     'Mordred differs in AC, the champion focus spell DC, the class DC and the skill ranks his build does not reach',
     async () => {
-      const { report } = await service.importPathbuilder(actor, mordredExport);
+      const { report } = await imported(mordredExport);
       expect(report.discrepancies.compared).toBe(COMPARED);
       /** AC: Pioneer's engine is 34 before Encumbered's Clumsy 1 (-1 on Dex-based AC). He carries 17.8 Bulk (two suits of Full Plate, three swords and axes, two Healer's Toolkits) against a limit of 9 (5 + Str 4); Pathbuilder does not track Bulk, and the No Encumbrance variant rule lifts the condition. */
       expect(summary(report.discrepancies.differences)).toStrictEqual([
@@ -137,7 +150,7 @@ describe('Pathbuilder feats over the official packs', () => {
   test(
     'Briar Rose places the Voice of Nature feat and the skill feat in her general slot',
     async () => {
-      const { character } = await service.importPathbuilder(actor, briarRoseExport);
+      const { character } = await imported(briarRoseExport);
       const picked = new Set<unknown>(Object.values(character.document.build.choices));
       expect(BRIAR_PLACED.filter((id) => !picked.has(id))).toStrictEqual([]);
     },
@@ -147,7 +160,7 @@ describe('Pathbuilder feats over the official packs', () => {
   test(
     'Mordred places the Universal Ancestry feats and the feat his archetype lists as its own',
     async () => {
-      const { character } = await service.importPathbuilder(actor, mordredExport);
+      const { character } = await imported(mordredExport);
       const picked = new Set<unknown>(Object.values(character.document.build.choices));
       expect(MORDRED_PLACED.filter((id) => !picked.has(id))).toStrictEqual([]);
     },
@@ -174,7 +187,7 @@ describe('Pathbuilder spells over the official packs', () => {
   test(
     "Briar Rose's Druid fills its prepared slots; the Animist and the innate casters whose feats are not placed have no entry",
     async () => {
-      const { character, report } = await service.importPathbuilder(actor, briarRoseExport);
+      const { character, report } = await imported(briarRoseExport);
       expect(spellPickCount(character.document.build.choices)).toBe(21);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Animist Prepared no-entry: 13',
@@ -190,7 +203,7 @@ describe('Pathbuilder spells over the official packs', () => {
   test(
     "Mordred's Oracle fills its repertoire; the archetype caster has no entry",
     async () => {
-      const { character, report } = await service.importPathbuilder(actor, mordredExport);
+      const { character, report } = await imported(mordredExport);
       expect(spellPickCount(character.document.build.choices)).toBe(18);
       expect(gapSummary(report.spellGaps)).toStrictEqual([
         'Oracle no-slot: 4',
@@ -207,7 +220,7 @@ describe('Pathbuilder item names over the official packs', () => {
   test(
     "Mordred's Healer's Tools, the legacy name of Healer's Toolkit, matches the item",
     async () => {
-      const { report } = await service.importPathbuilder(actor, mordredExport);
+      const { report } = await imported(mordredExport);
       const unmatched = report.unmatched
         .filter((group) => group.kind === ImportKind.Item)
         .flatMap((group) => group.names.map(({ name }) => name));

@@ -1665,8 +1665,15 @@
         "effect": {
           "kind": "pacify",
           "penalty": -2,
-          "duration": { "type": "time", "count": 1, "unit": "minute" },
-          "save": { "statistic": "will", "dc": 20 }
+          "duration": {
+            "type": "time",
+            "count": 1,
+            "unit": "minute"
+          },
+          "save": {
+            "statistic": "will",
+            "dc": 20
+          }
         }
       }
     ],
