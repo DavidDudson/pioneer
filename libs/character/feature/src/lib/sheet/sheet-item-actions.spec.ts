@@ -147,6 +147,20 @@ describe(sheetItemActions, () => {
       expect(listed(registry, held)[0]?.recharge).toBeUndefined();
     });
 
+    it('says how many rounds are left while the countdown of an hourly use runs', async () => {
+      const registry = await registryWithItems();
+      const key = activationUseKey(BOOTS, SKIES);
+      const spent = { uses: { [key]: 1 }, countdowns: { [key]: 42 } };
+      const lines = listed(registry, carrying({ id: BOOTS, fixture: ItemFixture.WingedBoots }), spent);
+
+      expect(lines).toMatchObject([
+        {
+          status: ActionStatus.Unavailable,
+          reasons: [{ key: 'character.sheet.itemActions.usedThisHour', params: { rounds: 42 } }],
+        },
+      ]);
+    });
+
     it('is unusable, with the reason, while stowed', async () => {
       const registry = await registryWithItems();
       const lines = listed(

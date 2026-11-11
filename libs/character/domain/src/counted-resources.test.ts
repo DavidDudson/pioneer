@@ -24,6 +24,7 @@ import {
   overchargeUseKey,
   slotCountKey,
   slotMaxima,
+  UseCountdown,
   useMaxima,
 } from './counted-resources';
 import type { CountedMaxima } from './counted-resources';
@@ -197,6 +198,7 @@ describe('activation maxima', () => {
     expect(maxima.get(activationUseKey(SECOND_WINGED, SKIES))).toStrictEqual({
       max: count(2),
       boundary: Boundary.Rest,
+      countdown: UseCountdown.parse(600),
     });
   });
 

@@ -38,10 +38,26 @@ const ItemReasonMessage = {
   Stowed: 'character.sheet.itemActions.stowed',
   NotInvested: 'character.sheet.itemActions.notInvested',
   NoUses: 'character.sheet.itemActions.noUses',
+  UsedThisMinute: 'character.sheet.itemActions.usedThisMinute',
+  UsedThisTenMinutes: 'character.sheet.itemActions.usedThisTenMinutes',
+  UsedThisHour: 'character.sheet.itemActions.usedThisHour',
   NoCharges: 'character.sheet.itemActions.noCharges',
   NotPrepared: 'character.sheet.itemActions.notPrepared',
   Unresolved: 'character.sheet.consumables.unresolved',
 } as const;
+
+/** The reason for each period whose uses come back by a countdown, which says how many rounds are left. */
+const COUNTDOWN_REASONS: Readonly<Partial<Record<FrequencyPeriod, string>>> = {
+  [FrequencyPeriod.Minute]: ItemReasonMessage.UsedThisMinute,
+  [FrequencyPeriod.TenMinutes]: ItemReasonMessage.UsedThisTenMinutes,
+  [FrequencyPeriod.Hour]: ItemReasonMessage.UsedThisHour,
+};
+
+/** Why an activation with no uses left is unavailable: "used this hour, 42 rounds left" while its countdown runs, else that it has none. */
+function noUsesReason(per: FrequencyPeriod, rounds: number | undefined): MessageDescriptor {
+  const key = COUNTDOWN_REASONS[per];
+  return rounds === undefined || key === undefined ? message(ItemReasonMessage.NoUses) : message(key, { rounds });
+}
 
 /** What the item actions are worked out against: the turn that pays their cost, the spent resources and the character's values. */
 export interface SheetItemPlay {
@@ -154,7 +170,7 @@ function activationActions(registry: ContentRegistry, character: Character, play
           range: cost === undefined ? undefined : rangeOf(cost, upTo),
           resource: { kind: ActionResourceKind.Uses, current, max: maximum.max },
           payment: { use: key },
-          reasons: current === 0 ? [...own, message(ItemReasonMessage.NoUses)] : own,
+          reasons: current === 0 ? [...own, noUsesReason(frequency.per, play.resources.countdowns[key])] : own,
           recharge: current === 0 ? frequency.per : undefined,
         },
       ];

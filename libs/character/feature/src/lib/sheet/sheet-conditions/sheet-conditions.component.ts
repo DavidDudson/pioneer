@@ -14,6 +14,7 @@ import type { ConditionOption, ConditionView } from '../sheet-conditions';
 import { SheetEffects } from '../sheet-effects/sheet-effects.component';
 import { describeSaveError } from '../sheet-field';
 import { SheetState } from '../sheet-state';
+import { SheetUseResets } from '../sheet-use-resets/sheet-use-resets.component';
 import { SheetConditionAdd } from './sheet-condition-add.component';
 
 const FIRST_VALUE = 1;
@@ -29,6 +30,7 @@ const FIRST_VALUE = 1;
   imports: [
     SheetConditionAdd,
     SheetEffects,
+    SheetUseResets,
     AsyncButton,
     AsyncData,
     AsyncPending,

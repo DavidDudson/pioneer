@@ -9,6 +9,7 @@ import { heldIn, regainPoints, Resource, ResourceCount, ResourceSchema, setPoint
 import type { Pools, ResourceMaxima, ResourcesSpent } from './resources';
 import { isStaffCommand, StaffCommandField, StaffCommandSchema, staffResourcesAfter } from './staff-commands';
 import type { StaffCommand } from './staff-commands';
+import { countdownCleared, countdownStarted, usesBack } from './use-countdowns';
 import { WandCommandField, WandCommandSchema, wandUsesAfter } from './wand-commands';
 import type { WandCommand } from './wand-commands';
 
@@ -27,6 +28,8 @@ export const ResourceCommandField = {
   /** One use of a feat or action with a frequency spent or refunded. */
   SpendUse: 'spendUse',
   RefundUse: 'refundUse',
+  /** The uses of a frequency back by hand, with the countdown they started: the Reset button (`use-countdowns.ts`). */
+  ResetUse: 'resetUse',
   /** A held wand cast, or overcharged after the day's cast (`wand-commands.ts`). */
   ...WandCommandField,
   /** A spell cast from a held staff, or such a cast taken back (`staff-commands.ts`). */
@@ -42,6 +45,7 @@ export const ResourceCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(ResourceCommandField.RefundSlot), slot: SlotCountKey }),
   z.object({ field: z.literal(ResourceCommandField.SpendUse), use: UseCountKey }),
   z.object({ field: z.literal(ResourceCommandField.RefundUse), use: UseCountKey }),
+  z.object({ field: z.literal(ResourceCommandField.ResetUse), use: UseCountKey }),
   ...WandCommandSchema.options,
   ...StaffCommandSchema.options,
 ]);
@@ -54,7 +58,10 @@ const SPEND = CountDelta.parse(1);
 const REFUND = CountDelta.parse(-1);
 
 /** `play` with some of its spent slot or use counts replaced. */
-function withCounts(play: ResourcePlay, counts: Partial<Pick<ResourcesSpent, 'slots' | 'uses'>>): ResourcePlay {
+function withCounts(
+  play: ResourcePlay,
+  counts: Partial<Pick<ResourcesSpent, 'slots' | 'uses' | 'countdowns'>>,
+): ResourcePlay {
   return { ...play, resources: { ...play.resources, ...counts } };
 }
 
@@ -81,6 +88,32 @@ function applyItemCommand(
   return isStaffCommand(command)
     ? { ...play, resources: staffResourcesAfter({ resources: play.resources, counted, command, cost: staffCost }) }
     : withCounts(play, { uses: wandUsesAfter(play.resources.uses, counted, command) });
+}
+
+/** `play` after a frequency use is spent, refunded or reset by hand, with the countdown the use starts or ends. */
+function applyUseCommand(
+  play: ResourcePlay,
+  command: Extract<ResourceCommand, { readonly use: UseCountKey }>,
+  { uses: maxima }: CountedMaxima,
+): ResourcePlay {
+  const { use } = command;
+  const { resources } = play;
+  switch (command.field) {
+    case ResourceCommandField.SpendUse: {
+      const spent = spentAfter({ spent: resources.uses, maxima, key: use }, SPEND);
+      return withCounts(play, countdownStarted({ ...resources, uses: spent }, maxima, use));
+    }
+    case ResourceCommandField.RefundUse: {
+      const spent = spentAfter({ spent: resources.uses, maxima, key: use }, REFUND);
+      return withCounts(play, countdownCleared({ ...resources, uses: spent }, use));
+    }
+    case ResourceCommandField.ResetUse: {
+      return withCounts(play, usesBack(resources, maxima.has(use) ? [use] : []));
+    }
+    default: {
+      return command satisfies never;
+    }
+  }
 }
 
 /** What bounds a pool edit: the points each pool holds at most, and the slots and uses the build and content give. */
@@ -121,15 +154,10 @@ export function applyResourceCommand(
         slots: spentAfter({ spent: play.resources.slots, maxima: counted.slots, key: command.slot }, REFUND),
       });
     }
-    case ResourceCommandField.SpendUse: {
-      return withCounts(play, {
-        uses: spentAfter({ spent: play.resources.uses, maxima: counted.uses, key: command.use }, SPEND),
-      });
-    }
-    case ResourceCommandField.RefundUse: {
-      return withCounts(play, {
-        uses: spentAfter({ spent: play.resources.uses, maxima: counted.uses, key: command.use }, REFUND),
-      });
+    case ResourceCommandField.SpendUse:
+    case ResourceCommandField.RefundUse:
+    case ResourceCommandField.ResetUse: {
+      return applyUseCommand(play, command, counted);
     }
     case ResourceCommandField.CastWand:
     case ResourceCommandField.OverchargeWand:

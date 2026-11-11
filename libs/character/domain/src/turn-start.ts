@@ -13,6 +13,7 @@ import { applyPlayCommand, currentHitPoints, PlayCommandField } from './play-sta
 import type { PlayLimits, PlayState } from './play-state';
 import { conditionEnded, effectExpired, healedEvent, spellEnded, turnStarted } from './turn-events';
 import type { TurnEvent } from './turn-events';
+import { usesAtTurnStart } from './use-countdowns';
 
 const ONE_ROUND = EffectRounds.parse(1);
 
@@ -113,6 +114,13 @@ function conditionsEnding(outcome: TurnOutcome): TurnOutcome {
   return then(outcome, { ...play, conditions: play.conditions.filter((each) => !endsAtTurnStart(each)) }, ended);
 }
 
+/** The uses of a turn or round frequency come back, and every countdown of a minute to an hour goes down a round. */
+function usesRefreshing(outcome: TurnOutcome, { limits }: TurnInputs): TurnOutcome {
+  const { play } = outcome;
+  const refreshed = usesAtTurnStart(play.resources, limits.counted.uses);
+  return then(outcome, { ...play, resources: { ...play.resources, ...refreshed } }, []);
+}
+
 /** The formula badges that roll again at one point of a turn, and the dice they roll with. */
 export interface Reevaluation {
   readonly content: EffectContent;
@@ -141,6 +149,7 @@ export function reevaluateBadges(outcome: TurnOutcome, reevaluation: Reevaluatio
  * Start-of-turn bookkeeping, one pure function for the browser and the server. In order: fast healing and
  * regeneration heal; every timed effect counts down a round and those that ran out at a turn start are removed, as do
  * the active spells that ran out of rounds;
+ * the uses of turn and round frequencies come back and the countdowns of minute-to-hour ones go down a round;
  * conditions ending at the start of the turn are removed; formula badges that roll again at turn start do. Dice come
  * from `random`. An effect that ends at a turn end stays on its last round for the end of turn to remove.
  */
@@ -148,7 +157,7 @@ export function startTurn(play: PlayState, inputs: TurnInputs, random: RandomSou
   const begun: TurnOutcome = { play, events: [turnStarted()] };
   const healed = healing(begun, inputs);
   const counted = spellsCounting(countdown(healed));
-  const settled = conditionsEnding(counted);
+  const settled = conditionsEnding(usesRefreshing(counted, inputs));
   const reevaluation: Reevaluation = {
     content: inputs.limits.effects,
     when: BadgeReevaluation.TurnStart,
