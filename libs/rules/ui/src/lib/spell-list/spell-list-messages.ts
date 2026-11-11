@@ -5,6 +5,8 @@ export const SpellListMessage = {
   CastAt: 'rules.spellList.castAt',
   None: 'rules.spellList.none',
   Empty: 'rules.spellList.empty',
+  FilterActive: 'rules.spellList.filter.active',
+  FilterClear: 'rules.spellList.filter.clear',
   CostTo: 'rules.spellList.costTo',
   Or: 'rules.spellList.or',
   And: 'rules.spellList.and',

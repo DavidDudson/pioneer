@@ -464,10 +464,11 @@
       "staff": "{name} ({left}/{max} charges)"
     },
     "spellTargets": {
-      "label": "Show spells by targets",
-      "all": "All",
       "single": "Single target",
       "multiple": "Multiple targets"
+    },
+    "spellFilter": {
+      "source": "Source"
     },
     "prepared": {
       "heading": "Prepared spells: {tradition}",

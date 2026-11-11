@@ -1501,6 +1501,10 @@
       "roll": "Roll {effect}",
       "none": "No spell",
       "empty": "No spells yet. A choice that grants them may still be open.",
+      "filter": {
+        "active": "Showing only: {filters}",
+        "clear": "Clear filters"
+      },
       "costTo": "to",
       "or": "or",
       "range": {

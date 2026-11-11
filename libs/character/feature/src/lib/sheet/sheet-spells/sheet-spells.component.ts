@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 import { heldCount } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion, Grid, Segmented, Skeleton, Stack } from '@pioneer/frontier';
-import type { SelectOption } from '@pioneer/frontier';
-import { ENTRY_PREVIEWS, SpellRowList } from '@pioneer/rules/ui';
-import type { EntryPreviews, FocusLine, InnateLine, SpellRowLine } from '@pioneer/rules/ui';
+import { AsyncData, AsyncPending, AsyncRegion, Grid, Skeleton, Stack } from '@pioneer/frontier';
+import { ENTRY_PREVIEWS, SpellFilter, SpellRowList, TRADITION_MESSAGES } from '@pioneer/rules/ui';
+import type { EntryPreviews, FocusLine, InnateLine } from '@pioneer/rules/ui';
 import { filter, merge } from 'rxjs';
 
 import { CharacterStore } from '../../data/character-store';
@@ -16,20 +15,20 @@ import { injectFilterSources } from '../sheet-filter-sources';
 import { sheetFocus, sheetInnate } from '../sheet-focus-spells';
 import { SheetFormLimits } from '../sheet-form-limits/sheet-form-limits.component';
 import { SPELL_CONTENT_KINDS } from '../sheet-prepared-spells';
-import { SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
+import { PREPARED_HEADINGS, SheetPreparedSpells } from '../sheet-prepared-spells/sheet-prepared-spells.component';
 import { sheetSectionPreviews } from '../sheet-section-previews';
+import { injectSpellFilters } from '../sheet-spell-filters';
 import { SpellItemCasting } from '../sheet-spell-item-casting';
-import { sheetSpellList } from '../sheet-spell-list';
-import { preparedFieldsOf } from '../sheet-spell-picks';
+import type { SpellOrigins } from '../sheet-spell-list';
 // oxlint-disable-next-line import/max-dependencies -- the one place every spell list of the sheet is composed, with what a form forbids of them
+import { preparedFieldsOf } from '../sheet-spell-picks';
 import { SheetSpellResources } from '../sheet-spell-resources/sheet-spell-resources.component';
-import { SPELL_TARGET_FILTER_MESSAGES, SpellTargetFilter } from '../sheet-spell-targets';
 import type { SpellSpend } from '../sheet-spell-use';
 import { SheetSpender } from '../sheet-spender';
 
 /**
  * The open character's spells (#1784): every spell it can cast, prepared, spontaneous, focus or innate, as one alphabetical
- * list with a row per source, and under it a picker per prepared slot (#478). The spells load only once the character has
+ * list with a row per source, filtered by target, trait, damage type, action cost and source (#1785) with the filters in the URL, and under it a picker per prepared slot (#478). The spells load only once the character has
  * an entry, so a sheet without one never fetches them.
  */
 @Component({
@@ -42,11 +41,10 @@ import { SheetSpender } from '../sheet-spender';
     SheetFormLimits,
     SheetPreparedSpells,
     SheetSpellResources,
-    Segmented,
     Skeleton,
+    SpellFilter,
     SpellRowList,
     Stack,
-    TranslocoPipe,
   ],
   templateUrl: './sheet-spells.component.html',
   providers: [
@@ -122,20 +120,22 @@ export class SheetSpells {
       ? undefined
       : sheetInnate(registry, character, (key, params) => this.#i18n.translate(key, params));
   });
-  /** Which spells the lists show by what they target. */
-  protected readonly targetFilter = signal<SpellTargetFilter>(SpellTargetFilter.All);
-  /** The filter's choices, worded in the viewer's locale. */
-  protected readonly targetOptions = computed((): readonly SelectOption<SpellTargetFilter>[] =>
-    Object.values(SpellTargetFilter).map((value) => ({
-      value,
-      label: this.#i18n.translate(SPELL_TARGET_FILTER_MESSAGES[value]),
-    })),
-  );
-  /** Every spell the character can cast, one row per source, that passes the filter. */
-  protected readonly spellList = computed((): readonly SpellRowLine[] =>
-    sheetSpellList(
-      { focus: this.focus(), innate: this.innate(), prepared: this.prepared(), items: this.items.rows() },
-      this.targetFilter(),
-    ),
-  );
+  /** Where each spell comes from, as the source filter lists it: the entry or item that grants it. */
+  readonly #origins = computed((): SpellOrigins => ({
+    focus: this.focus(),
+    innate: this.innate(),
+    prepared: this.prepared(),
+    items: this.items.rows(),
+    preparedSource: ({ preparation, tradition }): string => {
+      const traditionName: string = this.#i18n.translate(TRADITION_MESSAGES[tradition]);
+      const heading: string = this.#i18n.translate(PREPARED_HEADINGS[preparation], { tradition: traditionName });
+      return heading;
+    },
+  }));
+  /** The filters of the list, and the spells that pass them. */
+  protected readonly filters = injectSpellFilters({
+    origins: this.#origins,
+    translate: (key) => this.#i18n.translate(key),
+    messages: this.#messages,
+  });
 }

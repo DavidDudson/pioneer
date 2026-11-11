@@ -201,6 +201,9 @@ export {
   type WandAction,
 } from './lib/spell-row-list/spell-item';
 export { SpellRowList } from './lib/spell-row-list/spell-row-list.component';
+export { SpellFilter } from './lib/spell-filter/spell-filter.component';
+export type { SpellFilterChange, SpellFilterGroup, SpellFilterOption } from './lib/spell-filter/spell-filter-line';
+export { DAMAGE_TYPE_MESSAGES } from './lib/rich-text/rich-text-messages';
 export { SpellListMessage } from './lib/spell-list/spell-list-messages';
 export type { Translate } from './lib/spell-list/spell-text';
 export { SpellPicker } from './lib/spell-picker/spell-picker.component';

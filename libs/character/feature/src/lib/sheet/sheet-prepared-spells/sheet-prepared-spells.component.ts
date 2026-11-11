@@ -9,7 +9,7 @@ import type { PreparedEntryFields } from '../sheet-spell-picks';
 import { SheetPreparedSlot } from './sheet-prepared-slot.component';
 
 /** Each kind of entry's heading: its prepared spells, or its spell repertoire. */
-const HEADINGS: Readonly<Record<PickedPreparation, string>> = {
+export const PREPARED_HEADINGS: Readonly<Record<PickedPreparation, string>> = {
   [SpellPreparation.Prepared]: 'character.sheet.prepared.heading',
   [SpellPreparation.Spontaneous]: 'character.sheet.repertoire.heading',
 };
@@ -32,5 +32,5 @@ export class SheetPreparedSpells {
   public readonly entries = input.required<readonly PreparedEntryFields[]>();
 
   protected readonly traditions = TRADITION_MESSAGES;
-  protected readonly headings = HEADINGS;
+  protected readonly headings = PREPARED_HEADINGS;
 }
