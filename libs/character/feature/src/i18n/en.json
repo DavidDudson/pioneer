@@ -440,6 +440,8 @@
       "heritageHeading": "Heritage the ancestry does not offer",
       "heritageExplain": "The import named this heritage but the ancestry does not offer it, so it was kept as imported and breaks a rule. Pick a heritage, or dismiss it.",
       "languageHeading": "Languages with no slot",
+      "spellHeading": "Spells with no slot",
+      "spellExplain": "The import found these spells but no prepared or repertoire slot took them, so they were kept as imported and break a rule. Pick one in a spell slot, or dismiss it.",
       "languageExplain": "The import found these languages but no language slot has room for them, so they were kept as imported and break a rule. Pick one in a language slot, or dismiss it.",
       "unknown": "Unknown content",
       "dismiss": "Dismiss",
@@ -965,7 +967,7 @@
       "discrepancyWhy": "Why Pioneer's value is what it is",
       "ruleBreaking": "{count, plural, one {# item was kept as imported but breaks a rule} other {# items were kept as imported but break a rule}}.",
       "ruleBreakingReview": "Review them in the inventory",
-      "ruleBreakingPicks": "{count, plural, one {# heritage or language fits no slot, so it was kept as imported but breaks a rule} other {# heritages or languages fit no slot, so they were kept as imported but break a rule}}. Place each in a slot or dismiss it, on the sheet.",
+      "ruleBreakingPicks": "{count, plural, one {# heritage, language or spell fits no slot, so it was kept as imported but breaks a rule} other {# heritages, languages or spells fit no slot, so they were kept as imported but break a rule}}. Place each in a slot or dismiss it, on the sheet.",
       "ruleBreakingFeats": "{count, plural, one {# feat fits no slot, so it was kept as imported but breaks a rule} other {# feats fit no slot, so they were kept as imported but break a rule}}. Place each in a slot or dismiss it, on the sheet's feats.",
       "statistic": {
         "named": "{name}",
@@ -982,7 +984,6 @@
         "spellDc": "Spell DC ({entry})",
         "spellSlots": "Spell slots ({entry}, {rank, select, cantrip {cantrips} other {rank {rank}}})"
       },
-      "notCarried": "Characters can't hold these yet, so they weren't kept: {fields}.",
       "groupSummary": "{kind} · {count, number} not carried over",
       "allMatched": "Every name matched content you have loaded."
     },

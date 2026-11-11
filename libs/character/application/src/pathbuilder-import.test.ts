@@ -17,7 +17,6 @@ import {
   Occurrences,
   PathbuilderName,
   RuleBreakingCount,
-  UncarriedField,
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport, UnmatchedName } from '@pioneer/interop/pathbuilder';
@@ -55,6 +54,11 @@ function briarContent(): ContentSource {
 /** The heritage names an import left behind, if any. */
 function unmatchedHeritage(report: CharacterImportReport): readonly UnmatchedName[] | undefined {
   return report.unmatched.find((group) => group.kind === ImportKind.Heritage)?.names;
+}
+
+/** The kinds an import left names unmatched for. */
+function unmatchedKinds(report: CharacterImportReport): readonly ImportKind[] {
+  return report.unmatched.map((group) => group.kind);
 }
 
 /** The service that imports into `repository` over `content`, enabling variant rules in `variants`. */
@@ -118,16 +122,14 @@ describe('PathbuilderImportService.importPathbuilder', () => {
     expect(character.level).toBe(CharacterLevel.parse(12));
   });
 
-  test('reports unmatched names by kind and what the character cannot hold yet', async () => {
+  test('reports unmatched names by kind', async () => {
     const { character, report } = await service.importPathbuilder(amiri, mordredExport);
     expect(report.unmatched.map((group) => group.kind)).not.toContain(ImportKind.Ancestry);
     expect(unmatchedHeritage(report)).toStrictEqual([
       { name: changeling, occurrences: Occurrences.parse(1), reason: UnmatchedReason.Unmatched },
     ]);
     expect(Object.keys(character.document.build.choices)).not.toContain(HERITAGE_SLOT);
-    expect(report.notCarried).toContain(UncarriedField.ClassFeature);
     expect(report.skillGaps.map((gap) => gap.name)).toContain(PathbuilderName.parse('Hag'));
-    expect(report.notCarried).not.toContain(UncarriedField.Deity);
   });
 
   test('a loaded heritage the ancestry offers fills the slot: one of its own or a versatile one', async () => {
@@ -179,6 +181,30 @@ describe('PathbuilderImportService.importPathbuilder', () => {
     expect(report.unplacedBoosts).toStrictEqual([]);
     expect(report.modifierDifferences).toStrictEqual([]);
     expect(repository.audits).toStrictEqual([{ actor: amiri, command: CharacterCommand.ImportPathbuilder }]);
+  });
+
+  test('keeps the matched class features and deity on the character, and a spell no slot took, flagged', async () => {
+    const builder = new ContentPackBuilder()
+      .withId('howl-of-the-wild')
+      .withAncestry('goloma', { boosts: [Object.values(Attribute)] })
+      .withClass('animist', ['wis'])
+      .withClassFeature('apparition-attunement')
+      .withDeity('sarenrae')
+      .withSpell('stabilize', { rank: 1, traditions: ['divine'] });
+    const withDeity = { ...briarRoseExport, build: { ...briarRoseExport.build, deity: 'Sarenrae' } };
+    const { character, report } = await importerOver(fixedContent(builder.build()), repository).importPathbuilder(
+      amiri,
+      withDeity,
+    );
+    const { build } = character.document;
+    expect(build.classFeatures).toStrictEqual([
+      ContentId.parse(builder.idOf(ContentKind.ClassFeature, 'apparition-attunement')),
+    ]);
+    expect(build.deity).toBe(ContentId.parse(builder.idOf(ContentKind.Deity, 'sarenrae')));
+    expect(build.unplacedSpells).toStrictEqual([ContentId.parse(builder.idOf(ContentKind.Spell, 'stabilize'))]);
+    expect(report.ruleBreakingPicks).toBe(RuleBreakingCount.parse(1));
+    expect(unmatchedKinds(report)).not.toContain(ImportKind.Deity);
+    expect(report.spellGaps.map((gap) => gap.name)).toContain(PathbuilderName.parse('Stabilize'));
   });
 
   test('writes the voluntary flaws as picks; the modifiers they lower come out as Pathbuilder scored them', async () => {

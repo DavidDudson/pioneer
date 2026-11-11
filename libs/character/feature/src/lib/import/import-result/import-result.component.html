@@ -25,9 +25,6 @@
       </fr-stack>
     }
     <pio-import-feat-report [count]="report().ruleBreakingFeats" [picks]="report().ruleBreakingPicks" />
-    @if (notCarried() !== '') {
-      <fr-text>{{ 'character.import.result.notCarried' | transloco: { fields: notCarried() } }}</fr-text>
-    }
     @for (group of groups(); track group.kind) {
       <fr-disclosure>
         <fr-text frDisclosureSummary>{{

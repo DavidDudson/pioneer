@@ -69,3 +69,17 @@ describe('unplaced heritage and languages', () => {
     expect(next.document.build.unplacedHeritage).toBe(heritage);
   });
 });
+
+describe('unplaced spells', () => {
+  const fireball = ContentId.parse(contentId(PackId.parse('player-core'), EntrySlug.parse('spell:fireball')));
+
+  test('flags a kept spell until a slot pick is it, and dismissing takes it off', () => {
+    const kept = keeping({ unplacedSpells: [fireball] });
+    expect(unplacedPickBreaks(kept.document)).toStrictEqual([
+      { kind: UnplacedPickKind.Spell, pick: fireball, reason: { key: SlotInvalidMessage.NoSpellSlot } },
+    ]);
+    const dismissed = kept.apply({ field: CharacterPatchField.DismissUnplacedSpell, spell: fireball }, later);
+    expect(dismissed.document.build.unplacedSpells).toStrictEqual([]);
+    expect(unplacedPickBreaks(dismissed.document)).toStrictEqual([]);
+  });
+});

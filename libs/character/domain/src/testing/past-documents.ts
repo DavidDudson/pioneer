@@ -182,6 +182,18 @@ const VERSION_20 = {
   },
 };
 
+/** Version 21, before a build kept an import's class features, deity and unplaced spells: a property rune already held its choice. */
+const VERSION_21 = {
+  ...VERSION_20,
+  schemaVersion: 21,
+  inventory: {
+    items: VERSION_20.inventory.items.map((line) => ({
+      ...line,
+      runes: { property: line.runes.property.map((rune) => ({ rune })) },
+    })),
+  },
+};
+
 /**
  * One stored document of every past schema version, in the shape that version wrote. A new upgrade step adds the
  * shape it upgrades from; `character-document.test.ts` fails until it does.
@@ -207,4 +219,5 @@ export const PAST_DOCUMENTS: ReadonlyMap<CharacterSchemaVersion, unknown> = new 
   [CharacterSchemaVersion.parse(VERSION_18.schemaVersion), VERSION_18],
   [CharacterSchemaVersion.parse(VERSION_19.schemaVersion), VERSION_19],
   [CharacterSchemaVersion.parse(VERSION_20.schemaVersion), VERSION_20],
+  [CharacterSchemaVersion.parse(VERSION_21.schemaVersion), VERSION_21],
 ]);

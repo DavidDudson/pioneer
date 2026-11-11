@@ -225,7 +225,6 @@ describe('PathbuilderImportPage create', () => {
       character,
       report: {
         unmatched: [{ kind: 'heritage', names: [{ name: 'Changeling', occurrences: 1, reason: 'not-offered' }] }],
-        notCarried: ['class-feature', 'spell'],
         unplacedBoosts: [],
         skillGaps: [],
         spellGaps: [],
@@ -256,7 +255,7 @@ describe('PathbuilderImportPage create', () => {
       expect(sheet.textContent).toContain('Imported from Pathbuilder');
       expect(sheet.querySelector('fr-inline-field button')).not.toBeNull();
     });
-    expect(sheet.textContent).toContain('Class features and Spells');
+    expect(sheet.textContent).not.toContain("weren't kept");
     expect(sheet.textContent).toContain('Heritage · 1 not carried over');
     expect(sheet.textContent).toContain('Changeling');
 

@@ -1,30 +1,16 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { SheetMode } from '@pioneer/character/domain';
-import {
-  Badge,
-  Button,
-  Disclosure,
-  Heading,
-  Link,
-  List,
-  ListItem,
-  LocaleFormat,
-  Stack,
-  Surface,
-  Text,
-} from '@pioneer/frontier';
+import { Badge, Button, Disclosure, Heading, Link, List, ListItem, Stack, Surface, Text } from '@pioneer/frontier';
 import type { BadgeTone } from '@pioneer/frontier';
 import type { CharacterImportReport, ImportKind } from '@pioneer/interop/pathbuilder';
 import type { ContentId, Selector } from '@pioneer/rules/sdk';
 import type { NamedStatistic } from '@pioneer/rules/ui';
-import { filter, merge } from 'rxjs';
 
 import { ImportBoostReport } from '../import-boost-report/import-boost-report.component';
 import { ImportDiscrepancyReport } from '../import-discrepancy-report/import-discrepancy-report.component';
 import { ImportFeatReport } from '../import-feat-report/import-feat-report.component';
-import { KIND_KEYS, REASON_KEYS, REASON_TONES, UNCARRIED_KEYS } from '../import-labels';
+import { KIND_KEYS, REASON_KEYS, REASON_TONES } from '../import-labels';
 import { ImportSkillReport } from '../import-skill-report/import-skill-report.component';
 import { ImportSpellReport } from '../import-spell-report/import-spell-report.component';
 
@@ -76,19 +62,6 @@ export class ImportResult {
 
   /** The Exploration tab, beside this one, where the inventory and its flagged lines are. */
   protected readonly inventory = ['..', SheetMode.Exploration];
-
-  readonly #format = inject(LocaleFormat);
-  readonly #i18n = inject(TranslocoService);
-  readonly #loaded = this.#i18n.events$.pipe(filter((event) => event.type === 'translationLoadSuccess'));
-  /** Ticks when the locale changes or a message scope finishes loading. */
-  readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
-
-  /** The fields the character couldn't hold, as a list in the viewer's locale; empty when there are none. */
-  protected readonly notCarried = computed((): string => {
-    // Re-run when messages change, not only when the report does.
-    this.#messages();
-    return this.#format.list(this.report().notCarried.map((field) => this.#i18n.translate(UNCARRIED_KEYS[field])));
-  });
 
   protected readonly groups = computed((): readonly GroupView[] =>
     this.report().unmatched.map((group) => ({

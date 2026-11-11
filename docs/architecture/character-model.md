@@ -136,6 +136,12 @@ The rituals a character knows are `build.rituals`, content ids listed once (sche
 with the rituals of the export that match loaded content; one that matches none is named in the report as unmatched.
 A ritual breaks no rule, so nothing flags it.
 
+The class features and deity an import matched are `build.classFeatures` (content ids, once each) and `build.deity`
+(schema version 22). They are kept as named: nothing flags them, and the report lists only the names that matched
+nothing. A spell that matched content but fits no prepared, repertoire or innate slot is kept in
+`build.unplacedSpells`, flagged by `unplacedPickBreaks` until a slot pick is it, and `dismissUnplacedSpell` takes it
+off; the report counts it in `ruleBreakingPicks`, and the cast items on the encounter tab list it.
+
 ### Schema versions
 
 Every stored document carries `schemaVersion`. `decodeCharacterDocument` upgrades an older document to the current

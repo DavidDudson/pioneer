@@ -1,5 +1,5 @@
 import { BadgeTone } from '@pioneer/frontier';
-import { ImportKind, MatchStatus, UncarriedField, UnmatchedReason } from '@pioneer/interop/pathbuilder';
+import { ImportKind, MatchStatus, UnmatchedReason } from '@pioneer/interop/pathbuilder';
 
 /** Label key per import kind, shared by the preview and the post-import report. */
 export const KIND_KEYS: Readonly<Record<ImportKind, string>> = {
@@ -14,13 +14,6 @@ export const KIND_KEYS: Readonly<Record<ImportKind, string>> = {
   [ImportKind.Ritual]: 'character.import.kind.ritual',
   [ImportKind.Item]: 'character.import.kind.item',
   [ImportKind.Language]: 'character.import.kind.language',
-};
-
-/** Label key per field the character can't hold yet: the kinds' labels. */
-export const UNCARRIED_KEYS: Readonly<Record<UncarriedField, string>> = {
-  [UncarriedField.Deity]: KIND_KEYS[ImportKind.Deity],
-  [UncarriedField.ClassFeature]: KIND_KEYS[ImportKind.ClassFeature],
-  [UncarriedField.Spell]: KIND_KEYS[ImportKind.Spell],
 };
 
 export const STATUS_KEYS: Readonly<Record<MatchStatus, string>> = {

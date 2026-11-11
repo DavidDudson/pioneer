@@ -11,13 +11,25 @@ import type { UnplacedPickPatch } from './unplaced-pick-patch';
 
 /** What an import adds to the build beside its slot picks: the rituals, and the picks it found no slot for. */
 export type UnplacedPicks = Partial<
-  Pick<Build, 'lores' | 'rituals' | 'unplacedFeats' | 'unplacedHeritage' | 'unplacedLanguages' | 'customLanguages'>
+  Pick<
+    Build,
+    | 'lores'
+    | 'rituals'
+    | 'classFeatures'
+    | 'deity'
+    | 'unplacedSpells'
+    | 'unplacedFeats'
+    | 'unplacedHeritage'
+    | 'unplacedLanguages'
+    | 'customLanguages'
+  >
 >;
 
 /** What kind of imported pick no slot holds, besides a feat. */
 export const UnplacedPickKind = {
   Heritage: 'heritage',
   Language: 'language',
+  Spell: 'spell',
 } as const;
 export type UnplacedPickKind = (typeof UnplacedPickKind)[keyof typeof UnplacedPickKind];
 
@@ -48,7 +60,10 @@ export function unplacedPickBreaks({ build }: Pick<CharacterDocument, 'build'>):
   const languages = build.unplacedLanguages
     .filter((language) => !picked.has(language))
     .map((pick) => ({ kind: UnplacedPickKind.Language, pick, reason: message(SlotInvalidMessage.NoLanguageSlot) }));
-  return [...heritage, ...languages];
+  const spells = build.unplacedSpells
+    .filter((spell) => !picked.has(spell))
+    .map((pick) => ({ kind: UnplacedPickKind.Spell, pick, reason: message(SlotInvalidMessage.NoSpellSlot) }));
+  return [...heritage, ...languages, ...spells];
 }
 
 /** The build without the unplaced pick `patch` dismisses; unchanged when it isn't listed. */
@@ -62,6 +77,9 @@ export function dismissedPick(build: Build, patch: UnplacedPickPatch): Build {
     }
     case CharacterPatchField.DismissUnplacedLanguage: {
       return { ...build, unplacedLanguages: build.unplacedLanguages.filter((each) => each !== patch.language) };
+    }
+    case CharacterPatchField.DismissUnplacedSpell: {
+      return { ...build, unplacedSpells: build.unplacedSpells.filter((each) => each !== patch.spell) };
     }
     case CharacterPatchField.RemoveCustomLanguage: {
       return { ...build, customLanguages: build.customLanguages.filter((each) => each !== patch.language) };
@@ -83,6 +101,7 @@ export function withoutPlacedPick(build: Build, slot: SlotKey, value: ChoiceValu
   return {
     ...feats,
     unplacedLanguages: languages,
+    unplacedSpells: feats.unplacedSpells.filter((each) => each !== value),
     unplacedHeritage: slot === HERITAGE_SLOT ? undefined : feats.unplacedHeritage,
   };
 }

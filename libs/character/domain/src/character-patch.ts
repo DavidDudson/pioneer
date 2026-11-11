@@ -68,6 +68,8 @@ export const CharacterPatchField = {
   DismissUnplacedHeritage: 'dismissUnplacedHeritage',
   /** An imported language no slot held, taken off the list so it stops being flagged. */
   DismissUnplacedLanguage: 'dismissUnplacedLanguage',
+  /** An imported spell no slot took, taken off the list so it stops being flagged. */
+  DismissUnplacedSpell: 'dismissUnplacedSpell',
   /** A custom language an import kept by name, taken off the build. */
   RemoveCustomLanguage: 'removeCustomLanguage',
   /** A modifier or pinned value put on a statistic by hand, with the reason for it (#1127). */
@@ -143,6 +145,7 @@ export const CharacterPatchSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedFeat), feat: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedHeritage), heritage: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.DismissUnplacedLanguage), language: ContentId }),
+  z.object({ field: z.literal(CharacterPatchField.DismissUnplacedSpell), spell: ContentId }),
   z.object({ field: z.literal(CharacterPatchField.RemoveCustomLanguage), language: LanguageName }),
   z.object({ field: z.literal(CharacterPatchField.AddOverride), override: OverrideInput }),
   z.object({ field: z.literal(CharacterPatchField.EditOverride), id: OverrideId, override: OverrideInput }),
@@ -177,6 +180,7 @@ const DOCUMENT_FIELDS: ReadonlySet<CharacterPatchField> = new Set<DocumentPatch[
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.DismissUnplacedSpell,
   CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,
@@ -227,6 +231,7 @@ const UNTARGETED_FIELDS: ReadonlySet<CharacterPatchField> = new Set<UntargetedPa
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.DismissUnplacedSpell,
   CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,

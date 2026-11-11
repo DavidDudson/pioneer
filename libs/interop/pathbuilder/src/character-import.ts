@@ -28,17 +28,6 @@ export const UnmatchedReason = {
 } as const;
 export type UnmatchedReason = ValueOf<typeof UnmatchedReason>;
 
-/**
- * Parts of an export the character model can't hold yet: every import kind but the ancestry, heritage, background, item, language,
- * ritual and class. They light up as the builder stories (#308-#311) give the character somewhere to keep them.
- */
-export const UncarriedField = {
-  Deity: ImportKind.Deity,
-  ClassFeature: ImportKind.ClassFeature,
-  Spell: ImportKind.Spell,
-} as const;
-export type UncarriedField = ValueOf<typeof UncarriedField>;
-
 /** How many imported inventory lines or feats break a table rule. */
 export const RuleBreakingCount = z.int().nonnegative().brand<'RuleBreakingCount'>();
 export type RuleBreakingCount = z.infer<typeof RuleBreakingCount>;
@@ -54,12 +43,10 @@ export const UnmatchedGroup = z.object({ kind: ImportKindSchema, names: z.array(
 export type UnmatchedGroup = z.infer<typeof UnmatchedGroup>;
 
 /**
- * What an import left behind: names that matched no content or none their slot offers, by kind, the fields it had
- * nowhere to put, the boosts no slot took, the skill ranks no slot reached, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
+ * What an import left behind: names that matched no content or none their slot offers, by kind, the boosts no slot took, the skill ranks no slot reached, and the attributes whose modifier from the placed boosts isn't Pathbuilder's.
  */
 export const CharacterImportReport = z.object({
   unmatched: z.array(UnmatchedGroup).readonly(),
-  notCarried: z.array(z.enum(UncarriedField)).readonly(),
   unplacedBoosts: z.array(UnplacedBoost).readonly(),
   skillGaps: z.array(SkillGap).readonly(),
   spellGaps: z.array(SpellGap).readonly(),
@@ -99,11 +86,6 @@ function unmatchedGroups(
   });
 }
 
-function notCarried(value: PathbuilderImport): UncarriedField[] {
-  const present = new Set<ImportKind>(value.names.map((name) => name.kind));
-  return Object.values(UncarriedField).filter((field) => present.has(field));
-}
-
 /**
  * What the import did with the export: the matched names their slot refused (a heritage of another ancestry), the
  * boosts no slot took, and where the derived modifiers part from Pathbuilder's.
@@ -126,7 +108,7 @@ export function characterImportReport(
   lookup: ContentLookup,
   { notOffered, ...boosts }: ImportOutcome,
 ): CharacterImportReport {
-  return { unmatched: unmatchedGroups(value, lookup, notOffered), notCarried: notCarried(value), ...boosts };
+  return { unmatched: unmatchedGroups(value, lookup, notOffered), ...boosts };
 }
 
 export const PathbuilderImportResponse = z.object({ character: Character.codec, report: CharacterImportReport });
