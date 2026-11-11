@@ -12,14 +12,14 @@ import { id, MERISIEL, openerAt, present } from '../../testing/sheet-page-harnes
 import type { OpenSheet } from '../../testing/sheet-page-harness';
 import { openActionKind, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
-import { ACTION_CONTENT_KINDS } from '../sheet-actions';
+import { ACTION_STAFF_CONTENT_KINDS } from '../sheet-actions';
 
 const openSheet = openerAt(SheetMode.Encounter, 'actions');
 
 const PLAY_URL = `/api/characters/${id}/play`;
 
 /** The actions, the feats that grant them and the effects a form is. */
-const PACKS = cutTo(ACTION_CONTENT_KINDS);
+const PACKS = cutTo(ACTION_STAFF_CONTENT_KINDS);
 
 /** Mwangi Expanse's Change Shape, whose forms the feats a character has allow. */
 const CHANGE_SHAPE = 'e114f41a-9129-5b91-b7d2-f88e152b9c0c';

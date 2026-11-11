@@ -3,6 +3,7 @@ import {
   CarryState,
   heldCount,
   isInvestable,
+  isStaff,
   itemActivations,
   itemContent,
   spellContent,
@@ -222,4 +223,10 @@ export function sheetItemActions(
     ...activationActions(registry, character, play),
     ...staffActions(registry, character, play),
   ].map((item) => lineOf(item, play.turn));
+}
+
+/** Whether the character holds a staff, which is when its spells are worth loading. Reads item content, so false while that loads. */
+export function holdsStaff(registry: ContentRegistry, character: Character): boolean {
+  const content = itemContent(registry);
+  return character.document.inventory.items.some((item) => isStaff(item, content));
 }

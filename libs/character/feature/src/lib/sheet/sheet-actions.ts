@@ -33,20 +33,22 @@ import { sheetSlotContent } from './sheet-slot-content';
 import { sheetSources } from './sheet-sources';
 
 /**
- * What the actions list reads beside the equipment: the actions themselves, the feats that grant some, and the spells
- * a staff casts.
+ * What the actions list reads beside the equipment: the actions themselves and the feats that grant some. The spells a
+ * staff casts are read only once the character holds a staff (`ACTION_STAFF_CONTENT_KINDS`).
  */
 export const ACTION_CONTENT_KINDS: readonly ContentKind[] = [
   ...new Set([
     ...EQUIPMENT_CONTENT_KINDS,
     ...CHARACTER_CONTENT_KINDS,
-    ContentKind.Spell,
     ContentKind.Action,
     ContentKind.Feat,
     ContentKind.Effect,
     ContentKind.Environment,
   ]),
 ];
+
+/** What the actions list reads for a character holding a staff: its spells, to resolve the staff's spell lists. */
+export const ACTION_STAFF_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ContentKind.Spell];
 
 const ATTACK = Trait.parse('attack');
 

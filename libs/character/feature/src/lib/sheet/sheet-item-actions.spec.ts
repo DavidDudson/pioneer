@@ -26,9 +26,9 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { ACTION_CONTENT_KINDS } from './sheet-actions';
+import { ACTION_STAFF_CONTENT_KINDS } from './sheet-actions';
 import { statisticInputsOf } from './sheet-inputs';
-import { sheetItemActions } from './sheet-item-actions';
+import { holdsStaff, sheetItemActions } from './sheet-item-actions';
 
 const POTION = InventoryItemId.parse('11111111-1111-4111-8111-111111111111');
 const BOOTS = InventoryItemId.parse('22222222-2222-4222-8222-222222222222');
@@ -65,7 +65,7 @@ function carrying(...items: readonly Carried[]): Character {
 
 async function registryWithItems(): Promise<ContentRegistry> {
   TestBed.configureTestingModule({ providers: provideServerStateTesting([ITEM_FIXTURE_FILES]) });
-  return TestBed.inject(ContentLoader).registry(ACTION_CONTENT_KINDS);
+  return TestBed.inject(ContentLoader).registry(ACTION_STAFF_CONTENT_KINDS);
 }
 
 function listed(registry: ContentRegistry, character: Character, spent: object = {}): readonly ActionLine[] {
@@ -186,6 +186,23 @@ describe(sheetItemActions, () => {
           reasons: [{ key: 'character.sheet.itemActions.notPrepared' }],
         });
       }
+    });
+  });
+
+  describe(holdsStaff, () => {
+    it('is true for a character holding a staff, so its spells are loaded', async () => {
+      const registry = await registryWithItems();
+
+      expect(
+        holdsStaff(registry, carrying({ id: STAFF, fixture: ItemFixture.FireStaff, carry: CarryState.Held })),
+      ).toBe(true);
+    });
+
+    it('is false for a character with no staff, so the spells are not loaded', async () => {
+      const registry = await registryWithItems();
+
+      expect(holdsStaff(registry, carrying({ id: POTION, fixture: ItemFixture.HealingPotion }))).toBe(false);
+      expect(holdsStaff(registry, carrying())).toBe(false);
     });
   });
 });

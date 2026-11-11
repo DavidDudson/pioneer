@@ -595,6 +595,7 @@ export {
   type StaffSlot,
   StaffSlotSchema,
 } from './staff-charges';
+export { isStaff } from './staff-items';
 export { isWand, itemWands, type WandSpell, wandSpell, wandSpellOf } from './wand-items';
 export {
   isWandCommand,

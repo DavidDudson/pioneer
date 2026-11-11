@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import type { Provider } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import {
   abilityFrequencies,
   abilityUseKey,
@@ -28,6 +29,7 @@ import type { ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
+import { filter, firstValueFrom } from 'rxjs';
 
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
@@ -41,8 +43,16 @@ import { raisedEdit, shieldIds } from './sheet-shields';
 import { sheetSources } from './sheet-sources';
 import { SheetState } from './sheet-state';
 
-/** What a spend reads: the actions, the spells a sustained cast starts an active spell from, and the effects of a form cast. */
+/**
+ * What a spend reads: the actions, the spells a sustained cast starts an active spell from, and the effects of a form
+ * cast. They load when something is first used (#1834), so a sheet where nothing is used never fetches the spells.
+ */
 const SPENDER_CONTENT_KINDS: readonly ContentKind[] = [...ACTION_CONTENT_KINDS, ...FORM_CAST_CONTENT_KINDS];
+
+/** What a load of the spend's content came to: the registry, absent when it failed. */
+interface LoadedRegistry {
+  readonly registry: ContentRegistry | undefined;
+}
 
 /** The cost of Sustain and of the Dismiss action: one action. */
 const ONE_ACTION: SpendCost = { kind: SpendKind.Actions, count: SpendCount.parse(1) };
@@ -117,7 +127,16 @@ export function spendOf(registry: ContentRegistry, request: ActionUse, form: For
 @Injectable()
 export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
-  readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS);
+  readonly #wanted = signal(false);
+  readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS, () => this.#wanted());
+  /** The registry once it has loaded, or empty-handed once it failed to; undefined while it loads. */
+  readonly #loaded$ = toObservable(
+    computed((): LoadedRegistry | undefined =>
+      this.#registry.data() === undefined && !this.#registry.isError()
+        ? undefined
+        : { registry: this.#registry.data() },
+    ),
+  );
   readonly #sheet = inject(SheetState);
   readonly #consumables = inject(SheetConsumableUse);
 
@@ -133,7 +152,7 @@ export class SheetSpender extends ActionUser {
       await this.#consumables.useHeld(consumable);
       return;
     }
-    const registry = this.#registry.data();
+    const registry = await this.#load();
     const cast = registry === undefined ? undefined : formCastOf(registry, request, this.#caster(registry));
     if (cast !== undefined) {
       // One form cast waits at a time: a second use is ignored until the first is confirmed or cancelled.
@@ -141,6 +160,13 @@ export class SheetSpender extends ActionUser {
       return;
     }
     await this.#spend(request);
+  }
+
+  /** Starts loading what a spend reads and waits for it; undefined when it could not be loaded. */
+  async #load(): Promise<ContentRegistry | undefined> {
+    this.#wanted.set(true);
+    const loaded = await firstValueFrom(this.#loaded$.pipe(filter((each) => each !== undefined)));
+    return loaded.registry;
   }
 
   /** Whether the pending cast is being spent and applied, which can no longer be given up. */

@@ -9,12 +9,12 @@ import { PREBUILD_TIMEOUT, prebuildServerStateTesting } from '../../testing/prov
 import { id, MERISIEL, openSheet, present } from '../../testing/sheet-page-harness';
 import { openActionKind, textOf } from '../../testing/sheet-tabs-testing';
 import { cutTo } from '../../testing/test-packs';
-import { ACTION_CONTENT_KINDS } from '../sheet-actions';
+import { ACTION_STAFF_CONTENT_KINDS } from '../sheet-actions';
 
 const PLAY_URL = `/api/characters/${id}/play`;
 
 /** The actions and their spells, and the fixture items among them the fire staff. */
-const PACKS = [...cutTo(ACTION_CONTENT_KINDS), ITEM_FIXTURE_FILES];
+const PACKS = [...cutTo(ACTION_STAFF_CONTENT_KINDS), ITEM_FIXTURE_FILES];
 
 const STAFF = '55555555-5555-4555-8555-555555555555';
 
