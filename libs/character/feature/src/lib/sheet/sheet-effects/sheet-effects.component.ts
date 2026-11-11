@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { EffectCommandField, EffectSourceKind } from '@pioneer/character/domain';
+import { EffectCommandField } from '@pioneer/character/domain';
 import type { ActiveEffect, PlayCommand } from '@pioneer/character/domain';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Badge, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { SelectOption } from '@pioneer/frontier';
@@ -54,8 +54,6 @@ export class SheetEffects {
   /** What an effect's name previews: its entry, from the registry the list was built from. */
   public readonly previews: EntryPreviews = sheetSectionPreviews(() => this.registry.data());
   protected readonly playQuery = this.#play.play;
-  protected readonly allySource = EffectSourceKind.Ally;
-  protected readonly gmSource = EffectSourceKind.Gm;
 
   protected readonly views = computed((): readonly EffectView[] | undefined => {
     const registry = this.registry.data();
@@ -95,6 +93,10 @@ export class SheetEffects {
 
   protected readonly raise = (view: EffectView): (() => Promise<void>) => this.#step(view, true);
   protected readonly lower = (view: EffectView): (() => Promise<void>) => this.#step(view, false);
+  protected readonly spendUse =
+    (view: EffectView): (() => Promise<void>) =>
+    async (): Promise<void> =>
+      this.#send({ field: EffectCommandField.SpendEffectUse, id: view.id });
   protected readonly remove =
     (view: EffectView): (() => Promise<void>) =>
     async (): Promise<void> =>

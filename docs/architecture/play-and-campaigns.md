@@ -430,7 +430,9 @@ the player spends them. A GM's boon (a god's blessing, a one-off favour) is an `
 (M7), which the player applies to their character. Buffs from allies (Aid, Bless, a feat that grants +1 to a roll)
 are applied the same way by the player receiving them, with the giver recorded as the source; nothing writes to
 another player's sheet (ADR-0018). Permanent boons are part of the build (`build.boons`), so Pioneer keeps them in
-every sync mode; temporary ones are play state.
+every sync mode; temporary ones are play state. A boon with uses is an effect whose duration is `uses` with a count:
+the active effect carries the uses it has left, the `spendEffectUse` edit takes one, and spending the last one ends
+the effect, so the count is never below one while it is on the character.
 
 ### Environments
 

@@ -79,9 +79,8 @@ export {
   EffectAllyName,
   EffectInstanceId,
   EffectRounds,
+  EffectUses,
   effectRoots,
-  canRollBadge,
-  rollBadge,
   EffectSourceKind,
   EffectSourceSchema,
   type EffectSource,
@@ -89,8 +88,8 @@ export {
   effectTerms,
   NO_EFFECTS,
   SELF,
-  steppedBadge,
 } from './effects';
+export { canRollBadge, rollBadge, steppedBadge } from './effect-badges';
 export { formRanks } from './effect-form-ranks';
 export {
   applyResourceCommand,

@@ -36,6 +36,7 @@ const EFFECT_MESSAGES = {
   [EffectProblem.Full]: 'character.validation.effectFull',
   [EffectProblem.Badge]: 'character.validation.effectBadge',
   [EffectProblem.Rank]: 'character.validation.effectRank',
+  [EffectProblem.NoUses]: 'character.validation.effectNoUses',
 } as const satisfies Record<EffectProblem, string>;
 
 /** The message each refused condition edit answers with. */

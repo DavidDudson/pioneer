@@ -21,10 +21,12 @@ export const EffectDurationType = {
   Turn: 'turn',
   Encounter: 'encounter',
   Unlimited: 'unlimited',
+  /** A number of uses that count down as the player spends them. */
+  Uses: 'uses',
 } as const;
 export type EffectDurationType = ValueOf<typeof EffectDurationType>;
 
-/** "10 minutes, ending at the start of a turn", "until the end of the turn", "until the encounter ends", "unlimited". */
+/** "10 minutes, ending at the start of a turn", "until the end of the turn", "until the encounter ends", "unlimited", "3 uses". */
 const EffectDuration = z.discriminatedUnion('type', [
   z.strictObject({
     type: z.literal(EffectDurationType.Time),
@@ -39,6 +41,7 @@ const EffectDuration = z.discriminatedUnion('type', [
   }),
   z.strictObject({ type: z.literal(EffectDurationType.Encounter) }),
   z.strictObject({ type: z.literal(EffectDurationType.Unlimited) }),
+  z.strictObject({ type: z.literal(EffectDurationType.Uses), count: DurationCount }),
 ]);
 
 export const EffectBadgeType = { Counter: 'counter', Formula: 'formula' } as const;
