@@ -190,6 +190,7 @@ export { SpellAccessProblem, spellAccessProblem } from './spell-access';
 export { unplacedFeatBreaks } from './unplaced-feats';
 export type { UnplacedFeatBreak } from './unplaced-feats';
 export { UnplacedPickKind, unplacedPickBreaks } from './unplaced-picks';
+export type { UnplacedPickPatch } from './unplaced-pick-patch';
 export type { UnplacedPickBreak, UnplacedPicks } from './unplaced-picks';
 export {
   castRanks,
@@ -305,10 +306,12 @@ export {
   CharacterDocumentSchema,
   CorruptCharacterDocumentError,
   decodeCharacterDocument,
+  CLASS_FEATURES_MAX,
   RITUALS_MAX,
   SPELL_ACCESS_MAX,
   UNPLACED_FEATS_MAX,
   UNPLACED_LANGUAGES_MAX,
+  UNPLACED_SPELLS_MAX,
 } from './character-document';
 export { CUSTOM_LANGUAGES_MAX, customLanguagesOf, LANGUAGE_NAME_MAX_LENGTH, LanguageName } from './custom-language';
 export {

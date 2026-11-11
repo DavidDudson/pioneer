@@ -8,7 +8,6 @@ import {
   Occurrences,
   PathbuilderName,
   RuleBreakingCount,
-  UncarriedField,
   UnmatchedReason,
 } from '@pioneer/interop/pathbuilder';
 import type { CharacterImportReport } from '@pioneer/interop/pathbuilder';
@@ -20,7 +19,6 @@ import { ImportResult } from './import-result.component';
 
 const EMPTY: CharacterImportReport = {
   unmatched: [],
-  notCarried: [],
   unplacedBoosts: [],
   skillGaps: [],
   spellGaps: [],
@@ -59,7 +57,6 @@ describe(ImportResult, () => {
           ],
         },
       ],
-      notCarried: [UncarriedField.ClassFeature, UncarriedField.Spell],
       unplacedBoosts: [],
       skillGaps: [],
       spellGaps: [],
@@ -70,7 +67,7 @@ describe(ImportResult, () => {
       ruleBreakingPicks: RuleBreakingCount.parse(0),
     });
 
-    expect(text(fixture)).toContain("weren't kept: Class features and Spells");
+    expect(text(fixture)).not.toContain("weren't kept");
     expect(text(fixture)).toContain('Feats · 1 not carried over');
     expect(text(fixture)).toContain('Shield Block');
     expect(text(fixture)).toContain('×3');
@@ -124,7 +121,7 @@ describe(ImportResult, () => {
     const fixture = await render({ ...EMPTY, ruleBreakingPicks: RuleBreakingCount.parse(1) });
 
     expect(text(fixture)).toContain(
-      '1 heritage or language fits no slot, so it was kept as imported but breaks a rule.',
+      '1 heritage, language or spell fits no slot, so it was kept as imported but breaks a rule.',
     );
   });
 

@@ -133,6 +133,8 @@ describe('Character', () => {
           unplacedLanguages: [],
           customLanguages: [],
           rituals: [],
+          classFeatures: [],
+          unplacedSpells: [],
           lores: {},
           repertoireSwaps: [],
           boons: [],

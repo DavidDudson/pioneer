@@ -8,6 +8,7 @@ export type UnplacedPickPatch = Extract<
       | typeof CharacterPatchField.DismissUnplacedFeat
       | typeof CharacterPatchField.DismissUnplacedHeritage
       | typeof CharacterPatchField.DismissUnplacedLanguage
+      | typeof CharacterPatchField.DismissUnplacedSpell
       | typeof CharacterPatchField.RemoveCustomLanguage;
   }
 >;

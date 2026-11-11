@@ -203,9 +203,9 @@ interface Build {
   readonly choices: BoostChoices;
 }
 
-/** The names of the rituals an export lists. */
-function ritualNames({ names }: PathbuilderImport): PathbuilderName[] {
-  return names.filter(({ kind }) => kind === ImportKind.Ritual).map(({ name }) => name);
+/** The names of the `kind` an export lists. */
+function namesOf({ names }: PathbuilderImport, kind: ImportKind): PathbuilderName[] {
+  return names.filter((each) => each.kind === kind).map(({ name }) => name);
 }
 
 /** The feats, then the skills and Lores, the languages and the spells in the slots `build` opens, each read after the last. */
@@ -219,6 +219,7 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
   const focus = placeFocus(create(withLanguages).document, content, value);
   const withFocus = { ...withLanguages, ...focus.choices };
   const spells = placeSpells(create(withFocus).document, content, value.casters);
+  const gaps = [...spells.gaps, ...focus.gaps];
   return {
     choices: { ...withFocus, ...spells.choices },
     unplaced: {
@@ -227,14 +228,17 @@ function slotFills(value: PathbuilderImport, content: ImportContent, { create, c
           feats: feats.unplaced,
           languages: languages.unplaced,
           customLanguages: languages.custom,
-          rituals: ritualNames(value),
+          rituals: namesOf(value, ImportKind.Ritual),
+          classFeatures: namesOf(value, ImportKind.ClassFeature),
+          deity: namesOf(value, ImportKind.Deity)[0],
+          spells: gaps.map(({ name }) => name),
         },
         content.lookup,
       ),
       lores: skills.lores,
     },
     skillGaps: skills.gaps,
-    spellGaps: [...spells.gaps, ...focus.gaps],
+    spellGaps: gaps,
   };
 }
 

@@ -157,4 +157,6 @@ export const SlotInvalidMessage = {
   NoHeritageSlot: 'rules.choices.invalid.noHeritageSlot',
   /** An imported language no language slot has room for, kept on the character. */
   NoLanguageSlot: 'rules.choices.invalid.noLanguageSlot',
+  /** An imported spell no prepared or repertoire slot took, kept on the character. */
+  NoSpellSlot: 'rules.choices.invalid.noSpellSlot',
 } as const;

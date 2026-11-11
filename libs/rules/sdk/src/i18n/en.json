@@ -1249,6 +1249,7 @@
         "noHeritageSlot": "This ancestry does not offer that heritage, so it was kept as imported and breaks a rule. Pick a heritage or dismiss it.",
         "noLanguageSlot": "No language slot has room for this language, so it was kept as imported and breaks a rule. Pick it in a language slot or dismiss it.",
         "noSlot": "No slot offers this feat, so it was kept as imported and breaks a rule. Pick it in a feat slot or dismiss it.",
+        "noSpellSlot": "No prepared or repertoire slot took this spell, so it was kept as imported and breaks a rule. Pick it in a spell slot or dismiss it.",
         "notOffered": "This choice no longer offers that option, so it counts for nothing. Choose another.",
         "contentNotLoaded": "The content picked here is not loaded, so it counts for nothing.",
         "boostTaken": "A boost given with this one already raises that attribute, so it counts for nothing. Choose another.",

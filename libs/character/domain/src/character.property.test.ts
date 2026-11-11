@@ -113,6 +113,7 @@ const UNAIMED: ReadonlySet<CharacterPatchField> = new Set<UnaimedField>([
   CharacterPatchField.DismissUnplacedFeat,
   CharacterPatchField.DismissUnplacedHeritage,
   CharacterPatchField.DismissUnplacedLanguage,
+  CharacterPatchField.DismissUnplacedSpell,
   CharacterPatchField.RemoveCustomLanguage,
   CharacterPatchField.AddOverride,
   CharacterPatchField.EditOverride,

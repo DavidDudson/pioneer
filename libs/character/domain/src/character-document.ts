@@ -28,6 +28,12 @@ export const UNPLACED_LANGUAGES_MAX = 100;
 /** The most rituals a build lists as known. */
 export const RITUALS_MAX = 200;
 
+/** The most class features a build lists as carried over from an import. */
+export const CLASS_FEATURES_MAX = 500;
+
+/** The most imported spells a build keeps with no slot to hold them. */
+export const UNPLACED_SPELLS_MAX = 500;
+
 /** A repertoire slot swapped at `level`. */
 const RepertoireSwapRecord = z.strictObject({ level: Level, slot: SlotKey });
 
@@ -48,6 +54,12 @@ export const BuildSchema = z.strictObject({
   /** The languages an import named that no loaded content defines, kept by name (#1595). */
   customLanguages: z.array(LanguageName).max(CUSTOM_LANGUAGES_MAX).readonly().check(uniqueItems).default([]),
   rituals: z.array(ContentId).max(RITUALS_MAX).readonly().check(uniqueItems).default([]),
+  /** The class features an import matched, each once, kept beside the ones the class grants (#1593). */
+  classFeatures: z.array(ContentId).max(CLASS_FEATURES_MAX).readonly().check(uniqueItems).default([]),
+  /** The deity an import named that matched loaded content (#1593). */
+  deity: ContentId.optional(),
+  /** The imported spells no slot took, kept and flagged as breaking a rule until a slot pick is one or the player dismisses it (#1593). */
+  unplacedSpells: z.array(ContentId).max(UNPLACED_SPELLS_MAX).readonly().check(uniqueItems).default([]),
   /** The custom Lores the player named, by topic: `lore:sailing` picks read their name here (#572). */
   lores: z.record(Slug, LoreName).default({}),
   /** The repertoire slot swapped at each level, one a level-up (#594). */
@@ -75,6 +87,8 @@ export const CharacterDocumentSchema = z.strictObject({
     unplacedLanguages: [],
     customLanguages: [],
     rituals: [],
+    classFeatures: [],
+    unplacedSpells: [],
     lores: {},
     repertoireSwaps: [],
     boons: [],

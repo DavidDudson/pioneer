@@ -84,6 +84,8 @@ const UPGRADES: readonly UpgradeStep[] = [
   (document) => document,
   /** 20 → 21: a property rune is the rune and the crafter's choice (#1747). A version 20 rune is a bare content id, with no choice. */
   etchedRunesWithChoice,
+  /** 21 → 22: the class features, deity and unplaced spells an import keeps (#1593). A version 21 build keeps none. */
+  (document) => document,
 ];
 
 /** The version a chain of steps upgrades to: one past the last step. */

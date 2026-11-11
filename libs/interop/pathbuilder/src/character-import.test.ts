@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { ContentText } from '@pioneer/rules/sdk';
 import { Uuid } from '@pioneer/shared/kernel';
 
-import { characterImportReport, RuleBreakingCount, UncarriedField, UnmatchedReason } from './character-import';
+import { characterImportReport, RuleBreakingCount, UnmatchedReason } from './character-import';
 import type { CharacterImportReport, ImportOutcome } from './character-import';
 import { entryLookup } from './content-lookup';
 import briarRose from './fixtures/briar-rose.json';
@@ -54,12 +54,6 @@ describe('characterImportReport', () => {
   test('says why each name was not carried over', () => {
     expect(reasons(report, ImportKind.Feat)).toStrictEqual(new Set([UnmatchedReason.Unmatched]));
     expect(reasons(report, ImportKind.Heritage)).toStrictEqual(new Set([UnmatchedReason.KindNotLoaded]));
-  });
-
-  test('lists the filled fields the character cannot hold yet, ancestry and heritage never among them', () => {
-    expect(report.notCarried).toContain(UncarriedField.ClassFeature);
-    expect(report.notCarried).not.toContain(ImportKind.Ancestry);
-    expect(report.notCarried).not.toContain(ImportKind.Heritage);
   });
 
   test('a matched heritage its slot refused is reported as not offered', () => {

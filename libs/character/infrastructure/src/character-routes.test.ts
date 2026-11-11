@@ -262,11 +262,10 @@ describe('Pathbuilder import route', () => {
     expect(response.status).toBe(200);
     const { character, report } = (await response.json()) as {
       character: { id: string; name: string; level: number; ownerId: string; version: number };
-      report: { unmatched: { kind: string }[]; notCarried: string[] };
+      report: { unmatched: { kind: string }[] };
     };
     expect(character).toMatchObject({ name: 'Mordred (Dual Class)', level: 12, ownerId: amiri, version: 1 });
     expect(report.unmatched.map((group) => group.kind)).toContain('heritage');
-    expect(report.notCarried).toContain('spell');
 
     const got = await api.handle(request('GET', `/characters/${character.id}`));
     expect(CharacterSheet.parse(await got.json()).character.ancestry).toBe(humanAncestryId);

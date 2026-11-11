@@ -9,6 +9,14 @@ import { withProse } from './character-prose';
 import { withCustomEffectEdit } from './custom-effect';
 import type { EditInputs } from './item-purchase';
 
+/** The user who makes an edit; an edit that names its author is refused without one. */
+function editor(inputs: EditInputs): NonNullable<EditInputs['actor']> {
+  if (inputs.actor === undefined) {
+    throw new TypeError('An override or custom effect edit needs the user who makes it');
+  }
+  return inputs.actor;
+}
+
 /**
  * The document with `patch` made: a spell access or an unplaced pick on the build, an override, or a prose field. An
  * override edit takes its author from `inputs.actor`, and its id from `inputs.newOverrideId` when it adds one.
@@ -24,17 +32,15 @@ export function withDocumentEdit(
     case CharacterPatchField.DismissUnplacedFeat:
     case CharacterPatchField.DismissUnplacedHeritage:
     case CharacterPatchField.DismissUnplacedLanguage:
+    case CharacterPatchField.DismissUnplacedSpell:
     case CharacterPatchField.RemoveCustomLanguage: {
       return withBuildListEdit(document, patch);
     }
     case CharacterPatchField.AddOverride:
     case CharacterPatchField.EditOverride:
     case CharacterPatchField.RemoveOverride: {
-      if (inputs.actor === undefined) {
-        throw new TypeError('An override edit needs the user who makes it');
-      }
       return withOverrideEdit(document, patch, {
-        actor: inputs.actor,
+        actor: editor(inputs),
         actorRole: inputs.actorRole,
         now,
         newOverrideId: inputs.newOverrideId,
@@ -43,11 +49,8 @@ export function withDocumentEdit(
     case CharacterPatchField.AddCustomEffect:
     case CharacterPatchField.ToggleCustomEffect:
     case CharacterPatchField.RemoveCustomEffect: {
-      if (inputs.actor === undefined) {
-        throw new TypeError('A custom effect edit needs the user who makes it');
-      }
       return withCustomEffectEdit(document, patch, {
-        actor: inputs.actor,
+        actor: editor(inputs),
         actorRole: inputs.actorRole,
         now,
         newCustomEffectId: inputs.newCustomEffectId,

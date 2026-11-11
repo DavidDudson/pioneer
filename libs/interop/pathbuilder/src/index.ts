@@ -47,7 +47,6 @@ export {
   PathbuilderImportContract,
   PathbuilderImportResponse,
   RuleBreakingCount,
-  UncarriedField,
   UnmatchedGroup,
   UnmatchedName,
   UnmatchedReason,

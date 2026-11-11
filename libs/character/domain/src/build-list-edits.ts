@@ -29,6 +29,7 @@ export function withBuildListEdit(document: CharacterDocument, patch: BuildListP
     case CharacterPatchField.DismissUnplacedFeat:
     case CharacterPatchField.DismissUnplacedHeritage:
     case CharacterPatchField.DismissUnplacedLanguage:
+    case CharacterPatchField.DismissUnplacedSpell:
     case CharacterPatchField.RemoveCustomLanguage: {
       return { ...document, build: dismissedPick(build, patch) };
     }
