@@ -726,7 +726,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["758e6398-4436-587b-9163-476d4daf426e"]
   },
   {
     "id": "ea2f770c-c3f9-5da0-a273-c3a3cd7aa989",

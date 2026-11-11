@@ -889,7 +889,8 @@
         "type": "affixed",
         "to": "armor"
       }
-    }
+    },
+    "supersedes": ["3aa8340e-f6ac-56a6-b4ca-dee6f174da0a"]
   },
   {
     "id": "b2932e9b-6077-5f49-ae00-b845ffc4d2d8",

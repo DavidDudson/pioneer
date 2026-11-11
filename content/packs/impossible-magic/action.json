@@ -1094,7 +1094,8 @@
     "data": {
       "cost": "two",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["173ef221-de89-5283-9cfb-770bac753030"]
   },
   {
     "id": "a878e0c5-b88e-5601-b272-8cc401a28717",

@@ -36,6 +36,7 @@ import {
 import {
   advancedPlayersGuidePack,
   ancestryGuidePack,
+  bookOfTheDeadPack,
   characterGuidePack,
   coreRulebookPack,
   impossibleLandsPack,
@@ -136,6 +137,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('character-guide', characterGuidePack),
   checkedLoader('core-rulebook', coreRulebookPack),
   checkedLoader('advanced-players-guide', advancedPlayersGuidePack),
+  checkedLoader('book-of-the-dead', bookOfTheDeadPack),
   checkedLoader('the-show-must-go-on', theShowMustGoOnPack),
   checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
   checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),

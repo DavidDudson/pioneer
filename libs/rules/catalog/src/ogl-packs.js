@@ -102,3 +102,21 @@ export async function theShowMustGoOnPack() {
     import('@pioneer/content/packs/the-show-must-go-on/spell.json'),
   ]);
 }
+
+export async function bookOfTheDeadPack() {
+  return pack(import('@pioneer/content/packs/book-of-the-dead/pack.json'), [
+    import('@pioneer/content/packs/book-of-the-dead/action.json'),
+    import('@pioneer/content/packs/book-of-the-dead/ancestry.json'),
+    import('@pioneer/content/packs/book-of-the-dead/ancestry-feature.json'),
+    import('@pioneer/content/packs/book-of-the-dead/archetype.json'),
+    import('@pioneer/content/packs/book-of-the-dead/background.json'),
+    import('@pioneer/content/packs/book-of-the-dead/consumable.json'),
+    import('@pioneer/content/packs/book-of-the-dead/deity.json'),
+    import('@pioneer/content/packs/book-of-the-dead/effect.json'),
+    import('@pioneer/content/packs/book-of-the-dead/equipment.json'),
+    import('@pioneer/content/packs/book-of-the-dead/feat.json'),
+    import('@pioneer/content/packs/book-of-the-dead/heritage.json'),
+    import('@pioneer/content/packs/book-of-the-dead/spell.json'),
+    import('@pioneer/content/packs/book-of-the-dead/weapon.json'),
+  ]);
+}

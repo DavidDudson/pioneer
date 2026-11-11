@@ -639,7 +639,8 @@
     },
     "data": {
       "category": "defensive"
-    }
+    },
+    "supersedes": ["c22b5ef7-7246-5783-a7ab-0620fccd1b46"]
   },
   {
     "id": "4baefc45-cb0d-5165-ac61-11a6b5412506",

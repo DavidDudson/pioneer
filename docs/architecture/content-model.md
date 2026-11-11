@@ -556,20 +556,20 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `divine-mysteries`,
 `treasure-vault`, `howl-of-the-wild`, `war-of-immortals`, `mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`,
 `tian-xia-character-guide`, `dark-archive-remastered`, `character-guide`, `impossible-lands`,
-`core-rulebook`, `advanced-players-guide`, `the-show-must-go-on`,
+`core-rulebook`, `advanced-players-guide`, `book-of-the-dead`, `the-show-must-go-on`,
 `impossible-magic`,
 `guns-and-gears`, `battlecry`, `cheliax-infernal-inheritance`, `rival-academies`, `shining-kingdoms`, `draconic-codex`,
 `hellfire-dispatches`, `high-seas`, `season-of-ghosts`, `hellbreakers`, `gatewalkers`, `myth-speakers`,
 `revenge-of-the-runelords`, `secrets-of-the-unlit-star`, `troubles-in-grayce`, `hells-destiny`, `bastion-of-blasphemies`,
 `the-dead-gods-hand`, `wardens-of-wildwood`, `curtain-call`, `triumph-of-the-tusk`, `spore-war`, `shades-of-blood`,
 `prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
-(`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
-and OGL, for content the remaster books point at, such as the Goloma ancestry; the registry flags the
-books the importer takes that way (`Book.legacy` of `whole`, now also `core-rulebook`, whose remaining legacy
-entries were appended with `--replaced-legacy`, each remaster entry of the same name recording it in `supersedes`);
-`advanced-players-guide` and `the-show-must-go-on` hold the items `OGL_ENTRIES` lists and, since ADR-0077, every
-legacy entry a remaster entry replaces: `--replaced-legacy` reads them from the pre-6.0 pf2e release in `legacyPin` of
-`content/import/<pack>.json`, taking a legacy OGL document whose book and slug match a name behind
+(`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide`, `impossible-lands` and
+`book-of-the-dead` are pre-remaster and OGL, for content the remaster books point at, such as the Goloma ancestry; the
+registry flags the books the importer takes that way (`Book.legacy` of `whole`, now also `core-rulebook` and
+`advanced-players-guide`, whose remaining legacy entries were appended with `--replaced-legacy`, each remaster entry
+of the same name recording it in `supersedes`); `the-show-must-go-on` holds the items `OGL_ENTRIES` lists and, since
+ADR-0077, every legacy entry a remaster entry replaces: `--replaced-legacy` reads them from the pre-6.0 pf2e release
+in `legacyPin` of `content/import/<pack>.json`, taking a legacy OGL document whose book and slug match a name behind
 `content/aon/supersedes/*.json`; the other legacy packs get their replaced entries the same way. Every entry under the
 OGL, in an OGL pack or beside an ORC one, is legacy).
 `libs/rules/catalog` loads them lazily and checks every entry against its

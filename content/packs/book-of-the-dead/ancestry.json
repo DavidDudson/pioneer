@@ -1,0 +1,201 @@
+[
+  {
+    "id": "4701a322-c235-58ae-aa17-ef7388e91f79",
+    "pack": "book-of-the-dead",
+    "kind": "ancestry",
+    "slug": "ancestry:skeleton",
+    "name": "Skeleton",
+    "rarity": "rare",
+    "traits": ["skeleton", "undead"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skeletons are considered among the lowest types of undead. They're typically mindless creatures, lacking many of the abilities that make other undead a serious threat. However, the animated bones of dragons, giants, and other great beasts make for dangerous foes. Powerful living creatures can retain some of their might and intellect upon returning as a skeleton. Some necromancers turn their strongest enemies into skeletal undead servants, assuming they can keep control of them.",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Skeleton",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "8bcd2f32-c8cc-52a1-80cb-8195c1ceeb91"
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-1",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skeleton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skeleton feat"
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-1"
+        }
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-5",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skeleton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skeleton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-5"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 5]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-9",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skeleton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skeleton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-9"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 9]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-13",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skeleton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skeleton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-13"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 13]
+          }
+        ]
+      },
+      {
+        "key": "ChoiceSet",
+        "flag": "ancestry-feat-17",
+        "choices": {
+          "kind": "feat",
+          "filter": [
+            "item:trait:skeleton",
+            {
+              "lte": ["item:level", "self:level"]
+            }
+          ]
+        },
+        "prompt": "Skeleton feat",
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": {
+          "choice": "ancestry-feat-17"
+        },
+        "predicate": [
+          {
+            "gte": ["self:level", 17]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestries.Item.58rL5sg2y4arW1i5"
+    },
+    "data": {
+      "hitPoints": 6,
+      "size": "medium",
+      "speed": 25,
+      "boosts": [["dex"], ["cha"], ["str", "dex", "con", "int", "wis", "cha"]],
+      "flaws": ["int"],
+      "languages": ["444a2133-3e11-55b6-b57a-1f11ebe8e12b", "4e394236-976f-5501-bdb1-f8e938fcb241"],
+      "additionalLanguages": {
+        "count": 0,
+        "options": []
+      },
+      "reach": 5
+    }
+  }
+]

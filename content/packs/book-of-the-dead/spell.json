@@ -1,0 +1,996 @@
+[
+  {
+    "id": "eec0684a-c62a-53be-97e7-e3615421268b",
+    "pack": "book-of-the-dead",
+    "kind": "spell",
+    "slug": "spell:eyes-of-the-dead",
+    "name": "Eyes of the Dead",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You enter a magical trance that allows you to perceive through the senses of the target creature. You attempt Perception checks using your own Perception, but you have any special senses the target has, such as low-light vision or darkvision. The spell doesn't grant any special method of communication with the target. For the duration of the trance, your own senses are muted, though you can still communicate. This lack of awareness makes you "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ". You can't take actions with the attack or move traits, nor can you cast spells."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 100 miles and the duration to sustained up to 10 minutes. You can communicate telepathically with the target for the duration of the trance, though the target is under no compulsion to follow commands if it wasn't already."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.DLFupJuCfzyLCQcO"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "miles",
+        "miles": 1
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "1dda6d0a-215d-546b-b171-3310f207e480",
+    "pack": "book-of-the-dead",
+    "kind": "spell",
+    "slug": "spell:hallowed-ground",
+    "name": "Hallowed Ground",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "good", "holy", "manipulate", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One small space becomes inhospitable to undead as you fill it with life-infused benevolent magic. Each undead creature in the area takes 1d6 vitality damage and 1d4 spirit damage when you Cast the Spell, with a basic Fortitude save. After that, undead creatures have weakness 1 to vitality damage and your necromancy spells while in the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This spell also automatically attempts to counteract any attempt to raise undead in the area (if either the undead would appear in the area or the effect's caster or creator is in it)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you Cast this Spell again, any previous "
+          },
+          {
+            "type": "text",
+            "text": "hallowed ground",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " you had cast ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ebbf9345-4d60-5d07-a17e-a6ffb1d1adb9"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+2)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The vitality damage increases by 1d6, spirit damage increases by 1d4, and weakness increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.4bFxUA59xeq6Snhw"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "burst",
+        "size": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d6",
+          "damageType": "vitality",
+          "kinds": ["damage"]
+        },
+        {
+          "key": "1",
+          "formula": "1d4",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 2,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          },
+          {
+            "key": "1",
+            "formula": "1d4"
+          }
+        ]
+      },
+      "counteraction": true
+    }
+  },
+  {
+    "id": "9bb31878-7daf-54d1-b5c4-e7d15d58b6a5",
+    "pack": "book-of-the-dead",
+    "kind": "spell",
+    "slug": "spell:shambling-horror",
+    "name": "Shambling Horror",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["attack", "concentrate", "evil", "focus", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reanimate the corpse of a fallen creature as an undead minion under your control. The reanimated creature is an undead skeleton or zombie. Choose a skeleton or zombie stat block of the same size as the original creature and of a level no higher than the creature's original level. The shambling horror keeps Speeds it had in life, as well as melee Strikes that deal only physical damage. These attacks use the highest attack modifier from the skeleton or zombie you choose. Some of the skeleton's or zombie's abilities might not make sense for the shambling horror, and some abilities the creature had in life might not persist in undeath; the GM makes the final choice of what abilities the horror has."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A shambling horror has the minion trait. You can't control more than one shambling horror at the same time-if you create a new one while one is already under your control, you must choose one to release, causing it to lose the minion trait. Shambling horrors that have been released expire when the spell duration does. After the duration expires, you can cast shambling horror again on the same corpse to animate it once more. However, after the next sunrise, you can no longer animate the corpse as a shambling horror."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead Skeletons"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Size"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Creature Name"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "-1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeleton Guard"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "0"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wolf Skeleton"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Soldier"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Champion"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Horse"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Giant"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Harpy Skeleton"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Mage"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beetle Carapace"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Huge"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Hulk"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drake Skeleton"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gargantuan"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tyrannosaurus Skeleton"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gargantuan"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeleton Infantry"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "13"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gargantuan"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal Titan"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Zombies"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Level"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Size"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Creature Name"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "-1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Shambler"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "0"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Snake"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Plague Zombie"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Husk Zombie"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Brute"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Owlbear"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gargantuan"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shambler Troop"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Lord"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Withered"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sulfur Zombie"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Huge"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Hulk"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "9"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Huge"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Dragon"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "11"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Huge"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zombie Mammoth"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Z82DvtSXafPmh4KV"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "d35e2dcc-7959-5fe2-bcbc-365c98d2ed8f",
+    "pack": "book-of-the-dead",
+    "kind": "spell",
+    "slug": "spell:subjugate-undead",
+    "name": "Subjugate Undead",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt to seize control of the target. It can attempt a Will save to resist the effect. If the target is already being controlled by another creature, the controlling creature also rolls a saving throw and the undead uses the better result. Casting subjugate undead again ends any previous subjugate undead you cast."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and is temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead creature becomes a minion under your control for 1 minute. The spell is dismissed if you or an ally takes a hostile action against the minion undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the duration is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Cd6Crl4wpQaMSYrF"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  }
+]

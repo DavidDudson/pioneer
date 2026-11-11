@@ -5,4 +5,5 @@ export const impossibleLandsPack: PackLoader;
 export const ancestryGuidePack: PackLoader;
 export const coreRulebookPack: PackLoader;
 export const advancedPlayersGuidePack: PackLoader;
+export const bookOfTheDeadPack: PackLoader;
 export const theShowMustGoOnPack: PackLoader;

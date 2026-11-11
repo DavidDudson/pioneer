@@ -1,0 +1,260 @@
+[
+  {
+    "id": "bded3adc-b46f-54d1-a766-c404727470f4",
+    "pack": "book-of-the-dead",
+    "kind": "heritage",
+    "slug": "heritage:compact-skeleton",
+    "name": "Compact Skeleton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For tasks that require a lighter touch, gnome, goblin, and halfling remains are more suitable than a larger creature's. These smaller, nimbler skeletons fit well in a traveling chest, can be forced through tight spaces, and more easily avoid detection. Your size is Small instead of Medium. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+          },
+          {
+            "type": "text",
+            "text": " feat, even if you aren't trained in Acrobatics. Tight spaces not tight enough to require the Squeeze activity aren't difficult terrain for you."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "small"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8d5acd26-e889-5893-a9e0-1bff8da9f84e"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.mZqaKQkvadBbNubM"
+    },
+    "data": {
+      "ancestry": "4701a322-c235-58ae-aa17-ef7388e91f79"
+    }
+  },
+  {
+    "id": "0238018e-c1b4-5dc0-8d5a-16a7ab30ea07",
+    "pack": "book-of-the-dead",
+    "kind": "heritage",
+    "slug": "heritage:fodder-skeleton",
+    "name": "Fodder Skeleton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Humans, and those who are physically closest to them, are the favored material of necromancers. They are readily available, and their physiology has been studied the most extensively, so these skeletons can be easily mass-produced. Despite their name, fodder skeletons make rather mobile foot soldiers due to how efficiently they transfer necromantic energy within their bodies. You have a base Speed of 30 feet, instead of 25 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:land",
+        "mode": "upgrade",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.RZHr0olieS6YdYE9"
+    },
+    "data": {
+      "ancestry": "4701a322-c235-58ae-aa17-ef7388e91f79"
+    }
+  },
+  {
+    "id": "f8cd809f-8881-56c7-87a3-5df6162928ef",
+    "pack": "book-of-the-dead",
+    "kind": "heritage",
+    "slug": "heritage:monstrous-skeleton",
+    "name": "Monstrous Skeleton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Inhuman skeletons are often created for both their deadly physical attacks and their terrifying appearances. Beasts and monstrous humanoids with the strangest skeletons tend to be the centerpiece of the collection of a necromancer skilled enough to raise one. You gain a claw, horn, tail, or wing unarmed attack that deals 1d6 damage. A claw deals slashing damage, a horn deals piercing damage, and a tail or wing deals bludgeoning damage. This unarmed attack is in the brawling group and has the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "primary-strike",
+        "choices": [
+          {
+            "value": "claw",
+            "label": "Claw"
+          },
+          {
+            "value": "horn",
+            "label": "Horn"
+          },
+          {
+            "value": "tail",
+            "label": "Tail"
+          },
+          {
+            "value": "wing",
+            "label": "Wing"
+          }
+        ],
+        "prompt": "Select an unarmed strike.",
+        "rollOption": "ancestry:skeleton:monstrous"
+      },
+      {
+        "key": "Strike",
+        "slug": "claw",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "slashing"
+        },
+        "predicate": ["ancestry:skeleton:monstrous:claw"],
+        "display": {
+          "label": "Claw"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "horn",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "predicate": ["ancestry:skeleton:monstrous:horn"],
+        "display": {
+          "label": "Horn"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "tail",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["ancestry:skeleton:monstrous:tail"],
+        "display": {
+          "label": "Tail"
+        }
+      },
+      {
+        "key": "Strike",
+        "slug": "wing",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["unarmed", "finesse"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "bludgeoning"
+        },
+        "predicate": ["ancestry:skeleton:monstrous:wing"],
+        "display": {
+          "label": "Wing"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.wB8xiQB4RDbzOOvR"
+    },
+    "data": {
+      "ancestry": "4701a322-c235-58ae-aa17-ef7388e91f79"
+    }
+  },
+  {
+    "id": "59c3c511-7de3-5b74-b08d-0ecd7117af34",
+    "pack": "book-of-the-dead",
+    "kind": "heritage",
+    "slug": "heritage:sturdy-skeleton",
+    "name": "Sturdy Skeleton",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Certain hazardous conditions are not suitable for the average skeleton, so a necromancer might choose to reanimate the bones of a dwarf, orc, or other creature with a reputation for sturdiness. You have 10 Hit Points instead of 6 and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "730b86b0-c740-5759-ba8b-82ae1fede883"
+          },
+          {
+            "type": "text",
+            "text": " feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "730b86b0-c740-5759-ba8b-82ae1fede883"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.heritages.Item.P8Rl3dUsq8AzXLHC"
+    },
+    "data": {
+      "ancestry": "4701a322-c235-58ae-aa17-ef7388e91f79"
+    }
+  }
+]

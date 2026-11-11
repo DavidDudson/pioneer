@@ -1,0 +1,646 @@
+[
+  {
+    "id": "77c31138-db57-5e26-af96-955ddb7ce61b",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:banquet-of-hungry-ghosts",
+    "name": "Banquet of Hungry Ghosts",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lavish meal with meats, fresh and dried fruits, grains, and wine smells absolutely scrumptious, especially to undead. It comes complete with dishes and dining utensils. You spend an hour setting up this feast to feed four undead creatures, who are present throughout the process. The undead must be willing, but the food smells delicious and feeds any unusual hunger the undead has, so an undead motivated mainly by hunger will usually be willing to dine. Incorporeal undead consume the various essences of the meal, allowing them to eat it despite their lack of a body. After it has consumed the meal, the undead becomes friendly to you for 24 hours, or until you take actions to antagonize or anger it. The meal also sates the undead during that time, which could allow an undead with an unnatural hunger to stave off that hunger for a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you eat or drink a morsel of the leftover meal after the undead has eaten its fill, you can communicate with the undead as if you shared a language. Though you can feed a meal to a mindless undead, it does not give the mindless undead or you the ability to communicate with one another."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jiDzJKmdK2BAOh1x"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": 8,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b0d98e4c-8504-50fc-97f5-a859fbb04252",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:ectoplasmic-tracer",
+    "name": "Ectoplasmic Tracer",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sticky, fluorescing substance, stored in an atomizing nozzle, sprays all creatures within a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " when released. This marks any incorporeal creatures in the cone for 1d4 days. Anyone attempting to Track a marked creature gains a +2 item bonus to the check. The tracer has no effect on corporeal creatures, nor incorporeal creatures not formed of spiritual essence, such as animate dreams that are purely mental in nature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A marked creature that's aware of the tracer can attempt to remove it, but the process is lengthy and unpleasant. It takes 10 minutes of scraping through its incorporeal form to remove the tracer's effects."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mYVUS8p9gA3mCLES"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ac74fd6b-76ba-5eda-b2af-415f634e7c34",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:feast-of-hungry-ghosts",
+    "name": "Feast of Hungry Ghosts",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This lavish meal with meats, fresh and dried fruits, grains, and wine smells absolutely scrumptious, especially to undead. It comes complete with dishes and dining utensils. You spend an hour setting up this feast to feed one undead creature, who is present throughout the process. The undead must be willing, but the food smells delicious and feeds any unusual hunger the undead has, so an undead motivated mainly by hunger will usually be willing to dine. Incorporeal undead consume the various essences of the meal, allowing them to eat it despite their lack of a body. After it has consumed the meal, the undead becomes friendly to you for 24 hours, or until you take actions to antagonize or anger it. The meal also sates the undead during that time, which could allow an undead with an unnatural hunger to stave off that hunger for a time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you eat or drink a morsel of the leftover meal after the undead has eaten its fill, you can communicate with the undead as if you shared a language. Though you can feed a meal to a mindless undead, it does not give the mindless undead or you the ability to communicate with one another."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mBvMWiFb6VB0P3Fk"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 120
+        }
+      },
+      "bulk": 3,
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "57e1d9b5-d24b-52bc-a828-e8c262c4def5",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:life-salt",
+    "name": "Life Salt",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["consumable", "divine", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This crystal vial contains salts blessed by channeling life-giving energies into waters purified by holy fire. You can activate this vial by throwing it as a Strike. It's a simple thrown ranged weapon with a range increment of 10 feet. Unlike an alchemical bomb, it doesn't add the manipulate trait to the attack made with it. On a hit against an undead, "
+          },
+          {
+            "type": "text",
+            "text": "life salt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " deals 1 persistent vitality damage, and the undead must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " or be unable to attack you as long as it continues taking the persistent vitality damage. If you use a hostile action against any undead, this second effect ends, and the undead can attack you normally."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PTEQ6NCrFkYQCURJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "light",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3aa8340e-f6ac-56a6-b4ca-dee6f174da0a",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:peachwood-talisman",
+    "name": "Peachwood Talisman",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["consumable", "magical", "talisman"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are an expert in Perception"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Symbols of good fortune and luck are carved on this thin, square wooden plaque. It smells of sandalwood from the blessings placed upon it. After activation, for the next minute, you can sense attacks from undead. You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "61f1fec4-1bb4-585d-9c12-6059d15dd74b"
+          },
+          {
+            "type": "text",
+            "text": ", or flanking undead of your level or lower, or undead of your level or lower using surprise attack. However, they can still help their allies flank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.GiiBkaa5JaJ5msPS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40
+        }
+      },
+      "bulk": "negligible",
+      "category": "talisman",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "affixed",
+        "to": "armor"
+      }
+    }
+  },
+  {
+    "id": "eab8631f-c00b-5afa-8694-e1ca41c4fccb",
+    "pack": "book-of-the-dead",
+    "kind": "consumable",
+    "slug": "consumable:undead-detection-dye",
+    "name": "Undead Detection Dye",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liquid in this test tube is as clear as water. You can drop in a sample collected from the environment or a creature to reveal what kind of undead has been in contact with the sample in the past 24 hours. The water changes color, as seen on the table, or remains clear if it doesn't detect any traces of undead. The higher the undead's level or number of undead in contact with the sample, the more intense the color. This isn't a foolproof way to identify a disguised creature as undead, since any contact with undead causes the sample to change colors. If an undead has been disguising its undead nature or its presence in an area, the GM can roll a secret "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:deception",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:stealth",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check for the creature when the dye is activated. On a success, the creature avoided leaving traces. This can't protect the undead from discovery if it actively uses its undead abilities on an area or creature, though it can attempt to remove any evidence with activities like Cover Tracks and Conceal an Object."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Color",
+              "marks": ["strong"]
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Undead Detected",
+              "marks": ["strong"]
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vampire"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wight"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Yellow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mummy"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ghost"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ghoul"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Indigo"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wraith"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Purple"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Gray"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mindless undead such as a zombie or skeleton"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Black"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lich"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "White"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Other Undead"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VJs47kgqu1ziZBRU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 20
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  }
+]

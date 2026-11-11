@@ -25,6 +25,7 @@ export const FOUNDRY_BOOK_TITLES: ReadonlyMap<string, BookId> = new Map([
   ['Pathfinder Lost Omens Character Guide', BookId.parse('character-guide')],
   ['Pathfinder Core Rulebook', BookId.parse('core-rulebook')],
   ["Pathfinder Advanced Player's Guide", BookId.parse('advanced-players-guide')],
+  ['Pathfinder Book of the Dead', BookId.parse('book-of-the-dead')],
   ['Pathfinder #151: The Show Must Go On', BookId.parse('the-show-must-go-on')],
   ['Pathfinder Dark Archive (Remastered)', BookId.parse('dark-archive-remastered')],
   ['Pathfinder Lost Omens Tian Xia Character Guide', BookId.parse('tian-xia-character-guide')],

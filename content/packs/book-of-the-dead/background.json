@@ -1,0 +1,799 @@
+[
+  {
+    "id": "77b3b171-7a16-5786-8d21-7fc3ba6c7d3c",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:curandero",
+    "name": "Curandero",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You learned the healing arts of your community wielding your ceremonial chonta, a tool you carved yourself and imbued with sacred oils and herbs. This process opened your eyes to ailments of a more mystical nature: malefic spirits, haunts, possession, and more. You likely took up adventuring to combat these horrors, or you may have fled an evil beyond your power to vanquish."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Medicine skill and the Herbalism Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "19fe1b06-5d49-5172-889d-f86f6b435846"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:med",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "19fe1b06-5d49-5172-889d-f86f6b435846"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Uk4W7mKQbLtDDHwo"
+    },
+    "data": {
+      "boosts": [
+        ["con", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "3c58b5a4-fd15-58d8-b968-f860b8f4bdc2",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:grave-robber",
+    "name": "Grave Robber",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Resurrectionist. Body snatcher. No matter what you're called, you know where the bodies are buried, and how many coins they'll fetch when dug up. Adventuring comes naturally to you-in your mind dungeons are just oversized tombs-as does returning home with your loot undetected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Stealth skill and the Underworld Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ab6adadd-c9c7-5a67-8aea-bd1d7c8bfd5f"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:ste",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ab6adadd-c9c7-5a67-8aea-bd1d7c8bfd5f"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.7QkQQsHjv2iNFIsF"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "057d0dca-c70e-5a80-9edf-c91951d58f7f",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:haunted-citizen",
+    "name": "Haunted Citizen",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grew up in a region where undead lurk everywhere. This could be a domain as small as a vampire's fief or as vast as the nation of Ustalav. As an ever-present concern, the undead greatly shaped your life. Living with fear became an everyday skill... as did pleading for your life."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Diplomacy skill and the Lore skill for your home settlement. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "24926aff-a7ca-50ec-af8c-cb872fbfd882",
+            "label": "No Cause for Alarm"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:dip",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.18Jzk3gAsXspFOYC"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "b2d6da87-fb5f-5b2d-a8d4-9df68335a487",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:necromancers-apprentice",
+    "name": "Necromancer's Apprentice",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You apprenticed under a necromancer-a hard education in a field where a cadaver you were dissecting could suddenly animate and every magical artifact seemed deadly. Now on your own, you're grateful you learned to identify magical threats quickly and thoroughly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Arcana skill and the Necromancy Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:arc",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "8f60468d-7f71-56d5-8296-a9b16622e2e3"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.Yai061jIDzojHzsn"
+    },
+    "data": {
+      "boosts": [
+        ["con", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "1fb68493-26b9-5140-b39f-0b657a1267c4",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:night-watch",
+    "name": "Night Watch",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When everyone else slumbers, you're on guard. You might have been a watch member in a teeming metropolis, the guard in an unquiet cemetery, or a lonely shepherd. Many a night you've shouted out warnings into the dark, unsure of what lurked just beyond the range of your lantern's light. More than once you've seen things shambling in the dark that never should have been up and about."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Intimidation skill and either Legal Lore or the Lore skill for your home settlement. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "40ae47a1-73c4-58dd-9e66-1d9fc97ace5d"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:itm",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "40ae47a1-73c4-58dd-9e66-1d9fc97ace5d"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.RxhdWJUoRTBEeHYZ"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "7d9a7e9a-aa78-52f0-a0b6-71ce659053c2",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:pyre-tender",
+    "name": "Pyre Tender",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're experienced at building funeral pyres. You might have lit flaming biers in the Land of the Linnorm Kings, tended the cremation pits of Cheliax or Vudra, or been a backwoods charcoal burner, using the right mixture of alchemy to act as an accelerant. However you worship, you know nothing sends off the departed like flame."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Crafting skill and the Funeral Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "afbb2177-d92a-5a20-8c3b-4dc64b9c4513"
+          },
+          {
+            "type": "text",
+            "text": " skill feat."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:cra",
+        "rank": "trained"
+      },
+      {
+        "key": "GrantItem",
+        "item": "afbb2177-d92a-5a20-8c3b-4dc64b9c4513"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.a9YjyQRNEOyespFf"
+    },
+    "data": {
+      "boosts": [
+        ["dex", "int"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "71a3e617-335e-520a-8b1d-4e9b54ab098c",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:scion-of-slayers",
+    "name": "Scion of Slayers",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You were born into a lineage of undead slayers. No mere occupation, in your family slaying is a mantle of almost mystic responsibility passed from parent to child. Over the generations, this single-minded focus has begun to manifest in uncanny ways during combat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Intelligence",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Athletics skill and the Undead Lore skill. You can cast "
+          },
+          {
+            "type": "ref",
+            "id": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+          },
+          {
+            "type": "text",
+            "text": " as an innate divine cantrip. You can use Intelligence as your spellcasting ability for this innate spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "skill:ath",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.RPU1aNfVz3ZbymvV"
+    },
+    "data": {
+      "boosts": [
+        ["int", "str"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "de5db52e-dc6b-5194-906d-f663a323e043",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:tomb-born",
+    "name": "Tomb Born",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your parents conceived you for a fell purpose at a site tainted by death, like a wight's barrow, mass grave, or ossuary. Their reasons could be a mystery, or you might know of their grand design and seek to escape-or fulfill-their plans. Either way, you're at your most dangerous when near death."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Dexterity",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Constitution",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Undead Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "28b9798e-cc50-5bf3-a57e-724ac25e4a97"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "28b9798e-cc50-5bf3-a57e-724ac25e4a97"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.eGPlKAoYBTUqjyrr"
+    },
+    "data": {
+      "boosts": [
+        ["con", "dex"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  },
+  {
+    "id": "9c5c6655-7fe9-509c-a242-5c9d5af6d8f9",
+    "pack": "book-of-the-dead",
+    "kind": "background",
+    "slug": "background:willing-host",
+    "name": "Willing Host",
+    "rarity": "rare",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "book-of-the-dead"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You speak to spirits only you can perceive: wispy shreds of lost souls, household guardians, ancestral spirits, and other entities. You can negotiate with these beings, allowing them into your body to impart knowledge or aid in a task for the price of a favor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two ability boosts. One must be to "
+          },
+          {
+            "type": "text",
+            "text": "Wisdom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "text",
+            "text": "Charisma",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": ", and one is a free ability boost."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in the Spirit Lore skill. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5d78989f-c266-5b63-aed5-5850c6d3634b"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5d78989f-c266-5b63-aed5-5850c6d3634b"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.backgrounds.Item.ykYaQwIX7sxvbhwc"
+    },
+    "data": {
+      "boosts": [
+        ["cha", "wis"],
+        ["cha", "con", "dex", "int", "str", "wis"]
+      ]
+    }
+  }
+]
