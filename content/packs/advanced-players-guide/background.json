@@ -119,7 +119,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:med",
+        "selector": "skill:medicine",
         "rank": "trained"
       },
       {
@@ -291,7 +291,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:soc",
+        "selector": "skill:society",
         "rank": "trained"
       },
       {
@@ -382,7 +382,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:soc",
+        "selector": "skill:society",
         "rank": "trained"
       },
       {
@@ -477,7 +477,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "skill:occ",
+        "selector": "skill:occultism",
         "rank": "trained"
       }
     ],
@@ -588,7 +588,7 @@
       },
       {
         "key": "Proficiency",
-        "selector": "skill:nat",
+        "selector": "skill:nature",
         "rank": "trained"
       },
       {
@@ -794,7 +794,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:occ",
+        "selector": "skill:occultism",
         "rank": "trained"
       }
     ],
@@ -881,7 +881,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:dec",
+        "selector": "skill:deception",
         "rank": "trained"
       },
       {
@@ -972,7 +972,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:nat",
+        "selector": "skill:nature",
         "rank": "trained"
       },
       {
@@ -1063,7 +1063,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:rel",
+        "selector": "skill:religion",
         "rank": "trained"
       },
       {
@@ -1153,7 +1153,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:soc",
+        "selector": "skill:society",
         "rank": "trained"
       },
       {
@@ -1342,7 +1342,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:occ",
+        "selector": "skill:occultism",
         "rank": "trained"
       },
       {
@@ -1441,7 +1441,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:soc",
+        "selector": "skill:society",
         "rank": "trained"
       },
       {
@@ -1623,7 +1623,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:soc",
+        "selector": "skill:society",
         "rank": "trained"
       },
       {
@@ -1714,7 +1714,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:ath",
+        "selector": "skill:athletics",
         "rank": "trained"
       },
       {
@@ -1805,7 +1805,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:itm",
+        "selector": "skill:intimidation",
         "rank": "trained"
       },
       {
@@ -1896,7 +1896,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:prf",
+        "selector": "skill:performance",
         "rank": "trained"
       },
       {
