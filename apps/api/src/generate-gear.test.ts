@@ -3,8 +3,10 @@ import { describe, expect, test } from 'bun:test';
 import {
   attributeModifiers,
   CarryState,
+  characterGrants,
   CharacterLevel,
   CharacterPatchField,
+  characterRanks,
   coinsValue,
   CORE_RULE_LIMITS,
   CORE_TREASURE_BY_LEVEL,
@@ -21,7 +23,7 @@ import {
   treasureAt,
 } from '@pioneer/character/domain';
 import type { Character, ItemContent } from '@pioneer/character/domain';
-import { Attribute, ContentKind } from '@pioneer/rules/sdk';
+import { Attribute, ContentKind, Proficiency } from '@pioneer/rules/sdk';
 import type { AttributeModifier, ContentId } from '@pioneer/rules/sdk';
 import { fixedClock } from '@pioneer/shared/kernel';
 import { assert, constantFrom, integer, property } from 'fast-check';
@@ -76,7 +78,32 @@ function gearProblems(character: Character, level: CharacterLevel): readonly str
   return checks.filter(([broken]) => broken).map(([, problem]) => problem);
 }
 
+/** The weapons and armour `character` carries that its class is not trained in. */
+function untrainedGear(character: Character): readonly string[] {
+  const ranks = characterRanks(characterGrants(character.document, content));
+  const trainedIn = (selector: string): boolean => {
+    const rank = [...ranks].find(([each]) => each === selector)?.[1];
+    return rank !== undefined && rank !== Proficiency.Untrained;
+  };
+  return character.document.inventory.items.flatMap((line) => {
+    const entry = items.get(line.item);
+    if (entry?.kind === ContentKind.Weapon && !trainedIn(`attack:${entry.data.category}`)) {
+      return [`${entry.id} (${entry.data.category} weapon)`];
+    }
+    if (entry?.kind === ContentKind.Armor && !trainedIn(`defense:${entry.data.category}`)) {
+      return [`${entry.id} (${entry.data.category} armour)`];
+    }
+    return [];
+  });
+}
+
 describe('generated gear', () => {
+  test.each([...PLAYER_CORE_CLASSES])('%s carries only weapons and armour its class is trained in', (name) => {
+    for (const level of SPOT_LEVELS) {
+      expect({ level, untrained: untrainedGear(geared(name, level, SEED)) }).toEqual({ level, untrained: [] });
+    }
+  });
+
   test.each([...PLAYER_CORE_CLASSES])('%s, at levels 1, 5, 10, 15 and 20, is legal and within the budget', (name) => {
     for (const level of SPOT_LEVELS) {
       expect({ level, problems: gearProblems(geared(name, level, SEED), level) }).toEqual({ level, problems: [] });

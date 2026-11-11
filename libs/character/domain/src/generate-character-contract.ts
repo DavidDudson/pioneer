@@ -2,7 +2,7 @@ import { ChoiceValue, ClassRoleSchema, SlotKey } from '@pioneer/rules/sdk';
 import * as z from 'zod';
 
 import { Character } from './character';
-import { CharacterLevel, CharacterName } from './character-fields';
+import { CharacterName } from './character-fields';
 import { GenerationThemeSchema } from './generation-theme';
 import { Seed } from './pick-source';
 
@@ -14,15 +14,15 @@ export const GenerateLock = z.strictObject({ slot: SlotKey, selection: ChoiceVal
 export type GenerateLock = z.infer<typeof GenerateLock>;
 
 /**
- * A character made at random: `level` is how far to take it, `seed` makes the picks (the same seed, level, locks, theme
- * and packs give the same character; the server picks one when it is left out) and `name` replaces the rolled one.
+ * A character made at random, always at level 1 (it is levelled up in the planner, so there is no level to ask for and
+ * a body that names one is refused): `seed` makes the picks (the same seed, locks, theme and packs give the same
+ * character; the server picks one when it is left out) and `name` replaces the rolled one.
  * `locks` are picks to keep: only the other slots are drawn, so a new seed with the same locks re-rolls the rest. A
  * lock the build cannot keep (its slot only opens under a pick that was not locked) is refused as a 422. `theme`
  * weighs the picks and, with a weapon, equips it. `role` draws the class from those that play it (by `seed`), unless a
- * lock already picks the class; a role no loaded class plays is a 422. `level` is 1 when left out.
+ * lock already picks the class; a role no loaded class plays is a 422.
  */
-export const GenerateCharacterBody = z.object({
-  level: CharacterLevel.optional(),
+export const GenerateCharacterBody = z.strictObject({
   seed: Seed.optional(),
   role: ClassRoleSchema.optional(),
   name: CharacterName.optional(),

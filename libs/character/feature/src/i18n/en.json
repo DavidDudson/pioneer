@@ -81,12 +81,18 @@
     "steps": {
       "archetype": "Archetype",
       "class": "Class",
+      "ancestry": "Ancestry",
+      "background": "Background",
       "style": "Style",
       "details": "Details"
     },
     "archetypeHint": "What do you want to play?",
     "classHint": "Pick a class that plays it, or leave it to chance.",
     "anyClass": "Any class",
+    "ancestryHint": "Pick an ancestry, or leave it to chance.",
+    "anyAncestry": "Any ancestry",
+    "backgroundHint": "Pick a background, or leave it to chance.",
+    "anyBackground": "Any background",
     "noStyle": "No preference",
     "role": {
       "spellcaster": "Spellcaster",
