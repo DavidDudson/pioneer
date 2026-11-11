@@ -1,17 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { AsyncButton, AsyncData, AsyncPending, AsyncRegion, Skeleton, Stack, Text } from '@pioneer/frontier';
-import { keptRoll, presentRoll, RANDOM_SOURCE, RollCard, RollPresenter, rollView } from '@pioneer/play/ui';
-import type { RollView } from '@pioneer/play/ui';
-import { NO_FORTUNE, rollWithFortune } from '@pioneer/rules/dice';
-import type { FortunedRoll } from '@pioneer/rules/dice';
+import { RollCard } from '@pioneer/play/ui';
 import type { ContentKind } from '@pioneer/rules/sdk';
 
 import { CharacterStore } from '../../data/character-store';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS } from '../sheet-actions';
-import { CONSUMABLE_COST_MESSAGES, consumableLines, useCommand } from '../sheet-consumables';
+import { SheetConsumableUse } from '../sheet-consumable-use';
+import { CONSUMABLE_COST_MESSAGES, consumableLines } from '../sheet-consumables';
 import type { ConsumableLine } from '../sheet-consumables';
 import { describeSaveError } from '../sheet-field';
 import { statisticInputsOf } from '../sheet-inputs';
@@ -23,12 +21,6 @@ interface ShownConsumable {
   readonly summary: string;
   /** Why it cannot be used, when its formula reads something the character has no value for. */
   readonly problem: string | undefined;
-}
-
-/** What the last use rolled, for the card. */
-interface UsedRoll {
-  readonly name: string;
-  readonly view: RollView;
 }
 
 const CONSUMABLE_KINDS: readonly ContentKind[] = ACTION_CONTENT_KINDS;
@@ -46,18 +38,16 @@ const CONSUMABLE_KINDS: readonly ContentKind[] = ACTION_CONTENT_KINDS;
 })
 export class SheetConsumables {
   readonly #i18n = inject(TranslocoService);
-  readonly #presenter = inject(RollPresenter);
   readonly #characters = inject(CharacterStore);
   readonly #play = inject(PlayStore);
   readonly #sheet = inject(SheetState);
-  readonly #random = inject(RANDOM_SOURCE);
-  #count = 0;
+  readonly #consumableUse = inject(SheetConsumableUse);
 
   protected readonly registry = injectContentRegistry(CONSUMABLE_KINDS);
   protected readonly playQuery = this.#play.play;
   protected readonly busy = signal(false);
-  /** The roll of the last consumable used; unset until one that rolls is used. */
-  protected readonly rolled = signal<UsedRoll | undefined>(undefined);
+  /** The roll of the last consumable used, from here or the Actions tab; unset until one that rolls is used. */
+  protected readonly rolled = this.#consumableUse.rolled;
 
   protected readonly consumables = computed((): readonly ShownConsumable[] => {
     const registry = this.registry.data();
@@ -82,43 +72,15 @@ export class SheetConsumables {
     }));
   });
 
-  /** Uses one: the dice it rolls, then the one edit the server checks. The stack changed, so read the character again. */
+  /** Uses one with the path the Actions tab uses too: it rolls, sends the use and shows the roll. */
   protected readonly use = (line: ConsumableLine) => async (): Promise<void> => {
     this.busy.set(true);
     try {
-      const fortuned =
-        line.roll === undefined ? undefined : rollWithFortune(line.roll.expression, NO_FORTUNE, this.#random);
-      const kept = fortuned?.rolls.find((entry) => entry.kept)?.result;
-      const command = useCommand(line, kept);
-      if (command === undefined) {
-        return;
-      }
-      await this.#play.send(command);
-      this.#show(line, fortuned);
-      await this.#characters.reload();
+      await this.#consumableUse.use(line);
     } finally {
       this.busy.set(false);
     }
   };
-
-  /** Puts the roll a use made on the card; nothing changes for a consumable that rolls nothing. */
-  #show(line: ConsumableLine, fortuned: FortunedRoll | undefined): void {
-    if (line.roll === undefined || fortuned === undefined) {
-      return;
-    }
-    this.#count += 1;
-    const view = rollView(this.#count, {
-      expression: line.roll.expression,
-      roll: fortuned,
-      degree: undefined,
-      damage: undefined,
-    });
-    this.rolled.set({ name: line.name, view });
-    const counted = keptRoll(fortuned);
-    if (counted !== undefined) {
-      this.#presenter.present(presentRoll(this.#count, line.name, counted));
-    }
-  }
 
   #say(key: string, params?: Readonly<Record<string, string | number>>): string {
     return this.#i18n.translate(key, params);

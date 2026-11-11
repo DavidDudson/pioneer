@@ -1,0 +1,6 @@
+@if (rolled(); as last) {
+  <fr-stack gap="xs">
+    <fr-text variant="caption" tone="muted">{{ last.name }}</fr-text>
+    <pio-roll-card [roll]="last.view" />
+  </fr-stack>
+}

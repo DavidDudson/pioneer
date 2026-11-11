@@ -23,24 +23,20 @@ import type {
   SpendRequest,
   TurnState,
 } from '@pioneer/character/domain';
-import { RANDOM_SOURCE } from '@pioneer/play/ui';
-import { NO_FORTUNE, rollWithFortune } from '@pioneer/rules/dice';
 import { ActionCost, ContentId } from '@pioneer/rules/sdk';
 import type { ContentKind, ContentRegistry, HitPoints } from '@pioneer/rules/sdk';
 import { ActionUser } from '@pioneer/rules/ui';
 import type { ActionUse, UsePayment } from '@pioneer/rules/ui';
 import { newId } from '@pioneer/shared/kernel';
 
-import { CharacterStore } from '../data/character-store';
 import { injectContentRegistry } from '../data/content-registry-query';
 import { PlayStore } from '../data/play-store';
 import { ACTION_CONTENT_KINDS, makesAttack, spendCostOf } from './sheet-actions';
 import { spellEntries, sustainedCast } from './sheet-active-list';
-import { consumableLines, useCommand } from './sheet-consumables';
+import { SheetConsumableUse } from './sheet-consumable-use';
 import { activeFormOf } from './sheet-effects';
 import { FORM_CAST_CONTENT_KINDS, formCastOf } from './sheet-form-cast';
 import type { FormCast, FormCastChoice, FormCaster } from './sheet-form-cast';
-import { statisticInputsOf } from './sheet-inputs';
 import { raisedEdit, shieldIds } from './sheet-shields';
 import { sheetSources } from './sheet-sources';
 import { SheetState } from './sheet-state';
@@ -123,8 +119,7 @@ export class SheetSpender extends ActionUser {
   readonly #play = inject(PlayStore);
   readonly #registry = injectContentRegistry(SPENDER_CONTENT_KINDS);
   readonly #sheet = inject(SheetState);
-  readonly #characters = inject(CharacterStore);
-  readonly #random = inject(RANDOM_SOURCE);
+  readonly #consumables = inject(SheetConsumableUse);
 
   /** The turn as the play state has it; undefined while that loads. */
   public readonly turn = computed((): TurnState | undefined => this.#play.play.data()?.play.turn);
@@ -135,7 +130,7 @@ export class SheetSpender extends ActionUser {
   public override async use(request: ActionUse): Promise<void> {
     const consumable = request.line.payment?.consumable;
     if (consumable !== undefined) {
-      await this.#useConsumable(consumable);
+      await this.#consumables.useHeld(consumable);
       return;
     }
     const registry = this.#registry.data();
@@ -146,32 +141,6 @@ export class SheetSpender extends ActionUser {
       return;
     }
     await this.#spend(request);
-  }
-
-  /**
-   * Uses one of the consumable stack held in the inventory item `key`: the one edit the Consumables section sends, with
-   * the dice it rolls, and the character is read again for the stack that changed.
-   */
-  async #useConsumable(key: string): Promise<void> {
-    const registry = this.#registry.data();
-    const engine = this.#sheet.engine();
-    const character = this.#sheet.character();
-    if (registry === undefined || engine === undefined || character === undefined) {
-      return;
-    }
-    const line = consumableLines(registry, character, {
-      turn: this.turn(),
-      inputs: statisticInputsOf(engine, character),
-    }).find((each) => each.key === key);
-    const fortuned =
-      line?.roll === undefined ? undefined : rollWithFortune(line.roll.expression, NO_FORTUNE, this.#random);
-    const command =
-      line === undefined ? undefined : useCommand(line, fortuned?.rolls.find((entry) => entry.kept)?.result);
-    if (command === undefined) {
-      return;
-    }
-    await this.#play.send(command);
-    await this.#characters.reload();
   }
 
   /** Whether the pending cast is being spent and applied, which can no longer be given up. */
@@ -265,6 +234,7 @@ export class SheetSpender extends ActionUser {
 /** What the sheet page provides for play: its state, and the spender every list on its tabs uses an action with. */
 export const SHEET_PLAY_PROVIDERS: readonly Provider[] = [
   PlayStore,
+  SheetConsumableUse,
   SheetSpender,
   { provide: ActionUser, useExisting: SheetSpender },
 ];
