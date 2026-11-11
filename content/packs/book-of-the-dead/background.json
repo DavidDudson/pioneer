@@ -71,7 +71,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:med",
+        "selector": "skill:medicine",
         "rank": "trained"
       },
       {
@@ -161,7 +161,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:ste",
+        "selector": "skill:stealth",
         "rank": "trained"
       },
       {
@@ -252,7 +252,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:dip",
+        "selector": "skill:diplomacy",
         "rank": "trained"
       },
       {
@@ -342,7 +342,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:arc",
+        "selector": "skill:arcana",
         "rank": "trained"
       },
       {
@@ -432,7 +432,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:itm",
+        "selector": "skill:intimidation",
         "rank": "trained"
       },
       {
@@ -522,7 +522,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:cra",
+        "selector": "skill:crafting",
         "rank": "trained"
       },
       {
@@ -612,7 +612,7 @@
     "rules": [
       {
         "key": "Proficiency",
-        "selector": "skill:ath",
+        "selector": "skill:athletics",
         "rank": "trained"
       }
     ],
