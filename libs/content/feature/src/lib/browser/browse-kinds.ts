@@ -13,6 +13,7 @@ export const BROWSE_KINDS = [
   ContentKind.Rune,
   ContentKind.Shield,
   ContentKind.Spell,
+  ContentKind.Statistic,
   ContentKind.Treasure,
   ContentKind.Weapon,
 ] as const satisfies readonly RegisteredKind[];
@@ -33,6 +34,7 @@ export const KIND_MESSAGES: Readonly<Record<BrowseKind, string>> = {
   [ContentKind.Rune]: 'content.kind.rune',
   [ContentKind.Shield]: 'content.kind.shield',
   [ContentKind.Spell]: 'content.kind.spell',
+  [ContentKind.Statistic]: 'content.kind.statistic',
   [ContentKind.Treasure]: 'content.kind.treasure',
   [ContentKind.Weapon]: 'content.kind.weapon',
 };

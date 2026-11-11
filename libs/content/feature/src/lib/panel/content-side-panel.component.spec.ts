@@ -6,29 +6,14 @@ import { provideRouter, Router } from '@angular/router';
 import { contentBrowserMessages } from '@pioneer/content/ui';
 import { frontierMessages } from '@pioneer/frontier';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
-import { packContentsFromFiles, rulesMessages } from '@pioneer/rules/sdk';
-import type { ContentPack, PackContentsLoader } from '@pioneer/rules/sdk';
-import { ContentPackBuilder } from '@pioneer/rules/sdk/testing';
+import { rulesMessages } from '@pioneer/rules/sdk';
 import { IDLE_SCHEDULER, provideI18n, ShellSearch } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, onTestFinished, vi } from 'vitest';
 
 import contentMessages from '../../i18n/en.json';
 import { ContentSidePanel } from './content-side-panel.component';
-
-const BUILDER = new ContentPackBuilder().withId('side-panel-test');
-const PACK: ContentPack = BUILDER.withFeat('power-attack', {
-  level: 1,
-  traits: [],
-  description: [{ type: 'paragraph', content: [{ type: 'text', text: 'Strike with all your might.' }] }],
-})
-  .withFeat('attack-of-opportunity', { level: 1, traits: [] })
-  .withFeat('toughness', { level: 1, traits: [] })
-  .build();
-const LOADER: PackContentsLoader = {
-  id: PACK.id,
-  load: async () => packContentsFromFiles(PACK.manifest, [PACK.otherEntries]),
-};
+import { LOADER } from './testing/content-side-panel-fixtures';
 
 /** The shell's messages the search reads: the app owns them, so the spec holds the ones it needs. */
 const SHELL_MESSAGES = {
@@ -162,6 +147,12 @@ describe(ContentSidePanel, () => {
     const opened = await open('/?sq=attack&se=feat:power-attack');
     await readEntry(opened, 'Strike with all your might.');
     expect(opened.input.value).toBe('attack');
+  });
+
+  it("reads a skill's statistic entry: its description, key attribute and actions", async () => {
+    const opened = await open('/?se=statistic:acrobatics');
+    await readEntry(opened, 'Acrobatics covers balance and agility.');
+    expect(opened.root.textContent).toContain('Key attribute: Dexterity. Actions: Balance, Tumble Through.');
   });
 
   it('goes back to the results of the same words', async () => {

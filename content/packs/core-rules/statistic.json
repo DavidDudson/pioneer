@@ -119,7 +119,43 @@
         "aon": "https://2e.aonprd.com/Rules.aspx?ID=2298"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception measures your ability to notice what is around you: hidden creatures, hazards, clues and the intent of others. It is a statistic of its own rather than a skill, but it is rolled and trained like one."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Wisdom."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Seek, Sense Motive, and the check that sets your initiative when you roll for it."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "perception",
@@ -424,7 +460,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=34"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acrobatics covers balance, agility and body control: keeping your footing on narrow or unstable ground, tumbling past enemies, slipping through tight spaces and escaping bonds."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Dexterity."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Balance, Tumble Through, Maneuver in Flight, Squeeze, Escape."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:acrobatics",
@@ -450,7 +522,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=35"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Arcana is your knowledge of arcane magic, the creatures bound to it and the planes it draws on, and your skill at working with arcane spells and writing."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Intelligence."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Recall Knowledge, Identify Magic, Learn a Spell, Borrow an Arcane Spell, Decipher Writing."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:arcana",
@@ -476,7 +584,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=36"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Athletics is raw physical prowess: climbing, swimming, jumping, and forcing creatures and objects to move, fall or break."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Strength."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Climb, Swim, High Jump, Long Jump, Force Open, Grapple, Shove, Trip, Disarm, Escape."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:athletics",
@@ -502,7 +646,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=37"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Crafting is making and mending things: gear, tools and alchemical items, and knowing how they are built and what they are made of."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Intelligence."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Craft, Repair, Earn Income, Identify Alchemy, Recall Knowledge."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:crafting",
@@ -528,7 +708,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=38"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Deception is misleading others: lying, disguising yourself, forging a convincing distraction or feigning an attack."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Charisma."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Lie, Impersonate, Create a Diversion, Feint."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:deception",
@@ -554,7 +770,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=39"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Diplomacy is persuading others through goodwill and tact: making a good impression, learning what a community knows and asking for help."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Charisma."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Make an Impression, Gather Information, Request."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:diplomacy",
@@ -580,7 +832,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=40"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Intimidation is bending others to your will through threats and menace, whether to get an answer or to shake an opponent's nerve."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Charisma."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Coerce, Demoralize."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:intimidation",
@@ -606,7 +894,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=42"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Medicine is treating the injured and the sick: patching wounds, tending diseases and poisons, and knowing how bodies fail."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Wisdom."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Administer First Aid, Treat Disease, Treat Poison, Treat Wounds, Recall Knowledge."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:medicine",
@@ -632,7 +956,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=43"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Nature is knowledge of the wilderness, its animals, plants and weather, and of primal magic, together with the skill to handle animals."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Wisdom."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Command an Animal, Recall Knowledge, Identify Magic, Learn a Spell."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:nature",
@@ -658,7 +1018,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=44"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Occultism is knowledge of occult lore and the strange creatures and planes behind it, and skill at occult spells and writing."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Intelligence."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Recall Knowledge, Identify Magic, Learn a Spell, Decipher Writing."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:occultism",
@@ -684,7 +1080,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=45"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Performance is entertaining an audience with song, dance, speech, music or acting, whether for a crowd or for coin."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Charisma."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Perform, Earn Income."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:performance",
@@ -710,7 +1142,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=46"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Religion is knowledge of deities, faiths, the afterlife and the creatures tied to them, and skill at divine spells and holy writings."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Wisdom."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Recall Knowledge, Identify Magic, Learn a Spell, Decipher Writing."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:religion",
@@ -736,7 +1204,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=47"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Society is understanding people and the places they live: civilisations, laws, history and customs, and how to get by among them."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Intelligence."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Recall Knowledge, Subsist, Create Forgery, Decipher Writing."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:society",
@@ -762,7 +1266,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=48"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stealth is staying unseen and unheard: slipping past guards, hiding in cover and keeping something out of sight."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Dexterity."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Hide, Sneak, Conceal an Object."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:stealth",
@@ -788,7 +1328,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=49"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Survival is living off the land: finding your way, getting food and shelter, and following or hiding a trail."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Wisdom."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Sense Direction, Subsist, Track, Cover Tracks."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:survival",
@@ -814,7 +1390,43 @@
         "aon": "https://2e.aonprd.com/Skills.aspx?ID=50"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thievery is the light-fingered trades: picking pockets and locks, disabling devices and stealing small objects unnoticed."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Dexterity."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Palm an Object, Steal, Disable a Device, Pick a Lock."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "selector": "skill:thievery",
@@ -1084,6 +1696,66 @@
       "base": "@attr.cha",
       "kind": "check",
       "keyAttribute": "cha"
+    }
+  },
+  {
+    "id": "cc47d2bc-4065-5124-9f1b-2ddf9db00d10",
+    "pack": "core-rules",
+    "kind": "statistic",
+    "slug": "statistic:lore",
+    "name": "Lore",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "player-core"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A Lore is knowledge of one narrow subject, such as a trade, a place or a kind of creature. You choose the subject when you gain the skill, and it applies to checks about that subject only, so a character may hold many Lores. Each is trained and increased like any other skill."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Key attribute: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Intelligence."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "Actions: ",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "Recall Knowledge, Earn Income, and any other check the Game Master judges the subject to cover."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "data": {
+      "selector": "skill:lore",
+      "domains": ["check", "skill-check", "int-based", "lore"],
+      "base": "@attr.int + @prof.skill.lore",
+      "kind": "check",
+      "keyAttribute": "int"
     }
   }
 ]

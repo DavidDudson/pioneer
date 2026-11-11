@@ -7,6 +7,7 @@ import type {
   ContentRegistry,
   ContentText,
   PackCreature,
+  PackStatistic,
 } from '@pioneer/rules/sdk';
 import { entryTarget } from '@pioneer/rules/ui';
 import type { EntryPreview, EntryPreviews, RichTextLinks } from '@pioneer/rules/ui';
@@ -52,11 +53,33 @@ function creatureEntry(pack: ContentPack, creature: PackCreature): ContentEntry 
   };
 }
 
-/** Every entry the registry's packs hold, creatures included; a later pack's entry of the same id comes later. */
+/**
+ * A statistic of `pack` as the entry it came from. A pack files statistics as definitions, so the envelope's rarity,
+ * traits and rules are not in it: its description is the one the entry's shard holds.
+ */
+function statisticEntry(pack: ContentPack, statistic: PackStatistic): ContentEntry {
+  const { slug, name, sources, ...data } = statistic;
+  return {
+    id: ContentIdSchema.parse(contentId(pack.id, slug)),
+    pack: pack.id,
+    kind: ContentKind.Statistic,
+    slug,
+    name,
+    rarity: 'common',
+    traits: [],
+    sources,
+    description: [],
+    rules: [],
+    data,
+  };
+}
+
+/** Every entry the registry's packs hold, creatures and statistics included; a later pack's entry of the same id comes later. */
 export function registryEntries(registry: ContentRegistry): readonly ContentEntry[] {
   return registry.packs.flatMap((pack) => [
     ...pack.otherEntries,
     ...pack.creatures.map((creature) => creatureEntry(pack, creature)),
+    ...pack.statistics.map((statistic) => statisticEntry(pack, statistic)),
   ]);
 }
 
