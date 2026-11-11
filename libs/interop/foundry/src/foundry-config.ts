@@ -90,6 +90,8 @@ const TraitsModule = z.looseObject({
   [TraitList.Shield]: LabelTable,
   [TraitList.Spell]: LabelTable,
   [TraitList.Weapon]: LabelTable,
+  /** Slug to the lang key of the trait's rules text; Foundry maps no more than most of its traits. */
+  traitDescriptions: LabelTable,
 });
 
 const CreatureModule = z.looseObject({
@@ -111,6 +113,8 @@ export interface FoundrySense {
 export interface FoundryConfig {
   /** Each trait list, slug to label key. */
   readonly traitLists: ReadonlyMap<TraitList, ReadonlyMap<string, string>>;
+  /** Trait slug to the lang key of its description (`manipulate: "PF2E.TraitDescriptionManipulate"`). */
+  readonly traitDescriptions: ReadonlyMap<string, string>;
   readonly languages: ReadonlyMap<string, FoundryLanguageRarity>;
   readonly senses: ReadonlyMap<string, FoundrySense>;
   readonly damageTypes: readonly string[];
@@ -137,6 +141,7 @@ export function foundryConfig(modules: ConfigModules): FoundryConfig {
   const acuities = creature.SENSES_WITH_MANDATORY_ACUITIES;
   return {
     traitLists: new Map(Object.values(TraitList).map((list) => [list, new Map(Object.entries(traits[list]))])),
+    traitDescriptions: new Map(Object.entries(traits.traitDescriptions)),
     languages: languagesOf(creature.LANGUAGES_BY_RARITY.pf2e),
     senses: new Map(
       [...creature.SENSE_TYPES].map((sense) => {

@@ -39,6 +39,22 @@ export const KEEN_NOSE: DocumentFixture = {
   },
 };
 
+/** A feat whose one trait has text only under Foundry's naming convention, not in its `traitDescriptions`. */
+export const FIERY: DocumentFixture = {
+  id: 'fIeRy00000000000',
+  name: 'Fiery',
+  type: 'feat',
+  system: { traits: { value: ['fire'] } },
+};
+
+/** A feat whose one trait Foundry marks as having no description. */
+export const SHAPELY: DocumentFixture = {
+  id: 'sHaPeLy000000000',
+  name: 'Shapely',
+  type: 'feat',
+  system: { traits: { value: ['polymorph'] } },
+};
+
 export function vocabularyOf(translation: ImportTranslation, kind: ContentKind): readonly VocabularyEntry[] {
   return translation.vocabulary.filter(({ kindData }) => kindData.kind === kind);
 }
