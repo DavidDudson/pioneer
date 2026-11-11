@@ -596,6 +596,10 @@
       "costReaction": "Reaction",
       "costFree": "Free action"
     },
+    "uses": {
+      "roundsLeft": "{count, plural, one {# round left} other {# rounds left}}",
+      "reset": "Reset"
+    },
     "resources": {
       "heroPoints": "Hero Points",
       "focusPoints": "Focus Points",
@@ -744,6 +748,9 @@
       "stowed": "Hold or wear it to use it",
       "notInvested": "Invest it to use it",
       "noUses": "No uses left",
+      "usedThisMinute": "Used this minute, {rounds, plural, one {# round} other {# rounds}} left",
+      "usedThisTenMinutes": "Used in the last 10 minutes, {rounds, plural, one {# round} other {# rounds}} left",
+      "usedThisHour": "Used this hour, {rounds, plural, one {# round} other {# rounds}} left",
       "noCharges": "Not enough charges",
       "notPrepared": "Not the staff you prepared for the day"
     }

@@ -549,7 +549,8 @@ that Start turn counts down during an encounter, giving the uses back at 0. Out 
 no clock, the item shows its uses spent and a Reset button, and Rest gives them back. Day uses come back at daily
 preparations. Uses per 24 hours, week, month or year come back only through Reset. An activation with no uses left
 is unavailable with the reason ("used this hour, 42 rounds left"), and undoing a use refunds it and clears the
-countdown it started.
+countdown it started. The rounds left are `resources.countdowns`, by the same key as the spent uses; the `resetUse` edit
+gives a key's uses back and drops its countdown.
 
 An activation marked `overcharge` (a staff printing "once per day, plus overcharge") has one further overcharged use per
 item, counted apart from its `frequency` uses under `<item>:<slug>:overcharge` and coming back on the same boundary.

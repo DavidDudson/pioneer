@@ -12,7 +12,7 @@ import { isToggleCommand } from './toggle-commands';
 import { isShapeCommand } from './weapon-shapes';
 
 /** Whether `command` reads or moves Hit Points, and so needs the maximum the engine derives. Temp Hit Points and the death track don't. */
-// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
+// oxlint-disable-next-line complexity, max-lines-per-function -- a case for each play command, with the toggle edit told apart first
 export function needsMaxHitPoints(command: PlayCommand): boolean {
   if (isRestCommand(command)) {
     return command.field === PlayCommandField.Rest;
@@ -52,6 +52,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
     case PlayCommandField.RemoveCondition:
     case PlayCommandField.SpendUse:
     case PlayCommandField.RefundUse:
+    case PlayCommandField.ResetUse:
     case PlayCommandField.CastWand:
     case PlayCommandField.OverchargeWand:
     case PlayCommandField.CastStaff:
@@ -65,7 +66,7 @@ export function needsMaxHitPoints(command: PlayCommand): boolean {
 }
 
 /** Whether `command` moves a pool of points, and so needs the maxima the build and the rules give. */
-// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
+// oxlint-disable-next-line complexity, max-lines-per-function -- a case for each play command, with the toggle edit told apart first
 export function needsResourceMaxima(command: PlayCommand): boolean {
   if (isRestCommand(command) || isSpendCommand(command)) {
     return true;
@@ -90,6 +91,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
     case PlayCommandField.RefundSlot:
     case PlayCommandField.SpendUse:
     case PlayCommandField.RefundUse:
+    case PlayCommandField.ResetUse:
     case PlayCommandField.CastWand:
     case PlayCommandField.OverchargeWand:
     case PlayCommandField.UseConsumable:
@@ -118,7 +120,7 @@ export function needsResourceMaxima(command: PlayCommand): boolean {
 }
 
 /** Whether `command` adds or changes a condition, and so needs to know which conditions the content has and which carry a value. */
-// oxlint-disable-next-line complexity -- a case for each play command, with the toggle edit told apart first
+// oxlint-disable-next-line complexity, max-lines-per-function -- a case for each play command, with the toggle edit told apart first
 export function needsConditionContent(command: PlayCommand): boolean {
   if (isBreathCommand(command)) {
     return command.field === BreathCommandField.SetBreath;
@@ -158,6 +160,7 @@ export function needsConditionContent(command: PlayCommand): boolean {
     case PlayCommandField.RefundSlot:
     case PlayCommandField.SpendUse:
     case PlayCommandField.RefundUse:
+    case PlayCommandField.ResetUse:
     case PlayCommandField.CastWand:
     case PlayCommandField.OverchargeWand:
     case PlayCommandField.CastStaff:

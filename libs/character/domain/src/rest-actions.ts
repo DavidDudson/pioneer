@@ -12,6 +12,7 @@ import { withStaffPrepared } from './rest-staff';
 import { RestChangeKind, RestCommandField } from './rest-types';
 import type { RecoveryConditions, RestChange, RestCommand, RestLimits, RestOutcome, RestPlay } from './rest-types';
 import type { StaffChoice } from './staff-charges';
+import { usesBack } from './use-countdowns';
 
 const NONE = ResourceCount.parse(0);
 const NO_HIT_POINTS = HitPoints.parse(0);
@@ -127,13 +128,13 @@ function withDoomedLowered<Play extends RestPlay>(outcome: RestOutcome<Play>): R
 
 /**
  * Rest: heals Constitution modifier (at least 1) times level, eases the conditions the content eases on Rest (fatigued
- * is removed, drained lowered), and lowers doomed by 1.
+ * is removed, drained lowered), lowers doomed by 1, and gives back the uses of a frequency of a minute to an hour.
  * Not idempotent: each rest eases them again.
  */
 export function rested<Play extends RestPlay>(play: Play, limits: RestLimits): RestOutcome<Play> {
   const healed = withHealing(unchanged(play), limits);
   const eased = withConditionsEased(healed, limits);
-  return withDoomedLowered(eased);
+  return withCountsRestored(withDoomedLowered(eased), limits, Boundary.Rest);
 }
 
 /** The counts of one kind that come back on a boundary, and what is left spent. */
@@ -171,6 +172,10 @@ function withCountsRestored<Play extends RestPlay>(
   const { play } = outcome;
   const slots = restoredOn(play.resources.slots, counted.slots, boundary);
   const uses = restoredOn(play.resources.uses, counted.uses, boundary);
+  const { countdowns } = usesBack(
+    { uses: uses.spent, countdowns: play.resources.countdowns },
+    uses.restored.map(({ key }) => key),
+  );
   const changes: readonly RestChange[] = [
     ...slots.restored.map(({ key, amount }): RestChange => ({
       kind: RestChangeKind.Slots,
@@ -188,7 +193,7 @@ function withCountsRestored<Play extends RestPlay>(
   }
   const next: Play = {
     ...play,
-    resources: { ...play.resources, slots: slots.spent, uses: uses.spent },
+    resources: { ...play.resources, slots: slots.spent, uses: uses.spent, countdowns },
   };
   return { play: next, changes: [...outcome.changes, ...changes] };
 }

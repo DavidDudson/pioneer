@@ -2,6 +2,7 @@ import {
   abilityFrequencies,
   abilityUseKey,
   activationUseKey,
+  Boundary,
   characterCounted,
   characterGrants,
   characterSpellcasting,
@@ -15,7 +16,6 @@ import {
   wandUseKey,
 } from '@pioneer/character/domain';
 import type {
-  Boundary,
   Character,
   CountedMaxima,
   InventoryItemId,
@@ -57,7 +57,7 @@ interface ActivationCost {
 }
 
 /** The uses of one feat or action with a frequency, as the sheet shows them. */
-interface UseView {
+export interface UseView {
   readonly key: UseCountKey;
   readonly name: string;
   readonly boundary: Boundary;
@@ -67,6 +67,8 @@ interface UseView {
   readonly activation?: ActivationCost | undefined;
   readonly current: number;
   readonly max: number;
+  /** The rounds left before the uses come back by themselves, once the first use of a minute-to-hour frequency started its countdown. */
+  readonly rounds: number | undefined;
 }
 
 /** Every counted resource the character has, with what is held of each. */
@@ -99,6 +101,7 @@ function useView({ counted, spent }: UseSource, { key, name, overcharge, activat
           activation,
           current: heldCount({ spent: spent.uses, maxima: counted.uses, key }),
           max: maximum.max,
+          rounds: spent.countdowns[key],
         },
       ];
 }
@@ -192,4 +195,14 @@ export function countedViews(registry: ContentRegistry, character: Character, sp
   );
   const itemUses = [...activationViews(registry, character, source), ...wandViews(registry, character, source)];
   return { slots, uses: [...abilityUses, ...itemUses] };
+}
+
+/**
+ * The uses spent of a frequency that only a rest or the player gives back, each with the rounds its countdown has
+ * left; a turn, round, daily or session frequency comes back on its own boundary and has no Reset.
+ */
+export function resettableUses(registry: ContentRegistry, character: Character, spent: ResourcesSpent): UseView[] {
+  return countedViews(registry, character, spent).uses.filter(
+    ({ boundary, current, max }) => (boundary === Boundary.Rest || boundary === Boundary.Manual) && current < max,
+  );
 }

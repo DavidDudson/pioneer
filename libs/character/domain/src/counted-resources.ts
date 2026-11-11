@@ -1,6 +1,7 @@
 import type { SpellcastingInPlay } from '@pioneer/rules/engine';
 import { FrequencyPeriod } from '@pioneer/rules/sdk';
 import type { Activation, ContentId, Frequency, RuleSlug, Slug, SpellRank } from '@pioneer/rules/sdk';
+import { Pg } from '@pioneer/shared/kernel';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
@@ -31,13 +32,19 @@ export type UseCountKey = z.infer<typeof UseCountKey>;
 /** A key a count is kept under. */
 type CountKey = SlotCountKey | UseCountKey;
 
+/** The rounds a use's countdown has left, once it has started: 600 at most, for an hour. Never 0, since 0 gives the uses back. */
+export const UseCountdown = Pg.smallint().positive().brand<'UseCountdown'>();
+export type UseCountdown = z.infer<typeof UseCountdown>;
+
 /**
  * The spell slots and ability uses spent, as inputs: what is held is the maximum less what is spent. The staff
- * prepared for the day keeps its own maximum, since daily preparations set it (`staff-charges.ts`).
+ * prepared for the day keeps its own maximum, since daily preparations set it (`staff-charges.ts`). A frequency of a
+ * minute to an hour starts a countdown with its first use, which Start turn counts down.
  */
 export const SpentCountsSchema = z.strictObject({
   slots: z.partialRecord(SlotCountKey, ResourceCount).default({}),
   uses: z.partialRecord(UseCountKey, ResourceCount).default({}),
+  countdowns: z.partialRecord(UseCountKey, UseCountdown).default({}),
   staff: StaffChargesSchema.default({}),
 });
 export type SpentCounts = z.infer<typeof SpentCountsSchema>;
@@ -62,6 +69,8 @@ export type Boundary = ValueOf<typeof Boundary>;
 export interface CountedMaximum {
   readonly max: ResourceCount;
   readonly boundary: Boundary;
+  /** The rounds the first use of the period starts counting down from, for a frequency of a minute to an hour. */
+  readonly countdown?: UseCountdown;
 }
 
 /** The maxima the build and the content give, by key. */
@@ -148,6 +157,22 @@ export function frequencyBoundary({ per }: Frequency): Boundary {
   return FREQUENCY_BOUNDARIES[per];
 }
 
+/** Rounds in the periods whose uses come back by a countdown: a minute is 10 rounds. */
+const ONE_MINUTE = UseCountdown.parse(10);
+const TEN_MINUTES = UseCountdown.parse(100);
+const ONE_HOUR = UseCountdown.parse(600);
+const FREQUENCY_COUNTDOWNS: Readonly<Partial<Record<FrequencyPeriod, UseCountdown>>> = {
+  [FrequencyPeriod.Minute]: ONE_MINUTE,
+  [FrequencyPeriod.TenMinutes]: TEN_MINUTES,
+  [FrequencyPeriod.Hour]: ONE_HOUR,
+};
+
+/** The terms `frequency` gives a count: its boundary, and the countdown its first use starts when it has one. */
+function frequencyTerms(frequency: Frequency): Pick<CountedMaximum, 'boundary' | 'countdown'> {
+  const countdown = FREQUENCY_COUNTDOWNS[frequency.per];
+  return { boundary: frequencyBoundary(frequency), ...(countdown === undefined ? {} : { countdown }) };
+}
+
 /** The slots of each entry and each of its pools, one maximum per rank that has any; cantrips are not counted. */
 export function slotMaxima(entries: readonly SpellcastingInPlay[]): ReadonlyMap<SlotCountKey, CountedMaximum> {
   return new Map(
@@ -181,7 +206,7 @@ export function useMaxima(
               abilityUseKey(id),
               {
                 max: ResourceCount.parse(frequency.max),
-                boundary: frequencyBoundary(frequency),
+                ...frequencyTerms(frequency),
               },
             ],
           ];
@@ -201,13 +226,13 @@ export function activationMaxima(
   return new Map(
     items.flatMap(({ id, item, quantity }) =>
       activationsOf(item).flatMap(({ slug, frequency, overcharge }): [UseCountKey, CountedMaximum][] => {
-        const boundary = frequencyBoundary(frequency);
+        const terms = frequencyTerms(frequency);
         const daily: [UseCountKey, CountedMaximum] = [
           activationUseKey(id, slug),
-          { max: ResourceCount.parse(frequency.max * quantity), boundary },
+          { max: ResourceCount.parse(frequency.max * quantity), ...terms },
         ];
         return overcharge === true
-          ? [daily, [overchargeUseKey(id, slug), { max: ResourceCount.parse(quantity), boundary }]]
+          ? [daily, [overchargeUseKey(id, slug), { max: ResourceCount.parse(quantity), ...terms }]]
           : [daily];
       }),
     ),

@@ -1,0 +1,26 @@
+<fr-async-region>
+  <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+  <ng-template [frAsyncData]="registry">
+    <fr-async-region>
+      <ng-template frAsyncPending><fr-skeleton width="lg" /></ng-template>
+      <ng-template [frAsyncData]="playQuery">
+        @for (view of views(); track view.key) {
+          <fr-stack direction="horizontal" align="center" gap="sm" wrap>
+            <fr-text weight="semibold">{{ view.name }}</fr-text>
+            <fr-text tone="muted">{{
+              'character.sheet.resources.held' | transloco: { current: view.current, max: view.max }
+            }}</fr-text>
+            @if (view.rounds !== undefined) {
+              <fr-text tone="muted">{{
+                'character.sheet.uses.roundsLeft' | transloco: { count: view.rounds }
+              }}</fr-text>
+            }
+            <fr-async-button size="sm" [action]="reset(view.key)" [disabled]="busy()" [describeError]="describeError">
+              {{ 'character.sheet.uses.reset' | transloco }}
+            </fr-async-button>
+          </fr-stack>
+        }
+      </ng-template>
+    </fr-async-region>
+  </ng-template>
+</fr-async-region>

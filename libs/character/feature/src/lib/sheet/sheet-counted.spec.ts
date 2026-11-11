@@ -20,7 +20,7 @@ import {
   prebuildServerStateTesting,
   provideServerStateTesting,
 } from '../testing/provide-server-state-testing';
-import { countedViews } from './sheet-counted';
+import { countedViews, resettableUses } from './sheet-counted';
 import { EQUIPMENT_CONTENT_KINDS } from './sheet-equipment';
 
 const BOOTS = InventoryItemId.parse('88888888-8888-4888-8888-888888888888');
@@ -79,5 +79,19 @@ describe(countedViews, () => {
     const views = countedViews(registry, wearingBoots(3), ResourcesSpentSchema.parse({}));
 
     expect(views.uses).toMatchObject([{ current: 3, max: 3 }]);
+  });
+
+  it('lists the uses spent of a frequency a rest or a Reset gives back, with the rounds its countdown has left', async () => {
+    const registry = await registryWithItems();
+    const key = activationUseKey(BOOTS, SKIES);
+    const spent = ResourcesSpentSchema.parse({ uses: { [key]: 1 }, countdowns: { [key]: 42 } });
+
+    expect(resettableUses(registry, wearingBoots(1), spent)).toMatchObject([{ key, current: 0, max: 1, rounds: 42 }]);
+  });
+
+  it('lists nothing while every use is held', async () => {
+    const registry = await registryWithItems();
+
+    expect(resettableUses(registry, wearingBoots(1), ResourcesSpentSchema.parse({}))).toStrictEqual([]);
   });
 });
