@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, input, si
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { restrictionsHolding } from '@pioneer/character/domain';
-import { AsyncData, AsyncPending, AsyncRegion } from '@pioneer/frontier';
+import { AsyncData, AsyncPending, AsyncRegion, Stack } from '@pioneer/frontier';
 import type { ActionMode } from '@pioneer/rules/sdk';
 import { ActionCategory, ActionsView, ActionsViewKind } from '@pioneer/rules/ui';
 import type { ActionLine } from '@pioneer/rules/ui';
@@ -11,6 +11,7 @@ import { map } from 'rxjs';
 import { injectContentRegistry } from '../../data/content-registry-query';
 import { PlayStore } from '../../data/play-store';
 import { ACTION_CONTENT_KINDS, sheetActions } from '../sheet-actions';
+import { SheetConsumableRoll } from '../sheet-consumable-roll/sheet-consumable-roll.component';
 import { sheetRestrictions } from '../sheet-environments';
 import { sheetInnateActions } from '../sheet-innate-actions';
 import { statisticInputsOf } from '../sheet-inputs';
@@ -37,7 +38,7 @@ function kindFrom(text: string | null): ActionCategory | undefined {
  */
 @Component({
   selector: 'pio-sheet-actions',
-  imports: [ActionsView, AsyncData, AsyncPending, AsyncRegion],
+  imports: [ActionsView, AsyncData, AsyncPending, AsyncRegion, SheetConsumableRoll, Stack],
   templateUrl: './sheet-actions.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
