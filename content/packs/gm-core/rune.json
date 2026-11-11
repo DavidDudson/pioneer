@@ -2955,7 +2955,13 @@
         ]
       }
     ],
-    "rules": [{ "key": "CriticalSpecialization", "grievous": true, "etched": true }],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "grievous": true,
+        "etched": true
+      }
+    ],
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-srd.Item.qUnDHEXteUQGE8yp"
     },
@@ -6164,7 +6170,10 @@
         "reaction": true,
         "effect": {
           "kind": "decapitate",
-          "save": { "statistic": "fortitude", "dc": 37 }
+          "save": {
+            "statistic": "fortitude",
+            "dc": 37
+          }
         }
       }
     ],
