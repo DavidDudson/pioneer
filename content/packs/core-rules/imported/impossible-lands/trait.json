@@ -13,7 +13,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait is a drug, a poison that conveys short-term benefits in addition to harmful side effects and long-term consequences. Each time a creature uses a given drug it must also attempt a saving throw against addiction to that drug."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "condition", "consumable", "effect"]
@@ -33,7 +43,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A humanoid transformed so completely by outside forces that they are now a unique ancestry."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -63,7 +83,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be filled with an injury poison. Immediately after a successful attack with the weapon, you can inject the target with the loaded poison with a single Interact action. Refilling the weapon with a new substance requires 3 Interact actions and uses two hands."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -83,7 +113,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A stout ancestry bearing distinctive crystal horns and inherent psychic abilities."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -113,7 +153,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An inquisitive ancestry with primate-like features and prehensile tails."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -143,7 +193,17 @@
         "book": "impossible-lands"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ancestry with snake-like features and powerful venom."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

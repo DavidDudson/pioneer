@@ -13,7 +13,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aesir are often-bellicose monitors of the chaotic planes, honing their skill in battle and preparing for a final confrontation at the end of the multiverse."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -33,7 +43,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This family of animal-featured celestials is native to the plane of Nirvana. Most agathions are neutral good, have darkvision, and have a weakness to evil damage."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -53,7 +73,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These lawful fiends are physical manifestations of divine accidents. Asuras typically have darkvision, immunity to curses, and a weakness to good."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -73,7 +103,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Entropic undead creatures twisted by the Netherworld and the Void."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -93,7 +133,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divs are a family of fiends spawned from the spirits of evil genies within the desolation of Abaddon. Most divs are neutral evil. They typically have greater darkvision and weakness to cold iron and good damage."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -113,7 +163,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Girtablilus have humanoid upper bodies and the lower bodies of massive scorpions."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -133,7 +193,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A grioth is a batlike alien that wields occult powers and can exist in the dark vacuum of space. They have darkvision and echolocation."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -153,7 +223,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kami are spirits of the Material Plane that bond with a specific object or place."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -173,7 +253,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maftets have humanoid upper bodies, leonine lower bodies, and hawk-like wings."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -193,7 +283,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Amicable humanoids living in the Darklands, munavris have powerful telekinetic and psychic abilities."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -213,7 +313,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sahkils are fiends that delight in spreading fear and unease among mortal creatures. They typically have darkvision, immunity to fear, and weakness to good."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -233,7 +343,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shades are mortal souls who have been judged and then transformed into creatures native to other planes. Petitioners can survive the basic environmental effects of their home plane."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -253,7 +373,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature called by a spell or effect gains the summoned trait. A summoned creature can't summon other creatures, create things of value, or cast spells that require a cost. It has the minion trait. If it tries to Cast a Spell of equal or higher rank than the spell that summoned it, it overpowers the summoning magic, causing its own spell to fail and the summon spell to end. Otherwise, the summoned creature uses the standard abilities for a creature of its kind. It generally attacks your enemies to the best of its ability. If you can communicate with it, you can attempt to command it, but the GM determines the degree to which it follows your commands. Immediately when you finish Casting the Spell, the summoned creature uses its 2 actions for that turn. A spawn or other creature generated from a summoned creature returns to its unaltered state (usually a corpse in the case of spawn) once the summoned creature is gone. If it's unclear what this state would be, the GM decides. Summoned creatures can be banished by various spells and effects. They are automatically banished if reduced to 0 Hit Points or if the spell that called them ends."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -286,7 +416,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This family of cannibalistic aberrations consists of various humanoid-shaped creatures that can separate their body into two pieces while hunting."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -306,7 +446,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Time creatures are natives of the Dimension of Time. They don't age, and while some might be driven by supernatural hungers, they don't need to eat or drink to survive. They can survive the basic environmental effects of the Dimension of Time."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -337,7 +487,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Titans are enormous, primordial creatures of neargodlike power who predate the mortal races."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -357,7 +517,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A troop is an organized collection of component creatures, typically Small or Medium in size, working as a cohesive whole. Over the course of enough attacks and downed comrades, troops shrink in size. A troop typically has the troop defenses and troop movement abilities, and most troops have weaknesses to area damage and splash damage. Because they consist of multiple discrete creatures, they can't be summoned."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -377,7 +547,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Urdefhans are humanoids who have pacts with daemons, have transparent skin, and drink blood."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -397,7 +577,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A family of fiends from the Shadow Plane that are associated with pain and agony. All velstracs possess some form of disturbing gaze."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -417,7 +607,17 @@
         "book": "monster-core-2"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wyrwood is a small, sapient living construct crafted of wood and powered with an aeon stone or a similar magical stone."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]

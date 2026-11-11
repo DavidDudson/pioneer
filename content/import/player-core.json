@@ -15757,6 +15757,20 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "guardian",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionGuardian"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "naari",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionNaari"
     }
   ]
 }

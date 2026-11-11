@@ -13,7 +13,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Alchemical items are powered by reactions of alchemical reagents. Unless otherwise noted, alchemical items aren't magical and don't radiate a magical aura. Alchemical creatures are partially powered by alchemical reactions."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -48,7 +58,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Items with this trait are artifacts. These magic items can't be crafted by normal means, and they can't be damaged by normal means. Artifacts are always rare or unique."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -80,7 +100,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An alchemical bomb combines volatile alchemical components that explode when the bomb hits a creature or object. Most alchemical bombs deal damage, though some produce other effects."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -100,7 +130,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait is cursed to cause trouble for its owner. A curse isn't detected when the item is identified, though a critical success reveals both the presence and exact nature of the curse. Cursed items can't be discarded once they've been triggered or invested the first time. The item can be removed only if the curse is removed."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "armor", "condition", "consumable", "effect", "equipment", "weapon"]
@@ -120,7 +160,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elixirs are alchemical liquids that are used by drinking them."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable"]
@@ -140,7 +190,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with the expandable trait increases to a specific size when activated. Unless otherwise noted, this space must be adjacent to you and on the ground, and the item needs to have enough open space to expand into or else the activation has no effect. When the effect ends, the expanded item disintegrates if it's a consumable or shrinks back to its normal size if it's not a consumable."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "equipment"]
@@ -160,7 +220,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait can give you an additional Focus Point. This focus point is separate from your focus pool and doesn't count toward the cap on your focus pool. You can gain this benefit only if you have a focus pool, and there might be restrictions on how the point can be used. You can't gain more than 1 Focus Point per day from focused items."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment"]
@@ -180,7 +250,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait is intelligent and has its own will and personality, as well as several statistics that most items don't have. Intelligent items can't be crafted by normal means, and they are always rare or unique."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment", "weapon"]
@@ -200,7 +280,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oils are magical gels, ointments, pastes, or salves that are typically applied to an object and are used up in the process."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable"]
@@ -220,7 +310,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A potion is a magical liquid activated when you drink it."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable"]
@@ -240,7 +340,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Valuable materials with special properties have the precious trait. They can be substituted for base materials when you Craft items."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "equipment"]
@@ -260,7 +370,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with the relic trait grows in power with its wielder."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment", "shield", "weapon"]
@@ -280,7 +400,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A scroll contains a single spell you can cast without a spell slot."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable"]
@@ -300,7 +430,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some weapons and effects, such as alchemical bombs, have the splash trait. You don't add your Strength modifier to the damage roll for any thrown weapon with the splash trait (even if the item doesn't have the bomb trait). A splash weapon or effect deals any listed splash damage to the target on a failure, success, or critical success, and to all other creatures within 5 feet of the target on a success or critical success. On a critical failure, the weapon or effect misses entirely, dealing no damage. Add splash damage together with the initial damage against the target before applying the target's resistance or weakness. You don't multiply splash damage on a critical hit."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "weapon"]
@@ -320,7 +460,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic item holds spells of a particular theme and allows a spellcaster to cast additional spells by preparing the staff."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["equipment", "weapon"]
@@ -340,7 +490,26 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spell, item activation, or ability with the structure trait creates a magical building or other structure. The structure must be created on a plot of land free of other structures. The structure adapts to the natural terrain, adopting the structural requirements for being built there. The structure adjusts around small features such as ponds or spires of rock, but it can't be created on water or other nonsolid surfaces. If created on snow, sand dunes, or other soft surfaces with a solid surface underneath, the structure's foundation (if any) reaches the solid ground. If the structure is on a solid but unstable surface, such as a swamp or an area plagued by tremors, roll a DC 3 flat check each day; on a failure, the structure begins to sink or collapse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The structure doesn't harm creatures within the area when it appears, and it can't be created within a crowd or in a densely populated area. Any creature inadvertently caught inside the structure when it's created ends up unharmed inside the complete structure and always has a clear path of escape. A creature inside the structure when the effect ends isn't harmed, and it lands harmlessly on the ground if it was on an upper level of the structure"
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
@@ -360,7 +529,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A talisman is a small object affixed to armor, a shield, or a weapon (called the affixed item). You must be wielding or wearing an item to activate a talisman attached to it. Once activated, a talisman burns out permanently."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat"]
@@ -380,7 +559,17 @@
         "book": "gm-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A wand contains a single spell which you can cast once per day."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "equipment", "weapon"]

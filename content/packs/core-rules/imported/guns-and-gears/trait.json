@@ -13,7 +13,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An attached weapon must be combined with another piece of gear to be used. The trait lists what type of item the weapon must be attached to. You must be wielding or wearing the item the weapon is attached to in order to attack with it. For example, shield spikes are attached to a shield, allowing you to attack with the spikes instead of a shield bash. An attached weapon is usually bolted onto or built into the item it's attached to, and typically an item can have only one weapon attached to it. An attached weapon can be affixed to an item with 10 minutes of work and a successful DC 10 Crafting check; this includes the time needed to remove the weapon from a previous item, if necessary. If an item is destroyed, its attached weapon can usually be salvaged. Typically the weapon can't be used if the item it's attached to is broken."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -33,7 +43,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Weapons that have the capacity trait typically have multiple barrels or chambers capable of containing a round of ammunition. Capacity is always accompanied by a number indicating the number of barrels or chambers. After a capacity weapon is fired, you can select the next loaded barrel or chamber as an Interact action that doesn't require a free hand. Each barrel or chamber can be reloaded after it's fired as a separate Interact action."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -53,7 +73,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This firearm is cobbled together and likely to misfire. No matter how well you upkeep it, on a failed attack roll, the attack misses and you must roll a DC 5 flat check. If you fail this check, the weapon misfires."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -73,7 +103,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A construct is an artificial creature empowered by a force other than vitality or void. Constructs are often mindless; they are immune to bleed, death effects, disease, healing, nonlethal attacks, poison, spirit, vitality, void, and the doomed, drained, fatigued, paralyzed, sickened, and unconscious conditions; and they may have Hardness based on the materials used to construct their bodies. Constructs are not living creatures, nor are they undead. When reduced to 0 Hit Points, a construct creature is destroyed."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -93,7 +133,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon has two barrels that are each loaded separately. You can fire both barrels of a double barrel weapon in a single Strike to increase the weapon damage die by one step. If the weapon has the fatal trait, this increases the fatal die by one step."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -113,7 +163,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It's possible to hold the stock of this weapon under one arm so you can fire it with a single hand as long as the other hand isn't holding a weapon, shield, or anything else you would need to move and position, to ensure the weapon doesn't slip out from under your arm. However, if you use both hands, the weapon can make fatal attacks. When you wield the weapon in two hands, it gains the fatal trait with the listed damage die. Holding the weapon underarm stably enough to fire is significantly more complicated than just releasing one hand from the weapon, so to switch between the two grips, you must do so with an Interact action rather than Releasing or as part of reloading."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -133,7 +193,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures of the First World are called the fey."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry", "condition", "consumable", "creature", "effect", "heritage"]
@@ -153,7 +223,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Gadgets are consumable technological inventions with innovative uses."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "equipment"]
@@ -173,7 +253,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Actions with the reckless trait run the risk of the pilot losing control of a vehicle. When performing a reckless action, the pilot must first attempt an appropriate piloting check to keep control of the vehicle."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -213,7 +303,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Items with this trait are powered by engines that boil water to produce steam and move their components."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["equipment"]
@@ -233,7 +333,17 @@
         "book": "guns-and-gears"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ranged weapon is less effective at close distances. Your attacks against targets that are at a distance within the range listed take a -2 penalty."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]

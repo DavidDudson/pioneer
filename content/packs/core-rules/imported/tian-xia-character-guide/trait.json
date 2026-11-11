@@ -13,7 +13,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a critical hit, the weapon adds a weapon damage die of the listed size. Roll this after doubling the weapon's damage. This increases to two dice if the weapon has a greater striking rune and three dice if the weapon has a major striking rune. For instance, a rapier with a greater striking rune deals 2d8 extra piercing damage on a critical hit. An ability that changes the size of the weapon's normal damage dice doesn't change the size of its deadly die."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -63,7 +73,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shapeshifting humanoids whose true forms resemble foxes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -93,7 +113,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A feat with this trait alters the construction of your innovation. If you have the reconfigure class feature, you can retrain such a feat more easily."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -113,7 +143,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A traditionalist ancestry with reptilian features and serpentine heads."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -143,7 +183,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oni are a family of brutal, shapechanging giants who were once kami."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -163,7 +213,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the poppet ancestry."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -193,7 +253,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blue-skinned people native to Zi Ha, who reincarnate upon death and recall pieces of their past lives."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -253,7 +323,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A family of diminutive winged fey with a strong connection to primal magic."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -313,7 +393,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unstable actions rely on experimental functions of your innovation that even you can't fully predict. After an unstable action is used on an innovation, using another one is dangerous."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -333,7 +423,17 @@
         "book": "tian-xia-character-guide"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Small people native to the Netherworld. Immigrated to Golarion after Earthfall."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

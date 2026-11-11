@@ -13,7 +13,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait deal acid damage. Creatures with this trait have a magical connection to acid."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -50,7 +60,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The multiple attack penalty you take with this weapon on the second attack on your turn is -4 instead of -5, and -8 instead of -10 on the third and subsequent attacks in the turn."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -70,7 +90,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the air trait either manipulate or conjure air. Those that manipulate air have no effect in a vacuum or an area without air. Creatures with this trait consist primarily of air or have a connection to magical air."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -107,7 +137,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait has the aiuvarin versatile heritage. Aiuvarins are of mixed ancestry, including elves or other aiuvarins. An ability with this trait can be used or selected only by aiuvarins."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -137,7 +177,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the alchemist class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -157,7 +207,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the animist class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -177,7 +237,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic comes from the arcane tradition, which is built on logic and rationality. Anything with this trait is magical. A creature with this trait is primarily constituted of or has a strong connection to arcane magic."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -214,7 +284,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This feat belongs to an archetype."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -234,7 +314,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ardandes are planar scions descended from kizidhars and other beings of elemental wood."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -264,7 +354,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An attached weapon must be combined with another piece of gear to be used. The trait lists what type of item the weapon must be attached to. You must be wielding or wearing the item the weapon is attached to in order to attack with it. For example, shield spikes are attached to a shield, allowing you to attack with the spikes instead of a shield bash. An attached weapon is usually bolted onto or built into the item it's attached to, and typically an item can have only one weapon attached to it. An attached weapon can be affixed to an item with 10 minutes of work and a successful DC 10 Crafting check; this includes the time needed to remove the weapon from a previous item, if necessary. If an item is destroyed, its attached weapon can usually be salvaged. Typically the weapon can't be used if the item it's attached to is broken."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -284,7 +384,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ability with this trait involves an attack. For each attack you make beyond the first on your turn, you take a multiple attack penalty."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -304,7 +414,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Auditory actions and effects rely on sound. An action with the auditory trait can be successfully performed only if the creature using the action can speak or otherwise produce the required sounds. A spell or effect with the auditory trait has its effect only if the target can hear it. This applies only to sound-based parts of the effect, as determined by the GM. This is different from a sonic effect, which still affects targets who can't hear it (such as deaf targets) as long as the effect itself makes sound."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -337,7 +457,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An aura is an emanation that continually ebbs out from you, affecting creatures within a certain radius. Aura can also refer to the magical signature of an item."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -370,7 +500,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you hit an off-guard creature, this weapon deals 1 precision damage in addition to its normal damage. The precision damage increases to 2 if the weapon is a +3 weapon."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -390,7 +530,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use the momentum from a missed attack with this weapon to lead into your next attack. After missing with this weapon on your turn, you gain a +1 circumstance bonus to your next attack with this weapon before the end of your turn."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -410,7 +560,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the barbarian class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -430,7 +590,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the bard class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -450,7 +620,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can purchase special armor for animals, called barding. All animals have a trained proficiency rank in light barding, and combat-trained animals are trained in heavy barding. Barding uses the same rules as armor except for the following. The Price and Bulk of barding depend on the animal's size. Unlike for a suit of armor, barding's Strength entry is listed as a modifier, not a score. Barding can't be etched with magic runes, though special magical barding might be available."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment"]
@@ -470,7 +650,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The armor covers you so completely that it provides benefits against some damaging effects. On Reflex saves to avoid a damaging effect, such as a fireball, you add a +3 modifier instead of your Dexterity modifier."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor"]
@@ -490,7 +680,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spell you can cast at will that is automatically heightened to half your level rounded up."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -510,7 +710,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the champion class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -530,7 +740,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait has the changeling versatile heritage. Changelings are the children of hags and members of other humanoid ancestries. An ability with this trait can be used or selected only by changelings."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -560,7 +780,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the cleric class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -580,7 +810,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait deal cold damage. Creatures with this trait have a connection to magical cold."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -617,7 +857,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The armor is so comfortable that you can rest normally while wearing it."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor"]
@@ -637,7 +887,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This trait indicates abilities from the commander class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -657,7 +917,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait can be worn by an animal companion or similar creature. A companion can have up to two items invested."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment"]
@@ -677,7 +947,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To cast a composition cantrip or focus spell, you use a type of Performance. If the spell requires an auditory performance, you might recite a poem, sing a song, or perform a dramatic monologue. If the spell requires a visual performance, you might dance or pantomime. You can cast only one composition spell each turn, and you can have only one active at a time. If you cast a new composition spell, any ongoing effects from your previous composition spell end immediately."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -697,7 +977,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon is designed to be inconspicuous or easily concealed. You gain a +2 circumstance bonus to Stealth checks and DCs to hide or conceal a weapon with this trait."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -717,7 +1007,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An action with this trait requires a degree of mental concentration and discipline."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -737,7 +1037,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A consecration spell enhances an area for an extended period of time. A given area can have only a single consecration effect at a time. The new effect attempts to counteract any existing one in areas of overlap."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -768,7 +1078,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An item with this trait can be used only once. Unless stated otherwise, it's destroyed after activation. Consumable items include alchemical items and magical consumables such as scrolls and talismans. When a character creates consumable items, they can make them in batches of four."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "consumable", "weapon"]
@@ -788,7 +1108,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A curse is an effect that places some long-term affliction on a creature. Curses are always magical and are typically the result of a spell or trap. Effects with this trait can be removed only by effects that specifically target curses."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -818,7 +1148,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Darkness effects extinguish non-magical light in the area, and can counteract less powerful magical light. You must usually target light magic with your darkness magic directly to counteract the light, but some darkness spells automatically attempt to counteract light."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -849,7 +1189,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a critical hit, the weapon adds a weapon damage die of the listed size. Roll this after doubling the weapon's damage. This increases to two dice if the weapon has a greater striking rune and three dice if the weapon has a major striking rune. For instance, a rapier with a greater striking rune deals 2d8 extra piercing damage on a critical hit. An ability that changes the size of the weapon's normal damage dice doesn't change the size of its deadly die."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -869,7 +1219,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a critical hit, the weapon adds a weapon damage die of the listed size. Roll this after doubling the weapon's damage. This increases to two dice if the weapon has a greater striking rune and three dice if the weapon has a major striking rune. For instance, a rapier with a greater striking rune deals 2d8 extra piercing damage on a critical hit. An ability that changes the size of the weapon's normal damage dice doesn't change the size of its deadly die."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -889,7 +1249,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On a critical hit, the weapon adds a weapon damage die of the listed size. Roll this after doubling the weapon's damage. This increases to two dice if the weapon has a greater striking rune and three dice if the weapon has a major striking rune. For instance, a rapier with a greater striking rune deals 2d8 extra piercing damage on a critical hit. An ability that changes the size of the weapon's normal damage dice doesn't change the size of its deadly die."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -909,7 +1279,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An effect with the death trait kills you immediately if it reduces you to 0 HP. Some death effects can bring you closer to death or slay you outright without reducing you to 0 HP."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -941,7 +1321,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each archetype's dedication feat represents your character's dedicated effort learning a new set of abilities, making it impossible to split your focus and pursue another archetype at the same time. Once you take a dedication feat, you can't select a different dedication feat until you complete your dedication by taking two other feats from your current archetype. You can't retrain a dedication feat as long as you have any other feats from that archetype."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -961,7 +1351,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait attempt to determine the presence or location of a person, object, or aura."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -992,7 +1392,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this weapon to Disarm with the Athletics skill even if you don't have a free hand. This uses the weapon's reach (if different from your own) and adds the weapon's item bonus to attack rolls (if any) as an item bonus to the Athletics check. If you critically fail a check to Disarm using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure. On a critical success, you still need a free hand if you want to take the item."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1012,7 +1422,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An effect with this trait applies one or more diseases. A disease is typically an affliction."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1043,7 +1463,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic comes from the divine tradition, drawing power from deities or similar sources. Anything with this trait is magical. A creature with this trait is primarily constituted of or has a strong connection to divine magic."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1080,7 +1510,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An activity with this trait takes a day or more, and can be used only during downtime."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
@@ -1100,7 +1540,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait has the dromaar versatile heritage. Dromaars are of mixed ancestry, including orcs or other dromaars. An ability with this trait can be used or selected only by dromaars."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1130,7 +1580,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the druid class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -1150,7 +1610,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the dwarf ancestry. Dwarves are stout folk who often live underground and typically have darkvision. An ability with this trait can be used or selected only by dwarves. An item with this trait is created and used by dwarves."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1180,7 +1650,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the earth trait either manipulate or conjure earth. Those that manipulate earth have no effect in an area without earth. Creatures with this trait consist primarily of earth or have a connection to magical earth."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1217,7 +1697,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait deal electricity damage. A creature with this trait has a magical connection to electricity."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1254,7 +1744,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the elf ancestry. Elves are mysterious people with rich traditions of magic and scholarship who typically have low-light vision. An ability with this trait can be used or selected only by elves. A weapon with this trait is created and used by elves."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1284,7 +1784,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This effect alters a creature's emotions. Effects with this trait always have the mental trait as well. Creatures with special training or that have mechanical or artificial intelligence are immune to emotion effects."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1316,7 +1826,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the exemplar class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -1336,7 +1856,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An activity with this trait takes more than a turn to use, and can usually be used only during exploration mode."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -1356,7 +1886,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This effect or item creates an extradimensional space. An extradimensional effect placed inside another extradimensional space ceases to function until it is removed."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1390,7 +1930,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fatal trait includes a die size. On a critical hit, the weapon's damage die increases to that die size instead of the normal die size, and the weapon adds one additional damage die of the listed size."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1410,7 +1960,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fatal trait includes a die size. On a critical hit, the weapon's damage die increases to that die size instead of the normal die size, and the weapon adds one additional damage die of the listed size."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1430,7 +1990,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fatal trait includes a die size. On a critical hit, the weapon's damage die increases to that die size instead of the normal die size, and the weapon adds one additional damage die of the listed size."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1450,7 +2020,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Fear effects evoke the emotion of fear. Effects with this trait always have the mental and emotion traits as well."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1482,7 +2062,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the fighter class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -1502,7 +2092,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use your Dexterity modifier instead of your Strength modifier on attack rolls using this melee weapon. You still use your Strength modifier when calculating damage."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1522,7 +2122,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the fire trait deal fire damage, or either conjure or manipulate fire. Those that manipulate fire have no effect in an area without fire. Creatures with this trait consist primarily of fire or have a connection to magical fire."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1559,7 +2169,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The armor is flexible enough that it doesn't hinder most actions. You don't apply its check penalty to Acrobatics or Athletics checks."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor"]
@@ -1579,7 +2199,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Actions with the flourish trait are special techniques that require too much exertion for you to perform frequently. You can use only one action with the flourish trait per round."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -1599,7 +2229,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus spells are a special type of spell attained directly from a branch of study, from a deity, or from another specific source. You can learn focus spells only through special class features or feats, rather than choosing them from a spell list. Furthermore, you cast focus spells using a special pool of Focus Points—you can't prepare a focus spell in a spell slot or use your spell slots to cast focus spells; similarly, you can't spend your Focus Points to cast spells that aren't focus spells."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -1619,7 +2259,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait deal force damage or create objects made of pure magical force."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1656,7 +2306,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon becomes more dangerous as you build momentum. When you attack with it more than once on your turn, the second attack gains a circumstance bonus to damage equal to the number of weapon damage dice, and each subsequent attack gains a circumstance bonus to damage equal to double the number of weapon damage dice."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -1676,7 +2336,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A fortune effect beneficially alters how you roll your dice. You can never have more than one fortune effect alter a single roll. If multiple fortune effects would apply, you have to pick which to use. If a fortune effect and a misfortune effect would apply to the same roll, the two cancel each other out, and you roll normally."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1708,7 +2378,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon doesn't take up your hand, usually because it is built into your armor. A free-hand weapon can't be Disarmed. You can use the hand covered by your free-hand weapon to wield other items, perform manipulate actions, and so on. You can't attack with a free-hand weapon if you're wielding anything in that hand or otherwise using that hand. When you're not wielding anything and not otherwise using the hand, you can use abilities that require you to have a hand free as well as those that require you to be wielding a weapon in that hand. Each of your hands can have only one free-hand weapon on it."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1728,7 +2408,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A type of feat that any character can select, regardless of ancestry and class, as long as they meet the prerequisites. You can select a feat with this trait when your class grants a general feat."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -1748,7 +2438,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An intelligent plant ancestry that maintain long lives by rejuvenating themselves from seeds."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1778,7 +2478,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the gnome ancestry. Gnomes are small people skilled at magic who seek out new experiences and usually have low-light vision. An ability with this trait can be used or selected only by gnomes. A weapon with this trait is created and used by gnomes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1808,7 +2518,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a small, frantic goblinoid. Goblins tend to have darkvision. An ability with this trait can be used or chosen only by goblins. A weapon with this trait is created and used by goblins."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1838,7 +2558,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this weapon to Grapple with the Athletics skill even if you don't have a free hand. This uses the weapon's reach (if different from your own) and adds the weapon's item bonus to attack rolls as an item bonus to the Athletics check. If you critically fail a check to Grapple using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -1878,7 +2608,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the gunslinger class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -1898,7 +2638,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the halfling ancestry. These small people are friendly wanderers considered to be lucky. An ability with this trait can be used or selected only by halflings. A weapon with this trait is created and used by halflings."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1928,7 +2678,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A healing effect restores a creature's body, typically by restoring Hit Points, but sometimes by removing diseases or other debilitating effects."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1961,7 +2721,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A hex is a spell caused by your patron's direct attention and intervention. Your patron does not take well to being disturbed repeatedly, so you can cast only one spell that has the hex trait each turn; attempts to use a second automatically fail and usually cause your familiar to hiss in displeasure as your patron rejects your call."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -1991,7 +2761,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the holy trait are tied to powerful magical forces of benevolence and virtue. They often have stronger effects on unholy creatures. Creatures with this trait are strongly devoted to holy causes and often have weakness to unholy. If a creature with weakness to holy uses a holy item or effect, it takes damage from its weakness."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2028,7 +2808,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the human ancestry. Humans are a diverse array of people known for their adaptability. An ability with this trait can be used or selected only by humans."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2058,7 +2848,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Humanoid creatures reason and act much like humans. They typically stand upright and have two arms and two legs."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -2078,7 +2878,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects and magic items with this trait involve false sensory stimuli."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2114,7 +2924,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An ability with this trait can take a character completely out of the fight or even kill them, and it's harder to use on a more powerful character. If a spell has the incapacitation trait, any creature of more than twice the spell's rank treats the result of their check to prevent being incapacitated by the spell as one degree of success better, or the result of any check the spellcaster made to incapacitate them as one degree of success worse. If any other effect has the incapacitation trait, a creature of higher level than the item, creature, or hazard generating the effect gains the same benefits."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2145,7 +2965,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the inventor class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2165,7 +2995,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A character can invest only 10 magical items that have the invested trait. None of the magical effects of the item apply if the character hasn't invested it, nor can it be activated, though the character still gains any normal benefits from wearing the physical item (like a hat keeping rain off their head)."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor", "equipment", "shield", "weapon"]
@@ -2185,7 +3025,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the investigator class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2205,7 +3055,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The weapon is suited for mounted combat with a harness or similar means. When mounted, if you moved at least 10 feet on the action before your attack, add a circumstance bonus to damage for that attack equal to the number of damage dice for the weapon. In addition, while mounted, you can wield the weapon in one hand, changing the damage die to the listed value."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -2225,7 +3085,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the kineticist class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2245,7 +3115,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the leshy ancestry. These small plant or fungus creatures are humanoid in form."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2275,7 +3155,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Light effects overcome non-magical darkness in the area, and can counteract magical darkness. You must usually target darkness magic with your light magic directly to counteract the darkness, but some light spells automatically attempt to counteract darkness."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2312,7 +3202,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A feat with this trait indicates a character's descendance from a particular type of creature. You can have only one lineage feat. You can select a lineage feat only at 1st level, and you can't retrain into or out of these feats."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -2332,7 +3232,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An effect with this trait depends on language comprehension. A linguistic effect that targets a creature works only if the target understands the language you are using."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2362,7 +3272,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Something with the magical trait is imbued with magical energies not tied to a specific tradition of magic. Some items or effects are closely tied to a particular tradition of magic. In these cases, the item has the arcane, divine, occult, or primal trait instead of the magical trait. Any of these traits indicate that the item is magical."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2396,7 +3316,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the magus class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2416,7 +3346,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You must physically manipulate an item or make gestures to use an action with this trait. Creatures without a suitable appendage can't perform actions with this trait. Manipulate actions often trigger reactions."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -2436,7 +3376,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mental effect can alter the target's mind. It has no effect on an object or a mindless creature."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2473,7 +3423,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the metal trait conjure or manipulate metal. Those that manipulate metal have no effect in an area without metal. Creatures with this trait consist primarily of metal or have a connection to magical metal."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2510,7 +3470,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A misfortune effect detrimentally alters how you roll your dice. You can never have more than one misfortune effect alter a single roll. If multiple misfortune effects would apply, the GM decides which is worse and applies it. If a fortune effect and a misfortune effect would apply to the same roll, the two cancel each other out, and you roll normally."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2541,7 +3511,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Abilities with this trait are from the monk class. A weapon with this trait is primarily used by monks."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2571,7 +3551,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects that slightly alter a creature's form have the morph trait. Any Strikes specifically granted by a morph effect are magical. You can be affected by multiple morph spells at once, but if you morph the same body part more than once, the second morph effect attempts to counteract the first (in the same manner as two polymorph effects, described in that trait). Your morph effects might also end if you are polymorphed and the polymorph effect invalidates or overrides your morph effect. The GM determines which morph effects can be used together and which can't."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2602,7 +3592,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An action with this trait involves moving from one space to another."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2632,7 +3632,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Archetypes with the multiclass trait represent diversifying your training into another class's specialties. You can't select a multiclass archetype's dedication feat if you are a member of the class of the same name."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -2682,7 +3692,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the necromancer class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2702,7 +3722,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait has the nephilim versatile heritage. Nephilim are planar scions descended from immortal beings from other planes. An ability with this trait can be used or selected only by nephilim."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2732,7 +3762,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This armor is loud and likely to alert others to your presence when you're using the Avoid Notice exploration activity. The armor's check penalty applies to Stealth checks even if you meet the required Strength score."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["armor"]
@@ -2752,7 +3792,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attacks with this weapon are nonlethal, and are used to knock creatures unconscious instead of kill them. You can use a nonlethal weapon to make a lethal attack with a -2 circumstance penalty."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2786,7 +3836,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic comes from the occult tradition, calling upon bizarre and ephemeral mysteries. Anything with this trait is magical. A creature with this trait is primarily constituted of or has a strong connection to occult magic."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2823,7 +3883,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An olfactory effect can affect only creatures that can smell it. This applies only to olfactory parts of the effect, as determined by the GM."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2854,7 +3924,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the oracle class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -2874,7 +3954,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the orc ancestry. These green-skinned people tend to have darkvision. A weapon with this trait is a weapon which orcs craft and use."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2904,7 +3994,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A type of geniekin descended from a being from the Plane of Earth."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2934,7 +4034,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be used defensively to block attacks. While wielding this weapon, if your proficiency with it is trained or better, you can spend a single action to position your weapon defensively, gaining a +1 circumstance bonus to AC until the start of your next turn."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -2954,7 +4064,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vegetable creatures have the plant trait. They are distinct from normal plants. Magical effects with this trait manipulate or conjure plants or plant matter in some way. Those that manipulate plants have no effect in an area with no plants."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -2991,7 +4111,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An effect with this trait delivers a poison or deals poison damage. An item with this trait is poisonous and might cause an affliction."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3026,7 +4156,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These effects completely transform the target into a new form. A target can't be under the effect of more than one polymorph at a time. If it comes under the effect of another, the second effect attempts to counteract the first. If it succeeds, it takes effect, and if it fails, the spell has no effect on that target. Any Strikes granted by a polymorph effect are magical. Unless otherwise stated, polymorph spells don't allow the target to take on the appearance of a specific individual creature. If you take on a battle form with a polymorph spell, the special statistics can be adjusted only by circumstance bonuses, status bonuses, and penalties. Unless otherwise noted, the battle form prevents you from casting spells, speaking, and using most manipulate actions that require hands. (If there's doubt about whether you can use an action, the GM decides.) Your gear is absorbed into you; the constant abilities of your gear still function, but you can't activate any items. You lose your Speeds and gain those of the battle form. If a polymorph effect causes you to increase in size, you must have space to expand into or the effect is disrupted."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3057,7 +4197,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait allow a creature to project its mind and spirit into a target. A creature immune to mental effects can't use a possession effect. While possessing a target, a possessor's true body is unconscious (and can't wake up normally), unless the possession effect allows the creature to physically enter the target. Whenever the target takes damage, the possessor takes half that amount of damage as mental damage. A possessor loses the benefits of any of its active spells or abilities that affect its physical body, though it gains the benefits of the target's active spells and abilities that affect their body. A possessor can use any of the target's abilities that are purely physical, and it can't use any of its own abilities except spells and purely mental abilities. The GM decides whether an ability is purely physical or purely mental. A possessor uses the target's attack modifier, AC, Fortitude save, Reflex save, Perception, and physical skills, and its own Will save, mental skills, spell attack roll, and spell DC; benefits of invested items apply where relevant (the possessor's invested items apply when using its own values, and the target's invested items apply when using the target's values). A possessor gains no benefit from casting spells that normally affect only the caster, since it isn't in its own body. The possessor must use its own actions to make the possessed creature act. If a possessor reaches 0 Hit Points through any combination of damage to its true body and mental damage from the possession, it is knocked out as normal and the possession immediately ends. If the target reaches 0 Hit Points first, the possessor can either fall unconscious with the body and continue the possession or end the effect as a free action and return to its body. If the target dies, the possession ends immediately and the possessor is stunned for 1 minute."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3087,7 +4237,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait determine what is likely to happen in the near future. Most predictions are divinations."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3118,7 +4278,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Actions with this trait allow you to follow up earlier attacks. An action with the press trait can be used only if you are currently affected by a multiple attack penalty. You can't use a press action when it's not your turn, even if you use the Ready activity. Some actions with the press trait also grant an effect on a failure. The effects that are added on a failure don't apply on a critical failure. If your press action succeeds, you can choose to apply the failure effect instead. (For example, you may wish to do this when an attack deals no damage due to resistance.)"
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -3138,7 +4308,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic comes from the primal tradition, connecting to the natural world and instinct. Anything with this trait is magical. A creature with this trait is primarily constituted of or has a strong connection to primal magic."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3175,7 +4355,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add half your Strength modifier (if positive) to damage rolls with a propulsive ranged weapon. If you have a negative Strength modifier, you add your full Strength modifier instead."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -3195,7 +4385,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the psychic class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3215,7 +4415,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be used to Trip with the Athletics skill at a distance up to the weapon's first range increment. The skill check takes a -2 circumstance penalty. You can add the weapon's item bonus to attack rolls as a bonus to the check. As with using a melee weapon to trip, a ranged trip doesn't deal any damage when used to Trip."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -3235,7 +4445,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the ranger class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3255,7 +4475,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Natural attacks with this trait can be used to attack creatures up to the listed distance away instead of only adjacent creatures. Weapons with this trait are long and can be used to attack creatures up to 10 feet away instead of only adjacent creatures. For creatures that already have reach with the limb or limbs that wield the weapon, the weapon increases their reach by 5 feet."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -3275,7 +4505,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait see things as they truly are."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "equipment", "feat", "ritual", "spell"]
@@ -3295,7 +4535,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the rogue class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3315,7 +4565,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the runesmith class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3335,7 +4595,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you are holy or unholy, your sanctified actions and spells gain the same trait."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -3355,7 +4625,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A scrying effect lets you see, hear, or otherwise get sensory information from a distance using a sensor or apparatus, rather than your own eyes and ears."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3387,7 +4667,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The GM rolls the check for this ability in secret."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -3407,7 +4697,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This magic involves shadows or the energy of the Netherworld."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3442,7 +4742,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this weapon to Shove with the Athletics skill even if you don't have a free hand. This uses the weapon's reach (if different from your own) and adds the weapon's item bonus to attack rolls as an item bonus to the Athletics check. If you critically fail a check to Shove using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -3462,7 +4772,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A general feat with the skill trait improves your skills and their actions or gives you new actions for a skill. A feat with this trait can be selected when a class grants a skill feat or general feat. Archetype feats with the skill trait can be selected in place of a skill feat if you have that archetype's dedication feat."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -3482,7 +4802,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This effect can cause a creature to fall asleep or get drowsy."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3513,7 +4843,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An effect with the sonic trait functions only if it makes sound, meaning it has no effect in an area of silence or in a vacuum. This is different from an auditory spell, which is effective only if the target can hear it. A sonic effect might deal sonic damage."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3550,7 +4890,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the sorcerer class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3570,7 +4920,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spellshape actions tweak the properties of your spells. You must use a spellshape action directly before casting the spell you want to alter. If you use any action (including free actions and reactions) other than casting a spell directly after, you waste the benefits of the spellshape action. The benefit is also lost if your turn ends before you cast the spell. Any additional effects added by a spellshape action are part of the spell's effect, not of the spellshape action itself."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3600,7 +4960,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait can affect creatures with spiritual essence and might deal spirit damage. A creature with this trait is defined by its spiritual essence. Spirit creatures often lack a material form."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3637,7 +5007,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A stance is a general combat strategy that you enter by using an action with the stance trait, and that you remain in for some time. A stance lasts until you get knocked out, until its requirements (if any) are violated, until the encounter ends, or until you enter a new stance, whichever comes first. After you use an action with the stance trait, you can't use another one for 1 round. You can enter or be in a stance only in encounter mode."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3667,7 +5047,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spell with the subtle trait can be cast without incantations and doesn't have obvious manifestations."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "ritual", "spell"]
@@ -3687,7 +5077,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sulis are planar scions descended from jann."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3717,7 +5117,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spells with the summon trait can conjure creatures, typically ones with a particular trait. Such creatures can be found in Monster Core and similar books. Unless noted otherwise, the creature must be common, it gains the summoned trait, and it must appear in an unoccupied space in range large enough to contain it. The highest level of creature the spell can summon depends on the rank of the spell, as listed below. The spell can still summon a creature of a lower level if you so choose. These rules apply only to spells that have the summon trait; other spells that call or conjure items or beings but that don't have the trait, like summon instrument, work as explained in the spell."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3747,7 +5157,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the Summoner class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3767,7 +5187,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the Swashbuckler class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3787,7 +5217,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon makes wide sweeping or spinning attacks, making it easier to attack multiple enemies. When you attack with this weapon, you gain a +1 circumstance bonus to your attack roll if you already attempted to attack a different target this turn using this weapon."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -3807,7 +5247,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A type of geniekin descended from a being from the Plane of Air."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3837,7 +5287,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Taloses are planar scions descended from zuhras."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3867,7 +5327,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Teleportation effects allow you to instantaneously move from one point in space to another. Teleportation does not usually trigger reactions based on movement."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -3899,7 +5369,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the thaumaturge class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -3919,7 +5399,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -3939,7 +5429,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -3959,7 +5459,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can throw this weapon as a ranged attack. A thrown weapon adds your Strength modifier to damage just like a melee weapon does. When this trait appears on a melee weapon, it also includes the range increment."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -3979,7 +5489,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use this weapon to Trip with the Athletics skill even if you don't have a free hand. This uses the weapon's reach (if different from your own) and adds the weapon's item bonus to attack rolls as an item bonus to the Athletics check. If you critically fail a check to Trip using the weapon, you can drop the weapon to take the effects of a failure instead of a critical failure."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -3999,7 +5519,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These weapons are used as a pair, complementing each other. When you attack with a twin weapon, you add a circumstance bonus to the damage roll equal to the weapon's number of damage dice if you have previously attacked with a different weapon of the same type this turn. The weapons must be of the same type to benefit from this trait, but they don't need to have the same runes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4019,7 +5549,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be wielded with two hands. Doing so changes its weapon damage die to the indicated value. This change applies to all the weapon's damage dice, such as those from striking runes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4039,7 +5579,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be wielded with two hands. Doing so changes its weapon damage die to the indicated value. This change applies to all the weapon's damage dice, such as those from striking runes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4059,7 +5609,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This weapon can be wielded with two hands. Doing so changes its weapon damage die to the indicated value. This change applies to all the weapon's damage dice, such as those from striking runes."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4079,7 +5639,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A type of geniekin descended from a being from the Plane of Water."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4109,7 +5679,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the unholy trait are tied to powerful magical forces of cruelty and sin. They often have stronger effects on holy creatures. Creatures with this trait are strongly devoted to unholy causes, and often have weakness to holy. If a creature with weakness to unholy uses an unholy item or effect, it takes damage from its weakness."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4146,7 +5726,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A versatile weapon can be used to deal a different type of damage than that listed in the Damage entry. This trait indicates the alternate damage type. For instance, a piercing weapon that is versatile S can be used to deal piercing or slashing damage. You choose the damage type each time you make an attack."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4166,7 +5756,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A versatile weapon can be used to deal a different type of damage than that listed in the Damage entry. This trait indicates the alternate damage type. For instance, a piercing weapon that is versatile S can be used to deal piercing or slashing damage. You choose the damage type each time you make an attack."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4186,7 +5786,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A versatile weapon can be used to deal a different type of damage than that listed in the Damage entry. This trait indicates the alternate damage type. For instance, a piercing weapon that is versatile S can be used to deal piercing or slashing damage. You choose the damage type each time you make an attack."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["weapon"]
@@ -4206,7 +5816,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A visual effect can affect only creatures that can see it. This applies only to visible parts of the effect, as determined by the GM."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4239,7 +5859,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait heal living creatures with energy from the Forge of Creation, deal vitality energy damage to undead, or manipulate vitality energy."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4276,7 +5906,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with this trait heal undead creatures with void energy, deal void damage to living creatures, or manipulate void energy."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4313,7 +5953,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ranged weapon is less effective at close distances. Your attacks against targets that are at a distance within the range listed take a -2 penalty."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "weapon"]
@@ -4333,7 +5983,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the water trait either manipulate or conjure water. Those that manipulate water have no effect in an area without water. Creatures with this trait consist primarily of water or have a connection to magical water."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -4370,7 +6030,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the witch class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -4390,7 +6060,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This indicates abilities from the wizard class."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "consumable", "feat", "kit", "ritual", "spell"]
@@ -4410,7 +6090,17 @@
         "book": "player-core"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effects with the wood trait conjure or manipulate wood. Those that manipulate wood have no effect in an area without wood. Creatures with this trait consist primarily of wood or have a connection to magical wood."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

@@ -4250,6 +4250,41 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "hungerseed",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionHungerseed"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "sarangay",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionSarangay"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "tanuki",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionTanuki"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "yaksha",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionYaksha"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "yaoguai",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionYaoguai"
     }
   ]
 }

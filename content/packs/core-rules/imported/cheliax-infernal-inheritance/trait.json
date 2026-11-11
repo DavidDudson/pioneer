@@ -13,7 +13,17 @@
         "book": "cheliax-infernal-inheritance"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a furry, stealthy goblinoid. Bugbears tend to have darkvision."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -43,7 +53,17 @@
         "book": "cheliax-infernal-inheritance"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the fetchling ancestry. Fetchlings were once human, but generations of life in the Netherworld have transformed them."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -73,7 +93,17 @@
         "book": "cheliax-infernal-inheritance"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Winged humanoids, most of whom live in and around Cheliax."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

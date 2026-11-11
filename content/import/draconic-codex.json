@@ -12348,6 +12348,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "dragonet",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionDragonet"
     }
   ]
 }

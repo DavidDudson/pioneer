@@ -8458,6 +8458,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "spellshot",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionSpellshot"
     }
   ]
 }
