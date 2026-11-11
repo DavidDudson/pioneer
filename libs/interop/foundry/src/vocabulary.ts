@@ -6,6 +6,7 @@ import { langLabel } from './foundry-config';
 import type { EnvelopeFields } from './imported-envelope';
 import type { SelectedEntry } from './select-entries';
 import type { ImportedKindData } from './translate-kind-data';
+import { descriptionHtml, descriptionOf } from './vocabulary-descriptions';
 import {
   damageTypeItem,
   firstUses,
@@ -79,7 +80,7 @@ function collect({ kind, uses, itemOf }: Uses, known: readonly KnownEntry[]): Co
 }
 
 function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry | VocabularyGap {
-  const { kind, slug: foundrySlug, label: itemLabel, rarity, book, kindData } = item;
+  const { kind, slug: foundrySlug, label: itemLabel, descriptionKeys, rarity, book, kindData } = item;
   const label = 'text' in itemLabel ? itemLabel.text : langLabel(lang, itemLabel.key);
   if (label === undefined) {
     const detail = 'key' in itemLabel ? itemLabel.key : itemLabel.text;
@@ -99,18 +100,34 @@ function entryOf(item: Item, { pack, lang }: VocabularyContext): VocabularyEntry
     rarity,
     traits: [],
     sources: [{ kind: SourceKind.Book, book }],
-    description: [],
+    description: descriptionOf(descriptionKeys, lang),
     rules: [],
   };
   return { envelope, kindData };
 }
 
+/** A described kind's item that no description key has text for: its entry is kept, and the gap reported. */
+function missingDescription(item: Item, { lang }: VocabularyContext): VocabularyGap[] {
+  const { kind, slug, descriptionKeys } = item;
+  if (descriptionKeys === undefined || descriptionHtml(descriptionKeys, lang) !== undefined) {
+    return [];
+  }
+  return [{ kind, slug, reason: VocabularyGapReason.MissingDescription, detail: descriptionKeys.join(' ') }];
+}
+
 function entries(items: readonly Item[], context: VocabularyContext): Vocabulary {
-  const built = items.map((item) => entryOf(item, context));
-  return {
-    entries: built.filter((each): each is VocabularyEntry => 'envelope' in each),
-    gaps: built.filter((each): each is VocabularyGap => 'reason' in each),
-  };
+  const imported: VocabularyEntry[] = [];
+  const gaps: VocabularyGap[] = [];
+  for (const item of items) {
+    const built = entryOf(item, context);
+    if ('envelope' in built) {
+      imported.push(built);
+      gaps.push(...missingDescription(item, context));
+    } else {
+      gaps.push(built);
+    }
+  }
+  return { entries: imported, gaps };
 }
 
 function otherUses(selected: readonly SelectedEntry[], { config, books }: VocabularyContext): Uses[] {

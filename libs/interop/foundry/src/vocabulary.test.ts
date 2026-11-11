@@ -4,7 +4,7 @@ import { ContentEntry, ContentKind, KIND_DATA, Rarity, slugName, SourceKind } fr
 
 import { ACOLYTE } from './testing/build-fixtures';
 import { coreRules, coreRulesEntry, coreRulesId, known, playerCore, translate } from './testing/import-fixtures';
-import { DWARF, KEEN_NOSE, plain, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
+import { DWARF, FIERY, KEEN_NOSE, plain, SHAPELY, slugsOf, vocabularyOf } from './testing/vocabulary-fixtures';
 import type { VocabularyEntry } from './vocabulary';
 import { VocabularyGapReason } from './vocabulary-items';
 
@@ -22,8 +22,45 @@ describe('importVocabulary: traits', () => {
       rarity: Rarity.Common,
       traits: [],
       sources: [{ kind: SourceKind.Book, book: playerCore }],
-      description: [],
+      description: [
+        { type: 'paragraph', content: [{ type: 'text', text: 'You move your body with care.' }] },
+        { type: 'paragraph', content: [{ type: 'text', text: 'It can trigger reactions.' }] },
+      ],
       rules: [],
+    });
+  });
+
+  test('a trait the config does not map takes the text under its conventional key', () => {
+    const fire = vocabularyOf(translate([FIERY]), ContentKind.Trait).find(
+      ({ envelope }) => envelope.slug === 'trait:fire',
+    );
+
+    expect(plain(fire?.envelope.description)).toEqual([
+      { type: 'paragraph', content: [{ type: 'text', text: 'Effects with this trait deal fire damage.' }] },
+    ]);
+  });
+
+  test('a trait with no text is imported with an empty description and reported', () => {
+    const translation = translate([DWARF, KEEN_NOSE]);
+    const dwarf = vocabularyOf(translation, ContentKind.Trait).find(({ envelope }) => envelope.slug === 'trait:dwarf');
+
+    expect(dwarf?.envelope.description).toEqual([]);
+    expect(translation.vocabularyGaps).toContainEqual({
+      kind: ContentKind.Trait,
+      slug: 'dwarf',
+      reason: VocabularyGapReason.MissingDescription,
+      detail: 'PF2E.TraitDescriptionDwarf',
+    });
+  });
+
+  test('a trait Foundry marks as having no description is reported under its conventional key only', () => {
+    const translation = translate([SHAPELY]);
+
+    expect(translation.vocabularyGaps).toContainEqual({
+      kind: ContentKind.Trait,
+      slug: 'polymorph',
+      reason: VocabularyGapReason.MissingDescription,
+      detail: 'PF2E.TraitDescriptionPolymorph',
     });
   });
 
@@ -73,7 +110,8 @@ describe('importVocabulary: traits', () => {
     const translation = translate([KEEN_NOSE], { known: [...known, coreRulesEntry(ContentKind.Statistic, 'dwarf')] });
 
     expect(slugsOf(translation, ContentKind.Trait)).toEqual(['dwarf', 'manipulate']);
-    expect(translation.vocabularyGaps.map(({ kind }) => kind)).not.toContain(ContentKind.Trait);
+    const traitGaps = translation.vocabularyGaps.filter(({ kind }) => kind === ContentKind.Trait);
+    expect(traitGaps.map(({ reason }) => reason)).not.toContain(VocabularyGapReason.Invalid);
   });
 
   test('the dwarf trait and the Dwarf ancestry are two slugs', () => {

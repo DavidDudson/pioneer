@@ -13,6 +13,7 @@ import { FoundryRitual, loresNamed } from './ritual-checks';
 import type { SelectedEntry } from './select-entries';
 import { FoundryTrainedSkills } from './translate-background';
 import type { ImportedKindData } from './translate-kind-data';
+import { traitDescriptionKeys } from './vocabulary-descriptions';
 
 /** The vocabulary items the selected documents use, before they have slugs: what `vocabulary.ts` builds entries of. */
 
@@ -36,6 +37,8 @@ export const VocabularyGapReason = {
   UnmappedValue: 'unmapped-value',
   /** Not a Pioneer slug or entry name. */
   Invalid: 'invalid',
+  /** A trait Foundry has no description for: the entry is imported, with an empty description. */
+  MissingDescription: 'missing-description',
 } as const;
 export type VocabularyGapReason = ValueOf<typeof VocabularyGapReason>;
 
@@ -52,6 +55,8 @@ export interface Item {
   readonly kind: ContentKind;
   readonly slug: string;
   readonly label: ItemLabel;
+  /** The lang keys that may hold the entry's description, best first; the first with text is used. */
+  readonly descriptionKeys?: readonly string[];
   readonly rarity: Rarity;
   readonly book: BookId;
   readonly kindData: ImportedKindData;
@@ -126,6 +131,7 @@ export function traitItems(selected: readonly SelectedEntry[], { config, known }
         kind: ContentKind.Trait,
         slug,
         label: { key: first[1].get(slug) ?? '' },
+        descriptionKeys: traitDescriptionKeys(slug, config),
         rarity: Rarity.Common,
         book,
         kindData: { kind: ContentKind.Trait, data: { appliesTo } },

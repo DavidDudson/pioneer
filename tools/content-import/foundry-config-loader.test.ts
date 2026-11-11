@@ -21,7 +21,8 @@ const baseFeat = { general: "PF2E.TraitGeneral", skill: "PF2E.TraitSkill" };
 const featTraits = R.omit(baseFeat, ["skill"]);
 const actionTraits = { ...R.pick(baseFeat, ["skill"]), move: "PF2E.TraitMove" };
 ${EMPTY_LISTS}
-export { ${Object.values(TraitList).join(', ')} };
+const traitDescriptions = { general: "PF2E.TraitDescriptionGeneral" };
+export { ${Object.values(TraitList).join(', ')}, traitDescriptions };
 `;
 
 const CREATURE = `import * as R from "remeda";
@@ -81,6 +82,7 @@ describe('loadFoundryConfig', () => {
         ['move', 'PF2E.TraitMove'],
       ]),
     );
+    expect(config.traitDescriptions).toEqual(new Map([['general', 'PF2E.TraitDescriptionGeneral']]));
     expect([...config.languages.keys()]).toEqual(['common', 'dwarven']);
     expect(config.senses.get('darkvision')).toEqual({ acuity: 'precise', unlimitedRange: true });
     expect(config.damageTypes).toEqual(['fire', 'cold']);

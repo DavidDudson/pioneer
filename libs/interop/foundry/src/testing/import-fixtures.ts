@@ -114,6 +114,11 @@ export const config: FoundryConfig = foundryConfig({
     shieldTraits: {},
     spellTraits: { fire: LABELS.fire, manipulate: LABELS.manipulate, polymorph: LABELS.polymorph },
     weaponTraits: {},
+    traitDescriptions: {
+      manipulate: 'PF2E.TraitDescriptionManipulate',
+      dwarf: 'PF2E.TraitDescriptionDwarf',
+      polymorph: 'PF2E.TraitNoDescription',
+    },
   },
   creature: {
     LANGUAGES_BY_RARITY: {
@@ -135,6 +140,8 @@ export const lang: FoundryLang = {
     TraitDwarf: 'Dwarf',
     TraitHumanoid: 'Humanoid',
     TraitPolymorph: 'Polymorph',
+    TraitDescriptionManipulate: '<p>You move your body with care.</p><p>It can trigger reactions.</p>',
+    TraitDescriptionFire: 'Effects with this trait deal fire damage.',
     TraitBludgeoning: 'Bludgeoning',
     SpecificRule: {
       Cleric: {

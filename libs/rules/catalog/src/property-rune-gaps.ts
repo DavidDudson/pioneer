@@ -10,7 +10,7 @@ import { loadRunes } from './rune-fixtures';
 export const MODELLED_IN_PLAY: ReadonlySet<string> = new Set(['rune:shifting']);
 
 /** Whether a rune is a property rune for `item` with no activation (those belong to the activations stories). */
-export function isPlainProperty(entry: ContentEntry, item: string): boolean {
+function isPlainProperty(entry: ContentEntry, item: string): boolean {
   return (
     entry.kind === ContentKind.Rune &&
     entry.data.type === 'property' &&
