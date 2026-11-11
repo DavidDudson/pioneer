@@ -11,20 +11,29 @@ const QUICKENED = '6517bbf2-8085-534b-be6a-187d52739fa0';
  * or be listed here with a reason. Remove an entry when its rules land.
  */
 const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
-  ['rune:animated', 'the weapon fights on its own once released: item state with no Strike of the wielder to change'],
+  [
+    'rune:animated',
+    'an activation with no frequency (Set Free), which the content has no place for (weapon activations story); the released weapon is item state',
+  ],
   ['rune:authorized', 'damages a wielder who is not the owner: needs who the rightful owner is, which no state holds'],
   [
     'rune:bane',
     'the engine builds its damage from the etched creature type (`chosenRuneRules`), so `rules` stay empty',
   ],
-  ['rune:coating', 'an extradimensional space for poisons and oils: item state, no rule changes a Strike'],
+  [
+    'rune:coating',
+    'an activation with no frequency, which the content has no place for (weapon activations story), and a store of poisons and oils as item state',
+  ],
   [
     'rune:conducting',
     'needs the resonant trait and a chosen energy that gives two elements (1d8, then 1d8 persistent on a critical hit)',
   ],
   ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
-  ['rune:spell-reservoir', 'holds a spell cast into the weapon for later: item state, not a rule'],
+  [
+    'rune:spell-reservoir',
+    'two activations with no frequency, which the content has no place for (weapon activations story), and a held spell as item state',
+  ],
 ]);
 
 const WEAPON_GAP_SLUGS: ReadonlySet<string> = new Set(WEAPON_GAPS.keys());

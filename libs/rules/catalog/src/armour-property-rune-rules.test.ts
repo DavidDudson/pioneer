@@ -8,20 +8,38 @@ import { RUNES, staleGaps, unaccounted } from './property-rune-gaps';
  * etched energy (`chosenRuneRules`), so their `rules` stay empty.
  */
 const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
-  ['rune:advancing', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
-  ['rune:advancing-greater', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
+  [
+    'rune:advancing',
+    'an activation with no frequency, which the content has no place for (armour activations story): a Stride after a kill',
+  ],
+  [
+    'rune:advancing-greater',
+    'an activation with no frequency, which the content has no place for (armour activations story): a Stride after a kill',
+  ],
   ['rune:aim-aiding', 'stops the wearer giving cover to allies, which no cover calculation reads'],
   ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
   ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-resistant-greater', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
-  ['rune:gliding', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:portable', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:raiment', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:malleable', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike-major', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:winged-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:gliding', 'an activation with no frequency, which the content has no place for (armour activations story)'],
+  ['rune:portable', 'an activation with no frequency, which the content has no place for (armour activations story)'],
+  ['rune:raiment', 'an activation with no frequency, which the content has no place for (armour activations story)'],
+  ['rune:malleable', 'an activation with no frequency, which the content has no place for (armour activations story)'],
+  [
+    'rune:swallow-spike',
+    'an activation with no frequency, which the content has no place for (armour activations story)',
+  ],
+  [
+    'rune:swallow-spike-greater',
+    'an activation with no frequency, which the content has no place for (armour activations story)',
+  ],
+  [
+    'rune:swallow-spike-major',
+    'an activation with no frequency, which the content has no place for (armour activations story)',
+  ],
+  [
+    'rune:winged-greater',
+    'an activation with no frequency, which the content has no place for (armour activations story)',
+  ],
   ['rune:mobile', 'one more 5 feet on a Step each turn: the Step distance is no statistic'],
   ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
   ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
