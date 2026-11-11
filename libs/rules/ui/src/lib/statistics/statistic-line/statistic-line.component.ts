@@ -1,7 +1,7 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Disclosure, Stack, Text } from '@pioneer/frontier';
 import type { StatisticValue } from '@pioneer/rules/engine';
-import type { ContentId, Proficiency, StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId, EntrySlug, Proficiency, StatisticKind } from '@pioneer/rules/sdk';
 
 import { BreakdownView } from '../../breakdown/breakdown.component';
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
@@ -28,6 +28,8 @@ import { StatisticTotal } from '../statistic-total/statistic-total.component';
 })
 export class StatisticLine {
   public readonly name = input.required<string>();
+  /** The slug of the statistic's content entry, which a skill's name opens in the side panel. */
+  public readonly slug = input<EntrySlug | undefined>();
   public readonly kind = input.required<StatisticKind>();
   public readonly statistic = input.required<StatisticValue>();
   /** The total as worded. */

@@ -1,6 +1,9 @@
+import { applicationConfig } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+import { provideRouter } from '@angular/router';
 import { expect, within } from 'storybook/test';
 
+import { provideEntryPreviews } from '../entry-preview/entry-preview';
 import { ENTRY_NAMES } from '../testing/breakdown-fixtures';
 import { SKILL_STATISTICS } from '../testing/skill-fixtures';
 import { SkillsView } from './skills.component';
@@ -38,5 +41,25 @@ export const NoLores: SkillsStory = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole('button', { name: 'Lores' }));
     await expect(canvas.getByText('No Lores yet.')).toBeVisible();
+  },
+};
+
+/** On a page with a side panel each skill's name is a link that opens its entry there. */
+export const NameLinks: SkillsStory = {
+  args: { statistics: SKILL_STATISTICS },
+  decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter([]),
+        provideEntryPreviews({
+          preview: (): undefined => undefined,
+          statisticPanel: (slug) => ({ to: ['/'], queryParams: { drawer: 'open', se: slug } }),
+        }),
+      ],
+    }),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(await canvas.findByRole('link', { name: 'Acrobatics' })).toBeVisible();
   },
 };

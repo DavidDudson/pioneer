@@ -77,6 +77,7 @@ export function sheetSkills(
         : [
             {
               name: definition.name,
+              slug: definition.slug,
               kind: definition.kind,
               result,
               note,

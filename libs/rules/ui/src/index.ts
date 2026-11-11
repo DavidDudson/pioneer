@@ -34,6 +34,7 @@ export {
   type PreviewRanks,
   type StatisticLink,
   panelQuery,
+  slugPanelQuery,
   provideEntryPreviews,
   SidePanelParam,
 } from './lib/entry-preview/entry-preview';

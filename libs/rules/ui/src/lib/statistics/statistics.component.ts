@@ -4,7 +4,7 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { Badge, EmptyState, List, ListItem, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { FormSource, RuleId } from '@pioneer/rules/engine';
 import type { BreakdownLine, StatisticResult, StatisticValue } from '@pioneer/rules/engine';
-import type { ContentId, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
+import type { ContentId, EntrySlug, Proficiency, Selector, StatisticKind } from '@pioneer/rules/sdk';
 import { filter, merge } from 'rxjs';
 
 import { labelName } from '../breakdown/line-words';
@@ -30,6 +30,8 @@ export interface StatisticSituations {
 /** A statistic to list: its display name, what kind it is, and what the engine derived for it. */
 export interface NamedStatistic {
   readonly name: string;
+  /** The slug of the statistic's content entry, which a skill's name opens in the side panel. */
+  readonly slug?: EntrySlug | undefined;
   /** A message key naming it instead, for one no content names (a fist's Strike). */
   readonly nameKey?: string | undefined;
   readonly kind: StatisticKind;
@@ -60,6 +62,7 @@ type ShownStatistic =
       readonly ok: true;
       readonly key: Selector;
       readonly name: string;
+      readonly slug: EntrySlug | undefined;
       readonly total: string;
       /** "computed 18" when a set override pinned the total; undefined otherwise. */
       readonly computed: string | undefined;
@@ -181,12 +184,23 @@ export class StatisticsView {
     };
   }
 
+  /** A statistic the engine could not derive, with why. */
+  #failed(result: Extract<StatisticResult, { readonly ok: false }>, name: string): ShownStatistic {
+    return {
+      ok: false,
+      key: result.selector,
+      name,
+      error: this.#i18n.translate(result.error.key, result.error.params),
+    };
+  }
+
   protected readonly shown = computed((): readonly ShownStatistic[] | undefined => {
     this.#messages();
     this.#format.locale();
     return this.statistics()?.map(
       ({
         name: contentName,
+        slug,
         nameKey,
         kind,
         result,
@@ -199,12 +213,7 @@ export class StatisticsView {
       }): ShownStatistic => {
         const name = nameKey === undefined ? contentName : this.#i18n.translate(nameKey);
         if (!result.ok) {
-          return {
-            ok: false,
-            key: result.selector,
-            name,
-            error: this.#i18n.translate(result.error.key, result.error.params),
-          };
+          return this.#failed(result, name);
         }
         const style = numberStyle(kind);
         const total = this.#format.number(result.total, style);
@@ -215,6 +224,7 @@ export class StatisticsView {
           ok: true,
           key: result.selector,
           name,
+          slug,
           total,
           computed: unpinned,
           adjusted: isAdjustedByHand(result),
