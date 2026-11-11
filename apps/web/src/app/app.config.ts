@@ -4,7 +4,7 @@ import type { ApplicationConfig } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
 import { DISTANCE_UNIT } from '@pioneer/frontier';
 import { provideAccountPreferences, provideSignInOnUnauthorized } from '@pioneer/identity/data-access';
-import { ENTRY_PREVIEWS } from '@pioneer/rules/ui';
+import { ENTRY_PREVIEWS } from '@pioneer/rules/ui/entry-previews';
 import { Milliseconds } from '@pioneer/shared/kernel';
 import { IdlePreloading, LocalePreferences, provideI18n } from '@pioneer/shared/web';
 import { provideTanStackQuery, QueryClient } from '@tanstack/angular-query-experimental';
