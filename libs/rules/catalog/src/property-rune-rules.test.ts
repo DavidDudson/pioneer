@@ -1,9 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { ContentKind } from '@pioneer/rules/sdk';
-import type { ContentEntry } from '@pioneer/rules/sdk';
-
-import { loadRunes } from './rune-fixtures';
+import { MODELLED_IN_PLAY, RUNES, staleGaps, unaccounted } from './property-rune-gaps';
 
 const ETCHED_DAMAGE = 'etched-damage';
 /** The Quickened condition of Player Core, which a quickstrike rune grants. */
@@ -28,16 +25,9 @@ const WEAPON_GAPS: ReadonlyMap<string, string> = new Map([
   ['rune:energy-vulnerability', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:energy-vulnerability-greater', 'the engine builds its weakness from the etched energy (`chosenRuneRules`)'],
   ['rune:spell-reservoir', 'holds a spell cast into the weapon for later: item state, not a rule'],
-  ['rune:underwater', 'removes the penalties for fighting in water, which no roll here reads'],
 ]);
 
 const WEAPON_GAP_SLUGS: ReadonlySet<string> = new Set(WEAPON_GAPS.keys());
-
-/**
- * Weapon property runes the play state models instead of rule elements, so their `rules` stay empty: shifting lets the
- * weapon take the shape of another (`weapon-shapes.ts`), a choice the sheet keeps per item.
- */
-const MODELLED_IN_PLAY: ReadonlySet<string> = new Set(['rune:shifting']);
 
 interface EnergyRune {
   readonly slug: string;
@@ -70,122 +60,6 @@ function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[
       : [{ ...extra, diceNumber: persistent, dieSize: 'd10', category: 'persistent', critical: true }];
   const critical = slug.startsWith('rune:flaming') ? [] : [{ key: 'CriticalEffect', selectors: [ETCHED_DAMAGE] }];
   return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
-}
-
-/**
- * Armour property runes with no activation and no rules in the pack, each with why: a new book's rune must get rules
- * or be listed here with a reason. Remove an entry when its rules land. The energy-resistant runes are built from the
- * etched energy (`chosenRuneRules`), so their `rules` stay empty.
- */
-const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
-  ['rune:advancing', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
-  ['rune:advancing-greater', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
-  ['rune:aim-aiding', 'stops the wearer giving cover to allies, which no cover calculation reads'],
-  ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
-  ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
-  ['rune:energy-resistant-greater', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
-  ['rune:gliding', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:portable', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:raiment', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:malleable', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:swallow-spike-major', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:winged-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
-  ['rune:mobile', 'one more 5 feet on a Step each turn: the Step distance is no statistic'],
-  ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
-  ['rune:quenching', 'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`'],
-  [
-    'rune:quenching-greater',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
-  [
-    'rune:quenching-major',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
-  [
-    'rune:quenching-true',
-    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
-  ],
-  ['rune:ready', 'the actions to don armour: donning is not modelled'],
-  ['rune:ready-greater', 'the actions to don armour: donning is not modelled'],
-  [
-    'rune:self-sealing',
-    'resistance 10 to environmental damage while sealed: the seal is item state, and environmental damage is no resistance type',
-  ],
-  ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
-  ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
-]);
-
-const ARMOUR_GAP_SLUGS: ReadonlySet<string> = new Set(ARMOUR_GAPS.keys());
-
-interface BonusRune {
-  readonly slug: string;
-  readonly selector: string;
-  readonly bonus: number;
-  /** The actions the bonus is limited to. */
-  readonly actions?: readonly string[];
-}
-
-/** The armour runes that give an item bonus: to a skill, a Speed or every save. */
-const BONUS_RUNES: readonly BonusRune[] = [
-  { slug: 'rune:soaring', selector: 'fly-speed', bonus: 10 },
-  { slug: 'rune:mythic-resilient', selector: 'saving-throw', bonus: 4 },
-  { slug: 'rune:shadow', selector: 'skill:stealth', bonus: 1 },
-  { slug: 'rune:shadow-greater', selector: 'skill:stealth', bonus: 2 },
-  { slug: 'rune:shadow-major', selector: 'skill:stealth', bonus: 3 },
-  { slug: 'rune:slick', selector: 'skill:acrobatics', bonus: 1, actions: ['action:escape', 'action:squeeze'] },
-  { slug: 'rune:slick-greater', selector: 'skill:acrobatics', bonus: 2, actions: ['action:escape', 'action:squeeze'] },
-  { slug: 'rune:slick-major', selector: 'skill:acrobatics', bonus: 3, actions: ['action:escape', 'action:squeeze'] },
-];
-
-/** The flat check DC of each fortification grade, which the wearer rolls when a critical hit lands on their AC. */
-const FORTIFICATION_DCS: readonly (readonly [string, number])[] = [
-  ['rune:fortification', 17],
-  ['rune:fortification-greater', 14],
-];
-
-/** The rule an armour bonus rune is expected to carry. */
-function expectedBonus({ selector, bonus, actions }: BonusRune): object {
-  const rule = { key: 'FlatModifier', selectors: [selector], type: 'item', value: bonus };
-  return actions === undefined ? rule : { ...rule, predicate: [{ or: actions }] };
-}
-
-/** Whether a rune is a property rune for `item` with no activation (those belong to the activations stories). */
-function isPlainProperty(entry: ContentEntry, item: string): boolean {
-  return (
-    entry.kind === ContentKind.Rune &&
-    entry.data.type === 'property' &&
-    entry.data.etchedOnto.item === item &&
-    entry.data.activations === undefined
-  );
-}
-
-const RUNES = await loadRunes();
-
-/** Whether any pack's copy of the rune has rules: a legacy copy of a rune the remaster already covers needs none. */
-function ruled(slug: string): boolean {
-  return RUNES.some((entry) => entry.slug === slug && entry.rules.length > 0);
-}
-
-/** Plain property runes for `item` with neither rules nor a recorded gap. */
-function unaccounted(item: string, gaps: ReadonlySet<string>): readonly string[] {
-  return RUNES.filter((entry) => isPlainProperty(entry, item))
-    .filter(
-      (entry) =>
-        entry.rules.length === 0 && !gaps.has(entry.slug) && !MODELLED_IN_PLAY.has(entry.slug) && !ruled(entry.slug),
-    )
-    .map((entry) => entry.slug);
-}
-
-/** Recorded gaps whose rune is gone or has since got rules. */
-function staleGaps(gaps: ReadonlySet<string>): readonly string[] {
-  return [...gaps].filter((slug) => {
-    const rune = RUNES.find((entry) => entry.slug === slug);
-    return rune === undefined || rune.rules.length > 0;
-  });
 }
 
 describe('weapon property rune rules', () => {
@@ -256,6 +130,14 @@ describe('weapon property rune rules', () => {
     },
   );
 
+  test('underwater adds itself to the property runes of the weapon, which the environment reads', () => {
+    const entry = RUNES.find(({ slug }) => slug === 'rune:underwater');
+
+    expect(entry?.rules).toMatchObject([
+      { key: 'AdjustStrike', property: 'property-runes', mode: 'add', value: 'underwater', etched: true },
+    ]);
+  });
+
   test('quickstrike grants the quickened condition while the weapon is wielded', () => {
     const entry = RUNES.find(({ slug }) => slug === 'rune:quickstrike');
 
@@ -268,33 +150,5 @@ describe('weapon property rune rules', () => {
     expect(entry?.rules).toMatchObject([
       { key: 'DamageAlteration', selectors: [ETCHED_DAMAGE], property: 'dice-number', mode: 'override', value: 5 },
     ]);
-  });
-});
-
-describe('armour property rune rules', () => {
-  test('every recorded armour gap says why', () => {
-    const unexplained = [...ARMOUR_GAPS].filter(([, reason]) => reason.trim() === '').map(([slug]) => slug);
-
-    expect(unexplained).toEqual([]);
-  });
-
-  test('every rune without an activation has rules or a recorded gap', () => {
-    expect(unaccounted('armor', ARMOUR_GAP_SLUGS)).toEqual([]);
-  });
-
-  test('a recorded gap names a rune that still has no rules', () => {
-    expect(staleGaps(ARMOUR_GAP_SLUGS)).toEqual([]);
-  });
-
-  test.each(BONUS_RUNES)('$slug gives +$bonus to $selector', (rune) => {
-    const entry = RUNES.find(({ slug }) => slug === rune.slug);
-
-    expect(entry?.rules).toMatchObject([expectedBonus(rune)]);
-  });
-
-  test.each(FORTIFICATION_DCS)('%s asks a flat check against DC %i when a critical hit lands on AC', (slug, dc) => {
-    const entry = RUNES.find((rune) => rune.slug === slug);
-
-    expect(entry?.rules).toMatchObject([{ key: 'CriticalHitCheck', selectors: ['ac'], dc }]);
   });
 });
