@@ -334,7 +334,33 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.wHs6IGCMaXsgFNop"
     },
     "data": {
-      "dedication": "31044388-b605-5795-8096-a8e7f7c13e50"
+      "dedication": "31044388-b605-5795-8096-a8e7f7c13e50",
+      "additionalFeats": [
+        {
+          "feat": "440515df-5603-5df6-a17f-7e8a733a20d0",
+          "level": 4
+        },
+        {
+          "feat": "f71d7de3-e812-5b9b-a5b8-873248b692de",
+          "level": 6
+        },
+        {
+          "feat": "b420b1bc-620f-52ba-a106-fea79a207ad6",
+          "level": 12
+        },
+        {
+          "feat": "c3b5de3d-d388-5263-b3ed-badb9758d854",
+          "level": 14
+        },
+        {
+          "feat": "3513631a-117a-5c98-a43c-10fcc15cbc70",
+          "level": 14
+        },
+        {
+          "feat": "80bfb802-0885-599d-9c47-13457338bdf6",
+          "level": 16
+        }
+      ]
     }
   },
   {

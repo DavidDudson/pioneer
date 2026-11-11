@@ -922,7 +922,49 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.l4isOHQIdkrWLch0"
     },
     "data": {
-      "dedication": "de945fbc-b25f-54f0-9c5d-cfb409f9a4dd"
+      "dedication": "de945fbc-b25f-54f0-9c5d-cfb409f9a4dd",
+      "additionalFeats": [
+        {
+          "feat": "e6799b06-142e-5f77-8d25-4f7c94a3fad6",
+          "level": 4
+        },
+        {
+          "feat": "3db48709-2677-516b-9959-27df285691e4",
+          "level": 4
+        },
+        {
+          "feat": "72a215e0-48e2-5bda-aa68-f5fc4f785966",
+          "level": 4
+        },
+        {
+          "feat": "2067205a-eae1-5564-beac-b7cb28503875",
+          "level": 4
+        },
+        {
+          "feat": "16bacd46-84c7-554b-8908-4f0a86e68925",
+          "level": 4
+        },
+        {
+          "feat": "32bf9431-3a83-5808-ac8c-8fd6e96de85c",
+          "level": 4
+        },
+        {
+          "feat": "4b7e7f64-0bdb-581d-bb4e-f4bf65a3b06f",
+          "level": 8
+        },
+        {
+          "feat": "c9ed1b9a-991a-5ff3-acab-f84da550f504",
+          "level": 8
+        },
+        {
+          "feat": "6ec5ca74-cd8d-5386-93a6-bf0993cabf15",
+          "level": 8
+        },
+        {
+          "feat": "9cc255e0-5810-5b81-99e8-f77adb6ed94e",
+          "level": 8
+        }
+      ]
     }
   },
   {

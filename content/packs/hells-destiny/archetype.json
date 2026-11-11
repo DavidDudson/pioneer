@@ -340,7 +340,153 @@
       "foundry": "Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.QeaXNBRtVo8SZBhS"
     },
     "data": {
-      "dedication": "3a0502d3-770d-5b61-aa80-a63ee0fdeb7c"
+      "dedication": "3a0502d3-770d-5b61-aa80-a63ee0fdeb7c",
+      "additionalFeats": [
+        {
+          "feat": "e319e37c-75d6-59f0-80bb-ac5dc99efcf9",
+          "level": 4
+        },
+        {
+          "feat": "9ba76307-7dc2-529c-bee8-46e4d76cd30d",
+          "level": 8
+        },
+        {
+          "feat": "b0b4d4c4-68a1-5ec4-9350-38639e5c9fa9",
+          "level": 8
+        },
+        {
+          "feat": "57d92d1d-3021-50eb-95a0-540c9a7fed26",
+          "level": 12
+        },
+        {
+          "feat": "ce13d81b-11e7-527e-abfd-03d278140ad4",
+          "level": 12
+        },
+        {
+          "feat": "1794307d-a3d8-58de-bca2-bd8e2d31f87f",
+          "level": 12
+        },
+        {
+          "feat": "baf80f05-b5dc-57fb-b2bd-ed8efbba719b",
+          "level": 12
+        },
+        {
+          "feat": "83a78430-6a08-5482-8361-e35199ba0cbd",
+          "level": 14
+        },
+        {
+          "feat": "832a5b20-4a01-5c8d-b8c6-3a49679891e3",
+          "level": 4
+        },
+        {
+          "feat": "62d7a2bf-ccde-5e8f-b154-6b5adacaeaf3",
+          "level": 4
+        },
+        {
+          "feat": "eeb068d7-0225-5e47-861d-748c8a27dd44",
+          "level": 8
+        },
+        {
+          "feat": "ecfc98c6-231b-5891-968c-d7c94d13b8c0",
+          "level": 8
+        },
+        {
+          "feat": "21da340c-8798-5b56-8775-ef5246054881",
+          "level": 4
+        },
+        {
+          "feat": "8735e1c2-b4f2-5e8d-b5bc-f40ea7fe32a3",
+          "level": 6
+        },
+        {
+          "feat": "aea0bfe0-0fad-595a-8663-dca6cf6a3bd1",
+          "level": 10
+        },
+        {
+          "feat": "5a9b2284-f42c-5f2c-9166-3cafad81bffa",
+          "level": 4
+        },
+        {
+          "feat": "6fe39b72-690e-50b4-ae8e-b30991f50ff4",
+          "level": 8
+        },
+        {
+          "feat": "125b264c-681c-5728-8b13-3b2378bf6245",
+          "level": 12
+        },
+        {
+          "feat": "6a268260-250d-5ec3-bfa8-d2032944e44c",
+          "level": 12
+        },
+        {
+          "feat": "c72063e3-565e-5253-95ab-e13dfb06a2a1",
+          "level": 4
+        },
+        {
+          "feat": "9ba76307-7dc2-529c-bee8-46e4d76cd30d",
+          "level": 4
+        },
+        {
+          "feat": "b0b4d4c4-68a1-5ec4-9350-38639e5c9fa9",
+          "level": 4
+        },
+        {
+          "feat": "0cc04155-1d6b-536d-83ae-7633b847eb0e",
+          "level": 6
+        },
+        {
+          "feat": "f4b19276-30d7-5a75-bb2b-3b1223e469dc",
+          "level": 10
+        },
+        {
+          "feat": "9ca7c58b-ebf6-53e5-9414-4f585d38417d",
+          "level": 4
+        },
+        {
+          "feat": "43cc8300-15d4-5748-9e4b-7c0ec3b5cd14",
+          "level": 4
+        },
+        {
+          "feat": "6c94f750-08e8-5e06-81a4-8c093d78bbba",
+          "level": 8
+        },
+        {
+          "feat": "c655c72b-b237-5ed9-a2f9-6ba968ee4618",
+          "level": 12
+        },
+        {
+          "feat": "c626313b-ce08-5999-b2cf-69609b80830e",
+          "level": 4
+        },
+        {
+          "feat": "a84872dd-32aa-5208-8d92-fe61feb0510a",
+          "level": 6
+        },
+        {
+          "feat": "740cfee7-69d7-5ce9-a679-63b9f596a509",
+          "level": 8
+        },
+        {
+          "feat": "8d01375d-8644-5e89-bc44-84d30b21c900",
+          "level": 12
+        },
+        {
+          "feat": "c702a8de-2ade-5997-93f6-3e4c535637d4",
+          "level": 4
+        },
+        {
+          "feat": "74cbb687-c231-5ea4-9956-a3b7bff87da8",
+          "level": 4
+        },
+        {
+          "feat": "9243f202-4b03-5ea8-8cb8-05ac606665ff",
+          "level": 8
+        },
+        {
+          "feat": "7750ade7-51b0-55c7-99b1-b160d2b59083",
+          "level": 16
+        }
+      ]
     }
   }
 ]
