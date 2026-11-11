@@ -255,7 +255,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
@@ -759,7 +760,8 @@
           "frequency": {
             "max": 1,
             "per": "minute"
-          }
+          },
+          "cost": "one"
         }
       ],
       "usage": {
@@ -891,7 +893,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
@@ -1494,7 +1497,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
@@ -2003,7 +2007,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
@@ -2205,7 +2210,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "three"
         }
       ],
       "usage": {
@@ -2415,7 +2421,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
@@ -2775,7 +2782,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "two"
         }
       ],
       "usage": {
