@@ -10394,6 +10394,13 @@
       "slug": "wildsong",
       "reason": "unmapped-value",
       "detail": "secret"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "jotunborn",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionJotunborn"
     }
   ]
 }

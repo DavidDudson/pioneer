@@ -10609,6 +10609,13 @@
       "slug": "untyped",
       "reason": "unmapped-value",
       "detail": "untyped"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "kaiju",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionKaiju"
     }
   ]
 }

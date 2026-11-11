@@ -13,7 +13,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The brandish trait indicates an ability that involves you waving or otherwise actively displaying your banner. To use an ability that has the brandish trait, you must be holding your banner in one hand or wielding a weapon it is attached to. Since you have to be actively signaling with your banner to direct your squadmates while using a tactic with the brandish trait, you cannot use free actions or reactions granted as part of a brandish tactic unless specifically noted otherwise."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
@@ -33,7 +43,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mandrill-like humanoids that are brutal warriors. Many charau-ka live in Usaro."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -53,7 +73,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Giants are massive humanoid creatures."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["ancestry", "creature", "heritage"]
@@ -103,7 +133,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This trait indicates abilities that can be used only during skirmish encounters."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "condition", "effect"]
@@ -123,7 +163,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Tactics are special abilities that involve you signaling your allies to perform predetermined maneuvers. To use a tactic ability, you must have one or more willing allies you have instructed beforehand during your daily preparations, called squadmates. Your squadmates must also be able to perceive your signal, either when you speak or shout it (in which case the tactic action gains the auditory trait), or by physically signaling them, typically by waving your banner (in which case it gains the visual trait). While you can use multiple tactic actions in a round, a character cannot respond to more than one tactic per round, regardless of source. You can't Ready a tactic. Tactics often grant actions or abilities that can be used as a free action; these can be used outside the squadmate's turn just like reactions."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
@@ -143,7 +193,17 @@
         "book": "battlecry"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A whetstone is a magically enhanced consumable item designed to increase a weapon's effectiveness"
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "condition", "consumable", "effect"]

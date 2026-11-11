@@ -51,12 +51,20 @@ import type {
 import { bookRegistry, officialPacks } from '@pioneer/rules/catalog';
 import { BookId, PackId, Trait } from '@pioneer/rules/sdk';
 
+import { DESCRIBED_KINDS } from './apply-descriptions.ts';
 import { formatCoverage, formatCreatureCoverage } from './coverage-table.ts';
 import { formatCreatures } from './creature-report.ts';
 import { loadFoundryConfig } from './foundry-config-loader';
 import type { PackTargets } from './pack-writes.ts';
 import { loadReplacedLegacy } from './replaced-legacy-loader.ts';
-import { appendLegacy, applyOutcomes, applyRules, committedEntries, previousImport } from './write-output.ts';
+import {
+  appendLegacy,
+  applyDescriptions,
+  applyOutcomes,
+  applyRules,
+  committedEntries,
+  previousImport,
+} from './write-output.ts';
 
 const ROOT = path.resolve(import.meta.dir, '../..');
 const CACHE = path.join(ROOT, '.data/foundry');
@@ -78,6 +86,8 @@ interface Options {
   readonly applyRules: ReadonlySet<string>;
   /** Whether to lay the import's check outcomes on the committed descriptions (`apply-outcomes.ts`). */
   readonly applyOutcomes: boolean;
+  /** The vocabulary kinds whose empty committed descriptions the import now fills (`apply-descriptions.ts`). */
+  readonly applyDescriptions: ReadonlySet<string>;
 }
 
 /** The keys of `--apply-rules`; a run that writes names some, as a committed pack is never replaced. */
@@ -91,6 +101,16 @@ function ruleKeys(argument: string | undefined, writesElsewhere: boolean): Reado
   return new Set(keys);
 }
 
+/** The kinds of `--apply-descriptions`, each one the import describes from Foundry's config. */
+function describedKinds(argument: string | undefined): ReadonlySet<string> {
+  const kinds = (argument ?? '').split(',').filter((kind) => kind !== '');
+  const unknown = kinds.filter((kind) => !DESCRIBED_KINDS.has(kind));
+  if (unknown.length > 0) {
+    throw new Error(`--apply-descriptions takes ${[...DESCRIBED_KINDS].join(', ')}, not ${unknown.join(', ')}`);
+  }
+  return new Set(kinds);
+}
+
 function options(): Options {
   const { values } = parseArgs({
     options: {
@@ -100,6 +120,7 @@ function options(): Options {
       'replaced-legacy': { type: 'boolean', default: false },
       'apply-rules': { type: 'string' },
       'apply-outcomes': { type: 'boolean', default: false },
+      'apply-descriptions': { type: 'string' },
     },
   });
   const books = (values.book ?? []).map((book) => BookId.parse(book));
@@ -121,9 +142,13 @@ function options(): Options {
     replacedLegacy: values['replaced-legacy'],
     applyRules: ruleKeys(
       values['apply-rules'],
-      values['dry-run'] || values['apply-outcomes'] || values['replaced-legacy'],
+      values['dry-run'] ||
+        values['apply-outcomes'] ||
+        values['replaced-legacy'] ||
+        values['apply-descriptions'] !== undefined,
     ),
     applyOutcomes: values['apply-outcomes'],
+    applyDescriptions: describedKinds(values['apply-descriptions']),
   };
 }
 
@@ -297,7 +322,15 @@ function formatKindData(translation: ImportTranslation): string {
   ].join('\n');
 }
 
-const { pack, books, dryRun, replacedLegacy, applyRules: rulesOnly, applyOutcomes: outcomesOnly } = options();
+const {
+  pack,
+  books,
+  dryRun,
+  replacedLegacy,
+  applyRules: rulesOnly,
+  applyOutcomes: outcomesOnly,
+  applyDescriptions: describedOnly,
+} = options();
 const targets: PackTargets = { pack, vocabularyPack: VOCABULARY_PACK };
 const pins = await readPins(pack, replacedLegacy);
 const files = await archiveFiles(await archive(pins.config));
@@ -347,6 +380,14 @@ if (!dryRun && outcomesOnly) {
       `Left alone: ${report.kept} basic or already filled, ${report.ambiguous} ambiguous checks.`,
       `Skipped ${report.handFixed.length} hand-fixed descriptions:`,
       ...report.handFixed.map((entry) => `  ${entry}`),
+    ].join('\n'),
+  );
+} else if (!dryRun && describedOnly.size > 0) {
+  const { written, filled } = await applyDescriptions(output, targets, describedOnly);
+  console.log(
+    [
+      `Filled the empty ${[...describedOnly].join(', ')} descriptions of ${filled} committed entries; wrote:`,
+      ...written.map((file) => `  ${file}`),
     ].join('\n'),
   );
 } else if (!dryRun && replaced !== undefined) {

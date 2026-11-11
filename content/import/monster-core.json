@@ -16730,6 +16730,34 @@
       "slug": "wildsong",
       "reason": "unmapped-value",
       "detail": "secret"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "couatl",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionCouatl"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "duergar",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionDuergar"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "graveknight",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionGraveknight"
+    },
+    {
+      "type": "vocabulary",
+      "kind": "trait",
+      "slug": "locathah",
+      "reason": "missing-description",
+      "detail": "PF2E.TraitDescriptionLocathah"
     }
   ]
 }

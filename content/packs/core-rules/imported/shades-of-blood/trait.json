@@ -13,7 +13,17 @@
         "book": "shades-of-blood"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Humanoids that can partially or fully transform into animal forms."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

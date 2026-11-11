@@ -24,6 +24,15 @@ else in the entry changes, so descriptions, hand-fixed rules, `dismiss` flags an
 6. Check: `bunx nx run rules-catalog:test`; DB tests need `just db-up`. Commit `feat(content): ...` stating the keys
    and what they brought in.
 
+## Vocabulary descriptions
+
+`just content-import --pack <pack> --book <book> --apply-descriptions trait` fills the empty `description` of the
+committed vocabulary entries of that kind (`imported/<pack>/trait.json`) from the pinned release, and replaces the
+pack's `missing-description` backlog items with the ones the import still has. Filled descriptions are never
+overwritten. Run it per pack after the importer learns to read a kind's descriptions; a second run changes nothing.
+A pack whose book no longer selects entries (`ancestry-guide`) cannot be reached. Review that `git diff` shows
+descriptions and `missing-description` items only.
+
 ## Check outcomes
 
 `just content-import --pack <pack> --book <book> --apply-outcomes` takes the per-degree outcomes the import builds for a

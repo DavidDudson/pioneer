@@ -12,6 +12,7 @@ import { ContentEntryFile } from '@pioneer/rules/sdk';
 import type { ContentEntry, ContentId } from '@pioneer/rules/sdk';
 import { Glob } from 'bun';
 
+import { withDescriptionGaps, withFilledDescriptions } from './apply-descriptions.ts';
 import { addOutcomesToText } from './apply-outcomes.ts';
 import type { FreshDescriptions } from './apply-outcomes.ts';
 import { mergeRulesIntoText } from './apply-rules-text.ts';
@@ -182,6 +183,63 @@ export async function applyOutcomes(output: PackOutput, targets: PackTargets): P
   await Promise.all(changed.map(async ({ file, text }) => writeCanonical(file, text)));
   const written = changed.map(({ file }) => file);
   return { written, report: totalReport(merged) };
+}
+
+/** The files `applyDescriptions` wrote, and how many entries it filled. */
+export interface DescribedOutput {
+  readonly written: readonly string[];
+  readonly filled: number;
+}
+
+/** A vocabulary kind file, its entries once the empty descriptions are filled, and how many were. */
+interface KindFill {
+  readonly file: string;
+  readonly entries: readonly unknown[];
+  readonly filled: number;
+}
+
+/** Each kind file of the kinds in the vocabulary this pack's earlier runs added, with its empty descriptions filled. */
+async function filledKindFiles(
+  fresh: FreshDescriptions,
+  targets: PackTargets,
+  kinds: ReadonlySet<string>,
+): Promise<readonly KindFill[]> {
+  const files = await scan('*.json', importedDirectory(targets));
+  return Promise.all(
+    files.map(async (file): Promise<KindFill> => {
+      const entries = ContentEntryFile.parse(await Bun.file(path.join(ROOT, file)).json());
+      const merge = withFilledDescriptions(entries, fresh, kinds);
+      return { file, entries: merge.entries, filled: merge.filled };
+    }),
+  );
+}
+
+/**
+ * Fills the empty descriptions of the vocabulary entries of `kinds` this pack's earlier runs added to the vocabulary
+ * pack (`apply-descriptions.ts`), and replaces the `missing-description` items of the pack's backlog with the ones the
+ * import still has. Nothing else in the entries or the backlog changes.
+ */
+export async function applyDescriptions(
+  output: PackOutput,
+  targets: PackTargets,
+  kinds: ReadonlySet<string>,
+): Promise<DescribedOutput> {
+  const filledFiles = await filledKindFiles(freshDescriptions(output), targets, kinds);
+  const changed = filledFiles.filter(({ filled }) => filled > 0);
+  const { pin, legacyPin, backlog } = await committedBacklog(targets);
+  const gaps = withDescriptionGaps(backlog, output.backlog, kinds);
+  const backlogChanged = JSON.stringify(gaps) !== JSON.stringify(backlog);
+  const backlogWrites = backlogChanged
+    ? [
+        {
+          path: backlogPath(targets.pack),
+          json: ImportFile.parse({ pin, ...(legacyPin === undefined ? {} : { legacyPin }), backlog: gaps }),
+        },
+      ]
+    : [];
+  const kindWrites = changed.map(({ file, entries }): PackWrite => ({ path: file, json: entries }));
+  const written = await writeAll([], [...kindWrites, ...backlogWrites]);
+  return { written, filled: changed.reduce((total, { filled }) => total + filled, 0) };
 }
 
 /** The files `appendLegacy` wrote, and how many entries it added or found already committed. */

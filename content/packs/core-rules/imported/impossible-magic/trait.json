@@ -13,7 +13,17 @@
         "book": "impossible-magic"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature with this trait is a member of the automaton ancestry."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -43,7 +53,17 @@
         "book": "impossible-magic"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All impossible spells have the impossible trait, which labels them as spells that can be cast only once in a creature's existence. After casting a spell with the impossible trait, the same creature can't cast any spell with the impossible trait ever again. An hour after casting the spell, the caster starts experiencing the consequences detailed under the spell's lethologic mark entry. The entry also includes how the effects of the mark can be healed. Spells with this trait are also more difficult to counteract. Any counteract check against the spell gets an outcome one degree of success worse than was rolled, and any effect that would automatically counteract the spell fails. Spellshape effects cannot be applied to impossible spells."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
@@ -73,7 +93,17 @@
         "book": "impossible-magic"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An invocation action allows a runesmith to surge power through their rune by uttering its true name. Invocation requires you to be able to speak clearly in a strong voice and requires that you be within 30 feet of the target rune or runes unless another ability changes this. These actions include the Invoke Rune action, which makes the rune's invocation take place, then causes the rune to fade away. Using Invoke Rune normally allows you to invoke two runes, but other abilities that include the Invoke Rune action often change that number or the specific runes you can invoke."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "condition", "effect", "feat"]
@@ -93,7 +123,17 @@
         "book": "impossible-magic"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Actions with this trait involve you and your eidolon acting in concert. You can't use a tandem action if either you or your eidolon can't act, if you haven't Manifested your Eidolon, or if you've Manifested your Eidolon in a way where it isn't a separate entity (such as with the Meld into Eidolon feat). Tandem actions often let both you and your eidolon take separate actions, but these must be actions taken separately by you and your eidolon; you can't use a tandem action to take another tandem action."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": ["action", "ancestry-feature", "class-feature", "feat"]
@@ -113,7 +153,17 @@
         "book": "impossible-magic"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The mindless undead you can create as a necromancer are called thralls. Spells or abilities that create thralls have the thrall trait."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [

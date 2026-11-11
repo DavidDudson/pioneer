@@ -13,7 +13,17 @@
         "book": "revenge-of-the-runelords"
       }
     ],
-    "description": [],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures native to the Dimension of Dreams can possess a diverse array of abilities, although those associated with the nightmare realm of Leng are almost always unholy and immune to that realm's freezing temperatures."
+          }
+        ]
+      }
+    ],
     "rules": [],
     "data": {
       "appliesTo": [
