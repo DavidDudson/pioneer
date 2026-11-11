@@ -712,6 +712,12 @@ Behaviour:
   address (`drawer`, `sq`, `se` as `kind:name`), so a reload restores them. The character context may not import the
   content one, so the app provides the panel through `SHEET_SIDE_PANEL` and the panel loads its own message scopes
   (ADR-0069); while it is mounted the shell search is hidden (`ShellSearch`) and the panel takes the shortcut.
+- Statistics are a browsable kind. A pack files them as definitions (`pack.statistics`), so the browser's entry lookup
+  rebuilds the entry from the definition and takes the description from its shard, as it does for creatures. A skill's
+  description is one paragraph (the preview tier shows a single block): what it covers, its key attribute and the
+  actions it enables. The sheet's skill names open `statistic:<skill>` in the panel, and every Lore opens
+  `statistic:lore`, the generic Lore entry. The committed JSON is the source of truth (ADR-0031), so a re-import never
+  touches these descriptions.
 - An entry opens at `/content/:kind/:slug`, the kind and the name part of its slug (`/content/feat/power-attack`), public
   like the list. The page shows the entry with `pio-entry-preview` in full: the summary until its description shard
   loads, then the description. It loads the kinds the browser lists and conditions beside the entry's own, so a

@@ -59,6 +59,7 @@
         "rune": "Rune",
         "shield": "Shield",
         "spell": "Spell",
+        "statistic": "Statistic",
         "treasure": "Treasure",
         "weapon": "Weapon"
       }

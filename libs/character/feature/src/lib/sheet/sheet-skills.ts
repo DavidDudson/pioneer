@@ -12,7 +12,7 @@ import {
 import type { Character, SkillOption, SkillTrainingSource, TrainedSkill } from '@pioneer/character/domain';
 import type { SelectOption } from '@pioneer/frontier';
 import { CHECK_PENALTY, LineStatusKind } from '@pioneer/rules/engine';
-import { Proficiency } from '@pioneer/rules/sdk';
+import { EntrySlug, Proficiency } from '@pioneer/rules/sdk';
 import type { ContentRegistry, Level, SlotKey } from '@pioneer/rules/sdk';
 import type { NamedStatistic, SkillPickerRow } from '@pioneer/rules/ui';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
@@ -24,6 +24,13 @@ import { sheetSlotContent } from './sheet-slot-content';
 import { sheetDerivation } from './sheet-statistics';
 
 const SKILL_PREFIX = 'skill:';
+
+/** A Lore's selector starts so: `skill:lore:sailing`. */
+const LORE_PREFIX = 'skill:lore:';
+
+/** The generic Lore's selector and entry: its description is the one every Lore opens, and it is no skill to list. */
+const GENERIC_LORE = 'skill:lore';
+const GENERIC_LORE_SLUG = EntrySlug.parse('statistic:lore');
 
 /** The skills a form's traits bear on: the ones that deal with other creatures, and the ones that Recall Knowledge (#532). */
 const FORM_NOTED_SKILLS: ReadonlySet<string> = new Set(
@@ -59,7 +66,9 @@ export function sheetSkills(
   }
   const results = sheetDerivation(registry, character);
   const skills = content.definitions.filter(
-    (definition) => definition.selector === PERCEPTION || definition.selector.startsWith(SKILL_PREFIX),
+    (definition) =>
+      definition.selector !== GENERIC_LORE &&
+      (definition.selector === PERCEPTION || definition.selector.startsWith(SKILL_PREFIX)),
   );
   const twice = trainedTwiceNotes(registry, character, translate);
   const ranks = buildRanks(character.document, sheetSlotContent(registry));
@@ -77,7 +86,7 @@ export function sheetSkills(
         : [
             {
               name: definition.name,
-              slug: definition.slug,
+              slug: selector.startsWith(LORE_PREFIX) ? GENERIC_LORE_SLUG : definition.slug,
               kind: definition.kind,
               result,
               note,

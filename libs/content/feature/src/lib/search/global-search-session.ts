@@ -27,6 +27,7 @@ const KIND_MESSAGES: Readonly<Partial<Record<ContentKind, string>>> = {
   [ContentKind.Rune]: 'shell.search.kind.rune',
   [ContentKind.Shield]: 'shell.search.kind.shield',
   [ContentKind.Spell]: 'shell.search.kind.spell',
+  [ContentKind.Statistic]: 'shell.search.kind.statistic',
   [ContentKind.Treasure]: 'shell.search.kind.treasure',
   [ContentKind.Weapon]: 'shell.search.kind.weapon',
 };
