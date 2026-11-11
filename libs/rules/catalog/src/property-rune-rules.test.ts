@@ -72,35 +72,54 @@ function expectedRules({ slug, type, persistent }: EnergyRune): readonly object[
   return [{ ...extra, diceNumber: 1, dieSize: 'd6' }, ...persistentDice, ...critical];
 }
 
-const ARMOUR_GAPS: ReadonlySet<string> = new Set([
-  'rune:advancing',
-  'rune:advancing-greater',
-  'rune:aim-aiding',
-  'rune:assisting',
-  'rune:energy-resistant',
-  'rune:energy-resistant-greater',
-  'rune:gliding',
-  'rune:malleable',
-  'rune:mobile',
-  'rune:moonweave',
-  'rune:moonweave-greater',
-  'rune:moonweave-major',
-  'rune:portable',
-  'rune:quenching',
-  'rune:quenching-greater',
-  'rune:quenching-major',
-  'rune:quenching-true',
-  'rune:raiment',
-  'rune:ready',
-  'rune:ready-greater',
-  'rune:self-sealing',
-  'rune:spellwatch',
-  'rune:swallow-spike',
-  'rune:swallow-spike-greater',
-  'rune:swallow-spike-major',
-  'rune:unnerving',
-  'rune:winged-greater',
+/**
+ * Armour property runes with no activation and no rules in the pack, each with why: a new book's rune must get rules
+ * or be listed here with a reason. Remove an entry when its rules land. The energy-resistant runes are built from the
+ * etched energy (`chosenRuneRules`), so their `rules` stay empty.
+ */
+const ARMOUR_GAPS: ReadonlyMap<string, string> = new Map([
+  ['rune:advancing', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
+  ['rune:advancing-greater', 'an activation the pack lists no data for: a Stride after a kill, which no action models'],
+  ['rune:aim-aiding', 'stops the wearer giving cover to allies, which no cover calculation reads'],
+  ['rune:assisting', 'supports and prostheses chosen on investing: a choice with no statistic to change'],
+  ['rune:energy-resistant', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
+  ['rune:energy-resistant-greater', 'the engine builds its resistance from the etched energy (`chosenRuneRules`)'],
+  ['rune:gliding', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:portable', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:raiment', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:malleable', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:swallow-spike', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:swallow-spike-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:swallow-spike-major', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:winged-greater', 'an activation the pack lists no data for: nothing in play models it as an action'],
+  ['rune:mobile', 'one more 5 feet on a Step each turn: the Step distance is no statistic'],
+  ['rune:moonweave', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
+  ['rune:moonweave-greater', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
+  ['rune:moonweave-major', 'extra Hit Points on the first heal from an effect: no healing hook reads a rule'],
+  ['rune:quenching', 'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`'],
+  [
+    'rune:quenching-greater',
+    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
+  ],
+  [
+    'rune:quenching-major',
+    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
+  ],
+  [
+    'rune:quenching-true',
+    'lowers the flat check DC against persistent acid and fire: the DC is fixed in `turn-end.ts`',
+  ],
+  ['rune:ready', 'the actions to don armour: donning is not modelled'],
+  ['rune:ready-greater', 'the actions to don armour: donning is not modelled'],
+  [
+    'rune:self-sealing',
+    'resistance 10 to environmental damage while sealed: the seal is item state, and environmental damage is no resistance type',
+  ],
+  ['rune:spellwatch', 'a new save against one hostile spell each turn: no turn-start save is modelled'],
+  ['rune:unnerving', 'a penalty on the attacker: no rule reaches a creature that hits the wearer'],
 ]);
+
+const ARMOUR_GAP_SLUGS: ReadonlySet<string> = new Set(ARMOUR_GAPS.keys());
 
 interface BonusRune {
   readonly slug: string;
@@ -253,12 +272,18 @@ describe('weapon property rune rules', () => {
 });
 
 describe('armour property rune rules', () => {
+  test('every recorded armour gap says why', () => {
+    const unexplained = [...ARMOUR_GAPS].filter(([, reason]) => reason.trim() === '').map(([slug]) => slug);
+
+    expect(unexplained).toEqual([]);
+  });
+
   test('every rune without an activation has rules or a recorded gap', () => {
-    expect(unaccounted('armor', ARMOUR_GAPS)).toEqual([]);
+    expect(unaccounted('armor', ARMOUR_GAP_SLUGS)).toEqual([]);
   });
 
   test('a recorded gap names a rune that still has no rules', () => {
-    expect(staleGaps(ARMOUR_GAPS)).toEqual([]);
+    expect(staleGaps(ARMOUR_GAP_SLUGS)).toEqual([]);
   });
 
   test.each(BONUS_RUNES)('$slug gives +$bonus to $selector', (rune) => {
