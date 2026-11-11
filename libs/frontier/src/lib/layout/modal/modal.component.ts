@@ -2,8 +2,8 @@ import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject, input, model, untracked, viewChild } from '@angular/core';
 import type { ElementRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideX } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { X } from 'lucide';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
 import { Icon } from '../../icon/icon.component';
@@ -39,7 +39,7 @@ export class Modal {
   public readonly title = input.required<string>();
   public readonly open = model(false);
 
-  protected readonly closeIcon = LucideX;
+  protected readonly closeIcon = X;
   protected readonly ButtonVariant = ButtonVariant;
   protected readonly panelClasses = panelClasses;
   protected readonly contentClasses = contentClasses;

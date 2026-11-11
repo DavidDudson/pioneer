@@ -1,6 +1,6 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideX } from '@lucide/angular';
+import { X } from 'lucide';
 import { expect, within } from 'storybook/test';
 
 import { Icon } from '../../icon/icon.component';
@@ -77,7 +77,7 @@ export const AsksFirst: AsyncButtonStory = {
 export const IconOnly: AsyncButtonStory = {
   args: { variant: ButtonVariant.Ghost, iconOnly: true, ariaLabel: 'Remove Goblin' },
   render: ({ label: _label, ...args }) => ({
-    props: { ...args, remove: LucideX },
+    props: { ...args, remove: X },
     template: `<fr-async-button ${argsToTemplate(args)}><fr-icon [icon]="remove" /></fr-async-button>`,
     moduleMetadata: { imports: [Icon] },
   }),

@@ -1,6 +1,6 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { signal } from '@angular/core';
+import { ApplicationInitStatus, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { CONTENT_SCOPE } from '@pioneer/rules/data-access';
 import { prebuildContentTesting, provideContentTesting, TestContentDelivery } from '@pioneer/rules/data-access/testing';
@@ -88,8 +88,10 @@ describe(GlobalSearchSession, () => {
     await prebuildContentTesting([LOADER, LEGACY_LOADER]);
   }, 60_000);
 
-  it('lists nothing before anything is typed', () => {
+  it('lists nothing before anything is typed', async () => {
     const started = start();
+    // Messages load as the app starts; end the test after they have, so the teardown does not cut the load short.
+    await TestBed.inject(ApplicationInitStatus).donePromise;
 
     expect(labels(started)).toStrictEqual([]);
     expect(started.session.words()).toBe('');

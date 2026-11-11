@@ -1,6 +1,6 @@
 import { ApplicationRef, createComponent, EnvironmentInjector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { LucideFlame } from '@lucide/angular';
+import { Flame } from 'lucide';
 import { describe, expect, it, onTestFinished } from 'vitest';
 
 import { Badge, BadgeTone, BadgeVariant } from './badge.component';
@@ -66,7 +66,7 @@ describe(Badge, () => {
   });
 
   it('shows a decorative leading icon before the label', async () => {
-    const span = await render({ icon: LucideFlame });
+    const span = await render({ icon: Flame });
     const first = span.firstElementChild;
     expect(first?.tagName).toBe('FR-ICON');
     expect(first?.querySelector('svg')?.getAttribute('aria-hidden')).toBe('true');

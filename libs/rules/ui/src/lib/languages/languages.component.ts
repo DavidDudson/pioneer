@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideX } from '@lucide/angular';
 import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 import { message } from '@pioneer/shared/kernel';
 import type { MessageDescriptor } from '@pioneer/shared/kernel';
+import { X } from 'lucide';
 
 import type { LanguageLine } from './language-line';
 import { LanguagesMessage } from './languages-messages';
@@ -53,6 +53,6 @@ export class LanguagesView {
     return this.lines()?.map((line) => rowOf(line, remove));
   });
   protected readonly Message = LanguagesMessage;
-  protected readonly RemoveIcon = LucideX;
+  protected readonly RemoveIcon = X;
   protected readonly loadingRows = Array.from({ length: LOADING_ROWS }, (_unused, index) => index);
 }

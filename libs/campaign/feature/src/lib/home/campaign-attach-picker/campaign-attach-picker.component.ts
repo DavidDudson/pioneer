@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, output, si
 import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideUserPlus } from '@lucide/angular';
 import { CharacterId } from '@pioneer/campaign/domain';
 import type { CampaignId, OwnedCharacter } from '@pioneer/campaign/domain';
 import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
@@ -13,6 +12,7 @@ import { AncestryId, ContentKind } from '@pioneer/rules/sdk';
 import type { ContentRegistry } from '@pioneer/rules/sdk';
 import { ApiError } from '@pioneer/shared/web';
 import { injectQuery } from '@tanstack/angular-query-experimental';
+import { UserPlus } from 'lucide';
 import { filter, merge } from 'rxjs';
 import * as z from 'zod';
 
@@ -44,7 +44,7 @@ export class CampaignAttachPicker {
   /** Ticks when the language changes or the messages load, so the headers are read again. */
   readonly #messages = toSignal(merge(this.#i18n.langChanges$, this.#loaded));
 
-  protected readonly emptyIcon = LucideUserPlus;
+  protected readonly emptyIcon = UserPlus;
   /**
    * Set once a character joins from here. The form then stays, even with nothing left to pick, so the
    * focused submit button and its tick survive bringing in the last free character.

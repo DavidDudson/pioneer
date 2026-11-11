@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackage } from '@lucide/angular';
 import {
   AsyncData,
   AsyncPending,
@@ -15,6 +14,7 @@ import {
   Text,
 } from '@pioneer/frontier';
 import type { ContentPackId } from '@pioneer/rules/sdk';
+import { Package } from 'lucide';
 
 import { HomebrewStore } from '../../data/homebrew-store';
 import { PackDependencyActions } from './pack-dependency-actions.component';
@@ -54,5 +54,5 @@ export class PackDependenciesPanel {
 
   protected readonly store = inject(HomebrewStore);
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucidePackage;
+  protected readonly emptyIcon = Package;
 }

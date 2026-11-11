@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideX } from '@lucide/angular';
 import { AsyncButton, EmptyState, Icon, List, ListItem, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { X } from 'lucide';
 
 import { ContentPreview } from '../entry-preview/content-preview.component';
 import type { SpellAccessLine } from './spell-access-line';
@@ -52,6 +52,6 @@ export class SpellAccessListView {
     }));
   });
   protected readonly Message = SpellAccessMessage;
-  protected readonly RemoveIcon = LucideX;
+  protected readonly RemoveIcon = X;
   protected readonly loadingRows = Array.from({ length: LOADING_ROWS }, (_unused, index) => index);
 }

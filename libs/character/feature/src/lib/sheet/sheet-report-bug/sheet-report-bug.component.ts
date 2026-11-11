@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideBug } from '@lucide/angular';
 import { Icon, Link } from '@pioneer/frontier';
 import { BUG_REPORT_PATH, BugReportParam } from '@pioneer/shared/kernel';
+import { Bug } from 'lucide';
 
 import { CharacterStore } from '../../data/character-store';
 
@@ -25,12 +25,15 @@ interface ReportQuery {
 export class SheetReportBug {
   readonly #store = inject(CharacterStore);
 
-  protected readonly icon = LucideBug;
+  protected readonly icon = Bug;
   protected readonly path = BUG_REPORT_PATH;
   protected readonly query = computed((): ReportQuery | undefined => {
     const character = this.#store.selected();
     return character === undefined
       ? undefined
-      : { [BugReportParam.Character]: character.id, [BugReportParam.CharacterName]: character.name };
+      : {
+          [BugReportParam.Character]: character.id,
+          [BugReportParam.CharacterName]: character.name,
+        };
   });
 }

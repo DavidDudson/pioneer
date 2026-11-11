@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideEye, LucideEyeOff, LucideScanEye } from '@lucide/angular';
-import type { LucideIcon } from '@lucide/angular';
+import type { IconGlyph } from '@pioneer/frontier';
 import { HoverCard, HoverCardContent, Icon, LocaleFormat, Skeleton, Stack, Text } from '@pioneer/frontier';
 import type { SenseInPlay } from '@pioneer/rules/engine';
 import { SenseAcuity } from '@pioneer/rules/sdk';
 import type { ContentId } from '@pioneer/rules/sdk';
+import { Eye, EyeOff, ScanEye } from 'lucide';
 import { filter, merge } from 'rxjs';
 
 import { NO_ORIGIN_NAMES } from '../../origin-chain/origin-names';
@@ -18,16 +18,16 @@ import { wordSense } from '../word-sense';
 
 /** A sense as a row: the icon for its acuity, its name, and the sense worded as the panel words it, for the popover. */
 interface SenseRow {
-  readonly icon: LucideIcon;
+  readonly icon: IconGlyph;
   readonly name: string;
   readonly sense: ShownSense;
 }
 
 /** The sharper the sense, the more open the eye: precise sees, imprecise only scans, vague barely notices. */
-const ICONS: Readonly<Record<SenseAcuity, LucideIcon>> = {
-  [SenseAcuity.Precise]: LucideEye,
-  [SenseAcuity.Imprecise]: LucideScanEye,
-  [SenseAcuity.Vague]: LucideEyeOff,
+const ICONS: Readonly<Record<SenseAcuity, IconGlyph>> = {
+  [SenseAcuity.Precise]: Eye,
+  [SenseAcuity.Imprecise]: ScanEye,
+  [SenseAcuity.Vague]: EyeOff,
 };
 
 /**

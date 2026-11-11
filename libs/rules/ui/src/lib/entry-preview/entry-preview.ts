@@ -1,4 +1,3 @@
-import { InjectionToken } from '@angular/core';
 import type { Provider } from '@angular/core';
 import type { Params } from '@angular/router';
 import { DRAWER_OPEN, DRAWER_PARAM } from '@pioneer/frontier';
@@ -21,6 +20,7 @@ import type {
 } from '@pioneer/rules/sdk';
 
 import type { StatBlockCreature } from '../creature-stat-block/creature-stat-block';
+import { ENTRY_PREVIEWS } from './entry-previews-token';
 
 /** One effect an entry has on the character the preview is for, as the engine summarises it. */
 export interface PreviewEffect {
@@ -151,11 +151,7 @@ export interface EntryPreviews {
   readonly statistic?: (selector: Selector) => StatisticLink | undefined;
 }
 
-const NO_PREVIEWS: EntryPreviews = { preview: (): undefined => undefined };
-
-export const ENTRY_PREVIEWS = new InjectionToken<EntryPreviews>('ENTRY_PREVIEWS', {
-  factory: (): EntryPreviews => NO_PREVIEWS,
-});
+export { ENTRY_PREVIEWS } from './entry-previews-token';
 
 /** Gives the references and rows below a page their previews. */
 export function provideEntryPreviews(previews: EntryPreviews): Provider {

@@ -4,7 +4,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucideUsers } from '@lucide/angular';
 import type { Character } from '@pioneer/character/domain';
 import {
   AsyncButton,
@@ -35,6 +34,7 @@ import {
   originRowValue,
   shownAncestryRows,
 } from '@pioneer/rules/ui';
+import { Users } from 'lucide';
 import { filter, from, merge } from 'rxjs';
 
 import { AncestryOptions } from '../../data/ancestry-options';
@@ -96,7 +96,7 @@ export class CharacterListPage {
   readonly #route = inject(ActivatedRoute);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideUsers;
+  protected readonly emptyIcon = Users;
 
   // Signal forms needs concrete field types, so "no ancestry yet" is ''.
   protected readonly model = signal<CreateModel>({ name: '', ancestry: '' });

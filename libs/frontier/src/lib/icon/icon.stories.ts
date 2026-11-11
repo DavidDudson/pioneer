@@ -1,6 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideDices, LucideHeart, LucideLoaderCircle, LucideShield, LucideSword, LucideSwords } from '@lucide/angular';
+import { Dices, Heart, LoaderCircle, Shield, Sword, Swords } from 'lucide';
 
 import { Stack } from '../layout/stack/stack.component';
 import { Size, Tone } from '../tokens';
@@ -17,10 +17,10 @@ const meta: Meta<Icon> = {
     size: { control: 'inline-radio', options: Object.values(Size) },
     tone: { control: 'select', options: [undefined, ...Object.values(Tone)] },
   },
-  args: { icon: LucideSword, size: Size.Md, spin: false },
+  args: { icon: Sword, size: Size.Md, spin: false },
   render: (args) => ({
     props: args,
-    // A Lucide icon is a class, and argsToTemplate drops function args.
+    // An icon is an array of shapes, which argsToTemplate would serialise, so it is bound by hand.
     template: `<fr-icon [icon]="icon" ${argsToTemplate(args, { exclude: ['icon'] })} />`,
   }),
 };
@@ -29,13 +29,15 @@ export default meta;
 export const Default: IconStory = {};
 
 /** With a `label` the icon is announced; without one it is decorative. */
-export const Labelled: IconStory = { args: { icon: LucideHeart, tone: Tone.Danger, label: 'Hit points' } };
+export const Labelled: IconStory = {
+  args: { icon: Heart, tone: Tone.Danger, label: 'Hit points' },
+};
 
-export const Spinning: IconStory = { args: { icon: LucideLoaderCircle, spin: true } };
+export const Spinning: IconStory = { args: { icon: LoaderCircle, spin: true } };
 
 export const Sizes: IconStory = {
   render: () => ({
-    props: { sizes: Object.values(Size), icon: LucideShield },
+    props: { sizes: Object.values(Size), icon: Shield },
     template: `
       <fr-stack direction="horizontal" align="center" gap="md">
         @for (size of sizes; track size) {
@@ -48,7 +50,7 @@ export const Sizes: IconStory = {
 
 export const Tones: IconStory = {
   render: () => ({
-    props: { tones: Object.values(Tone), icon: LucideDices },
+    props: { tones: Object.values(Tone), icon: Dices },
     template: `
       <fr-stack direction="horizontal" align="center" gap="md">
         @for (tone of tones; track tone) {
@@ -62,7 +64,7 @@ export const Tones: IconStory = {
 /** Lines stay 1px at every size. */
 export const Stroke: IconStory = {
   render: () => ({
-    props: { sizes: Object.values(Size), icon: LucideSwords },
+    props: { sizes: Object.values(Size), icon: Swords },
     template: `
       <fr-stack direction="horizontal" align="end" gap="md">
         @for (size of sizes; track size) {

@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { LucideChevronDown, LucideChevronUp } from '@lucide/angular';
-import type { LucideIcon } from '@lucide/angular';
 import { injectTable } from '@tanstack/angular-table';
+import { ChevronDown, ChevronUp } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
+import type { IconGlyph } from '../../../icon/icon-glyph';
 import { Icon } from '../../../icon/icon.component';
 import { TABLE_FEATURES, tableColumns } from '../table-features';
 import type { TableFeatureSet, TableHeader } from '../table-features';
@@ -35,7 +35,11 @@ interface Rendered {
 
 async function render(id: 'name' | 'level'): Promise<Rendered> {
   const table = TestBed.runInInjectionContext(() =>
-    injectTable<TableFeatureSet, Member>(() => ({ features: TABLE_FEATURES, columns: COLUMNS, data: [...PARTY] })),
+    injectTable<TableFeatureSet, Member>(() => ({
+      features: TABLE_FEATURES,
+      columns: COLUMNS,
+      data: [...PARTY],
+    })),
   );
   const header: TableHeader<Member> | undefined = table
     .getHeaderGroups()
@@ -65,7 +69,7 @@ async function press({ fixture, host }: Rendered, times = 1): Promise<void> {
 }
 
 /** How `fr-icon` draws `icon`, to compare the arrow against. */
-async function drawing(icon: LucideIcon): Promise<string | undefined> {
+async function drawing(icon: IconGlyph): Promise<string | undefined> {
   const fixture = TestBed.createComponent(Icon);
   fixture.componentRef.setInput('icon', icon);
   await fixture.whenStable();
@@ -93,14 +97,14 @@ describe(TableHeaderCell, () => {
     const rendered = await render('name');
     await press(rendered);
     expect(rendered.header.column.getIsSorted()).toBe('asc');
-    expect(arrow(rendered.host)).toBe(await drawing(LucideChevronUp));
+    expect(arrow(rendered.host)).toBe(await drawing(ChevronUp));
   });
 
   it('sorts descending on a second press and points the arrow down', async () => {
     const rendered = await render('name');
     await press(rendered, 2);
     expect(rendered.header.column.getIsSorted()).toBe('desc');
-    expect(arrow(rendered.host)).toBe(await drawing(LucideChevronDown));
+    expect(arrow(rendered.host)).toBe(await drawing(ChevronDown));
   });
 
   it('clears the sort and the arrow on a third press', async () => {

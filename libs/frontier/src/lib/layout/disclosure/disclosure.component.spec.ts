@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
+import { ChevronDown, ChevronUp } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
 import { Disclosure, DisclosureVariant } from './disclosure.component';
@@ -20,8 +21,9 @@ function details(fixture: ComponentFixture<Disclosure>): HTMLDetailsElement {
   return element;
 }
 
-function iconName(fixture: ComponentFixture<Disclosure>): string | undefined {
-  return (fixture.nativeElement as HTMLElement).querySelector('summary svg')?.getAttribute('class') ?? undefined;
+/** The path the chevron is drawn with. */
+function chevronPath(fixture: ComponentFixture<Disclosure>): string | undefined {
+  return (fixture.nativeElement as HTMLElement).querySelector('summary svg path')?.getAttribute('d') ?? undefined;
 }
 
 /** Presses the summary like a user; the browser queues `toggle` as a task, so wait for it. */
@@ -65,9 +67,9 @@ describe(Disclosure, () => {
 
   it('points the chevron down when closed and up when open', async () => {
     const fixture = render(false);
-    expect(iconName(fixture)).toContain('chevron-down');
+    expect(chevronPath(fixture)).toBe(ChevronDown[0]?.[1]['d']);
     await press(fixture);
-    expect(iconName(fixture)).toContain('chevron-up');
+    expect(chevronPath(fixture)).toBe(ChevronUp[0]?.[1]['d']);
   });
 
   it('keeps the chevron decorative so the summary is named by its content', () => {

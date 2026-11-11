@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { ComponentFixture } from '@angular/core/testing';
-import { LucideMenu } from '@lucide/angular';
+import { Menu } from 'lucide';
 import { describe, expect, it } from 'vitest';
 
 import { Link } from '../../actions/link/link.component';
@@ -23,7 +23,7 @@ import type { DropdownAlign } from './dropdown.component';
   `,
 })
 class Host {
-  protected readonly icon = LucideMenu;
+  protected readonly icon = Menu;
 }
 
 @Component({

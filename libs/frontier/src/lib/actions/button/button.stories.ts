@@ -1,6 +1,6 @@
 import { argsToTemplate } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucidePlus } from '@lucide/angular';
+import { Plus } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
 import { Stack } from '../../layout/stack/stack.component';
@@ -45,10 +45,14 @@ export const Secondary: ButtonStory = {};
 export const Ghost: ButtonStory = { args: { variant: ButtonVariant.Ghost } };
 export const Menu: ButtonStory = { args: { variant: ButtonVariant.Menu, size: 'sm' } };
 
-export const Danger: ButtonStory = { args: { variant: ButtonVariant.Danger, label: 'Delete character' } };
+export const Danger: ButtonStory = {
+  args: { variant: ButtonVariant.Danger, label: 'Delete character' },
+};
 
 /** A text roll button: the formula or modifier is the label, in one colour on a muted background. */
-export const OutlineSubtle: ButtonStory = { args: { variant: ButtonVariant.OutlineSubtle, label: '5d5 + 10' } };
+export const OutlineSubtle: ButtonStory = {
+  args: { variant: ButtonVariant.OutlineSubtle, label: '5d5 + 10' },
+};
 
 export const Inline: ButtonStory = { args: { variant: ButtonVariant.Inline, label: 'Valeros' } };
 export const Field: ButtonStory = { args: { variant: ButtonVariant.Field, label: 'Valeros' } };
@@ -58,9 +62,13 @@ export const Disabled: ButtonStory = { args: { variant: ButtonVariant.Primary, d
 export const Busy: ButtonStory = { args: { variant: ButtonVariant.Primary, busy: true } };
 
 /** The look behind `fr-toggle-button`: filled with the accent when pressed. Features use that component. */
-export const ToggleOn: ButtonStory = { args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: true } };
+export const ToggleOn: ButtonStory = {
+  args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: true },
+};
 
-export const ToggleOff: ButtonStory = { args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: false } };
+export const ToggleOff: ButtonStory = {
+  args: { variant: ButtonVariant.Toggle, label: 'Flat-footed', toggled: false },
+};
 
 export const Sizes: ButtonStory = {
   render: () => ({
@@ -77,7 +85,7 @@ export const Sizes: ButtonStory = {
 
 export const WithIcon: ButtonStory = {
   render: () => ({
-    props: { plus: LucidePlus },
+    props: { plus: Plus },
     template: `<fr-button variant="primary"><fr-icon [icon]="plus" />New character</fr-button>`,
     moduleMetadata: { imports: [Icon] },
   }),
@@ -85,7 +93,7 @@ export const WithIcon: ButtonStory = {
 
 export const IconOnly: ButtonStory = {
   render: () => ({
-    props: { plus: LucidePlus },
+    props: { plus: Plus },
     template: `<fr-button variant="ghost" iconOnly ariaLabel="New character"><fr-icon [icon]="plus" /></fr-button>`,
     moduleMetadata: { imports: [Icon] },
   }),
@@ -105,4 +113,6 @@ export const RollFortune: ButtonStory = {
 export const RollMisfortune: ButtonStory = {
   args: { variant: ButtonVariant.Roll, rollLuck: RollLuck.Misfortune, label: '+10' },
 };
-export const RollShifted: ButtonStory = { args: { variant: ButtonVariant.Roll, rollShifted: true, label: '+10' } };
+export const RollShifted: ButtonStory = {
+  args: { variant: ButtonVariant.Roll, rollShifted: true, label: '+10' },
+};

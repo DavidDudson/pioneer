@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
-import { LucideChevronDown, LucideChevronUp } from '@lucide/angular';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
+import { ChevronDown, ChevronUp } from 'lucide';
 
 import { Icon } from '../../icon/icon.component';
 
@@ -75,7 +75,7 @@ export class Disclosure {
   public readonly open = model(false);
   public readonly variant = input<DisclosureVariant>(DisclosureVariant.Plain);
 
-  protected readonly chevron = computed(() => (this.open() ? LucideChevronUp : LucideChevronDown));
+  protected readonly chevron = computed(() => (this.open() ? ChevronUp : ChevronDown));
   protected readonly rootClasses = computed(() => rootVariants({ variant: this.variant() }));
   protected readonly summaryClasses = computed(() => summaryVariants({ variant: this.variant() }));
   protected readonly contentClasses = computed(() => contentVariants({ variant: this.variant() }));

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, effect, input, model, signal, untracked } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideRefreshCw } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { RefreshCw } from 'lucide';
 
 import { Button } from '../../actions/button/button.component';
 import { Spinner } from '../../feedback/spinner/spinner.component';
@@ -32,7 +32,7 @@ export class RefreshableInput extends Control {
   /** Fetches a new value. Called on first render, on every refresh, and when the function itself changes. */
   public readonly load = input.required<() => Promise<string>>();
 
-  protected readonly RefreshIcon = LucideRefreshCw;
+  protected readonly RefreshIcon = RefreshCw;
   protected readonly actionsClasses = actionsClasses;
   protected readonly loading = signal(false);
   protected readonly failed = signal(false);

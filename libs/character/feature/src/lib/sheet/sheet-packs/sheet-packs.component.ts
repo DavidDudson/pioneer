@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackage } from '@lucide/angular';
 import { AsyncData, AsyncPending, AsyncRegion, EmptyState, List, Message, Skeleton, Stack } from '@pioneer/frontier';
 import type { ContentPackId } from '@pioneer/rules/sdk';
+import { Package } from 'lucide';
 
 import { CharacterPackStore } from '../../data/character-pack-store';
 import { SheetPackPicker } from './sheet-pack-picker.component';
@@ -38,7 +38,7 @@ export class SheetPacks {
   protected readonly store = inject(CharacterPackStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucidePackage;
+  protected readonly emptyIcon = Package;
   /** Packs disabled since the list loaded. Their rows stay, marked, until it next loads. */
   protected readonly disabled = signal<ReadonlySet<ContentPackId>>(new Set());
 

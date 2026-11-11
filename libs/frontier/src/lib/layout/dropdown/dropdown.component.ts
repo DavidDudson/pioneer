@@ -1,12 +1,12 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import type { ConnectedPosition } from '@angular/cdk/overlay';
 import { booleanAttribute, ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
-import { LucideChevronDown } from '@lucide/angular';
-import type { LucideIcon } from '@lucide/angular';
 import type { ValueOf } from '@pioneer/shared/kernel';
 import { cva } from 'class-variance-authority';
+import { ChevronDown } from 'lucide';
 
 import { Button, ButtonVariant } from '../../actions/button/button.component';
+import type { IconGlyph } from '../../icon/icon-glyph';
 import { Icon } from '../../icon/icon.component';
 
 /** A box of its own, never `contents`: the overlay positions against the origin's rect, which `contents` has none of. */
@@ -49,7 +49,7 @@ export class Dropdown {
   /** Names the trigger button, already translated. */
   public readonly label = input.required<string>();
   /** A Lucide icon for the trigger. With no `caption` the trigger is icon-only. */
-  public readonly icon = input<LucideIcon | undefined>(undefined);
+  public readonly icon = input<IconGlyph | undefined>(undefined);
   /** Visible trigger text, already translated; the trigger then shows a caret. */
   public readonly caption = input<string | undefined>(undefined);
   /** The trigger is the projected `[frDropdownTrigger]` content rather than an icon or caption. */
@@ -59,7 +59,7 @@ export class Dropdown {
   public readonly align = input<DropdownAlign>(DropdownAlign.Start);
 
   protected readonly variant = ButtonVariant.Ghost;
-  protected readonly caret = LucideChevronDown;
+  protected readonly caret = ChevronDown;
   protected readonly originClasses = originClasses;
   protected readonly panelClasses = panelClasses;
   protected readonly positions = computed(() => positionsFor(this.align()));

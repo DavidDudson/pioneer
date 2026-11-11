@@ -15,8 +15,8 @@ import {
   viewChild,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideEllipsisVertical, LucideSearch } from '@lucide/angular';
 import { cva } from 'class-variance-authority';
+import { EllipsisVertical, Search } from 'lucide';
 
 import { Breadcrumbs } from '../../actions/breadcrumbs/breadcrumbs.component';
 import { Button, ButtonVariant } from '../../actions/button/button.component';
@@ -50,7 +50,9 @@ const panelVariants = cva(
 const contentClasses = cva('min-w-none flex-1 focus:outline-hidden')();
 const headerClasses = cva('sticky top-none z-sticky border-b border-line-subtle bg-surface-base pt-safe-top')();
 /** The search takes the row's width once open; until then it is out of the layout, behind its button. */
-const searchVariants = cva('', { variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } } });
+const searchVariants = cva('', {
+  variants: { open: { true: 'min-w-none flex-1 *:block', false: 'hidden' } },
+});
 const footerClasses = cva('border-t border-line-subtle bg-surface-base pb-safe-bottom')();
 
 /** The id of the shell's `<main>`, which its skip link moves focus to. There is one shell per page. */
@@ -80,7 +82,11 @@ const RAIL_HEIGHT_PROPERTY = '--fr-size-rail-height';
   imports: [Badge, Box, Breadcrumbs, Button, Dropdown, Icon, Link, Stack, Text, TranslocoPipe],
   templateUrl: './shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { '[class]': 'hostClasses', '(keydown.escape)': 'escaped($event)', '(focusout)': 'searchBlurred($event)' },
+  host: {
+    '[class]': 'hostClasses',
+    '(keydown.escape)': 'escaped($event)',
+    '(focusout)': 'searchBlurred($event)',
+  },
 })
 export class Shell {
   public readonly brand = input.required<string>();
@@ -100,8 +106,8 @@ export class Shell {
   protected readonly crumbs = inject(HeaderCrumbs);
   /** The open page's width, which the header and footer take. */
   protected readonly width = inject(ShellWidth).current;
-  protected readonly searchIcon = LucideSearch;
-  protected readonly menuIcon = LucideEllipsisVertical;
+  protected readonly searchIcon = Search;
+  protected readonly menuIcon = EllipsisVertical;
   protected readonly menuAlign = DropdownAlign.End;
   protected readonly menuVariant = ButtonVariant.Menu;
 

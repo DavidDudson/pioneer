@@ -1,9 +1,9 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackageSearch } from '@lucide/angular';
 import { EmptyState, HeadingLevel, Link, Stack } from '@pioneer/frontier';
 import { EntryPreviewView } from '@pioneer/rules/ui';
 import type { EntryPreview } from '@pioneer/rules/ui';
+import { PackageSearch } from 'lucide';
 
 import type { StoreLink } from '../browse-source';
 
@@ -33,5 +33,5 @@ export class ContentEntryView {
   public readonly headingLevel = input<HeadingLevel>(HeadingLevel.Three);
 
   protected readonly Message = EntryViewMessage;
-  protected readonly missingIcon = LucidePackageSearch;
+  protected readonly missingIcon = PackageSearch;
 }

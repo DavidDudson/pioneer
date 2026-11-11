@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucidePackage } from '@lucide/angular';
 import type { EnabledPackId } from '@pioneer/campaign/domain';
 import {
   AsyncData,
@@ -14,6 +13,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { Package } from 'lucide';
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignPackPicker } from '../campaign-pack-picker/campaign-pack-picker.component';
@@ -51,7 +51,7 @@ export class CampaignPacksPanel {
   protected readonly store = inject(CampaignStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucidePackage;
+  protected readonly emptyIcon = Package;
   /** Packs disabled since the list loaded. Their rows stay, marked, until it next loads. */
   protected readonly disabled = signal<ReadonlySet<EnabledPackId>>(new Set());
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideSlidersHorizontal } from '@lucide/angular';
 import { Button, ButtonVariant, Icon } from '@pioneer/frontier';
+import { SlidersHorizontal } from 'lucide';
 
 import { SheetConfigurationState } from './sheet-configuration-state';
 
@@ -18,7 +18,7 @@ export class SheetConfigurationButton {
   /** Fires once the drawer is asked to open, so the menu that holds this entry can close. */
   public readonly opened = output();
 
-  protected readonly icon = LucideSlidersHorizontal;
+  protected readonly icon = SlidersHorizontal;
   protected readonly variant = ButtonVariant.Menu;
 
   protected open(): void {

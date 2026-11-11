@@ -70,8 +70,11 @@ Read this before touching any UI.
   (`pioneer/no-template-styling`). Customisation is a new variant, never a
   class passed in. Never build a class name by concatenation (`'gap-' + gap`).
 - **Icons are Lucide, through `fr-icon`.** Pass the icon class
-  (`import { LucideCheck } from '@lucide/angular'`, `[icon]="Check"`), never
-  a name string, so unused icons tree-shake. No other icon sets, no unicode
+  (`import { Check } from 'lucide'`, `[icon]="Check"`), never
+  a name string, so unused icons tree-shake. Only `fr-icon` imports
+  `@lucide/angular` (its renderer); the `lucide` package's icons are plain
+  data, where each `@lucide/angular` icon is a component with its own copy of
+  the template. No other icon sets, no unicode
   glyphs (`✓`, `▲`) and no hand-drawn SVG, bar the action symbols below. Lines are always 1px at every
   size (`nonScalingStroke`); there is no stroke-width input. Size is a token
   (`sm|md|lg`), colour follows the text unless `tone` is set. Icons are

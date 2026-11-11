@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output, signal } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import { LucidePackagePlus } from '@lucide/angular';
 import { EnabledPackId } from '@pioneer/campaign/domain';
 import type { CampaignId, PackCandidate } from '@pioneer/campaign/domain';
 import { AsyncButton, AsyncForm, EmptyState, Heading, Link, Stack } from '@pioneer/frontier';
@@ -9,6 +8,7 @@ import type { SelectOption } from '@pioneer/frontier';
 import { PickerField } from '@pioneer/frontier/data';
 import { injectOptionRows } from '@pioneer/rules/ui';
 import { ApiError } from '@pioneer/shared/web';
+import { PackagePlus } from 'lucide';
 import * as z from 'zod';
 
 import { CampaignStore } from '../../data/campaign-store';
@@ -35,7 +35,7 @@ export class CampaignPackPicker {
   readonly #store = inject(CampaignStore);
   readonly #i18n = inject(TranslocoService);
 
-  protected readonly emptyIcon = LucidePackagePlus;
+  protected readonly emptyIcon = PackagePlus;
   /**
    * Set once a pack is enabled from here. The form then stays, even with nothing left to pick, so the focused submit
    * button and its tick survive enabling the last pack.

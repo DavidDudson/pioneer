@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideKeyRound } from '@lucide/angular';
 import type { KeyItemView } from '@pioneer/campaign/domain';
 import {
   AsyncData,
@@ -14,6 +13,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { KeyRound } from 'lucide';
 
 import { CampaignKeyItemStore } from '../../data/campaign-key-item-store';
 import { ALL_HOLDERS, filterKeyItems } from '../../data/key-item-filter';
@@ -54,7 +54,7 @@ export class CampaignKeyItemsPanel {
   protected readonly store = inject(CampaignKeyItemStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideKeyRound;
+  protected readonly emptyIcon = KeyRound;
   /** The holder the list is narrowed to: everyone's, the stash, or a character's id. */
   protected readonly filter = signal<string | undefined>(ALL_HOLDERS);
 

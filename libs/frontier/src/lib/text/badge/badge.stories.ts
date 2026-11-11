@@ -1,6 +1,6 @@
 import { argsToTemplate, moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideFlame, LucideGem, LucideSkull } from '@lucide/angular';
+import { Flame, Gem, Skull } from 'lucide';
 
 import { Stack } from '../../layout/stack/stack.component';
 import { Badge, BadgeTone, BadgeVariant } from './badge.component';
@@ -37,14 +37,14 @@ export const Default: BadgeStory = {};
 
 /** A leading icon takes the badge's text colour and is decorative. */
 export const WithIcon: BadgeStory = {
-  args: { icon: LucideFlame, tone: BadgeTone.Danger },
+  args: { icon: Flame, tone: BadgeTone.Danger },
 };
 
 /** One condition that must stand out. */
 export const Solid: BadgeStory = {
   args: {
     content: 'Dying 2',
-    icon: LucideSkull,
+    icon: Skull,
     tone: BadgeTone.Danger,
     variant: BadgeVariant.Solid,
   },
@@ -56,7 +56,7 @@ export const Tones: BadgeStory = {
     props: {
       tones: Object.values(BadgeTone),
       variants: Object.values(BadgeVariant),
-      icon: LucideGem,
+      icon: Gem,
     },
     template: `
       <fr-stack gap="sm">

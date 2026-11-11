@@ -1,6 +1,6 @@
 import { moduleMetadata } from '@analogjs/storybook-angular';
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
-import { LucideMenu } from '@lucide/angular';
+import { Menu } from 'lucide';
 import { expect, userEvent, within } from 'storybook/test';
 
 import { Link } from '../../actions/link/link.component';
@@ -18,7 +18,7 @@ const meta: Meta<Dropdown> = {
   parameters: { layout: 'padded' },
   args: { label: 'Sections' },
   render: (args) => ({
-    props: { ...args, menu: LucideMenu },
+    props: { ...args, menu: Menu },
     template: `
       <fr-dropdown [label]="label" [icon]="menu">
         <fr-stack gap="2xs">

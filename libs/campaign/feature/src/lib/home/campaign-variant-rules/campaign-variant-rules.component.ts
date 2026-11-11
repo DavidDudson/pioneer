@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { LucideDices } from '@lucide/angular';
 import type { CampaignVariantRules, VariantRuleOption } from '@pioneer/campaign/domain';
 import {
   AsyncData,
@@ -14,6 +13,7 @@ import {
   Surface,
   Text,
 } from '@pioneer/frontier';
+import { Dices } from 'lucide';
 
 import { CampaignStore } from '../../data/campaign-store';
 import { CampaignVariantRuleRow } from '../campaign-variant-rule-row/campaign-variant-rule-row.component';
@@ -66,6 +66,6 @@ export class CampaignVariantRulesPanel {
   protected readonly store = inject(CampaignStore);
 
   protected readonly placeholders = PLACEHOLDERS;
-  protected readonly emptyIcon = LucideDices;
+  protected readonly emptyIcon = Dices;
   protected readonly linesOf = variantRuleLines;
 }

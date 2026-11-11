@@ -7,11 +7,11 @@ import {
   provideAppInitializer,
 } from '@angular/core';
 import type { EnvironmentProviders } from '@angular/core';
-import { provideTransloco, TranslocoService } from '@jsverse/transloco';
+import { provideTransloco, TRANSLOCO_TRANSPILER, TranslocoService } from '@jsverse/transloco';
 import type { Translation, TranslocoLoader } from '@jsverse/transloco';
-import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat';
 import { Locale, LocaleSchema, SOURCE_LOCALE } from '@pioneer/shared/kernel';
 
+import { LazyIcuTranspiler } from './lazy-icu-transpiler';
 import { LocalePreferences } from './locale-preferences';
 import { rememberLoadedLanguages } from './remember-loaded-languages';
 
@@ -23,13 +23,16 @@ const LOCALE_MESSAGES = new InjectionToken<LocaleMessages>('LOCALE_MESSAGES');
 @Injectable()
 class MessageLoader implements TranslocoLoader {
   readonly #messages = inject(LOCALE_MESSAGES);
+  readonly #icu = inject(LazyIcuTranspiler);
 
   public async getTranslation(lang: string): Promise<Translation> {
     const locale = LocaleSchema.safeParse(lang);
     if (!locale.success) {
       throw new Error(`No messages for locale "${lang}"`);
     }
-    return this.#messages[locale.data]();
+    // Messages are ICU strings: none may exist before the compiler that reads them.
+    const [translation] = await Promise.all([this.#messages[locale.data](), this.#icu.load()]);
+    return translation;
   }
 }
 
@@ -51,7 +54,8 @@ export function provideI18n(messages: LocaleMessages): EnvironmentProviders {
       },
       loader: MessageLoader,
     }),
-    provideTranslocoMessageformat(),
+    LazyIcuTranspiler,
+    { provide: TRANSLOCO_TRANSPILER, useExisting: LazyIcuTranspiler },
     provideAppInitializer(() => {
       rememberLoadedLanguages(inject(TranslocoService));
     }),
