@@ -79,3 +79,26 @@ export const PaymentOnly: UseButtonsStory = {
     await expect(within(canvasElement).getByRole('button', { name: 'Use' })).toBeVisible();
   },
 };
+
+/** Paid for in more than one way: a button for each, labelled with what it spends. */
+export const PaidTwoWays: UseButtonsStory = {
+  args: {
+    line: line(ActionCost.Two, {
+      payOptions: [
+        {
+          payment: { staff: { item: 'staff', spell: 'barrier' } },
+          label: { key: 'rules.staffSpells.castCharges', params: { charges: 2 } },
+        },
+        {
+          payment: { staff: { item: 'staff', spell: 'barrier', slot: 'wizard:2' } },
+          label: { key: 'rules.staffSpells.castSlot', params: { charges: 1, rank: 2 } },
+        },
+      ],
+    }),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: 'Cast, 2 charges' })).toBeVisible();
+    await expect(canvas.getByRole('button', { name: /1 charge and a 2nd-rank slot/u })).toBeVisible();
+  },
+};

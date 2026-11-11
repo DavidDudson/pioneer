@@ -5,7 +5,7 @@ import { ActionStatus } from '@pioneer/rules/engine';
 import { ACTION_COUNT } from '@pioneer/rules/sdk';
 
 import { ActionUser } from './action-user';
-import type { UsableLine } from './action-user';
+import type { UsableLine, UsePayOption } from './action-user';
 import { ActionsMessage } from './actions-messages';
 
 const ONE_ACTION = 1;
@@ -51,6 +51,17 @@ export class UseButtons {
     const most = Math.min(upTo, affordableUpTo ?? upTo);
     return Array.from({ length: Math.max(most - from + 1, 0) }, (_slot, index) => from + index);
   });
+
+  /** The ways to pay for using it, one button each; empty when it is paid for one way. */
+  protected readonly payOptions = computed((): readonly UsePayOption[] => this.line()?.payOptions ?? []);
+
+  /** The thing used, paid for as `option` says: its payment in place of the line's own. */
+  protected readonly useWith = (option: UsePayOption) => async (): Promise<void> => {
+    const line = this.line();
+    if (line !== undefined) {
+      await this.#user?.use({ line: { ...line, payment: option.payment }, actions: undefined });
+    }
+  };
 
   /** The thing used, for `actions` of them when its cost varies; the page spends from the turn. */
   protected readonly useFor = (actions: number | undefined) => async (): Promise<void> => {

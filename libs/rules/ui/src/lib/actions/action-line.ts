@@ -13,7 +13,15 @@ export interface UsePayment {
   /** The inventory item whose stack using it takes one from: a consumable. */
   readonly consumable?: string | undefined;
   /** The staff and the spell cast from it, paid with the staff's charges. */
-  readonly staff?: { readonly item: string; readonly spell: string } | undefined;
+  readonly staff?: { readonly item: string; readonly spell: string; readonly slot?: string | undefined } | undefined;
+}
+
+/** One way to pay for using something that can be paid for in more than one: its payment and the words for it. */
+export interface UsePayOption {
+  /** What using it this way pays, in place of the line's own payment. */
+  readonly payment: UsePayment;
+  /** The label of the button that uses it this way. */
+  readonly label: MessageDescriptor;
 }
 
 /** What an item action spends: a stack, a staff's charges, or the uses of an activation. */
@@ -67,6 +75,8 @@ export interface ActionLine {
   readonly resource?: ActionResource | undefined;
   /** What using it pays besides actions; a line with a payment can be used even when its content gives no cost. */
   readonly payment?: UsePayment | undefined;
+  /** When it can be paid for in more than one way (a staff's charges alone, or with a slot), a button for each; empty or absent for one way. */
+  readonly payOptions?: readonly UsePayOption[] | undefined;
   /** Whether using it is an attack, which moves the multiple attack penalty on: a Strike. */
   readonly attack?: true | undefined;
   /** The best of its skills to roll with its breakdown; absent for an action that rolls nothing. */

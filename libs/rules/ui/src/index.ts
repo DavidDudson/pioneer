@@ -104,7 +104,7 @@ export {
   type StaffSpellLine,
   StaffSpellBlock,
 } from './lib/staff-spells/staff-spells-line';
-export { STAFF_SPELL_BLOCK_MESSAGES } from './lib/staff-spells/staff-spells-messages';
+export { STAFF_SPELL_BLOCK_MESSAGES, StaffSpellsMessage } from './lib/staff-spells/staff-spells-messages';
 export {
   type WandCheckLine,
   WandBlock,
@@ -292,7 +292,7 @@ export {
 export { ActionCategory, ActionResourceKind } from './lib/actions/action-line';
 export type { ActionLine, ActionResource } from './lib/actions/action-line';
 export { ActionUser } from './lib/actions/action-user';
-export type { ActionUse, UsableLine, UsePayment } from './lib/actions/action-user';
+export type { ActionUse, UsableLine, UsePayment, UsePayOption } from './lib/actions/action-user';
 export { UseButtons } from './lib/actions/use-buttons.component';
 export { ActionsViewKind } from './lib/actions/actions-list';
 export { ActionsView } from './lib/actions/actions.component';
