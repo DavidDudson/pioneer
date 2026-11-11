@@ -42,7 +42,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.ancestryfeatures.Item.vPhPgzpRjYDMT9Kq"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["1111cba2-82f4-53c9-8b6b-c6432b56846c"]
   },
   {
     "id": "db4b07da-dded-5264-b468-ad3c684dba6d",

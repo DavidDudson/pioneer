@@ -1,0 +1,477 @@
+[
+  {
+    "id": "17a7052a-c1ad-5b05-b2e4-21a20e1d31fd",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:draconic-exemplar",
+    "name": "Draconic Exemplar",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["kobold"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You draw minor powers from your draconic exemplar. Choose a type of chromatic or metallic dragon to be your exemplar. This determines your scale color and appearance, and dragons sometimes look more favorably upon those kobolds who resemble them, at the GM's discretion. Your exemplar may also determine details of other abilities you have, using the Draconic Exemplars table."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Table 1-1 Draconic Exemplars",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "Dragon"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Breath Weapon Shape"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Damage Type"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Saving Throw"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "Black"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Acid"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electricity"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poison"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "White"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cold"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Brass"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Bronze"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electricity"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Copper"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Line"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Acid"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Gold"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "Silver"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cold"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.egpiSWBrNBb1Fmig"
+    },
+    "data": {}
+  },
+  {
+    "id": "1111cba2-82f4-53c9-8b6b-c6432b56846c",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:greater-darkvision",
+    "name": "Greater Darkvision",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white. Some forms of magical darkness, such as a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": " spell, block normal darkvision. You, however, can see through even these forms of magical darkness."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.vPhPgzpRjYDMT9Kq"
+    },
+    "data": {}
+  },
+  {
+    "id": "cfb15880-e3d2-5a03-a5e5-5442b5b0d90a",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:land-on-your-feet",
+    "name": "Land on Your Feet",
+    "level": 0,
+    "rarity": "common",
+    "traits": ["catfolk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you fall, you take only half the normal damage and don't land "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.sL1hHxrHdMNIZVAd"
+    },
+    "data": {}
+  },
+  {
+    "id": "f85392b1-ef69-5bcd-9ddf-a684e5656721",
+    "pack": "advanced-players-guide",
+    "kind": "ancestry-feature",
+    "slug": "ancestry-feature:sharp-beak",
+    "name": "Sharp Beak",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["tengu"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With your Sharp Beak, you are never without a weapon. You have a beak unarmed attack that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Your beak is in the brawling weapon group and has the finesse and unarmed traits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Strike",
+        "slug": "beak",
+        "category": "unarmed",
+        "group": "brawling",
+        "traits": ["finesse", "unarmed"],
+        "damage": {
+          "dice": 1,
+          "die": "d6",
+          "damageType": "piercing"
+        },
+        "display": {
+          "label": "Beak"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.ancestryfeatures.Item.qJD3PJdoSXFrZEwr"
+    },
+    "data": {}
+  }
+]

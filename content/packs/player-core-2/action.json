@@ -42,7 +42,7 @@
       "cost": "one",
       "category": "offensive"
     },
-    "supersedes": ["cef5853d-08cb-508e-9e13-4de5935af16d"]
+    "supersedes": ["cef5853d-08cb-508e-9e13-4de5935af16d", "247d9bb0-f54c-5a10-b7ba-ef70f102f173"]
   },
   {
     "id": "7247972c-23a2-59c5-a181-6b62726831e8",
@@ -96,7 +96,7 @@
       "cost": "two",
       "category": "offensive"
     },
-    "supersedes": ["0e1c98d4-d0a0-5b5a-9ea9-18e4478553ee"]
+    "supersedes": ["0e1c98d4-d0a0-5b5a-9ea9-18e4478553ee", "85244816-10fe-5b17-be1e-a97a1341ca64"]
   },
   {
     "id": "2b6cf5fe-630b-5a54-b263-baaf009f2f04",
@@ -131,7 +131,8 @@
     },
     "data": {
       "category": "interaction"
-    }
+    },
+    "supersedes": ["aa86aaf5-d630-5836-974d-c8c227a5afa0"]
   },
   {
     "id": "b2409221-610f-5ff8-8952-991b51445e48",
@@ -222,7 +223,8 @@
         "max": 1,
         "per": "ten-minutes"
       }
-    }
+    },
+    "supersedes": ["59152fff-ab49-5871-9c0a-46014fb53627"]
   },
   {
     "id": "a543f207-70a7-5bf8-ad3a-9648c23e368a",
@@ -386,7 +388,8 @@
     "data": {
       "cost": "one",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["1b2e48fe-7607-5a43-8d43-32798ee7d8b6"]
   },
   {
     "id": "8a161f93-b449-5575-8dd1-dbcd449eaf80",
@@ -498,7 +501,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["d0103b37-e54c-5a54-9ac9-0fe60222df5a"]
   },
   {
     "id": "5ac07788-c8ee-564f-ab8e-cd6c1a52e6c8",
@@ -654,7 +658,7 @@
         }
       ]
     },
-    "supersedes": ["46b40b3e-7f03-5889-8324-f0a16d156ef5"]
+    "supersedes": ["46b40b3e-7f03-5889-8324-f0a16d156ef5", "c890cdaa-026e-5e78-86f7-836ca0597d95"]
   },
   {
     "id": "cbe0eaf1-f09a-54c9-aef5-97a490aca76f",
@@ -735,7 +739,8 @@
         "max": 1,
         "per": "ten-minutes"
       }
-    }
+    },
+    "supersedes": ["ad64c653-0d8e-592c-a0aa-00b6d74d50b6"]
   },
   {
     "id": "b51687a0-c8c7-5868-90e0-fd8baccc148b",
@@ -914,7 +919,7 @@
         "per": "day"
       }
     },
-    "supersedes": ["96e00044-6e92-5e1d-a0cf-4cd25f9909f5"]
+    "supersedes": ["96e00044-6e92-5e1d-a0cf-4cd25f9909f5", "f84d6185-a5cd-5c99-865c-d38a1bd9b713"]
   },
   {
     "id": "4bb8e110-5a92-56a4-bdb5-df0bc9f3d583",
@@ -957,7 +962,8 @@
     "data": {
       "cost": "one",
       "category": "offensive"
-    }
+    },
+    "supersedes": ["b269d57f-55d2-5779-86b1-f26e4990d246"]
   },
   {
     "id": "15c75599-c101-559f-93dd-bfd2c928f25f",
@@ -1358,7 +1364,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["18424b22-30d4-5ce7-ac17-7812103573b7"]
   },
   {
     "id": "4ec6b6b0-2178-5567-9f35-d1e6027471f6",
@@ -1735,7 +1742,7 @@
         }
       ]
     },
-    "supersedes": ["c159cccd-4f8c-5b1b-ab66-6066780bd0a6"]
+    "supersedes": ["c159cccd-4f8c-5b1b-ab66-6066780bd0a6", "e8e0f211-0cc4-5134-bccb-50540d021b7d"]
   },
   {
     "id": "961ddce2-0a73-5e04-96f5-e6c0a35fa496",
@@ -1922,7 +1929,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["bb082a46-cdc5-5031-a984-d996e52e15bc"]
   },
   {
     "id": "1ba606a2-a8b2-57f4-9e86-e6aed4426e2b",
@@ -2152,7 +2160,8 @@
     "data": {
       "cost": "one",
       "category": "interaction"
-    }
+    },
+    "supersedes": ["b51d5dde-139c-5331-be09-da9eaf2b2d1a"]
   },
   {
     "id": "6e146686-7506-514d-9ff2-30696de341da",
@@ -2185,7 +2194,8 @@
     },
     "data": {
       "category": "familiar"
-    }
+    },
+    "supersedes": ["4f0aa211-27ae-5a7e-ae07-2dec6608b7be"]
   },
   {
     "id": "c3e8808d-49ed-5855-90ec-9b753ba89635",
@@ -2324,7 +2334,8 @@
         "max": 1,
         "per": "ten-minutes"
       }
-    }
+    },
+    "supersedes": ["5cdb1cb7-7de9-5f31-ae57-1ac6e1be5501"]
   },
   {
     "id": "f062a8dd-04bd-5b48-8a69-2bbdfd1e5cb2",
@@ -2619,7 +2630,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["f2dcec1f-2055-5d85-aefd-409d8ba48ac0"]
   },
   {
     "id": "6018ad4a-3bf1-50f0-9452-3c633fe443e0",
@@ -3127,7 +3139,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["cee794ad-6ea4-5804-9185-807d6d6d9434"]
   },
   {
     "id": "a6278516-eae1-58fe-b671-3f44c279a45b",
@@ -3211,7 +3224,7 @@
       },
       "selfEffect": "f36ac2df-bbe5-55b1-a7ab-2ffe76e240eb"
     },
-    "supersedes": ["68630776-2b77-5289-8fbc-04ef24268828"]
+    "supersedes": ["68630776-2b77-5289-8fbc-04ef24268828", "4c9cb017-6b06-52bc-8323-236428e721dc"]
   },
   {
     "id": "f4c2ba5b-49ac-568d-932c-1466b3c04246",
@@ -3569,7 +3582,8 @@
           ]
         }
       ]
-    }
+    },
+    "supersedes": ["e28db4fd-65f7-5103-a83f-4221d73ccd57"]
   },
   {
     "id": "564e1a2c-c9c6-5a2b-a786-64b6d2131f31",
@@ -3657,6 +3671,6 @@
         "per": "minute"
       }
     },
-    "supersedes": ["5cafe7f7-cc46-5f83-bc8a-c0b2060557dc"]
+    "supersedes": ["5cafe7f7-cc46-5f83-bc8a-c0b2060557dc", "915104ea-b988-5b0a-9783-7c70a3d22e6c"]
   }
 ]

@@ -178,7 +178,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.ancestryfeatures.Item.sL1hHxrHdMNIZVAd"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["cfb15880-e3d2-5a03-a5e5-5442b5b0d90a"]
   },
   {
     "id": "53b315b9-b5b5-56f3-ba64-2aa722987b4c",
@@ -266,7 +267,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.ancestryfeatures.Item.qJD3PJdoSXFrZEwr"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["f85392b1-ef69-5bcd-9ddf-a684e5656721"]
   },
   {
     "id": "eb0b5958-4b79-5fbf-a41a-549dbe218500",

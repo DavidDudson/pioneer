@@ -1,5 +1,90 @@
 [
   {
+    "id": "5b10883b-6db7-5722-8c12-73c796b3d789",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:alchemical-sciences-methodology",
+    "name": "Alchemical Sciences Methodology",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your methodology emphasizes chemical and alchemical analysis, collecting information from unusual particles and fluids found on the scene. You possess enough alchemical know-how to whip up a few tinctures to help you with your cases."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Crafting and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "afbb2177-d92a-5a20-8c3b-4dc64b9c4513"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. In addition, you gain a "
+          },
+          {
+            "type": "ref",
+            "id": "08a9699f-907a-5703-9b93-50f54043a095"
+          },
+          {
+            "type": "text",
+            "text": " for free and learn the formulas for two additional common 1st-level alchemical items, which must be elixirs or tools. Each time you gain a level, you learn the formula for one common alchemical elixir or alchemical tool of any level of item you can create."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "During your daily preparations, you can create a number of versatile vials-alchemical concoctions that can quickly be turned into elixirs and tools-equal to your Intelligence modifier. You can use the "
+          },
+          {
+            "type": "ref",
+            "id": "f2dcec1f-2055-5d85-aefd-409d8ba48ac0"
+          },
+          {
+            "type": "text",
+            "text": " action to turn one of these vials into an elixir or alchemical tool for which you know the formula."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "afbb2177-d92a-5a20-8c3b-4dc64b9c4513"
+      },
+      {
+        "key": "GrantItem",
+        "item": "f2dcec1f-2055-5d85-aefd-409d8ba48ac0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ln2Y1a4SxlU9sizX"
+    },
+    "data": {
+      "tags": ["investigator-methodology"]
+    }
+  },
+  {
     "id": "2a2376eb-abb7-5c3d-9beb-71ae5328921d",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -1166,6 +1251,1052 @@
     }
   },
   {
+    "id": "3bb5c8d3-cdb0-512b-9d1a-1fbbb090fb41",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-genie",
+    "name": "Bloodline: Genie",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Through lineage, magic, or wishes made real, the blood of a noble genie flows through your veins."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " arcane"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Arcana, Deception"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": "; 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "adcc4c8f-05ae-5440-83d0-9e88ad22209b"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: variable (see Genie Type below); 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "ed8ad89d-b5e6-5f93-9e80-1368a1e0b8dc"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "04ad7d29-a93e-5d13-9563-5e013d6ca611"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: variable (see Genie Type below); 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "7c9cae9d-6b33-5c97-91e7-787d78e8ec45"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: variable (see Genie Type below); 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "e217747e-e1cd-5657-aa3c-b79e45ebb8b0"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "0ed9c400-f9dd-5e9a-adfa-967d0beb060c"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "7d250851-01ea-5901-8da3-83ba52e6064e"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "12fb9348-5b40-570e-b979-0dfe3916b746"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your spellcasting warps reality and distracts your foes. Either you gain a +1 status bonus to Deception checks for 1 round, or a target takes a -1 status penalty to Perception for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "f2c35ee8-75f0-5f5f-9ca1-bdd3e455fce7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Genie Type",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 1st level, choose the type of genie that influenced your bloodline: janni, djinni, efreeti, marid, or shaitan. You can't change your genie type later. This determines what granted spells you receive at 2nd, 5th, and 8th level."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Janni",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd: "
+                },
+                {
+                  "type": "ref",
+                  "id": "35b74c87-60dd-5bfe-8ede-6996b9af8bd9"
+                },
+                {
+                  "type": "text",
+                  "text": "; 5th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "b2355f5f-2795-58d8-a713-df34a0257e46"
+                },
+                {
+                  "type": "text",
+                  "text": "; 8th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "ab15f9e1-57cc-547f-8ced-10736d58a76d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Jaathoom",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd: "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                },
+                {
+                  "type": "text",
+                  "text": "; 5th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "d894e516-941a-5425-aad2-92f58eeaccac"
+                },
+                {
+                  "type": "text",
+                  "text": "; 8th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "fa4648c3-40b3-54fb-8364-de0af610cd8a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ifrit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd: "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": "; 5th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "877e8c19-8f14-5568-8d0b-4b9c520e07ea"
+                },
+                {
+                  "type": "text",
+                  "text": " (fire only); 8th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "9cbca3a7-5a5f-55f3-b53c-29e1dabc9ac2"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Faydhaan",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd: "
+                },
+                {
+                  "type": "ref",
+                  "id": "62b9b05e-2f86-5c8b-bc12-2500cd4d9959"
+                },
+                {
+                  "type": "text",
+                  "text": "; 5th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "07ae3cd7-dcbd-519c-a9f0-6c9c385a5139"
+                },
+                {
+                  "type": "text",
+                  "text": "; 8th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "0ffdc954-c422-5590-a4f2-c72d060baf98"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Jabali",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd: "
+                },
+                {
+                  "type": "ref",
+                  "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+                },
+                {
+                  "type": "text",
+                  "text": "; 5th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "1516123c-bc37-5053-be15-24201abb1d02"
+                },
+                {
+                  "type": "text",
+                  "text": "; 8th: "
+                },
+                {
+                  "type": "ref",
+                  "id": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ChoiceSet",
+        "flag": "genie",
+        "choices": [
+          {
+            "value": "jaathoom",
+            "label": "Jaathoom"
+          },
+          {
+            "value": "jabali",
+            "label": "Jabali"
+          },
+          {
+            "value": "ifrit",
+            "label": "Ifrit"
+          },
+          {
+            "value": "faydhaan",
+            "label": "Faydhaan"
+          },
+          {
+            "value": "janni",
+            "label": "Janni"
+          }
+        ],
+        "prompt": "Select a Genie.",
+        "rollOption": "genie"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.tYOMBiH3HbViNWwn"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  },
+  {
+    "id": "30531c3a-dd22-59d4-a08b-f5e1438acfa9",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-nymph",
+    "name": "Bloodline: Nymph",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "One of your ancestors was inspired by a nymph, or perhaps was a nymph themself, and now the beauty of nature lives in you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " primal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Diplomacy, Nature"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "5ad9a64e-8b2e-5db4-8526-bc713e07778c"
+          },
+          {
+            "type": "text",
+            "text": "; 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "a3738cb8-aa5d-5084-b250-86fe19b7498d"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "1e8fd2ab-ffb3-5b91-af85-43e5911b8652"
+          },
+          {
+            "type": "text",
+            "text": "; 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "b67f6b85-06e9-5272-9187-18746c8a0394"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "2a87a0a6-8eff-5154-a5fe-3cec9be56199"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "be299a7f-cbd1-5497-a88b-1a90cc2cdcfc"
+          },
+          {
+            "type": "text",
+            "text": "; 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "fcd3c0c1-a3b8-5747-bbad-0ca5e7f7c495"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "8001267e-7972-5d1d-868f-eaba30e2c938"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: "
+          },
+          {
+            "type": "ref",
+            "id": "dc60bdf3-ddf1-5c4a-8919-7ef3688f5f7a"
+          },
+          {
+            "type": "text",
+            "text": "; 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "b6dff26a-ff68-54a5-bdeb-8ac98bea8879"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "613aee71-1a9b-5ca5-8c95-08161d1aa684"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "7cfed706-2c12-55eb-9210-967225d06b09"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "b9a5ecb9-1172-5785-90a4-67eeaf1b37c6"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Nymph grace accentuates your movements and distracts your foes, either granting you a +1 status bonus to Diplomacy checks for 1 round or imposing a -1 status penalty on one target's Will saves for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0e5083cd-7998-5c07-80b7-2d724a24a475"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5Wxjghw7lHuCxjZz"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  },
+  {
+    "id": "ff57d468-aa92-5b14-99b4-c7f20d51f94e",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-psychopomp",
+    "name": "Bloodline: Psychopomp",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For good or ill, your ancestors' deeds drew the attention of psychopomps, or you might somehow count one in your family tree. The presence of these shepherds of souls and enemies of undeath has left an indelible mark on you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " divine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Intimidation, Religion"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "ad3bed02-6064-56d1-949c-7f5b8355cee7"
+          },
+          {
+            "type": "text",
+            "text": "; 1st:"
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "1e8fd2ab-ffb3-5b91-af85-43e5911b8652"
+          },
+          {
+            "type": "text",
+            "text": "; 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "c116ade1-041d-5bc1-a428-dcd37ab4e61e"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "fe6197b4-46d2-5cf1-9ed7-8998d72e221b"
+          },
+          {
+            "type": "text",
+            "text": "; 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "b8c1200d-0dd9-594c-8caf-d3550e4a150b"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: "
+          },
+          {
+            "type": "ref",
+            "id": "09cce8d0-efd8-5ba8-aafb-5461e7f29658"
+          },
+          {
+            "type": "text",
+            "text": "; 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "3c286698-36f2-5124-bba1-f2d740ffa9ca"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "17a8cb8c-475a-5194-91c1-11410c1670de"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "0f3a29ec-3c32-5b90-b5d3-6f57091232cb"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "955d193f-b50f-5b16-9961-ef5f9351c37c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The border between life and death becomes blurred to you. Either you gain a +2 status bonus to Fortitude saving throws for 1 round, or a target takes 1 damage per spell rank. The damage is void if the target is living or vitality if the target is undead. If the spell already deals that type of damage, combine it with the spell's initial damage before determining weaknesses and resistances."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "52923c8b-8a3d-565d-9c01-3743d0cbc87e"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.PpzH9tJULk5ksX9w"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  },
+  {
+    "id": "d38666a7-fe76-50a0-865a-c725e8824509",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:bloodline-shadow",
+    "name": "Bloodline: Shadow",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether due to a velstrac's manipulations or a planar jaunt gone horribly wrong, your bloodline was infused with a vein of shadow."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Spell List",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " occult"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Skills",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Occultism, Stealth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " cantrip: "
+          },
+          {
+            "type": "ref",
+            "id": "bb65f478-400b-518d-a697-75f634f6dbc1"
+          },
+          {
+            "type": "text",
+            "text": "; 1st: "
+          },
+          {
+            "type": "ref",
+            "id": "c9d16d82-fcfd-5431-9d05-06caca157602"
+          },
+          {
+            "type": "text",
+            "text": "; 2nd: "
+          },
+          {
+            "type": "ref",
+            "id": "d7720a54-bc70-5d59-bdb1-d50d8eb0dac9"
+          },
+          {
+            "type": "text",
+            "text": "; 3rd: "
+          },
+          {
+            "type": "ref",
+            "id": "19aa4b7a-5dff-51d4-ad37-c412aab2548e"
+          },
+          {
+            "type": "text",
+            "text": "; 4th: "
+          },
+          {
+            "type": "ref",
+            "id": "ab148981-4470-56fa-905a-2038bb7de2d3"
+          },
+          {
+            "type": "text",
+            "text": "; 5th: "
+          },
+          {
+            "type": "ref",
+            "id": "43ac4270-8ef2-5e9c-be38-094ffd113e2f"
+          },
+          {
+            "type": "text",
+            "text": "; 6th: "
+          },
+          {
+            "type": "ref",
+            "id": "949d3db5-c68c-5628-b1c4-8d232d2d546f"
+          },
+          {
+            "type": "text",
+            "text": "; 7th: "
+          },
+          {
+            "type": "ref",
+            "id": "49df8d74-a119-5bf7-a977-c5b5bc8f0224"
+          },
+          {
+            "type": "text",
+            "text": "; 8th: "
+          },
+          {
+            "type": "ref",
+            "id": "c162b2c7-aa54-5201-ab21-a2909f5790b3"
+          },
+          {
+            "type": "text",
+            "text": "; 9th: "
+          },
+          {
+            "type": "ref",
+            "id": "19c18d60-371e-50c2-9b3d-6c0d827bcd55"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bloodline Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " initial: "
+          },
+          {
+            "type": "ref",
+            "id": "9bdf6a6a-5c32-5a71-a13c-8a619d9a9dd7"
+          },
+          {
+            "type": "text",
+            "text": "; advanced: "
+          },
+          {
+            "type": "ref",
+            "id": "1ed94076-b9db-5f3e-b5b3-570c8446dbdf"
+          },
+          {
+            "type": "text",
+            "text": "; greater: "
+          },
+          {
+            "type": "ref",
+            "id": "1596bd0c-00c6-570e-b9e0-4377fd55f57a"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Blood Magic",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Shadows grow deeper around you or one target, either granting a +1 status bonus to Stealth or imposing a -1 status penalty to Perception for 1 round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "56a0faa8-303d-5c60-b2f2-a9bba8141f44"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.uoQOm41BVdSo6pAS"
+    },
+    "data": {
+      "tags": ["sorcerer-bloodline"]
+    }
+  },
+  {
     "id": "d883462e-355e-5c37-b530-60ec73dd7a38",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -1618,6 +2749,127 @@
     }
   },
   {
+    "id": "19aa4ef3-529c-5b9d-9ab7-53a4ecb27d7c",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:confident-finisher",
+    "name": "Confident Finisher",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain an elegant finishing attack you can make when you have panache. The finisher trait is described below. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "1b2e48fe-7607-5a43-8d43-32798ee7d8b6"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finisher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Finishers are spectacular finishing moves that use your panache. You can use a finisher only if you have panache, and you lose your panache immediately after performing a finisher. Once you use a finisher, you can't use actions that have the attack trait for the rest of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some actions with the finisher trait also grant an effect on a failure. Effects added on a failure don't apply on a critical failure. If your finisher action succeeds, you can still choose to apply the failure effect instead. For example, you might do this when an attack deals no damage due to resistance."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "1b2e48fe-7607-5a43-8d43-32798ee7d8b6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pyo0vmxUFIFX2GNl"
+    },
+    "data": {}
+  },
+  {
+    "id": "391bd2f1-0714-5923-8b82-ff2e8cebf706",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:continuous-flair",
+    "name": "Continuous Flair",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While not equal to the heights of your panache in combat, you have a dramatic flair about you in any situation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you succeed at a check during exploration that would have granted you panache in combat, you gain a +1 circumstance bonus to further checks for actions that would grant you panache in combat. This benefit ends when the exploration changes to a different scene (as determined by the GM) or shifts to an encounter or downtime."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4c8be222-4cc9-5172-a1ce-0b4a382f9908"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.13QpCrR8a8XULbJa"
+    },
+    "data": {}
+  },
+  {
     "id": "80746438-b043-5b42-b65b-95bca2693dff",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -2044,6 +3296,47 @@
     }
   },
   {
+    "id": "6421caf6-3497-5925-84b7-01bea699111d",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:deductive-improvisation",
+    "name": "Deductive Improvisation",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your skills at deduction to perform whatever task is necessary to solve the case."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can attempt any check that requires you to be trained in a skill, even if you're untrained in it; you can attempt any check that requires you to have expert proficiency in a skill so long as you're trained in it; and you can attempt any check that requires you to have master proficiency in a skill as long as you have expert proficiency in it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.malYpr0CYL4fDGhr"
+    },
+    "data": {}
+  },
+  {
     "id": "0d3b7df1-d7b3-5684-bd6e-836a739aca20",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -2175,6 +3468,591 @@
     "data": {
       "tags": ["champion-cause", "unholy"]
     }
+  },
+  {
+    "id": "2ce1f5ef-0da0-5b9c-a19a-0d117ee37f33",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:devise-a-stratagem",
+    "name": "Devise a Stratagem",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can play out a battle in your head, using brains rather than brawn to execute an attack."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "text",
+            "text": "Devise a Stratagem"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.lgo65ldX7WkXC8Ir"
+    },
+    "data": {}
+  },
+  {
+    "id": "f06f22ee-4e21-56a4-a175-e6f8e5d26dfd",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:divine-spellcasting-oracle",
+    "name": "Divine Spellcasting (Oracle)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mystery provides you with divine magical power. You can cast spells using the Cast a Spell activity, and you can supply material, somatic, and verbal components when casting spells. your unconventional access to this divine power means you can usually replace material components with somatic components, so you don't need to use a material component pouch when casting spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 1st level, you can cast up to two 1st-rank spells per day. You must know spells to cast them, and you learn them via the spell repertoire class feature. The number of spells you can cast each day is called your spell slots. As you increase in level as an oracle, your number of spells per day increases, as does the highest rank of spell you can cast."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some of your spells require you to attempt a spell attack roll to see how effective they are, or your enemies to roll against your spell DC (typically by attempting a saving throw). Since your key ability is Charisma, your spell attack rolls and spell DCs use your Charisma modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.7AVspOB6ITNzGFZi"
+    },
+    "data": {}
+  },
+  {
+    "id": "7f74a04f-59d2-5204-ae6a-7adaa059344f",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:eldritch-trickster",
+    "name": "Eldritch Trickster",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When it comes to a big heist, every rogue worth their salt knows that magic can throw meticulous plans into chaos, whether in the form of arcane wards or pesky divinations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You dabble in magic just enough to help handle these problems by jury-rigging spells and throwing a bit of your own magic into the mix. You might be a solitary thief, performing burglaries that can't be explained by skill alone, or a specialist called in by other rogues to deal with magical security measures. You might even be on the up-and-up, hired to test magical defenses or even build them yourself."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose a multiclass archetype that has a basic, expert, and master spellcasting feat. You gain that archetype's dedication feat as a bonus feat even though you don't meet its level prerequisite, though you must meet its other prerequisites. For you, the "
+          },
+          {
+            "type": "ref",
+            "id": "70fb025f-364c-59a0-b502-bdf40a427c69"
+          },
+          {
+            "type": "text",
+            "text": " rogue feat has a prerequisite of 2nd level instead of 4th level. You can choose the spellcasting ability score for the multiclass archetype you chose as your key ability score."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.D8qtAo2w4jsqjBrM"
+    },
+    "data": {
+      "tags": ["rogue-racket"],
+      "keyAttributeOptions": ["int", "cha", "wis"]
+    }
+  },
+  {
+    "id": "85df7f3d-e3f3-5477-8a66-e09a01c355e9",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:empiricism-methodology",
+    "name": "Empiricism Methodology",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Everything comes down to data. Calculating statistics, running numbers, and using inductive reasoning allows you to determine the most likely outcome of any scenario, and anything out of place draws your keen attention."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in one Intelligence-based skill of your choice. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "67c6e5fc-551a-5ac2-8a53-607f925faefd"
+          },
+          {
+            "type": "text",
+            "text": " investigator feat, and you gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ad64c653-0d8e-592c-a0aa-00b6d74d50b6"
+          },
+          {
+            "type": "text",
+            "text": " free action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "67c6e5fc-551a-5ac2-8a53-607f925faefd"
+      },
+      {
+        "key": "GrantItem",
+        "item": "ad64c653-0d8e-592c-a0aa-00b6d74d50b6"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.g3mNzNphtVxyR9Xr"
+    },
+    "data": {
+      "tags": ["investigator-methodology"]
+    }
+  },
+  {
+    "id": "fd227112-60a1-59a5-929e-3968ff622956",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:eternal-confidence",
+    "name": "Eternal Confidence",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a swashbuckler at the peak of your skill, you swell with confidence and bravado in every attack. Your proficiency rank for your swashbuckler class DC increases to master."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Strike as part of a finisher or "
+          },
+          {
+            "type": "ref",
+            "id": "bb082a46-cdc5-5031-a984-d996e52e15bc"
+          },
+          {
+            "type": "text",
+            "text": ", you can give the Strike the failure effect from the "
+          },
+          {
+            "type": "ref",
+            "id": "1b2e48fe-7607-5a43-8d43-32798ee7d8b6"
+          },
+          {
+            "type": "text",
+            "text": " action, including the increase from "
+          },
+          {
+            "type": "ref",
+            "id": "6785ddc9-01f6-5829-96af-cec737345a68"
+          },
+          {
+            "type": "text",
+            "text": " if you have that feat."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can do so only if the Strike uses a weapon or unarmed attack that you could use for Confident Finisher."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "option": "option:add-opportune-riposte-toggle",
+        "priority": 49
+      },
+      {
+        "key": "RollOption",
+        "option": "option:eternal-confidence",
+        "predicate": [
+          {
+            "or": ["option:finisher", "option:opportune-riposte"]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ypfT3iybew6ZSIUl"
+    },
+    "data": {}
+  },
+  {
+    "id": "8be4a333-1205-53c6-9d6a-c15382501958",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:exemplary-finisher",
+    "name": "Exemplary Finisher",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You execute your finishing moves with spectacular flair, adding special effects to your finishers. If a Strike you make as part of a finisher hits a foe, you add one of the following effects to the Strike, depending on your swashbuckler's style."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Battledancer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " You can Step as a free action immediately after the finisher."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Braggart",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If the foe was temporarily immune to your "
+                },
+                {
+                  "type": "ref",
+                  "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+                },
+                {
+                  "type": "text",
+                  "text": ", their temporary immunity ends."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fencer",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The foe is "
+                },
+                {
+                  "type": "ref",
+                  "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+                },
+                {
+                  "type": "text",
+                  "text": " until your next turn."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gymnast",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If the foe is "
+                },
+                {
+                  "type": "ref",
+                  "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b374c4c9-d230-5167-8878-38e08932a071"
+                },
+                {
+                  "type": "text",
+                  "text": ", or "
+                },
+                {
+                  "type": "ref",
+                  "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+                },
+                {
+                  "type": "text",
+                  "text": ", you gain a circumstance bonus to the damage roll equal to twice the number of weapon damage dice."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Wit",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The foe takes a -2 circumstance penalty to attack rolls against you until the start of your next turn. "
+                },
+                {
+                  "type": "ref",
+                  "id": "bb6e42e6-a9e3-56fb-9e25-b2a2ea25d40f"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.KxpaxUSuBC7hr4F7"
+    },
+    "data": {}
+  },
+  {
+    "id": "d6dbbf89-dd29-523e-90fe-5d573badfdb4",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:extreme-curse",
+    "name": "Extreme Curse",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have mastered a perilous balance between the conflicting divine powers of your mystery, gaining the power to change your fate, but straining both body and soul. When you cast a revelation spell while affected by your major curse, your curse intensifies to an extreme effect instead of overwhelming you. All mysteries share the same effects for their extreme curse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When affected by your extreme curse, you become "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": " (or increase your doomed condition by 2 if you were already doomed). Once every 10 minutes, when you fail an attack roll, skill or Perception check, or saving throw, you can reroll it and use the second result."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The reroll has the fortune trait and doesn't require you to spend an action, meaning you can use the reroll even if you can't act. These effects are in addition to all the effects of your major curse, and they can't be removed by any means until you "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": " to reduce your curse to its minor effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you cast a revelation spell while under the effects of this extreme curse, you are overwhelmed by your curse, and you remain doomed 2 even if you Refocus."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Additionally, if you spend at least 3 Focus Points before you again Refocus, you recover 3 Focus Points when you Refocus instead of 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+        "predicate": [
+          "oracular-curse:stage:4",
+          {
+            "not": "self:condition:doomed"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.F4brPlp1tHGUqyuI"
+    },
+    "data": {}
   },
   {
     "id": "ca09b41c-9b7a-56f9-b06c-3b351c615cc0",
@@ -2729,6 +4607,145 @@
     }
   },
   {
+    "id": "d0480e94-885b-5bfd-9bfe-883972d695a6",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:forensic-medicine-methodology",
+    "name": "Forensic Medicine Methodology",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned that in most cases, especially murders, criminals tend to leave more evidence of the crime on the body than they'd like to believe. Information from bruising, bone fractures, blood spatters, and even the life cycle of carrion insects can provide valuable clues that help reconstruct the scene."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You're trained in Medicine and gain the "
+          },
+          {
+            "type": "ref",
+            "id": "9f1ad6ff-72f8-5658-b62a-f59a408dd116"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9848970b-02f3-562b-9a64-29e42647bbc1"
+          },
+          {
+            "type": "text",
+            "text": " skill feats. When you use Battle Medicine, on a success the target recovers additional Hit Points equal to your level, and the target becomes temporarily immune for only 1 hour, not 1 day"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "9f1ad6ff-72f8-5658-b62a-f59a408dd116"
+      },
+      {
+        "key": "GrantItem",
+        "item": "9848970b-02f3-562b-9a64-29e42647bbc1"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.O3IX7rTxXWWvDVM3"
+    },
+    "data": {
+      "tags": ["investigator-methodology"]
+    }
+  },
+  {
+    "id": "15baf4c0-8a8d-5f22-b5f9-bb0710d30aba",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:greater-resolve",
+    "name": "Greater Resolve",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["investigator", "oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your unbelievable training grants you mental resiliency."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency rank for Will saves increases to legendary. When you roll a success at a Will save, you get a critical success. When you roll a critical failure at a Will save, you get a failure instead. When you roll a failure on a Will save against a damaging effect, you take half damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["save:will"],
+        "title": "Greater Resolve",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "When you roll a critical failure at a Will save, you get a failure instead. When you fail a Will save against a damaging effect, you take half damage."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["save:will"],
+        "adjustment": {
+          "criticalFailure": "one-degree-better"
+        },
+        "checkType": "save"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "legendary"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.5LOARurr4qWkfS9K"
+    },
+    "data": {}
+  },
+  {
     "id": "d38acce8-e4ba-5149-8e22-806959819286",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -2804,6 +4821,207 @@
     "data": {
       "tags": ["swashbuckler-style"]
     }
+  },
+  {
+    "id": "8d508168-2509-5fb2-bb46-e8b6ab7fac80",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:interrogation-methodology",
+    "name": "Interrogation Methodology",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "People can't help but trust you, whether through your inherent likableness or your firm insistence on sticking to the truth. You have a way about you that gets others talking, and you've developed interrogative techniques to help you get to the truth of your investigations."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are trained in Diplomacy. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+          },
+          {
+            "type": "text",
+            "text": " skill feat. You can also "
+          },
+          {
+            "type": "ref",
+            "id": "5cdb1cb7-7de9-5f31-ae57-1ac6e1be5501"
+          },
+          {
+            "type": "text",
+            "text": " over the course of a conversation rather than spending dedicated time looking into the lead, provided the conversation lasts 1 minute or longer. For example, while trying to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": ", you could pursue the creature you're conversing with as a lead, and you could Pursue a Lead about an object while someone is telling you information about that object. You also gain the "
+          },
+          {
+            "type": "ref",
+            "id": "b51d5dde-139c-5331-be09-da9eaf2b2d1a"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "24926aff-a7ca-50ec-af8c-cb872fbfd882"
+      },
+      {
+        "key": "GrantItem",
+        "item": "b51d5dde-139c-5331-be09-da9eaf2b2d1a"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.UIHUNNYZyQ3p4Vmo"
+    },
+    "data": {
+      "tags": ["investigator-methodology"]
+    }
+  },
+  {
+    "id": "8a0ee6e0-98c4-5e81-97a9-0f6af66cf215",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:investigator-expertise",
+    "name": "Investigator Expertise",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've refined your investigative techniques to an exceptional degree. Your circumstance bonus from "
+          },
+          {
+            "type": "ref",
+            "id": "5cdb1cb7-7de9-5f31-ae57-1ac6e1be5501"
+          },
+          {
+            "type": "text",
+            "text": " increases to +2. Your proficiency rank for your investigator class DC increases to expert."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2200b4a4-98c6-5f85-8c6b-52e8e8a7d927"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "92f0052c-8ee8-5d41-8414-a6563d32140c"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "ce7af731-d4fc-5e76-8cd8-9cacdc349d58"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.PFvB79O2VFdiAeSj"
+    },
+    "data": {}
+  },
+  {
+    "id": "b2fe733e-7dcf-5369-bd59-ac6be9c09fcc",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:keen-flair",
+    "name": "Keen Flair",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You inflict particularly devastating attacks on even well-defended foes. When you Strike with a weapon or unarmed attack with which you have master proficiency, if you roll a 19 on the die and the roll is a success, you critically succeed instead."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["strike-attack-roll"],
+        "adjustment": {
+          "success": "to-critical-success"
+        },
+        "predicate": ["check:roll:total:natural:19", "item:proficiency:rank:3"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Pk3Ht0KZyFxSeL07"
+    },
+    "data": {}
   },
   {
     "id": "0fd84242-e039-5eb5-a2d2-5ea8d1807316",
@@ -3622,6 +5840,1426 @@
     }
   },
   {
+    "id": "81305eed-14b1-5ea2-aaee-cbafacc1cb89",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:major-curse",
+    "name": "Major Curse",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've learned to better balance the conflicting powers wreaking havoc on your body. Immediately after completing the casting of a revelation spell while you are affected by your moderate curse, your curse progresses to its major effect, rather than overwhelming you. This effect lasts until you "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": ", which reduces your curse to its minor effect. If you cast a revelation spell while under the effects of your major curse, you are overwhelmed by your curse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In addition, increase the number of Focus Points in your focus pool from 2 to 3. If you spend at least 2 Focus Points before you again Refocus, you recover 2 Focus Points when you Refocus instead of 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.rrzItB68Er0DzKx7"
+    },
+    "data": {}
+  },
+  {
+    "id": "db613ee7-aba4-5367-b34c-48d0ded695a2",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:master-detective",
+    "name": "Master Detective",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a master detective, you can solve any case and find all the clues available. If you're pursuing the subject of a lead and you enter a new location that includes another clue toward solving the mystery, the GM informs you of the existence of the clue and its type: an object, person, spell effect, or the like."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you find the clue, the GM informs you that you've done so. If there is more than one clue in the location, the GM chooses one to inform you about. When you find any of the clues in that location, the GM informs you that you've done so, even if it wasn't the clue they'd chosen or there are other clues you haven't found."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency rank for your investigator class DC increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.flEx8eY0NinF9XZU"
+    },
+    "data": {}
+  },
+  {
+    "id": "c513a70a-95a1-583b-a2f7-6e04dd6e8aa2",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:methodology",
+    "name": "Methodology",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your studies have made you savvy in many areas, but one in particular drew your intense interest. Choose a methodology. The methodologies are as follows:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "5b10883b-6db7-5722-8c12-73c796b3d789"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "85df7f3d-e3f3-5477-8a66-e09a01c355e9"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d0480e94-885b-5bfd-9bfe-883972d695a6"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "8d508168-2509-5fb2-bb46-e8b6ab7fac80"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.uhHg9BXBiHpL5ndS"
+    },
+    "data": {}
+  },
+  {
+    "id": "6dbb9d46-98b3-541f-9d77-01f202ba5471",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:mystery",
+    "name": "Mystery",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose the divine mystery that fuels your mystical power."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mystery might represent a pantheistic devotion to all the deities with power over the subject of your mystery, veneration of a particular ideal, or a conduit to raw divine energy. Whatever its origin and nature, your mystery determines the revelation spells you can cast and the oracular curse that overtakes your body when you do. You learn skills related to that mystery, gain access to a cantrip, and gain a special benefit drawn from the combined divine knowledge and experience of your mystery."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "2a2376eb-abb7-5c3d-9beb-71ae5328921d"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "3c091e66-a9e0-5624-9f86-d1a94c86f657"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "d883462e-355e-5c37-b530-60ec73dd7a38"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "80746438-b043-5b42-b65b-95bca2693dff"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "6f29968b-886e-590a-bd09-d7c12342092b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "f2fb25d8-0896-5491-814a-28f059d5a098"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "508d5cd8-640e-5ff7-be72-baea8ca9e267"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "805fd495-5f3c-5043-b651-70c0816df34a"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "ref",
+                  "id": "06237a2b-da11-5816-a0b5-74e643f79584"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ash"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Reading a Mystery Entry"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mystery entry contains the following information, followed by a description of that mystery's curse."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mystery Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The mystery benefit is a special ability (or abilities) you gain from your mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trained Skill",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become trained in the listed skill. A few mysteries make you trained in more than one skill."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted Cantrip",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You automatically add this cantrip to your spell repertoire, in addition to those you gain through divine spellcasting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation Spells",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You automatically gain your mystery's initial revelation spell at 1st level and can gain more by selecting the "
+          },
+          {
+            "type": "ref",
+            "id": "af0f6400-1423-5758-84fc-edbcf23ed892"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "8e018c81-022d-590a-bb6b-e8dd267367fc"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "c2716824-d8d6-59f7-b046-5f896b7cb277"
+          },
+          {
+            "type": "text",
+            "text": " oracle feats."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Related Domains",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " These are the cleric domains associated with your mystery. You select one initial domain spell from one of these domains at 1st level, which you can cast as a revelation spell with the cursebound trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.PRJYLksQEwT39bTl"
+    },
+    "data": {}
+  },
+  {
+    "id": "8992b6a2-7215-5858-8fc7-f295da99d47d",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:on-the-case",
+    "name": "On the Case",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As an investigator, you think of your adventures as cases waiting to be solved. You gain one activity and one reaction you can use to investigate cases: "
+          },
+          {
+            "type": "ref",
+            "id": "5cdb1cb7-7de9-5f31-ae57-1ac6e1be5501"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "59152fff-ab49-5871-9c0a-46014fb53627"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5cdb1cb7-7de9-5f31-ae57-1ac6e1be5501"
+      },
+      {
+        "key": "GrantItem",
+        "item": "59152fff-ab49-5871-9c0a-46014fb53627"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.6FasgIXUJ1X8ekRn"
+    },
+    "data": {}
+  },
+  {
+    "id": "12812def-09b5-58f4-aa95-ba38de35b3af",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:opportune-riposte",
+    "name": "Opportune Riposte",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You turn the tables on foes who fumble, capitalizing immediately on their mistake. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "bb082a46-cdc5-5031-a984-d996e52e15bc"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "bb082a46-cdc5-5031-a984-d996e52e15bc"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.Jtn7IugykXDlIoZq"
+    },
+    "data": {}
+  },
+  {
+    "id": "1a4b75e5-3809-5ce0-bcc1-15e4b091f6f6",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:oracular-clarity",
+    "name": "Oracular Clarity",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You now fully grasp the nature of the divine power behind your mystery, allowing you to work magic akin to miracles. Add two common 10th-rank divine spells to your repertoire. You gain a single 10th-rank spell slot you can use to cast one of those two spells using oracle spellcasting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You don't gain more 10th-rank spells as you level up, unlike other spell slots, and you can't use 10th-rank slots with abilities that give you more spell slots or that let you cast spells without expending spell slots. You can take the "
+          },
+          {
+            "type": "ref",
+            "id": "3b08b061-5ae0-5e27-aa7d-7ec922899f37"
+          },
+          {
+            "type": "text",
+            "text": " feat to gain a second slot."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RepertoireCount",
+        "entry": "oracle",
+        "rank": 10,
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.571c1aGnvNVwfF6b"
+    },
+    "data": {}
+  },
+  {
+    "id": "cc6f0fea-585b-5d14-8886-2a8cf36b19ea",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:oracular-curse",
+    "name": "Oracular Curse",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing on multiple disparate sources of power inevitably places an incredible stress on your body, manifesting as a supernatural curse. The more revelation spells you cast, the worse the effects of your curse, but these increasingly conflicting energies can also provide you with divine benefits."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The specific effects of your curse are tied to your mystery, but all curses follow the same progression. A curse continually gives you a mild but constant reminder that you carry otherworldly power. As you cast revelation spells, your curse intensifies, first to a minor effect and then to a moderate effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your curse progresses to its minor stage the first time you finish casting a revelation spell after your daily preparations. Once your minor curse has manifested, it remains in effect until you rest for 8 hours and again make your daily preparations. If you cast a revelation spell while your minor curse is in effect, you progress to the moderate curse effect immediately after you finish Casting the Spell. The minor effect continues to affect you, though some moderate curse effects might alter the specifics of your minor curse. At higher levels, you can cast more revelation spells, progressing your curse to its major stage and then an extreme stage; these stronger curses are cumulative with the effects of the lower stages and can alter them. When you Refocus while under the effects of your moderate or stronger curse, you reduce your curse's severity to minor in addition to regaining a Focus Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawing upon your mystery's power while your curse is at its worst causes an irreconcilable conflict between you and the sources of your power. Immediately after casting a revelation spell while under the moderate effect of your curse, you are overwhelmed. While overwhelmed, you can't Cast or Sustain any revelation spells-you effectively lose access to those spells. You can still Refocus to reduce the effects of your curse and regain a Focus Point, but doing so doesn't allow you to cast further revelation spells. These effects last until you rest for 8 hours and make your daily preparations, at which point your curse returns to its basic state. At higher levels, you can grow to withstand your curse's major and even extreme effects, enabling you to cast more revelation spells without becoming overwhelmed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your curse has the curse, divine, and necromancy traits. You can't mitigate, reduce, or remove the effects of your oracular curse by any means other than Refocusing and resting for 8 hours. For example, if your curse makes creatures concealed from you, you can't negate that concealed condition through a magic item or spell, such as true strike (though you would still benefit from the other effects of that item or spell). Likewise, remove curse and similar spells don't affect your curse at all."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ibX2EhKkyUtbOHLj"
+    },
+    "data": {}
+  },
+  {
+    "id": "73f3e3aa-76b9-5b53-8fad-5404ddabab6a",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:panache",
+    "name": "Panache",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You care as much about the way you accomplish something as whether you actually accomplish it in the first place. When you perform an action with particular bravado, you can leverage this moment of verve to perform spectacular, deadly maneuvers. This state of flair is called panache, and you are either in a state of panache or you are not."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "658fbaf5-a9cd-510d-b214-628a69e49a1c"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain panache by successfully performing the skill check associated with specific actions that have a bit of flair, including "
+          },
+          {
+            "type": "ref",
+            "id": "11d6f0fd-b182-5043-8a26-973179a93617"
+          },
+          {
+            "type": "text",
+            "text": " and additional actions determined by your swashbuckler's style (see below). At the GM's discretion, after succeeding at a check to perform a particularly daring action, such as swinging on a chandelier or sliding down a drapery, you also gain panache if your result is high enough (typically the very hard DC for your level, but the GM can choose a different threshold)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you have panache, you gain a +5-foot status bonus to your Speeds and gain a +1 circumstance bonus to checks to Tumble Through or to take any actions that give you panache due to your style. The "
+          },
+          {
+            "type": "ref",
+            "id": "d3f74ba1-7766-5291-a72c-2019956e9470"
+          },
+          {
+            "type": "text",
+            "text": " class feature also causes you to deal extra precision damage while you have panache. Powerful finisher actions, including "
+          },
+          {
+            "type": "ref",
+            "id": "1b2e48fe-7607-5a43-8d43-32798ee7d8b6"
+          },
+          {
+            "type": "text",
+            "text": ", can be used only while you have panache and cause you to lose your panache."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Normally, you gain and use panache only in combat encounters; when an encounter ends, you lose panache"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Note",
+        "selectors": ["skill-check"],
+        "title": "Panache",
+        "text": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You gain Panache."
+              }
+            ]
+          }
+        ],
+        "outcome": ["success", "criticalSuccess"],
+        "predicate": [
+          "option:grants-panache",
+          {
+            "not": "self:effect:panache"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.LzYi0OuOoypNb6jd"
+    },
+    "data": {}
+  },
+  {
+    "id": "d3f74ba1-7766-5291-a72c-2019956e9470",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:precise-strike",
+    "name": "Precise Strike",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You Strike with flair. When you have panache and you Strike with an agile or finesse melee weapon or agile or finesse unarmed attack, you deal 2 additional precision damage. If the strike is part of a finisher, the additional damage is 2d6 precision damage instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your swashbuckler level increases, so does your additional damage for precise strike. Increase the amount of additional damage on a Strike and the number of additional dice on a finisher by one at 5th, 9th, 13th, and 17th levels."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.RQH6vigvhmiYKKjg"
+    },
+    "data": {}
+  },
+  {
+    "id": "bf4fd636-475a-55b0-aec2-f156bb4e4aaf",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:raging-resistance",
+    "name": "Raging Resistance",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Repeated exposure and toughened skin allow you to fend off harm. While raging, you gain resistance equal to 3 + your Constitution modifier to damage types based on your instinct."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "See specific instincts for more information."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.ie6xDX9GMEcA2Iuq"
+    },
+    "data": {}
+  },
+  {
+    "id": "9233352f-bd47-5b74-9411-927a4621b799",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:revelation-spells",
+    "name": "Revelation Spells",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The powers of your mystery manifest in the form of revelation spells, which are a type of focus spell. Casting a revelation spell costs 1 Focus Point and increases the effects of your "
+          },
+          {
+            "type": "ref",
+            "id": "cc6f0fea-585b-5d14-8886-2a8cf36b19ea"
+          },
+          {
+            "type": "text",
+            "text": ". You start with a focus pool of 2 Focus Points. You refill your focus pool during your daily preparations, and you can regain 1 Focus Point by spending 10 minutes using the Refocus activity to reconcile the conflicting or unconventional nature of your divine mystery."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Focus spells are automatically heightened to half your level rounded up. Focus spells don't require spell slots, and you can't cast them using spell slots (see "
+          },
+          {
+            "type": "ref",
+            "id": "f06f22ee-4e21-56a4-a175-e6f8e5d26dfd"
+          },
+          {
+            "type": "text",
+            "text": "). Taking feats can give you more focus spells and increase the size of your focus pool, though your focus pool can never hold more than 3 Focus Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Revelation spells have the cursebound trait, unlike other focus spells. This trait means they increase the severity of your oracular curse (see below) when cast. You can't cast a cursebound spell if you don't have an oracular curse.You learn two revelation spells at 1st level. The first is an initial revelation spell determined by your mystery. The second is an initial domain spell you select from one of the domains associated with your mystery, which you cast as a revelation spell, causing it to gain the cursebound trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.NXUOtO9NytHQurlg"
+    },
+    "data": {}
+  },
+  {
+    "id": "2a26b36d-43a7-5a88-9a36-6879b37d635b",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:skillful-lessons",
+    "name": "Skillful Lessons",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level and every odd-numbered level thereafter, you gain a skill feat. This feat must be for an Intelligence-, Wisdom-, or Charisma-based skill, or for the skill you gained from your methodology."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.dmK1wya8GBi9MmCB"
+    },
+    "data": {}
+  },
+  {
+    "id": "0f59b076-8db0-5179-b7cf-53aa63bbb9ca",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:spell-repertoire-oracle",
+    "name": "Spell Repertoire (Oracle)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["oracle"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The collection of spells you can cast is called your spell repertoire. At 1st level, you learn two 1st-rank spells of your choice and five cantrips of your choice. You choose these from the common spells from the divine spell list, or from other divine spells to which you have access. You can cast any spell in your spell repertoire by using a spell slot of an appropriate spell rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You add to this spell repertoire as you increase in level. Each time you get a spell slot, you add a spell of the same rank to your spell repertoire. At 2nd level, you select another 1st-rank spell; at 3rd level, you select two 2nd-rank spells, and so on. When you add spells, you might choose a higher-rank version of a spell you already have so that you can cast a heightened version of that spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Though you gain them at the same rate, your spell slots and the spells in your spell repertoire are separate. If a feat or other ability adds a spell to your spell repertoire, it wouldn't give you another spell slot, and vice versa."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Swapping Spells in your Repertoire",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As you gain new spells in your spell repertoire, you might want to replace some of the spells you previously learned. Each time you gain a level and learn new spells, you can swap out one of your old spells for a different spell of the same rank. This spell can be a cantrip. You can also swap out spells by retraining during downtime."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.cFe6vFb3gSDyNeS9"
+    },
+    "data": {}
+  },
+  {
+    "id": "d975957e-940b-56c4-a8f0-0b65ce9e9a54",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:strategic-strike",
+    "name": "Strategic Strike",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["investigator"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you strike carefully and with forethought, you deal a telling blow. When making a Strike that adds your Intelligence modifier on your attack roll due to "
+          },
+          {
+            "type": "ref",
+            "id": "2ce1f5ef-0da0-5b9c-a19a-0d117ee37f33",
+            "label": "Devising a Stratagem"
+          },
+          {
+            "type": "text",
+            "text": ", you deal an additional 1d6 precision damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As your investigator level increases, so too does the deadliness of your strategic strike. Increase the number of dice by one at 5th, 9th, 13th, and 17th levels."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.2Fe4YZCvAr9Yf6w7"
+    },
+    "data": {}
+  },
+  {
+    "id": "55e433d4-ba7b-52a6-8b82-91e8d83291c1",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:stylish-tricks",
+    "name": "Stylish Tricks",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At 3rd level, 7th level, and 15th level, you gain a skill feat. This feat must be for Acrobatics or the trained skill from your swashbuckler's style"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.pthjQIK9pDxnbER6"
+    },
+    "data": {}
+  },
+  {
+    "id": "d3f2c30b-d892-54bc-9301-920315d21dbe",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:superstition-instinct",
+    "name": "Superstition Instinct",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A deep distrust of magic drives you to forgo and counter the metaphysical nonsense of spellcasters. Whether you're a member of a superstitious family or culture that distrusts magic, a warrior in constant battle against wizards and witches, a survivor of a magical accident that instilled an intense aversion in your mind and body, or a scion of a bloodline known for its magic resistance, your rage is inimical to magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This makes you an excellent mage hunter but slow to trust practitioners of magical arts. Your extremely restrictive anathema grants you powers beyond those of other instincts."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Willingly accepting the effects of magic spells (including from scrolls, wands, and the like), even from your allies, is anathema to your instinct. You can still drink potions and invest and activate most magic items you find, though items that cast spells are subject to the same restrictions as all other spells. If an ally insists on using magic on you despite your unwillingness, and you have no reason to believe they will stop, continuing to travel with that ally of your own free will counts as willingly accepting their spells (as do similar circumstances) and thus is also anathema to your instinct."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Superstitious Resilience (Instinct Ability)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While raging, you gain a +2 status bonus to all saves against magic. Increase your damage from Rage from 2 to 4 against creatures that can cast spells. Once every 10 minutes, when you Rage, you regain Hit Points equal to the temporary Hit Points you gain from that Rage action."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Specialization AbilityLevel 7"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Increase the damage from Rage from 4 to 8 against creatures that can cast spells. If you have greater raging specialization, instead increase the damage from Rage to 12 against creatures with spells and 8 against other creatures."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Raging ResistanceLevel 9"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose two associated magical traditions: arcane and occult, arcane and primal, divine and occult, or divine and primal. The resistance from your raging resistance class feature applies against all damage you take from spells cast with these two traditions of magic, regardless of the type of damage dealt by the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "slug": "superstition-saves",
+        "predicate": [
+          "option:magical",
+          "self:effect:rage",
+          {
+            "or": ["class:barbarian", "feat:instinct-ability"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          "self:effect:rage",
+          "target:caster",
+          {
+            "or": ["class:barbarian", "feat:instinct-ability"]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 8,
+        "predicate": [
+          "self:effect:rage",
+          "target:caster",
+          "class:barbarian",
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 8,
+        "predicate": [
+          "self:effect:rage",
+          "target:caster",
+          "class:barbarian",
+          {
+            "gte": ["self:level", 7]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 12,
+        "predicate": ["self:effect:rage", "target:caster", "class:barbarian", "feature:greater-weapon-specialization"]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "upgrade",
+        "value": 8,
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "target:caster"
+          },
+          "class:barbarian",
+          "feature:greater-weapon-specialization"
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "agile-rage",
+        "mode": "upgrade",
+        "value": 4,
+        "predicate": [
+          "self:effect:rage",
+          {
+            "not": "target:caster"
+          },
+          "class:barbarian",
+          "feature:greater-weapon-specialization"
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.SCYSjUbMmw8JD9P9"
+    },
+    "data": {
+      "tags": ["barbarian-instinct"]
+    }
+  },
+  {
+    "id": "360528de-3425-5916-8f9e-a18735106b70",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:swashbuckler-expertise",
+    "name": "Swashbuckler Expertise",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You perform swashbuckling techniques with exceptional flair, making them harder to resist. Your proficiency rank for your swashbuckler class DC increases to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "class-dc",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.U74JoAcLHTOsZG6q"
+    },
+    "data": {}
+  },
+  {
+    "id": "965732cf-2791-5dc8-aad1-3360489b4514",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:swashbucklers-style",
+    "name": "Swashbuckler's Style",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a swashbuckler, you have your own distinctive style that enables you to gracefully handle everyday events and life-or-death situations alike. Choose a swashbuckler's style. This style determines the additional actions you use to gain panache and makes you trained in the skill related to that action."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.beW1OqibVQ3fBvRw"
+    },
+    "data": {}
+  },
+  {
     "id": "805fd495-5f3c-5043-b651-70c0816df34a",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -4016,6 +7654,77 @@
     }
   },
   {
+    "id": "73702324-cacb-54e3-950c-330c88c88313",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:the-tenets-of-evil",
+    "name": "The Tenets of Evil",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the unholy trait and add that trait to any Strikes you make. In addition to your other edicts and anathema, you gain the following. None of these prevents you from performing acts others might consider helpful, but these acts must be done with the expectation that they ultimately furthers your own goals or those of your deity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edict",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " do not put another's needs before your own or those of your deity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " commit an entirely altruistic act, such as giving something away in charity"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "ActorTraits",
+        "add": ["unholy"]
+      },
+      {
+        "key": "AdjustStrike",
+        "property": "traits",
+        "mode": "add",
+        "value": "unholy"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.JiY2ZB4FkK8RJm4T"
+    },
+    "data": {}
+  },
+  {
     "id": "5f506cbe-3011-5788-9065-898af63a4e77",
     "pack": "advanced-players-guide",
     "kind": "class-feature",
@@ -4407,6 +8116,106 @@
     "data": {
       "tags": ["champion-cause", "unholy"]
     }
+  },
+  {
+    "id": "a203d7d0-5295-5e7c-b2cc-b5280ce48bf9",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:vivacious-speed",
+    "name": "Vivacious Speed",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you've made an impression, you move even faster than normal, darting about the battlefield with incredible speed. Increase the status bonus to your Speeds when you have panache to a +10-foot status bonus; this bonus increases by 5 feet at 7th, 11th, 15th, and 19th levels. When you don't have panache, you still get half this status bonus to your Speed, rounded down to the nearest 5-foot increment."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.8BOFeRE7ZfJ02N0O"
+    },
+    "data": {}
+  },
+  {
+    "id": "d635c08c-1088-54fb-bef4-762d4fbedcca",
+    "pack": "advanced-players-guide",
+    "kind": "class-feature",
+    "slug": "class-feature:weapon-expertise-swashbuckler",
+    "name": "Weapon Expertise (Swashbuckler)",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["swashbuckler"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "advanced-players-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've dedicated yourself to learning the intricacies of your weapons. Your proficiency ranks for simple weapons, martial weapons, and unarmed attacks increase to expert."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain access to the critical specialization effects of all weapons for which you have expert proficiency."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CriticalSpecialization",
+        "predicate": [
+          {
+            "gte": ["item:proficiency:rank", 2]
+          }
+        ]
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:martial",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:simple",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "attack:unarmed",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.classfeatures.Item.F5BHEav90oOJ2LwN"
+    },
+    "data": {}
   },
   {
     "id": "72019935-7b92-5291-b240-c218b74c5cab",

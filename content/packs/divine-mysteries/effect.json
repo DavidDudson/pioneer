@@ -443,7 +443,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["f23bf536-6d1a-50db-acaf-076d24ba5aa6"]
   },
   {
     "id": "31fb8a06-97ec-5a96-90a3-5b2947025fc2",
