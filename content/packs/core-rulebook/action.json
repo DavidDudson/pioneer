@@ -1,5 +1,231 @@
 [
   {
+    "id": "2d09ef27-7679-5bc4-b497-2f35be9acdcb",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:affix-a-talisman",
+    "name": "Affix a Talisman",
+    "rarity": "common",
+    "traits": ["exploration", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You must use a "
+          },
+          {
+            "type": "ref",
+            "id": "9eafb125-de05-59df-ad19-4b30c8ec6a82"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spend 10 minutes affixing a talisman to an item, placing the item on a stable surface and using the repair kit with both hands. You can also use this activity to remove a talisman. If more than one talisman is affixed to an item, the talismans are suppressed; none of them can be activated."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.UAaQk93a30nx0nYY"
+    },
+    "data": {
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You must use a Repair Toolkit"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "99d1c863-cb6b-5d09-8fb8-2ca0996ac20a",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:avoid-notice",
+    "name": "Avoid Notice",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You attempt a Stealth check to avoid notice while traveling at half speed. If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "a0ad78da-296b-5880-af5e-2cc2c4346db8"
+          },
+          {
+            "type": "text",
+            "text": " feat, you can move at full Speed rather than half, but you still can't use another exploration activity while you do so. If you have the "
+          },
+          {
+            "type": "ref",
+            "id": "821378a8-95b3-53e1-a363-a8c92afc62c8"
+          },
+          {
+            "type": "text",
+            "text": " feat, you can move at full Speed and use a second exploration activity. If you're Avoiding Notice at the start of an encounter, you usually roll a Stealth check instead of a Perception check both to determine your initiative and to see if the enemies notice you (based on their Perception DCs, as normal for Sneak, regardless of their initiative check results)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IE2nThCmoyhQA0Jn"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "574947b6-f66a-5cf0-87fa-554bab01201e",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:borrow-an-arcane-spell",
+    "name": "Borrow an Arcane Spell",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you're an arcane spellcaster who prepares from a spellbook, you can attempt to prepare a spell from someone else's spellbook. The GM sets the DC for the check based on the spell's rank and rarity; it's typically a bit easier than "
+          },
+          {
+            "type": "ref",
+            "id": "9122d740-ef57-5922-bc21-92179b61d03a",
+            "label": "Learning the Spell"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You prepare the borrowed spell as part of your normal spell preparation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You fail to prepare the spell, but the spell slot remains available for you to prepare a different spell. You can't try to prepare this spell until the next time you prepare spells."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.OizxuPb44g3eHPFh"
+    },
+    "data": {}
+  },
+  {
+    "id": "5c0de5b6-0acd-5751-8566-48c6f0c1b97b",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:defend",
+    "name": "Defend",
+    "rarity": "common",
+    "traits": ["exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move at half your travel speed with your shield raised. If combat breaks out, you gain the benefits of "
+          },
+          {
+            "type": "ref",
+            "id": "5c3e30ec-2520-5b84-b2bf-c03dd6b8d65a",
+            "label": "Raising a Shield"
+          },
+          {
+            "type": "text",
+            "text": " before your first turn begins."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.cYtYKa1gDEl7y2N0"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
     "id": "cfd62ee1-6e6a-5669-b1aa-2795f399d3d4",
     "pack": "core-rulebook",
     "kind": "action",
@@ -28,6 +254,124 @@
     "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.Yb0C1uLzeHrVLl7a"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "df212f9c-8ff4-5eef-88ac-198c36d4930c",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:extra-reagents",
+    "name": "Extra Reagents",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your familiar grows extra infused reagents on or in its body. You gain an additional batch of infused reagents. You must have the infused reagents ability to select this ability."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.ZtKb89o1PPhwJ3Lx"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "63654336-d4d5-5e82-90fa-e73e02134461",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:flurry-of-blows",
+    "name": "Flurry of Blows",
+    "rarity": "common",
+    "traits": ["flourish", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Make two unarmed Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses. Apply your multiple attack penalty to the Strikes normally. As it has the flourish trait, you can use Flurry of Blows only once per turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.nbfNETdpee8CVM17"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "269cedab-5f5a-5703-9631-986260885864",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:follow-the-expert",
+    "name": "Follow the Expert",
+    "rarity": "common",
+    "traits": ["auditory", "concentrate", "exploration", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an ally attempting a recurring skill check while exploring, such as climbing, or performing a different exploration tactic that requires a skill check (like "
+          },
+          {
+            "type": "ref",
+            "id": "99d1c863-cb6b-5d09-8fb8-2ca0996ac20a",
+            "label": "Avoiding Notice"
+          },
+          {
+            "type": "text",
+            "text": "). The ally must be at least an expert in that skill and must be willing to provide assistance. While Following the Expert, you match their tactic or attempt similar skill checks. Thanks to your ally's assistance, you can add your level as a proficiency bonus to the associated skill check, even if you're untrained. Additionally, you gain a circumstance bonus to your skill check based on your ally's proficiency (+2 for expert, +3 for master, and +4 for legendary)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d55a1a6a-49ef-52ed-b5fe-4f91a51b7591"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tfa4Sh7wcxCEqL29"
     },
     "data": {
       "category": "interaction"
@@ -107,6 +451,579 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "065929f2-7c27-5364-951f-5eef60045a07",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:glimpse-of-redemption",
+    "name": "Glimpse of Redemption",
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages your ally, and both are within 15 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your foe hesitates under the weight of sin as visions of redemption play in their mind's eye. The foe must choose one of the following options:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The ally is unharmed by the triggering damage."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The ally gains resistance to all damage against the triggering damage equal to 2 + your level. After the damaging effect is applied, the enemy becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " until the end of its next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b8825b62-79aa-5931-be07-13697edfbba3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.tuZnRWHixLArvaIf"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages your ally, and both are within 15 feet of you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8feb0055-c96d-5837-9975-f74c8ae6861d",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:hustle",
+    "name": "Hustle",
+    "rarity": "common",
+    "traits": ["exploration", "move"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You strain yourself to move at double your travel speed. You can Hustle only for a number of minutes equal to your Constitution modifier × 10 (minimum 10 minutes). If you are in a group that is Hustling, use the lowest Constitution modifier among everyone to determine how fast the group can Hustle together."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.JuqmIAnkL9hVGai8"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "d4cbc4ed-f78a-5238-9473-816ce8a4fe09",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:invest-an-item",
+    "name": "Invest an Item",
+    "rarity": "common",
+    "traits": ["general"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You invest your energy in an item with the invested trait as you don it. This process requires 1 or more Interact actions, usually taking the same amount of time it takes to don the item. Once you've Invested the Item, you benefit from its constant magical abilities as long as you meet its other requirements (for most invested items, the only other requirement is that you must be wearing the item). This investiture lasts until you remove the item."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can invest no more than 10 items per day. If you remove an invested item, it loses its investiture. The item still counts against your daily limit after it loses its investiture. You reset the limit during your daily preparations, at which point you Invest your Items anew. If you're still wearing items you had invested the previous day, you can typically keep them invested on the new day, but they still count against your limit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.lvqPQDdWT2DDO0k2"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "9e5556f3-0cc9-5e73-880b-32c1003a9a7a",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:investigate",
+    "name": "Investigate",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You seek out information about your surroundings while traveling at half speed. You use Recall Knowledge as a secret check to discover clues among the various things you can see and engage with as you journey along. You can use any skill that has a Recall Knowledge action while Investigating, but the GM determines whether the skill is relevant to the clues you could find."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EwgTZBWsc8qKaViP"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "f805d484-7dfb-5a31-b21c-fda982f0b02f",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:lab-assistant",
+    "name": "Lab Assistant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It can use your "
+          },
+          {
+            "type": "ref",
+            "id": "f7253960-e3ae-516d-b0f5-2ccce16aba91"
+          },
+          {
+            "type": "text",
+            "text": " action. You must have Quick Alchemy, and your familiar must be in your space. This has the same cost and requirement as if you used it. It must have the "
+          },
+          {
+            "type": "ref",
+            "id": "69f9c17f-9dd4-5b89-8572-c8d0e90dcbd9"
+          },
+          {
+            "type": "text",
+            "text": " ability to select this."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.familiar-abilities.Item.7QosmRHlyLLhU1hX"
+    },
+    "data": {
+      "category": "familiar"
+    }
+  },
+  {
+    "id": "71add541-a69d-5261-bc06-8f8eded3f233",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:liberating-step",
+    "name": "Liberating Step",
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages, "
+          },
+          {
+            "type": "ref",
+            "id": "cab530ff-ca20-5f0a-8a5e-b9fdb322b146",
+            "label": "Grabs"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "380d34f1-f6f6-5820-b9dd-c01ee4e19fd5",
+            "label": "Grapples"
+          },
+          {
+            "type": "text",
+            "text": " your ally, and both are within 15 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You free an ally from restraint."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the trigger was an ally taking damage, the ally gains resistance to all damage against the triggering damage equal to 2 + your level."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ally can attempt to break free of effects grabbing, restraining, "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd",
+            "label": "Immobilizing"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947",
+            "label": "Paralyzing"
+          },
+          {
+            "type": "text",
+            "text": " them. They either attempt a new save against one such effect that allows a save, or attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " from one effect as a free action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If they can move, the ally can Step as a free action, even if they didn't need to escape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b8825b62-79aa-5931-be07-13697edfbba3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.IX1VlVCL5sFTptEE"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "defensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages, Grabs, or Grapples your ally, and both are within 15 feet of you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "32b92b76-50b6-514b-9df2-b48bfb74699a",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:long-term-rest",
+    "name": "Long-Term Rest",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can spend an entire day and night resting during downtime to recover Hit Points equal to your Constitution modifier (minimum 1) multiplied by twice your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.DXIZ4DHGxhZiWNWb"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "0d418870-ccb1-58aa-9ea7-939e1c5f9f67",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:mighty-rage",
+    "name": "Mighty Rage",
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You use the "
+          },
+          {
+            "type": "ref",
+            "id": "a72e844e-e47b-5fc2-89fc-9c6efdbfe5c4"
+          },
+          {
+            "type": "text",
+            "text": " action on your turn"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Use an action that has the rage trait. Alternatively, you can increase the actions of the triggering Rage to 2 to instead use a 2-action activity with the rage trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.74iat04PtfG8gn2Q"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You use the "
+            },
+            {
+              "type": "ref",
+              "id": "a72e844e-e47b-5fc2-89fc-9c6efdbfe5c4"
+            },
+            {
+              "type": "text",
+              "text": " action on your turn"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6c1b54ca-6738-5c44-b487-23cc67504d7a",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:mutagenic-flashback",
+    "name": "Mutagenic Flashback",
+    "rarity": "common",
+    "traits": ["alchemist", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You experience a brief resurgence of a mutagen. Choose one mutagen you've consumed since your last daily preparations. You gain the effects of that mutagen for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.00LNVSCbwJ8pszwE"
+    },
+    "data": {
+      "cost": "free",
+      "category": "interaction",
+      "frequency": {
+        "max": 1,
+        "per": "day"
+      }
     }
   },
   {
@@ -212,6 +1129,460 @@
     }
   },
   {
+    "id": "f7253960-e3ae-516d-b0f5-2ccce16aba91",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:quick-alchemy",
+    "name": "Quick Alchemy",
+    "rarity": "common",
+    "traits": ["alchemist", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cost",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 batch of infused reagents"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have the formula for the alchemical item you're creating, and you're either holding or wearing the "
+          },
+          {
+            "type": "ref",
+            "id": "fa6fa403-567c-5444-b0a7-92dc8bbedbd2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You swiftly mix up a short-lived alchemical item to use at a moment's notice. You create a single alchemical consumable item of your advanced alchemy level or lower that's in your formula book without having to spend the normal monetary cost in alchemical reagents or needing to attempt a Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.yzNJgwzV9XqEhKc6"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have the formula for the alchemical item you're creating, and you're either holding or wearing the Alchemist's Toolkit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a72e844e-e47b-5fc2-89fc-9c6efdbfe5c4",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:rage",
+    "name": "Rage",
+    "rarity": "common",
+    "traits": ["barbarian", "concentrate", "emotion", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aren't "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " or raging."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You tap into your inner fury and begin raging. You gain a number of temporary Hit Points equal to your level plus your Constitution modifier. This frenzy lasts for 1 minute, until there are no enemies you can perceive, or until you fall "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": ", whichever comes first. You can't voluntarily stop raging. While you are raging:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You deal 2 additional damage with melee weapons and unarmed attacks. This additional damage is halved if your weapon or unarmed attack is agile."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You take a -1 penalty to AC."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can't use actions with the concentrate trait unless they also have the rage trait. You can "
+                },
+                {
+                  "type": "ref",
+                  "id": "d45207be-e539-50ce-9463-f4edc3671076"
+                },
+                {
+                  "type": "text",
+                  "text": " while raging."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you stop raging, you lose any remaining temporary Hit Points from Rage, and you can't Rage again for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": 2,
+        "slug": "rage",
+        "predicate": [
+          "self:effect:rage",
+          {
+            "or": [
+              {
+                "not": "item:ranged"
+              },
+              {
+                "and": ["feat:raging-thrower", "item:thrown"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["strike-damage"],
+        "slug": "rage",
+        "mode": "multiply",
+        "value": 0.5,
+        "predicate": ["item:trait:agile"],
+        "priority": 95
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "untyped",
+        "value": -1,
+        "slug": "rage",
+        "predicate": ["self:effect:rage"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.Ah5g9pDwWF9b9VW9"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren't Fatigued or raging."
+            }
+          ]
+        }
+      ],
+      "selfEffect": "c7e08935-e39b-5815-a2cb-e3b8d76c3105"
+    }
+  },
+  {
+    "id": "072ae742-3488-5fb0-a4da-c412dd8835c4",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:retraining",
+    "name": "Retraining",
+    "rarity": "common",
+    "traits": ["downtime"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Retraining offers a way to alter some of your character choices, which is helpful when you want to take your character in a new direction or change decisions that didn't meet your expectations. You can retrain feats, skills, and some selectable class features. You can't retrain your ancestry, heritage, background, class, or ability scores. You can't perform other downtime activities while retraining."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Retraining usually requires you to spend time learning from a teacher, whether that entails physical training, studying at a library, or falling into shared magical trances. Your GM determines whether you can get proper training or whether something can be retrained at all. In some cases, you'll have to pay your instructor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some abilities can be difficult or impossible to retrain (for instance, a sorcerer can retrain their bloodline only in extraordinary circumstances)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When retraining, you generally can't make choices you couldn't make when you selected the original option. For instance, you can't exchange a 2nd-level skill feat for a 4th-level one, or for one that requires prerequisites you didn't meet at the time you took the original feat. If you don't remember whether you met the prerequisites at the time, ask your GM to make the call. If you cease to meet the prerequisites for an ability due to retraining, you can't use that ability. You might need to retrain several abilities in sequence in order to get all the abilities you want."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Feats"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can spend a week of downtime retraining to swap out one of your feats. Remove the old feat and replace it with another of the same type. For example, you could swap a skill feat for another skill feat, but not for a wizard feat."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Skills"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can spend a week of downtime retraining to swap out one of your skill increases. Reduce your proficiency rank in the skill losing its increase by one step and increase your proficiency rank in another skill by one step. The new proficiency rank has to be equal to or lower than the proficiency rank you traded away. For instance, if your bard is a master in Performance and Stealth, and an expert in Occultism, you could reduce the character's proficiency in Stealth to expert and become a master in Occultism, but you couldn't reassign that skill increase to become legendary in Performance. Keep track of your level when you reassign skill increases; the level at which your skill proficiencies changed can influence your ability to retrain feats with skill prerequisites."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also spend a week to retrain an initial trained skill you gained during character creation."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Class Features"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can change a class feature that required a choice, making a different choice instead. This lets you change a druid order or a wizard school, for example. The GM will tell you how long this takes-always at least a month."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.24PSsn1SKpUwYA1X"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "62d1d6be-ba2e-5bca-a73a-fcf469eca412",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:retributive-strike",
+    "name": "Retributive Strike",
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " An enemy damages your ally, and both are within 15 feet of you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You protect your ally and strike your foe. The ally gains resistance to all damage against the triggering damage equal to 2 + your level. If the foe is within reach, make a melee Strike against it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b8825b62-79aa-5931-be07-13697edfbba3"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.EAP98XaChJEbgKcK"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An enemy damages your ally, and both are within 15 feet of you"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "b648d491-cda2-5e3f-a269-27323d7e97a5",
     "pack": "core-rulebook",
     "kind": "action",
@@ -249,6 +1620,181 @@
     "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.actionspf2e.Item.kV3XM0YJeS2KCSOb"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "13c83114-7186-5ae6-99eb-2730f9d20d72",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:search",
+    "name": "Search",
+    "rarity": "common",
+    "traits": ["concentrate", "exploration"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " meticulously for hidden doors, concealed hazards, and so on. You can usually make an educated guess as to which locations are best to check and move at half speed, but if you want to be thorough and guarantee you checked everything, you need to travel at a Speed of no more than 300 feet per minute, or 150 feet per minute to ensure you check everything before you walk into it. You can always move more slowly while Searching to cover the area more thoroughly, and the "
+          },
+          {
+            "type": "ref",
+            "id": "3b1816b0-a83d-512a-98d3-dbf735f7274d"
+          },
+          {
+            "type": "text",
+            "text": " feat increases these maximum Speeds. If you come across a secret door, item, or hazard while Searching, the GM will attempt a free secret check to Seek to see if you notice the hidden object or hazard. In locations with many objects to search, you have to stop and spend significantly longer to search thoroughly."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.TiNDYUGlMmxzxBYU"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "8569d658-15de-5110-babc-de3ae9c6e7ff",
+    "pack": "core-rulebook",
+    "kind": "action",
+    "slug": "action:squeeze",
+    "name": "Squeeze",
+    "rarity": "common",
+    "traits": ["exploration", "move", "skill"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You contort yourself to squeeze through a space so small you can barely fit through. This action is for exceptionally small spaces; many tight spaces are difficult terrain that you can move through more quickly and without a check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You squeeze through the tight space in 1 minute per 10 feet of squeezing."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You squeeze through in 1 minute per 5 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You become stuck in the tight space. While you're stuck, you can spend 1 minute attempting another Acrobatics check at the same DC. Any result on that check other than a critical failure causes you to become unstuck."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "Sample Squeeze Tasks"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Trained",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " space barely fitting your shoulders"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Master",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " space barely fitting your head"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.actionspf2e.Item.kMcV8e5EZUxa6evt"
     },
     "data": {
       "category": "interaction"

@@ -1,5 +1,784 @@
 [
   {
+    "id": "a3bab13b-5b4d-570e-b517-6ed9cc371793",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-black-pearl",
+    "name": "Aeon Stone (Black Pearl)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This black pearl sparkles with light. The resonant power allows you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "3c2ab746-3091-512f-9309-804440742c21"
+          },
+          {
+            "type": "text",
+            "text": " once per day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " you are targeted by a mental effect"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You receive a +4 status bonus to your saving throw against the triggering effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether or not your save is successful, the aeon stone attempts a counteract check at 1d20+30 to immediately reflect a copy of the effect back at the originator, targeting it using the creature's own relevant statistics but controlling the effect as if you had cast it."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Every time you activate this aeon stone, attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, the stone shatters and loses its magical properties forever."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "cf7fe33f-ccb4-5d68-a3b8-7c594af001cc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.J7vQowV531Sz73Gw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "ae16e28c-c150-50e8-949a-6385f4390fed",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-gold-nodule",
+    "name": "Aeon Stone (Gold Nodule)",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a gold nodule aeon stone is created, its creator chooses a language they know to store within the crystal. When you invest the stone, you gain the ability to understand, speak, and write that language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power allows you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "80285128-e7a0-55e7-a386-1f845f6d09aa"
+          },
+          {
+            "type": "text",
+            "text": " as an occult innate spell once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.odSvUKzphdwvDqgE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 230
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "f595bd5f-d70f-53ce-bee2-db50ca74f923",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-lavender-and-green-ellipsoid",
+    "name": "Aeon Stone (Lavender and Green Ellipsoid)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This functions as a pale lavender ellipsoid aeon stone, but it casts an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " spell with a counteract modifier of 1d20+31."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power allows you to cast "
+          },
+          {
+            "type": "ref",
+            "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "type": "text",
+            "text": " as arcane innate spells at will."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5sMAAIymln2yIl4q"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "18b76647-9473-549b-b80a-7755b9e2aff2",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-pale-lavender-ellipsoid",
+    "name": "Aeon Stone (Pale Lavender Ellipsoid)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This aeon stone must be activated to provide a benefit. The resonant power allows you to cast the "
+          },
+          {
+            "type": "ref",
+            "id": "02c769dd-dba8-5437-8189-28b9800afaac"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A spell targets you"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The stone casts a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " spell in an attempt to counteract the triggering spell, with a counteract modifier of 1d20+22. This can be used only on spells that specifically target you-not area spells that don't have targets. If it succeeds, it counteracts the spell for all targets if other creatures were targeted in addition to you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each time you activate this "
+          },
+          {
+            "type": "text",
+            "text": "aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, the stone permanently turns into a "
+          },
+          {
+            "type": "text",
+            "text": "dull gray aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B4R0LK8bgw0Vjtf0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2200
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "aeon-stone-pale-lavender-ellipsoid",
+          "name": "Aeon Stone (Pale Lavender Ellipsoid)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "330ec32b-3bf8-5679-8ae2-5490a18cdee4",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:aeon-stone-pink-rhomboid",
+    "name": "Aeon Stone (Pink Rhomboid)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest this stone, you gain 15 temporary Hit Points. If the stone's effects are suppressed, you lose any of the temporary Hit Points remaining until it returns. The temporary Hit Points refresh during your daily preparations; they do not refresh if you re-invest the stone, or invest another "
+          },
+          {
+            "type": "text",
+            "text": "pink rhomboid aeon stone",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", before then."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The resonant power allows you to cast the "
+          },
+          {
+            "type": "ref",
+            "id": "831dfab1-0c8e-592f-9a9d-5d8b27b69014"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as a divine innate spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "932c5903-ddd0-50fc-bbbb-51a17b8e8194"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lJ3BzUZkGTOCWleL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1900
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "4c41b880-750e-5164-ab35-1666c0f26171",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles",
+    "name": "Alchemist Goggles",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +1 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items and a +1 item bonus to attack rolls with alchemical bombs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also ignore lesser cover when making Strikes with alchemical bombs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:alchemical", "action:craft"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:alchemical", "option:bomb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7JVgLiNTAs4clEW8"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "c9051a99-b2ac-5d3b-b3c8-28cf2ce1c6c5",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles-greater",
+    "name": "Alchemist Goggles (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +2 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items and a +2 item bonus to attack rolls with alchemical bombs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also ignore lesser cover when making Strikes with alchemical bombs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:alchemical", "action:craft"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:alchemical", "option:bomb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8XZqdeZStFAM4XnH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
+    "id": "5ea957b8-86ab-5c55-874d-2df45d091ef2",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:alchemist-goggles-major",
+    "name": "Alchemist Goggles (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These brass goggles are engraved with flame patterns and have thick, heavy lenses."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While worn, they give you a +3 item bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " alchemical items and a +3 item bonus to attack rolls with alchemical bombs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also ignore lesser cover when making Strikes with alchemical bombs."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:alchemical", "action:craft"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["option:alchemical", "option:bomb"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bnmfBLXOBd3ah6GK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
     "id": "9e4552af-36c9-5d9b-b161-121a15956337",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -308,6 +1087,309 @@
     }
   },
   {
+    "id": "54b81e21-e651-56c0-8f23-744dfc8ec34f",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:belt-of-the-five-kings",
+    "name": "Belt of the Five Kings",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Made from interlocking plates of silver and gold, this heavy belt bears stylized miniature images of five kingly dwarves. You gain a +1 circumstance bonus to Diplomacy checks to "
+          },
+          {
+            "type": "ref",
+            "id": "722e5346-27c0-5157-b5a9-e6018df94150"
+          },
+          {
+            "type": "text",
+            "text": " with dwarves or make a "
+          },
+          {
+            "type": "ref",
+            "id": "bd7385d5-c754-542c-9518-060942de3701"
+          },
+          {
+            "type": "text",
+            "text": " from dwarves. You also gain a +1 circumstance bonus to Intimidation checks against giants and orcs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The belt also grants you darkvision and the ability to understand, speak, and write the Dwarven language."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a dwarf"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You tighten the belt one notch to gain temporary Hit Points equal to your level and grant allies within 20 feet of you darkvision. Both effects last for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d53fc7cb-48eb-5713-98e4-546fe9208c4b"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "437e36b6-7ba7-590a-bc7d-9e4e7caabf49"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["target:trait:dwarf"],
+        "display": {
+          "label": "Belt of 5 Kings (dwarves)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["target:trait:giant", "target:trait:orc"]
+          }
+        ],
+        "display": {
+          "label": "Belt of 5 Kings (giants, orcs)"
+        }
+      },
+      {
+        "key": "Sense",
+        "sense": "67979b6a-4b24-5be5-b7ea-94783c497bcb"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YCjVrQnHfOtpmjYW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 650
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "belt-of-the-five-kings",
+          "name": "Belt of the Five Kings",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "belt"
+      }
+    }
+  },
+  {
+    "id": "ba6227bd-7c72-526a-8cc6-5b1631239964",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:berserkers-cloak",
+    "name": "Berserker's Cloak",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["invested", "primal"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bearskin includes the head and bared teeth of the mighty creature from which it was taken. When worn, the cloak drapes over your head and around your shoulders, imbuing you with a bear's ferocity."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have the Rage action, while raging you grow jaws that deal 1d10 piercing damage and claws that deal 1d6 slashing damage and have the agile trait. This transformation is a morph effect, and both the jaws and claws are unarmed attacks in the brawling weapon group. You gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+1 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune with these attacks (gaining a +1 item bonus to attack rolls and increasing the weapon damage dice by one)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have an animal instinct and the bestial rage instinct ability, instead of gaining these unarmed attacks, your unarmed attacks from the bestial rage instinct ability gain the benefits of a "
+          },
+          {
+            "type": "text",
+            "text": "+2 weapon potency",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune and a "
+          },
+          {
+            "type": "text",
+            "text": "greater striking",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " rune (granting a +2 item bonus to attack rolls and increasing the weapon damage dice by two)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a barbarian with the animal instinct."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.DwLaGtbBdCh2NFbT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
     "id": "979ad733-73ba-5c8d-9da9-fbde807d1406",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -416,6 +1498,136 @@
       "usage": {
         "type": "worn",
         "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "6bcbb847-18e7-57b6-b1d1-971e507f34f8",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:boots-of-elvenkind",
+    "name": "Boots of Elvenkind",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These tall, pointed boots are made from soft, supple black or green leather and are decorated with trim and buckles of gold. When worn, the boots allow you to move more nimbly, granting you a +1 item bonus to Acrobatics checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Until the end of your turn, you ignore difficult terrain when moving on the ground. If you're wearing a "
+          },
+          {
+            "type": "ref",
+            "id": "39de6583-12f2-5047-a089-1a029995b9d1"
+          },
+          {
+            "type": "text",
+            "text": ", you also gain a +5-foot status bonus to your land Speed until the end of your turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "77627453-bfb0-528d-bb7b-7c12a89d351a"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.T00Xa9aDwHxd60Zh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 145
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "boots-of-elvenkind",
+          "name": "Boots of Elvenkind",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "shoes"
       }
     }
   },
@@ -547,6 +1759,57 @@
       "usage": {
         "type": "worn",
         "slot": "shoes"
+      }
+    }
+  },
+  {
+    "id": "e488c5cf-b739-5dbc-8d56-daac4996a3be",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:brooch-of-shielding",
+    "name": "Brooch of Shielding",
+    "level": 2,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This piece of silver or gold jewelry is adorned with miniature images of kite shields and can be used to fasten a cloak or cape."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The brooch automatically absorbs magic missile spells targeting you. A brooch of shielding can absorb 30 individual magic missiles before it melts and becomes useless. Sometimes when found, a brooch of shielding has already absorbed a number of missiles."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TmQalYKNNRuEdoTh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
       }
     }
   },
@@ -688,6 +1951,88 @@
     }
   },
   {
+    "id": "005244a1-88f9-5eef-a894-9f5035ce4aaf",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:chime-of-opening",
+    "name": "Chime of Opening",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This hollow dawnsilver tube is about a foot long and bears engravings reminiscent of open locks and broken chains. The chime can be activated 10 times before it cracks and becomes useless."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You aim the chime at a container, door, or lock you want to open and strike the chime. The chime sends out magical vibrations that attempt a Thievery check against the lock's DC, with a Thievery bonus of 1d20+13. This targets only one lock or binding at a time, so you might need to activate the chime multiple times to open a target with several forms of protection."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3sGpEBXsZwjGnoES"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 235
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
     "id": "dfd3897a-b945-5910-891d-e86a014a1be0",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -808,6 +2153,157 @@
         "slot": "circlet"
       },
       "apex": "cha"
+    }
+  },
+  {
+    "id": "39de6583-12f2-5047-a089-1a029995b9d1",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-elvenkind",
+    "name": "Cloak of Elvenkind",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["illusion", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This cloak is deep green with a voluminous hood, embroidered with gold trim and symbols significant in elven culture. The cloak allows you to cast the "
+          },
+          {
+            "type": "ref",
+            "id": "8ad0ebfc-593b-5631-b93e-122a74cb8574"
+          },
+          {
+            "type": "text",
+            "text": " cantrip as an arcane innate spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you adjust the cloak's clasp (an Interact action), the cloak transforms to match the environment around you and muffles your sounds, granting you a +1 item bonus to Stealth checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "d46e3367-47a1-5101-b066-a40ebf5e4185"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You draw the hood up and gain the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": ", with the spell's normal duration or until you pull the hood back down, whichever comes first. If you're also wearing "
+          },
+          {
+            "type": "ref",
+            "id": "6bcbb847-18e7-57b6-b1d1-971e507f34f8"
+          },
+          {
+            "type": "text",
+            "text": " you can activate this ability twice per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MNBnZn0b80Q7yHJM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cloak-of-elvenkind",
+          "name": "Cloak of Elvenkind",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
     }
   },
   {
@@ -964,6 +2460,476 @@
     }
   },
   {
+    "id": "0ac0882c-35eb-5449-b8e5-ea1392331ced",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-the-bat",
+    "name": "Cloak of the Bat",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sewn from several long strips of luxurious brown and black silk, this cloak grants you a +2 item bonus to Stealth checks as well as to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "1ae0ccf4-979a-5abe-a4cd-c5ecef1e4232"
+          },
+          {
+            "type": "text",
+            "text": ". You can also use your feet to hang from any surface that can support your weight, without requiring any check, though you still must attempt Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": " in order to move around while inverted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can either transform the cloak into bat-like wings that grant you a fly Speed of 30 feet for 10 minutes, or have the cloak turn you into a bat by casting a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          },
+          {
+            "type": "text",
+            "text": " spell on you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8671ab76-d850-53ec-aa68-e7b0e3c25170"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["action:maneuver-in-flight"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dipcMOtBFxtmsjkS"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 950
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "cloak-of-the-bat",
+          "name": "Cloak of the Bat",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "8b5221ce-d33d-562b-90f3-c4b9266eb103",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:cloak-of-the-bat-greater",
+    "name": "Cloak of the Bat (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sewn from several long strips of luxurious brown and black silk, this cloak grants you a +3 item bonus to Stealth checks as well as to Acrobatics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "1ae0ccf4-979a-5abe-a4cd-c5ecef1e4232"
+          },
+          {
+            "type": "text",
+            "text": ". You can also use your feet to hang from any surface that can support your weight, without requiring any check, though you still must attempt Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "d26ec2df-83bd-5f2f-988e-e922681de6ba"
+          },
+          {
+            "type": "text",
+            "text": " in order to move around while inverted."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " any number of times per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can either transform the cloak into bat-like wings that grant you a fly Speed of 30 feet for 10 minutes, or have the cloak turn you into a bat by casting a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2e1a723b-ad9f-53b0-bee3-21b8401988f0"
+          },
+          {
+            "type": "text",
+            "text": " spell on you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8671ab76-d850-53ec-aa68-e7b0e3c25170"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:acrobatics"],
+        "type": "item",
+        "value": 3,
+        "predicate": ["action:maneuver-in-flight"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ifAp8wHKBZltgHG0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "cloak"
+      }
+    }
+  },
+  {
+    "id": "bd3d8ff2-b74b-5d29-95b8-69e58072e8af",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:decanter-of-endless-water",
+    "name": "Decanter of Endless Water",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This item looks like an ordinary glass flask full of water. The stopper can't be removed unless you speak one of the item's three command words, each of which causes water to pour forth in a different way. Pulling the stopper straight out creates fresh water, and rotating it as you pull creates salt water. Any effect of the decanter lasts until the decanter is plugged (with its own stopper, a finger, or the like)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speaking \"stream\", you cause water to pour out at a rate of 1 gallon per round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speaking \"fountain\", you cause water to pour out in a 5-foot-long stream at a rate of 5 gallons per round."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Speaking \"geyser\", you cause a powerful deluge of water to erupt at a rate of 15 gallons per round. You can direct the stream at a creature, subjecting it to the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "34da213b-dfe6-5e19-b7f5-bfc627cadded"
+          },
+          {
+            "type": "text",
+            "text": " (spell attack roll +15). You can repeat this once per round as long as the geyser continues, spending an Interact action to direct the geyser each time."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aBVrNIPoPGOYxm80"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 320
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  },
+  {
     "id": "ae7303a2-ed1f-5023-a324-ce270260e1ba",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -1048,6 +3014,1866 @@
         }
       },
       "bulk": "light",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "247eb6e8-a636-5796-be4f-8ab04a9f35c6",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:holy-prayer-beads",
+    "name": "Holy Prayer Beads",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["divine", "healing", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strand of ordinary-looking prayer beads glows with a soft light and becomes warm to the touch the first time you cast a divine spell while holding it. When you do, the prayer beads become attuned to your deity, changing their form and iconography to prominently incorporate your deity's religious symbol and iconography. The beads don't transform or function for an evil spellcaster."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you cast a divine spell from your own spell slots while holding the prayer beads, you recover "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true,
+            "label": "1 Hit Point"
+          },
+          {
+            "type": "text",
+            "text": "; this is a vitality healing effect. If the spell you cast was a healing spell, you can grant this additional healing to one of the spell's targets instead of yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast "
+          },
+          {
+            "type": "ref",
+            "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": ", each once per day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the divine tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KrmSuQIyu6OEi5ew"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 160
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "081f17ab-31df-50ed-8c4f-41a1189a9c33",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:holy-prayer-beads-greater",
+    "name": "Holy Prayer Beads (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["divine", "healing", "vitality"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This strand of ordinary-looking prayer beads glows with a soft light and becomes warm to the touch the first time you cast a divine spell while holding it. When you do, the prayer beads become attuned to your deity, changing their form and iconography to prominently incorporate your deity's religious symbol and iconography. The beads don't transform or function for an evil spellcaster."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whenever you cast a divine spell from your own spell slots while holding the prayer beads, you recover "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "vitality"
+              }
+            ],
+            "healing": true,
+            "label": "1d4 Hit Points"
+          },
+          {
+            "type": "text",
+            "text": "; this is a vitality healing effect. If the spell you cast was a healing spell, you can grant this additional healing to one of the spell's targets instead of yourself."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast 4th-rank versions of "
+          },
+          {
+            "type": "ref",
+            "id": "bd1e2643-132f-5c7c-8b60-b97e26a01266"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "c9f296d5-7325-5ec8-be5d-eb9502269e2f"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "9495e90b-a69c-5eaf-a472-b6b536856f28"
+          },
+          {
+            "type": "text",
+            "text": " each once per day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the divine tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OHs7L8CJMdp2UV0P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a74e5242-bee7-53f2-81eb-c61fd07a6cf9",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:horn-of-blasting",
+    "name": "Horn of Blasting",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["sonic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "horn of blasting",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a bright brass trumpet. It can be played as an instrument, granting a +2 item bonus to your Performance check."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " When you activate the horn by blowing into it with destructive intent, you create a blast note targeting one creature or object within 30 feet. The blast deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can blow even louder to create an intense blast wave in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "sonic"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. Each creature attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28,
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature takes no damage."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and is deafened for 2d6 rounds."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save with the following effects."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes no damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and is deafened for 2d6 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:performance"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WAMDYE9tt3W8obzr"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "horn-of-blasting",
+          "name": "Horn of Blasting",
+          "frequency": {
+            "max": 1,
+            "per": "round"
+          }
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0d7fd6e9-9f12-5ce0-ba5c-3672e36de6dc",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:immovable-rod",
+    "name": "Immovable Rod",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This flat iron bar is almost completely nondescript, except for one small button appearing on its surface."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You push the button to anchor the rod in place. It doesn't move, defying gravity if need be. If the button is pushed again, the rod deactivates, ending the anchoring magic. While anchored, the rod can be moved only if 8,000 pounds of pressure are applied to it or if a creature uses Athletics to Force Open the rod with a DC of 40 (though most intelligent creatures can just push the button to release the rod)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.14LrP7bx8Q1jimHO"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 600
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cc2af3c6-4fc9-548e-aa71-8e1934be5e50",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:instant-fortress",
+    "name": "Instant Fortress",
+    "level": 16,
+    "rarity": "uncommon",
+    "traits": ["magical", "structure"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This metal cube is small enough to fit in your palm. Close inspection reveals fine lines in the dark gray metal, as though the cube were folded thousands of times."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You toss the cube on the ground, and it immediately unfolds into an adamantine fortress."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fortress is 20 feet square and 30 feet high, with adamantine stairs leading up to three sets of battlements at heights of 10 feet and 20 feet and at the top. Arrow slits along the lower battlements and crenelations at the top provide standard cover to anyone within the fortress. There's no roof, leaving an open, 10-foot-square vertical shaft through the center of the structure."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "As a magical structure, the fortress has the structure trait. Because it expands outward, the fortress can't catch creatures inside it as a magical structure normally does. Instead, it pushes those creatures back. It can't push a creature into a surface or hazard this way, and stops expanding if that would happen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fortress has a single door in the center of one wall on the ground level, and the door appears directly in front of you when you activate the fortress. Provided you're within 100 feet of the door, you can cause the door to open or slam shut and lock by spending a single action to issue a verbal command, which has the auditory trait. The DC to Force Open the door or Pick its Lock is 40."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can instantly return the instant fortress to its cube form by spending a single action to issue a verbal command, which has the auditory trait. Once deactivated, the fortress can't be activated again for 4 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the fortress becomes damaged, it can be repaired only with a remake spell or by someone who is legendary at Crafting."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EXXqJp8rU6HR5Ufg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 9300
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e83d0169-65ac-527e-ace7-a3388fbae10e",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:knapsack-of-halflingkind",
+    "name": "Knapsack of Halflingkind",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "healing", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy leather satchel contains three compartments fastened with large clasps. The first compartment is lined in blue satin and contains an extradimensional space equivalent to a "
+          },
+          {
+            "type": "ref",
+            "id": "7d21cd24-78ab-55b9-b65f-d662ae43cb37",
+            "label": "Bag of Holding (Type II)"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The second compartment has no lining. You can pull forth cookware and cooking utensils from it. Once they have been used to prepare a meal, the items transform into plates and silverware, and they evaporate once the meal has been eaten, taking any leftovers with them. The cookware reappears cleaned in the compartment 1 hour later. The compartment provides only kitchenware, not any food."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The third compartment is lined with plush purple velvet and contains berry tarts wrapped in parchment paper. A creature can unwrap and eat one tart with an Interact action to regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d8+4"
+              }
+            ],
+            "healing": true,
+            "label": "2d8+4 Hit Points"
+          },
+          {
+            "type": "text",
+            "text": ". The knapsack produces four tarts per day, which appear at breakfast time. Any tarts not eaten by the end of the day evaporate."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rdF2RKgFK0vOlaeV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "backpack"
+      },
+      "container": {
+        "capacity": 50,
+        "ignored": 50,
+        "heldBulk": "light"
+      }
+    }
+  },
+  {
+    "id": "8c3179db-06c9-5533-88bf-503b8d23517f",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:knapsack-of-halflingkind-greater",
+    "name": "Knapsack of Halflingkind (Greater)",
+    "level": 13,
+    "rarity": "uncommon",
+    "traits": ["extradimensional", "healing", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sturdy leather satchel contains five compartments fastened with large clasps. The first compartment is lined in blue satin and contains an extradimensional space equivalent to a "
+          },
+          {
+            "type": "ref",
+            "id": "7d21cd24-78ab-55b9-b65f-d662ae43cb37",
+            "label": "Bag of Holding (Type II)"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The second compartment has no lining. You can pull forth cookware and cooking utensils from it. Once they have been used to prepare a meal, the items transform into plates and silverware, and they evaporate once the meal has been eaten, taking any leftovers with them. The cookware reappears cleaned in the compartment 1 hour later. The compartment provides only kitchenware, not any food."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The third compartment is lined with plush purple velvet and contains berry tarts wrapped in parchment paper. A creature can unwrap and eat one tart with an Interact action to regain "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8+8"
+              }
+            ],
+            "healing": true,
+            "label": "4d8+8 Hit Points"
+          },
+          {
+            "type": "text",
+            "text": ". The knapsack produces four tarts per day, which appear at breakfast time. Any tarts not eaten by the end of the day evaporate."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The fourth compartment is lined in golden velvet. Once per day, you can draw a lucky magic sling bullet from this compartment. If you attack with this sling bullet, you roll twice and use the better result on your attack roll and your damage roll. This is a fortune effect. The stone becomes non-magical if not hurled by the end of your turn. Once activated, this compartment stitches itself shut until the next day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bag's fifth compartment is lined in black wool. Once per day, you can unfold this compartment into a 5-foot-diameter portal on the ground. The first person to Step into the portal from an adjacent square is teleported away. This has the same effect as an 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e25a3eab-3b7d-56fd-90e2-98d892fdc8fd"
+          },
+          {
+            "type": "text",
+            "text": " spell, except the affected creature takes the knapsack with them. When the portal is used, or at the start of your next turn if it hasn't been used, the compartment closes automatically and can't be unfolded until the next day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9cK0QVSjNd8tQtiQ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2850
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn",
+        "slot": "backpack"
+      },
+      "container": {
+        "capacity": 50,
+        "ignored": 50,
+        "heldBulk": "light"
+      }
+    }
+  },
+  {
+    "id": "964b4d29-3834-5c3d-84e4-fd472856dca2",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-i",
+    "name": "Necklace of Fireballs I",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 21,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6cV9Kpwc7aiuhqbH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 44
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "435140b9-d4dd-5baa-ad9f-c87ff38d3535",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-ii",
+    "name": "Necklace of Fireballs II",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Zun8aKbODnBFeut6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 115
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "206e14bd-9ab5-5fac-a61e-274f1ea2b0e6",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-iii",
+    "name": "Necklace of Fireballs III",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IufO3dNPhC1c2ZcL"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "88cdf3a0-8aff-538a-bce2-d8f15d226f47",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-iv",
+    "name": "Necklace of Fireballs IV",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and three "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 30,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Dr9b08JhDThUenF9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 700
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "c72a7684-0b10-5c84-85ae-7e52cec5d486",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-v",
+    "name": "Necklace of Fireballs V",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, two "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and four "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 32,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hDO0vRS8r9K2Zw87"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1600
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "0f625257-3f48-5758-bbda-4a68f991be05",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:necklace-of-fireballs-vi",
+    "name": "Necklace of Fireballs VI",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This string of beads appears to be a hemp string with lustrous red beads of various sizes hanging from it. When activated, it briefly appears in its true form: a golden chain with golden spheres attached by fine threads."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This necklace has one "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, three "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and four "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage beads with a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 36,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save. When all the beads are gone, the necklace becomes a non-magical hemp string."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You detach a sphere from the necklace, causing it to glow with orange light. After you activate a sphere, if you or anyone else hurls it (an Interact action with the ranged trait), it detonates as a "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " where it lands. Your toss can place the center of the fireball anywhere within 70 feet, though at the GM's discretion you might need to make an attack roll if the throw is unusually challenging. If no one hurls the sphere by the start of your next turn, it turns into a non-magical red bead."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZZcIhgiKuptXRGyK"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4200
+        }
+      },
+      "bulk": "negligible",
       "usage": {
         "type": "worn"
       }
@@ -1196,6 +5022,661 @@
         }
       },
       "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "b775e0d9-a778-5d20-bbf8-f967f54facae",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:phylactery-of-faithfulness",
+    "name": "Phylactery of Faithfulness",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny box holds a fragment of religious scripture sacred to a particular deity. The box is worn by affixing it to a leather cord and tying it around your head just above your brow. You don't gain any benefit from the phylactery if you don't worship the affiliated deity. The phylactery grants you religious wisdom, which manifests as a +2 item bonus to Religion checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just before you perform an action that would be anathema to the phylactery's deity, the phylactery warns you of the potential transgression in time for you to change your mind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ask for guidance about a particular course of action, gaining the effects of an "
+          },
+          {
+            "type": "ref",
+            "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pPl2b7fqfB6dyQwf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 680
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "phylactery-of-faithfulness",
+          "name": "Phylactery of Faithfulness",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn",
+        "slot": "circlet"
+      }
+    }
+  },
+  {
+    "id": "5c345542-9fd6-5eb9-845b-0f5f74b94edf",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:phylactery-of-faithfulness-greater",
+    "name": "Phylactery of Faithfulness (Greater)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["divine", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny box holds a fragment of religious scripture sacred to a particular deity. The box is worn by affixing it to a leather cord and tying it around your head just above your brow. You don't gain any benefit from the phylactery if you don't worship the affiliated deity. The phylactery grants you religious wisdom, which manifests as a +3 item bonus to Religion checks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Just before you perform an action that would be anathema to the phylactery's deity, the phylactery warns you of the potential transgression in time for you to change your mind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once every 30 minutes"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You ask for guidance about a particular course of action, gaining the effects of an "
+          },
+          {
+            "type": "ref",
+            "id": "dfab75a2-997b-5597-b7d7-3b9ad9e935dc"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:religion"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.hrG2w4IfF1QZhSzw"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "worn",
+        "slot": "circlet"
+      }
+    }
+  },
+  {
+    "id": "3288256f-7f98-5a28-a811-fc6d725a5625",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-counterspells",
+    "name": "Ring of Counterspells",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ornate silver ring bears two competing geometric designs of brightly colored and wildly clashing inlaid gemstones. A spellcaster can cast a single spell into this ring as long as no spell is currently stored within, expending the normal time, costs, and so forth to Cast the Spell. The spell's effect doesn't occur; the spell's power is instead stored within the ring."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you invest a "
+          },
+          {
+            "type": "text",
+            "text": "ring of counterspells",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", you immediately know the name and rank of the spell stored inside, if any. A "
+          },
+          {
+            "type": "text",
+            "text": "ring of counterspells",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " found as treasure has a 50% chance of having a spell stored in it. The GM determines that spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are targeted by or within the area of the spell stored within the ring"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can attempt to counteract the triggering spell, using the rank of the spell stored in the ring and a counteract modifier of 1d20+19. Once you do, the stored spell's energy is spent, and the ring is empty."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You harmlessly expend the stored spell, having no effect but emptying the ring so that another spell can be cast into it."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cBKrXbxM02MlycpV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 925
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "2b03c3c2-ae95-5ebe-879c-f1938f00b0ea",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-maniacal-devices",
+    "name": "Ring of Maniacal Devices",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can use an Interact action to pull a set of thieves' tools from the ring. These tools appear in your hand and fold back into the ring if they would leave your possession."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "They grant you a +2 item bonus to Thievery checks to "
+          },
+          {
+            "type": "ref",
+            "id": "b2ba8e49-aecf-574a-882d-bef04a43b74f"
+          },
+          {
+            "type": "text",
+            "text": " and to "
+          },
+          {
+            "type": "ref",
+            "id": "b5e569b6-685e-5957-96ef-b148bd98fab6"
+          },
+          {
+            "type": "text",
+            "text": ", and the ring's insights grant you the same bonus to Crafting checks to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "0c62b450-d8c6-5051-b961-b7ce1aeb349a"
+          },
+          {
+            "type": "text",
+            "text": " snares and traps."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You create a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9049d7-9366-5a37-807f-cd01013db359"
+          },
+          {
+            "type": "text",
+            "text": " containing "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "glyph of warding",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " from a "
+          },
+          {
+            "type": "text",
+            "text": "ring of maniacal devices",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " active at a time, even if you have multiple rings, and the spell ends if you lose your investiture in the ring."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:thievery"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["action:disable-a-device", "action:pick-a-lock"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Disable Devices and Pick a Lock)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "action:craft",
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Craft snares and traps)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 2,
+        "predicate": [
+          "action:repair",
+          {
+            "or": ["option:snare", "option:trap"]
+          }
+        ],
+        "display": {
+          "label": "Ring of Maniacal Devices (Repair snares and traps)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nLvP7U50hLqz26Uy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1175
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ring-of-maniacal-devices",
+          "name": "Ring of Maniacal Devices",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
       "usage": {
         "type": "worn"
       }
@@ -1441,6 +5922,1202 @@
     }
   },
   {
+    "id": "0544a917-8bcc-5bf0-9dd9-2799b938a7a2",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-spell-turning",
+    "name": "Ring of Spell Turning",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This golden ring has three diamonds set into its face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are targeted by a spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ring replicates the effects of an 8th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "0dc82605-ec39-5176-af2b-1d9a5deb9b9c"
+          },
+          {
+            "type": "text",
+            "text": " with a counteract modifier of 1d20+35, possibly causing the triggering spell to reflect back on its caster."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The ring can reflect no more than 9 total ranks of spells per day. If you activate the ring to reflect a spell that would exceed this limit, the attempt fails, but the attempted usage of the ring does not count toward the daily limit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ivqd84dkWA8DW8YJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 67000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5cdeed5e-095b-5bf0-8a4e-38b3b5ad94f6",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-the-ram",
+    "name": "Ring of the Ram",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["force", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy iron ring is shaped to look like the head of a ram, with curling horns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or more (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ram-shaped blast of force slams into one foe that you can see within 60 feet. The number of actions you spend to Activate this Item (from 1 to 3) determines the intensity of the force."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blow deals 2d6 force damage per action spent and pushes the target 5 feet per action spent. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 22
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is pushed half the distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is pushed the full distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage and is pushed twice the distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.s97FDCHi2UcfzKGn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 220
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ring-of-the-ram",
+          "name": "Ring of the Ram",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "7049afe9-d6bb-559a-9c53-31310204578d",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-the-ram-greater",
+    "name": "Ring of the Ram (Greater)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["force", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy iron ring is shaped to look like the head of a ram, with curling horns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " or more (Interact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ram-shaped blast of force slams into one foe that you can see within 60 feet. The number of actions you spend to Activate this Item (from 1 to 3) determines the intensity of the force."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blow deals 3d6 force damage per action spent and pushes the target 5 feet per action spent. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 32
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you activate the ring using 3 actions, you can disperse the force into multiple magical rams, targeting all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " instead of one target within 60 feet."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes half damage and is pushed half the distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes full damage and is pushed the full distance."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes double damage and is pushed twice the distance."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oSltacqbeotmzLNJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2700
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ring-of-the-ram-greater",
+          "name": "Ring of the Ram (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "5ee4d4d1-9a63-5357-b4e0-8945c390c616",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-wizardry-type-i",
+    "name": "Ring of Wizardry (Type I)",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["arcane", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring is made from the purest platinum and is covered in esoteric arcane symbols. It does nothing unless you have a spellcasting class feature with the arcane tradition. While wearing the ring of wizardry, you gain a +1 item bonus to Arcana checks and have two additional 1st-rank arcane spell slots each day. You prepare spells in these slots or cast from them spontaneously, just as you normally cast your spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you take off the ring for any reason, you lose the additional spell slots. You can't gain spell slots from more than one ring of wizardry per day, nor can a single ring of wizardry grant spell slots more than once per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can cast arcane spells in a variety of different ways (such as if you are a draconic bloodline sorcerer with the wizard multiclass archetype), you can divide the spell slots as you wish among your various sources of arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the arcane tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.faKyy6ETkDgrUnvf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 360
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "e5aca264-2a5f-53a1-ac68-a121be38491d",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-wizardry-type-ii",
+    "name": "Ring of Wizardry (Type II)",
+    "level": 10,
+    "rarity": "uncommon",
+    "traits": ["arcane", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring is made from the purest platinum and is covered in esoteric arcane symbols. It does nothing unless you have a spellcasting class feature with the arcane tradition. While wearing the ring of wizardry, you gain a +2 item bonus to Arcana checks and have two additional 2nd-rank and one additional 1st-rank arcane spell slot each day. You prepare spells in these slots or cast from them spontaneously, just as you normally cast your spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you take off the ring for any reason, you lose the additional spell slots. You can't gain spell slots from more than one ring of wizardry per day, nor can a single ring of wizardry grant spell slots more than once per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can cast arcane spells in a variety of different ways (such as if you are a draconic bloodline sorcerer with the wizard multiclass archetype), you can divide the spell slots as you wish among your various sources of arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the arcane tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.2tSDgHfSkkaX4CA4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "eeafd90e-d857-5499-9ffb-3a1f5df327a8",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-wizardry-type-iii",
+    "name": "Ring of Wizardry (Type III)",
+    "level": 12,
+    "rarity": "uncommon",
+    "traits": ["arcane", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring is made from the purest platinum and is covered in esoteric arcane symbols. It does nothing unless you have a spellcasting class feature with the arcane tradition. While wearing the ring of wizardry, you gain a +2 item bonus to Arcana checks and have two additional 3rd-rank and one additional 2nd-rank arcane spell slot each day. You prepare spells in these slots or cast from them spontaneously, just as you normally cast your spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you take off the ring for any reason, you lose the additional spell slots. You can't gain spell slots from more than one ring of wizardry per day, nor can a single ring of wizardry grant spell slots more than once per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can cast arcane spells in a variety of different ways (such as if you are a draconic bloodline sorcerer with the wizard multiclass archetype), you can divide the spell slots as you wish among your various sources of arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the arcane tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.otCgznS0L14Z46rf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "21a3fe35-1ee3-5194-b4b5-ba675905d38a",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:ring-of-wizardry-type-iv",
+    "name": "Ring of Wizardry (Type IV)",
+    "level": 14,
+    "rarity": "uncommon",
+    "traits": ["arcane", "invested"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ring is made from the purest platinum and is covered in esoteric arcane symbols. It does nothing unless you have a spellcasting class feature with the arcane tradition. While wearing the ring of wizardry, you gain a +2 item bonus to Arcana checks and have two additional 4th-rank and one additional 3rd-rank arcane spell slot each day. You prepare spells in these slots or cast from them spontaneously, just as you normally cast your spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you take off the ring for any reason, you lose the additional spell slots. You can't gain spell slots from more than one ring of wizardry per day, nor can a single ring of wizardry grant spell slots more than once per day."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you can cast arcane spells in a variety of different ways (such as if you are a draconic bloodline sorcerer with the wizard multiclass archetype), you can divide the spell slots as you wish among your various sources of arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You have a spellcasting class feature with the arcane tradition."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:arcana"],
+        "type": "item",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8jPsriZqWY1hAgob"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "negligible",
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "4308aa3e-d1ae-55dd-a81d-d01ec1579af7",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:robe-of-eyes",
+    "name": "Robe of Eyes",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This garment appears to be an ordinary robe until donned, at which point numerous strange and alien eyes of varied shapes and colors open and blink across its fabric. While wearing the robe, you gain a +3 item bonus to Perception checks, and you constantly benefit from the effects of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "52cd674f-3e49-5527-b0c9-8a4137bc9c08"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can also see powerful magic auras. The highest-level magic aura within 30 feet of you glows in a color that reveals its school to you and allows you to determine where the effect originates. This can narrow down the origin point of the effect to a 5-foot-cube, but not more precisely than that."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "robe of eyes",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is not without its dangers. If any spell with the light trait is cast on you or your square while you are wearing the robe, you are blinded for a number of rounds equal to the spell's rank unless you succeed at a Fortitude save against the spell's DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You pluck an eye from the robe and toss it into the air, where it turns invisible and floats to a destination you choose, with the same effect as a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "2897020f-b34e-5315-9369-d501cd903968"
+          },
+          {
+            "type": "text",
+            "text": " spell. You can Sustain the Activation just as you would be able to Sustain the Spell."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["perception"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KFfM3Y8SbhdxpbQI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13000
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "worn",
+        "slot": "garment"
+      }
+    }
+  },
+  {
+    "id": "786c1817-a4de-5997-9dfa-dc370505167f",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:rod-of-negation",
+    "name": "Rod of Negation",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This long, plain, leaden rod can disrupt magic."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " This rod emits a thin, gray beam that negates a spell or magic item, casting a 6th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " spell with a counteract modifier of 1d20+23. Once activated, the rod can't be activated again for 2d6 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gEenEoxLjL5z28rG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4300
+        }
+      },
+      "bulk": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "b138ba55-bdf9-599a-9b61-d5380776a4fa",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -1676,6 +7353,1091 @@
     }
   },
   {
+    "id": "5da32c68-57d0-5d0b-9fd4-f401794ebf14",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:snare-kit",
+    "name": "Snare Kit",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit contains tools and materials for creating snares. A snare kit allows you to Craft snares using the Crafting skill."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.h7gsRKv6rORYgsv0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cd3a35bc-0df3-51bb-a3d0-2aca785bb9de",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:snare-kit-specialist",
+    "name": "Snare Kit (Specialist)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This kit contains tools and materials for creating snares. A snare kit allows you to Craft snares using the Crafting skill. A specialist snare kit gives you a +1 item bonus to the check."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:crafting"],
+        "type": "item",
+        "value": 1,
+        "predicate": ["option:snare"],
+        "display": {
+          "label": "Snare Kit (Craft snares)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.P2DjThbSOWwra49r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": 2,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3b74a3a5-f0bc-5ac2-9aac-26f8620f6fa8",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:tritons-conch",
+    "name": "Triton's Conch",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you put this large opalescent conch shell to your ear, you can hear the sound of the roaring sea crashing against the shore."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact (auditory)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can raise the conch to your lips and blow into it, letting out a long, rumbling note. For the next minute, you and all allies who were within 30 feet of you when you activated the conch gain a +2 item bonus to Athletics checks to Swim and can breathe under water."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "69e97217-0907-5c52-ae75-1739e1a781a4"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.KLWjINVkWwJlOZEX"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 640
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1c81abee-6a16-5b56-a3c9-b37bc8580e4c",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-slaying-7th-level-spell",
+    "name": "Wand of Slaying (7th-Level Spell)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["illusion", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polished black wand has a green gem at the tip, and anyone who looks into it sees a reflection of a grinning skull instead of their face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "type": "text",
+            "text": " at 7th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the spell slays its target, the corpse releases void energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", dealing void damage equal to double the spell's rank ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "14",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of finger of death of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.CjfBdn0fOIarWzBc"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-slaying-7th-level-spell",
+          "name": "Wand of Slaying (7th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1d691847-97d7-548c-a21c-708c9427fed5",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-slaying-8th-level-spell",
+    "name": "Wand of Slaying (8th-Level Spell)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["illusion", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polished black wand has a green gem at the tip, and anyone who looks into it sees a reflection of a grinning skull instead of their face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "type": "text",
+            "text": " at 8th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the spell slays its target, the corpse releases void energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", dealing void damage equal to double the spell's rank ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of finger of death of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LnXYSaLxWMyAT3Ef"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 24000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-slaying-8th-level-spell",
+          "name": "Wand of Slaying (8th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c91d7254-d57a-5b69-aafc-02e1c2e5a0a6",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-slaying-9th-level-spell",
+    "name": "Wand of Slaying (9th-Level Spell)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["illusion", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This polished black wand has a green gem at the tip, and anyone who looks into it sees a reflection of a grinning skull instead of their face."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "25928db7-ce6e-5e39-b41e-c5227a958fc7"
+          },
+          {
+            "type": "text",
+            "text": " at 9th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the spell slays its target, the corpse releases void energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", dealing void damage equal to double the spell's rank ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "18",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of finger of death of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.mMZWdoHvP2yYJzrR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-slaying-9th-level-spell",
+          "name": "Wand of Slaying (9th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e7f90500-8dab-53b6-bebb-a8c42802c15a",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-smoldering-fireballs-3rd-level-spell",
+    "name": "Wand of Smoldering Fireballs (3rd-Level Spell)",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["fire", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blackened, heavily burned stick smells faintly of bat guano."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " at 3rd rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature that fails its save takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of fireball of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.c2Oa9UbhjwAsZaPp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-smoldering-fireballs-3rd-level-spell",
+          "name": "Wand of Smoldering Fireballs (3rd-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "46da3587-4c7a-5cbf-9f40-e177c88878d4",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-smoldering-fireballs-5th-level-spell",
+    "name": "Wand of Smoldering Fireballs (5th-Level Spell)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["fire", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blackened, heavily burned stick smells faintly of bat guano."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " at 5th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature that fails its save takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of fireball of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.zToq18jKonWIp48U"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-smoldering-fireballs-5th-level-spell",
+          "name": "Wand of Smoldering Fireballs (5th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7dd2bc13-0ead-5548-8e26-ee5122559e1b",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-smoldering-fireballs-7th-level-spell",
+    "name": "Wand of Smoldering Fireballs (7th-Level Spell)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["fire", "magical", "wand"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This blackened, heavily burned stick smells faintly of bat guano."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+          },
+          {
+            "type": "text",
+            "text": " at 7th rank."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each creature that fails its save takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of fireball of the appropriate rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YR8IAV94fPo0kfBz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 10000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-smoldering-fireballs-7th-level-spell",
+          "name": "Wand of Smoldering Fireballs (7th-Level Spell)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "50fa99a1-ad36-503d-8187-336e959d869b",
     "pack": "core-rulebook",
     "kind": "equipment",
@@ -1814,6 +8576,525 @@
           "overcharge": true
         }
       ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "fe89f15c-2943-565f-876f-dbdcff7b5f4e",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wondrous-figurine-golden-lions",
+    "name": "Wondrous Figurine (Golden Lions)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each one of these statuettes is 1 inch in height, carved from a specific material and taking the shape of a particular animal or animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the statue by placing it on solid ground and then speaking its name, causing the statuette to transform into a living creature or creatures. In creature form, the figurine has the minion trait. It can understand your language and it obeys you to the best of its ability when you use an action to command it. The specifics of each creature, as well as the activation's frequency (if any), appear in its entry below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the figurine is slain while in animal form, it reverts to its statue shape and cannot be activated again until 1 week has passed. If the figurine is destroyed in statue form, it is shattered and its magic is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This statuette depicts a pair of gold lions, and when activated, it becomes a pair of adult Lions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The lions can be called on only once per day, and they remain in lion form for no more than 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If either of the lions is slain, that lion cannot be summoned again until 1 week has passed, but this doesn't prevent you from summoning the other."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RTxne78VqPqTz2VN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 900
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dbe6dae3-4706-5ca6-9233-6d201d806a8f",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wondrous-figurine-jade-serpent",
+    "name": "Wondrous Figurine (Jade Serpent)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each one of these statuettes is 1 inch in height, carved from a specific material and taking the shape of a particular animal or animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the statue by placing it on solid ground and then speaking its name, causing the statuette to transform into a living creature or creatures. In creature form, the figurine has the minion trait. It can understand your language and it obeys you to the best of its ability when you use an action to command it. The specifics of each creature, as well as the activation's frequency (if any), appear in its entry below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the figurine is slain while in animal form, it reverts to its statue shape and cannot be activated again until 1 week has passed. If the figurine is destroyed in statue form, it is shattered and its magic is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tiny statue first appears to be a formless lump of jade until closer inspection reveals it to be a serpentine body curled into a snug knot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, this figurine becomes a Giant Viper."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The figurine can be used only once per day, and it can remain in serpent form for no more than 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RjJw7iHantxqeJu1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 340
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dbf823d7-2203-5e23-8f46-1ad285974d53",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wondrous-figurine-marble-elephant",
+    "name": "Wondrous Figurine (Marble Elephant)",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Finely carved from a solid piece of marble, this gleaming elephant statuette becomes a fully grown Elephant when activated."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The elephant can be called upon no more than four times per month. It remains for 24 hours as long as it is being used as a beast of burden or for transport."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If it attempts an attack or otherwise engages in combat, it reverts to statuette form after 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TXPQfQriNJqMYcfp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2700
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c2f93985-eca6-555f-8479-ba0553ea1f76",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wondrous-figurine-obsidian-steed",
+    "name": "Wondrous Figurine (Obsidian Steed)",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This sinister-looking black statuette resembles a horse rearing up on its hind legs."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, this figurine becomes a Nightmare."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It can be called upon once per week for up to 24 hours, though it won't use "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " or its other abilities on behalf of its rider."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Although evil, it allows itself to be ridden by creatures of any alignment, although if a good creature mounts it, the rider must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 3
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, the nightmare uses "
+          },
+          {
+            "type": "ref",
+            "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+          },
+          {
+            "type": "text",
+            "text": " to take the rider to a random location in the Abyss, where it promptly returns to statue form, stranding its rider in that nightmarish place."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RnpzfRWsOW6zmAgN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6000
+        }
+      },
+      "bulk": "light",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0de28469-efa4-5293-8d18-e188d0b0072b",
+    "pack": "core-rulebook",
+    "kind": "equipment",
+    "slug": "equipment:wondrous-figurine-onyx-dog",
+    "name": "Wondrous Figurine (Onyx Dog)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each one of these statuettes is 1 inch in height, carved from a specific material and taking the shape of a particular animal or animals."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You activate the statue by placing it on solid ground and then speaking its name, causing the statuette to transform into a living creature or creatures. In creature form, the figurine has the minion trait. It can understand your language and it obeys you to the best of its ability when you use an action to command it. The specifics of each creature, as well as the activation's frequency (if any), appear in its entry below."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the figurine is slain while in animal form, it reverts to its statue shape and cannot be activated again until 1 week has passed. If the figurine is destroyed in statue form, it is shattered and its magic is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This simple onyx statue transforms into a Guard Dog."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dog has a +4 circumstance bonus to Survival checks to Track, and it has darkvision. When the dog senses a hidden creature with its scent, that creature is instead observed and concealed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The onyx dog can be activated once per week and remains in its form for up to 6 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.BANLXq8FhwqsDu0v"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 34
+        }
+      },
+      "bulk": "light",
       "usage": {
         "type": "held",
         "hands": "one"

@@ -532,7 +532,7 @@
     "license": "OGL",
     "remaster": false,
     "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=1",
-    "legacy": "listed",
+    "legacy": "whole",
     "productLine": "rulebooks",
     "storeUrl": "https://store.paizo.com/pathfinder-core-rulebook/",
     "released": "2019-08-01",

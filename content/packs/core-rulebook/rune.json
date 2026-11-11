@@ -1,5 +1,154 @@
 [
   {
+    "id": "d7d0ebc8-90c9-5fea-90ce-27cd1e01d918",
+    "pack": "core-rulebook",
+    "kind": "rune",
+    "slug": "rune:ethereal",
+    "name": "Ethereal",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "ethereal rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " replicates armor on the Ethereal Plane."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain the effects of an "
+          },
+          {
+            "type": "ref",
+            "id": "35d46951-e831-5754-ba35-33749a9b04ee"
+          },
+          {
+            "type": "text",
+            "text": " spell. This doesn't require concentration and lasts for 10 minutes or until you choose to return to material form as a free action."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of 9th rank "
+          },
+          {
+            "type": "text",
+            "text": "ethereal jaunt",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.q70WXJO1rswduHuT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 13500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "ethereal",
+          "name": "Ethereal",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "type": "property",
+      "etchedOnto": {
+        "item": "armor"
+      }
+    }
+  },
+  {
     "id": "64272184-618b-5fee-bc1b-ec04f51664b9",
     "pack": "core-rulebook",
     "kind": "rune",

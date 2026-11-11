@@ -1,0 +1,109 @@
+[
+  {
+    "id": "213f828a-9891-527a-aef0-10d18022a659",
+    "pack": "core-rulebook",
+    "kind": "shield",
+    "slug": "shield:arrow-catching-shield",
+    "name": "Arrow-Catching Shield",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This wooden shield (Hardness 10, HP 40, BT 20) is carved with images of overlapping fletched arrows."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A ranged weapon Strike targets a creature within 15 feet of you when you have this shield raised, and the attacker has not yet rolled their attack"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The triggering Strike targets you instead of its normal target. If it hits, you gain the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "4333cbb5-7f4c-5c8e-bbad-afa6b6f2043b"
+          },
+          {
+            "type": "text",
+            "text": " reaction."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9ZGkQo739t9utj37"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1350
+        }
+      },
+      "bulk": 1,
+      "hardness": 6,
+      "hitPoints": 24,
+      "baseItem": "wooden-shield",
+      "acBonus": 2
+    }
+  }
+]

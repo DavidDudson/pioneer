@@ -2005,7 +2005,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["2a68a618-4eaa-5a0d-893a-4a9ab810f8e6"]
   },
   {
     "id": "149ce91c-657b-5cc5-a80a-9804090bab0e",
@@ -2065,7 +2066,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["66b2220b-d757-57f8-a89e-416d3ece53ac"]
   },
   {
     "id": "7458039c-b7b3-5a98-b692-cdf56fb61af6",
@@ -2125,7 +2127,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["ef2e0fb3-1691-53cb-96a8-10d0c4198e7c"]
   },
   {
     "id": "1a1ec132-1bb4-5ec9-8869-8fbfc1a29bd5",
@@ -4931,7 +4934,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["3afeeeb7-649d-52e2-9698-20c863170d7b"]
   },
   {
     "id": "ad5055c7-111c-507a-9c23-38e46a93fa13",
@@ -4991,7 +4995,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["ae5842b8-b2dc-57e6-a1fb-2433aff63241"]
   },
   {
     "id": "f4f8380f-9910-5eda-8e09-c2c2c3d4781f",
@@ -5189,7 +5194,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["7c266874-0193-5a6d-9f44-3eea8e78bf62"]
   },
   {
     "id": "3364b75e-d6c1-5f3a-96e2-5d86c499a1fa",
@@ -5249,7 +5255,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["79608f59-4d6c-57f1-9cf6-32adcb13eac8"]
   },
   {
     "id": "2b486adc-6f68-5f83-9373-b0dc41d99c37",
@@ -5459,7 +5466,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["56424a64-9b0f-5336-b883-2e9b5a1515ce"]
   },
   {
     "id": "0eeeaa55-f33d-593a-8955-038c103561f6",
@@ -5519,7 +5527,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["45be64bb-188f-5ebc-87c6-9deba652e97d"]
   },
   {
     "id": "50b3b678-4951-5bb8-8c95-98f9953ff78f",
@@ -5579,7 +5588,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["b8a5cb3d-68bb-58bd-a0bc-86adf494838a"]
   },
   {
     "id": "621c03d1-3f94-5a11-82b8-69f0ec44602e",
@@ -6436,7 +6446,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["8df681aa-0530-5a5f-bdda-a7096c2de234"]
   },
   {
     "id": "50351385-db07-5b88-9aeb-9ca829e63c67",

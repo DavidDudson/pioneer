@@ -28,7 +28,8 @@
       "bulk": 1,
       "bulkPer": 1000,
       "category": "coin"
-    }
+    },
+    "supersedes": ["0d332be7-adbc-5530-9fec-d1c134d33ca8"]
   },
   {
     "id": "30345638-c747-53a7-9b4a-bc88b277a06a",
@@ -59,7 +60,8 @@
       "bulk": 1,
       "bulkPer": 1000,
       "category": "coin"
-    }
+    },
+    "supersedes": ["804478d5-b21b-55c6-be57-d93b16e404d3"]
   },
   {
     "id": "8fe22c53-d2b4-5946-bdde-c128363bdb0a",
@@ -90,7 +92,8 @@
       "bulk": 1,
       "bulkPer": 1000,
       "category": "coin"
-    }
+    },
+    "supersedes": ["cedf787c-216d-5fa9-b53e-fdad884e0603"]
   },
   {
     "id": "a7e3171d-a2c8-5abb-a9a4-969975635811",
@@ -121,6 +124,7 @@
       "bulk": 1,
       "bulkPer": 1000,
       "category": "coin"
-    }
+    },
+    "supersedes": ["ce7bd604-ca84-5361-ad0e-60f1e7f56d2e"]
   }
 ]

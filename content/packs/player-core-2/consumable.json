@@ -1243,7 +1243,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["91a5d6c2-504b-5a84-94f7-78367e671fd6"]
   },
   {
     "id": "f0f8b2c0-a04f-52cd-98ac-a17ddd44d845",
@@ -1377,7 +1378,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["3d9e525f-26b8-5649-80ce-989b03d67349"]
   },
   {
     "id": "7a53b042-2807-5242-8bb5-18e2cc0d50e9",
@@ -1511,7 +1513,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["04ca9544-e647-57ce-a8ce-4bfb9b3b9b61"]
   },
   {
     "id": "1f11a535-237e-5fa0-877a-02607aa80533",
@@ -4001,7 +4004,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["b5459788-f7ee-5b89-9e13-780b0094e589"]
   },
   {
     "id": "ab8c3067-5ca0-5dbe-a337-4309a5b49f5d",
@@ -4135,7 +4139,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["3ae2b9c0-f4c6-5e2c-a9d0-3855f64b728f"]
   },
   {
     "id": "7a7c4971-05d8-5066-ae87-7a1326a2a3f8",
@@ -4269,7 +4274,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["1e0b34cc-2ddd-5da5-931f-e403aaa9dbf1"]
   },
   {
     "id": "c682e1bd-5dcf-5dac-b229-2ed09dc6ada9",
@@ -4478,7 +4484,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["8d3ae15f-b1b5-53b2-a50f-69426a62f298"]
   },
   {
     "id": "4fd52652-1862-5543-86f6-8fb59c6d5a68",
@@ -9969,7 +9976,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["a552dcd4-51a7-5e14-b5a2-7dd2bbc95c2c"]
   },
   {
     "id": "e0e49434-da08-5307-afff-c7ee027670d4",
@@ -10095,7 +10103,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["1890127f-4b21-58f7-ab48-538312d113a6"]
   },
   {
     "id": "90bb5708-88d7-501a-bd1f-da778a8c14dd",
@@ -10221,7 +10230,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["e0349d55-86fa-59e4-abbd-718112cd1e0c"]
   },
   {
     "id": "69be0eb8-4731-5099-87a3-9f8ee6aca397",
@@ -12592,7 +12602,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["f4d38a3e-873d-5eed-82cb-c4e33c100fe0"]
   },
   {
     "id": "c85cc827-a803-5291-af36-6978368aaac4",
@@ -14042,7 +14053,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["f82d6595-aa2a-5344-94f0-42078009baa7"]
   },
   {
     "id": "e75183fd-764b-5fc3-8c31-8a10a26ba640",
@@ -14136,7 +14148,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["c7c55ac5-0c5a-57b0-86a0-8a8f69098b08"]
   },
   {
     "id": "798b78c4-c7ff-590a-aab6-5e87d2d2b7ea",
@@ -14230,7 +14243,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["8bae1089-72e3-55d8-adfa-eafb32678eec"]
   },
   {
     "id": "165e8c86-b784-53f2-9279-af1910e1ccba",
@@ -14324,7 +14338,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["b8fc8579-d632-5393-aff7-4a9da385f155"]
   },
   {
     "id": "fa8a4755-ae2e-54b8-a429-7215cbbe34fc",
@@ -14418,7 +14433,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["d7efd628-1d17-55ad-a901-98c230112d8f"]
   },
   {
     "id": "a750fdbb-b25d-58de-bd0d-c6034a1ac32a",
@@ -15014,7 +15030,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["7a654a38-272b-5f91-85e6-a5a56bfec0eb"]
   },
   {
     "id": "1c1b6de6-2472-5755-8c3a-b54ab16a1660",
@@ -15140,7 +15157,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["85ebbf96-f683-5cc4-b598-fca74f76e7a6"]
   },
   {
     "id": "1604139b-f17e-53e0-b5c7-e6b8bf7631ef",
@@ -15266,7 +15284,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["9d425ea2-26fd-5548-8b7f-708374b6c177"]
   },
   {
     "id": "7f7f6375-9d41-554c-8591-3a77e60ba696",
@@ -16014,7 +16033,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["0e88723c-2d10-5b56-b995-b74c8db384ef"]
   },
   {
     "id": "546e2dfc-1651-5e0b-af2b-5878140be33c",
@@ -16140,7 +16160,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["3638d3f0-a2dd-5321-8981-1e70cd6807b6"]
   },
   {
     "id": "d35c3f77-a316-5291-b070-a8171728edb0",
@@ -16266,7 +16287,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["37ace349-5ebd-5f42-8839-0522a371aa18"]
   },
   {
     "id": "ade337fa-55af-5272-9262-e2d2eb1fe1c1",
@@ -16664,7 +16686,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["405797d4-3d64-5c19-adea-af6de3a67ced"]
   },
   {
     "id": "297ad9e3-a076-59c2-b83c-4c96ea9cefd8",
@@ -16798,7 +16821,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["1f486957-c025-588c-8f09-2490bc1dddf9"]
   },
   {
     "id": "47b97e1c-3c96-582b-b9a0-7684c5960e52",
@@ -16932,7 +16956,8 @@
         "type": "held",
         "hands": "one"
       }
-    }
+    },
+    "supersedes": ["a98a0573-a3ff-56ec-8aca-ee542ec99164"]
   },
   {
     "id": "8a956cdc-c1a7-592c-a438-8f6f2277db96",

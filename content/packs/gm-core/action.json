@@ -60,7 +60,8 @@
         }
       ],
       "modes": ["exploration"]
-    }
+    },
+    "supersedes": ["2d09ef27-7679-5bc4-b497-2f35be9acdcb"]
   },
   {
     "id": "e597b6e1-667a-5a77-b48e-ac2dd63c758c",
@@ -2157,7 +2158,8 @@
     "data": {
       "category": "interaction",
       "universal": true
-    }
+    },
+    "supersedes": ["d4cbc4ed-f78a-5238-9473-816ce8a4fe09"]
   },
   {
     "id": "d5ce0e01-247f-5f37-ba4b-2e92a0063641",

@@ -258,6 +258,456 @@
     }
   },
   {
+    "id": "91a5d6c2-504b-5a84-94f7-78367e671fd6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bestial-mutagen-greater",
+    "name": "Bestial Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features transform into something bestial and you take on muscle mass, but your lumbering form is clumsy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Athletics checks and unarmed attack rolls. You gain a claw unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage) with the agile trait and a jaws unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to AC and a -2 penalty to Reflex saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "187ccb6d-d579-5687-905c-b0821aae8255"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.gDheph8YteBtnyKp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "187ccb6d-d579-5687-905c-b0821aae8255",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3d9e525f-26b8-5649-80ce-989b03d67349",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bestial-mutagen-lesser",
+    "name": "Bestial Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features transform into something bestial and you take on muscle mass, but your lumbering form is clumsy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Athletics checks and unarmed attack rolls. You gain a claw unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage) with the agile trait and a jaws unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to AC and a -2 penalty to Reflex saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8951a274-1279-5923-96df-871ce321ba54"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IQK9N2mEOyAj3iWU"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "8951a274-1279-5923-96df-871ce321ba54",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "04ca9544-e647-57ce-a8ce-4bfb9b3b9b61",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bestial-mutagen-major",
+    "name": "Bestial Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features transform into something bestial and you take on muscle mass, but your lumbering form is clumsy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Athletics checks and unarmed attack rolls. You gain a claw unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d8",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage) with the agile trait and a jaws unarmed attack ("
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage). You gain the weapon specialization with the claws and jaws, or greater weapon specialization, if you already have weapon specialization with these unarmed attacks."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to AC and a -2 penalty to Reflex saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "fa44fc03-2a87-5edc-8335-9d4540d3df20"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nS75vsM3x5jxlUqn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "fa44fc03-2a87-5edc-8335-9d4540d3df20",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "ee2e3564-ae05-5746-93ca-43b8d8d25061",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -553,6 +1003,303 @@
     }
   },
   {
+    "id": "7694e2d3-315b-5c29-a8af-0a0b53e5bdd3",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:black-dragons-breath-potion-adult",
+    "name": "Black Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["acid", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a black dragon. For 1 hour after you imbibe the concoction, you can unleash a black dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of acid which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.x04huvOBBXmExTDl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "acid",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "55d9004d-b7a2-5d5a-8d9c-609977e145e2",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:black-dragons-breath-potion-wyrm",
+    "name": "Black Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["acid", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a black dragon. For 1 hour after you imbibe the concoction, you can unleash a black dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of acid which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LR7Ke2V8vHjQYBni"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "acid",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cee77d55-12a1-51d7-a9d7-d898fea83e8b",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:black-dragons-breath-potion-young",
+    "name": "Black Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["acid", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a black dragon. For 1 hour after you imbibe the concoction, you can unleash a black dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of acid which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.qNIv0owESzOzo1s0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "acid",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "850fc2a3-22cf-5516-a70d-368103e0e800",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -775,6 +1522,600 @@
     }
   },
   {
+    "id": "c3792024-194b-5825-89a3-db39fe2295c6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:brass-dragons-breath-potion-adult",
+    "name": "Brass Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a brass dragon. For 1 hour after you imbibe the concoction, you can unleash a brass dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rOQlcAV4m8Zaebue"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7ac4d828-19a9-5e9e-a482-f3a9ec0c8070",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:brass-dragons-breath-potion-wyrm",
+    "name": "Brass Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a brass dragon. For 1 hour after you imbibe the concoction, you can unleash a brass dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.idtIMGkFmIe958Et"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "4302a0ac-4846-5869-a514-11322fbf6116",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:brass-dragons-breath-potion-young",
+    "name": "Brass Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a brass dragon. For 1 hour after you imbibe the concoction, you can unleash a brass dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TqX34x9CijryfrlM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "15f24961-15dd-5e58-b8cd-730c30e05894",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bronze-dragons-breath-potion-adult",
+    "name": "Bronze Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "electricity", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a bronze dragon. For 1 hour after you imbibe the concoction, you can unleash a bronze dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of electricity which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vXLZfi5iCSKb96tW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "electricity",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "11ea4a7c-1962-5a88-a97d-66a88280d9d5",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bronze-dragons-breath-potion-wyrm",
+    "name": "Bronze Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["consumable", "electricity", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a bronze dragon. For 1 hour after you imbibe the concoction, you can unleash a bronze dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of electricity which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lJTl2SuUaluMzPBl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "electricity",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5f23d06c-490e-573a-8cf2-3e276de6cf8a",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:bronze-dragons-breath-potion-young",
+    "name": "Bronze Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "electricity", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a bronze dragon. For 1 hour after you imbibe the concoction, you can unleash a bronze dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "line",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " of electricity which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TzXNMv7tnFy1FYgg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "electricity",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "71c42250-016e-5020-81d3-fe124d259065",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -839,6 +2180,402 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b5459788-f7ee-5b89-9e13-780b0094e589",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:cognitive-mutagen-greater",
+    "name": "Cognitive Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mind becomes clear and cognition flows freely, but physical matters seem ephemeral."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ". Your critical failures on Recall Knowledge checks become failures instead. You become trained in one Intelligence-based skill [Arcana, Crafting, Lore, Occultism, Society], chosen at creation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "49d4cf5a-cf03-5614-8c2c-5f3b79cdb899"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ZGojRKG1yYiVWemR"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "49d4cf5a-cf03-5614-8c2c-5f3b79cdb899",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3ae2b9c0-f4c6-5e2c-a9d0-3855f64b728f",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:cognitive-mutagen-lesser",
+    "name": "Cognitive Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mind becomes clear and cognition flows freely, but physical matters seem ephemeral."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ". Your critical failures on Recall Knowledge checks become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "7cf3e808-a545-5d24-bf8c-eabf0cb5426a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.wbr6rkyaVYnDhdgV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "7cf3e808-a545-5d24-bf8c-eabf0cb5426a",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1e0b34cc-2ddd-5da5-931f-e403aaa9dbf1",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:cognitive-mutagen-major",
+    "name": "Cognitive Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your mind becomes clear and cognition flows freely, but physical matters seem ephemeral."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": ". Your critical failures on Recall Knowledge checks become failures instead. You become trained in one skill, chosen at creation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "23c7cba7-a4c2-50ad-ab00-72a6fde06936"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VBK9i74dry8yf8f0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "23c7cba7-a4c2-50ad-ab00-72a6fde06936",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -972,6 +2709,50 @@
         "cost": "one"
       },
       "effect": "b3472172-f6ba-54ca-9984-f3b6119ec06f",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8d3ae15f-b1b5-53b2-a50f-69426a62f298",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:comprehension-elixir-greater",
+    "name": "Comprehension Elixir (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This bitter draught opens your mind to the potential of the written word. For the listed duration after drinking this elixir, you can understand any words you read, so long as they are written in a common language. This elixir doesn't automatically allow you to understand codes or extremely esoteric passages-you still need to attempt a skill check to Decipher Writing. The duration is 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OcBPjVplvy2GbQ8P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 54
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -1211,6 +2992,479 @@
     }
   },
   {
+    "id": "d066b69f-a27a-5fb3-b993-e447f2958beb",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:dragon-bile",
+    "name": "Dragon Bile",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "contact", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A mix of digestive juices and green dragon poison glands nauseates the victim as its flesh is digested from within."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Contact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "7d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 4"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6swrLimere2nZtz9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 925
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "57d38e18-d999-57af-ba0c-7a23dddfd6a5",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:dust-of-appearance",
+    "name": "Dust of Appearance",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stored in a small reed, this powder looks like a fine metallic dust. When you fling it in the air, it coats all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 10
+          },
+          {
+            "type": "text",
+            "text": " centered on a point within 5 feet of you. For 1 minute, the coated creatures can't be concealed or invisible, nor can they benefit from "
+          },
+          {
+            "type": "ref",
+            "id": "7ee9239e-ca22-5b93-aa67-67004a7367f7"
+          },
+          {
+            "type": "text",
+            "text": " or similar abilities that create illusory duplicates. Any illusions in the area of 3rd level or lower are revealed as such, although this does not end their effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.8iGmSwTTUdj6gqN5"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "97d4423e-7003-5fd5-8a29-a0c95dc4b36f",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:dust-of-disappearance",
+    "name": "Dust of Disappearance",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["consumable", "illusion", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This powder shimmers like a thousand tiny motes of light. Activating the dust by sprinkling it on yourself or a creature within reach casts a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+          },
+          {
+            "type": "text",
+            "text": " spell with a duration of 1 minute on that creature. This invisibility can't be negated or seen through by any spell of 3rd level or lower or any item of 5th level or lower."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.9XSOAzq3xp9g6qkF"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 135
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "08de2bea-92e1-5537-82c5-742e1bf42e80",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:elemental-gem",
+    "name": "Elemental Gem",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shout the name of an elemental lord and dash this glassy gem against a hard surface to activate it. It cracks open, casting a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6e9347ad-d1fa-59e4-b4cf-0cfbb9ca698c"
+          },
+          {
+            "type": "text",
+            "text": " spell to summon forth an elemental you control as long as you spend an action each round to Sustain the Activation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This gem comes in four varieties: transparent for a living whirlwind, light brown for a living landslide, reddish orange for a living wildfire, and blue-green for a living waterfall."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TgZdamADHuaKyriW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "0398924d-bdbc-5a89-80d3-e32ad8e2b4fd",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -1292,6 +3546,387 @@
     "data": {
       "bulk": "light",
       "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "211d5ed2-0ace-567c-a92a-21de925916a7",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:feather-token-anchor",
+    "name": "Feather Token (Anchor)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This feather can be activated only on a boat. When activated, this feather transforms into a massive anchor that causes the boat to immediately stop. After 1 day, the anchor vanishes and the boat can move as normal. The anchor is attached to the boat by a magical chain of force, but the chain can be removed by "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " or destroyed (Hardness 30, HP 40)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.VvljzRwthKMgqUR3"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bbcdfe79-a3b3-5a1a-b6b2-9701ecf75372",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:feather-token-bird",
+    "name": "Feather Token (Bird)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each feather token appears to be a simple feather from some exotic bird. The feather's shaft, dipped in gold, bears a single arcane rune. Activating a feather token causes it to transform into another object, which then can be used as normal for that object. Each feather can be activated only once, with most of them permanently becoming the item in their description."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, this token transforms into a small sparrow that waits on your finger for you to relay a message up to 1 minute in length, along with the name and rough location of a recipient. The recipient must be someone you have met, and the location must be somewhere you have visited. After receiving the message, the bird flies off to deliver it, traveling at 30 miles per hour and then searching for the target in the location you provided. If the bird finds the target, it moves adjacent to them, your words emanate from the bird, and the bird then flies off and vanishes. The bird also vanishes if it fails to find your target after 10 hours of searching the location you specified."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fFq8nsGvSUgzVeND"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 8
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "57d95616-6d1f-5cd4-bd34-dfb44cbd6062",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:feather-token-fan",
+    "name": "Feather Token (Fan)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each feather token appears to be a simple feather from some exotic bird. The feather's shaft, dipped in gold, bears a single arcane rune. Activating a feather token causes it to transform into another object, which then can be used as normal for that object. Each feather can be activated only once, with most of them permanently becoming the item in their description."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating this feather requires you to fan it in a given direction. If this direction is toward the sail of a vessel, the feather flutters up toward the sail and fans continuously, filling the sail with air and granting the vessel a +10-foot circumstance bonus to its Speed for 8 hours. If fanned in any other direction, it instead produces a single casting of "
+          },
+          {
+            "type": "ref",
+            "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+          },
+          {
+            "type": "text",
+            "text": " (DC 20)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3Fmbw9wJkqZBV9De"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0f811003-0796-5263-b23d-1b4335693cab",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:feather-token-holly-bush",
+    "name": "Feather Token (Holly Bush)",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each feather token appears to be a simple feather from some exotic bird. The feather's shaft, dipped in gold, bears a single arcane rune. Activating a feather token causes it to transform into another object, which then can be used as normal for that object. Each feather can be activated only once, with most of them permanently becoming the item in their description."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When this feather is activated, it immediately transforms into a living holly bush, filling a single square. This bush can provide standard cover. In addition, the bush has 2d4 bright-red berries. While holly berries are usually poisonous, these berries are infused with beneficial magic. You can pick and eat a berry as an Interact action to recover 1 Hit Point. Once plucked from the bush, a berry becomes non-magical after a few seconds, so it doesn't heal you if you don't eat it within the span of your Interact action."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If activated on soil, the plant continues to grow and thrive (although it doesn't produce any more healing berries). If activated elsewhere, it withers and dies within 1d4 days."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cwurQLvQaqjK70UI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a973e91a-9bf3-54c9-8ffd-bf23cc93d932",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:feather-token-tree",
+    "name": "Feather Token (Tree)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each feather token appears to be a simple feather from some exotic bird. The feather's shaft, dipped in gold, bears a single arcane rune. Activating a feather token causes it to transform into another object, which then can be used as normal for that object. Each feather can be activated only once, with most of them permanently becoming the item in their description."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This token can be activated only on an unoccupied patch of earth or soil. When activated, this token transforms into an oak tree, 60 feet tall with a 5-foot-wide trunk. The tree continues to live and grow if conditions are favorable."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4owFeOy4zxy8rv7W"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 38
+        }
+      },
+      "bulk": "negligible",
+      "category": "other",
       "activation": {
         "cost": "one"
       },
@@ -1592,6 +4227,210 @@
     }
   },
   {
+    "id": "5a9fe51b-2596-50a8-9f6d-061cfa334658",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:giant-wasp-venom",
+    "name": "Giant Wasp Venom",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "injury", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Giant wasp venom interferes with a victim's movement."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Injury)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and clumsy 2 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aBOPYlfHAcXUmhF7"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "7f44e563-d412-50dd-92b2-5e47f84595f1",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -1724,6 +4563,303 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "09527ed4-6356-54cb-8a28-ad7e7d2905f9",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:green-dragons-breath-potion-adult",
+    "name": "Green Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "poison", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a green dragon. For 1 hour after you imbibe the concoction, you can unleash a green dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of poison which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eV0owvv0lYQph0nn"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "poison",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "2a370eaa-31b2-536e-a453-66b14b543959",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:green-dragons-breath-potion-wyrm",
+    "name": "Green Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "poison", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a green dragon. For 1 hour after you imbibe the concoction, you can unleash a green dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of poison which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OJvCWeJPHEc7GpFG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "poison",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5b905667-b849-5fc7-98fd-86905e904197",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:green-dragons-breath-potion-young",
+    "name": "Green Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "poison", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a green dragon. For 1 hour after you imbibe the concoction, you can unleash a green dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of poison which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vvgCQzWkScCzte7K"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "poison",
+        "kind": "damage"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -2118,6 +5254,84 @@
     }
   },
   {
+    "id": "948f386e-dd4b-50b8-81dc-801941bffc9c",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:infiltrators-elixir",
+    "name": "Infiltrator's Elixir",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Favored by spies and tricksters, an infiltrator's elixir is used to alter your appearance. When imbibed, you take the shape of a humanoid creature of your size, but different enough so you might be unrecognizable. If you aren't a humanoid, you might take on a form more similar to your own, at the GM's discretion. The creator of the elixir decides the basics of the appearance you transform into when you imbibe the elixir, including eye color, skin tone, and hair color. The elixir can't change your form into that of a specific person."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After the form takes hold, you retain it for the next 10 minutes. Drinking this elixir counts as setting up a disguise to Impersonate. You gain a +4 status bonus to your Deception DC to avoid others seeing through your disguise, and you add your level to this DC even if untrained."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.cuomhpenkqGM5lLG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "82cdba89-bf52-5f94-8061-7c286897c239",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -2470,6 +5684,378 @@
     }
   },
   {
+    "id": "a552dcd4-51a7-5e14-b5a2-7dd2bbc95c2c",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:juggernaut-mutagen-greater",
+    "name": "Juggernaut Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you drink this mutagen, your body becomes thick and sturdy. You exhibit a healthy glow, though you tend to be ponderous and unobservant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Fortitude saves and 30 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points. When you roll a success on a Fortitude save, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to Will saves, Perception checks and initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a9126dbf-dc1f-57f3-adfd-72b46987dbfe"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TMtQnY6yvIRCpK9v"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a9126dbf-dc1f-57f3-adfd-72b46987dbfe",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1890127f-4b21-58f7-ab48-538312d113a6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:juggernaut-mutagen-lesser",
+    "name": "Juggernaut Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you drink this mutagen, your body becomes thick and sturdy. You exhibit a healthy glow, though you tend to be ponderous and unobservant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Fortitude saves and 5 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to Will saves, Perception checks and initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5f7640b5-d1b0-5f7f-9890-6384b520dfa5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.xE0EdDrf734l2fQH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "5f7640b5-d1b0-5f7f-9890-6384b520dfa5",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "e0349d55-86fa-59e4-abbd-718112cd1e0c",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:juggernaut-mutagen-major",
+    "name": "Juggernaut Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you drink this mutagen, your body becomes thick and sturdy. You exhibit a healthy glow, though you tend to be ponderous and unobservant."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and you critical failures on Fortitude saves become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 penalty to Will saves, Perception checks and initiative rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "108c7dc0-f7b9-5827-98e0-138356611542"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.1kNp6yOS0aZPBPzZ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "108c7dc0-f7b9-5827-98e0-138356611542",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "7e715f5f-a8b7-5218-a5d3-93bfce056d1d",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -2752,6 +6338,581 @@
       "category": "poison",
       "activation": {
         "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "ecc106f0-ba74-5ca2-9843-750aba85ef4e",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:leapers-elixir-greater",
+    "name": "Leaper's Elixir (Greater)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tingly solution increases the elasticity and contraction of your leg muscles. For 1 minute after drinking this elixir, you can "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " as a single action instead of 2 actions. If you do, you don't perform the initial Stride (nor do you fail if you don't Stride 10 feet)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The maximum vertical distance you can jump with a High Jump is the same as you can jump horizontally with a Long Jump."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.6eQvHNHf1IC2X5Rx"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "38fc0058-41f3-5105-82a8-7be16dd0c229",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:leapers-elixir-lesser",
+    "name": "Leaper's Elixir (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This tingly solution increases the elasticity and contraction of your leg muscles. For 1 minute after drinking this elixir, you can "
+          },
+          {
+            "type": "ref",
+            "id": "9b3d9121-5da3-57fe-a5d0-e0ff20210c41"
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "ref",
+            "id": "a76317a3-de3d-58c2-8b3e-5a73b09657be"
+          },
+          {
+            "type": "text",
+            "text": " as a single action instead of 2 actions. If you do, you don't perform the initial Stride (nor do you fail if you don't Stride 10 feet)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uG3xtNrs26scOVgW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8c0291c7-25a2-5e3f-93a6-ec2df59268f4",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:lich-dust",
+    "name": "Lich Dust",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "ingested", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Dust salvaged from the remains of a destroyed lich has paralytic properties that make it a valuable poison."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Ingested)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 10 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and fatigued (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, fatigued, and "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " (1 minute)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ca2lzxfJxvuLDrKu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 110
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d8e0f928-816e-59c1-876b-83ab345512d5",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:malyass-root-paste",
+    "name": "Malyass Root Paste",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "contact", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Malyass root paste sees use to impede opponents in athletic competitions, in addition to espionage and tracking."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Contact)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 26
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 minutes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " and -10-foot status penalty to all Speeds (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 2"
+          },
+          {
+            "type": "text",
+            "text": " and -20-foot status penalty to all Speeds (1 minute)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 3"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", and -30-foot status penalty to all Speeds"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.76T49dJYfxIrPvQe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 55
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "three"
       },
       "usage": {
         "type": "held",
@@ -3077,6 +7238,192 @@
     }
   },
   {
+    "id": "6e1884bd-bce6-5984-842e-48bfdfc57f65",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:nightmare-vapor",
+    "name": "Nightmare Vapor",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "inhaled", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Purportedly sourced from any number of outlandish locales, nightmare vapor is most often created by boiling the sweat collected from humanoids caught in the throes of terrible nightmares."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Inhaled)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "6f53a234-670f-5b02-a986-7cce57585fc8"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " confused and "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " confused, off-guard, and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.X6vNtRjyHIuN7vqj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "77b2b156-237b-593a-9ca6-0c3914efd56b",
     "pack": "core-rulebook",
     "kind": "consumable",
@@ -3120,6 +7467,1223 @@
         "damageType": "piercing",
         "kind": "damage"
       },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f4d38a3e-873d-5eed-82cb-c4e33c100fe0",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:philosophers-stone",
+    "name": "Philosopher's Stone",
+    "level": 20,
+    "rarity": "uncommon",
+    "traits": ["alchemical", "consumable"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An alchemist with the "
+          },
+          {
+            "type": "ref",
+            "id": "9363e6e2-ac61-5241-b9bf-cb94fb8c1e96"
+          },
+          {
+            "type": "text",
+            "text": " feat can create a philosopher's stone once per month by spending 1 batch of infused reagents during their daily preparations using the advanced alchemy class feature. This is the only way to create a philosopher's stone."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At a glance, a philosopher's stone appears to be an ordinary, sooty piece of natural rock. Breaking the rock open with a Force Open action (DC 35) reveals a cavity at the stone's heart. The cavity is lined with a rare type of quicksilver that can transmute base metals into precious metals or create an elixir of rejuvenation."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "To use the quicksilver, you must be legendary in Crafting and have the Alchemical Crafting feat. You can then use the stone's quicksilver for one of two effects:"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can apply the stone's quicksilver to an infused true elixir of life using an Interact action. This turns the elixir into an infused elixir of rejuvenation instantaneously. This doesn't require any crafting time or additional materials."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "You can spend up to a month of downtime applying the quicksilver either to iron to create silver or to lead to create gold. Treat this as a 20th-level task to Earn Income using Crafting, except that you create 500 gp worth of your chosen metal per day on a success or 750 gp worth per day on a critical success."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact or 1 or more days"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Fv97oB3iEIFAyzTu"
+    },
+    "data": {
+      "bulk": 2,
+      "category": "toolkit",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "f82d6595-aa2a-5344-94f0-42078009baa7",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-electricity-retaliation-greater",
+    "name": "Potion of Electricity Retaliation (Greater)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of electricity retaliation, you glow with a faint aura of electrical energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.QsYfjRMBz48H6UAp"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "c7c55ac5-0c5a-57b0-86a0-8a8f69098b08",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-electricity-retaliation-lesser",
+    "name": "Potion of Electricity Retaliation (Lesser)",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of electricity retaliation, you glow with a faint aura of electrical energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.TG4SnQCGOsgQfrE1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 12
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "8bae1089-72e3-55d8-adfa-eafb32678eec",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-electricity-retaliation-major",
+    "name": "Potion of Electricity Retaliation (Major)",
+    "level": 18,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of electricity retaliation, you glow with a faint aura of electrical energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d8",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bEaiID2KLQ8lTCai"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b8fc8579-d632-5393-aff7-4a9da385f155",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-electricity-retaliation-minor",
+    "name": "Potion of Electricity Retaliation (Minor)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of electricity retaliation, you glow with a faint aura of electrical energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) takes electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.w0S1SIRsHgGdRh1d"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d7efd628-1d17-55ad-a901-98c230112d8f",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-electricity-retaliation-moderate",
+    "name": "Potion of Electricity Retaliation (Moderate)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after drinking a potion of electricity retaliation, you glow with a faint aura of electrical energy, and a creature that touches you (such as by making an unarmed attack or using a spell with a range of touch against you) or is adjacent to you and hits you with a melee weapon strike takes electricity damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aura deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d4",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.oDfucsKeWpJmmWN1"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 50
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "dacbc0a8-35c9-5470-8c45-a2a5c7cee231",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:potion-of-fire-resistance-moderate",
+    "name": "Potion of Fire Resistance (Moderate)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " (manipulate)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drinking this thick, fortifying potion grants resistance 10 against fire damage for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Potion of Fire Resistance (Moderate)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.m99u0zXVbyPdK8Mf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 180
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "134ab17a-2a65-556c-8961-51866be85bd7",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:purple-worm-venom",
+    "name": "Purple Worm Venom",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "injury", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Venom from enormous purple worms leaves a victim weakened."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact (Injury)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 32
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and enfeebled 2 (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and enfeebled 2 (1 round)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.iRDCa4OVSTGUD3vi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 500
+        }
+      },
+      "bulk": "light",
+      "category": "poison",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "7a654a38-272b-5f91-85e6-a5a56bfec0eb",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:quicksilver-mutagen-greater",
+    "name": "Quicksilver Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become thin and angular. You become swifter and nimbler, but your body also becomes fragile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Acrobatics checks, Stealth checks, Thievery checks, Reflex saves, and Dexterity-based attack rolls, and you gain a +15 foot status bonus to your Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to twice your level; you can't recover Hit Points lost this way by any means while the mutagen lasts. You take a -2 penalty to Fortitude saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "a5604c01-267a-5f17-9d62-57761c249ff5"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.eQDTsetadI8u8Kc0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "a5604c01-267a-5f17-9d62-57761c249ff5",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "85ebbf96-f683-5cc4-b598-fca74f76e7a6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:quicksilver-mutagen-lesser",
+    "name": "Quicksilver Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become thin and angular. You become swifter and nimbler, but your body also becomes fragile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Acrobatics checks, Stealth checks, Thievery checks, Reflex saves, and Dexterity-based attack rolls, and you gain a +5 foot status bonus to your Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to twice your level; you can't recover Hit Points lost this way by any means while the mutagen lasts. You take a -2 penalty to Fortitude saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "785b3639-1fb3-57ac-af7d-2e5dc25f86af"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5MKBwpE401uz4kNN"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "785b3639-1fb3-57ac-af7d-2e5dc25f86af",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "9d425ea2-26fd-5548-8b7f-708374b6c177",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:quicksilver-mutagen-major",
+    "name": "Quicksilver Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become thin and angular. You become swifter and nimbler, but your body also becomes fragile."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Acrobatics checks, Stealth checks, Thievery checks, Reflex saves, and Dexterity-based attack rolls, and you gain a +20 foot status bonus to your Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take damage equal to twice your level; you can't recover Hit Points lost this way by any means while the mutagen lasts. You take a -2 penalty to Fortitude saves."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4f6cc65e-9a82-5655-9cb4-b4c458820fce"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4GXzTN6iSDGfYEAi"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "4f6cc65e-9a82-5655-9cb4-b4c458820fce",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3245,6 +8809,441 @@
         "cost": "one"
       },
       "effect": "2c9d28c0-fe49-5cfd-a6a5-5ec45df7de5d",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d270656b-396d-50de-9bb7-4ec1a92f76da",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:red-dragons-breath-potion-adult",
+    "name": "Red Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a red dragon. For 1 hour after you imbibe the concoction, you can unleash a red dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Bn1o5foPq1kqZKf0"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bfaf2ce4-dbbc-5def-ae2d-68a071aa09a4",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:red-dragons-breath-potion-wyrm",
+    "name": "Red Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a red dragon. For 1 hour after you imbibe the concoction, you can unleash a red dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.d2sU6nOtBdIVJMVI"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d66cd5cb-e692-502e-ace7-c6ccaab56975",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:red-dragons-breath-potion-young",
+    "name": "Red Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["consumable", "fire", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a red dragon. For 1 hour after you imbibe the concoction, you can unleash a red dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.fkGHYeGVK6O2VW1s"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "fire",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "101ea4ae-89dc-52bc-ba19-b274239b8ca4",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:salamander-elixir-greater",
+    "name": "Salamander Elixir (Greater)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elixir is made from salamander scales to withstand fire. For 24 hours, you are protected from the effects of severe heat. You're also protected from extreme and incredible heat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XMuLrJYL6fxv4YNA"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6dfb4a52-de53-52ec-84e4-7a40df09715a",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:salamander-elixir-lesser",
+    "name": "Salamander Elixir (Lesser)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elixir is made from salamander scales to withstand fire. For 24 hours, you are protected from the effects of severe heat."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Ekk7o1gPu8RotixD"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3461,6 +9460,378 @@
         "damageType": "slashing",
         "kind": "damage"
       },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0e88723c-2d10-5b56-b995-b74c8db384ef",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:serene-mutagen-greater",
+    "name": "Serene Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain inner serenity, focused on file details and steeled against mental assaults, but you find violence off-putting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Will saves and Perception, Medicine, Nature, Religion, and Survival checks. This bonus improves to +4 when you attempt Will saves against mental effects. When you roll a success on a Will save against a mental effect, you get a critical success instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to attack rolls and save DCs of offensive spells, and a -1 penalty per damage die to all weapon, unarmed attack, and spell damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b481e828-a69a-5085-b9ea-4faae774d025"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Yej7lnnDYDZybGqo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b481e828-a69a-5085-b9ea-4faae774d025",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "3638d3f0-a2dd-5321-8981-1e70cd6807b6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:serene-mutagen-lesser",
+    "name": "Serene Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain inner serenity, focused on file details and steeled against mental assaults, but you find violence off-putting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Will saves and Perception, Medicine, Nature, Religion, and Survival checks. This bonus improves to +2 when you attempt Will saves against mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to attack rolls and save DCs of offensive spells, and a -1 penalty per damage die to all weapon, unarmed attack, and spell damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "efe9c442-e8fd-59a7-9fdf-8fbdc50f2c68"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.bOPQDM54W8ZDoULY"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "efe9c442-e8fd-59a7-9fdf-8fbdc50f2c68",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "37ace349-5ebd-5f42-8839-0522a371aa18",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:serene-mutagen-major",
+    "name": "Serene Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain inner serenity, focused on file details and steeled against mental assaults, but you find violence off-putting."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Will saves and Perception, Medicine, Nature, Religion, and Survival checks. When you roll a success on a Will save against a mental effect, you get a critical success instead, and your critical failures on Will saves against mental effects become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -1 penalty to attack rolls and save DCs of offensive spells, and a -1 penalty per damage die to all weapon, unarmed attack, and spell damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "0c348f77-241a-56fc-8138-d1eb411839ca"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.ccrdVliTNBh2mNZf"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "0c348f77-241a-56fc-8138-d1eb411839ca",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3879,6 +10250,699 @@
         "formula": "14d8",
         "kind": "damage"
       },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "406d7e4e-6204-5e8a-81a8-4e7ac5e169a6",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silver-dragons-breath-potion-adult",
+    "name": "Silver Dragon's Breath Potion (Adult)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["cold", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a silver dragon. For 1 hour after you imbibe the concoction, you can unleash a silver dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of cold which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 29,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.t9wFCiFkCRcSLtaG"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 400
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "6d6",
+        "damageType": "cold",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "5b0dbe63-2dc1-5058-921b-5175fe405402",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silver-dragons-breath-potion-wyrm",
+    "name": "Silver Dragon's Breath Potion (Wyrm)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["cold", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a silver dragon. For 1 hour after you imbibe the concoction, you can unleash a silver dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of cold which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "10d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 37,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.PW3H8TnouiLaTC8G"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "10d6",
+        "damageType": "cold",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "6ee20772-d586-5263-a9e2-0a3efa0bc732",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silver-dragons-breath-potion-young",
+    "name": "Silver Dragon's Breath Potion (Young)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["cold", "consumable", "magical", "potion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This liquid contains blood from a silver dragon. For 1 hour after you imbibe the concoction, you can unleash a silver dragon's breath weapon. The potency of the breath depends on the potion's type, based on the age of the dragon whose blood was used to make the potion."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exhaling dragon breath uses a single action. You create a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": " of fire which deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage. All creatures in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 23,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After you use the breath weapon, you can't do so again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.LKwI47eeJC0Y4hGu"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 70
+        }
+      },
+      "bulk": "light",
+      "category": "potion",
+      "damage": {
+        "formula": "4d6",
+        "damageType": "cold",
+        "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "405797d4-3d64-5c19-adea-af6de3a67ced",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silvertongue-mutagen-greater",
+    "name": "Silvertongue Mutagen (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become striking and your voice becomes musical and commanding, though facts and figures become hazy for you and emotion clouds your ability to reason."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +3 item bonus to Deception, Diplomacy, Intimidation and Performance checks. Your critical failures with any of these skills become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 item penalty to Arcana, Crafting, Lore, Occultism, and Society checks. Choose one skill in which you are trained; for the duration, you become untrained in that skill. All your failures to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " become critical failures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "317aa6b0-84eb-5e92-b75f-e0563e265e31"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uggpIk6vguWFXVli"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 300
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "317aa6b0-84eb-5e92-b75f-e0563e265e31",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "1f486957-c025-588c-8f09-2490bc1dddf9",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silvertongue-mutagen-lesser",
+    "name": "Silvertongue Mutagen (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become striking and your voice becomes musical and commanding, though facts and figures become hazy for you and emotion clouds your ability to reason."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +1 item bonus to Deception, Diplomacy, Intimidation and Performance checks. Your critical failures with any of these skills become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 item penalty to Arcana, Crafting, Lore, Occultism, and Society checks. Choose one skill in which you are trained; for the duration, you become untrained in that skill. All your failures to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " become critical failures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ec0933ac-8984-531a-80f5-45b26b6a1a8a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YwRAHWW8yUI07sy9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "ec0933ac-8984-531a-80f5-45b26b6a1a8a",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a98a0573-a3ff-56ec-8aca-ee542ec99164",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:silvertongue-mutagen-major",
+    "name": "Silvertongue Mutagen (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir", "mutagen", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your features become striking and your voice becomes musical and commanding, though facts and figures become hazy for you and emotion clouds your ability to reason."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Benefit",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You gain a +4 item bonus to Deception, Diplomacy, Intimidation and Performance checks. Your critical failures with any of these skills become failures instead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Drawback",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You take a -2 item penalty to Arcana, Crafting, Lore, Occultism, and Society checks. Choose one skill in which you are trained; for the duration, you become untrained in that skill. All your failures to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": " become critical failures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b150a0a6-33d2-501f-846e-d2d8cc94edcc"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.uD5vRYVOXNJ53sEE"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3000
+        }
+      },
+      "bulk": "light",
+      "category": "mutagen",
+      "activation": {
+        "cost": "one"
+      },
+      "effect": "b150a0a6-33d2-501f-846e-d2d8cc94edcc",
       "usage": {
         "type": "held",
         "hands": "one"
@@ -4577,6 +11641,188 @@
         "formula": "1d6",
         "damageType": "bludgeoning",
         "kind": "damage"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "28c81e44-9107-5b5d-89b7-87ca59519d0c",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:warning-snare",
+    "name": "Warning Snare",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["auditory", "consumable", "mechanical", "snare", "trap"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Using materials specific to the area, you connect a sound-making component to a trip wire or a pressure plate. This snare is like an alarm snare, but its subtle sound blends into ambient noise. You can detect this sound as long as you're within 1,000 feet of the snare and aren't prevented from hearing it. Other creatures in that area who are searching might notice the sound if their Perception check result meets or exceeds your Craft DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XU8u9F3uoesGDjgM"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "negligible",
+      "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "460cd355-9896-5b2d-8d85-0ca77b05fd2e",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:winter-wolf-elixir-greater",
+    "name": "Winter Wolf Elixir (Greater)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elixir warms your core and improves your circulation. For 24 hours, you are protected from the effects of severe cold. You're also protected from extreme and incredible cold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.aDn5blt2iiYJpzbe"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1400
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "a0dc77a2-4bc9-5ecc-9453-547f2fd45c3d",
+    "pack": "core-rulebook",
+    "kind": "consumable",
+    "slug": "consumable:winter-wolf-elixir-lesser",
+    "name": "Winter Wolf Elixir (Lesser)",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemical", "consumable", "elixir"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This elixir warms your core and improves your circulation. For 24 hours, you are protected from the effects of severe cold."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.n9VrmK9Us0viv20P"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15
+        }
+      },
+      "bulk": "light",
+      "category": "elixir",
+      "activation": {
+        "cost": "one"
       },
       "usage": {
         "type": "held",

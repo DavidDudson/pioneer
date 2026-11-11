@@ -84,7 +84,8 @@
         "type": "worn",
         "slot": "eyepiece"
       }
-    }
+    },
+    "supersedes": ["4c41b880-750e-5164-ab35-1666c0f26171"]
   },
   {
     "id": "6bd90110-fe7c-5e7e-9f88-19b886676c9d",
@@ -171,7 +172,8 @@
         "type": "worn",
         "slot": "eyepiece"
       }
-    }
+    },
+    "supersedes": ["c9051a99-b2ac-5d3b-b3c8-28cf2ce1c6c5"]
   },
   {
     "id": "33a55b90-46e1-5271-af8f-5c7a76c73521",
@@ -258,7 +260,8 @@
         "type": "worn",
         "slot": "eyepiece"
       }
-    }
+    },
+    "supersedes": ["5ea957b8-86ab-5c55-874d-2df45d091ef2"]
   },
   {
     "id": "5c2319dd-ed18-5376-93ee-17ede9e155f1",
@@ -408,7 +411,8 @@
         "type": "worn",
         "slot": "cloak"
       }
-    }
+    },
+    "supersedes": ["ba6227bd-7c72-526a-8cc6-5b1631239964"]
   },
   {
     "id": "90ae3a1b-19b4-5833-a222-e9b079c16c28",
@@ -3040,7 +3044,8 @@
       "usage": {
         "type": "worn"
       }
-    }
+    },
+    "supersedes": ["2b03c3c2-ae95-5ebe-879c-f1938f00b0ea"]
   },
   {
     "id": "90e02dff-5f5e-5704-ad72-a38234a39c5a",

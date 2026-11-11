@@ -813,7 +813,8 @@
       "modes": ["exploration"],
       "skills": ["skill:stealth"],
       "universal": true
-    }
+    },
+    "supersedes": ["99d1c863-cb6b-5d09-8fb8-2ca0996ac20a"]
   },
   {
     "id": "6fb6b45a-8b16-55e4-ba53-e23a62359b56",
@@ -1129,7 +1130,8 @@
       "skills": ["skill:arcana"],
       "minimumProficiency": "trained",
       "universal": true
-    }
+    },
+    "supersedes": ["574947b6-f66a-5cf0-87fa-554bab01201e"]
   },
   {
     "id": "e9bb5325-1817-5195-876b-af2e4e8a3706",
@@ -3378,7 +3380,8 @@
       "category": "defensive",
       "modes": ["exploration"],
       "universal": true
-    }
+    },
+    "supersedes": ["5c0de5b6-0acd-5751-8566-48c6f0c1b97b"]
   },
   {
     "id": "2f6fd775-86ac-5588-a1d8-f87644035144",
@@ -6329,7 +6332,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "universal": true
-    }
+    },
+    "supersedes": ["269cedab-5f5a-5703-9631-986260885864"]
   },
   {
     "id": "26c3977f-44da-54f1-aaac-9dde108ba609",
@@ -7579,7 +7583,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "universal": true
-    }
+    },
+    "supersedes": ["8feb0055-c96d-5837-9975-f74c8ae6861d"]
   },
   {
     "id": "7052a6f3-66f6-5404-8ab6-aa7ed1dba314",
@@ -8163,7 +8168,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "universal": true
-    }
+    },
+    "supersedes": ["9e5556f3-0cc9-5e73-880b-32c1003a9a7a"]
   },
   {
     "id": "949d397a-3563-5d15-af97-9df7ca388162",
@@ -9242,7 +9248,8 @@
       "category": "interaction",
       "modes": ["downtime"],
       "universal": true
-    }
+    },
+    "supersedes": ["32b92b76-50b6-514b-9df2-b48bfb74699a"]
   },
   {
     "id": "ea9acefb-0d5f-5d99-b709-a27d4ce234f4",
@@ -12384,7 +12391,8 @@
       "category": "interaction",
       "modes": ["downtime"],
       "universal": true
-    }
+    },
+    "supersedes": ["072ae742-3488-5fb0-a4da-c412dd8835c4"]
   },
   {
     "id": "9be0f2af-a3b9-51dc-bc2d-46a1e5a8f889",
@@ -12523,7 +12531,8 @@
       "category": "interaction",
       "modes": ["exploration"],
       "universal": true
-    }
+    },
+    "supersedes": ["13c83114-7186-5ae6-99eb-2730f9d20d72"]
   },
   {
     "id": "d45207be-e539-50ce-9463-f4edc3671076",
@@ -13786,7 +13795,8 @@
       "modes": ["exploration"],
       "skills": ["skill:acrobatics"],
       "universal": true
-    }
+    },
+    "supersedes": ["8569d658-15de-5110-babc-de3ae9c6e7ff"]
   },
   {
     "id": "667bebee-bb47-5bf2-b54e-7955517106a6",

@@ -1,0 +1,118 @@
+[
+  {
+    "id": "0d332be7-adbc-5530-9fec-d1c134d33ca8",
+    "pack": "core-rulebook",
+    "kind": "treasure",
+    "slug": "treasure:copper-pieces",
+    "name": "Copper Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lzJ8AVhRcbFul5fh"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "cp": 1
+        }
+      },
+      "bulk": 1
+    }
+  },
+  {
+    "id": "804478d5-b21b-55c6-be57-d93b16e404d3",
+    "pack": "core-rulebook",
+    "kind": "treasure",
+    "slug": "treasure:gold-pieces",
+    "name": "Gold Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.B6B7tBWJSqOBz5zz"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 1
+    }
+  },
+  {
+    "id": "cedf787c-216d-5fa9-b53e-fdad884e0603",
+    "pack": "core-rulebook",
+    "kind": "treasure",
+    "slug": "treasure:platinum-pieces",
+    "name": "Platinum Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.JuNPeK5Qm1w6wpb4"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "pp": 1
+        }
+      },
+      "bulk": 1
+    }
+  },
+  {
+    "id": "ce7bd604-ca84-5361-ad0e-60f1e7f56d2e",
+    "pack": "core-rulebook",
+    "kind": "treasure",
+    "slug": "treasure:silver-pieces",
+    "name": "Silver Pieces",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5Ew82vBF9YfaiY9f"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "sp": 1
+        }
+      },
+      "bulk": 1
+    }
+  }
+]

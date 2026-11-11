@@ -1,5 +1,256 @@
 [
   {
+    "id": "a53dc538-6eb6-583a-99df-2d92b056cdcd",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:bottled-lightning-greater",
+    "name": "Bottled Lightning (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "electricity", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bottled lightning is packed with volatile reagents that create a blast of electricity when they are exposed to air. Bottled lightning deals 3d6 electricity damage and 3 electricity splash damage. On a hit, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +2 item bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r2iTRbt1zpkAqHj2"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d6",
+        "damageType": "electricity"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "d3cc20b2-ac85-58f6-9c73-232c10db4873",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:bottled-lightning-lesser",
+    "name": "Bottled Lightning (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "electricity", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bottled lightning is packed with volatile reagents that create a blast of electricity when they are exposed to air. Bottled lightning deals 1d6 electricity damage and 1 electricity splash damage. On a hit, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AFR01HVd7DcZvkpP"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "electricity"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "cd244ab3-37e9-5aad-ad1d-36c989352822",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:bottled-lightning-major",
+    "name": "Bottled Lightning (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "electricity", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bottled lightning is packed with volatile reagents that create a blast of electricity when they are exposed to air. Bottled lightning deals 4d6 electricity damage and 4 electricity splash damage. On a hit, the target becomes "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn. You gain a +3 item bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.rpbbfkexLhtadBDV"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d6",
+        "damageType": "electricity"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "67df87e7-bc9a-5ffc-845e-2759f102d043",
     "pack": "core-rulebook",
     "kind": "weapon",
@@ -81,6 +332,62 @@
       "usage": {
         "type": "held",
         "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "b333b78f-cf22-555b-98d8-4314dec1c9d4",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:dwarven-thrower",
+    "name": "Dwarven Thrower",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["magical", "shove"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This +2 striking warhammer is inlaid with precious metals and decorated with geometric patterns in a dwarven style. If you're a dwarf, a dwarven thrower functions for you as a +2 greater striking returning warhammer with the thrown 30 feet trait, and your attacks with the hammer deal 1d8 additional damage against giants."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XK4DM8wOtcuOsji6"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2750
+        }
+      },
+      "bulk": 1,
+      "category": "martial",
+      "group": "hammer",
+      "baseItem": "warhammer",
+      "damage": {
+        "dice": 1,
+        "die": "d8",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
+        "property": []
       }
     }
   },
@@ -228,6 +535,296 @@
         "potency": 2,
         "striking": 2,
         "property": ["c9077442-2c05-5df9-b213-d3fad04dc2c8"]
+      }
+    }
+  },
+  {
+    "id": "e02a7dba-31e8-51c5-823e-83a97c8394a5",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:frost-vial-greater",
+    "name": "Frost Vial (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "cold", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to attack rolls, the bomb deals 3d6 cold damage and 3 cold splash damage, and the target takes a -10-foot penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "9fda9e53-b368-5d9a-b56d-2093486b35f4"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.intVPcEzbE9o4NQd"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d6",
+        "damageType": "cold"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "150205df-4418-5d38-8e75-6e6600eae3aa",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:frost-vial-lesser",
+    "name": "Frost Vial (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "cold", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 1d6 cold damage and 1 cold splash damage, and the target takes a -5-foot penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "441b3aaf-f329-52c6-a925-eadf9bbd3896"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.EpxmUtLpCkE8R6KJ"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "cold"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "af1d4992-67a2-5659-bb7a-c411edc76616",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:frost-vial-major",
+    "name": "Frost Vial (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "cold", "consumable", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 item bonus to attack rolls, the bomb deals 4d6 cold damage and 4 cold splash damage, and the target takes a -15-foot penalty."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "37785b78-cbab-595a-b3f7-9b480f1665be"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.4DJQID8GIlxQ7b9C"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d6",
+        "damageType": "cold"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
       }
     }
   },
@@ -643,6 +1240,590 @@
         "potency": 2,
         "striking": 2,
         "property": ["1c942139-39ff-5ab6-bccc-88a68a1ec2e6"]
+      }
+    }
+  },
+  {
+    "id": "c4384cf9-1629-54be-a306-f0f1780a67eb",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:luck-blade",
+    "name": "Luck Blade",
+    "level": 17,
+    "rarity": "rare",
+    "traits": ["agile", "divine", "finesse", "fortune", "magical", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Luck and good fortune bless the wielder of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Luck blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are crafted in a variety of styles, but their hilts or blades always incorporate symbols of luck, such as clovers, horseshoes, fish, ladybugs, or other symbols."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You miss on a Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "luck blade",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reroll the triggering attack roll and use the new result. This is a fortune effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pIYlenaADKnxdp11"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 15000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "luck-blade",
+          "name": "Luck Blade",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "7d435c79-905d-5494-ae0d-f42c4b6bf408",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:luck-blade-wishing",
+    "name": "Luck Blade (Wishing)",
+    "level": 19,
+    "rarity": "rare",
+    "traits": ["agile", "finesse", "fortune", "magical", "versatile-s"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Luck and good fortune bless the wielder of this "
+          },
+          {
+            "type": "text",
+            "text": "+3 greater striking shortsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "text": "Luck blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " are crafted in a variety of styles, but their hilts or blades always incorporate symbols of luck, such as clovers, horseshoes, fish, ladybugs, or other symbols."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You miss on a Strike with the "
+          },
+          {
+            "type": "text",
+            "text": "luck blade",
+            "marks": ["emphasis"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Reroll the triggering attack roll and use the new result. This is a fortune effect."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Some "
+          },
+          {
+            "type": "text",
+            "text": "luck blades",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " contain one "
+          },
+          {
+            "type": "ref",
+            "id": "0f1f01cd-bf9a-5147-bc44-1697e6548675"
+          },
+          {
+            "type": "text",
+            "text": " when crafted. You can cast this spell as an arcane innate spell while wielding the "
+          },
+          {
+            "type": "text",
+            "text": "luck blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", expending the spell. A spellcaster who can cast "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can place another "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " into the blade by spending 8,000 gp and 4 days of downtime. A "
+          },
+          {
+            "type": "text",
+            "text": "wishing luck blade",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can hold no more than one "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " at a time."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "text",
+            "text": "wish",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.C3vAFRWoeGbMQTAH"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 30000
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "luck-blade-wishing",
+          "name": "Luck Blade (Wishing)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "sword",
+      "baseItem": "shortsword",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "ae1aad6d-0b17-571c-ab1f-fc2de48222d1",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:mattock-of-the-titans",
+    "name": "Mattock of the Titans",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["fatal-d12", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This 15-foot-long adamantine digging tool is far too big for even a Large creature to wield, though if you're a Small or larger creature, you can wield it while wearing a belt of giant strength, as though it were appropriately sized for you and had 2 Bulk. The GM might also allow you to wield the mattock if you have some other means of wielding oversized weapons, such as if you're a Large barbarian with the giant instinct or are a Huge creature. When it's used as a weapon, the mattock of the titans has the statistics of a +3 greater striking "
+          },
+          {
+            "type": "ref",
+            "id": "bc974552-c0c5-57ac-9924-d474d2bdf9a0"
+          },
+          {
+            "type": "text",
+            "text": " adamantine greatpick."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you're wielding the mattock of the titans, you gain a +3 item bonus to Athletics checks. You can use it to loosen or push soft earth at a rate of 1 minute per 5-foot cube or smash through solid stone at the rate of 5 minutes per 5-foot-cube."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You dig furiously with the mattock to non-magically replicate the effects of an "
+          },
+          {
+            "type": "ref",
+            "id": "1001faa9-fabc-5445-b281-5716b5ccab6d"
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are a titan, and the initial raw materials must include 8,100 gp of adamantine."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "item",
+        "value": 3
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.WCWdJmR5tYO7Aulb"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 36000
+        }
+      },
+      "bulk": 16,
+      "material": {
+        "type": "adamantine",
+        "grade": "high"
+      },
+      "activations": [
+        {
+          "slug": "mattock-of-the-titans",
+          "name": "Mattock of the Titans",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "greatpick",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 2,
+        "property": ["bc974552-c0c5-57ac-9924-d474d2bdf9a0"]
       }
     }
   },
@@ -1122,6 +2303,912 @@
         "potency": 2,
         "striking": 2,
         "property": []
+      }
+    }
+  },
+  {
+    "id": "9dd2b5fe-5a77-526c-a740-8ca1806381fd",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:staff-of-the-magi",
+    "name": "Staff of the Magi",
+    "level": 20,
+    "rarity": "rare",
+    "traits": ["magical", "monk", "staff", "two-hand-d8"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sigils and runes of ancient and powerful magic cover the iron cladding on this long wooden staff. A "
+          },
+          {
+            "type": "text",
+            "text": "staff of the magi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "text",
+            "text": "+3 major striking staff",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and when wielding it you gain a +1 circumstance bonus to saving throws against spells."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Voluntarily destroying a "
+          },
+          {
+            "type": "text",
+            "text": "staff of the magi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " unleashes a truly devastating wave of arcane energy that surges out, dissipating with distance. When wielding the staff, you can break it using an Interact action. This releases a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " magical explosion centered on the staff. This deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage per charge remaining in the staff ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 40,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": "). You automatically critically fail your save. The explosion continues to echo beyond the initial blast zone, dealing half as much damage to creatures beyond 30 feet but within a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 60
+          },
+          {
+            "type": "text",
+            "text": ". A creature reduced to 0 Hit Points by this damage dies instantly; this is a death effect."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend a number of charges from the staff to cast a spell from its list."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Cantrip",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "c91ac947-a9ec-5f07-b5f9-a054617eb571"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b0b84836-b7a0-59ca-9379-6efdfb022f9e"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d4cea589-6319-5d13-9109-319b4bbcc6e1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "ed1f3941-7c08-5015-b12a-2017b44f68e3"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "1st",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "73a25cc8-4e2a-537a-8f15-3198afb7578c"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "2nd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3597aeb0-883c-562a-82ca-37e92210633d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "d1f43afb-1c79-545c-9563-4dbbdd5a8386"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "35f9dc96-eeca-54f3-b920-7ae0733594a8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4c0412dc-b4ca-590a-a106-8ec470fb8e22"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "3rd",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e8221b18-c4c7-5d99-a604-a3cf119d41b1"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "4c0412dc-b4ca-590a-a106-8ec470fb8e22"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "094faa33-6827-59be-afc0-36661ab12e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "e9fa0be4-1b62-555b-91de-ba34c484adac"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "7th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "094faa33-6827-59be-afc0-36661ab12e46"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "12b87fec-1e48-544a-8e02-78d8f5b1e78b"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "989ec875-261d-5d4f-a181-fedf889f9d4b"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c5ef7d9-d7ac-5654-b88c-5504257ec3f7"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "6096b768-43d9-56ca-a7f1-8317781601df"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply one casting of all listed levels of all listed spells."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:type:spell"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nI9shR1EG3P09I8r"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 90000
+        }
+      },
+      "bulk": 1,
+      "category": "simple",
+      "group": "club",
+      "baseItem": "staff",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 3,
+        "striking": 3,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "4f707242-824a-5242-906b-7ebefa59a3b0",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:thunderstone-greater",
+    "name": "Thunderstone (Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "sonic", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When this stone hits a creature or a hard surface, it explodes with a deafening bang. A thunderstone deals the listed sonic damage and sonic splash damage, and each creature within 10 feet of the space in which the stone exploded must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 28
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the listed DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Many types of thunderstone grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +2 item bonus to attack rolls. The bomb deals 3d4 sonic damage and 3 sonic splash damage, and the DC is 28."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.dsMkvuLgpOOGLWDy"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 3,
+        "die": "d4",
+        "damageType": "sonic"
+      },
+      "splash": 3,
+      "itemBonus": 2,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "685b5b01-ccce-5ea1-aff3-e75139388a76",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:thunderstone-lesser",
+    "name": "Thunderstone (Lesser)",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "sonic", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When this stone hits a creature or a hard surface, it explodes with a deafening bang. A thunderstone deals the listed sonic damage and sonic splash damage, and each creature within 10 feet of the space in which the stone exploded must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 17
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the listed DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Many types of thunderstone grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The bomb deals 1d4 sonic damage and 1 sonic splash damage, and the DC is 17."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Xnqglykl3Cif8rN9"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 3
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 1,
+        "die": "d4",
+        "damageType": "sonic"
+      },
+      "splash": 1,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "90dd578f-b949-55de-b947-2f88221c3b7e",
+    "pack": "core-rulebook",
+    "kind": "weapon",
+    "slug": "weapon:thunderstone-major",
+    "name": "Thunderstone (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": ["alchemical", "bomb", "consumable", "sonic", "splash"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When this stone hits a creature or a hard surface, it explodes with a deafening bang. A thunderstone deals the listed sonic damage and sonic splash damage, and each creature within 10 feet of the space in which the stone exploded must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 36
+          },
+          {
+            "type": "text",
+            "text": " saving throw with the listed DC or be "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": " until the end of its next turn. Many types of thunderstone grant an item bonus to attack rolls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain a +3 item bonus to attack rolls. The bomb deals 4d4 sonic damage and 4 sonic splash damage, and the DC is 36."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.IuGydh0En8LbfnWo"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "category": "martial",
+      "group": "bomb",
+      "baseItem": "alchemical-bomb",
+      "damage": {
+        "dice": 4,
+        "die": "d4",
+        "damageType": "sonic"
+      },
+      "splash": 4,
+      "itemBonus": 3,
+      "range": 20,
+      "usage": {
+        "type": "held",
+        "hands": "one"
       }
     }
   },

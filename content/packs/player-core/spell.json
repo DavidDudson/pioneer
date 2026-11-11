@@ -52910,7 +52910,8 @@
       },
       "traditions": ["arcane", "occult"],
       "damage": []
-    }
+    },
+    "supersedes": ["6175ed4e-d059-512b-9338-b52825fcebb3"]
   },
   {
     "id": "2044ae9b-f82e-5da7-9208-fef06297ca5a",

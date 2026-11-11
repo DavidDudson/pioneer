@@ -565,7 +565,8 @@ there too, beside the Foundry imports `player-core`, `player-core-2`, `gm-core`,
 `prey-for-death`, `claws-of-the-tyrant`, `clockwork-mystery`, `tian-xia-world-guide` and `foolish-housekeeping`
 (`mwangi-expanse`, `secrets-of-magic`, `rage-of-elements`, `character-guide` and `impossible-lands` are pre-remaster
 and OGL, for content the remaster books point at, such as the Goloma ancestry; the registry flags the
-books the importer takes that way (`Book.legacy` of `whole`); `core-rulebook`,
+books the importer takes that way (`Book.legacy` of `whole`, now also `core-rulebook`, whose remaining legacy
+entries were appended with `--replaced-legacy`, each remaster entry of the same name recording it in `supersedes`);
 `advanced-players-guide` and `the-show-must-go-on` hold the items `OGL_ENTRIES` lists and, since ADR-0077, every
 legacy entry a remaster entry replaces: `--replaced-legacy` reads them from the pre-6.0 pf2e release in `legacyPin` of
 `content/import/<pack>.json`, taking a legacy OGL document whose book and slug match a name behind
