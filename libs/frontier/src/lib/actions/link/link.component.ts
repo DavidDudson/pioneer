@@ -19,6 +19,8 @@ export const LinkAppearance = {
   Index: 'index',
   /** One row of a menu or dropdown panel: looks like `fr-button` variant `menu`, with the current page filled. */
   Menu: 'menu',
+  /** A call to action that navigates: looks like a primary `fr-button`, but stays a real link. */
+  Button: 'button',
 } as const;
 export type LinkAppearance = ValueOf<typeof LinkAppearance>;
 
@@ -34,6 +36,8 @@ const linkVariants = cva('focus-visible:focus-ring', {
       segment:
         'inline-flex h-touch items-center justify-center px-sm text-label font-medium whitespace-nowrap no-underline pointer-fine:h-control-sm',
       menu: 'flex h-touch w-full items-center gap-xs px-sm text-label font-medium text-fg-default hover:bg-surface-sunken pointer-fine:h-control-sm',
+      button:
+        'inline-flex h-touch items-center justify-center bg-accent-solid px-md text-body font-medium whitespace-nowrap text-accent-on-solid no-underline hover:bg-accent-solid-hover active:bg-accent-solid-active forced-colors:border pointer-fine:h-control-md',
     } satisfies Record<LinkAppearance, string>,
     // The page being shown: the underline turns accent and thickens, so the cue is not colour alone.
     current: { true: 'decoration-accent-fg decoration-link-current', false: '' },

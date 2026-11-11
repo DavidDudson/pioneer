@@ -44,13 +44,37 @@ export const characterRoutes: Routes = [
         }),
       },
       {
-        path: 'new/generate',
-        data: { [CRUMB]: 'character.generate.title' },
-        loadComponent: loadWithMessages(async () => {
-          const { GenerateCharacterPage } =
-            await import('./generate/generate-character-page/generate-character-page.component');
-          return GenerateCharacterPage;
-        }),
+        path: 'new',
+        data: { [CRUMB]: 'character.new.title' },
+        children: [
+          {
+            path: '',
+            loadComponent: loadWithMessages(async () => {
+              const { CreationChoicePage } = await import('./new/creation-choice-page/creation-choice-page.component');
+              return CreationChoicePage;
+            }),
+          },
+          // Until the import page ships, the choice leads to the Pathbuilder import.
+          { path: 'import', redirectTo: '/characters/import/pathbuilder' },
+          {
+            path: 'generate',
+            data: { [CRUMB]: 'character.generate.title' },
+            loadComponent: loadWithMessages(async () => {
+              const { GenerateCharacterPage } =
+                await import('./generate/generate-character-page/generate-character-page.component');
+              return GenerateCharacterPage;
+            }),
+          },
+          {
+            path: 'create',
+            data: { [CRUMB]: 'character.create.title' },
+            loadComponent: loadWithMessages(async () => {
+              const { CreateCharacterPage } =
+                await import('./new/create-character-page/create-character-page.component');
+              return CreateCharacterPage;
+            }),
+          },
+        ],
       },
       {
         path: 'import/pathbuilder',
