@@ -279,6 +279,7 @@ const effectDuration: Arbitrary<object> = oneof(
   }),
   constant({ type: EffectDurationType.Encounter }),
   constant({ type: EffectDurationType.Unlimited }),
+  record({ type: constant(EffectDurationType.Uses), count: positive }),
 );
 
 const untriggeredEffect: Arbitrary<object> = withOptional(

@@ -3,7 +3,15 @@ import type { ValueOf } from '@pioneer/shared/kernel';
 import * as z from 'zod';
 
 import { ActiveSpellId } from './active-spell-id';
-import { EffectBadgeValue, EffectInstanceId, EffectRounds, EFFECTS_MAX, EffectSourceSchema, SELF } from './effects';
+import {
+  EffectBadgeValue,
+  EffectInstanceId,
+  EffectRounds,
+  EFFECTS_MAX,
+  EffectSourceSchema,
+  EffectUses,
+  SELF,
+} from './effects';
 import type { ActiveEffect, CounterTerms, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 
 /** The play edits that apply, change and remove effects. */
@@ -14,6 +22,8 @@ export const EffectCommandField = {
   /** The rounds an effect has left set outright, as when correcting a count or an effect from another creature. */
   SetEffectRemaining: 'setEffectRemaining',
   SetEffectBadge: 'setEffectBadge',
+  /** Spends one use of a boon that counts uses down; spending the last one ends it. */
+  SpendEffectUse: 'spendEffectUse',
 } as const;
 export type EffectCommandField = ValueOf<typeof EffectCommandField>;
 
@@ -39,8 +49,12 @@ export const EffectCommandSchema = z.discriminatedUnion('field', [
   z.object({ field: z.literal(EffectCommandField.RemoveEffect), id: EffectInstanceId }),
   z.object({ field: z.literal(EffectCommandField.SetEffectRemaining), id: EffectInstanceId, remaining: EffectRounds }),
   z.object({ field: z.literal(EffectCommandField.SetEffectBadge), id: EffectInstanceId, value: EffectBadgeValue }),
+  z.object({ field: z.literal(EffectCommandField.SpendEffectUse), id: EffectInstanceId }),
 ]);
 export type EffectCommand = z.infer<typeof EffectCommandSchema>;
+
+/** One use: what spending takes, and the count at which a spend ends the boon. */
+export const LAST_EFFECT_USE = EffectUses.parse(1);
 
 /** Why an effect edit is refused. */
 export const EffectProblem = {
@@ -54,6 +68,8 @@ export const EffectProblem = {
   Badge: 'badge',
   /** A spell rank is cast at, which only a polymorph effect is; any other effect takes none. A form needs its rank. */
   Rank: 'rank',
+  /** The effect has no uses to spend: it is not a boon that counts them down. */
+  NoUses: 'no-uses',
 } as const;
 export type EffectProblem = ValueOf<typeof EffectProblem>;
 
@@ -110,6 +126,9 @@ export function effectProblem(
   if (target === undefined) {
     return EffectProblem.Missing;
   }
+  if (command.field === EffectCommandField.SpendEffectUse) {
+    return target.uses === undefined ? EffectProblem.NoUses : undefined;
+  }
   if (command.field !== EffectCommandField.SetEffectBadge) {
     return undefined;
   }
@@ -127,6 +146,7 @@ function applied(
     effect: command.effect,
     source: command.source,
     ...(terms.remaining === undefined ? {} : { remaining: terms.remaining }),
+    ...(terms.uses === undefined ? {} : { uses: terms.uses }),
     ...(terms.expiry === undefined ? {} : { expiry: terms.expiry }),
     ...(terms.sustained ? { sustained: true } : {}),
     ...(badge === undefined ? {} : { badge }),
@@ -164,6 +184,14 @@ export function applyEffectCommand(
     }
     case EffectCommandField.SetEffectBadge: {
       return effects.map((each) => (each.id === command.id ? { ...each, badge: command.value } : each));
+    }
+    case EffectCommandField.SpendEffectUse: {
+      return effects.flatMap((each): ActiveEffect[] => {
+        if (each.id !== command.id || each.uses === undefined) {
+          return [each];
+        }
+        return each.uses <= LAST_EFFECT_USE ? [] : [{ ...each, uses: EffectUses.parse(each.uses - LAST_EFFECT_USE) }];
+      });
     }
     default: {
       return command satisfies never;

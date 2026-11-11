@@ -63,6 +63,8 @@ export interface EffectView {
   readonly source: EffectSourceView;
   /** Rounds left, for an effect with a clock. */
   readonly remaining: number | undefined;
+  /** The uses left, for a boon that counts uses down; spending one is the Use button. */
+  readonly uses: number | undefined;
   readonly badge: EffectBadgeValue | undefined;
   /** The rounds left, and the form and rank of a polymorph effect: muted lines the list shows after its name. */
   readonly details: readonly EffectDetail[];
@@ -140,6 +142,14 @@ function canStep(counter: CounterTerms | undefined, badge: EffectBadgeValue | un
   return counter !== undefined && badge !== undefined && steppedBadge(counter, badge, up) !== badge;
 }
 
+/** The line naming who gave an effect, for an ally's or the GM's; the character's own has none. */
+function sourceDetail(source: ActiveEffect['source']): readonly EffectDetail[] {
+  if (source.kind === EffectSourceKind.Ally) {
+    return [{ key: 'character.sheet.effects.fromAlly', params: { name: source.name } }];
+  }
+  return source.kind === EffectSourceKind.Gm ? [{ key: 'character.sheet.effects.fromGm', params: {} }] : [];
+}
+
 /** The rounds left, the form chosen and the rank cast at, as lines the list shows. */
 function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetail[] {
   const form = formChoicesOf(entry).find(({ option }) => option === each.form);
@@ -147,8 +157,10 @@ function detailsOf(entry: EffectEntry, each: ActiveEffect): readonly EffectDetai
     ...(each.remaining === undefined
       ? []
       : [{ key: 'character.sheet.effects.remaining', params: { count: each.remaining } }]),
+    ...(each.uses === undefined ? [] : [{ key: 'character.sheet.effects.usesLeft', params: { count: each.uses } }]),
     ...(form === undefined ? [] : [{ key: 'character.sheet.effects.form', params: { name: form.label } }]),
     ...(each.rank === undefined ? [] : [{ key: 'character.sheet.effects.rank', params: { rank: each.rank } }]),
+    ...sourceDetail(each.source),
   ];
 }
 
@@ -172,6 +184,7 @@ export function effectViews(registry: ContentRegistry, active: readonly ActiveEf
           name: each.source.kind === EffectSourceKind.Ally ? each.source.name : undefined,
         },
         remaining: each.remaining,
+        uses: each.uses,
         badge: each.badge,
         details: detailsOf(entry, each),
         counter,

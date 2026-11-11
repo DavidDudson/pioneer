@@ -1,6 +1,6 @@
 import { HitPoints } from '@pioneer/rules/sdk';
 
-import { applyEffectCommand, EffectCommandField } from './effect-commands';
+import { applyEffectCommand, EffectCommandField, LAST_EFFECT_USE } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import type { ActiveEffect, EffectContent, EffectInstanceId } from './effects';
 
@@ -29,18 +29,17 @@ function polymorphs(effects: readonly ActiveEffect[], content: EffectContent): r
   return effects.filter(({ effect }) => content.get(effect)?.polymorph === true).map(({ id }) => id);
 }
 
-/** `play` after an effect edit. Removing an effect gives back its temporary Hit Points; applying a polymorph effect ends the one before it. */
-export function applyEffectEdit<Play extends EffectPlay>(
+/** Whether `id` is an effect on its last use, so spending it ends it and gives back what it gave. */
+function isLastUse(id: EffectInstanceId): (each: ActiveEffect) => boolean {
+  return (each) => each.id === id && each.uses === LAST_EFFECT_USE;
+}
+
+/** `play` after an effect is applied: a polymorph effect ends the one before it, and the temporary Hit Points it gives are credited. */
+function appliedEffect<Play extends EffectPlay>(
   play: Play,
-  command: EffectCommand,
+  command: Extract<EffectCommand, { field: typeof EffectCommandField.ApplyEffect }>,
   content: EffectContent,
 ): Play {
-  if (command.field === EffectCommandField.RemoveEffect) {
-    return endEffects(play, [command.id]);
-  }
-  if (command.field !== EffectCommandField.ApplyEffect) {
-    return { ...play, effects: [...applyEffectCommand(play.effects, command, content)] };
-  }
   const terms = content.get(command.effect);
   const present = play.effects.some(({ id }) => id === command.id);
   if (terms === undefined || present) {
@@ -54,4 +53,22 @@ export function applyEffectEdit<Play extends EffectPlay>(
     effects: [...applyEffectCommand(cleared.effects, { ...command, tempHp: raised }, content)],
     hp: { ...cleared.hp, temp: HitPoints.parse(Math.max(cleared.hp.temp, given)) },
   };
+}
+
+/** `play` after an effect edit. Removing an effect gives back its temporary Hit Points; applying a polymorph effect ends the one before it. */
+export function applyEffectEdit<Play extends EffectPlay>(
+  play: Play,
+  command: EffectCommand,
+  content: EffectContent,
+): Play {
+  if (command.field === EffectCommandField.RemoveEffect) {
+    return endEffects(play, [command.id]);
+  }
+  if (command.field === EffectCommandField.SpendEffectUse && play.effects.some(isLastUse(command.id))) {
+    return endEffects(play, [command.id]);
+  }
+  if (command.field !== EffectCommandField.ApplyEffect) {
+    return { ...play, effects: [...applyEffectCommand(play.effects, command, content)] };
+  }
+  return appliedEffect(play, command, content);
 }

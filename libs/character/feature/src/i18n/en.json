@@ -655,7 +655,9 @@
       "remove": "Dismiss",
       "fromAlly": "From {name}",
       "fromGm": "From the GM",
-      "remaining": "{count, plural, one {# round left} other {# rounds left}}"
+      "remaining": "{count, plural, one {# round left} other {# rounds left}}",
+      "usesLeft": "{count, plural, one {# use left} other {# uses left}}",
+      "spendUse": "Use"
     },
     "formPreview": {
       "feet": "{value} feet",
@@ -837,6 +839,7 @@
     "effectFull": "This character has as many effects as it can hold. Remove one first.",
     "effectBadge": "The badge does not fit that effect: a rolled effect needs its roll, and a counter stays within its range.",
     "effectRank": "Only a polymorph effect is cast at a rank.",
+    "effectNoUses": "This effect has no uses to spend.",
     "consumableNotHeld": "That item is not a consumable you hold.",
     "consumableWrongAction": "That spend is not this consumable's activation.",
     "consumableWrongEffect": "That effect is not the one this consumable gives.",

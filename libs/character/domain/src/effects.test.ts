@@ -14,6 +14,7 @@ import {
 import { newId } from '@pioneer/shared/kernel';
 
 import { CharacterId } from './character-fields';
+import { steppedBadge } from './effect-badges';
 import { applyEffectCommand, EffectCommandField, EffectProblem, effectProblem } from './effect-commands';
 import type { EffectCommand } from './effect-commands';
 import {
@@ -28,7 +29,6 @@ import {
   EffectSourceKind,
   effectTerms,
   SELF,
-  steppedBadge,
 } from './effects';
 import type { ActiveEffect, EffectBadgeTerms, EffectContent, EffectTerms } from './effects';
 import { applyPlayCommand, FRESH_PLAY } from './play-state';

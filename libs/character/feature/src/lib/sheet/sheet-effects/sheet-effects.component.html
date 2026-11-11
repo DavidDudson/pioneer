@@ -15,13 +15,6 @@
               @for (detail of view.details; track detail.key) {
                 <fr-text tone="muted">{{ detail.key | transloco: detail.params }}</fr-text>
               }
-              @if (view.source.kind === allySource) {
-                <fr-text tone="muted">{{
-                  'character.sheet.effects.fromAlly' | transloco: { name: view.source.name }
-                }}</fr-text>
-              } @else if (view.source.kind === gmSource) {
-                <fr-text tone="muted">{{ 'character.sheet.effects.fromGm' | transloco }}</fr-text>
-              }
               @if (view.counter) {
                 <fr-async-button
                   size="sm"
@@ -38,6 +31,16 @@
                   [describeError]="describeError"
                 >
                   {{ 'character.sheet.effects.lower' | transloco }}
+                </fr-async-button>
+              }
+              @if (view.uses !== undefined) {
+                <fr-async-button
+                  size="sm"
+                  [action]="spendUse(view)"
+                  [disabled]="busy()"
+                  [describeError]="describeError"
+                >
+                  {{ 'character.sheet.effects.spendUse' | transloco }}
                 </fr-async-button>
               }
               <fr-async-button size="sm" [action]="remove(view)" [disabled]="busy()" [describeError]="describeError">

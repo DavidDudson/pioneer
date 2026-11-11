@@ -5,8 +5,9 @@ import { BadgeReevaluation, EffectBadgeType, EffectExpiry, HitPoints } from '@pi
 import { spellsCountedDown } from './active-spells';
 import { ConditionDurationKind } from './conditions';
 import type { ActiveCondition } from './conditions';
+import { rollBadge } from './effect-badges';
 import { endEffects } from './effect-ending';
-import { EffectRounds, rollBadge } from './effects';
+import { EffectRounds } from './effects';
 import type { ActiveEffect, EffectContent } from './effects';
 import { applyPlayCommand, currentHitPoints, PlayCommandField } from './play-state';
 import type { PlayLimits, PlayState } from './play-state';

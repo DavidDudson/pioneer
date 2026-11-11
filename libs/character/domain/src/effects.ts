@@ -1,5 +1,3 @@
-import { DiceExpressionText, parseDiceExpression, rollDice } from '@pioneer/rules/dice';
-import type { RandomSource } from '@pioneer/rules/dice';
 import { kindOption } from '@pioneer/rules/grants';
 import type { ContentLookup, GrantRoot } from '@pioneer/rules/grants';
 import {
@@ -70,6 +68,10 @@ export type EffectInstanceId = z.infer<typeof EffectInstanceId>;
 export const EffectRounds = Pg.integer().positive().brand<'EffectRounds'>();
 export type EffectRounds = z.infer<typeof EffectRounds>;
 
+/** The uses an effect has left: a boon with a number of uses counts down as they are spent and ends at zero, so never 0. */
+export const EffectUses = Pg.smallint().positive().brand<'EffectUses'>();
+export type EffectUses = z.infer<typeof EffectUses>;
+
 /** The number an effect's badge shows. */
 export const EffectBadgeValue = Pg.smallint().brand<'EffectBadgeValue'>();
 export type EffectBadgeValue = z.infer<typeof EffectBadgeValue>;
@@ -95,7 +97,8 @@ export const SELF: EffectSource = { kind: EffectSourceKind.Self };
 
 /**
  * An effect active on a character, as an input: which effect, who it came from, the rounds it has left (none for one
- * with no clock: until the turn ends, the encounter ends or someone removes it), when it ends once they run out,
+ * with no clock: until the turn ends, the encounter ends or someone removes it), the uses it has left when it counts
+ * down uses instead, when it ends once they run out,
  * whether it is sustained, the active spell that cast it (sustaining it recreates a destroyed shield it gave), and
  * the number its badge shows. What it does to the statistics is the content's rules, worked out on every read.
  */
@@ -104,6 +107,8 @@ export const ActiveEffectSchema = z.strictObject({
   effect: ContentId,
   source: EffectSourceSchema.default(SELF),
   remaining: EffectRounds.optional(),
+  /** The uses a boon has left; spending the last one ends it. */
+  uses: EffectUses.optional(),
   expiry: z.enum(EffectExpiry).optional(),
   sustained: z.boolean().optional(),
   badge: EffectBadgeValue.optional(),
@@ -148,6 +153,8 @@ export type CounterTerms = Extract<EffectBadgeTerms, { type: typeof EffectBadgeT
 /** What applying an effect starts from, read from its content: the clock, when it ends, and the badge. */
 export interface EffectTerms {
   readonly remaining: EffectRounds | undefined;
+  /** The uses it starts with, for a boon that counts uses down. */
+  readonly uses?: EffectUses;
   readonly expiry: EffectExpiry | undefined;
   readonly sustained: boolean;
   readonly badge: EffectBadgeTerms | undefined;
@@ -193,7 +200,7 @@ function badgeTerms(badge: EffectData['badge']): EffectBadgeTerms | undefined {
 /**
  * What applying `data` starts from. A timed effect lasts its duration in rounds and ends at its `expiry`, the start of
  * a turn when the content names none. A turn effect has no clock but ends at its expiry; the encounter and unlimited
- * effects have neither.
+ * effects have neither. A boon with uses has neither clock; it starts with its uses and ends when they are spent.
  */
 export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
   const { duration } = data;
@@ -214,6 +221,16 @@ export function effectTerms(data: EffectData, polymorph = false): EffectTerms {
     case EffectDurationType.Encounter:
     case EffectDurationType.Unlimited: {
       return { remaining: undefined, expiry: undefined, sustained: false, badge, polymorph };
+    }
+    case EffectDurationType.Uses: {
+      return {
+        remaining: undefined,
+        uses: EffectUses.parse(duration.count),
+        expiry: undefined,
+        sustained: false,
+        badge,
+        polymorph,
+      };
     }
     default: {
       return duration satisfies never;
@@ -267,34 +284,4 @@ export function effectRoots(effects: readonly ActiveEffect[]): readonly GrantRoo
       ...(tradition === undefined ? {} : { tradition }),
     },
   }));
-}
-
-/**
- * The value a counter badge steps to from `value`, one step `up` or down: held at its bounds, or looping past them
- * when the content says so. A badge with no bound on a side has no end there.
- */
-export function steppedBadge(terms: CounterTerms, value: EffectBadgeValue, up: boolean): EffectBadgeValue {
-  const next = value + (up ? 1 : -1);
-  const { min, max, loop } = terms;
-  if (max !== undefined && next > max) {
-    return EffectBadgeValue.parse(loop && min !== undefined ? min : max);
-  }
-  if (min !== undefined && next < min) {
-    return EffectBadgeValue.parse(loop && max !== undefined ? max : min);
-  }
-  return EffectBadgeValue.parse(next);
-}
-
-/** Whether `formula` is a plain dice expression that `rollBadge` can roll. */
-export function canRollBadge(formula: DamageFormula): boolean {
-  return parseDiceExpression(DiceExpressionText.parse(formula)).ok;
-}
-
-/**
- * What a formula badge rolls. A formula that reads the character (`@attr.str`) is not a plain dice expression, so it is
- * not rolled here and has no value.
- */
-export function rollBadge(formula: DamageFormula, random: RandomSource): EffectBadgeValue | undefined {
-  const parsed = parseDiceExpression(DiceExpressionText.parse(formula));
-  return parsed.ok ? EffectBadgeValue.safeParse(rollDice(parsed.expression, random).total).data : undefined;
 }
