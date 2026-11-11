@@ -290,8 +290,8 @@
       },
       "bulk": "light",
       "usage": {
-        "type": "held",
-        "hands": "one"
+        "type": "worn",
+        "slot": "shoes"
       }
     }
   },
@@ -1116,7 +1116,8 @@
           "frequency": {
             "max": 1,
             "per": "day"
-          }
+          },
+          "cost": "three"
         }
       ],
       "usage": {
@@ -1241,8 +1242,8 @@
     "data": {
       "bulk": "light",
       "usage": {
-        "type": "held",
-        "hands": "one"
+        "type": "worn",
+        "slot": "cloak"
       }
     }
   },
@@ -1293,8 +1294,8 @@
     "data": {
       "bulk": "light",
       "usage": {
-        "type": "held",
-        "hands": "one"
+        "type": "worn",
+        "slot": "cloak"
       }
     }
   },
@@ -1345,8 +1346,8 @@
     "data": {
       "bulk": "light",
       "usage": {
-        "type": "held",
-        "hands": "one"
+        "type": "worn",
+        "slot": "cloak"
       }
     }
   },
@@ -1397,8 +1398,8 @@
     "data": {
       "bulk": "light",
       "usage": {
-        "type": "held",
-        "hands": "one"
+        "type": "worn",
+        "slot": "cloak"
       }
     }
   },

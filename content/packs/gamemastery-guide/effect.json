@@ -924,7 +924,7 @@
         "type": "time",
         "count": 1,
         "unit": "round",
-        "expiry": "turn-start"
+        "expiry": "turn-end"
       }
     }
   },

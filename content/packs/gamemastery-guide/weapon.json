@@ -263,7 +263,8 @@
           "frequency": {
             "max": 1,
             "per": "week"
-          }
+          },
+          "cost": "three"
         }
       ],
       "category": "advanced",
