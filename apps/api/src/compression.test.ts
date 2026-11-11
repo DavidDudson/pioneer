@@ -7,9 +7,20 @@ import { compression, MIN_COMPRESSED_BYTES } from './compression';
 
 const big = { text: 'x'.repeat(MIN_COMPRESSED_BYTES * 4) };
 
+/** What `/versioned` sends and under which `ETag`; a test changes them between requests. */
+const versioned = { etag: '"v1"', body: { text: 'a'.repeat(MIN_COMPRESSED_BYTES * 4) } as unknown };
+
 function app(): AnyElysia {
   return new Elysia()
     .use(compression)
+    .get('/versioned', ({ set }) => {
+      set.headers.etag = versioned.etag;
+      return versioned.body;
+    })
+    .get('/unversioned', ({ set }) => {
+      set.headers.etag = 'W/"weak"';
+      return versioned.body;
+    })
     .get('/big', ({ set }) => {
       set.headers.etag = '"abc"';
       set.headers['cache-control'] = 'public, max-age=10';
@@ -65,5 +76,24 @@ describe('compression', () => {
   test('leaves a non-JSON body alone', async () => {
     const response = await get('/text', 'gzip');
     expect(response.headers.get('content-encoding')).toBeNull();
+  });
+
+  test('serves the kept bytes while the ETag is the same, and new ones under a new ETag', async () => {
+    versioned.etag = '"v1"';
+    versioned.body = { text: 'a'.repeat(MIN_COMPRESSED_BYTES * 4) };
+    expect(await gunzipped(await get('/versioned', 'gzip'))).toEqual(versioned.body);
+    versioned.body = { text: 'b'.repeat(MIN_COMPRESSED_BYTES * 4) };
+    const kept = await get('/versioned', 'gzip');
+    expect(await gunzipped(kept)).toEqual({ text: 'a'.repeat(MIN_COMPRESSED_BYTES * 4) });
+    expect(kept.headers.get('etag')).toBe('W/"v1"');
+    versioned.etag = '"v2"';
+    expect(await gunzipped(await get('/versioned', 'gzip'))).toEqual(versioned.body);
+  });
+
+  test('never keeps a body under a weak ETag', async () => {
+    versioned.body = { text: 'c'.repeat(MIN_COMPRESSED_BYTES * 4) };
+    await get('/unversioned', 'gzip');
+    versioned.body = { text: 'd'.repeat(MIN_COMPRESSED_BYTES * 4) };
+    expect(await gunzipped(await get('/unversioned', 'gzip'))).toEqual(versioned.body);
   });
 });

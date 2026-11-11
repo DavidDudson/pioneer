@@ -63,6 +63,16 @@ export function bundlePath(pack: PackId, file: BundleFile): BundlePath {
   return BundlePath.parse(`${pack}/${file}`);
 }
 
+/** A bundle's `ETag`: its hash, quoted, as it is already in its file name. */
+export const BundleEtag = z.string().brand<'BundleEtag'>();
+export type BundleEtag = z.infer<typeof BundleEtag>;
+
+export function bundleEtag(file: BundleFile): BundleEtag {
+  // `<name>.<hash>.json`: the hash is the segment before the extension.
+  const [, hash] = file.split('.').toReversed();
+  return BundleEtag.parse(`"${hash ?? file}"`);
+}
+
 /**
  * A bundle's contents as served: plain JSON, read by the schema its file name calls for. Not checked on the way in:
  * the server built it from checked entries and a bundle is immutable, so walking a megabyte of JSON to confirm it
