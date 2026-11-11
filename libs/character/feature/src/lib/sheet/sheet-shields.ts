@@ -13,7 +13,7 @@ import {
   SpendKind,
 } from '@pioneer/character/domain';
 import type { Character, PlayCommand, PlayState } from '@pioneer/character/domain';
-import { EntrySlug, HitPoints } from '@pioneer/rules/sdk';
+import { effectiveLicense, EntrySlug, HitPoints, isLegacyLicense } from '@pioneer/rules/sdk';
 import type { ContentId, ContentRegistry, ShardDamage } from '@pioneer/rules/sdk';
 import { newId } from '@pioneer/shared/kernel';
 
@@ -35,10 +35,15 @@ export interface ShieldIds {
   readonly block: ContentId;
 }
 
-/** The ids of the entries the content has for Raise a Shield and Shield Block; undefined when it lacks one. */
+/**
+ * The ids of the entries the content has for Raise a Shield and Shield Block; undefined when it lacks one. A legacy
+ * entry of the same slug (the Core Rulebook's own Raise a Shield effect) is left out, so the remaster entry is the one.
+ */
 export function shieldIds(registry: ContentRegistry): ShieldIds | undefined {
   const bySlug = new Map(
-    registry.packs.flatMap((pack) => pack.otherEntries).map((entry): [EntrySlug, ContentId] => [entry.slug, entry.id]),
+    registry.packs
+      .flatMap((pack) => pack.otherEntries.filter((entry) => !isLegacyLicense(effectiveLicense(entry, pack.manifest))))
+      .map((entry): [EntrySlug, ContentId] => [entry.slug, entry.id]),
   );
   const raise = bySlug.get(RAISE_A_SHIELD);
   const raised = bySlug.get(RAISED);
