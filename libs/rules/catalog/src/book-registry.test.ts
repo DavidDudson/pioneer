@@ -52,6 +52,7 @@ describe('book registry', () => {
         'divine-mysteries',
         'draconic-codex',
         'foolish-housekeeping',
+        'gamemastery-guide',
         'gatewalkers',
         'gm-core',
         'guns-and-gears',

@@ -1,0 +1,1615 @@
+{
+  "etag": "\"dc296f19637c4a8a9dbbe32003434582\"",
+  "entries": [
+    {
+      "type": "Curses",
+      "name": "Coward's Roots",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=18"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Nightmares",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=15"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of Slumber",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=23"
+    },
+    {
+      "type": "Curses",
+      "name": "Curse of the Ravenous",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=19"
+    },
+    {
+      "type": "Curses",
+      "name": "Grave Curse",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=30"
+    },
+    {
+      "type": "Curses",
+      "name": "Oath of the Flesh",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=21"
+    },
+    {
+      "type": "Curses",
+      "name": "Reviled of Nature",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=27"
+    },
+    {
+      "type": "Curses",
+      "name": "Reviling Earth",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=24"
+    },
+    {
+      "type": "Curses",
+      "name": "Sellsword's Folly",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=22"
+    },
+    {
+      "type": "Curses",
+      "name": "Slayer's Haunt",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=17"
+    },
+    {
+      "type": "Curses",
+      "name": "Spirit Anchor",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=25"
+    },
+    {
+      "type": "Curses",
+      "name": "Sword of Anathema",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=29"
+    },
+    {
+      "type": "Curses",
+      "name": "Theft of Thought",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=16"
+    },
+    {
+      "type": "Curses",
+      "name": "Thief's Retribution",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=28"
+    },
+    {
+      "type": "Curses",
+      "name": "Unending Thirst",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=26"
+    },
+    {
+      "type": "Curses",
+      "name": "Wizard's Ward",
+      "url": "https://2e.aonprd.com/Curses.aspx?ID=20"
+    },
+    {
+      "type": "Diseases",
+      "name": "Addiction",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=15"
+    },
+    {
+      "type": "Diseases",
+      "name": "Blinding Sickness",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=10"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bog Rot",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=1"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bonechill",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=8"
+    },
+    {
+      "type": "Diseases",
+      "name": "Brain Worms",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=13"
+    },
+    {
+      "type": "Diseases",
+      "name": "Bubonic Plague",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=6"
+    },
+    {
+      "type": "Diseases",
+      "name": "Choking Death",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=9"
+    },
+    {
+      "type": "Diseases",
+      "name": "Crimson Ooze",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=14"
+    },
+    {
+      "type": "Diseases",
+      "name": "Malaria",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=5"
+    },
+    {
+      "type": "Diseases",
+      "name": "Nightmare Fever",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=12"
+    },
+    {
+      "type": "Diseases",
+      "name": "Scarlet Fever",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=2"
+    },
+    {
+      "type": "Diseases",
+      "name": "Scarlet Leprosy",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=7"
+    },
+    {
+      "type": "Diseases",
+      "name": "Sewer Haze",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=11"
+    },
+    {
+      "type": "Diseases",
+      "name": "Tetanus",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=3"
+    },
+    {
+      "type": "Diseases",
+      "name": "Tuberculosis",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=4"
+    },
+    {
+      "type": "Equipment",
+      "name": "Alcohol",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=622"
+    },
+    {
+      "type": "Equipment",
+      "name": "Axe of the Dwarven Lords",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=609"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bag of Devouring",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=598"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bag of Weasels",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=599"
+    },
+    {
+      "type": "Equipment",
+      "name": "Blood Sap",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=625"
+    },
+    {
+      "type": "Equipment",
+      "name": "Bloodeye Coffee",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=623"
+    },
+    {
+      "type": "Equipment",
+      "name": "Boots of Dancing",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=600"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cloak of Immolation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=601"
+    },
+    {
+      "type": "Equipment",
+      "name": "Cytillesh",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=630"
+    },
+    {
+      "type": "Equipment",
+      "name": "Deck of Many Things",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=610"
+    },
+    {
+      "type": "Equipment",
+      "name": "Dreamtime Tea",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=628"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elder Sign",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=611"
+    },
+    {
+      "type": "Equipment",
+      "name": "Elven Absinthe",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=631"
+    },
+    {
+      "type": "Equipment",
+      "name": "Essence Prism",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=612"
+    },
+    {
+      "type": "Equipment",
+      "name": "Flayleaf",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=624"
+    },
+    {
+      "type": "Equipment",
+      "name": "Forgefather's Seal",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=613"
+    },
+    {
+      "type": "Equipment",
+      "name": "Genius Diadem",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=595"
+    },
+    {
+      "type": "Equipment",
+      "name": "Gloves of Carelessness",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=602"
+    },
+    {
+      "type": "Equipment",
+      "name": "Horns of Naraga",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=614"
+    },
+    {
+      "type": "Equipment",
+      "name": "Martyr's Shield",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=596"
+    },
+    {
+      "type": "Equipment",
+      "name": "Medusa Armor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=603"
+    },
+    {
+      "type": "Equipment",
+      "name": "Mirror of Sorshen",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=615"
+    },
+    {
+      "type": "Equipment",
+      "name": "Monkey's Paw",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=604"
+    },
+    {
+      "type": "Equipment",
+      "name": "Necklace of Strangulation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=605"
+    },
+    {
+      "type": "Equipment",
+      "name": "Orb of Dragonkind",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=616"
+    },
+    {
+      "type": "Equipment",
+      "name": "Philosopher's Extractor",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=617"
+    },
+    {
+      "type": "Equipment",
+      "name": "Poisonous Cloak",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=606"
+    },
+    {
+      "type": "Equipment",
+      "name": "Refined Pesh",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=626"
+    },
+    {
+      "type": "Equipment",
+      "name": "Ring of Truth",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=607"
+    },
+    {
+      "type": "Equipment",
+      "name": "Scour",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=632"
+    },
+    {
+      "type": "Equipment",
+      "name": "Serithtial",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=618"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shiver",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=627"
+    },
+    {
+      "type": "Equipment",
+      "name": "Shot of the First Vault",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=619"
+    },
+    {
+      "type": "Equipment",
+      "name": "Singing Sword",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=597"
+    },
+    {
+      "type": "Equipment",
+      "name": "Sphere of Annihilation",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=620"
+    },
+    {
+      "type": "Equipment",
+      "name": "Stone of Weight",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=608"
+    },
+    {
+      "type": "Equipment",
+      "name": "Talisman of the Sphere",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=621"
+    },
+    {
+      "type": "Equipment",
+      "name": "Zerk",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=629"
+    },
+    {
+      "type": "Feats",
+      "name": "Encouraging Words",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1210"
+    },
+    {
+      "type": "Feats",
+      "name": "Steel Your Resolve",
+      "url": "https://2e.aonprd.com/Feats.aspx?ID=1211"
+    },
+    {
+      "type": "Hazards",
+      "name": "Brown Mold",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=35"
+    },
+    {
+      "type": "Hazards",
+      "name": "Confounding Betrayal",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=45"
+    },
+    {
+      "type": "Hazards",
+      "name": "Dance of Death",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=48"
+    },
+    {
+      "type": "Hazards",
+      "name": "Eternal Flame",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=44"
+    },
+    {
+      "type": "Hazards",
+      "name": "Flensing Blades",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=47"
+    },
+    {
+      "type": "Hazards",
+      "name": "Ghostly Choir",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=39"
+    },
+    {
+      "type": "Hazards",
+      "name": "Grasp of the Damned",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=43"
+    },
+    {
+      "type": "Hazards",
+      "name": "Green Slime",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=40"
+    },
+    {
+      "type": "Hazards",
+      "name": "Hampering Web",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=34"
+    },
+    {
+      "type": "Hazards",
+      "name": "Jealous Abjurer",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=41"
+    },
+    {
+      "type": "Hazards",
+      "name": "Perilous Flash Flood",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=46"
+    },
+    {
+      "type": "Hazards",
+      "name": "Plummeting Doom",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=42"
+    },
+    {
+      "type": "Hazards",
+      "name": "Shrieker",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=32"
+    },
+    {
+      "type": "Hazards",
+      "name": "Snowfall",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=33"
+    },
+    {
+      "type": "Hazards",
+      "name": "Spectral Reflection",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=38"
+    },
+    {
+      "type": "Hazards",
+      "name": "Titanic Flytrap",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=37"
+    },
+    {
+      "type": "Hazards",
+      "name": "Treacherous Scree",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=36"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Arrow Attracting",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=1"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Arsonous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=2"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Backbiting",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=3"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Bloodbiter",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=4"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Degenerating",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=5"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Dependent",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=6"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Dreary",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=7"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Erratic Transposing",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=8"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Grandstanding",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=9"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Overdramatic",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=10"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Raucous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=11"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Ravenous",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=12"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Staining",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=13"
+    },
+    {
+      "type": "Item Curses",
+      "name": "Withering",
+      "url": "https://2e.aonprd.com/ItemCurses.aspx?ID=14"
+    },
+    {
+      "type": "NPCs",
+      "name": "Acolyte of Nethys",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=893"
+    },
+    {
+      "type": "NPCs",
+      "name": "Acrobat",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=940"
+    },
+    {
+      "type": "NPCs",
+      "name": "Adept",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=925"
+    },
+    {
+      "type": "NPCs",
+      "name": "Advisor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=884"
+    },
+    {
+      "type": "NPCs",
+      "name": "Antipaladin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=961"
+    },
+    {
+      "type": "NPCs",
+      "name": "Apothecary",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=908"
+    },
+    {
+      "type": "NPCs",
+      "name": "Apprentice",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=955"
+    },
+    {
+      "type": "NPCs",
+      "name": "Archer Sentry",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=934"
+    },
+    {
+      "type": "NPCs",
+      "name": "Assassin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=892"
+    },
+    {
+      "type": "NPCs",
+      "name": "Astronomer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=949"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bandit",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=887"
+    },
+    {
+      "type": "NPCs",
+      "name": "Barkeep",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=944"
+    },
+    {
+      "type": "NPCs",
+      "name": "Barrister",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=932"
+    },
+    {
+      "type": "NPCs",
+      "name": "Beast Tamer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=942"
+    },
+    {
+      "type": "NPCs",
+      "name": "Beggar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=897"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bodyguard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=921"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bosun",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=953"
+    },
+    {
+      "type": "NPCs",
+      "name": "Bounty Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=923"
+    },
+    {
+      "type": "NPCs",
+      "name": "Burglar",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=890"
+    },
+    {
+      "type": "NPCs",
+      "name": "Captain of the Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=937"
+    },
+    {
+      "type": "NPCs",
+      "name": "Charlatan",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=889"
+    },
+    {
+      "type": "NPCs",
+      "name": "Chronicler",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=902"
+    },
+    {
+      "type": "NPCs",
+      "name": "Commoner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=898"
+    },
+    {
+      "type": "NPCs",
+      "name": "Cult Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=930"
+    },
+    {
+      "type": "NPCs",
+      "name": "Cultist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=927"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dancer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=939"
+    },
+    {
+      "type": "NPCs",
+      "name": "Demonologist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=931"
+    },
+    {
+      "type": "NPCs",
+      "name": "Despot",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=962"
+    },
+    {
+      "type": "NPCs",
+      "name": "Dockhand",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=913"
+    },
+    {
+      "type": "NPCs",
+      "name": "Drunkard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=946"
+    },
+    {
+      "type": "NPCs",
+      "name": "Executioner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=938"
+    },
+    {
+      "type": "NPCs",
+      "name": "False Priest",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=928"
+    },
+    {
+      "type": "NPCs",
+      "name": "Farmer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=914"
+    },
+    {
+      "type": "NPCs",
+      "name": "Fence",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=891"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gang Leader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=964"
+    },
+    {
+      "type": "NPCs",
+      "name": "Grave Robber",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=886"
+    },
+    {
+      "type": "NPCs",
+      "name": "Gravedigger",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=916"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=933"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guide",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=903"
+    },
+    {
+      "type": "NPCs",
+      "name": "Guildmaster",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=958"
+    },
+    {
+      "type": "NPCs",
+      "name": "Harbormaster",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=919"
+    },
+    {
+      "type": "NPCs",
+      "name": "Harrow Reader",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=926"
+    },
+    {
+      "type": "NPCs",
+      "name": "Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=907"
+    },
+    {
+      "type": "NPCs",
+      "name": "Innkeeper",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=945"
+    },
+    {
+      "type": "NPCs",
+      "name": "Jailer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=935"
+    },
+    {
+      "type": "NPCs",
+      "name": "Judge",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=917"
+    },
+    {
+      "type": "NPCs",
+      "name": "Librarian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=947"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mage for Hire",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=922"
+    },
+    {
+      "type": "NPCs",
+      "name": "Mastermind",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=960"
+    },
+    {
+      "type": "NPCs",
+      "name": "Merchant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=956"
+    },
+    {
+      "type": "NPCs",
+      "name": "Miner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=915"
+    },
+    {
+      "type": "NPCs",
+      "name": "Monster Hunter",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=924"
+    },
+    {
+      "type": "NPCs",
+      "name": "Navigator",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=951"
+    },
+    {
+      "type": "NPCs",
+      "name": "Necromancer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=929"
+    },
+    {
+      "type": "NPCs",
+      "name": "Noble",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=882"
+    },
+    {
+      "type": "NPCs",
+      "name": "Palace Guard",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=883"
+    },
+    {
+      "type": "NPCs",
+      "name": "Physician",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=909"
+    },
+    {
+      "type": "NPCs",
+      "name": "Pirate",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=952"
+    },
+    {
+      "type": "NPCs",
+      "name": "Plague Doctor",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=911"
+    },
+    {
+      "type": "NPCs",
+      "name": "Poacher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=905"
+    },
+    {
+      "type": "NPCs",
+      "name": "Priest of Pharasma",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=896"
+    },
+    {
+      "type": "NPCs",
+      "name": "Prisoner",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=900"
+    },
+    {
+      "type": "NPCs",
+      "name": "Prophet",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=894"
+    },
+    {
+      "type": "NPCs",
+      "name": "Reckless Scientist",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=963"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ruffian",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=888"
+    },
+    {
+      "type": "NPCs",
+      "name": "Saboteur",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=959"
+    },
+    {
+      "type": "NPCs",
+      "name": "Sage",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=950"
+    },
+    {
+      "type": "NPCs",
+      "name": "Servant",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=912"
+    },
+    {
+      "type": "NPCs",
+      "name": "Server",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=943"
+    },
+    {
+      "type": "NPCs",
+      "name": "Ship Captain",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=954"
+    },
+    {
+      "type": "NPCs",
+      "name": "Smith",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=957"
+    },
+    {
+      "type": "NPCs",
+      "name": "Spy",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=885"
+    },
+    {
+      "type": "NPCs",
+      "name": "Surgeon",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=910"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tax Collector",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=918"
+    },
+    {
+      "type": "NPCs",
+      "name": "Teacher",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=948"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tomb Raider",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=904"
+    },
+    {
+      "type": "NPCs",
+      "name": "Torchbearer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=901"
+    },
+    {
+      "type": "NPCs",
+      "name": "Tracker",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=906"
+    },
+    {
+      "type": "NPCs",
+      "name": "Troubadour",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=941"
+    },
+    {
+      "type": "NPCs",
+      "name": "Urchin",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=899"
+    },
+    {
+      "type": "NPCs",
+      "name": "Warden",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=920"
+    },
+    {
+      "type": "NPCs",
+      "name": "Watch Officer",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=936"
+    },
+    {
+      "type": "NPCs",
+      "name": "Zealot of Asmodeus",
+      "url": "https://2e.aonprd.com/NPCs.aspx?ID=895"
+    },
+    {
+      "type": "Planes",
+      "name": "Abaddon",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=12"
+    },
+    {
+      "type": "Planes",
+      "name": "Abyss",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=13"
+    },
+    {
+      "type": "Planes",
+      "name": "Astral Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=8"
+    },
+    {
+      "type": "Planes",
+      "name": "Axis",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=14"
+    },
+    {
+      "type": "Planes",
+      "name": "Boneyard",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=15"
+    },
+    {
+      "type": "Planes",
+      "name": "Dimension of Time",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=21"
+    },
+    {
+      "type": "Planes",
+      "name": "Dreamlands",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=22"
+    },
+    {
+      "type": "Planes",
+      "name": "Elysium",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=16"
+    },
+    {
+      "type": "Planes",
+      "name": "Ethereal Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=9"
+    },
+    {
+      "type": "Planes",
+      "name": "First World",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=10"
+    },
+    {
+      "type": "Planes",
+      "name": "Heaven",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=17"
+    },
+    {
+      "type": "Planes",
+      "name": "Hell",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=18"
+    },
+    {
+      "type": "Planes",
+      "name": "Maelstrom",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=19"
+    },
+    {
+      "type": "Planes",
+      "name": "Material Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=1"
+    },
+    {
+      "type": "Planes",
+      "name": "Negative Energy Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=2"
+    },
+    {
+      "type": "Planes",
+      "name": "Nirvana",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=20"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Air",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=4"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Earth",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=5"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Fire",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=6"
+    },
+    {
+      "type": "Planes",
+      "name": "Plane of Water",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=7"
+    },
+    {
+      "type": "Planes",
+      "name": "Positive Energy Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=3"
+    },
+    {
+      "type": "Planes",
+      "name": "Shadow Plane",
+      "url": "https://2e.aonprd.com/Planes.aspx?ID=11"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Angelic Vessel",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=18"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Apothecary's Garden",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=55"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Beast Senses",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=7"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Bestow Life",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=43"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Blazing Soul",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=42"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Bottomless Reservoir",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=70"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Call of the Wild",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=8"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Command Legion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=36"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Curse Wound",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=31"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Dancing Shadow",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=64"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Dark Roads",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=65"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Deadly Spark",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=1"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Death Gaze",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=19"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Divine Retribution",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=13"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Ease Burden",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=25"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Encompassing Darkness",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=61"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Feather Steps",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=2"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Feral Claws",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=9"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Fiendish Bargain",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=34"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Fiendish Defiance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=32"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Flare Bolt",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=37"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Flowing Footsteps",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=71"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Form of Fury",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=10"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Form of Vengeance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=12"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Grappling Vine",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=58"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Grim Specter",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=24"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Healing Wave",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=44"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Heat Haze",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=38"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Heaven's Grace",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=14"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Holy Light",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=16"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Incandescent Sight",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=39"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Inextinguishable",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=46"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Jet Propulsion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=40"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Lashing Currents",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=67"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Life Everlasting",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=48"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Lightning Storm",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=4"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Linguistic Nexus",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=49"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Little Helper",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=33"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Death",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=20"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Statue",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=30"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Living Storm",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=6"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Megaflora",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=60"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Mental Bastion",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=54"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Monsoon Curtain",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=68"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Obscure",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=62"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Overflowing Life",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=45"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Perception Filter",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=52"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Petal Dance",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=59"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Pierce the Veil",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=22"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Pollen Spray",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=56"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Profane Fervor",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=35"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Propelling Winds",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=5"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Psychic Scream",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=53"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Raise Ramparts",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=28"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Recalculate",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=50"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Repository of Knowledge",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=51"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Righteous Call",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=17"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Ripples and Waves",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=72"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Rolling Geode",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=26"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Searing Wave",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=41"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shadow Smith",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=63"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shattered Earth",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=27"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Shroud of the Afterlife",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=21"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Sprout Ally",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=57"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Tidal Crash",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=69"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Tide of Death",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=23"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Track of the Beast",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=11"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Umbral Body",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=66"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Underground Bounty",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=29"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Vitality Siphon",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=47"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Wind Barrier",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=3"
+    },
+    {
+      "type": "Relic Gifts",
+      "name": "Word of Faith",
+      "url": "https://2e.aonprd.com/Relics.aspx?ID=15"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 1: Gamemastery Basics",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=813"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 2: Tools\r\n",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=994"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 3: Subsystems",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1187"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 4: Variant Rules",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1297"
+    },
+    {
+      "type": "Rules",
+      "name": "Chapter 5: NPC Gallery",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=1394"
+    },
+    {
+      "type": "Rules",
+      "name": "Introduction",
+      "url": "https://2e.aonprd.com/Rules.aspx?ID=808"
+    },
+    {
+      "type": "Spells",
+      "name": "Touch of Corruption",
+      "url": "https://2e.aonprd.com/Spells.aspx?ID=654"
+    },
+    {
+      "type": "Traits",
+      "name": "Artifact (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=253"
+    },
+    {
+      "type": "Traits",
+      "name": "City (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=273"
+    },
+    {
+      "type": "Traits",
+      "name": "Cursed (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=274"
+    },
+    {
+      "type": "Traits",
+      "name": "Drug (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=261"
+    },
+    {
+      "type": "Traits",
+      "name": "Erratic (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=275"
+    },
+    {
+      "type": "Traits",
+      "name": "Finite (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=276"
+    },
+    {
+      "type": "Traits",
+      "name": "Flowing (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=277"
+    },
+    {
+      "type": "Traits",
+      "name": "High Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=278"
+    },
+    {
+      "type": "Traits",
+      "name": "Immeasurable (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=279"
+    },
+    {
+      "type": "Traits",
+      "name": "Intelligent (Equipment)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=280"
+    },
+    {
+      "type": "Traits",
+      "name": "Low Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=281"
+    },
+    {
+      "type": "Traits",
+      "name": "Metamorphic (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=282"
+    },
+    {
+      "type": "Traits",
+      "name": "Metropolis (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=283"
+    },
+    {
+      "type": "Traits",
+      "name": "Microgravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=284"
+    },
+    {
+      "type": "Traits",
+      "name": "Reckless (Mechanics)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=285"
+    },
+    {
+      "type": "Traits",
+      "name": "Sentient (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=286"
+    },
+    {
+      "type": "Traits",
+      "name": "Stamina (AoN-Special)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=295"
+    },
+    {
+      "type": "Traits",
+      "name": "Static (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=288"
+    },
+    {
+      "type": "Traits",
+      "name": "Strange Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=289"
+    },
+    {
+      "type": "Traits",
+      "name": "Subjective Gravity (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=290"
+    },
+    {
+      "type": "Traits",
+      "name": "Timeless (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=291"
+    },
+    {
+      "type": "Traits",
+      "name": "Town (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=292"
+    },
+    {
+      "type": "Traits",
+      "name": "Unbounded (Planar)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=293"
+    },
+    {
+      "type": "Traits",
+      "name": "Village (Settlement)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=294"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Airship",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=1"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Carriage",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=2"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Cart",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=3"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Galley",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=6"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Glider",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=7"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Heavy Chariot",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=4"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Light Chariot",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=5"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Rowboat",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=8"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sailing Ship",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=9"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Sleigh",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=10"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Steam Giant",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=11"
+    },
+    {
+      "type": "Vehicles",
+      "name": "Wagon",
+      "url": "https://2e.aonprd.com/Vehicles.aspx?ID=12"
+    }
+  ]
+}

@@ -1,0 +1,1118 @@
+[
+  {
+    "id": "e454190d-35e9-5186-bf8f-f2e4f0b8648c",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-command",
+    "name": "Effect: Aura of Command",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to attack rolls and a +2 status bonus to Will saves."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["save:will"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.OxOMYmlPtjsEkRtY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "74f63225-3c76-5e86-879d-f1c930d4e622",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-bloodline-magic",
+    "name": "Effect: Bloodline Magic",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to Deception checks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.tvybMInVm415jA3p"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "dfc88ffe-7e06-5b21-811d-7a56dbe5da66",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-bodyguards-defense",
+    "name": "Effect: Bodyguard's Defense",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 circumstance bonus to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.IfUod2VxNmZMGGPq"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "c497c7b3-acaa-5c20-9486-196b2ff7a008",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-bosuns-command-attack-bonus",
+    "name": "Effect: Bosun's Command - Attack Bonus",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.WfiaKdXNSxC3POcs"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "61a53fb2-ae9e-5b16-b3fe-6707d67df980",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-bosuns-command-speed-bonus",
+    "name": "Effect: Bosun's Command - Speed Bonus",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +10 status bonus its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.yG27Ixwdpxqbrhzf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "47d692a8-3f3a-5c1c-8882-68e9b033ac8b",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-abyss-acid",
+    "name": "Effect: Breach the Abyss - Acid",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with its weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "acid"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.v1oNhc9xa8nWxmFQ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "224c654e-2790-5e5d-a10c-e31e667a15c2",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-abyss-cold",
+    "name": "Effect: Breach the Abyss - Cold",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with its weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "cold"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.vGL5LlFxVJqjy1gM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "0f429647-e99b-5a04-814a-152c0d547fd2",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-abyss-electricity",
+    "name": "Effect: Breach the Abyss - Electricity",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with its weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "electricity"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.vKTvlFD2OSgTPuvl"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "ce39a742-3ee8-507b-a291-d23f6c467539",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-abyss-fire",
+    "name": "Effect: Breach the Abyss - Fire",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with its weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "fire"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HGP0c0tOK2WnC4p5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "44cab422-315b-5041-b6a6-3d1c0dfb6be1",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-breach-the-abyss-negative",
+    "name": "Effect: Breach the Abyss - Negative",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature deals an extra "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage with its weapon."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "dieSize": "d6",
+        "damageType": "void"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.Vz9Cb8FEzNwfH3mE"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "a3263132-445c-5640-b477-0d83e89054da",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-brutal-rally",
+    "name": "Effect: Brutal Rally",
+    "level": 7,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 circumstance bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7x0O2GqWBJiAk5PF"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "28f4b043-eb58-5e47-bdda-f7b87d4a93ab",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-call-to-action",
+    "name": "Effect: Call to Action",
+    "level": 8,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to attack and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kdZEZ6iBYQPVGzYD"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a3851ae7-4dbe-55d2-b218-586cd00cc533",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-euryale-curse-card",
+    "name": "Effect: Euryale (Curse) Card",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Euryale (curse) from the "
+          },
+          {
+            "type": "ref",
+            "id": "d2c2afc5-289a-5cf2-a22c-25259d6215e0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "untyped",
+        "value": -1,
+        "display": {
+          "label": "Euryale Curse"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.8ersuvNJXX00XaIQ"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0eb0497a-da08-529c-80dd-2c436b15657a",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-fanatical-frenzy",
+    "name": "Effect: Fanatical Frenzy",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 status bonus to attack rolls and a +2 status bonus to damage rolls, and takes a -2 status penalty to AC."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack-roll"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": -2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.3Wtzyb0ZgkaC7vHY"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "db141d8f-f25e-5aab-97fc-6003ff1e257b",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-guides-warning",
+    "name": "Effect: Guide's Warning",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["initiative"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.UiISDbCjK6AUDsll"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "turn",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88350703-902c-50db-911d-f8e78ebb2471",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-guiding-words",
+    "name": "Effect: Guiding Words",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:guiding-words-target",
+        "toggleable": true,
+        "display": {
+          "label": "Attacking designated target"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "strike-damage"],
+        "type": "status",
+        "value": 1,
+        "predicate": ["option:guiding-words-target"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.uqjx1bwYduHwwC7d"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "76e46aa0-6a08-5a2e-a6c7-5e5274ae1166",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-inspirational-presence",
+    "name": "Effect: Inspirational Presence",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any of the teacher's students in the aura gains a +1 circumstance bonus to "
+          },
+          {
+            "type": "ref",
+            "id": "3c873e49-a1c4-53b5-9694-66b860d94d43"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill-check"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["action:recall-knowledge"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.CiCG3r7SHYMJeUxz"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b48c7b9c-448b-53ad-b313-9c43534c0857",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-no-quarter",
+    "name": "Effect: No Quarter!",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The captain orders their shipmates to fight without mercy. All allied creatures of equal or lower level within 20 feet of the ship captain gain a +1 status bonus to attack rolls and damage rolls until the end of the ship captain's next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "strike-damage"],
+        "type": "status",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.TjRZbd52qWPjTbNT"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "8b9739c8-988a-5354-83c6-09e1fcba08d8",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-swig",
+    "name": "Effect: Swig",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dockhand gains a +2 item bonus to melee damage rolls and saving throws against fear, but they become clumsy 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["melee-strike-damage"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "item",
+        "value": 2,
+        "predicate": ["option:fear"]
+      },
+      {
+        "key": "GrantItem",
+        "item": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.HArljmKc2IR7rtfc"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "b30a6058-1a98-592a-a6a8-a61a7c952c11",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-throne-card",
+    "name": "Effect: Throne Card",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Throne from the "
+          },
+          {
+            "type": "ref",
+            "id": "d2c2afc5-289a-5cf2-a22c-25259d6215e0"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "status",
+        "value": 4
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Zb8RYgmzCI6fQE0o"
+    },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "e9a89426-e0fb-53b1-b3e8-7bb84123c622",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-timely-advice",
+    "name": "Effect: Timely Advice",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The sage gives the ally a savvy piece of advice, providing valuable insight. The ally gains a +2 circumstance bonus to the triggering roll."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "skill-check"],
+        "type": "circumstance",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.FISKjI7bal26AnyL"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "52d8a3f9-1146-52f6-b9e5-89d3dba18f56",
+    "pack": "gamemastery-guide",
+    "kind": "effect",
+    "slug": "effect:effect-under-command",
+    "name": "Effect: Under Command",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "gamemastery-guide"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Commanded by a captain of the guard."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.T9wQ1LvsvPWTefQR"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

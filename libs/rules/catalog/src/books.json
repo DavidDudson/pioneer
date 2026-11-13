@@ -563,6 +563,18 @@
     "released": "2022-04-27"
   },
   {
+    "id": "gamemastery-guide",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=22",
+    "legacy": "whole",
+    "foundryVersion": "8.6.0",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-gamemastery-guide/",
+    "released": "2020-02-26"
+  },
+  {
     "id": "the-show-must-go-on",
     "publisher": "paizo",
     "license": "OGL",

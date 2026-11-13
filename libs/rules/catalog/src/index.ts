@@ -39,6 +39,7 @@ import {
   bookOfTheDeadPack,
   characterGuidePack,
   coreRulebookPack,
+  gamemasteryGuidePack,
   impossibleLandsPack,
   theShowMustGoOnPack,
 } from './ogl-packs';
@@ -138,6 +139,7 @@ export const officialPacks: readonly PackContentsLoader[] = [
   checkedLoader('core-rulebook', coreRulebookPack),
   checkedLoader('advanced-players-guide', advancedPlayersGuidePack),
   checkedLoader('book-of-the-dead', bookOfTheDeadPack),
+  checkedLoader('gamemastery-guide', gamemasteryGuidePack),
   checkedLoader('the-show-must-go-on', theShowMustGoOnPack),
   checkedLoader('dark-archive-remastered', darkArchiveRemasteredPack),
   checkedLoader('tian-xia-character-guide', tianXiaCharacterGuidePack),

@@ -627,7 +627,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["88350703-902c-50db-911d-f8e78ebb2471"]
   },
   {
     "id": "3ce06446-7756-5190-a930-c500a3719588",

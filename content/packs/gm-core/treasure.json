@@ -27,7 +27,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["8fe93322-ebba-5b9e-b808-eb9b104f8d87"]
   },
   {
     "id": "5e4253a6-0bca-5046-b88f-9f7f685b9e9c",
@@ -57,7 +58,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["286ca2e1-d77d-5c7b-b8ec-bc80aee6a8ec"]
   },
   {
     "id": "16a7ca4a-971a-561a-bc64-fe0595932873",
@@ -87,7 +89,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f72729fb-0e59-5e38-a57b-965b610a621f"]
   },
   {
     "id": "bfe2f1c4-f814-5041-b8d9-7497077584d2",
@@ -117,7 +120,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["09aa663a-3323-50d9-8ca2-cc4e3bf2d2c8"]
   },
   {
     "id": "9922a7ca-c545-50cd-986e-82b0d8b3e845",
@@ -147,7 +151,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["ae313e2d-4902-5cdd-a9c8-bc8562317332"]
   },
   {
     "id": "3fa8efc3-4d14-586c-8144-d44eb40f63cd",
@@ -177,7 +182,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["3167877f-3132-5157-a1f9-fe9c3f3ea84c"]
   },
   {
     "id": "32e57394-f616-5d02-aab7-f5180d4a9fc9",
@@ -207,7 +213,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["88a15ded-983e-5528-8a0d-0ac36ca63d76"]
   },
   {
     "id": "8666a2ed-7e68-5f97-af1a-6c36a315487e",
@@ -237,7 +244,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["89c317e0-8991-5d52-9c59-b0a47bb5fc52"]
   },
   {
     "id": "6b0ee175-4014-5fd4-ba6d-c99777c8248e",
@@ -267,7 +275,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["c7c2d867-3beb-54db-97bf-49a36be38bc2"]
   },
   {
     "id": "a52c18e4-a2c6-5bb7-8f6b-500bd8926663",
@@ -297,7 +306,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["103d7c17-a9ae-52ec-ac32-6db68a5a5adf"]
   },
   {
     "id": "5f51b000-97aa-52dc-82ef-c051f52a9d12",
@@ -327,7 +337,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["67ab2a7f-5105-5898-b998-20131eb122e4"]
   },
   {
     "id": "0308d785-1f02-5869-99c3-14af5e165c34",
@@ -357,7 +368,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["43bff559-29a6-571a-83af-e67cd0e03694"]
   },
   {
     "id": "51a1663b-8323-5ce1-a12e-ed1ca958cebf",
@@ -387,7 +399,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["3132ffaa-e8bb-5687-ae8d-2826695c6a9b"]
   },
   {
     "id": "7e409401-df27-5a53-ac85-f25ae75655cf",
@@ -417,7 +430,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["b63cbd9b-f633-5897-86d7-0ac09f58a828"]
   },
   {
     "id": "010ffd10-0780-5fb4-bd25-3cebc2bfa1fe",
@@ -447,7 +461,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["62435ae0-70f7-5ce4-aa07-709fed5d4489"]
   },
   {
     "id": "3a6c9424-206b-5b5c-b42c-26fd5e312003",
@@ -477,7 +492,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["d704cf04-49ed-56eb-9d79-5d9a1c5c1227"]
   },
   {
     "id": "40ea313d-5e6e-5e52-9031-114a055b0d66",
@@ -507,7 +523,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["3a5a8790-fc2c-5f17-ae76-38db107f1a6f"]
   },
   {
     "id": "f97fda15-c365-5522-b291-ba35a7243f69",
@@ -537,7 +554,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["82dcb31b-edbc-5719-8532-b8487538fb90"]
   },
   {
     "id": "29630f71-0273-5953-b762-eb4e190eda93",
@@ -567,7 +585,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f2513919-45e8-567c-8f2c-619655e64707"]
   },
   {
     "id": "497feaea-52b8-5f4f-b221-49386f9c7139",
@@ -597,7 +616,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e8de0838-6019-5c7a-aaee-fb9426ad0ead"]
   },
   {
     "id": "f9476841-400b-5c49-a180-01a0b5f9b748",
@@ -627,7 +647,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["20c0dee1-67e9-5272-ba34-4e408ff9fe00"]
   },
   {
     "id": "7275623f-5974-5ccc-9353-1c6c6efd1ab1",
@@ -657,7 +678,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4825a654-6a3d-585b-b524-e69002c0ee12"]
   },
   {
     "id": "084ea812-a4fa-555f-8115-8227af825a93",
@@ -687,7 +709,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["9f0238c9-00bb-52f0-89a3-b4a1973b31b9"]
   },
   {
     "id": "d60e105a-ea6f-50b7-9fcb-5e3f953f25ce",
@@ -717,7 +740,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e544f4c4-48e1-5e2a-be1b-ba17bff2d475"]
   },
   {
     "id": "5136e2e9-79af-583e-8e52-c1ef313c9b15",
@@ -747,7 +771,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["c1508612-7a95-5457-99d3-dae4f6f9f99c"]
   },
   {
     "id": "08788efd-af74-59b0-bc9c-9b7c2eb08e0b",
@@ -777,7 +802,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["a840437f-132b-5f80-ac93-9034d94b8399"]
   },
   {
     "id": "bac68ec8-7ffa-5021-be36-3c0f5e132a39",
@@ -807,7 +833,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["7afd4237-dd03-5fb9-838a-bd334d323143"]
   },
   {
     "id": "257ac59c-93ea-5f51-a8a6-deccc3d7c6db",
@@ -837,7 +864,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["6e44b838-07f9-5c97-8620-d13b7b2efe12"]
   },
   {
     "id": "c35afed0-c7c0-57ba-92f2-f46190b233e3",
@@ -867,7 +895,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["621841ac-cee1-5318-a167-45cbf2322c56"]
   },
   {
     "id": "051c1d90-76c2-5087-a49d-9e84b5354fd0",
@@ -897,7 +926,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["1d584e43-644d-5e51-972d-44806a58465b"]
   },
   {
     "id": "09d592f8-b92a-5edd-a7ad-d8824fd186eb",
@@ -927,7 +957,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["d28d738a-4531-5ccb-bb1d-7375455c430a"]
   },
   {
     "id": "938a3670-dbd5-585a-8f54-253a7f1ec023",
@@ -957,7 +988,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f5f92a36-f739-5533-a1d1-38de92df64e0"]
   },
   {
     "id": "3cd4d2f9-4226-57af-9683-91b9ea12c97c",
@@ -987,7 +1019,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["ae15585b-64b1-529f-ad15-54233423017f"]
   },
   {
     "id": "fc01a305-1d45-579f-af7e-3faa99e7c647",
@@ -1017,7 +1050,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f91355f5-a59c-5e47-b478-f9eab4c24c77"]
   },
   {
     "id": "19576134-fc8d-5d98-a70a-3d0e93e312a0",
@@ -1047,7 +1081,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["1c431829-114c-5118-bf10-ec12f9fa887f"]
   },
   {
     "id": "26bb3b99-4bc7-5e70-b3ab-d49ca8e91c3e",
@@ -1077,7 +1112,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["09615fa5-75a1-512f-b285-2242655daedf"]
   },
   {
     "id": "192a8d9b-6bfb-5fbf-a55e-07b462bf4f4b",
@@ -1107,7 +1143,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["3fc518f8-903f-5589-b8da-ac3775c474fd"]
   },
   {
     "id": "88be9d9a-d89c-5731-9e5e-1c54e27940bc",
@@ -1137,7 +1174,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f5aadd27-1b7b-5aaf-99ba-8832272cb797"]
   },
   {
     "id": "b102149d-8f9d-5cc6-aefc-96db060c9f28",
@@ -1196,7 +1234,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["61b538d3-8bb9-5c4d-9abd-830c4698e978"]
   },
   {
     "id": "c66c9cc0-56ba-5d16-95ca-b0c7e72131e6",
@@ -1226,7 +1265,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["ec3aaa61-bf1f-5004-a02b-ff8f18784ca5"]
   },
   {
     "id": "a5ffe39d-6cc4-5589-97cc-71476a0e3af8",
@@ -1256,7 +1296,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["070c3988-ee7b-5474-8a88-87ed50e06267"]
   },
   {
     "id": "ec7e2643-67cf-5d81-89a7-bed5c77d60e1",
@@ -1286,7 +1327,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["7839cff3-ca7a-5a77-99dc-992b3be96922"]
   },
   {
     "id": "d3084bc5-435b-592e-b58b-ed66bd6df6d5",
@@ -1316,7 +1358,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["b80cac67-7329-518a-aa42-e67c4bf451ee"]
   },
   {
     "id": "4b456658-adca-566a-b434-3e60c5cf421b",
@@ -1346,7 +1389,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["75d4ba01-31f6-5a8f-8944-c6da08d56345"]
   },
   {
     "id": "64233402-0812-5870-8fc5-7e0245768035",
@@ -1376,7 +1420,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e0443398-6a7f-51b9-85d4-70852916c9f2"]
   },
   {
     "id": "51d7ace2-bb0c-55b1-b764-87deb70a6549",
@@ -1406,7 +1451,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["112b3948-c4af-5db3-b031-a2a758225d62"]
   },
   {
     "id": "bda9fef8-2ffc-5f16-b946-348cadd0da3c",
@@ -1436,7 +1482,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e2474f67-cbb9-5c57-bf94-32cf83910796"]
   },
   {
     "id": "1c161e84-044c-5498-be2d-0243cf742276",
@@ -1466,7 +1513,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["28dbe06d-bea5-5012-854c-b5254fc6c92a"]
   },
   {
     "id": "df809101-05fc-5695-b415-3bd091849966",
@@ -1496,7 +1544,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["c5a2842a-06ec-59b0-88ad-53c291f2a9c5"]
   },
   {
     "id": "d4fa71b5-43b4-5017-93ea-e3b1f9b1e014",
@@ -1526,7 +1575,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["0016d1a3-f372-5aa7-871e-c92a4081508f"]
   },
   {
     "id": "3683f45a-9901-55fc-b223-c9027d444a23",
@@ -1556,7 +1606,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["a8b14478-f9a5-5f22-97bf-efd2ccdc3f37"]
   },
   {
     "id": "8fba1af9-d8d1-50a0-aa9c-8b8ef26bf5b4",
@@ -1586,7 +1637,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["8772f1e7-34df-54a0-a89e-5efb2dbdefd4"]
   },
   {
     "id": "bc336c92-bf3b-5b09-adb7-c0c456afceb7",
@@ -1616,7 +1668,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["1679507b-e647-5a9d-b727-381d10576c40"]
   },
   {
     "id": "a6c90a86-daa9-5e5d-8171-e586c91f2540",
@@ -1646,7 +1699,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["1941fbf8-106b-596c-a285-29edf944fafe"]
   },
   {
     "id": "17403090-9617-554c-8b6c-80b34ce46757",
@@ -1676,7 +1730,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["1d052a27-41fb-5f4b-90ab-ea6aaeffbf6a"]
   },
   {
     "id": "553a7911-3712-5f7f-9a11-bab90db83c3f",
@@ -1706,7 +1761,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["bad0183e-b214-5752-9aad-25d9cd50c364"]
   },
   {
     "id": "82447aa8-8b0a-5e7a-a353-6e01ccb86def",
@@ -1736,7 +1792,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["214cc974-fb2f-5e8b-a969-691282e3d131"]
   },
   {
     "id": "d49a1598-de50-55ba-b46f-c408954ddf97",
@@ -1766,7 +1823,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4323594d-c0a9-5f90-892a-e5c3dc65b890"]
   },
   {
     "id": "1888b607-bdc9-5765-a06f-33235e2eec97",
@@ -1796,7 +1854,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4ca312ce-31d4-519a-af31-3278bfbc3e85"]
   },
   {
     "id": "dcb402c2-5b3f-5e17-a949-1daf57fd1db9",
@@ -1826,7 +1885,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["8ff38374-d62e-5aff-8de3-228e9b0aa0fc"]
   },
   {
     "id": "dc2126d0-f69a-5a9d-a1da-5d39f5886571",
@@ -1856,7 +1916,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["3d67fde3-ae15-5ea6-a849-b619665d90a5"]
   },
   {
     "id": "237fdfc1-d3bf-508c-af5a-1b619d0a24b0",
@@ -1886,7 +1947,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["3e437ecc-3db3-5a4b-bd48-1c7bf25b4d68"]
   },
   {
     "id": "405416b8-6867-58f5-a47f-1f55b17fb342",
@@ -1916,7 +1978,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["ff72cf16-cec3-59f4-801e-1abb4c01aed9"]
   },
   {
     "id": "f4e5c5a6-ef76-5009-b27d-a3dd6f697acc",
@@ -1946,7 +2009,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["5c0a8ddd-373d-5e39-aa5b-f4ef6ec645bf"]
   },
   {
     "id": "69dbaec0-e643-58f5-9528-0c42582f4621",
@@ -1976,7 +2040,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["53647051-79bd-5eb1-9c12-2fd54a6ba0f1"]
   },
   {
     "id": "66c6d322-1e17-5b2a-b49e-4ba4d77fe904",
@@ -2006,7 +2071,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["587b7df4-d50d-58d1-8292-54f79ca96fbf"]
   },
   {
     "id": "d98a7baf-d11a-5ab2-95ae-9ea33148f052",
@@ -2036,7 +2102,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["71707b00-321c-5230-ae60-ffaf06322ab5"]
   },
   {
     "id": "e372dbb7-6ce8-50a4-9038-d48f9d1acb73",
@@ -2066,7 +2133,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["563dbc39-93c3-5f10-9311-2688a6fdace5"]
   },
   {
     "id": "b1d02c07-2537-5f6c-899c-e37b6dce4fa3",
@@ -2096,7 +2164,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["d410408d-5ca5-5399-85f6-70cb9f865422"]
   },
   {
     "id": "bd1917c6-4831-5f17-8604-6fbb3702a7e5",
@@ -2126,7 +2195,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["cc200763-3ce8-5de6-a6ab-b4f7780c96d7"]
   },
   {
     "id": "36fde383-db81-5eb4-a892-049ca1eaf101",
@@ -2156,7 +2226,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["a53e50a9-e540-5237-b856-f657aa3747b4"]
   },
   {
     "id": "e7b3433d-3997-50be-a8c1-de9f3ca6a1af",
@@ -2186,7 +2257,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["2c3891e1-5771-5b20-95c2-89af6eefc225"]
   },
   {
     "id": "bfb5c542-c165-537a-b2a1-3e939deb04f2",
@@ -2216,7 +2288,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e0875134-16ea-5202-847b-6a04790311e3"]
   },
   {
     "id": "091ed842-22a6-5e0f-b056-c3c049890463",
@@ -2275,7 +2348,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["14d8f95e-f3cd-53ac-a720-cbb5a7d293e2"]
   },
   {
     "id": "cf3b1784-9f7d-5ed1-b3c9-32d5acf9dde4",
@@ -2305,7 +2379,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["d22bd2ee-ee49-565b-9a08-8457ac81edc3"]
   },
   {
     "id": "c10bcdd3-0ed2-5aa5-80d0-c1e498674bcf",
@@ -2335,7 +2410,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["265ec3a5-5b2c-5cb1-8f86-712790a82ee3"]
   },
   {
     "id": "38c21ef9-bbe0-52f1-83ae-d41305cea74b",
@@ -2365,7 +2441,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["8a0e1558-b59f-5cb5-af60-0a84e7511989"]
   },
   {
     "id": "32c95278-41e4-5ed0-91c8-80685b3ef822",
@@ -2395,7 +2472,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4ec08f99-f370-5ceb-ba67-4485ce6dc457"]
   },
   {
     "id": "1967e131-36ed-52c9-842c-354141758f24",
@@ -2425,7 +2503,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e4b41210-1061-5a11-bcae-28931c131534"]
   },
   {
     "id": "67239ff2-5d48-58e7-a1bf-78ccdf0be96a",
@@ -2455,7 +2534,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e6fda4ff-ce7f-50f0-a7fb-49598fb43295"]
   },
   {
     "id": "c3a0a20b-ea25-5052-a678-c529d9655970",
@@ -2485,7 +2565,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4edb3285-fe6c-5cac-9713-bd581463a631"]
   },
   {
     "id": "8a8987fc-dfe6-55cd-bd94-8861eb0d5b89",
@@ -2515,7 +2596,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["fc408efb-6de6-509b-9c79-789432fb7c3e"]
   },
   {
     "id": "3203c179-f792-5444-ad69-dcde4d7b0db4",
@@ -2545,7 +2627,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["0e068c02-4d9c-5ef0-9380-f2c403f7f401"]
   },
   {
     "id": "6a3fdbc8-18e3-5699-894b-8f200065fac2",
@@ -2575,7 +2658,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["d12d9dca-407c-5e0c-a378-cb8001f53b64"]
   },
   {
     "id": "d15c70bf-00cd-5516-93f1-f190310a7368",
@@ -2605,7 +2689,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["1d2523d9-8fbf-53f3-8b24-f70623e88678"]
   },
   {
     "id": "b15a8804-068a-593c-9bdf-9d81a5fffcc7",
@@ -2635,7 +2720,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["28dc31d5-9573-59c2-a19f-71523a036772"]
   },
   {
     "id": "eb63154a-264e-56db-8dd1-da7e2858d14c",
@@ -2665,7 +2751,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["c9f338f9-62c6-55e8-b50e-f899ea74e5d6"]
   },
   {
     "id": "e1870b9a-eaf8-5cde-a9ce-5d7b3ce491e4",
@@ -2695,7 +2782,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["26d067c0-e5aa-5abd-ae72-afc9d0584e7f"]
   },
   {
     "id": "9e5627e7-9c80-5000-98a0-6e6e51d90403",
@@ -2725,7 +2813,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f5e78c99-c433-59b6-ae4e-95144ac18caa"]
   },
   {
     "id": "a0a062ba-f24d-58e7-9af5-2963082eb593",
@@ -2755,7 +2844,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["28373632-6b78-5eef-b16f-3de0e85f67fb"]
   },
   {
     "id": "c99cf6b7-1739-58e5-9f08-489d97405521",
@@ -2785,7 +2875,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["4001f382-7a7e-5525-83f0-8987a290add3"]
   },
   {
     "id": "9c708636-a2fe-5151-87a5-3e5e09593bc8",
@@ -2815,7 +2906,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["8335acf7-ce3f-5588-bc6c-4ed9cfc5a5a1"]
   },
   {
     "id": "b496f698-b525-5be7-8282-202a57d3fda1",
@@ -2845,7 +2937,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["4958dcbd-03a5-5168-a73a-f00daad6dc85"]
   },
   {
     "id": "13212ace-47b6-5b04-9a7b-e84a4400b989",
@@ -2875,7 +2968,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["caba4b03-8af6-5433-9fd2-053640b09c1d"]
   },
   {
     "id": "14852569-399e-5b84-a08a-902b19694264",
@@ -2905,7 +2999,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["6a319ac9-6d0f-5a71-9e96-9fbafa04842f"]
   },
   {
     "id": "72657564-97e2-5146-94e9-95bc10438c05",
@@ -2935,7 +3030,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["39d948fb-dbc0-55ee-8b56-c7c7fb78b899"]
   },
   {
     "id": "b38856ab-d59a-540d-850d-b63cfa3df7fb",
@@ -2965,7 +3061,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["c5bd2bb2-91ed-5621-a41d-6ed9b3385260"]
   },
   {
     "id": "591ba3fd-58f5-50c2-8648-a3ff4dedf470",
@@ -2995,7 +3092,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4aeae1a4-7da6-5918-a6db-39197362a51d"]
   },
   {
     "id": "e72e47ab-b489-56db-84e8-d3d69c3d6e52",
@@ -3025,7 +3123,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["925c2ec6-0433-5ec8-8578-ecdf45d4467d"]
   },
   {
     "id": "b4f4e334-fbc5-5c13-8253-757955646a09",
@@ -3055,7 +3154,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["ab007502-d07e-5c8b-a9a2-e8ce7250a87c"]
   },
   {
     "id": "b624e9ff-e5d7-56eb-bc7c-9a1b5edc7924",
@@ -3085,7 +3185,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["2f41f9c5-ce5c-5dbb-af3b-c03394a978bb"]
   },
   {
     "id": "da7f6296-e24a-5f79-8d5e-faa46b24a3a4",
@@ -3115,7 +3216,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4a9f42f6-f963-555c-9578-53aa1d5d4f7d"]
   },
   {
     "id": "3b046d92-62bb-536d-be1b-24415de4eebd",
@@ -3145,7 +3247,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["cfee1b25-0623-5a4e-8640-f0e02beb3740"]
   },
   {
     "id": "f4270eda-8ac8-5e94-980c-0e6a5a505bce",
@@ -3175,7 +3278,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["b8c33b1f-327e-5346-9fd1-4b8141c4b76a"]
   },
   {
     "id": "13c43996-9d7a-560c-b923-43275ddc6230",
@@ -3205,7 +3309,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["66d7d86e-a623-5cc8-8199-7efd6f31bd49"]
   },
   {
     "id": "560a4a1f-e339-56c5-a4e5-18d68013fbb5",
@@ -3235,7 +3340,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["a2a46ed1-a5db-50ef-9f4e-00ae2928f6b1"]
   },
   {
     "id": "934a0ecd-0349-5dfe-8507-0e340ac0aba5",
@@ -3265,7 +3371,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["e2adbd38-4667-5452-8b01-38de74fe3f60"]
   },
   {
     "id": "5c50f261-8187-51e8-b15f-2c4286136d64",
@@ -3295,7 +3402,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["ab84dac2-8e5b-556e-9f73-fb4735d1b305"]
   },
   {
     "id": "8c79a612-eda5-5794-8792-111c58bd3165",
@@ -3325,7 +3433,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["4679bfe4-9135-5780-bb8f-167327473967"]
   },
   {
     "id": "2cf25a53-172b-5f0a-b6ac-fd357ee190f3",
@@ -3355,7 +3464,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["40d77c7b-fc3c-5fa5-bef7-365df5fd156a"]
   },
   {
     "id": "484e26be-ce89-521c-a8ef-078713a7d775",
@@ -3385,7 +3495,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["6e4159d2-3c22-59ca-85b1-8c5d92d73013"]
   },
   {
     "id": "d728967a-92f5-5706-9200-83538ec8b782",
@@ -3415,7 +3526,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["de272024-b789-5ba7-b267-952c7298e79d"]
   },
   {
     "id": "56c2dce2-1490-5e71-bff8-69a486ca7b1b",
@@ -3445,7 +3557,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["2f28a36d-71f6-5430-8233-f71ca48baa53"]
   },
   {
     "id": "720bdbfb-c0f1-50fd-bb80-45dd5c87fa99",
@@ -3475,7 +3588,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["45cd6266-13f8-5ba7-8530-b432ad3963d5"]
   },
   {
     "id": "e0ae222d-a9b6-577e-8c18-34ce9290b884",
@@ -3505,7 +3619,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["7615211a-50ee-5a72-9b1e-2b092c3a6136"]
   },
   {
     "id": "ba42835b-421c-5d37-9891-3639b226d25a",
@@ -3535,7 +3650,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["fa9878c4-0bf4-55f6-81bb-2c7ea23e2548"]
   },
   {
     "id": "aa6df2ea-a482-53bd-af35-895a4a305242",
@@ -3565,7 +3681,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["6097f996-cf32-5bf2-94a8-268760421c79"]
   },
   {
     "id": "f078617c-5bdb-5c69-82e9-6149a24f6d72",
@@ -3595,7 +3712,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["318e7767-77c7-5ec7-a4c9-c9284976f821"]
   },
   {
     "id": "064eb505-3b6a-500f-9d80-2097a20058c3",
@@ -3625,7 +3743,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["db7fef40-810e-553c-bf6e-363eef98e681"]
   },
   {
     "id": "0353379a-e602-5cb4-baa5-f4d97f6f1d0d",
@@ -3655,7 +3774,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["26d985ae-e343-56de-a6d2-cf27a9efa60f"]
   },
   {
     "id": "f1c26283-b85e-5ea4-bd16-0530b3358ce8",
@@ -3685,7 +3805,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["168e2598-aa08-5a8f-a135-11a224031ff7"]
   },
   {
     "id": "47a63452-29e5-5d6f-83c4-db0849594a8e",
@@ -3715,7 +3836,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["3f0340ba-7c2c-5767-9eb6-7acac8b447e3"]
   },
   {
     "id": "33781d71-2e6b-5bc7-ad26-38530e2f0461",
@@ -3745,7 +3867,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["b41633ba-da60-57fe-ace9-4afb5097fadc"]
   },
   {
     "id": "4ee42984-5b17-58f2-83aa-418e6dba7019",
@@ -3775,7 +3898,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["e867fcf2-2e88-5538-8871-3efc4fc5e160"]
   },
   {
     "id": "ec0108e5-57f1-5a7e-81a6-3e6d009e8a26",
@@ -3805,7 +3929,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["5922ef88-0426-50a5-b8d6-5f52d67e05a0"]
   },
   {
     "id": "c97d4813-16a6-5439-b62a-fc9f45b02fba",
@@ -3835,7 +3960,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["f5d90f34-6394-5795-a156-fe758c019c51"]
   },
   {
     "id": "9f21a21a-4b5a-598e-8d7b-22cd1528f273",
@@ -3865,7 +3991,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["18a49307-848e-55c7-a0ee-1c796f5360dc"]
   },
   {
     "id": "2251a98e-c7a6-502b-9ee8-2e6bcc348861",
@@ -3895,7 +4022,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["dfd35726-8355-54ae-9d0c-8f93c56a7af5"]
   },
   {
     "id": "6f468daf-1986-5bb1-aefa-fc133b42e73a",
@@ -3925,7 +4053,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["17d398b4-b67d-5d0d-abbd-129f0e6a518f"]
   },
   {
     "id": "583f576e-12c8-59fd-adbc-b368d001649d",
@@ -3955,7 +4084,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["387d5451-641d-56d3-acbf-ebdac27d8053"]
   },
   {
     "id": "0e8928d0-9c4b-5bf1-92be-3b0169014fb4",
@@ -3985,7 +4115,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["7521168e-62c3-515d-8b09-bfa8dd5780bc"]
   },
   {
     "id": "463095e0-3f70-5c87-91d8-51ddfc4c7325",
@@ -4015,7 +4146,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["cc45892e-a561-50d9-a738-699a2e738258"]
   },
   {
     "id": "c76c5958-d1b1-5020-bbcd-079bce7ff98e",
@@ -4045,7 +4177,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["037d2195-e6a6-5f1a-b05c-a1cca69417e8"]
   },
   {
     "id": "0aca9d8d-828a-5e34-a51e-745713e22e83",
@@ -4075,7 +4208,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["6680746c-f7cb-57fd-92c7-fa9cba8fee4b"]
   },
   {
     "id": "8ac94c21-c872-5c66-a6cd-52676b3b0372",
@@ -4105,7 +4239,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["207242f5-cf9b-5bdc-a869-6c1aac25def3"]
   },
   {
     "id": "e28b8ca7-955a-5749-af0f-9c7e45012137",
@@ -4135,7 +4270,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["4e2729c3-3bd3-5dba-abcb-dc45d73af471"]
   },
   {
     "id": "7013fcb8-f378-53b0-beb6-85e34dd4e888",
@@ -4165,7 +4301,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["4bfc1e25-e764-50d2-8876-79ce043e8daf"]
   },
   {
     "id": "ae897ad7-c417-500c-be2b-07596610c97a",
@@ -4195,7 +4332,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["d2587c5b-0213-576c-80a7-b07339e87470"]
   },
   {
     "id": "3ad38e10-f24a-5cc0-969a-b1ba706c44af",
@@ -4225,7 +4363,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["68f8a928-71b2-5a76-a046-1a6df4470449"]
   },
   {
     "id": "b1e9c513-6c91-5243-9969-cd04d88aebbd",
@@ -4255,7 +4394,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["b0bef813-ae5e-5073-878c-325c6018bf82"]
   },
   {
     "id": "2f4fc41e-0b22-5b7e-8299-d5f27d0ccced",
@@ -4285,7 +4425,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["5edd0973-b0e7-54f5-a75b-7b6b44105ac0"]
   },
   {
     "id": "8a608553-065d-5a86-ac94-2c8a8ac6b75b",
@@ -4315,7 +4456,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["aad9398c-7698-5816-b492-524f671c6f2a"]
   },
   {
     "id": "d86f5740-0e9f-53ee-a874-d6cde735c17c",
@@ -4345,7 +4487,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["5ec3db47-918b-5301-9650-c53415bbcd78"]
   },
   {
     "id": "a71d93d7-966e-5c2b-a0a4-290246e8667a",
@@ -4375,7 +4518,8 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["4c074e67-3729-5b8d-8b3d-73345cdfe70b"]
   },
   {
     "id": "b9815074-ed94-57a0-ac8c-7113aeb844bb",
@@ -4405,7 +4549,8 @@
       },
       "bulk": "negligible",
       "category": "art-object"
-    }
+    },
+    "supersedes": ["731b91cd-038c-5e4e-aece-6f3e94994386"]
   },
   {
     "id": "41e863c1-e7ff-554f-a3af-1709835a2cc6",
@@ -4435,6 +4580,7 @@
       },
       "bulk": "negligible",
       "category": "gem"
-    }
+    },
+    "supersedes": ["9c138be5-9516-59cf-a0fa-4ac5dfb3611a"]
   }
 ]
