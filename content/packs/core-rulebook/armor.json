@@ -1,5 +1,193 @@
 [
   {
+    "id": "c2bd5f27-e998-577f-ad53-5d34fe94c1a8",
+    "pack": "core-rulebook",
+    "kind": "armor",
+    "slug": "armor:breastplate-of-command",
+    "name": "Breastplate of Command",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This "
+          },
+          {
+            "type": "text",
+            "text": "+1 resilient breastplate",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is made from shining bronze overlaid with reinforcing golden panels in the shape of lion's heads. Wearing this breastplate grants you a commanding aura. You gain a +2 item bonus to Diplomacy checks, but you take a -2 item penalty to Stealth checks to "
+          },
+          {
+            "type": "ref",
+            "id": "5a86b7d0-fc0e-52a6-9b0d-fb58ed15233d"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "7e4e48de-b626-5513-9518-73261c58b5f4"
+          },
+          {
+            "type": "text",
+            "text": " and Deception checks to "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You grant allies within 100 feet a +2 status bonus to saves against fear effects for 1 minute. When you activate this ability, each affected ally who's frightened reduces their frightened value by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "560e9ba8-843d-5b4a-abdf-25f1932f6b74"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:diplomacy"],
+        "type": "item",
+        "value": 2
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:stealth"],
+        "type": "item",
+        "value": -2,
+        "predicate": [
+          {
+            "or": ["action:hide", "action:sneak"]
+          }
+        ],
+        "display": {
+          "label": "Breastplate of Command (Hide, Sneak)"
+        }
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:deception"],
+        "type": "item",
+        "value": -2,
+        "predicate": ["action:impersonate"],
+        "display": {
+          "label": "Breastplate of Command (Impersonate)"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RUEAV5LMUGFHcXcW"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 2,
+      "activations": [
+        {
+          "slug": "breastplate-of-command",
+          "name": "Breastplate of Command",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "medium",
+      "group": "plate",
+      "baseItem": "breastplate",
+      "acBonus": 4,
+      "dexCap": 1,
+      "checkPenalty": 2,
+      "speedPenalty": 5,
+      "strength": 3,
+      "runes": {
+        "potency": 1,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
     "id": "a39a4157-efbe-5d41-8093-e927fcceccea",
     "pack": "core-rulebook",
     "kind": "armor",
@@ -821,6 +1009,144 @@
     }
   },
   {
+    "id": "9c5cbfeb-2fb4-5e5d-bfdc-561c6d8196b4",
+    "pack": "core-rulebook",
+    "kind": "armor",
+    "slug": "armor:mail-of-luck",
+    "name": "Mail of Luck",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This suit of +2 resilient splint mail has a large, green gemstone inset in a prominent location."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " Envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are hit or critically hit with an attack, but damage hasn't been rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You force the attacker to reroll the attack roll and use the worse result. This effect has the misfortune trait."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activating the armor causes the gemstone to turn gray and become inert. You cannot activate the armor again until the stone returns to its original green color. The gem turns green again after 1 week or when a significant foe critically succeeds at an attack roll targeting you. (If an enemy rolls a critical success at an attack against you and you force the attacker to reroll that critical success, that critical success does not recharge the mail of luck.) Even if the armor's power returns before a week has elapsed, it can't be activated more than once per day."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.AdJgj7vVvNGvPIEj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2600
+        }
+      },
+      "bulk": 3,
+      "activations": [
+        {
+          "slug": "mail-of-luck",
+          "name": "Mail of Luck",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "heavy",
+      "group": "composite",
+      "baseItem": "splint-mail",
+      "acBonus": 5,
+      "dexCap": 1,
+      "checkPenalty": 3,
+      "speedPenalty": 10,
+      "strength": 3,
+      "runes": {
+        "potency": 2,
+        "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
     "id": "d92c0996-2625-5736-80a6-7e837ae728d5",
     "pack": "core-rulebook",
     "kind": "armor",
@@ -991,6 +1317,448 @@
       "runes": {
         "potency": 1,
         "resilient": 1,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0c42c9cf-d26c-5cb4-b51f-a4e57701b4c1",
+    "pack": "core-rulebook",
+    "kind": "armor",
+    "slug": "armor:robe-of-the-archmagi",
+    "name": "Robe of the Archmagi",
+    "level": 15,
+    "rarity": "uncommon",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embroidered with fine silver thread in ornate arcane patterns, these robes come in one of three colors depending on their attuned alignment. Good robes are gold, neutral robes are light blue, and evil robes are red. An evil or good robe gains the appropriate trait. The robes benefit only characters who can cast arcane spells and whose alignment on the good-evil axis matches that of the robe. If your alignment does not match that of the robe, or you are not an arcane spellcaster, you are instead "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " while wearing a "
+          },
+          {
+            "type": "text",
+            "text": "robe of the archmagi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This condition can't be removed in any way until you remove the robe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robes are "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and they grant a +1 circumstance bonus to saving throws against arcane spells and resistance 5 to damage from arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt a saving throw against an arcane spell, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You automatically succeed at your save against the triggering arcane spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are an arcane spellcaster."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:arcane", "item:type:spell", "self:caster:tradition:arcane"],
+        "display": {
+          "label": "Robe of the Archmagi (vs. Arcane Spells)"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resilient",
+        "suppress": true,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "explorers-clothing",
+        "suppress": true,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "value": 2,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Wkh5rQx3IqInEKdT"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "robe-of-the-archmagi",
+          "name": "Robe of the Archmagi",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "aee221f8-739d-54e7-92f3-c806bb527d01",
+    "pack": "core-rulebook",
+    "kind": "armor",
+    "slug": "armor:robe-of-the-archmagi-greater",
+    "name": "Robe of the Archmagi (Greater)",
+    "level": 19,
+    "rarity": "uncommon",
+    "traits": ["comfort"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Embroidered with fine silver thread in ornate arcane patterns, these robes come in one of three colors depending on their attuned alignment. Good robes are gold, neutral robes are light blue, and evil robes are red. An evil or good robe gains the appropriate trait. The robes benefit only characters who can cast arcane spells and whose alignment on the good-evil axis matches that of the robe. If your alignment does not match that of the robe, or you are not an arcane spellcaster, you are instead "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": " while wearing a "
+          },
+          {
+            "type": "text",
+            "text": "robe of the archmagi",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This condition can't be removed in any way until you remove the robe."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The robes are "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater resilient explorer's clothing",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", and they grant a +1 circumstance bonus to saving throws against arcane spells and resistance 10 to damage from arcane spells."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "reaction"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or an ally within 30 feet attempts a saving throw against an arcane spell, but you haven't rolled yet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You or the ally automatically succeed at your save against the triggering arcane spell."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are an arcane spellcaster."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "circumstance",
+        "value": 1,
+        "predicate": ["item:trait:arcane", "item:type:spell", "self:caster:tradition:arcane"],
+        "display": {
+          "label": "Robe of the Archmagi (Greater) (vs. Arcane Spells)"
+        }
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["saving-throw"],
+        "slug": "resilient",
+        "suppress": true,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      },
+      {
+        "key": "AdjustModifier",
+        "selectors": ["ac"],
+        "slug": "explorers-clothing",
+        "suppress": true,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      },
+      {
+        "key": "GrantItem",
+        "item": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+        "value": 2,
+        "predicate": [
+          {
+            "not": "self:caster:tradition:arcane"
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.7ynjS9llFg7tPMoj"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 32000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "robe-of-the-archmagi-greater",
+          "name": "Robe of the Archmagi (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "unarmored",
+      "baseItem": "explorers-clothing",
+      "acBonus": 0,
+      "dexCap": 5,
+      "runes": {
+        "potency": 2,
+        "resilient": 2,
         "property": []
       }
     }

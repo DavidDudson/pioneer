@@ -74001,7 +74001,8 @@
     },
     "data": {
       "category": "class"
-    }
+    },
+    "supersedes": ["dac013fe-8932-50c2-ab07-a2a5512453b5"]
   },
   {
     "id": "9364a89e-a50e-5c58-aa78-b621e783c67f",

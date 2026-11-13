@@ -602,7 +602,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.x5jaCJxsmD5sx3KB"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["8eebcefa-8a75-5452-8efd-24d418862322"]
   },
   {
     "id": "8980a377-cef2-528d-abde-830a902fe55f",
@@ -5312,7 +5313,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.F57Na5VxfBp56kke"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["af8d349a-90fd-5ffb-9064-8bad395e8678"]
   },
   {
     "id": "3513178b-78d7-59da-aac8-d5ce3e8f6654",
@@ -8081,7 +8083,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.cGMSYAErbUG5E8X2"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["30fb0c4e-21ea-5a07-9916-a5ac9abf2796"]
   },
   {
     "id": "0de23384-d182-5d66-8d0e-7fc768ec25ac",
@@ -8641,7 +8644,8 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.classfeatures.Item.nLwPMPLRne1HnL00"
     },
-    "data": {}
+    "data": {},
+    "supersedes": ["6515cc94-5bf2-56b3-84f9-6332015a1a81"]
   },
   {
     "id": "2cb487a6-08e7-51fc-8dcc-4e29ff632745",

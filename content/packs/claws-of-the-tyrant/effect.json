@@ -49,7 +49,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["20f98315-f032-57ca-8d35-16d1922acb7c"]
   },
   {
     "id": "0b38e7cb-92c1-5d9e-a605-949c24956441",

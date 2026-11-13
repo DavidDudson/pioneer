@@ -63,11 +63,14 @@ export async function coreRulebookPack() {
     import('@pioneer/content/packs/core-rulebook/class.json'),
     import('@pioneer/content/packs/core-rulebook/consumable.json'),
     import('@pioneer/content/packs/core-rulebook/deity.json'),
+    import('@pioneer/content/packs/core-rulebook/effect.json'),
     import('@pioneer/content/packs/core-rulebook/equipment.json'),
     import('@pioneer/content/packs/core-rulebook/feat.json'),
     import('@pioneer/content/packs/core-rulebook/ritual.json'),
     import('@pioneer/content/packs/core-rulebook/rune.json'),
+    import('@pioneer/content/packs/core-rulebook/shield.json'),
     import('@pioneer/content/packs/core-rulebook/spell.json'),
+    import('@pioneer/content/packs/core-rulebook/treasure.json'),
     import('@pioneer/content/packs/core-rulebook/weapon.json'),
   ]);
 }

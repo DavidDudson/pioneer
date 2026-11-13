@@ -879,6 +879,62 @@
     }
   },
   {
+    "id": "d9638a73-0d12-52b5-a454-dee98bcca67e",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:animal-rage",
+    "name": "Animal Rage",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["barbarian", "concentrate", "polymorph", "primal", "rage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You transform into your animal. You gain the effects of the 3rd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "cd4bcdfa-81d7-5e23-a964-0230a0f6cc94"
+          },
+          {
+            "type": "text",
+            "text": " spell except you use your own statistics, temporary Hit Points, and unarmed attacks instead of those granted by animal form. You also retain the constant abilities of your gear. If your animal is a frog, your tongue's reach increases to 15 feet. Dismissing the transformation gains the rage trait."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1VLOhyq0IFMY2rqh"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "animal instinct"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "f45a26fb-d2db-5d5a-a8f4-1c3ae9434263",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -2180,6 +2236,167 @@
     }
   },
   {
+    "id": "38f2420e-9dff-54c8-9a91-1f1accea5ac3",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:battle-assessment",
+    "name": "Battle Assessment",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["rogue", "secret"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "With careful observation during battle, you identify an enemy's strengths and weaknesses. The GM rolls a secret Perception check for you against the Deception or Stealth DC (whichever is higher) of an enemy of your choice who is not concealed from you, hidden from you, or undetected by you, and who is engaged in combat. The GM might apply a penalty for the distance between you and the enemy. The enemy is then temporarily immune to your Battle Assessment for 1 day."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The GM chooses two of the following pieces of information about the enemy to tell you: which of the enemy's weaknesses is highest, which of the enemy's saving throws has the lowest modifier, one immunity the enemy has, or which of the enemy's resistances is highest. If the event of a tie, the GM should pick one at random."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The GM chooses one piece of information from the above list to tell you about the enemy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The GM gives you false information (the GM makes up the information)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.B6jXVgfPuPWWLx2K"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
+    "id": "26a644a3-f07e-59b9-8ecd-44bea52cee87",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:blade-of-justice",
+    "name": "Blade of Justice",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon divine power and make a weapon or unarmed Strike against a foe you have witnessed harming an ally or innocent."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The Strike deals two extra weapon damage dice if the target of your Strike is unholy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether or not the target is unholy, you can convert all the physical damage from the attack into spirit damage, and if you are a paladin, the Strike applies all effects that normally apply on a Retributive Strike (such as divine smite)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "damage",
+        "option": "option:blade-justice",
+        "toggleable": true
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 2,
+        "predicate": ["option:blade-justice"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NtaOLg9meDYfg8aV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tenets of good"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "two"
+      }
+    }
+  },
+  {
     "id": "1c00e285-ec87-52c0-ac7c-7023c31c7b61",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -2607,6 +2824,40 @@
     }
   },
   {
+    "id": "0910a7b1-95b9-5b48-9b38-c0db7792ad7f",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:calculated-splash",
+    "name": "Calculated Splash",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have calculated all the angles to maximize a bomb's splash. When you throw an alchemical bomb with the splash trait, you can cause the bomb to deal splash damage equal to your Intelligence modifier (minimum 0) instead of the normal amount."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.UjWLK86BgHxz3Itd"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "6e33f87d-a539-5205-b8a5-301fd4b1efc3",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -2664,6 +2915,51 @@
             {
               "type": "text",
               "text": "tenets of good"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "9c18d449-1645-5d34-be35-87364a4ded69",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:celestial-mount",
+    "name": "Celestial Mount",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your steed gains incredible celestial powers granted by your deity. It gains darkvision, its maximum Hit Points increase by 40, and it gains weakness 10 to unholy. Additionally, it grows wings appropriate to a servitor of your deity (such as metallic wings for an archon), granting it a fly Speed equal to its Speed. It gains the celestial trait and the trait appropriate to the type of servitor it has become (archon, angel, or azata, for example)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.AXXlinOc2lq08NPH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Divine Ally (Steed); tenets of good"
             }
           ]
         }
@@ -3209,6 +3505,157 @@
     }
   },
   {
+    "id": "38097222-c193-56aa-b7c7-2baeec3f66c1",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:command-undead",
+    "name": "Command Undead",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["cleric", "concentrate", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You grasp the animating force within an undead creature and bend it to your will."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the next action you use is to cast "
+          },
+          {
+            "type": "ref",
+            "id": "1330902b-a95f-54ea-9a07-3764617bd887"
+          },
+          {
+            "type": "text",
+            "text": " targeting one undead creature, you transform the effects of that "
+          },
+          {
+            "type": "text",
+            "text": "harm",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of harm's normal effects, the target becomes controlled by you if its level is equal to or lower than your level - 3. It can attempt a Will saving throw to resist being controlled by you."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the target is already under someone else's command, the controlling creature also rolls a saving throw, and the undead uses the better result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected and is temporarily immune for 24 hours."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The undead creature becomes a minion under your control. The spell gains a duration of 1 minute, but it is dismissed if you or an ally attacks the minion undead."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, but the duration is 1 hour."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.xYakFeP6olBsxpZN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "harmful font; evil alignment"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "c1f863be-0fac-500d-8e07-a7b8a000c978",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -3725,6 +4172,40 @@
     }
   },
   {
+    "id": "8609c16f-5c33-54db-aadc-140a3621508f",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:dangerous-sorcery",
+    "name": "Dangerous Sorcery",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your legacy grants you great destructive power. When you Cast a Spell from your spell slots, if the spell deals damage and doesn't have a duration, you gain a status bonus to that spell's damage equal to the spell's rank."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.emRfSVvU8ZAH9UdK"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "389f2736-4d88-55f9-aa1d-46c6395647b6",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -4105,6 +4586,52 @@
     }
   },
   {
+    "id": "727cbf8f-dc04-5f72-b30d-45c26c636ccf",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:diamond-soul",
+    "name": "Diamond Soul",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have fortified your body and mind against eldritch effects. You gain a +1 status bonus to saving throws against magic."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1,
+        "predicate": [
+          {
+            "or": ["option:magical", "option:arcane", "option:primal", "option:occult", "option:divine"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.GMrJdGwajADbL1y5"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "09190d19-20e8-59cd-9a4a-60a8bb13f1b8",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -4239,6 +4766,68 @@
       "action": {
         "cost": "two"
       }
+    }
+  },
+  {
+    "id": "09dcd6f1-cee9-5c35-a166-55c2735ece99",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:diverse-armor-expert",
+    "name": "Diverse Armor Expert",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your proficiency ranks for light armor, medium armor, heavy armor, and unarmored defense increase to expert."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "defense:heavy",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:light",
+        "rank": "expert"
+      },
+      {
+        "key": "Proficiency",
+        "selector": "defense:medium",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.jEq4JcZb0LpKOZy1"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Champion Dedication; expert in unarmored defense or one or more types of armor"
+            }
+          ]
+        }
+      ],
+      "archetype": "6b10860f-2171-5c1a-9e0c-d3825d7464c7"
     }
   },
   {
@@ -5574,6 +6163,63 @@
     }
   },
   {
+    "id": "e9430b0b-13d1-5a23-85ad-766ffc85dfaf",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:enlightened-presence",
+    "name": "Enlightened Presence",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["aura", "emotion", "mental", "monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You exude an aura of resolve. You and allies within 15 feet of you gain a +2 status bonus to Will saving throws against mental effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "62d69c0c-8174-553f-8c8c-b7b7f648c754"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "enlightened-presence",
+        "radius": 15,
+        "traits": ["emotion", "mental"],
+        "effects": [
+          {
+            "effect": "62d69c0c-8174-553f-8c8c-b7b7f648c754",
+            "affects": "allies",
+            "events": ["enter"]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ROnjdPMvH0vkkWjQ"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "6dcfa9d7-7057-5246-91cf-d5acfac5d7b8",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -5684,6 +6330,52 @@
     }
   },
   {
+    "id": "69b1b51b-e1ba-579a-850e-3988be2dba29",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:expert-alchemy",
+    "name": "Expert Alchemy",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your advanced alchemy level increases to 3. At 10th level, it increases to 5."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.soHLtpMM9h3AE7PD"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alchemist Dedication; expert in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "e5f1af93-0ce6-523b-beed-5f020c1b14a4"
+    }
+  },
+  {
     "id": "a99a6113-976c-5314-ae6d-bd36c235f2f8",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -5734,6 +6426,57 @@
         }
       ],
       "archetype": "f0210013-db3b-53e2-8a82-3df2dd947ee3"
+    }
+  },
+  {
+    "id": "a8e3a178-55a2-556d-9def-fd0ead53cd72",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:expert-spellcasting",
+    "name": "Expert Spellcasting",
+    "level": 12,
+    "rarity": "rare",
+    "traits": ["pervasive-magic"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the Expert Spellcasting Feat archetype benefits."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "expert"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.2UogDoEJ2M2tQFxn"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic Spellcasting"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -5925,6 +6668,48 @@
     ],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.BJHsCiBLdjgJo6zM"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "2b24737c-1493-5d04-9c81-fa9fb71050de",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:fast-movement",
+    "name": "Fast Movement",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["barbarian"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While you are raging, you gain a +10-foot status bonus to your Speed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["land-speed"],
+        "type": "status",
+        "value": 10,
+        "predicate": ["self:effect:rage"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.SCDSgeJU7vULvHmo"
     },
     "data": {
       "category": "class"
@@ -7103,6 +7888,91 @@
     }
   },
   {
+    "id": "167813b7-d4db-5233-a3c0-f7e1cc5d77b8",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:greater-merciful-elixir",
+    "name": "Greater Merciful Elixir",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your additives contain panaceas that can remedy a plethora of maladies. When you use "
+          },
+          {
+            "type": "ref",
+            "id": "ebd8beb7-6991-5ee5-9c18-bc815fb8cede"
+          },
+          {
+            "type": "text",
+            "text": ", your elixir can instead attempt to counteract the "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "4271da2e-7225-5aa7-9807-c499d8af6a5a"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.QpnZwabXOVICJL5i"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Merciful Elixir"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "c61b2441-0e0a-503f-aee0-01d5c699ea9a",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -7308,6 +8178,59 @@
             {
               "type": "text",
               "text": "leaf order"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "6ba2b4b4-c392-5d25-84e2-efa50f7e31cc",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:green-tongue",
+    "name": "Green Tongue",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["druid"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You share a special kinship with all things green and living. You (and your leshy familiar, if you have one) are constantly under the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "29397615-a073-572b-a506-4a6b88f6529d"
+          },
+          {
+            "type": "text",
+            "text": ". Most non-creature plants recognize you as a druid of the leaf order and are friendly to you."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.vwBD55BRDOatp4ZV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Green Empathy"
             }
           ]
         }
@@ -7617,6 +8540,91 @@
     }
   },
   {
+    "id": "9d931282-41f7-5141-a0e6-51e2eaebd695",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:impossible-volley-eldritch-archer",
+    "name": "Impossible Volley (Eldritch Archer)",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["archetype", "flourish", "open"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You are wielding a ranged weapon with the volley trait and reload 0"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You fire a volley at all foes in an area. Make one Strike with a -2 penalty against each enemy within a 10-foot-radius burst centered at or beyond your weapon's volley range. Roll the damage only once for all targets."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each attack counts toward your multiple attack penalty, but do not increase your penalty until you have made all your attacks."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "untyped",
+        "value": -2,
+        "predicate": ["option:ranged", "option:impossible-volley", "option:volley-30", "option:reload-0"],
+        "display": {
+          "label": "Impossible Volley"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.WVm2dxPOI4tK2wsJ"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "three",
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You are wielding a ranged weapon with the volley trait and reload 0"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "id": "6a8b01cb-d6e1-58f9-a96c-a84ee2140f3c",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -7708,6 +8716,59 @@
     },
     "data": {
       "category": "class"
+    }
+  },
+  {
+    "id": "e79205ed-103a-5b30-882f-4737e4bd47b5",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:improved-command-undead",
+    "name": "Improved Command Undead",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["cleric"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Undead creatures find it all but impossible to resist your commands. When you use "
+          },
+          {
+            "type": "ref",
+            "id": "38097222-c193-56aa-b7c7-2baeec3f66c1"
+          },
+          {
+            "type": "text",
+            "text": ", if the undead succeeds at its save but doesn't critically succeed, it is your minion for 1 round. If the undead fails its save, it is your minion for 10 minutes. If it critically fails, it is your minion for 24 hours."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.A0ZQpGSB7pvIDiou"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "harmful font; Command Undead; evil alignment"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -8522,6 +9583,155 @@
     }
   },
   {
+    "id": "18cd0b1e-1f4f-5b48-8e04-c65f5dfdaf4f",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:lasting-doubt",
+    "name": "Lasting Doubt",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you cast doubt upon your foes, the effect lasts longer than usual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "After being enfeebled 2 by your "
+          },
+          {
+            "type": "ref",
+            "id": "065929f2-7c27-5364-951f-5eef60045a07"
+          },
+          {
+            "type": "text",
+            "text": ", the foe is enfeebled 1 for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you have "
+          },
+          {
+            "type": "ref",
+            "id": "da7ed4db-f8fd-5eda-80ac-e0b27dd98680"
+          },
+          {
+            "type": "text",
+            "text": ", after being stupefied 2 by your Glimpse of Redemption, the foe is stupefied 1 for 1 minute or until the flat check from stupefied causes it to lose a spell, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.56BMXlQlZtg39SMV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "redeemer cause"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "16f6a342-1140-5b02-9a14-67662e351925",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:liberating-stride",
+    "name": "Liberating Stride",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Instead of you taking a Step at the end of your "
+          },
+          {
+            "type": "ref",
+            "id": "71add541-a69d-5261-bc06-8f8eded3f233"
+          },
+          {
+            "type": "text",
+            "text": ", the triggering ally can Stride up to half their Speed."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Even if you have "
+          },
+          {
+            "type": "ref",
+            "id": "35be85c7-c36a-530d-86ba-e1e120e80421"
+          },
+          {
+            "type": "text",
+            "text": ", only the triggering ally gains this benefit."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1JTEWgonWlmeCE3w"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "liberator cause"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "a216f1e6-1879-5322-aca8-2b3054bf4ae6",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -8584,6 +9794,183 @@
     }
   },
   {
+    "id": "bca6d4f1-70cc-5f08-b162-5894188cda43",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:litany-against-sloth",
+    "name": "Litany Against Sloth",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You rail against the sin of sloth, turning a foe's laziness against it. You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "4f6fff41-f768-52ca-a4b5-e7ab75a63442"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RWccAJJ2PaOI0Byp"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spells; tenets of good"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "8d9ed106-5d38-562d-8fae-8022b90e3c04",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:litany-against-wrath",
+    "name": "Litany Against Wrath",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You excoriate a foe for its wrath against goodly creatures."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "cc51be14-c568-515c-816e-f84dd03a0916"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YhpR5bOquHx2JuIj"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "devotion spells; tenets of good"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "3faeab0e-1083-59aa-a97a-0d4d9716c6ef",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:litany-of-righteousness",
+    "name": "Litany of Righteousness",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon righteousness to expose an evil foe's weakness."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can cast the "
+          },
+          {
+            "type": "ref",
+            "id": "3d445ee6-75f6-5568-8aca-6fd8bf2d734a"
+          },
+          {
+            "type": "text",
+            "text": " devotion spell. Increase the number of Focus Points in your focus pool by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.RbHacJSoe6XHT8Ks"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tenets of good"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "a8ca153a-1515-53f2-b938-c4a3274a25f1",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -8627,6 +10014,86 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "70fb025f-364c-59a0-b502-bdf40a427c69",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:magical-trickster",
+    "name": "Magical Trickster",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Whether you're using magic items, wielding innate magic, or dabbling in spellcasting, you can sneak spells past your foes' defenses as easily as any blade. When you succeed at a spell attack roll against an off-guard foe's AC and the spell deals damage, you can add your sneak attack damage to the damage roll. If your single spell leads to multiple separate damage rolls, apply your sneak attack damage only once per target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.mxO7u59ms58q7zyj"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "ef5385a9-0f6b-5c95-a330-36a6a698f711",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:master-alchemy",
+    "name": "Master Alchemy",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your advanced alchemy level increases to 7. For every level you gain beyond 12th, your advanced alchemy level increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.f6k9lIrIS4SfnCnG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expert Alchemy; master in Crafting"
+            }
+          ]
+        }
+      ],
+      "archetype": "e5f1af93-0ce6-523b-beed-5f020c1b14a4"
     }
   },
   {
@@ -8893,6 +10360,131 @@
     }
   },
   {
+    "id": "ebd8beb7-6991-5ee5-9c18-bc815fb8cede",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:merciful-elixir",
+    "name": "Merciful Elixir",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["additive2", "alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You craft an "
+          },
+          {
+            "type": "ref",
+            "id": "931bc474-090d-57e4-b070-4fbe92058f6a",
+            "label": "Elixir of Life"
+          },
+          {
+            "type": "text",
+            "text": " using "
+          },
+          {
+            "type": "ref",
+            "id": "f2921ae0-2bef-5e21-ba32-4ba0d26e55af"
+          },
+          {
+            "type": "text",
+            "text": ", and that elixir is at least 2 levels lower than your advanced alchemy level"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You mix a special additive into your elixir that calms the drinker's body and mind."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The elixir of life attempts to counteract one fear effect or one effect imposing the "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " condition on the drinker using the item's level and a counteract modifier equal to your class DC - 10."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.Mvw3ZFrdwMHedAxY"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You craft an Elixir of Life using "
+              },
+              {
+                "type": "ref",
+                "id": "f2921ae0-2bef-5e21-ba32-4ba0d26e55af"
+              },
+              {
+                "type": "text",
+                "text": ", and that elixir is at least 2 levels lower than your advanced alchemy level"
+              }
+            ]
+          }
+        ],
+        "frequency": {
+          "max": 1,
+          "per": "round"
+        }
+      }
+    }
+  },
+  {
     "id": "1456d557-ff46-50ec-90ae-07182412032d",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -9023,6 +10615,54 @@
     "rules": [],
     "externalIds": {
       "foundry": "Compendium.pf2e.feats-srd.Item.C9nb7H5u2ElBXvCR"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "d386a148-eb44-5112-9189-778ec6fdab78",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:minor-magic",
+    "name": "Minor Magic",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["rogue"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've dabbled in minor magical abilities. Choose arcane, divine, occult, or primal magic, and gain two cantrips from the common cantrips that are available in that tradition. You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "5e7b32f6-95d4-5b66-9956-03c679d22fa2"
+          },
+          {
+            "type": "text",
+            "text": " activity, your key spellcasting ability is Charisma, and you're trained in spell attack rolls and DCs for the tradition you chose."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "spellcasting",
+        "rank": "trained"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.FrlhErsjR6fEn6kX"
     },
     "data": {
       "category": "class"
@@ -10107,6 +11747,196 @@
     }
   },
   {
+    "id": "b103b00b-3f17-5412-9f37-2bab28aa431f",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:perfect-mutagen",
+    "name": "Perfect Mutagen",
+    "level": 20,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have enhanced the formulas for your mutagens, aligning them perfectly to your physiology. When under the effect of a mutagen you crafted, you do not suffer its drawback."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0208T5UrkTY2ombM"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
+    "id": "c29ee444-8856-530f-b65d-87feff34cf29",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:perfections-path-fortitude",
+    "name": "Perfection's Path (Fortitude)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one saving throw (Fortitude, Reflex, or Will) in which you are an expert. Your proficiency rank in the chosen saving throw increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:fortitude",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.1ZbLYY5m2YALrrgA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monk Dedication; expert in at least one saving throw"
+            }
+          ]
+        }
+      ],
+      "archetype": "9373c6f7-3924-5194-aab0-2d98e11c6d32"
+    }
+  },
+  {
+    "id": "5409286c-b5d3-5666-8040-296042eb923c",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:perfections-path-reflex",
+    "name": "Perfection's Path (Reflex)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one saving throw (Fortitude, Reflex, or Will) in which you are an expert. Your proficiency rank in the chosen saving throw increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:reflex",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.wkJ6EjtXUztOqTwH"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monk Dedication; expert in at least one saving throw"
+            }
+          ]
+        }
+      ],
+      "archetype": "9373c6f7-3924-5194-aab0-2d98e11c6d32"
+    }
+  },
+  {
+    "id": "2f59253b-df2a-5adb-984b-e5ba54848f69",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:perfections-path-will",
+    "name": "Perfection's Path (Will)",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose one saving throw (Fortitude, Reflex, or Will) in which you are an expert. Your proficiency rank in the chosen saving throw increases to master."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Proficiency",
+        "selector": "save:will",
+        "rank": "master"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.sjqnusj5Py7AiofF"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monk Dedication; expert in at least one saving throw"
+            }
+          ]
+        }
+      ],
+      "archetype": "9373c6f7-3924-5194-aab0-2d98e11c6d32"
+    }
+  },
+  {
     "id": "6119b82b-ecd0-55cd-b62c-a1208a3cdc38",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -10146,6 +11976,96 @@
             {
               "type": "text",
               "text": "Extend Elixir"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "27be874c-0ba1-55d3-823f-31cb53895a1d",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:potent-poisoner",
+    "name": "Potent Poisoner",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["alchemist"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "By concentrating your poisons' toxic components, you make them harder for victims to resist. When you craft an alchemical item with the poison trait by any means, the DC is increased by up to 4, to a maximum of your class DC."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.zKL1lRcIbFblp2M2"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Powerful Alchemy"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "0370e0dc-0618-53c3-aeea-2d06132afb1c",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:powerful-snares",
+    "name": "Powerful Snares",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your snares are particularly difficult for enemies to avoid. When you set a snare, the saving throw DC for that snare is equal to its normal DC or your class DC, whichever is higher."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.27R8yZcY2uXH6pZN"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "master in Crafting; Snare Specialist"
             }
           ]
         }
@@ -10359,6 +12279,65 @@
     }
   },
   {
+    "id": "9bb6ad3d-6a3a-54a4-868e-d8cf623318d1",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:quick-alchemy",
+    "name": "Quick Alchemy",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["archetype"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You gain the "
+          },
+          {
+            "type": "ref",
+            "id": "f7253960-e3ae-516d-b0f5-2ccce16aba91"
+          },
+          {
+            "type": "text",
+            "text": " action."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f7253960-e3ae-516d-b0f5-2ccce16aba91"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.NlEZ0piDxg9buXCL"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alchemist Dedication"
+            }
+          ]
+        }
+      ],
+      "archetype": "e5f1af93-0ce6-523b-beed-5f020c1b14a4"
+    }
+  },
+  {
     "id": "8e212bda-1b35-5f3b-8561-92fa3496d9c6",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -10402,6 +12381,67 @@
       "action": {
         "cost": "one"
       }
+    }
+  },
+  {
+    "id": "a0e199bb-e104-5946-9f39-17765f30920c",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:quick-snares",
+    "name": "Quick Snares",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can rig a snare in only moments. You can Craft snares that normally take 1 minute to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": " with 3 "
+          },
+          {
+            "type": "ref",
+            "id": "f87b0582-e87a-5335-b480-28482fa849b1"
+          },
+          {
+            "type": "text",
+            "text": " actions, even if you haven't prepared them."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.KW6K5Zv4J7ClWkKA"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Crafting; Snare Specialist"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -10817,6 +12857,72 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "id": "5035ce8d-21b7-5dff-8624-2cb14b2d3d19",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:reckless-abandon-barbarian",
+    "name": "Reckless Abandon (Barbarian)",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["barbarian", "rage"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Your turn begins, and you are at half or fewer Hit Points."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your blood boils when you take a beating, and you throw caution to the wind to finish the fight. You gain a +2 circumstance bonus to attack rolls, a -2 penalty to AC, and a -1 penalty to saves. These bonuses and penalties last until your Rage ends or until you are above half Hit Points, whichever comes first."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.EWeso1zDkCLGlnsW"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "cost": "free",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your turn begins, and you are at half or fewer Hit Points."
+              }
+            ]
+          }
+        ],
+        "selfEffect": "d5089f4e-d34f-516f-b46f-b32a551f4b06"
+      }
     }
   },
   {
@@ -11394,6 +13500,51 @@
     }
   },
   {
+    "id": "981ec079-38f4-5bea-a019-bff35ab08b83",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:shield-warden-champion",
+    "name": "Shield Warden (Champion)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use your shield to protect your allies as well as yourself. When you have a shield raised, you can use your Shield Block reaction when an attack is made against an ally adjacent to you. If you do, the shield prevents that ally from taking damage instead of preventing you from taking damage, following the normal rules for Shield Block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.b532qrlTUqWxLd1j"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "divine ally (shield); tenets of good"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "b5351c3b-120f-5377-85c2-0f3b68d54138",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -11918,6 +14069,68 @@
             {
               "type": "text",
               "text": "trained in Crafting"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "487d12df-8bc9-5a72-8ac2-d1c2bfeff703",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:snare-specialist",
+    "name": "Snare Specialist",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You specialize in creating quick traps to obstruct your enemies on the battlefield. If your proficiency rank in Crafting is expert, you gain the formulas for three common or uncommon snares. If your rank is master, you gain 6. If your rank is legendary, you gain 9."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each day during your daily preparations, you can prepare four snares from your formula book for quick deployment; if they normally take 1 minute to "
+          },
+          {
+            "type": "ref",
+            "id": "cffa6a55-a0d3-5be2-8169-ba9cf4745e57"
+          },
+          {
+            "type": "text",
+            "text": ", you can Craft them with 3 Interact actions. The number of snares increases to six if you have master proficiency in Crafting and eight if you have legendary proficiency in Crafting. Snares prepared in this way don't cost you any resources to Craft."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.0haS0qXR9xTYKoTG"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "expert in Crafting; Snare Crafting"
             }
           ]
         }
@@ -12802,6 +15015,62 @@
     }
   },
   {
+    "id": "0d0e1094-d887-5363-9673-62457d37bf1b",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:targeting-shot",
+    "name": "Targeting Shot",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["concentrate", "press", "ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You carefully track your prey's position and defenses, allowing you to follow up around obstacles that block your shot. Make a ranged weapon Strike against your hunted prey. You ignore the target's "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition and all cover."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.HVwmYfSLhrnCksHV"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hunter's Aim"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "cost": "one"
+      }
+    }
+  },
+  {
     "id": "ac852391-679c-518c-8edd-1a809d4d66a2",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -13254,6 +15523,40 @@
     }
   },
   {
+    "id": "cdc9e952-90ec-558f-ac0b-d047046efa1e",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:tongue-of-sun-and-moon",
+    "name": "Tongue of Sun and Moon",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You have transcended the barriers between words and meaning. You can speak and understand all spoken languages."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.ct4dJHBn1Dj4cx4B"
+    },
+    "data": {
+      "category": "class"
+    }
+  },
+  {
     "id": "acfcdd54-f057-52f0-b4d9-b4c59a1b9a37",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -13362,6 +15665,51 @@
       "action": {
         "cost": "free"
       }
+    }
+  },
+  {
+    "id": "8f533cf4-88d0-5d03-a7b3-cacd95c9c0a6",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:ubiquitous-snares",
+    "name": "Ubiquitous Snares",
+    "level": 16,
+    "rarity": "common",
+    "traits": ["ranger"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can prepare a seemingly impossible number of snares in advance, and you're ready to spring them on unsuspecting foes. Double the number of prepared snares from Snare Specialist."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.bX2WI5k0afqPpCfm"
+    },
+    "data": {
+      "category": "class",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Snare Specialist"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -13500,6 +15848,59 @@
             {
               "type": "text",
               "text": "Far Lobber"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a844b55a-2985-5892-9adb-7df05ba32297",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:unconventional-expertise",
+    "name": "Unconventional Expertise",
+    "level": 13,
+    "rarity": "common",
+    "traits": ["human"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You've continued to advance your powers using your unconventional weapon. Whenever you gain a class feature that grants you expert or greater proficiency in certain weapons, you also gain that proficiency in the weapon you chose for "
+          },
+          {
+            "type": "ref",
+            "id": "1b165b21-ba09-5517-9d10-a2c532747704"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.aqTlEPtd5gzs1Lxg"
+    },
+    "data": {
+      "category": "ancestry",
+      "prerequisites": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unconventional Weaponry; trained in the weapon you chose for Unconventional Weaponry"
             }
           ]
         }
@@ -13803,6 +16204,72 @@
     }
   },
   {
+    "id": "6497c128-873a-5d20-ac92-2672cd039203",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:victorious-vigor",
+    "name": "Victorious Vigor",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["orc"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You bring a foe to 0 Hit Points"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your victories in battle fill you with pride and imbue you with the energy to fight a bit longer despite your wounds. You gain temporary Hit Points equal to your Constitution modifier until the end of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.YeVDITJplindA27l"
+    },
+    "data": {
+      "category": "ancestry",
+      "action": {
+        "cost": "reaction",
+        "trigger": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "You bring a foe to 0 Hit Points"
+              }
+            ]
+          }
+        ],
+        "selfEffect": "8180df9a-fd04-591d-ab78-93024f6d4303"
+      }
+    }
+  },
+  {
     "id": "a1d29b63-f4f0-5893-9b0a-512d89541a5b",
     "pack": "core-rulebook",
     "kind": "feat",
@@ -13872,6 +16339,40 @@
       "action": {
         "cost": "one"
       }
+    }
+  },
+  {
+    "id": "dac013fe-8932-50c2-ab07-a2a5512453b5",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:water-step",
+    "name": "Water Step",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["monk"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You can Stride across liquid and surfaces that don't support your weight. This benefit lasts only during your movement. If you end your movement on a surface that can't support you, you fall in or it collapses as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.6gLWr3xghsHSFwxc"
+    },
+    "data": {
+      "category": "class"
     }
   },
   {
@@ -14679,6 +17180,70 @@
               {
                 "type": "text",
                 "text": "You take damage and are capable of entering a rage"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "8c39a722-a9fc-5c79-9a9e-3e2c6588950d",
+    "pack": "core-rulebook",
+    "kind": "feat",
+    "slug": "feat:wyrmbane-aura",
+    "name": "Wyrmbane Aura",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["champion"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Dragonslayer Oath"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your aura protects against destructive energies and dragons' breath. You and all allies within 15 feet gain resistance equal to your Charisma modifier to acid, cold, electricity, fire, and poison. If the source of one of these types of damage is a dragon's breath, increase the resistance to half your level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feats-srd.Item.5NyX1WnXEO40yEaT"
+    },
+    "data": {
+      "category": "class",
+      "action": {
+        "requirementsText": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Dragonslayer Oath"
               }
             ]
           }

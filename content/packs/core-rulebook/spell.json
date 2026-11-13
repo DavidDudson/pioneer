@@ -226,6 +226,190 @@
     }
   },
   {
+    "id": "9f7a7fcd-dc3c-59dd-932c-0d8f5d14ddb7",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:abyssal-plague",
+    "name": "Abyssal Plague",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["chaotic", "concentrate", "disease", "evil", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your touch afflicts the target with Abyssal plague, which siphons fragments of their soul away to empower the Abyss. The effect is based on the target's Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes 2 spirit damage per spell rank, and takes a -2 status penalty to saves against Abyssal plague for 1 day or until the target contracts it, whichever comes first."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with Abyssal plague at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with Abyssal plague at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Abyssal Plague",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (disease) "
+          },
+          {
+            "type": "text",
+            "text": "Level 9",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can't recover from the drained condition from Abyssal plague until the disease is cured"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Drained increases by 2 (1 day)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vJuaxTd6q11OjGqA"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "e40fb538-15b8-5267-b2ab-4fc5930ec39a",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -917,6 +1101,62 @@
     }
   },
   {
+    "id": "e6fb2afd-9c8b-5e88-8adb-e4a8db11fe03",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:air-walk",
+    "name": "Air Walk",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["air", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target can walk on air as if it were solid ground. It can ascend and descend in this way at a maximum of a 45-degree angle."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.b5sGjGlBf58f8jn0"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
+    }
+  },
+  {
     "id": "03c6ee91-ca84-55b1-b5a3-ee3ad46d144a",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -1022,6 +1262,125 @@
       },
       "traditions": ["occult"],
       "damage": []
+    }
+  },
+  {
+    "id": "1823deec-925f-56b3-9376-16e693238180",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:anathematic-reprisal",
+    "name": "Anathematic Reprisal",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A creature performs an act anathema to your deity."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You punish a creature that transgresses against your deity, drawing upon the anguish you feel upon seeing one of your deity's anathema committed. You can cast this spell only when a creature actively commits a unique act of anathema. For example, if creating undead were anathema to your deity, you could use anathematic reprisal on a necromancer who had just created undead in front of you, but not on an undead creature just for existing. You deal 4d6 mental damage to the target, but a basic Will save can reduce this damage. If it fails, it is also "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round. The creature is then temporarily immune for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7tR29sQt35NfIWqN"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "triggering": true
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": true
+        }
+      },
+      "traditions": ["divine"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "4d6",
+          "damageType": "mental",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          }
+        ]
+      }
     }
   },
   {
@@ -1291,6 +1650,111 @@
         "unit": "hour"
       },
       "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "bf04b1c2-2e26-53c4-9c75-b3ed1469936f",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:antimagic-field",
+    "name": "Antimagic Field",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You repel all magic from the target area, preventing spells and other magic from functioning. Spells can't penetrate the area, magic items cease to function within it, and no one inside can cast spells or use magic abilities, including yourself. Likewise, spells - such as "
+          },
+          {
+            "type": "ref",
+            "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+          },
+          {
+            "type": "text",
+            "text": " - can't affect the field itself unless they are of a higher level. Magic effects resume the moment they pass outside the field. For example, a ray fired from one side of the field could target a creature on the other side (as long as caster and target are both outside the field). A summoned creature winks out of existence but reappears if the field moves or ends. Invested magic items cease to function, but they remain invested and resume functioning when they exit the field; the ability boost from an apex item isn't suppressed within the field. Spells of a higher rank than the "
+          },
+          {
+            "type": "text",
+            "text": "antimagic field",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " overcome its effects, and can even be cast by a creature within the field."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The field disrupts only magic, so a "
+          },
+          {
+            "type": "text",
+            "text": "+3 longsword",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " still functions as a longsword. Magically created creatures (such as golems) function normally within an "
+          },
+          {
+            "type": "text",
+            "text": "antimagic field",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.My7FvAoLYgGDDBzy"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "10-foot emanation which affects you."
+              }
+            ]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["arcane", "divine", "occult"],
       "damage": []
     }
   },
@@ -1897,6 +2361,645 @@
     }
   },
   {
+    "id": "6d968a26-01b5-5e6e-a52e-4d3838af9f20",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:chromatic-wall",
+    "name": "Chromatic Wall",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an opaque wall of light in a single vibrant color. The wall is straight and vertical, stretching 60 feet long and 30 feet high. If the wall would pass through a creature, the spell is lost. The wall sheds bright light for 20 feet on each side, and dim light for the next 20 feet. You can ignore the wall's effects."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Roll 1d4 to determine the color of the wall. Each color has a particular effect on items, effects, or creatures that attempt to pass through. "
+          },
+          {
+            "type": "text",
+            "text": "Chromatic wall",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can't be counteracted normally; rather, each color is automatically counteracted when targeted by a specific spell, even if that spell's rank is lower than that of "
+          },
+          {
+            "type": "text",
+            "text": "chromatic wall",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Red",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through, and it deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "20",
+                      "damageType": "fire"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to anyone passing through, with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. "
+                },
+                {
+                  "type": "ref",
+                  "id": "094faa33-6827-59be-afc0-36661ab12e46"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract a "
+                },
+                {
+                  "type": "text",
+                  "text": "red chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Orange",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall destroys thrown weapons that would pass through, and it deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "25",
+                      "damageType": "acid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to anyone passing through, with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. "
+                },
+                {
+                  "type": "ref",
+                  "id": "e48e01db-df29-5558-b6a3-a78233bae1d1"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract an "
+                },
+                {
+                  "type": "text",
+                  "text": "orange chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Yellow",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall stops acid, cold, electricity, fire, force, sonic, vitality, and void effects from passing through, and it deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "30",
+                      "damageType": "electricity"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to anyone passing through, with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save. "
+                },
+                {
+                  "type": "ref",
+                  "id": "e4628be0-93e0-58ba-adb1-d9e656f43da5"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract a "
+                },
+                {
+                  "type": "text",
+                  "text": "yellow chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Green",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall stops toxins, gases, and breath weapons from passing through. It deals "
+                },
+                {
+                  "type": "damage",
+                  "instances": [
+                    {
+                      "formula": "10",
+                      "damageType": "poison"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": " damage to anyone passing through and makes them "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute. A "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:fortitude",
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": " save reduces the damage and negates the Enfeebled condition on a success. "
+                },
+                {
+                  "type": "ref",
+                  "id": "aab61556-b7d8-59f6-b488-8f0c9d31aeef"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract a "
+                },
+                {
+                  "type": "text",
+                  "text": "green chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "type": "rule"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (7th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The spell's duration increases to 1 hour. Roll 1d8 to determine the wall's color; the results for 5-8 are below. A "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "30",
+                "damageType": "fire"
+              }
+            ],
+            "label": "red"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "35",
+                "damageType": "acid"
+              }
+            ],
+            "label": "orange"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "40",
+                "damageType": "electricity"
+              }
+            ],
+            "label": "yellow"
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "20",
+                "damageType": "poison"
+              }
+            ],
+            "label": "green"
+          },
+          {
+            "type": "text",
+            "text": " wall deals an extra 10 damage."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blue",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall stops auditory, petrification, sonic and visual effects from passing through, and creatures passing through are subject to the effects of "
+                },
+                {
+                  "type": "ref",
+                  "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+                },
+                {
+                  "type": "text",
+                  "text": ". "
+                },
+                {
+                  "type": "ref",
+                  "id": "1c97409b-bd67-5df2-a7d3-a49aff4d3896"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract a "
+                },
+                {
+                  "type": "text",
+                  "text": "blue chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Indigo",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall stops divination and mental effects from passing through, and those passing through are subject to the effects of "
+                },
+                {
+                  "type": "ref",
+                  "id": "1748638c-efed-5899-a084-68570d86b128"
+                },
+                {
+                  "type": "text",
+                  "text": ". "
+                },
+                {
+                  "type": "ref",
+                  "id": "67633206-076f-520c-b8a2-8d30d756fa26"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract an "
+                },
+                {
+                  "type": "text",
+                  "text": "indigo chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Violet",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The wall prevents spells from targeting the other side (area effects still cross as normal). Creatures passing through must succeed at a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will"
+                },
+                {
+                  "type": "text",
+                  "text": " save or they are "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of "
+                },
+                {
+                  "type": "ref",
+                  "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+                },
+                {
+                  "type": "text",
+                  "text": ". "
+                },
+                {
+                  "type": "ref",
+                  "id": "b434b2d9-47e5-519e-a542-6dae12c51157"
+                },
+                {
+                  "type": "text",
+                  "text": " can counteract a "
+                },
+                {
+                  "type": "text",
+                  "text": "violet chromatic wall",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reroll",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": ", and creatures that pass through the wall take a -2 circumstance penalty to their saves."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.forsqeofEszBNtLq"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "6daf8b44-7cc4-54f2-90f6-7675ff45abe8",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:circle-of-protection",
+    "name": "Circle of Protection",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ward a creature and those nearby against a specified alignment. Choose chaotic, evil, good, or lawful; this spell gains the opposing trait. Creatures in the area gain a +1 status bonus to AC against attacks by creatures of the chosen alignment and to saves against effects from such creatures. This bonus increases to +3 against effects from such creatures that directly control the target and attacks made by summoned creatures of the chosen alignment. Summoned creatures of the chosen alignment can't willingly enter the area without succeeding at a Will save; repeated attempts use the first save result."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The duration increases to 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "5df9ac3a-3e04-54d2-a61b-46f44e833eba"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.mpGCMTldMVa0pWYs"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "10-foot emanation centered on the touched creature"
+              }
+            ]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "ed77735d-9534-5091-8424-c6b22d151080",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -2231,6 +3334,144 @@
     }
   },
   {
+    "id": "cb005d60-817d-5039-93c9-79c4083e3074",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:crusade",
+    "name": "Crusade",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "linguistic", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You issue a divine mandate or proclaim a cause to the targets. It can be to attain an item, claim a patch of land, slay a creature, war with a group, or be entirely peaceful. Your cause can't force the targets to harm one another or themselves. The targets become completely dedicated to that cause, depending on their levels. They choose their own actions, but they favor direct action over inaction or indirect action."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "13th or Lower",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is so dedicated to the cause that it pursues the cause to the death (unless you say otherwise)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is dedicated to the cause, but the spell ends for the target if it's reduced to half its maximum Hit Points or fewer."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "15th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " As 14th, plus the target can attempt a Will save at the end of each of its turns to end the spell for itself."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The spell ends for all creatures if you or one of your allies uses a hostile action against a target, or when the cause is completed. The GM might determine this spell has alignment traits befitting the cause."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The level for each category increases by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.xFY9RtDE4DQKlWNR"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 4,
+            "upTo": true,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
     "id": "e99367b1-f2e3-5a9a-b6f2-05f35cd69808",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -2360,6 +3601,261 @@
     }
   },
   {
+    "id": "25d76609-4033-5d03-8344-1b003a8c1620",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:death-knell",
+    "name": "Death Knell",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "death", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You snuff the life out of a creature on the brink of death. The target must attempt a Will save. If this kills it, you gain 10 temporary HP and a +1 status bonus to attack and damage rolls for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target's "
+          },
+          {
+            "type": "ref",
+            "id": "c0cd649a-7029-5174-a5b4-678f51598dec"
+          },
+          {
+            "type": "text",
+            "text": " value increases by 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target dies."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "69431e81-24d2-5d1b-845c-600ef25de3df"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.dLdRqT6UxTKlsPgp"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "fe6197b4-46d2-5cf1-9ed7-8998d72e221b",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:death-ward",
+    "name": "Death Ward",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You shield a creature from the ravages of void energy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It receives a +4 status bonus to saves against death and void effects, gains void resistance 10, and suppresses the effects of the "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "73bc2834-8319-5a77-88fb-1158cebdb67a"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.YvXKGlHOt7mdW2jZ"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "d3e14d01-329f-54fd-8de5-b5773df34d63",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:detect-alignment",
+    "name": "Detect Alignment",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "detection", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your eyes glow as you sense aligned auras. Choose chaotic, evil, good, or lawful. You detect auras of that alignment. You receive no information beyond presence or absence. You can choose not to detect creatures or effects you're aware have that alignment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Only creatures of 6th level or higher-unless divine spellcasters, undead, or beings from the Outer Sphere-have alignment auras."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (2nd)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You learn each aura's location and strength."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.QnTtGCAvdWRU4spv"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 30
+      },
+      "traditions": ["divine", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "fdf72c15-bebc-5277-a4fc-e4ea8d54a2b6",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -2428,6 +3924,112 @@
     }
   },
   {
+    "id": "7d0c2ce8-7ff5-5d31-b58c-4edfe08f36f7",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dimensional-steps",
+    "name": "Dimensional Steps",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["focus", "manipulate", "teleportation", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You teleport to a location up to 20 feet away within your line of sight."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The distance you can teleport increases by 5 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.zjG6NncHyAKqSF7m"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 20
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "013cca77-ca8c-56bb-ae38-c5d225fafd22",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:discern-lies",
+    "name": "Discern Lies",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental", "revelation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Falsehoods ring in your ears like discordant notes. You gain a +4 status bonus to Perception checks when someone Lies."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.uNsliWpl8Q1JdFcM"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 10,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "70380388-6da9-56ef-973e-497dc55fbf7a",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -2480,6 +4082,345 @@
       "traditions": ["arcane", "primal"],
       "damage": [],
       "counteraction": true
+    }
+  },
+  {
+    "id": "b8c02282-dda2-5901-9cfb-dc403c5ac32b",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:divine-aura",
+    "name": "Divine Aura",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["aura", "concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Divine power wards the targets, granting each a +1 status bonus to AC and saves while in the area."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Choose an alignment your deity has (chaotic, evil, good, or lawful). You can't cast this spell if you don't have a deity or your deity is true neutral. This spell gains the trait of the alignment you chose. The bonuses granted by the spell increase to +2 against attacks by-and effects created by-creatures with an alignment opposite to the spell (lawful if you chose chaotic, evil if you chose good). These bonuses increase to +4 against effects created by such creatures that attempt to impose the "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " condition on a target of your divine aura, as well as against attacks made by creatures summoned by anything opposite in alignment to your divine aura."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a creature of opposite alignment hits a target with a melee attack, the creature must succeed at a Will save or be "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute. It's then temporarily immune for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time you Sustain the Spell each round, the divine aura's radius grows 10 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.nsQvjNyg4Whw2mek"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "targets": {
+        "any": [
+          {
+            "count": "all",
+            "within": "area",
+            "of": "ally"
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "477b1c77-cddd-5fad-92bc-1005764090d4",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:divine-vessel",
+    "name": "Divine Vessel",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "morph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You accept otherworldly energies into your body; while you are still recognizably yourself, you gain the features of one of your deity's servitors. Choose an alignment your deity has (chaotic, evil, good, or lawful). You can't cast this spell if you don't have a deity or your deity is true neutral. This spell gains the trait of the alignment you chose."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If you were Medium or smaller, you become Large, as the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "b76d119e-0d8d-52ad-8cca-1a224c3077ae"
+          },
+          {
+            "type": "text",
+            "text": ". You must have space to expand into, or the spell is lost. You also gain the following benefits."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "40 temporary Hit Points."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A fly Speed equal to your Speed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weakness 10 to the alignment opposite the one you chose."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "A +1 status bonus to saves against spells."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Darkvision."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Your unarmed attacks and weapons deal 1 additional damage of the chosen alignment type."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "One or more unarmed melee attacks. If you chose good or lawful, your fist attacks deal 2d8 damage. If you chose chaotic, you gain a bite unarmed attack that deals 2d10 piercing damage. If you chose evil, you gain a claws unarmed attack that deals 2d8 slashing damage and has the agile and finesse traits."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "afcb9961-9b3c-5c60-8e2a-10cb55b4d697"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The temporary Hit Points increase to 60, the weakness increases to 15, and the duration increases to 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "2e670a1b-6ee2-51e5-ad48-2f76b3a34125"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.hiVL8qsnTJtpouw0"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "50f93631-3e48-5618-81f5-fa69cae8cca1",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:diviners-sight",
+    "name": "Diviner's Sight",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "fortune", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You glimpse into the target's future. Roll a d20; when the target attempts a non-secret saving throw or skill check, it can use the number you rolled instead of rolling, and the spell ends. Alternatively, you can instead reveal the result of the die roll for one of the target's secret checks during the duration, and the spell ends. Casting it again ends any active diviner's sight you have cast, as well as any active diviner's sight on the target."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.oFwmdb6LlRrh9AUT"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing", "living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end"
+      },
+      "traditions": [],
+      "damage": []
     }
   },
   {
@@ -2849,6 +4790,604 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "34b9aa4a-aa59-5067-9706-59fcc67db03c",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-black-brine-or-copper",
+    "name": "Dragon Breath (Black, Brine or Copper)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 acid damage in a 60-foot line. Affected creatures can make a basic Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.6mmEz1UoTHGB7Sy9"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "acid",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4a135923-93b3-5056-a3b6-f9f56c8fe079",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-blue-or-bronze",
+    "name": "Dragon Breath (Blue or Bronze)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 electricity damage in a 60-foot line. Affected creatures can make a basic Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.0jWBnIDFpJjJShdQ"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "electricity",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4305871a-9514-589a-864f-91466b8ad3fd",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-brass",
+    "name": "Dragon Breath (Brass)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 fire damage in a 60-foot line. Affected creatures can make a basic Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.N0h3UodJFKdNQw1Y"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "1d00917c-b849-5643-b60d-307f9a1335ee",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-gold-magma-or-red",
+    "name": "Dragon Breath (Gold, Magma or Red)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 fire damage in a 30-foot cone. Affected creatures can make a basic Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.kfsv7zSHb3pr7s9v"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "fire",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "43574ddf-cb73-5abd-b1a3-cf00ed42cb3e",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-green",
+    "name": "Dragon Breath (Green)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 poison damage in a 30-foot cone. Affected creatures can make a basic Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.jupppBeFqhe6LMIb"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "poison",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "235f70d5-5379-5a9c-8b1c-89af4f1436fe",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-breath-silver-or-white",
+    "name": "Dragon Breath (Silver or White)",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "manipulate", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You spew energy from your mouth, dealing 5d6 cold damage in a 30-foot cone. Affected creatures can make a basic Reflex save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 2d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.bmDgIbLa5NfkP97J"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:reflex",
+          "basic": true
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "5d6",
+          "damageType": "cold",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "2d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "61f97444-3620-5c17-9326-f758269e75b7",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:dragon-claws",
+    "name": "Dragon Claws",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "morph", "sorcerer"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vicious claws grow from your fingers. They are finesse unarmed attacks that deal 1d4 slashing damage and 1d6 extra damage of a type determined by the dragon in your bloodline."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your scales from blood magic glow with faint energy, giving you resistance 5 to the same damage type."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "6d723524-fa27-541b-8396-d36f06269c12"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The extra damage increases to 2d6, and the resistance increases to 10."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The extra damage increases to 3d6, and the resistance increases to 15."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.K8vvrOgW4bGakXxm"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": []
     }
   },
   {
@@ -3460,6 +5999,74 @@
     }
   },
   {
+    "id": "da8d87a7-65cb-504b-af76-12916026be09",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:elemental-tempest",
+    "name": "Elemental Tempest",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "spellshape", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your spellcasting surrounds you in a storm of elemental energy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "If the next action you take is to Cast a Spell from your wizard spell slots that's an evocation spell dealing acid, cold, electricity, or fire damage, a 10-foot emanation of energy surrounds you as you cast the spell."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Foes in the area take 1d6 damage per spell rank of the spell you just cast of the same damage type the spell deals (choose one if it deals multiple types). Combine the damage from both elemental tempest and the other spell against foes who take damage from both before applying bonuses, penalties, resistance, weakness, and the like."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.vfHr1N8Rf2bBpdgn"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "area": {
+        "shape": "emanation",
+        "size": 10
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d6",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
     "id": "4e9d417f-faf7-5d33-936c-f5ee20928108",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -3739,6 +6346,129 @@
       "traditions": ["divine", "primal"],
       "damage": [],
       "counteraction": true
+    }
+  },
+  {
+    "id": "35d46951-e831-5754-ba35-33749a9b04ee",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:ethereal-jaunt",
+    "name": "Ethereal Jaunt",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You travel to the Ethereal Plane, which overlaps the Material Plane. Material Plane creatures can't see you, and you can move through things on the Material Plane. You move at half your normal Speeds, but can move in any direction (including up and down). You can see onto the Material Plane within a radius of 60 feet; it is gray, hazy, and "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " from you. You can't affect the Material Plane, and you can't be affected by the Material Plane except by force effects and abjurations originating there. When the spell ends, you return to the Material Plane. If you're in the air, you fall (unless you can fly), and if you're inside an object, you're pushed into the nearest open space and take 1d6 damage per 5 feet you were pushed. If you cast this spell when not on the Material Plane, it is lost."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (9th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can target up to five additional willing creatures at a range of 30 feet. The duration is up to 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.D2nPKbIS67m9199U"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "sustained": true
+      },
+      "traditions": ["divine", "occult"],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 9,
+            "range": {
+              "type": "feet",
+              "feet": 30
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "dc5f2e5e-79e4-591f-825e-0f85a7d20071",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:extend-spell",
+    "name": "Extend Spell",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "sorcerer", "spellshape"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon your blood's knowledge of the ancients to extend your magic. If your next action is to Cast a Spell with a duration of 1 minute on a single target, the spell instead lasts 10 minutes. You can extend a spell only if you cast it from a spell slot lower than your highest spell slot, and you can have only one active spell at a time extended in this way."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.GxxnhRIaoGKtu1iO"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "traditions": [],
+      "damage": []
     }
   },
   {
@@ -6402,6 +9132,433 @@
     }
   },
   {
+    "id": "6356e81f-c80b-5155-94d8-09cfb6aa8592",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:life-siphon",
+    "name": "Life Siphon",
+    "level": 4,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "healing", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You expend one of your wizard spell slots to cast a wizard spell of the necromancy school."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You use some of the spell's magic to heal yourself, regaining 1d8 Hit Points per rank of the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.zvvHOQV78WKUB33l"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "1d8",
+          "kinds": ["healing"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "4f6fff41-f768-52ca-a4b5-e7ab75a63442",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:litany-against-sloth",
+    "name": "Litany against Sloth",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["champion", "concentrate", "focus", "litany"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your litany rails against the sin of sloth, interfering with the target's ability to react. The target must attempt a Will save. A particularly slothful creature, such as a sloth demon, uses the outcome one degree of success worse than the result of its saving throw. The target becomes temporarily immune to all of your litanies for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target can't use reactions and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.2mVW1KT3AjW2pvDO"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "cc51be14-c568-515c-816e-f84dd03a0916",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:litany-against-wrath",
+    "name": "Litany against Wrath",
+    "level": 3,
+    "rarity": "uncommon",
+    "traits": ["champion", "concentrate", "focus", "holy", "litany"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your litany rails against the sin of wrath, punishing the target for attacking creatures that aren't unholy. The target must attempt a Will save. A particularly wrathful creature, such as a wrath demon, uses the outcome one degree of success worse than the result of its saving throw. The target then becomes temporarily immune to all of your litanies for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The first time the target uses an action that deals damage to at least one creature that isn't unholy, the target takes 3d6 spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Each time the target uses an action that deals damage to at least one creature that isn't unholy, the target takes 3d6 spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": ". Each time it uses an action that deals damage to at least one creature that isn't unholy, the target takes 3d6 spirit damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The damage increases by 1d6."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.X1b9ollVMSLXDN9o"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:will",
+          "basic": false
+        }
+      },
+      "traditions": [],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d6",
+          "damageType": "spirit",
+          "kinds": ["damage"]
+        }
+      ],
+      "heightening": {
+        "type": "interval",
+        "interval": 1,
+        "damage": [
+          {
+            "key": "0",
+            "formula": "1d6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "3d445ee6-75f6-5568-8aca-6fd8bf2d734a",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:litany-of-righteousness",
+    "name": "Litany of Righteousness",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["champion", "concentrate", "focus", "litany"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your litany denounces an evildoer, rendering it susceptible to the powers of good. The target gains weakness 7 to holy. The target then becomes temporarily immune to all of your litanies for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "b65059f6-edf9-5d27-867e-060ee008f58b"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The weakness increases by 1."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.n3b3pDmA6L5YRTyq"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
     "id": "65a4ac99-ec7a-5be0-b8ad-a6685eed2fc3",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -6524,6 +9681,69 @@
         "cost": "three"
       },
       "traditions": ["divine"],
+      "damage": []
+    }
+  },
+  {
+    "id": "7ee9239e-ca22-5b93-aa67-67004a7367f7",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:mirror-image",
+    "name": "Mirror Image",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Three illusory images of you swirl about your space, potentially causing those who attack you to hit one of the images instead of you. Any attack that would hit you has a random chance of hitting one of your images instead of you. If all three images remain, there is a 1 in 4 chance of hitting you (1 on 1d4). With two images remaining, there is a 1 in 3 chance of hitting you (1-2 on 1d6). With only one image, the chances are 1 in 2 (1-3 on 1d6)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Once an image is hit, it is destroyed. If an attack roll fails to hit your AC but doesn't critically fail, it destroys an image but has no additional effect (even if the attack would normally have an effect on a failure). If an attack roll is a critical success and would hit one of the images, one of the images is destroyed and the attack roll becomes a success against you. Once all the images are destroyed, the spell ends."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "8b0013d1-02f2-5ee4-8134-60e8732263b1"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.j8vIoIEWElvpwkcI"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "occult"],
       "damage": []
     }
   },
@@ -6662,6 +9882,101 @@
       },
       "traditions": ["primal"],
       "damage": []
+    }
+  },
+  {
+    "id": "b0d60e98-c476-516e-89e6-081f33ce5a04",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:negate-aroma",
+    "name": "Negate Aroma",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target loses its odor, preventing creatures from passively noticing its presence via smell alone, even if the creatures have precise or imprecise scent. A creature attempting a Perception check to Seek with scent and other senses might notice the lack of natural scent. If the target has any abilities that result from its smell, such as an overpowering scent, those abilities are also negated."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (5th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The range increases to 30 feet, and you can target up to 10 creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.0fKHBh5goe2eiFYL"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["willing"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [],
+      "heightening": {
+        "type": "fixed",
+        "ranks": [
+          {
+            "rank": 5,
+            "range": {
+              "type": "feet",
+              "feet": 30
+            },
+            "targets": {
+              "any": [
+                {
+                  "count": 10,
+                  "of": "creature",
+                  "qualifiers": ["willing"]
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   {
@@ -6853,6 +10168,72 @@
     }
   },
   {
+    "id": "69ae5052-268b-5738-b5a3-942742e85f09",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:physical-boost",
+    "name": "Physical Boost",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You temporarily improve the target's physique. The target gains a +2 status bonus to the next Acrobatics check, Athletics check, Fortitude save, or Reflex save it attempts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "c5f371f1-4fd8-5a8c-8c45-7d2e443e9cf2"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.1lmzILdCFENln8Cy"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature",
+            "qualifiers": ["living"]
+          }
+        ]
+      },
+      "duration": {
+        "type": "until",
+        "until": "next-turn-end",
+        "of": "target"
+      },
+      "traditions": [],
+      "damage": []
+    }
+  },
+  {
     "id": "ef449e90-36b2-53f4-97e8-5252b5cb00d0",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -6978,6 +10359,432 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "65f41c68-46e5-53a8-bd0c-b297819c57be",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:power-word-blind",
+    "name": "Power Word Blind",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You utter an arcane word of power that can make the target "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " upon hearing it. Once targeted, the target is then temporarily immune for 10 minutes. The effect of the spell depends on the target's level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "11th or Lower",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Blinded permanently."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "12th-13th",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is Blinded for 1d4 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "14th or Higher",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The levels at which each outcome applies increase by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Yk3t4ekEiFIoEz9c"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "traditions": ["arcane"],
+      "damage": []
+    }
+  },
+  {
+    "id": "37e4f8e9-e963-51cd-bbbb-8d5b322dc9b4",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:power-word-kill",
+    "name": "Power Word Kill",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "death", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You utter the most powerful arcane word of power. Once targeted, the target is then temporarily immune for 10 minutes. The effect of the spell depends on the target's level."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14th or Lower",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target dies instantly."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "15th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If the target has 50 Hit Points or fewer, it dies instantly; otherwise, it drops to 0 Hit Points and becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "c0cd649a-7029-5174-a5b4-678f51598dec",
+                  "label": "Dying 1"
+                },
+                {
+                  "type": "text",
+                  "text": ", or increases its Dying condition by 1 if it's already Dying."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "16th or Higher",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target takes 50 damage; if this brings the target to 0 Hit Points, the target dies instantly."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (10th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The levels at which each outcome applies increase by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.m3lcOFm400lQCUps"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "traditions": ["arcane"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "50",
+          "kinds": ["damage"]
+        }
+      ]
+    }
+  },
+  {
+    "id": "75ca347c-eb62-5458-9c6d-815860ccd4bb",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:power-word-stun",
+    "name": "Power Word Stun",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["auditory", "concentrate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You stun the target with an arcane word of power. Once targeted, the target is then temporarily immune for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effect of the spell depends on the target's level."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "13th or Lower",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1d6 rounds."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14th-15th",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is Stunned for 1 round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "16th or Higher",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "f622dca5-47d5-57a2-9b84-1e8ec5506d3f",
+                  "label": "Stunned 1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (+1)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The levels at which each outcome applies increase by 2."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.7PJSqUeKxTqOVrPk"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "one"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 30
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "varies"
+      },
+      "traditions": ["arcane"],
+      "damage": []
     }
   },
   {
@@ -7323,6 +11130,541 @@
     }
   },
   {
+    "id": "59a805ee-294d-54b7-96e8-d36e3d92984c",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:prismatic-sphere",
+    "name": "Prismatic Sphere",
+    "level": 9,
+    "rarity": "common",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a seven-layered sphere to protect an area. This multicolored sphere functions like a "
+          },
+          {
+            "type": "ref",
+            "id": "50a9cf36-643a-57ec-93b4-60961439705f"
+          },
+          {
+            "type": "text",
+            "text": " but is shaped in a 10-foot burst centered on a corner of your space. You must form the sphere in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v"
+    },
+    "data": {
+      "rank": 9,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 10
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "378e330a-fd2f-5651-ac27-6ed6510a66f6",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:prismatic-spray",
+    "name": "Prismatic Spray",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A spray of rainbow light beams cascades from your open hand. Each creature in the area must roll 1d8 on the table below to see which beam affects it, then attempt a saving throw of the indicated type. The table notes any additional traits that apply to each type of ray. If a creature is struck by multiple beams, it uses the same d20 result for all its saving throws. For all rays, a successful saving throw negates the effect for that creature."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "type": "text",
+            "text": "Prismatic Spray",
+            "marks": ["strong"]
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "header": [
+          [
+            {
+              "type": "text",
+              "text": "1d8"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Color"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Save"
+            }
+          ],
+          [
+            {
+              "type": "text",
+              "text": "Effects (Traits)"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "50 fire damage (fire)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "60 acid damage (acid)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yellow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "70 electricity damage (electricity)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "30 poison damage and "
+              },
+              {
+                "type": "ref",
+                "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                "label": "Enfeebled 1"
+              },
+              {
+                "type": "text",
+                "text": " for 1 minute (poison)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortitude"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Affected as if by "
+              },
+              {
+                "type": "ref",
+                "id": "86c529b1-5a2f-5bac-9c74-674544b5bd32"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Indigo"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Confused, as the "
+              },
+              {
+                "type": "ref",
+                "id": "1748638c-efed-5899-a084-68570d86b128"
+              },
+              {
+                "type": "text",
+                "text": " spell (mental)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Violet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Will"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slowed for 1 minute; if a critical failure, sent to another plane, as "
+              },
+              {
+                "type": "ref",
+                "id": "3e61b605-c274-5409-a4e1-9cb72132821d"
+              },
+              {
+                "type": "text",
+                "text": " (teleportation)"
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "type": "text",
+                "text": "8"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potent beam"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "-"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Affected by two beams - roll twice, rerolling any duplicates or results of 8"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.d6o52BnjViNz7Gub"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "area": {
+        "shape": "cone",
+        "size": 30
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "50a9cf36-643a-57ec-93b4-60961439705f",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:prismatic-wall",
+    "name": "Prismatic Wall",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["concentrate", "light", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create an opaque wall of shimmering, multicolored light. The wall is straight and vertical, stretching 60 feet long and 30 feet high. You must form the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. You can pass through the wall and ignore its effects. The wall sheds bright light out to 20 feet on each side (and dim light to the next 20 feet). Creatures other than you that come into the wall's light must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": " save; they're "
+          },
+          {
+            "type": "ref",
+            "id": "943dfd55-ad09-5abf-9138-95a6149d3302"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a success, "
+          },
+          {
+            "type": "ref",
+            "id": "5d63458a-cde5-5d64-8fea-b920f04f36b7"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a failure, and Blinded for 1 minute on a critical failure. They are then temporarily immune to the blinding effect for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A prismatic wall has seven different layers, each a different color. Red, orange, yellow, and green have the effect of a 5th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "6d968a26-01b5-5e6e-a52e-4d3838af9f20"
+          },
+          {
+            "type": "text",
+            "text": " spell of that color, and the others have the effect of a 7th-rank "
+          },
+          {
+            "type": "text",
+            "text": "chromatic wall",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell of that color. A creature that tries to pass through the wall must attempt a saving throw against each component wall. The effects take place simultaneously, so a creature turned to stone by the blue wall is still treated as a creature for the indigo and violet walls."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The wall as a whole is immune to counteracting effects of the wall's level or lower; each color must be counteracted by its specific spell, as described in "
+          },
+          {
+            "type": "text",
+            "text": "chromatic wall",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". This must be done in order (red, orange, yellow, green, blue, indigo, then violet). A given color can't be affected until the previous color is counteracted. Counteracting a color wall removes that color's effect from the wall, and counteracting them all ends "
+          },
+          {
+            "type": "text",
+            "text": "prismatic wall",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ". You can Dismiss the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0"
+    },
+    "data": {
+      "rank": 8,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "line",
+        "size": 60
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "7b03f972-02bc-5893-a09b-e77b8d99010d",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -7430,6 +11772,282 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "31a793a4-7741-5d77-b7be-c8310598a829",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:purple-worm-sting",
+    "name": "Purple Worm Sting",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You replicate the attack of a deadly purple worm. You deal 3d6 piercing damage to the touched creature and afflict it with purple worm venom. The target must attempt a Fortitude save."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target takes 3d6 poison damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with purple worm venom at stage 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is afflicted with purple worm venom at stage 2."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Purple Worm Venom",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " (poison)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Level",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 11"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maximum Duration",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 6 rounds."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 round)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.ayRXv0wQH00TTNZe"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": [
+        {
+          "key": "0",
+          "formula": "3d6",
+          "damageType": "piercing",
+          "kinds": ["damage"]
+        }
+      ]
     }
   },
   {
@@ -7808,6 +12426,216 @@
       "duration": {
         "type": "until",
         "until": "daily-preparations"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "16bb52cb-c802-5c76-8114-98f140da70a6",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:restoration",
+    "name": "Restoration",
+    "level": 2,
+    "rarity": "common",
+    "traits": ["concentrate", "healing", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Restorative magic counters the effects of toxins or conditions that prevent a creature from functioning at its best. When you cast restoration, choose to either reduce a condition or lessen the effect of a toxin. A creature can benefit from only one restoration spell each day, and it can't benefit from restoration more than once to reduce the stage of the same exposure to a given toxin."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Lessen a Toxin",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Reduce the stage of one toxin the target suffers from by one stage. This can't reduce the stage below stage 1 or cure the affliction."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reduce a Condition",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Reduce the value of the target's "
+                },
+                {
+                  "type": "ref",
+                  "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd"
+                },
+                {
+                  "type": "text",
+                  "text": ", or "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f"
+                },
+                {
+                  "type": "text",
+                  "text": " condition by 2. You can instead reduce two of the listed conditions by 1 each."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Add "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b"
+          },
+          {
+            "type": "text",
+            "text": " to the list of conditions you can reduce. When you lessen a toxin, reduce the stage by two. You also gain a third option that allows you to reduce the target's "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7"
+          },
+          {
+            "type": "text",
+            "text": " value by 1. You can't use this to reduce a permanent Doomed condition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (6th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As the 4th-rank restoration, but you can reduce a permanent Doomed condition if you add a spellcasting action and a material component while Casting the Spell, during which you provide 100 gp worth of diamond dust as a cost."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.SnaLVgxZ9ryUFmUr"
+    },
+    "data": {
+      "rank": 2,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "traditions": ["divine", "occult", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "48c76127-96c8-5c0c-8860-85accfc2ab82",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:reverse-gravity",
+    "name": "Reverse Gravity",
+    "level": 7,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You reverse gravity in the area. Creatures and objects that aren't secured to the ground immediately fall upward to the top of the area. A creature might be able to Grab an Edge to arrest its fall if it falls past an appropriate surface. If a creature falls against a solid object (such as a ceiling), it takes the appropriate amount of falling damage and lands on the surface. Once an object or creature reaches the top of the area, it floats, caught between the normal and reversed gravity. The creature can move along the plane where the two forms of gravity meet. Creatures that can levitate or fly can use those abilities to mitigate the effects of reverse gravity.When reverse gravity ends, all creatures and objects caught in the area fall back down. Likewise, anything that moves beyond the spell's area is subjected to normal gravity again."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.37ESlJzUvVbOudOT"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
       },
       "traditions": ["arcane", "occult"],
       "damage": []
@@ -8284,6 +13112,181 @@
     }
   },
   {
+    "id": "fbd884df-f86a-53aa-9a8c-f9fac4ab3ed3",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:secret-page",
+    "name": "Secret Page",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "manipulate", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You change the target's text to different text entirely. If the text is a spellbook or a scroll, you can change it to show a spell you know of secret page's level or lower. The replacement spell cannot be cast or used to prepare a spell. You can also transform the text into some other text you have written or have access to. You can specify a password that allows a creature touching the page to change the text back and forth. You must choose the replacement text and the password, if any, when you Cast the Spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.VVAZPCvd4d90qVA1"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "unlimited"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
+    "id": "43ac4270-8ef2-5e9c-be38-094ffd113e2f",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:shadow-siphon",
+    "name": "Shadow Siphon",
+    "level": 5,
+    "rarity": "common",
+    "traits": ["concentrate", "illusion", "shadow"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " A spell or magical effect deals damage."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Exchanging material energy with that of the Shadow Plane, you transform the triggering spell into a partially illusory version of itself. Attempt to counteract the target spell. If the attempt is successful, any creatures that would be damaged by the spell instead take only half as much damage, but the spell otherwise works as normal. Treat shadow siphon's counteract rank as 2 higher for this attempt."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tcwT97RWKxsJiefG"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "actions",
+        "cost": "reaction"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": [],
+      "counteraction": true
+    }
+  },
+  {
+    "id": "871aeb9c-acc9-5fa4-bcea-ee26f22fe4c7",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:shillelagh",
+    "name": "Shillelagh",
+    "level": 1,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "plant"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target grows vines and leaves, brimming with primal energy. The target becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking weapon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " while in your hands, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two. Additionally, as long as you are on your home plane, attacks you make with the target against aberrations, extraplanar creatures, and undead increase the number of weapon damage dice to three."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "97a546ef-0465-5ca3-8e87-56e8d5cf49a9"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.s3abwDbTV43pGFFW"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["primal"],
+      "damage": []
+    }
+  },
+  {
     "id": "b86ba851-9122-5c41-a00d-ba6296af3a20",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -8430,6 +13433,123 @@
       },
       "traditions": ["arcane"],
       "damage": []
+    }
+  },
+  {
+    "id": "7b0e1661-0f8b-5f57-bed6-3ab7c861df2b",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:solid-fog",
+    "name": "Solid Fog",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "water"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You conjure a bank of fog so thick it impedes movement as well as sight. This functions as "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": ", except that the area is also difficult terrain. You can Dismiss the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.piMJO6aYeDJbrhEo"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "7714caac-f16d-54e3-aab2-39f0ba58f85e",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:spell-immunity",
+    "name": "Spell Immunity",
+    "level": 4,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You ward a creature against the effects of a single spell. Choose a spell and name it aloud as part of the verbal component. Spell immunity attempts to counteract that spell whenever spell immunity's target is the target of the named spell or in that spell's area. Successfully counteracting a spell that targets an area or multiple targets with spell immunity negates the effects only for the target affected by spell immunity."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.tgIhRUFtgDSELpJE"
+    },
+    "data": {
+      "rank": 4,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "targets": {
+        "any": [
+          {
+            "count": 1,
+            "of": "creature"
+          }
+        ]
+      },
+      "duration": {
+        "type": "until",
+        "until": "daily-preparations"
+      },
+      "traditions": ["arcane", "divine", "occult"],
+      "damage": [],
+      "counteraction": true
     }
   },
   {
@@ -8885,6 +14005,236 @@
           }
         ]
       }
+    }
+  },
+  {
+    "id": "bfd0ed8b-3232-5aad-bbbe-22abb981cf96",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:stinking-cloud",
+    "name": "Stinking Cloud",
+    "level": 3,
+    "rarity": "common",
+    "traits": ["concentrate", "manipulate", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create a cloud of putrid mist in the area. The cloud functions as "
+          },
+          {
+            "type": "ref",
+            "id": "1871511d-f694-5e6b-b49d-1e7388909900"
+          },
+          {
+            "type": "text",
+            "text": " except it sickens creatures that end their turns within the cloud. (The "
+          },
+          {
+            "type": "ref",
+            "id": "f410da96-b56a-5c7c-857b-7096defec0a1"
+          },
+          {
+            "type": "text",
+            "text": " condition is not a poison effect.)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " while in the cloud."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " until it leaves the cloud."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.GKpEcy9WId6NJvtx"
+    },
+    "data": {
+      "rank": 3,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 120
+      },
+      "area": {
+        "shape": "burst",
+        "size": 20
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "defense": {
+        "save": {
+          "statistic": "save:fortitude",
+          "basic": false
+        }
+      },
+      "traditions": ["arcane", "primal"],
+      "damage": []
+    }
+  },
+  {
+    "id": "afd2bdd5-c015-5131-b7ec-62c9f892d437",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:stone-to-flesh",
+    "name": "Stone to Flesh",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["concentrate", "earth", "manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Manipulating the fundamental particles of matter, you convert stone into flesh and blood. You restore a "
+          },
+          {
+            "type": "ref",
+            "id": "3d9defdb-7a92-5ba7-817e-e95b3811cf7f"
+          },
+          {
+            "type": "text",
+            "text": " creature to its normal state or transform a stone object into a mass of inert flesh (without stone's Hardness) in roughly the same shape."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Pr1ruNTbzGn3H9w5"
+    },
+    "data": {
+      "rank": 6,
+      "time": {
+        "type": "actions",
+        "cost": "two"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "traditions": ["divine", "primal"],
+      "damage": []
     }
   },
   {
@@ -9435,6 +14785,55 @@
     }
   },
   {
+    "id": "02b9a52e-6318-51de-9395-1207957aa1c3",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:telepathic-bond",
+    "name": "Telepathic Bond",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The targets can communicate telepathically with any or all of the other targets from any point on the same planet."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.gfVXAW95YWRz0pJC"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
+      "damage": []
+    }
+  },
+  {
     "id": "e8f32229-70c4-50dc-a558-cd41a9769bb1",
     "pack": "core-rulebook",
     "kind": "spell",
@@ -9555,6 +14954,55 @@
         "unit": "minute"
       },
       "traditions": [],
+      "damage": []
+    }
+  },
+  {
+    "id": "6175ed4e-d059-512b-9338-b52825fcebb3",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:umbral-journey",
+    "name": "Umbral Journey",
+    "level": 5,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "manipulate", "shadow", "teleportation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You move partially into the Netherworld, using its warped nature to speed your travels. Each hour, you cover roughly as much ground as you normally would in 3 days. The landmarks are vague and symbolic rather than concrete, leaving you within a mile of your intended destination when you Dismiss the spell or its duration ends"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.rxvS7EMJ7qmexAyA"
+    },
+    "data": {
+      "rank": 5,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "range": {
+        "type": "touch"
+      },
+      "duration": {
+        "type": "time",
+        "count": 8,
+        "unit": "hour"
+      },
+      "traditions": ["arcane", "occult"],
       "damage": []
     }
   },
@@ -10084,6 +15532,116 @@
       },
       "traditions": ["divine", "occult"],
       "damage": []
+    }
+  },
+  {
+    "id": "62f76adf-df59-5ad8-85a2-e2ac376373bd",
+    "pack": "core-rulebook",
+    "kind": "spell",
+    "slug": "spell:warped-terrain",
+    "name": "Warped Terrain",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": ["concentrate", "focus", "illusion", "manipulate", "visual", "wizard"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "core-rulebook"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You create illusory hazards that cover all surfaces in the area (typically the ground). Any creature moving through the illusion treats the squares as difficult terrain. A creature can attempt to disbelieve the effect as normal after using a "
+          },
+          {
+            "type": "ref",
+            "id": "d45207be-e539-50ce-9463-f4edc3671076"
+          },
+          {
+            "type": "text",
+            "text": " action or otherwise spending actions interacting with the illusion. If it successfully disbelieves, it ignores the effect for the remaining duration. For each additional action you use casting the spell, the burst's radius increases by 5 feet, to a maximum of 10 extra feet for 3 actions."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Heightened (4th)",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You can make the illusion appear in the air rather than on a surface, causing it to function as difficult terrain for flying creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.fXdADBwxmBsU9xPk"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "actions",
+        "cost": "one",
+        "upTo": "three"
+      },
+      "range": {
+        "type": "feet",
+        "feet": 60
+      },
+      "area": {
+        "shape": "burst",
+        "size": 5,
+        "details": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "5-foot burst or more"
+              }
+            ]
+          }
+        ]
+      },
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute"
+      },
+      "traditions": [],
+      "damage": [],
+      "variants": [
+        {
+          "time": {
+            "type": "actions",
+            "cost": "one"
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "two"
+          }
+        },
+        {
+          "time": {
+            "type": "actions",
+            "cost": "three"
+          }
+        }
+      ]
     }
   },
   {
