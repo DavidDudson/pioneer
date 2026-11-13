@@ -290,6 +290,59 @@
     }
   },
   {
+    "id": "718901d6-2443-5874-9c82-18f19c05d12e",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-arboreals-revenge-speed-penalty",
+    "name": "Effect: Arboreal's Revenge (Speed Penalty)",
+    "level": 6,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The targets take a -10-foot circumstance penalty to their Speeds as roots rapidly sprout from their wounds, which lasts until they "
+          },
+          {
+            "type": "ref",
+            "id": "2ae74030-e87a-55ee-955c-fb9870392d44"
+          },
+          {
+            "type": "text",
+            "text": " (DC 20)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "circumstance",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Hx4MOTujp5z6SlQu"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "c6942cfa-2f84-5430-bd95-5d9582aee0a2",
     "pack": "guns-and-gears",
     "kind": "effect",
@@ -557,6 +610,89 @@
         "type": "time",
         "count": 1,
         "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "115e532a-91c9-5f72-931c-6e94a1868c80",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-blast-boots-major",
+    "name": "Effect: Blast Boots (Major)",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Blast Boots (Major)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute, the "
+          },
+          {
+            "type": "text",
+            "text": "major blast boots",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " remain active, allowing you to clumsily fly through the air for the duration. You gain a 30-foot Fly speed for the duration, but any time you "
+          },
+          {
+            "type": "ref",
+            "id": "825ea55f-742d-5046-af5a-8a5ae80f2e79"
+          },
+          {
+            "type": "text",
+            "text": ", you are "
+          },
+          {
+            "type": "ref",
+            "id": "69f88e3c-d871-5fb9-82c6-120348a7c0e8",
+            "label": "Clumsy 1"
+          },
+          {
+            "type": "text",
+            "text": " until the start of your next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 30
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.oiO3cQfqp8MuxR82"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
         "expiry": "turn-start"
       }
     }
@@ -1784,6 +1920,53 @@
     }
   },
   {
+    "id": "23989a68-f673-5895-a57a-2cd866cf5711",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-exsanguinating-ammunition",
+    "name": "Effect: Exsanguinating Ammunition",
+    "level": 4,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute after you deal damage to a creature with an activated exsanguinating ammunition that creature gains weakness 1 to persistent bleed damage. In addition, the DC of any flat checks to end persistent bleed damage increases from 15 to 17 (from 10 to 12 when receiving particularly effective assistance) for the duration."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["bleed"],
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.Fz3cSffzDAxhCh2D"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
     "id": "f0489e78-7863-54e2-9d9d-69a45481f1a4",
     "pack": "guns-and-gears",
     "kind": "effect",
@@ -2232,6 +2415,149 @@
     }
   },
   {
+    "id": "e075f826-b5a9-51ec-bb15-d557f1e348da",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-hyldarfs-fang",
+    "name": "Effect: Hyldarf's Fang",
+    "level": 15,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Hyldarf's Fang"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon Hyldarf's power to gain the magic of a linnorm for a brief time. For 1 minute, you gain the effects of "
+          },
+          {
+            "type": "ref",
+            "id": "5ff17619-93b1-5680-ad41-5f66ad9a8c0b"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "3f76db0d-3598-5ec4-bdd4-9f568f4f8973"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "ec6df711-1ab8-5f9d-8e01-6827c947eeff"
+          },
+          {
+            "type": "text",
+            "text": " as well as fire resistance 20."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["fire"],
+        "value": 20
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.wacGBDbbQ1HaNZbX"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "4992a997-180a-568c-8469-161f69132834",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-immolation-clan-pistol",
+    "name": "Effect: Immolation Clan Pistol",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For 1 minute, you look like a flaming corpse. During this time, you gain a +2 status bonus to Intimidation checks and the "
+          },
+          {
+            "type": "text",
+            "text": "immolation hand cannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking flaming hand cannon",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:intimidation"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.bri7UVNCfHhCIvXN"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "1dffbd07-b1f7-5e69-9a84-a5cd80e94199",
     "pack": "guns-and-gears",
     "kind": "effect",
@@ -2409,6 +2735,53 @@
     }
   },
   {
+    "id": "11674fd5-dfff-577d-80e8-e86cf48294fc",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-offensive-boost",
+    "name": "Effect: Offensive Boost",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Offensive Boost"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your improvements make any Strikes that rely on your innovation deal an additional 1d6 damage, with a type determined by the boost you choose. If your innovation is armor, the boost applies to your melee Strikes with one weapon you choose during daily preparations; if your innovation is a construct, the boost applies to your construct companion's Strikes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.ut5SVyCSXel69nnd"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
     "id": "805fcea1-e876-5f5c-9c4e-23982b467f31",
     "pack": "guns-and-gears",
     "kind": "effect",
@@ -2538,6 +2911,56 @@
         "type": "time",
         "count": 1,
         "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "564b1dce-3912-589a-aee1-f9b1ad45a9f9",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-overdrive-ally",
+    "name": "Effect: Overdrive Ally",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Overdrive Ally"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the end of their next turn, that ally's Strikes deal additional damage equal to half your Intelligence modifier, or your full Intelligence modifier if you were in critical overdrive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.feat-effects.Item.a4C89wVlcwV6Uxx4"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "feat",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
         "expiry": "turn-start"
       }
     }
@@ -2862,6 +3285,261 @@
     "externalIds": {
       "foundry": "Compendium.pf2e.equipment-effects.Item.jgaDboqENQJaS1sW"
     },
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "88587d5a-37a2-5c24-a195-d8a44e81d457",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-protective-barrier",
+    "name": "Effect: Protective Barrier",
+    "level": 17,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Granted by Vonthos's Golden Bridge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While the swirling rings of the vehicle don't fully cover the pilot, they offer incredible protection, magically maintaining the temperature within and ablating physical attacks. The pilot is protected from severe cold, severe heat, extreme cold, and extreme heat. The pilot also gains resistance 10 to all physical damage (except adamantine)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Resistance",
+        "type": ["all"],
+        "value": 10,
+        "exceptions": ["adamantine"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.exwQF6E1FWmuxwBc"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9298b21d-9289-535e-b382-fb72eb1007a8",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-rowan-rifle-cold",
+    "name": "Effect: Rowan Rifle (Cold)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s damage type changes from its current damage type to cold. On the next sunrise, the "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " returns to dealing fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["rowan-rifle-damage"],
+        "override": {
+          "damageType": "cold"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.1tweTwYQuQUV45wJ"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "635e4810-f553-5323-b0d3-ef40f86b90fa",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-rowan-rifle-electricity",
+    "name": "Effect: Rowan Rifle (Electricity)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s damage type changes from its current damage type to electricity. On the next sunrise, the "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " returns to dealing fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["rowan-rifle-damage"],
+        "override": {
+          "damageType": "electricity"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.9kOgG7BPEfIyWyqm"
+    },
+    "license": "OGL",
+    "data": {
+      "category": "equipment",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "day",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "8ff46331-0f57-5a6f-bcfe-92aa45b6bbf9",
+    "pack": "guns-and-gears",
+    "kind": "effect",
+    "slug": "effect:effect-rowan-rifle-sonic",
+    "name": "Effect: Rowan Rifle (Sonic)",
+    "level": 16,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "'s damage type changes from its current damage type to sonic. On the next sunrise, the "
+          },
+          {
+            "type": "text",
+            "text": "Rowan Rifle",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " returns to dealing fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["rowan-rifle-damage"],
+        "override": {
+          "damageType": "sonic"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-effects.Item.KiurLemTV8GV7OyM"
+    },
+    "license": "OGL",
     "data": {
       "category": "equipment",
       "duration": {

@@ -2905,6 +2905,106 @@
     }
   },
   {
+    "id": "68a15330-79ea-5e20-810a-27c20f1cf690",
+    "pack": "guns-and-gears",
+    "kind": "consumable",
+    "slug": "consumable:clockwork-goggles-major",
+    "name": "Clockwork Goggles (Major)",
+    "level": 8,
+    "rarity": "uncommon",
+    "traits": ["clockwork", "consumable", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This heavy set of mechanical goggles contains a variety of different lenses for different situations, including lenses that filter light at different intensities and frequencies and even some that capture heat and other stimuli. Clockwork mechanisms can swap between the lenses rapidly as needed. However, many of these lenses can only capture a single stimulus once and then are forever etched with it, making them unsuitable for long-term use. When activated, the clockwork mechanism on the goggles rapidly switches between the different lenses, granting you the benefits of all of them for a brief period of time."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When activated, you gain low-light vision, darkvision, and the effects of "
+          },
+          {
+            "type": "text",
+            "text": "See invisibility",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " for 10 minutes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Clockwork Goggles (Major)"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.MywpJQc2lVjWvAGA"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 80
+        }
+      },
+      "bulk": "light",
+      "category": "gadget",
+      "activation": {
+        "cost": "two"
+      },
+      "usage": {
+        "type": "worn",
+        "slot": "eyepiece"
+      }
+    }
+  },
+  {
     "id": "642afab2-363d-59e1-8fb1-c38df9057050",
     "pack": "guns-and-gears",
     "kind": "consumable",
@@ -2944,6 +3044,125 @@
       },
       "bulk": "negligible",
       "category": "snare",
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "0fe067bf-3169-592d-a2cc-03fdfeb5c448",
+    "pack": "guns-and-gears",
+    "kind": "consumable",
+    "slug": "consumable:cryomister-greater",
+    "name": "Cryomister (Greater)",
+    "level": 11,
+    "rarity": "uncommon",
+    "traits": ["cold", "consumable", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Activate a cryomister, you can either place it in an adjacent square or toss it up to 20 feet away. Once you've done so, the metallic device instantly disperses a heavy mist, settling quickly on nearby flat surfaces and forming a sheet of ice. The cryomister creates a burst with a radius depending on the type, making the affected area difficult terrain for 1 minute; , at the GM's discretion, however, this duration might be reduced in unusually hot conditions or increased in unusually cold ones. If an affected square takes fire damage, the difficult terrain is removed. Though not designed as a weapon, the cryomister's rapidly cooling mist deals cold splash damage depending on the type to creatures in the area on activation. Creatures attempting to move through the affected area can attempt an Acrobatics check with a DC depending on the type to ignore the difficult terrain and move at their normal Speed. Throwing the cryomister onto the surface of a liquid creates a floating piece of ice for the same duration, capable of supporting one or more creatures of the listed size."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The area is a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", the "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 30
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5",
+                "damageType": "cold",
+                "category": "splash"
+              }
+            ],
+            "label": "5 cold splash damage"
+          },
+          {
+            "type": "text",
+            "text": ". The floating ice can support one Huge creature, two Large creatures, or four Medium or smaller creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.j7VThCkenoE4giZt"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "size": "small",
+      "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
       "usage": {
         "type": "held",
         "hands": "one"
@@ -3046,6 +3265,125 @@
         }
       },
       "bulk": "light",
+      "category": "gadget",
+      "activation": {
+        "cost": "one"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "69b23bf0-1c75-50c9-b7aa-d4cee075b008",
+    "pack": "guns-and-gears",
+    "kind": "consumable",
+    "slug": "consumable:cryomister-major",
+    "name": "Cryomister (Major)",
+    "level": 17,
+    "rarity": "uncommon",
+    "traits": ["cold", "consumable", "gadget"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When you Activate a cryomister, you can either place it in an adjacent square or toss it up to 20 feet away. Once you've done so, the metallic device instantly disperses a heavy mist, settling quickly on nearby flat surfaces and forming a sheet of ice. The cryomister creates a burst with a radius depending on the type, making the affected area difficult terrain for 1 minute; , at the GM's discretion, however, this duration might be reduced in unusually hot conditions or increased in unusually cold ones. If an affected square takes fire damage, the difficult terrain is removed. Though not designed as a weapon, the cryomister's rapidly cooling mist deals cold splash damage depending on the type to creatures in the area on activation. Creatures attempting to move through the affected area can attempt an Acrobatics check with a DC depending on the type to ignore the difficult terrain and move at their normal Speed. Throwing the cryomister onto the surface of a liquid creates a floating piece of ice for the same duration, capable of supporting one or more creatures of the listed size."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The area is a "
+          },
+          {
+            "type": "template",
+            "shape": "burst",
+            "size": 20
+          },
+          {
+            "type": "text",
+            "text": ", the "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:acrobatics",
+            "dc": 39
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8",
+                "damageType": "cold",
+                "category": "splash"
+              }
+            ],
+            "label": "8 cold splash damage"
+          },
+          {
+            "type": "text",
+            "text": ". The floating ice can support one Gargantuan creature, two Huge creatures, four Large creatures, or eight Medium or smaller creatures. The ice can't support Gargantuan creatures larger than a 20-by-20-foot space, such as a mu spore."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OkYPLMDxprdm24hH"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 2500
+        }
+      },
+      "bulk": "light",
+      "size": "small",
       "category": "gadget",
       "activation": {
         "cost": "one"

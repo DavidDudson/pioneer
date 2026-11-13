@@ -7040,6 +7040,120 @@
     }
   },
   {
+    "id": "f94731d4-de44-5232-b33f-9c43d06836ed",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:bound-guardian",
+    "name": "Bound Guardian",
+    "level": 9,
+    "rarity": "uncommon",
+    "traits": ["invested", "magical", "tattoo"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A bound guardian is a tattoo guardian bonded to your skin, which you can temporarily animate to protect you. If your soul leaves your body, your tattoo guardian might be destroyed (see the sidebar, Bestiary 3 262)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command, envision, Interact (conjuration)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You animate your tattoo guardian, otherwise using the duration and other parameters of a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "ed3b944d-39c4-5b33-82c2-8f1bf8bd02e7"
+          },
+          {
+            "type": "text",
+            "text": " spell. You can have the guardian Fly Free as part of Activating your tattoo. If your tattoo guardian drops to 0 HP, the activation ends, and the inanimate tattoo returns to your skin."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.tO5zXmyoBsa0lIDd"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 675
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "bound-guardian",
+          "name": "Bound Guardian",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "tattooed"
+      }
+    }
+  },
+  {
     "id": "63637db6-ef8c-5faf-9108-7998495a5da9",
     "pack": "treasure-vault",
     "kind": "equipment",
@@ -7973,6 +8087,316 @@
         {
           "slug": "bravery-baldric-healthful",
           "name": "Bravery Baldric (Healthful)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "8aca26db-850e-53d0-9fc7-5eda39ee98d9",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:bravery-baldric-restoration",
+    "name": "Bravery Baldric (Restoration)",
+    "level": 7,
+    "rarity": "common",
+    "traits": ["healing", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a belt that wraps around the shoulder and draws on your well of courage. When you critically succeed on a save against a fear effect or reduce your frightened condition to 0, the baldric gains 1 charge, which slightly alters the color, turning it golden. A "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can hold up to 2 charges, and its charges reset to 0 when you invest it. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested at a time."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The baldric has a charge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One charge in the baldric expires, and you gain the effects of a 2nd-rank "
+          },
+          {
+            "type": "ref",
+            "id": "16bb52cb-c802-5c76-8114-98f140da70a6"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.3TQ9oSETsOHcHRBF"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 350
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bravery-baldric-restoration",
+          "name": "Bravery Baldric (Restoration)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "worn"
+      }
+    }
+  },
+  {
+    "id": "4907b5f8-15e7-5cae-86ae-795440749441",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:bravery-baldric-restoration-greater",
+    "name": "Bravery Baldric (Restoration, Greater)",
+    "level": 11,
+    "rarity": "common",
+    "traits": ["healing", "invested", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is a belt that wraps around the shoulder and draws on your well of courage. When you critically succeed on a save against a fear effect or reduce your frightened condition to 0, the baldric gains 1 charge, which slightly alters the color, turning it golden. A "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can hold up to 2 charges, and its charges reset to 0 when you invest it. You can have only one "
+          },
+          {
+            "type": "text",
+            "text": "bravery baldric",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " invested at a time."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The baldric has a charge"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One charge in the baldric expires, and you gain the effects of a 4th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "16bb52cb-c802-5c76-8114-98f140da70a6"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.byIihT9MMpTFvyYT"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1300
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "bravery-baldric-restoration-greater",
+          "name": "Bravery Baldric (Restoration, Greater)",
           "frequency": {
             "max": 1,
             "per": "hour"
@@ -9289,6 +9713,144 @@
       "usage": {
         "type": "worn",
         "slot": "headwear"
+      }
+    }
+  },
+  {
+    "id": "2884db96-aa4d-53d0-8802-c099666bc4b4",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:catching",
+    "name": "Catching",
+    "level": 8,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "catching rune",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " creates a small, magical vacuum that attempts to pull weapons away from opponents. If you can attempt to "
+          },
+          {
+            "type": "ref",
+            "id": "ef57a555-f9e9-53cc-b09b-b7432156cbf1"
+          },
+          {
+            "type": "text",
+            "text": " as part of a Shield Block, such as with the Disarming Block feat or this rune's activated ability, a catching shield grants you a +1 circumstance bonus to such Disarm attempts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block a melee Strike made with a held weapon"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You attempt to Disarm the creature whose attack you blocked of the weapon they attacked you with. You can do so even if you don't have a hand free."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.OoYfDIq8VoVX38Ds"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 425
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "catching",
+          "name": "Catching",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "applied",
+        "to": "shield"
       }
     }
   },
@@ -36199,6 +36761,582 @@
     }
   },
   {
+    "id": "062ac35e-c307-5261-9137-2c84ba55d114",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:retaliation-greater",
+    "name": "Retaliation (Greater)",
+    "level": 14,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shields with a retaliation rune use the impact of weapons to generate blasts of explosive force that counterattack foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash force damage against the creature that made the triggering attack. This attack deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d4",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 31,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.pRgnCoqOntDqZchB"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 4500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "retaliation-greater",
+          "name": "Retaliation (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "applied",
+        "to": "shield"
+      }
+    }
+  },
+  {
+    "id": "2b05f42a-7357-522b-a078-f406ada25d4b",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:retaliation-lesser",
+    "name": "Retaliation (Lesser)",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shields with a retaliation rune use the impact of weapons to generate blasts of explosive force that counterattack foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash force damage against the creature that made the triggering attack. This attack deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d4",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 20,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.slkvVyRBrUJyZQj8"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "retaliation-lesser",
+          "name": "Retaliation (Lesser)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "applied",
+        "to": "shield"
+      }
+    }
+  },
+  {
+    "id": "d2f61a08-08f6-5fae-abf9-f485fad61773",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:retaliation-major",
+    "name": "Retaliation (Major)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shields with a retaliation rune use the impact of weapons to generate blasts of explosive force that counterattack foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash force damage against the creature that made the triggering attack. This attack deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "16d4",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 41,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.XpS6X7QKtMQCVkdY"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "retaliation-major",
+          "name": "Retaliation (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "applied",
+        "to": "shield"
+      }
+    }
+  },
+  {
+    "id": "7af43a82-a9b3-5089-8d14-0937f23fddb3",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:retaliation-moderate",
+    "name": "Retaliation (Moderate)",
+    "level": 10,
+    "rarity": "common",
+    "traits": ["magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shields with a retaliation rune use the impact of weapons to generate blasts of explosive force that counterattack foes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "free"
+          },
+          {
+            "type": "text",
+            "text": " envision"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per hour"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You Shield Block a melee Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You unleash force damage against the creature that made the triggering attack. This attack deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d4",
+                "damageType": "force"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 27,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.vUXtEGa3eFLO5MCt"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "retaliation-moderate",
+          "name": "Retaliation (Moderate)",
+          "frequency": {
+            "max": 1,
+            "per": "hour"
+          }
+        }
+      ],
+      "usage": {
+        "type": "applied",
+        "to": "shield"
+      }
+    }
+  },
+  {
     "id": "fbd1f8a0-ea46-57a1-9ba5-e753e8418048",
     "pack": "treasure-vault",
     "kind": "equipment",
@@ -56563,6 +57701,148 @@
     }
   },
   {
+    "id": "a5252017-540f-5d8e-915b-a8ffd9b1c290",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:wand-of-shattering-images",
+    "name": "Wand of Shattering Images",
+    "level": 6,
+    "rarity": "common",
+    "traits": ["magical", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shattered pieces of a glass mirror, formed into a reflective mosaic, comprise the irregular shaft of this wand. The handle is black and polished smooth, the pommel capped with a tiny reflective orb."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day, plus overcharge"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "7ee9239e-ca22-5b93-aa67-67004a7367f7"
+          },
+          {
+            "type": "text",
+            "text": ". Each time an image is destroyed, the image shatters into sharp fragments of glass. If the creature that destroyed the image is adjacent to you, it takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "5",
+                "damageType": "slashing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Craft Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Supply a casting of "
+          },
+          {
+            "type": "ref",
+            "id": "7ee9239e-ca22-5b93-aa67-67004a7367f7"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.RoySt3EKFgcicm7D"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 250
+        }
+      },
+      "bulk": "light",
+      "activations": [
+        {
+          "slug": "wand-of-shattering-images",
+          "name": "Wand of Shattering Images",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          },
+          "overcharge": true
+        }
+      ],
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
     "id": "5c069ad3-8cee-54fc-8162-bf3081196c1a",
     "pack": "treasure-vault",
     "kind": "equipment",
@@ -58288,6 +59568,855 @@
       "usage": {
         "type": "worn",
         "slot": "armbands"
+      }
+    }
+  },
+  {
+    "id": "d5fff031-fbae-571b-ac83-88e6d401d708",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:wyrm-claw",
+    "name": "Wyrm Claw",
+    "level": 12,
+    "rarity": "common",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tip of a metallic dragon's claw is set into a band of silver. When you summon dragons using the claw, you must choose metallic dragons."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "wyrm claw",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", you gain resistance 5 to acid, cold, electricity, and fire for the next minute."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the claw, you gain a Breath Weapon activity that takes 2 actions and deals 6d6 damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 28,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ". Choose the area and type of damage when you use Breath Weapon: a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " that deals acid, electricity, or fire, or a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " that deals cold or fire. You can use this activity once before the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ee4d3cc2-44a6-5018-a621-d2ea58b1b02d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "6d6",
+                "damageType": "fire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.r81OfbBRPTXi0Fwd"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "wyrm-claw",
+          "name": "Wyrm Claw",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "07b41cec-a659-591f-a7c7-a9f183b916ac",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:wyrm-claw-greater",
+    "name": "Wyrm Claw (Greater)",
+    "level": 15,
+    "rarity": "common",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tip of a metallic dragon's claw is set into a band of silver. When you summon dragons using the claw, you must choose metallic dragons."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "wyrm claw",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", you gain resistance 10 to acid, cold, electricity, and fire for the next minute."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the claw, you gain a Breath Weapon activity that takes 2 actions and deals 9d6 damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 34,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ". Choose the area and type of damage when you use Breath Weapon: a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " that deals acid, electricity, or fire, or a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " that deals cold or fire. You can use this activity once before the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Wyrm Claw - Armor (Greater)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "9d6",
+                "damageType": "fire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast 7th-rank "
+          },
+          {
+            "type": "ref",
+            "id": "7c14054e-1a70-5b65-acda-2a1661596af7"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.lSpoAPC5VeGcSoDG"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 6500
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "wyrm-claw-greater",
+          "name": "Wyrm Claw (Greater)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
+      }
+    }
+  },
+  {
+    "id": "a3479654-bfea-55c5-9a07-0f27fd989400",
+    "pack": "treasure-vault",
+    "kind": "equipment",
+    "slug": "equipment:wyrm-claw-major",
+    "name": "Wyrm Claw (Major)",
+    "level": 19,
+    "rarity": "common",
+    "traits": ["magical", "spellheart"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "treasure-vault"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The tip of a metallic dragon's claw is set into a band of silver. When you summon dragons using the claw, you must choose metallic dragons."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Armor",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the "
+                },
+                {
+                  "type": "text",
+                  "text": "wyrm claw",
+                  "marks": ["emphasis"]
+                },
+                {
+                  "type": "text",
+                  "text": ", you gain resistance 15 to acid, cold, electricity, and fire for the next minute."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Weapon",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " After you cast a conjuration spell by activating the claw, you gain a Breath Weapon activity that takes 2 actions and deals 12d6 damage with a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:reflex",
+                  "dc": 41,
+                  "basic": true
+                },
+                {
+                  "type": "text",
+                  "text": ". Choose the area and type of damage when you use Breath Weapon: a "
+                },
+                {
+                  "type": "template",
+                  "shape": "line",
+                  "size": 30
+                },
+                {
+                  "type": "text",
+                  "text": " that deals acid, electricity, or fire, or a "
+                },
+                {
+                  "type": "template",
+                  "shape": "cone",
+                  "size": 15
+                },
+                {
+                  "type": "text",
+                  "text": " that deals cold or fire. You can use this activity once before the end of your next turn."
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect: Wyrm Claw - Armor (Major)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "acid"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "cold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "electricity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "12d6",
+                "damageType": "fire"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "411dc034-1932-5468-960c-2c3f40ec20ec"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Cast a Spell"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You cast "
+          },
+          {
+            "type": "ref",
+            "id": "59374b0e-4ec8-58bb-93b7-e27f8521ce01"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.orChmPy2wJ6DWwHU"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 40000
+        }
+      },
+      "bulk": "negligible",
+      "activations": [
+        {
+          "slug": "wyrm-claw-major",
+          "name": "Wyrm Claw (Major)",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "usage": {
+        "type": "affixed",
+        "to": "armor-or-a-weapon"
       }
     }
   },

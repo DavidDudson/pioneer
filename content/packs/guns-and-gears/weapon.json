@@ -2838,8 +2838,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200",
-        "page": 152
+        "page": 152,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=200"
       }
     ],
     "description": [
@@ -5497,6 +5497,306 @@
       "runes": {
         "potency": 2,
         "striking": 2,
+        "property": []
+      }
+    }
+  },
+  {
+    "id": "0480b080-9261-5c70-b7fe-eb7258e77e12",
+    "pack": "guns-and-gears",
+    "kind": "weapon",
+    "slug": "weapon:immolation-clan-pistol",
+    "name": "Immolation Clan Pistol",
+    "level": 10,
+    "rarity": "rare",
+    "traits": ["concussive", "cursed", "dwarf", "fatal-d10", "fire", "magical"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This charred and blackened "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is coated in a thick layer of soot and grease and its retort sounds uncomfortably like a scream. Clearly at dangerous risk of misfire, this weapon claimed the life of its dwarven crafter shortly after completion and is haunted by that pained spirit. This ever-burning spirit keeps the firearm warm to the touch, regardless of surrounding environment."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "No matter how much you clean and maintain it, an "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is always at risk of a misfire, and the flat check to avoid a misfire is DC 7 rather than DC 5. On a misfire, an immolation clan pistol releases a blast of concentrated fire, dealing you "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " fuses with you when you first fire it. While you're fused with the "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the pained spirit haunts your dreams, forcing you to relive its death each night. If you fired the "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that day, you are unharmed by these dreams. If you didn't fire the "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " that day, but still possess it, you awaken "
+          },
+          {
+            "type": "ref",
+            "id": "5e3582c3-701c-5169-9c69-4221096722c2"
+          },
+          {
+            "type": "text",
+            "text": ". If you no longer possess the "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", the spirit of its dwarven smith is enraged by your neglect; you awaken fatigued and aflame, taking "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Regardless, these nightmares possess clues to the spirit's life. If you take the immolation clan pistol to the site of its creation and repair it with tools belonging to the tormented spirit, you might be able to break the curse. If the spirit is set free, this weapon becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+2 greater striking flaming clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " with no other abilities or curses."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "two"
+          },
+          {
+            "type": "text",
+            "text": " command, Interact"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You allow yourself to become partially possessed by the immolated spirit bound to the clan pistol. For 1 minute, you look like a flaming corpse. During this time, you gain a +2 status bonus to Intimidation checks and the "
+          },
+          {
+            "type": "text",
+            "text": "immolation clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " becomes a "
+          },
+          {
+            "type": "text",
+            "text": "+2 striking flaming clan pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "4992a997-180a-568c-8469-161f69132834"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.5SVttGODx1TkyhTU"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1000
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "immolation-clan-pistol",
+          "name": "Immolation Clan Pistol",
+          "frequency": {
+            "max": 1,
+            "per": "day"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "clan-pistol",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 80,
+      "reload": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 2,
+        "striking": 1,
         "property": []
       }
     }
@@ -10628,6 +10928,421 @@
     }
   },
   {
+    "id": "906e9d9e-32c4-5f00-985a-b6568073113d",
+    "pack": "guns-and-gears",
+    "kind": "weapon",
+    "slug": "weapon:sunken-pistol",
+    "name": "Sunken Pistol",
+    "level": 8,
+    "rarity": "rare",
+    "traits": ["concussive", "scatter-5"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Perception",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +12; precise vision 30 feet, imprecise hearing 30 feet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Communication",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " speech (Common) Skills Intimidation +19, Navigation Lore +14, Sailing Lore +14"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Int",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +0, "
+          },
+          {
+            "type": "text",
+            "text": "Wis",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +2, "
+          },
+          {
+            "type": "text",
+            "text": "Cha",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +4"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Will",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +16"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is imbued with the unfulfilled desires and insatiable greed of its previous wielder, a notorious pirate drowned at sea. Once a beautiful and artistically wrought weapon, a "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is coated in a fine layer of dried salt and encrusted with barnacles. Each shot fired from this "
+          },
+          {
+            "type": "text",
+            "text": "+1 striking dragon mouth pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " is now coated in a layer of salty ectoplasm and has the effects of a ghost touch rune. You can shoot the "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " underwater, even when using black powder ammunition."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " urges you to amass a horde of treasure even a dragon would be proud of. The methods used to acquire these riches matter not to the greedy pirate pistol, so long as you amass and hoard excessive wealth. Above all else, a "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " desires the return of its own treasure, which might rest in the wreck of its sunken ship's hold or be "
+          },
+          {
+            "type": "ref",
+            "id": "d851e3ca-be0d-55a7-a4d1-d7ed8b7ecafa"
+          },
+          {
+            "type": "text",
+            "text": " on a dangerous island."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "In pursuit of treasure, a "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " offers nautical and navigation advice to you, though it refuses such aid during less lucrative ventures. If you prove a profitable partner, the "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " aids you in combat by Demoralizing your opponents (see the first Activation below). If you prove charitable or unwilling to retrieve its treasure, the "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " turns its ire on you, Demoralizing you during combat until you relent. If you repeatedly refuse the "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": ", it would be wise to not accept water breathing from it, as it might attempt to drown you to allow a more suitable wielder to acquire it from your corpse. The "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can use the following activations."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per minute"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " curses and insults a creature it can see, attempting an Intimidation check to "
+          },
+          {
+            "type": "ref",
+            "id": "2a3671d0-7d0b-53db-8648-861d457f0175"
+          },
+          {
+            "type": "text",
+            "text": " that creature."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "three"
+          },
+          {
+            "type": "text",
+            "text": " command"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per day"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " casts water breathing on you as a 3rd-rank arcane spell. The "
+          },
+          {
+            "type": "text",
+            "text": "sunken pistol",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " can Dismiss this spell, so be sure to keep the gun happy if you're relying on its good graces to breathe!"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.sfKzk4bzplyT4zax"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 100
+        }
+      },
+      "bulk": 1,
+      "activations": [
+        {
+          "slug": "sunken-pistol",
+          "name": "Sunken Pistol",
+          "frequency": {
+            "max": 1,
+            "per": "minute"
+          }
+        }
+      ],
+      "category": "martial",
+      "group": "firearm",
+      "baseItem": "dragon-mouth-pistol",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "piercing"
+      },
+      "range": 30,
+      "reload": 1,
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      },
+      "runes": {
+        "potency": 1,
+        "striking": 1,
+        "property": []
+      }
+    }
+  },
+  {
     "id": "aec5adaa-7359-5c3c-bb51-66fd7d522485",
     "pack": "guns-and-gears",
     "kind": "weapon",
@@ -11561,8 +12276,8 @@
       {
         "kind": "book",
         "book": "guns-and-gears",
-        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223",
-        "page": 159
+        "page": 159,
+        "aon": "https://2e.aonprd.com/Weapons.aspx?ID=223"
       }
     ],
     "description": [

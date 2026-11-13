@@ -5992,5 +5992,9 @@
       "reason": "unmapped-value",
       "detail": "untyped"
     }
-  ]
+  ],
+  "legacyPin": {
+    "tag": "5.16.1",
+    "sha256": "08d772c26e9c71e33b7c690f8f543dcb1890d8efacaa9fba771ea696b099b61d"
+  }
 }

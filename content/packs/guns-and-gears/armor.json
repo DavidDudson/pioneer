@@ -1,5 +1,167 @@
 [
   {
+    "id": "c851c342-04b9-53a2-8a51-0929b44dadbe",
+    "pack": "guns-and-gears",
+    "kind": "armor",
+    "slug": "armor:clockwork-disguise",
+    "name": "Clockwork Disguise",
+    "level": 6,
+    "rarity": "uncommon",
+    "traits": ["clockwork"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "guns-and-gears"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sometimes, just disguising one's face just isn't convincing enough. Clockwork disguises were invented to supplement regular disguise kits, which are used all across Golarion. For example, if a spy wants to infiltrate a military camp, they must be wearing the same type of armor as the soldiers stationed there-or else have a very good explanation for their commander as to why they're out of proper uniform!"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The clockwork disguise is intended to help avoid such awkward, potentially fatal confrontations. The clockwork disguise looks like a harness connected to hundreds of small metal plates that cover the user's torso and arms. Each of these plates is equipped with several hinges, allowing them to be shaped into a wide variety of patterns. When these shaped plates are arranged and connected, they can be made to look like almost any basic suit of light or medium metal armor, though armor embellishments such as those worn by high-ranking officers are beyond this device. The arrangement process takes some time, but once it's completed, the user need only perform a few simple adjustments to a clockwork mechanism in the disguise to make the plate arrangement into a new preset configuration. Afterwards, when the user flips a switch on the harness's belt to one of three positions, the plates shift, overlap, and connect as necessary to transform the disguise into the desired preset configuration. The clockwork disguise can have up to three preset configurations at a time, and most users use a minimum of two: the one required for their current task, and a suitably inconspicuous configuration for when the first configuration is unnecessary."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Giving a clockwork disguise a new preset configuration requires 20 minutes of work. The clockwork disguise can have a maximum of three preset configurations at a time, and it can only mimic light and medium armor suits made of metal."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The clockwork disguise is light armor and has the following stats, regardless of which type of armor it mimics:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "AC Bonus",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +2; "
+          },
+          {
+            "type": "text",
+            "text": "Dex Cap",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " +3; "
+          },
+          {
+            "type": "text",
+            "text": "Check Penalty",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": "-1; "
+          },
+          {
+            "type": "text",
+            "text": "Strength",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 12; "
+          },
+          {
+            "type": "text",
+            "text": "Group",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " plate"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Activate",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "action-cost",
+            "cost": "one"
+          },
+          {
+            "type": "text",
+            "text": " Interact"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " Transform the clockwork disguise into any one current preset configuration of the user's choice."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.jau3C5ao3vm2gt8c"
+    },
+    "license": "OGL",
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 200
+        }
+      },
+      "bulk": 2,
+      "category": "light",
+      "group": "plate",
+      "acBonus": 2,
+      "dexCap": 3,
+      "checkPenalty": 1,
+      "strength": 1
+    }
+  },
+  {
     "id": "62e28454-18f0-5de5-a707-8f855505dd90",
     "pack": "guns-and-gears",
     "kind": "armor",
