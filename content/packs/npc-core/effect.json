@@ -2319,7 +2319,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["bacdda18-5c65-5421-ab48-4bd073f71fc9"]
   },
   {
     "id": "6a68e503-57a0-5b69-ae40-10636f32750f",

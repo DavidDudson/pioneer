@@ -44,7 +44,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["0b12a104-60b3-5caf-93bd-7b50b635a660"]
   },
   {
     "id": "d39d85f7-7493-5512-b6f2-8717cc618a03",
@@ -96,7 +97,8 @@
         "unit": "hour",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["e3e49e3e-de2f-558f-ac07-bf37d5823e1e"]
   },
   {
     "id": "5778e355-b546-5e98-a8d0-730f408b66d9",
@@ -540,7 +542,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["b2248d19-e22c-5452-a41d-ffb3d2d19016"]
   },
   {
     "id": "699a7c74-6176-5797-8ca4-c62e0751738f",
@@ -587,7 +590,8 @@
         "unit": "round",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["629adf36-dbcd-59a8-a7fa-53a5fda14510"]
   },
   {
     "id": "8bfdbb61-8a75-58e3-a87a-b6406421f0d7",
@@ -636,7 +640,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["56996c94-5bfd-5438-bf65-e5a7b857dcf5"]
   },
   {
     "id": "d2a49148-2537-5ef0-ac27-bb89125e4e89",
@@ -738,7 +743,7 @@
         "expiry": "turn-start"
       }
     },
-    "supersedes": ["099ae1b1-cde6-5a96-8f97-2ab92f8882d9"]
+    "supersedes": ["099ae1b1-cde6-5a96-8f97-2ab92f8882d9", "9f632a3e-e418-5741-a3f2-e4359256079b"]
   },
   {
     "id": "1f8bd212-f762-5543-a72e-a791104802a4",
@@ -971,7 +976,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["41874581-faee-5608-9435-eb3afb12b576"]
   },
   {
     "id": "10349fe7-c8a5-52ad-9fc6-8430191dba81",
@@ -1091,7 +1097,8 @@
         "unit": "minute",
         "expiry": "turn-start"
       }
-    }
+    },
+    "supersedes": ["ac593d59-648b-5a99-9afd-0d392b2d6be4"]
   },
   {
     "id": "0858ba4e-2c41-5e39-9fc7-10a69ac16103",
@@ -1395,7 +1402,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["a2b60467-fc22-5de9-ab32-c505b302538c"]
   },
   {
     "id": "aa8060cd-0527-5430-b1ed-06e69060382d",
@@ -1741,7 +1749,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["8a86eacb-4c20-57c2-932c-1b07a945b08e"]
   },
   {
     "id": "3e1e5cb6-3069-5145-bfd4-b788f18eba74",
@@ -1991,7 +2000,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["c5f36292-0155-56ff-b495-8eb52fb3af00"]
   },
   {
     "id": "d030eded-3e15-58ae-9bdc-136e183d01d2",

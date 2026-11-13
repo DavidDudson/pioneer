@@ -587,6 +587,42 @@
     "released": "2022-07-27"
   },
   {
+    "id": "bestiary-1",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=2",
+    "legacy": "whole",
+    "foundryVersion": "8.6.0",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-bestiary/",
+    "released": "2019-08-01"
+  },
+  {
+    "id": "bestiary-2",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=32",
+    "legacy": "whole",
+    "foundryVersion": "8.6.0",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-bestiary-2/",
+    "released": "2020-05-27"
+  },
+  {
+    "id": "bestiary-3",
+    "publisher": "paizo",
+    "license": "OGL",
+    "remaster": false,
+    "aonSourceUrl": "https://2e.aonprd.com/Sources.aspx?ID=66",
+    "legacy": "whole",
+    "foundryVersion": "8.6.0",
+    "productLine": "rulebooks",
+    "storeUrl": "https://store.paizo.com/pathfinder-bestiary-3/",
+    "released": "2021-04-07"
+  },
+  {
     "id": "the-show-must-go-on",
     "publisher": "paizo",
     "license": "OGL",

@@ -1,0 +1,273 @@
+[
+  {
+    "id": "27ff01f1-996f-5d8c-881e-67e0af10e0a7",
+    "pack": "bestiary-2",
+    "kind": "ritual",
+    "slug": "ritual:daemonic-pact",
+    "name": "Daemonic Pact",
+    "level": 1,
+    "rarity": "uncommon",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You call upon the powers of Abaddon to grant you the assistance of a daemon. You call upon a daemon whose level can be no more than double "
+          },
+          {
+            "type": "text",
+            "text": "daemonic pact's",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " spell rank, two daemons whose levels are each at least 2 less than double the spell rank, or three daemons whose levels are each at least 3 less than double the spell rank."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the daemon or daemons, and they require nothing in return for their service."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You conjure the daemon or daemons, who serve you willingly, but require a sacrifice in the form of spilled blood (either another creature's or your own)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't conjure any daemons."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You don't conjure any daemons, and the self-sacrifice required to perform the ritual leaves you "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (or "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " if the spell rank is 5 or higher)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.Vpohy4XH1DaH95hT"
+    },
+    "data": {
+      "rank": 1,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "primary": {
+        "skills": ["skill:religion"],
+        "proficiency": "expert",
+        "note": "you must be a daemon or an urdefhan"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  },
+  {
+    "id": "946b0cc4-97d8-56cb-8dd4-f3441151f7ca",
+    "pack": "bestiary-2",
+    "kind": "ritual",
+    "slug": "ritual:ravenous-reanimation",
+    "name": "Ravenous Reanimation",
+    "level": 7,
+    "rarity": "rare",
+    "traits": ["evil"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "You destroy the gathered treasures with your breath weapon or other powerful magic, then invoke necromantic energies before you feed upon the charred and melted remains. As you do so, void energy courses through your flesh, automatically killing you. Each individual ravener's "
+          },
+          {
+            "type": "text",
+            "text": "ravenous reanimation",
+            "marks": ["emphasis"]
+          },
+          {
+            "type": "text",
+            "text": " requires three to five unique additional components. Whether or not you return as a ravener depends on the success of the ritual."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You immediately transform into a ravener upon finishing the ritual; your soul ward starts at full Hit Points (equal to 5 × your level)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rise as a ravener 24 hours after completing the ritual, as long as your body remains relatively intact. When you rise as a ravener, your soul ward starts at 1 Hit Point."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You rise as a ravener husk 24 hours after completing the ritual."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " You die."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.spells-srd.Item.u3pdkfmy0AWICdoM"
+    },
+    "data": {
+      "rank": 7,
+      "time": {
+        "type": "time",
+        "count": 1,
+        "unit": "day"
+      },
+      "cost": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "valuable treasures from the target dragon's hoard worth a total value of 50,000 gp"
+            }
+          ]
+        }
+      ],
+      "requirements": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You must be an evil dragon"
+            }
+          ]
+        }
+      ],
+      "primary": {
+        "skills": ["skill:arcana", "skill:occultism", "skill:religion"],
+        "proficiency": "master"
+      },
+      "secondary": {
+        "checks": [],
+        "casters": 0
+      }
+    }
+  }
+]

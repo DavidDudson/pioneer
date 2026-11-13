@@ -1,0 +1,204 @@
+[
+  {
+    "id": "8fc18988-a1f0-571c-b72e-36456a78307c",
+    "pack": "bestiary-1",
+    "kind": "deity",
+    "slug": "deity:gogunta",
+    "name": "Gogunta",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Gogunta, Song of the Swamp, is the demon lord of amphibians, boggards, and swamps. Gogunta is worshipped as a goddess by boggards, who believe her to be an ascended mobogo, though scholars suspect she was a former hezrou who gained the favor of Dagon. Lending credence to this latter theory, her realm, a stinking salt marsh, is located within Dagon's oceanic realm. Gogunta appears as an enormous, multi-headed frog with dozens of eyes and even more tongues, though boggards typically depict her as a titanic boggard queen."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " sacrifice creatures by drowning them, frolic or sing in swamps, feed or aid amphibians"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " grant mercy to boggards who worship other gods"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " amphibians, boggards, and swamps"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.RUzMtIQal0drPwQY"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["indulgence", "might", "tyranny", "water"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:intimidation"],
+      "weapons": ["whip"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "69ad403d-0767-5998-bc5d-8071fbe3580b"
+        },
+        {
+          "rank": 3,
+          "spell": "bfd0ed8b-3232-5aad-bbbe-22abb981cf96"
+        },
+        {
+          "rank": 5,
+          "spell": "d6db4bbf-c383-5f24-90cc-1a12bc2e86a1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e53bdd02-c04e-5d3e-a111-1ec253530c35",
+    "pack": "bestiary-1",
+    "kind": "deity",
+    "slug": "deity:treerazer",
+    "name": "Treerazer",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Treerazer, the Lord of the Blasted Tarn, is a nascent demon lord of pollution and the corruption of nature, believed by many to be an exiled servant or spawn of Cyth-V'sug who was banished to Golarion after a failed attempt at supplanting the demon lord. Though Treerazer is a nascent demon lord, and thus lacks the power of a true demon lord, he is perhaps most noteworthy among those who have a stake in Golarion due to his physical presence within the Tanglebriar, a corrupted, fetid swamp that was once the southern edges of the elven nation of Kyonin. He is served by devoted cultists in and around Kyonin, though small pockets of believers can be found around Golarion working furtively to free him in hopes of gaining his favor upon his ascension. Treerazer's religious symbol is a bleeding dead tree that's been split in half."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " corrupt plant life with evil or fungal influences, slay elves, feast on rotten flesh or fungus"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " grant mercy to elves, plant trees, encourage natural plant growth"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " pollution and the corruption of nature"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.ENzMYuzBZGIujSMx"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["destruction", "nature", "nightmares", "tyranny"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": [],
+      "skills": ["skill:nature"],
+      "weapons": ["battle-axe"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "c9d16d82-fcfd-5431-9d05-06caca157602"
+        },
+        {
+          "rank": 3,
+          "spell": "9dfded9c-826b-57e9-989b-6b4ea568d4b8"
+        },
+        {
+          "rank": 6,
+          "spell": "3dcf91db-01f1-596c-96b5-d635c0248044"
+        }
+      ]
+    }
+  }
+]

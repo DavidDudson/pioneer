@@ -261,7 +261,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["9d4df1c5-e78e-509f-9fea-063c50bc3ba4"]
   },
   {
     "id": "3eb68e8b-ded2-5da9-bb56-e8be6565450b",

@@ -1,0 +1,1880 @@
+{
+  "etag": "\"5b5dbcb264e94fc7978ec0a8e0121dd8\"",
+  "entries": [
+    {
+      "type": "Deities",
+      "name": "Followers of Fate",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=210"
+    },
+    {
+      "type": "Deities",
+      "name": "Ydersius",
+      "url": "https://2e.aonprd.com/Deities.aspx?ID=211"
+    },
+    {
+      "type": "Diseases",
+      "name": "Cocytan Filth",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=18"
+    },
+    {
+      "type": "Diseases",
+      "name": "Daemonic Famine",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=17"
+    },
+    {
+      "type": "Diseases",
+      "name": "Fleshgout",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=19"
+    },
+    {
+      "type": "Diseases",
+      "name": "Fly Pox",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=20"
+    },
+    {
+      "type": "Diseases",
+      "name": "Void Death",
+      "url": "https://2e.aonprd.com/Diseases.aspx?ID=16"
+    },
+    {
+      "type": "Equipment",
+      "name": "Spear Frog Poison",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=649"
+    },
+    {
+      "type": "Equipment",
+      "name": "Toad Tears",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=650"
+    },
+    {
+      "type": "Equipment",
+      "name": "Violet Venom",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=651"
+    },
+    {
+      "type": "Equipment",
+      "name": "Yellow Musk Vial",
+      "url": "https://2e.aonprd.com/Equipment.aspx?ID=652"
+    },
+    {
+      "type": "Hazards",
+      "name": "Sportlebore",
+      "url": "https://2e.aonprd.com/Hazards.aspx?ID=49"
+    },
+    {
+      "type": "Languages",
+      "name": "Destrachan",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=57"
+    },
+    {
+      "type": "Languages",
+      "name": "D'ziriak",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=58"
+    },
+    {
+      "type": "Languages",
+      "name": "Jistkan",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=59"
+    },
+    {
+      "type": "Languages",
+      "name": "Jyoti",
+      "url": "https://2e.aonprd.com/Languages.aspx?ID=60"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aapoph Serpentfolk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=799"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=622"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=625"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=628"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=632"
+    },
+    {
+      "type": "Monsters",
+      "name": "Adult Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=635"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ahuizotl",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=540"
+    },
+    {
+      "type": "Monsters",
+      "name": "Akata",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=541"
+    },
+    {
+      "type": "Monsters",
+      "name": "Akizendri",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=764"
+    },
+    {
+      "type": "Monsters",
+      "name": "Amoeba Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=750"
+    },
+    {
+      "type": "Monsters",
+      "name": "Anancus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=667"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=623"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=626"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=629"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=633"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ancient Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=636"
+    },
+    {
+      "type": "Monsters",
+      "name": "Animate Dream",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=546"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ankou",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=547"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aolaz",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=550"
+    },
+    {
+      "type": "Monsters",
+      "name": "Army Ant Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=549"
+    },
+    {
+      "type": "Monsters",
+      "name": "Assassin Vine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=555"
+    },
+    {
+      "type": "Monsters",
+      "name": "Athach",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=556"
+    },
+    {
+      "type": "Monsters",
+      "name": "Attic Whisperer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=557"
+    },
+    {
+      "type": "Monsters",
+      "name": "Augnagar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=776"
+    },
+    {
+      "type": "Monsters",
+      "name": "Augur",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=847"
+    },
+    {
+      "type": "Monsters",
+      "name": "Aurumvorax",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=558"
+    },
+    {
+      "type": "Monsters",
+      "name": "Azuretzi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=765"
+    },
+    {
+      "type": "Monsters",
+      "name": "Babau",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=598"
+    },
+    {
+      "type": "Monsters",
+      "name": "Badger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=561"
+    },
+    {
+      "type": "Monsters",
+      "name": "Baobhan Sith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=563"
+    },
+    {
+      "type": "Monsters",
+      "name": "Basidirond",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=564"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bastion Archon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=554"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bebilith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=568"
+    },
+    {
+      "type": "Monsters",
+      "name": "Behemoth Hippopotamus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=700"
+    },
+    {
+      "type": "Monsters",
+      "name": "Behir",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=569"
+    },
+    {
+      "type": "Monsters",
+      "name": "Belker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=648"
+    },
+    {
+      "type": "Monsters",
+      "name": "Black Bear",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=566"
+    },
+    {
+      "type": "Monsters",
+      "name": "Black Scorpion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=796"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blindheim",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=570"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blink Dog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=571"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blizzardborn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=665"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blodeuwedd",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=572"
+    },
+    {
+      "type": "Monsters",
+      "name": "Blue-Ringed Octopus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=744"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bodak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=573"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bog Mummy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=735"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bog Strider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=574"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bone Prophet",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=801"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bottlenose Dolphin",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=618"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bralani",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=559"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brood Leech Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=712"
+    },
+    {
+      "type": "Monsters",
+      "name": "Brownie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=575"
+    },
+    {
+      "type": "Monsters",
+      "name": "Bythos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=539"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cairn Linnorm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=722"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cairn Wight",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=859"
+    },
+    {
+      "type": "Monsters",
+      "name": "Calathgar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=576"
+    },
+    {
+      "type": "Monsters",
+      "name": "Caligni Slayer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=577"
+    },
+    {
+      "type": "Monsters",
+      "name": "Carbuncle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=578"
+    },
+    {
+      "type": "Monsters",
+      "name": "Carnivorous Blob",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=755"
+    },
+    {
+      "type": "Monsters",
+      "name": "Carrion Golem",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=682"
+    },
+    {
+      "type": "Monsters",
+      "name": "Catoblepas",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=579"
+    },
+    {
+      "type": "Monsters",
+      "name": "Catrina",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=768"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cave Fisher",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=580"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cave Scorpion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=795"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cavern Troll",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=832"
+    },
+    {
+      "type": "Monsters",
+      "name": "Chernobue",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=775"
+    },
+    {
+      "type": "Monsters",
+      "name": "Choker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=583"
+    },
+    {
+      "type": "Monsters",
+      "name": "Chupacabra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=584"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cockroach Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=586"
+    },
+    {
+      "type": "Monsters",
+      "name": "Coil Spy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=800"
+    },
+    {
+      "type": "Monsters",
+      "name": "Compsognathus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=613"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cornugon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=611"
+    },
+    {
+      "type": "Monsters",
+      "name": "Crawling Hand",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=589"
+    },
+    {
+      "type": "Monsters",
+      "name": "Culdewen",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=591"
+    },
+    {
+      "type": "Monsters",
+      "name": "Cythnigot",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=772"
+    },
+    {
+      "type": "Monsters",
+      "name": "Denizen of Leng",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=604"
+    },
+    {
+      "type": "Monsters",
+      "name": "Derghodaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=594"
+    },
+    {
+      "type": "Monsters",
+      "name": "Destrachan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=605"
+    },
+    {
+      "type": "Monsters",
+      "name": "Devourer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=612"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dig-Widget",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=771"
+    },
+    {
+      "type": "Monsters",
+      "name": "Doprillu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=620"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dracolisk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=565"
+    },
+    {
+      "type": "Monsters",
+      "name": "Drainberry Bush",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=639"
+    },
+    {
+      "type": "Monsters",
+      "name": "Draugr",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=642"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dread Wraith",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=865"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dream Spider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=813"
+    },
+    {
+      "type": "Monsters",
+      "name": "Duneshaker Solifugid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=810"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dust Mephit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=659"
+    },
+    {
+      "type": "Monsters",
+      "name": "Dweomercat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=643"
+    },
+    {
+      "type": "Monsters",
+      "name": "D'ziriak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=644"
+    },
+    {
+      "type": "Monsters",
+      "name": "Earthen Destrier",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=651"
+    },
+    {
+      "type": "Monsters",
+      "name": "Elasmosaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=645"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ember Fox",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=655"
+    },
+    {
+      "type": "Monsters",
+      "name": "Emperor Cobra",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=808"
+    },
+    {
+      "type": "Monsters",
+      "name": "Eremite",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=852"
+    },
+    {
+      "type": "Monsters",
+      "name": "Esobok",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=767"
+    },
+    {
+      "type": "Monsters",
+      "name": "Evangelist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=849"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fen Mosquito Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=732"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fetchling Scout",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=669"
+    },
+    {
+      "type": "Monsters",
+      "name": "Filth Fire",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=656"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fire Jellyfish Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=706"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fire Yai",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=748"
+    },
+    {
+      "type": "Monsters",
+      "name": "Fjord Linnorm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=721"
+    },
+    {
+      "type": "Monsters",
+      "name": "Flytrap Leshy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=717"
+    },
+    {
+      "type": "Monsters",
+      "name": "Froghemoth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=676"
+    },
+    {
+      "type": "Monsters",
+      "name": "Frost Troll",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=831"
+    },
+    {
+      "type": "Monsters",
+      "name": "Frost Worm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=677"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ghonhatine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=671"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Amoeba",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=751"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Ant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=548"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Badger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=562"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Chameleon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=724"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Cockroach",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=585"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Crab",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=588"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Crawling Hand",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=590"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Dragonfly",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=638"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Dragonfly Nymph",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=637"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Fly",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=673"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=675"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Hippocampus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=697"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Jellyfish",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=707"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Leech",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=711"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Maggot",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=672"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Mosquito",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=733"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Slug",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=806"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Snapping Turtle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=837"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Solifugid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=809"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Squid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=820"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Tick",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=826"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Toad",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=828"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Whiptail Centipede",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=581"
+    },
+    {
+      "type": "Monsters",
+      "name": "Giant Wolverine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=863"
+    },
+    {
+      "type": "Monsters",
+      "name": "Glass Golem",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=685"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gorgon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=686"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gosreg",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=687"
+    },
+    {
+      "type": "Monsters",
+      "name": "Granite Glyptodont",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=654"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gray Ooze",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=753"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grendel",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=690"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grimstalker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=691"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grindylow",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=692"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grippli Scout",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=693"
+    },
+    {
+      "type": "Monsters",
+      "name": "Grodair",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=694"
+    },
+    {
+      "type": "Monsters",
+      "name": "Gylou",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=610"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hadrosaurid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=615"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hamatula",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=609"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hellcat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=695"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hezrou",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=601"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hippocampus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=696"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hippogriff",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=698"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hippopotamus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=699"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hodag",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=701"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hound Archon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=551"
+    },
+    {
+      "type": "Monsters",
+      "name": "Hound of Tindalos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=702"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ice Golem",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=683"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ice Mephit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=660"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ice Yai",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=747"
+    },
+    {
+      "type": "Monsters",
+      "name": "Icewyrm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=666"
+    },
+    {
+      "type": "Monsters",
+      "name": "Icicle Snake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=663"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ifrit Pyrochemist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=759"
+    },
+    {
+      "type": "Monsters",
+      "name": "Iguanodon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=616"
+    },
+    {
+      "type": "Monsters",
+      "name": "Imentesh",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=766"
+    },
+    {
+      "type": "Monsters",
+      "name": "Intellect Devourer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=703"
+    },
+    {
+      "type": "Monsters",
+      "name": "Interlocutor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=851"
+    },
+    {
+      "type": "Monsters",
+      "name": "Invidiak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=599"
+    },
+    {
+      "type": "Monsters",
+      "name": "Irlgaunt",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=704"
+    },
+    {
+      "type": "Monsters",
+      "name": "Irnakurse",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=670"
+    },
+    {
+      "type": "Monsters",
+      "name": "Isqulug",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=705"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jabberwock",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=652"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jotund Troll",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=834"
+    },
+    {
+      "type": "Monsters",
+      "name": "Jyoti",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=708"
+    },
+    {
+      "type": "Monsters",
+      "name": "Kelpie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=709"
+    },
+    {
+      "type": "Monsters",
+      "name": "Korred",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=710"
+    },
+    {
+      "type": "Monsters",
+      "name": "Leng Spider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=713"
+    },
+    {
+      "type": "Monsters",
+      "name": "Leprechaun",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=714"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lerritan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=715"
+    },
+    {
+      "type": "Monsters",
+      "name": "Leucrotta",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=718"
+    },
+    {
+      "type": "Monsters",
+      "name": "Leydroth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=719"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Boulder",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=650"
+    },
+    {
+      "type": "Monsters",
+      "name": "Living Thunderclap",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=647"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lunar Naga",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=736"
+    },
+    {
+      "type": "Monsters",
+      "name": "Lurker In Light",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=726"
+    },
+    {
+      "type": "Monsters",
+      "name": "Magma Scorpion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=658"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mandragora",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=727"
+    },
+    {
+      "type": "Monsters",
+      "name": "Manta Ray",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=786"
+    },
+    {
+      "type": "Monsters",
+      "name": "Marrmora",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=728"
+    },
+    {
+      "type": "Monsters",
+      "name": "Marsh Giant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=679"
+    },
+    {
+      "type": "Monsters",
+      "name": "Marut",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=538"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mastodon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=668"
+    },
+    {
+      "type": "Monsters",
+      "name": "Megalania",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=725"
+    },
+    {
+      "type": "Monsters",
+      "name": "Meladaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=593"
+    },
+    {
+      "type": "Monsters",
+      "name": "Melody On The Wind",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=649"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mist Stalker",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=664"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mohrg",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=729"
+    },
+    {
+      "type": "Monsters",
+      "name": "Monadic Deva",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=543"
+    },
+    {
+      "type": "Monsters",
+      "name": "Moonflower",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=730"
+    },
+    {
+      "type": "Monsters",
+      "name": "Morlock",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=731"
+    },
+    {
+      "type": "Monsters",
+      "name": "Movanic Deva",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=542"
+    },
+    {
+      "type": "Monsters",
+      "name": "Mudwretch",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=734"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nabasu",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=600"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nalfeshnee",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=602"
+    },
+    {
+      "type": "Monsters",
+      "name": "Necrophidius",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=738"
+    },
+    {
+      "type": "Monsters",
+      "name": "Neothelid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=739"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nereid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=740"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nixie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=741"
+    },
+    {
+      "type": "Monsters",
+      "name": "Norn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=742"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nuckelavee",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=743"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nuglub",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=689"
+    },
+    {
+      "type": "Monsters",
+      "name": "Nyogoth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=774"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ogre Spider",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=814"
+    },
+    {
+      "type": "Monsters",
+      "name": "Olethrodaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=597"
+    },
+    {
+      "type": "Monsters",
+      "name": "Onidoshi",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=746"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ooze Mephit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=661"
+    },
+    {
+      "type": "Monsters",
+      "name": "Orca",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=619"
+    },
+    {
+      "type": "Monsters",
+      "name": "Oread Guard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=760"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ostiarius",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=848"
+    },
+    {
+      "type": "Monsters",
+      "name": "Osyluth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=608"
+    },
+    {
+      "type": "Monsters",
+      "name": "Pachycephalosaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=614"
+    },
+    {
+      "type": "Monsters",
+      "name": "Peluda",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=756"
+    },
+    {
+      "type": "Monsters",
+      "name": "Peryton",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=757"
+    },
+    {
+      "type": "Monsters",
+      "name": "Petitioner",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=758"
+    },
+    {
+      "type": "Monsters",
+      "name": "Piscodaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=592"
+    },
+    {
+      "type": "Monsters",
+      "name": "Planetar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=544"
+    },
+    {
+      "type": "Monsters",
+      "name": "Polar Bear",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=567"
+    },
+    {
+      "type": "Monsters",
+      "name": "Purrodaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=596"
+    },
+    {
+      "type": "Monsters",
+      "name": "Quetz Couatl",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=587"
+    },
+    {
+      "type": "Monsters",
+      "name": "Quickling",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=778"
+    },
+    {
+      "type": "Monsters",
+      "name": "Quoppopak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=779"
+    },
+    {
+      "type": "Monsters",
+      "name": "Radiant Warden",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=780"
+    },
+    {
+      "type": "Monsters",
+      "name": "Raven",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=781"
+    },
+    {
+      "type": "Monsters",
+      "name": "Raven Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=782"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ravener",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=783"
+    },
+    {
+      "type": "Monsters",
+      "name": "Ravener Husk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=784"
+    },
+    {
+      "type": "Monsters",
+      "name": "Reef Octopus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=745"
+    },
+    {
+      "type": "Monsters",
+      "name": "Revenant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=787"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rhinoceros",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=788"
+    },
+    {
+      "type": "Monsters",
+      "name": "Rusalka",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=790"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sacristan",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=850"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sand Sentry",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=653"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sandpoint Devil",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=791"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=792"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sarglagon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=607"
+    },
+    {
+      "type": "Monsters",
+      "name": "Scarecrow",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=793"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sceaduinar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=794"
+    },
+    {
+      "type": "Monsters",
+      "name": "Scythe Tree",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=797"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sea Drake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=641"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sea Snake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=807"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shadow Drake",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=640"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shadow Giant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=681"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shoal Linnorm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=720"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shocker Lizard",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=802"
+    },
+    {
+      "type": "Monsters",
+      "name": "Shoggti",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=773"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skaveling",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=803"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skrik Nettle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=804"
+    },
+    {
+      "type": "Monsters",
+      "name": "Skulk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=805"
+    },
+    {
+      "type": "Monsters",
+      "name": "Slime Mold",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=752"
+    },
+    {
+      "type": "Monsters",
+      "name": "Snapping Turtle",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=836"
+    },
+    {
+      "type": "Monsters",
+      "name": "Solar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=545"
+    },
+    {
+      "type": "Monsters",
+      "name": "Soul Eater",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=811"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spark Bat",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=646"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spear Frog",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=674"
+    },
+    {
+      "type": "Monsters",
+      "name": "Specter",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=812"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spinosaurus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=617"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spiral Centurion",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=815"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spirit Naga",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=737"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sportlebore Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=816"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spriggan Bully",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=817"
+    },
+    {
+      "type": "Monsters",
+      "name": "Spriggan Warlord",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=818"
+    },
+    {
+      "type": "Monsters",
+      "name": "Star Archon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=553"
+    },
+    {
+      "type": "Monsters",
+      "name": "Steam Mephit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=662"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stingray",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=785"
+    },
+    {
+      "type": "Monsters",
+      "name": "Striding Fire",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=657"
+    },
+    {
+      "type": "Monsters",
+      "name": "Stygira",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=821"
+    },
+    {
+      "type": "Monsters",
+      "name": "Suli Dune Dancer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=761"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sunflower Leshy",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=716"
+    },
+    {
+      "type": "Monsters",
+      "name": "Sylph Sneak",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=762"
+    },
+    {
+      "type": "Monsters",
+      "name": "Taiga Giant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=680"
+    },
+    {
+      "type": "Monsters",
+      "name": "Taiga Linnorm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=723"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tatzlwyrm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=822"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tendriculos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=823"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thanadaemon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=595"
+    },
+    {
+      "type": "Monsters",
+      "name": "Theletos",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=536"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thrasfyr",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=824"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thulgant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=777"
+    },
+    {
+      "type": "Monsters",
+      "name": "Thunderbird",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=825"
+    },
+    {
+      "type": "Monsters",
+      "name": "Tick Swarm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=827"
+    },
+    {
+      "type": "Monsters",
+      "name": "Titan Centipede",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=582"
+    },
+    {
+      "type": "Monsters",
+      "name": "Totenmaske",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=829"
+    },
+    {
+      "type": "Monsters",
+      "name": "Triton",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=830"
+    },
+    {
+      "type": "Monsters",
+      "name": "Trollhound",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=835"
+    },
+    {
+      "type": "Monsters",
+      "name": "Trumpet Archon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=552"
+    },
+    {
+      "type": "Monsters",
+      "name": "Twigjack",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=838"
+    },
+    {
+      "type": "Monsters",
+      "name": "Two-Headed Troll",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=833"
+    },
+    {
+      "type": "Monsters",
+      "name": "Umonlee",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=839"
+    },
+    {
+      "type": "Monsters",
+      "name": "Undine Hydromancer",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=763"
+    },
+    {
+      "type": "Monsters",
+      "name": "Urdefhan Tormentor",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=841"
+    },
+    {
+      "type": "Monsters",
+      "name": "Urdefhan Warrior",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=840"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vampire Squid",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=819"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vampiric Mist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=845"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vanth",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=769"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vaspercham",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=846"
+    },
+    {
+      "type": "Monsters",
+      "name": "Veranallia",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=560"
+    },
+    {
+      "type": "Monsters",
+      "name": "Verdurous Ooze",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=754"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vexgit",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=688"
+    },
+    {
+      "type": "Monsters",
+      "name": "Violet Fungus",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=853"
+    },
+    {
+      "type": "Monsters",
+      "name": "Viper Vine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=854"
+    },
+    {
+      "type": "Monsters",
+      "name": "Void Zombie",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=855"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vrolikai",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=603"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vrykolakas Ancient",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=844"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vrykolakas Master",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=843"
+    },
+    {
+      "type": "Monsters",
+      "name": "Vrykolakas Spawn",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=842"
+    },
+    {
+      "type": "Monsters",
+      "name": "Water Orm",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=856"
+    },
+    {
+      "type": "Monsters",
+      "name": "Water Yai",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=749"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wereboar",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=857"
+    },
+    {
+      "type": "Monsters",
+      "name": "Weretiger",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=858"
+    },
+    {
+      "type": "Monsters",
+      "name": "Witchfire",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=860"
+    },
+    {
+      "type": "Monsters",
+      "name": "Witchwyrd",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=861"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wolverine",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=862"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wood Giant",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=678"
+    },
+    {
+      "type": "Monsters",
+      "name": "Wood Golem",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=684"
+    },
+    {
+      "type": "Monsters",
+      "name": "Woolly Rhinoceros",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=789"
+    },
+    {
+      "type": "Monsters",
+      "name": "Worm That Walks Cultist",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=864"
+    },
+    {
+      "type": "Monsters",
+      "name": "Xill",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=866"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yamaraj",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=770"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yellow Musk Brute",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=869"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yellow Musk Creeper",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=867"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yellow Musk Thrall",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=868"
+    },
+    {
+      "type": "Monsters",
+      "name": "Yeth Hound",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=870"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Brine Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=621"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Cloud Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=624"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Crystal Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=627"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Magma Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=631"
+    },
+    {
+      "type": "Monsters",
+      "name": "Young Umbral Dragon",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=634"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zebub",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=606"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zelekhut",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=537"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zomok",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=871"
+    },
+    {
+      "type": "Monsters",
+      "name": "Zyss Serpentfolk",
+      "url": "https://2e.aonprd.com/Monsters.aspx?ID=798"
+    },
+    {
+      "type": "Rituals",
+      "name": "Daemonic Pact",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=25"
+    },
+    {
+      "type": "Rituals",
+      "name": "Ravenous Reanimation",
+      "url": "https://2e.aonprd.com/Rituals.aspx?ID=26"
+    },
+    {
+      "type": "Traits",
+      "name": "Construct (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=35"
+    },
+    {
+      "type": "Traits",
+      "name": "Couatl (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=298"
+    },
+    {
+      "type": "Traits",
+      "name": "Dream (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=299"
+    },
+    {
+      "type": "Traits",
+      "name": "Fetchling (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=300"
+    },
+    {
+      "type": "Traits",
+      "name": "Ifrit (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=301"
+    },
+    {
+      "type": "Traits",
+      "name": "Morlock (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=302"
+    },
+    {
+      "type": "Traits",
+      "name": "Oni (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=303"
+    },
+    {
+      "type": "Traits",
+      "name": "Oread (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=304"
+    },
+    {
+      "type": "Traits",
+      "name": "Petitioner (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=305"
+    },
+    {
+      "type": "Traits",
+      "name": "Qlippoth (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=306"
+    },
+    {
+      "type": "Traits",
+      "name": "Serpentfolk (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=307"
+    },
+    {
+      "type": "Traits",
+      "name": "Skulk (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=308"
+    },
+    {
+      "type": "Traits",
+      "name": "Spriggan (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=309"
+    },
+    {
+      "type": "Traits",
+      "name": "Suli (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=310"
+    },
+    {
+      "type": "Traits",
+      "name": "Sylph (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=311"
+    },
+    {
+      "type": "Traits",
+      "name": "Tane (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=312"
+    },
+    {
+      "type": "Traits",
+      "name": "Time (Creature Type)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=313"
+    },
+    {
+      "type": "Traits",
+      "name": "Undine (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=314"
+    },
+    {
+      "type": "Traits",
+      "name": "Urdefhan (Monster)",
+      "url": "https://2e.aonprd.com/Traits.aspx?ID=315"
+    },
+    {
+      "type": "Weapons",
+      "name": "Gaff",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=121"
+    },
+    {
+      "type": "Weapons",
+      "name": "Rhoka Sword",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=120"
+    },
+    {
+      "type": "Weapons",
+      "name": "Shears",
+      "url": "https://2e.aonprd.com/Weapons.aspx?ID=119"
+    }
+  ]
+}

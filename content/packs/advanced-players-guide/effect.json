@@ -4481,7 +4481,8 @@
       "duration": {
         "type": "unlimited"
       }
-    }
+    },
+    "supersedes": ["9f632a3e-e418-5741-a3f2-e4359256079b"]
   },
   {
     "id": "7267f99f-af44-5a75-a52d-238290df3c1b",

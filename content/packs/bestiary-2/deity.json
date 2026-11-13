@@ -1,0 +1,199 @@
+[
+  {
+    "id": "a9bc323a-0c47-509e-bb2c-8383457141ce",
+    "pack": "bestiary-2",
+    "kind": "deity",
+    "slug": "deity:followers-of-fate",
+    "name": "Followers of Fate",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "On the Material Plane, some mortals worship norns as deities, while others, especially witches and bards, admire them as patrons or muses. Those who uphold norns as deities are known as Followers of Fate. Norns do little to discourage this veneration, but neither do they go out of their way to support such worship. Clerics who venerate norns might worship a specific norn or norn triumvirate, or all norns as a whole, but they gain the same benefits regardless of their choice."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The religious symbol of Followers of Fate is a pair of shears cutting a golden thread, and their areas of concern are destiny, fate, and the aging process."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " make predictions of the future, offer advice and guidance to those in positions of power, provide comfort to the elderly"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " apologize for making an incorrect prediction, disrespect mothers, accept payment for fortune-telling"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Areas of Concern",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " destiny, fate, and the aging process."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.xxUGdZYUj5IW7E0L"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["holy", "unholy"]
+      },
+      "domains": {
+        "primary": ["family", "fate", "knowledge", "truth"],
+        "alternate": []
+      },
+      "font": ["harm", "heal"],
+      "attributes": [],
+      "skills": ["skill:occultism"],
+      "weapons": ["shears"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "80b48120-353b-5f69-b1bb-3e35afc9066a"
+        },
+        {
+          "rank": 3,
+          "spell": "b7d25c6d-c88b-574c-84aa-23f3952994d0"
+        },
+        {
+          "rank": 5,
+          "spell": "2897020f-b34e-5315-9369-d501cd903968"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e0e10e5b-4c99-52d3-b314-73b9e8b11dbe",
+    "pack": "bestiary-2",
+    "kind": "deity",
+    "slug": "deity:ydersius",
+    "name": "Ydersius",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The serpentfolk god is not dead, but in his decapitated state, he might as well be. Reduced to a feral, animalistic existence, Ydersius is even less aware of his legacy than the lowest of the aapoph. Ydersius's symbol is a snake's skull surrounded by a skeletal ouroboros."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Edicts",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " seek to return Ydersius to life, fulfill your passions, conquer your foes with no mercy, achieve glory for serpentkind"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Anathema",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " put the needs of others above those of serpentfolk, aid the spawn of Azlant"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.deities.Item.4bEPoujxhYdUyUOg"
+    },
+    "data": {
+      "category": "deity",
+      "sanctification": {
+        "modal": "can",
+        "what": ["unholy"]
+      },
+      "domains": {
+        "primary": ["ambition", "indulgence", "might", "zeal"],
+        "alternate": []
+      },
+      "font": ["harm"],
+      "attributes": [],
+      "skills": ["skill:deception"],
+      "weapons": ["dagger"],
+      "spells": [
+        {
+          "rank": 1,
+          "spell": "0326fd8f-6c36-5184-940b-a36b47e8c4a8"
+        },
+        {
+          "rank": 5,
+          "spell": "f3141756-1e05-510a-b997-772d9ada7ecd"
+        },
+        {
+          "rank": 6,
+          "spell": "31a793a4-7741-5d77-b7be-c8310598a829"
+        }
+      ]
+    }
+  }
+]

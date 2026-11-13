@@ -1,0 +1,2660 @@
+[
+  {
+    "id": "9ecfb3d5-62df-5653-ba05-22e4324ad5d8",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:beheaded-bleeding",
+    "name": "(Beheaded) Bleeding",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The beheaded is covered in slimy blood. The target of a successful Strike is splattered with gore and must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.KOnVQPlRY1CqcJXy"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "775dbd67-5525-56dc-883a-056b49cc6715",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:beheaded-entangling",
+    "name": "(Beheaded) Entangling",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Long, stringy hair clings to the beheaded's scalp. Its Strikes gain the "
+          },
+          {
+            "type": "ref",
+            "id": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+          },
+          {
+            "type": "text",
+            "text": " ability."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "ae260fde-4929-5254-a10c-a5b9eddc2f4a"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HEmOAVbJ3T9pon6T"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3c2e845b-2882-5aad-a145-573f29be1d21",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:beheaded-fiendish",
+    "name": "(Beheaded) Fiendish",
+    "rarity": "common",
+    "traits": ["aura", "divine", "emotion", "fear", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet. The beheaded has a twisted, unsettling countenance. Foes that begin their turn in the area must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": " save or be "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 1"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "fiendish",
+        "radius": 30,
+        "traits": ["divine", "emotion", "fear", "mental"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.1gsgecz7rhvHeiCX"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "534e4237-77a1-5641-ae82-d5e04aafddbf",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:beheaded-giant",
+    "name": "(Beheaded) Giant",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A beheaded created from the head of a giant is a Medium creature, gaining 2 levels and one or more additional beheaded abilities."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "CreatureSize",
+        "value": "medium"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.rlNiZiUb9pRKFKQo"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "ea5c35ac-8a1a-5dff-b07f-f48be3f97879",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:clockwork-creature-malfunction-backfire",
+    "name": "(Clockwork Creature) Malfunction - Backfire",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The clockwork rolls a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": " at the start of each of its turns. On a failure, it backfires, dealing "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "fire"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 15
+          },
+          {
+            "type": "text",
+            "text": ", including to itself ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "dc": 0,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save at the standard DC for its level), and is "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " this turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.pyBxJKGeheGA8et4"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "e9cb35a6-f9c2-5ac6-a272-9afde90882b7",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:clockwork-creature-malfunction-damaged-propulsion",
+    "name": "(Clockwork Creature) Malfunction - Damaged Propulsion",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The clockwork loses 1d4 hours of operational time at the end of each of its turns."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.kUApLn0cOsXQNSrL"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "037b7fe0-a806-582a-867f-9e5f40a690be",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:clockwork-creature-malfunction-loose-screws",
+    "name": "(Clockwork Creature) Malfunction - Loose Screws",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When damaged, the clockwork attempts a "
+          },
+          {
+            "type": "check",
+            "statistic": "flat",
+            "dc": 5
+          },
+          {
+            "type": "text",
+            "text": ". On a failure, a plate of its armor falls loose. It takes a status penalty to AC equal to the number of lost plates (up to -4)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "ad939902-8a98-5ec4-9fc8-489309626fda"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xuXloICuGtfA42AN"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "25a631e8-3354-59cd-b1a2-9e56043e9f37",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:clockwork-creature-wind-up",
+    "name": "(Clockwork Creature) Wind-Up",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "For a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time remaining. If it's unclear when a clockwork was last wound, most clockwork keepers wind all their clockworks at a set time, typically 8 a.m."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A clockwork that lists standby in its wind-up entry can enter standby mode as a 3-action activity. Its operational time doesn't decrease in standby, but it can sense its surroundings (with a -2 penalty to Perception). It can't act, with one exception: when it perceives a creature, it can exit standby as a reaction (rolling initiative if appropriate)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature can attempt to Disable a Device to wind a clockwork down (with a DC listed in the wind-up entry). For each success, the clockwork loses 1 hour of operational time. This can be done even if the clockwork is in standby mode."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.xS8ybzuqPSi3Jb8k"
+    },
+    "data": {
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "90c32c12-d752-5ca3-a579-7ec7c001f15e",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-destruction",
+    "name": "(Divine Warden) Divine Destruction",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": ", dealing 1d6[damageType] damage per level. This damage is either vitality or void, determined by the patron deity's divine font (chosen at the divine warden's creation if the deity offers a choice), and this ability gains the corresponding trait. Each creature in the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The creature takes half damage."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 1"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 1 day; this is a curse effect that uses the Will save DC as the counteract DC."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, except the creature becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+                  "label": "Enfeebled 2"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "ref",
+                  "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+                  "label": "Stupefied 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save with the following outcomes."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes half damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 1"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 1"
+          },
+          {
+            "type": "text",
+            "text": " for 1 day; this is a curse effect that uses the Will save DC as the counteract DC."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, except the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "9e1dad43-36fe-5629-923f-2df63c12d90f",
+            "label": "Stupefied 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.jD0M3yV6gjkXafsJ"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "89d711ff-03f2-5e6e-b3ef-eb720ea5304e",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-domain-spells",
+    "name": "(Divine Warden) Divine Domain Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The divine warden selects two of its patron deity's domains. The divine warden can cast the basic domain spell for its chosen domains. The divine warden has a focus pool of 1 Focus Point. It can't "
+          },
+          {
+            "type": "ref",
+            "id": "f092ffed-f689-53f1-9c09-e48555974619"
+          },
+          {
+            "type": "text",
+            "text": ", but its focus pool automatically refills 24 hours after it last used a Focus Point. If the divine warden is at least 10th level, it also gains the advanced domain spells for its chosen domains, and its focus pool increases to 2 Focus Points."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.0B9eEetIbeSPhulD"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "fdb59429-8849-564b-b76e-9630d1774746",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-divine-innate-spells",
+    "name": "(Divine Warden) Divine Innate Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden whose patron deity has any alignment components gains "
+          },
+          {
+            "type": "ref",
+            "id": "a593a292-4fca-5280-9857-56a2178b1618"
+          },
+          {
+            "type": "text",
+            "text": " as an innate cantrip. A divine warden with a neutral patron deity instead gains "
+          },
+          {
+            "type": "ref",
+            "id": "0964edfe-0384-5444-908b-fe24653c28f5"
+          },
+          {
+            "type": "text",
+            "text": " as an innate cantrip."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DlHTe9jLssEELY6a"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c10c2d31-178f-5252-9c41-6e53b76006c2",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-faith-bound",
+    "name": "(Divine Warden) Faith Bound",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden can't attack a creature that openly wears or displays the religious symbol of the divine warden's patron deity unless that creature uses a hostile action against the divine warden first. If the divine warden is intelligent, it can also attack a creature it believes isn't faithful to its deity or who wears the religious symbol as a ruse (typically after succeeding at a Perception check to "
+          },
+          {
+            "type": "ref",
+            "id": "775b68f2-1542-5f47-bc0d-87d5884d7baa"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OPGu0WsUHpHSmu80"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "5e0f3b29-43ea-5ef9-9490-f79b7975f482",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-faithful-weapon",
+    "name": "(Divine Warden) Faithful Weapon",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A divine warden always wields its patron deity's favored weapon. If the weapon is a ranged weapon, the divine warden automatically generates new ammunition with each attack. For a divine warden of 4th level or higher, the deity's favored weapon gains the effects of a "
+          },
+          {
+            "type": "ref",
+            "id": "3724ace1-dfe8-507f-b39b-71430413bf07"
+          },
+          {
+            "type": "text",
+            "text": " rune while the divine warden wields it; at 12th level, these effects are of a "
+          },
+          {
+            "type": "ref",
+            "id": "1743a056-67c0-552d-9363-7f71fe162d61",
+            "label": "Greater Striking"
+          },
+          {
+            "type": "text",
+            "text": " rune, and at 19th level, they're instead of a "
+          },
+          {
+            "type": "ref",
+            "id": "0435bf26-3f0a-5400-a796-3fd6d7f1a463",
+            "label": "Major Striking"
+          },
+          {
+            "type": "text",
+            "text": " rune."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.UlKGxPaKtRGWuq3V"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "aea6e2c0-c32a-579a-aabf-e8d742d7e22c",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:divine-warden-instrument-of-faith",
+    "name": "(Divine Warden) Instrument of Faith",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a "
+          },
+          {
+            "type": "ref",
+            "id": "949e0a89-f44b-598d-8adb-3d9d31db900e"
+          },
+          {
+            "type": "text",
+            "text": " spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.L80gn6WOWi9roJW3"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d383b07d-0268-5cc7-b92d-d20f66f0f987",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:form-up",
+    "name": "Form Up",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The troop chooses one of the squares it currently occupies and redistributes its squares to any configuration in which all squares are contiguous and within 15 feet of the chosen square. The troop can't share its space with other creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.OvqohW9YuahnFaiX"
+    },
+    "data": {
+      "cost": "one",
+      "category": "interaction"
+    }
+  },
+  {
+    "id": "893dd81b-2413-5d60-b851-e6f21de9b54c",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:skeleton-blaze",
+    "name": "(Skeleton) Blaze",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The skeleton is wreathed with fire, which doesn't consume its bones or gear."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The skeleton gains immunity to fire and weakness 5 to cold, loses its resistance to cold, and its Strikes deal additional persistent fire damage equal to half the skeleton's level (minimum 1 damage)."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Immunity",
+        "type": ["fire"]
+      },
+      {
+        "key": "Weakness",
+        "type": ["cold"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.9oy2zWxy7Klk9FxR"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3614b4d1-b0fd-5af4-abd9-af85ba8e614c",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:skeleton-bone-missile",
+    "name": "(Skeleton) Bone Missile",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The skeleton yanks a rib from its ribcage to use as an arrow or javelin. The skeleton loses HP equal to its level (minimum 1), then makes a ranged Strike."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This uses the attack bonus of whichever of the skeleton's other Strikes has the highest attack bonus and deals piercing damage equal to that Strike's damage plus the skeleton's level (minimum 1)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.RgYpzTk3XapgVeXZ"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "cf16c9a3-8ab9-54c8-9488-1f7da1175273",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:skeleton-bone-powder",
+    "name": "(Skeleton) Bone Powder",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When the skeleton takes physical damage from a critical hit, one of its bones is pulverized into a fine powder."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "emanation",
+            "size": 5
+          },
+          {
+            "type": "text",
+            "text": " that breathe take "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "1d6",
+                "damageType": "poison",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage (plus an additional 1d6 for every 6 levels the skeleton has)."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.sajLbVE6VpCsR0Kl"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "76b9f91b-b4cf-5858-bf93-ab8fe1683d39",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:skeleton-skeleton-of-roses",
+    "name": "(Skeleton) Skeleton of Roses",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Thick briars have grown through the skeleton's bones, covering it in red roses with inch-long thorns."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The skeleton's unarmed melee Strikes deal additional piercing damage equal to 1/3 the skeleton's level (minimum 1 damage)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "At the end of each of its turns, if the skeleton has caused piercing damage with its thorns, it regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "max(1,@level)"
+              }
+            ],
+            "healing": true,
+            "label": "HP equal to its level"
+          },
+          {
+            "type": "text",
+            "text": " (minimum 1). Each time the skeleton regains HP in this way, another rose blossoms."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["strike-damage"],
+        "type": "untyped",
+        "value": "max(1, floor(@level / 3))",
+        "damageType": "piercing",
+        "predicate": ["option:melee", "option:unarmed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.HdSaMUb4uEsbtQTn"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "ed8772bf-dadd-56b9-8ac7-fe51aefdd6ba",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:troop-defenses",
+    "name": "Troop Defenses",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Troops are composed of many individuals, and over the course of enough attacks and downed comrades, troops shrink in size. Most troops start with 16 squares (4 by 4), and their Hit Points have two listed thresholds, typically the first is at 2/3 their maximum Hit Points and the second is at 1/3 their maximum Hit Points. Once the troop drops below the first threshold, it loses 4 squares, leaving 12 squares remaining, and the first threshold becomes the troop's new maximum Hit Points. Once the troop falls below the second threshold, it loses another 4 squares, leaving 8 squares remaining, and the second threshold becomes the troop's new maximum Hit Points. In order to restore its size and maximum Hit Points, a troop needs to spend downtime to use long-term treatment on casualties or recruit new members to replace the fallen. At 0 Hit Points, the troop is reduced down to 4 squares, which is too few to sustain the troop, so it disperses entirely, with the few remaining members surrendering, fleeing, or easily dispatched, depending on their nature."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A damaging single-target effect, such as a Strike, can't force a troop to pass through more than one threshold at once. For instance, if a troop had 60 Hit Points, with thresholds at 40 and 20, a Strike for 50 damage would leave the troop at 21 Hit Points, just above the second threshold. A damaging area effect or multi-target effect can cross multiple thresholds at once and could potentially destroy the entire troop in one shot."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Non-damaging effects with an area or that target all creatures in a certain proximity affect a troop normally if they affect the entire area occupied by the troop. If an effect has a smaller area or numbers of targets, it typically has no effect on the troop. However, if the effect can target at least four creatures or cover at least four squares in the troop, and if it would prevent its targets from acting, cause them to flee, or otherwise make them unable to function as part of the troop for a round or more, the troop loses loses a number of Hit Points equal to the amount required to bring it to the next threshold, removing 4 squares. If an effect would both deal damage and automatically cross a threshold due to incapacitating some of the creatures in the troop, apply the damage first. If the damage wasn't enough to cross a threshold on its own, then reduce the Hit Points to cross the threshold for the incapacitating effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.RJbI07QSiYp0SF9A"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "0e31479f-4dcd-5298-bb63-9a508605f0f8",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-change-shape",
+    "name": "(Vampire, Nosferatu) Change Shape",
+    "rarity": "common",
+    "traits": ["concentrate", "divine", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu transforms into a swarm of pale-gray rats. They gain a land Speed of 30 feet and a climb Speed of 10 feet, and they become Large. Each enemy in the swarm's space takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d10",
+                "damageType": "piercing"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:reflex",
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save with a high DC for the creature's level. A creature that fails its save is exposed to plague of ancients."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.DWku0nZzkqmYjrQ5"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "3239a98b-5612-51c0-8c39-527540afdc1f",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-command-thrall",
+    "name": "(Vampire, Nosferatu) Command Thrall",
+    "rarity": "common",
+    "traits": ["auditory", "divine", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " One of the nosferatu's thralls is present and can hear the nosferatu"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu gives a single command to one of their thralls, which the thrall follows to the best of its ability during its next turn."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8UQWXpYfn9oE1ZHu"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the nosferatu's thralls is present and can hear the nosferatu"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "37c4d148-6032-5825-bd30-728939410299",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-divine-innate-spells",
+    "name": "(Vampire, Nosferatu) Divine Innate Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu can cast "
+          },
+          {
+            "type": "ref",
+            "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+          },
+          {
+            "type": "text",
+            "text": " (heightened to half their level rounded up) three times per day as a divine innate spell. They use a high DC for their level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.EwhjPJGLSW9v1Fbb"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7bc38eef-c6b8-59e7-8d1b-e8d582975f43",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-dominate",
+    "name": "(Vampire, Nosferatu) Dominate",
+    "rarity": "common",
+    "traits": ["divine", "incapacitation", "mental", "visual"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu can cast "
+          },
+          {
+            "type": "ref",
+            "id": "54bcf730-ab6d-5ba7-9747-86a6debbd00c"
+          },
+          {
+            "type": "text",
+            "text": " at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:will"
+          },
+          {
+            "type": "text",
+            "text": "). The save DC uses a high DC for the nosferatu's level, and a creature that succeeds is temporarily immune to that nosferatu's Dominate for 24 hours. Fully destroying the nosferatu ends the domination, but merely reducing the nosferatu to 0 HP is insufficient to break the spell."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.4B8O9QBJuDhJkVcz"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "baf5630e-773b-5023-8cc8-549c3618304f",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-drink-blood",
+    "name": "(Vampire, Nosferatu) Drink Blood",
+    "rarity": "common",
+    "traits": ["divine"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu's last action was a successful fangs Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu sinks their fangs into the targeted creature to drink its blood. This requires an "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:athletics"
+          },
+          {
+            "type": "text",
+            "text": " check against the creature's Fortitude DC. On a success, the creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": ", and the nosferatu regains HP equal to 10% of their maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore any HP to the nosferatu, but increases the creature's drained condition value by 1. A nosferatu can also consume blood that's been emptied into a vessel for sustenance, but they gain no HP from doing so."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target creature's drained condition value decreases by 1 per week. A blood transfusion, which requires a successful "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 20
+          },
+          {
+            "type": "text",
+            "text": " check and sufficient blood or a blood donor, reduces the drained value by 1 after 10 minutes."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.GpKQH8hnSYWiyuQU"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The nosferatu's last action was a successful fangs Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "079b6522-e330-55d4-8bf2-3d275822cb15",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-nosferatu-vulnerabilities",
+    "name": "(Vampire, Nosferatu) Nosferatu Vulnerabilities",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revulsion",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A nosferatu can't voluntarily come within 10 feet of brandished garlic or a brandished religious symbol of a non-evil deity. To brandish garlic or a religious symbol, a creature must Interact to do so for 1 round (similar to Raising a Shield). If the nosferatu involuntarily comes within 10 feet of an object of their revulsion, they gain the "
+                },
+                {
+                  "type": "ref",
+                  "id": "f7fea8f9-c457-5b9f-9283-f567fa557184"
+                },
+                {
+                  "type": "text",
+                  "text": " condition, running from the object of their revulsion until they end an action beyond 10 feet. After 1 round of being exposed to the subject of their revulsion, a nosferatu can attempt a "
+                },
+                {
+                  "type": "check",
+                  "statistic": "save:will",
+                  "dc": 25
+                },
+                {
+                  "type": "text",
+                  "text": " save as a single action, which has the concentrate trait. On a success, they overcome their revulsions for 1d6 rounds (or 1 hour on a critical success)."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stake",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " A magical wooden stake (such as one affected by a weapon potency rune, magic weapon, or similar magic) driven through the nosferatu's heart drops the nosferatu to 0 HP and prevents them from healing above 0 HP, even in their coffin. Staking a nosferatu requires 3 actions and works only if the nosferatu is "
+                },
+                {
+                  "type": "ref",
+                  "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+                },
+                {
+                  "type": "text",
+                  "text": ". If the stake is removed, the nosferatu can heal above 0 HP again, and if they're in their coffin, the 1-hour rest period begins once the stake is removed. If the nosferatu's head is severed and anointed with "
+                },
+                {
+                  "type": "ref",
+                  "id": "69117d38-92e5-5416-a51f-8dddf680e9d7"
+                },
+                {
+                  "type": "text",
+                  "text": " while the stake is in place, the nosferatu is destroyed."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sunlight",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " If exposed to direct sunlight, a nosferatu immediately becomes "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": ". The slowed value increases by 1 each time the nosferatu ends their turn in sunlight, and the condition ends when they're no longer in sunlight. If the nosferatu loses all their actions in this way, they're destroyed."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Sj1IGDjUmlwFpC35"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "194876e3-39ab-5ae6-90f4-52623f600793",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-overlord-air-of-sickness",
+    "name": "(Vampire, Nosferatu Overlord) Air of Sickness",
+    "rarity": "common",
+    "traits": ["aura"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 feet. A creature entering or starting its turn in the aura must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save with a moderate DC for the nosferatu's level. On a failure, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " and takes a -2 status penalty to saves made to resist diseases and remove the sickened condition for 1 hour."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "e3e49e3e-de2f-558f-ac07-bf37d5823e1e"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "air-of-sickness",
+        "radius": 30,
+        "traits": []
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.yDE3ZEoxRUqQmAsX"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "46b0bb37-dd99-5ae5-bed8-0a39a92c5514",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-overlord-divine-innate-spells",
+    "name": "(Vampire, Nosferatu Overlord) Divine Innate Spells",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The nosferatu can cast "
+          },
+          {
+            "type": "ref",
+            "id": "a0d8d75b-39a6-5671-a6cf-1fc2713753f4"
+          },
+          {
+            "type": "text",
+            "text": " (heightened to half their level rounded up) three times per day and "
+          },
+          {
+            "type": "ref",
+            "id": "b346ac8d-e3aa-5131-af4a-9cbae1f72ff8"
+          },
+          {
+            "type": "text",
+            "text": " twice per day as a divine innate spell. They use a high DC for their level."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.uMedzgKYui5X3Qtn"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "b37c185f-af78-5611-a013-932335dec165",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-overlord-paralytic-fear",
+    "name": "(Vampire, Nosferatu Overlord) Paralytic Fear",
+    "rarity": "common",
+    "traits": ["divine", "emotion", "fear", "incapacitation", "mental"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu overlord's last action was a successful claw Strike"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The nosferatu drags the target of the Strike close and freezes its mind in terror. The target must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:will",
+            "outcomes": {
+              "criticalSuccess": [
+                {
+                  "type": "text",
+                  "text": "The target is unaffected."
+                }
+              ],
+              "success": [
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "64278392-4910-5a32-b819-56f6e54952dd"
+                },
+                {
+                  "type": "text",
+                  "text": " by fear until the end of the nosferatu's next turn."
+                }
+              ],
+              "failure": [
+                {
+                  "type": "text",
+                  "text": "The target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "b374c4c9-d230-5167-8878-38e08932a071"
+                },
+                {
+                  "type": "text",
+                  "text": " and takes a -2 circumstance penalty to its Fortitude DC against the nosferatu's Drink Blood ability until the end of the nosferatu's next turn."
+                }
+              ],
+              "criticalFailure": [
+                {
+                  "type": "text",
+                  "text": "As failure, and the target is "
+                },
+                {
+                  "type": "ref",
+                  "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+                  "label": "Frightened 2"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "text": " save with a moderate DC for the nosferatu's level."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is unaffected."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Success",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "64278392-4910-5a32-b819-56f6e54952dd"
+          },
+          {
+            "type": "text",
+            "text": " by fear until the end of the nosferatu's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The target is "
+          },
+          {
+            "type": "ref",
+            "id": "b374c4c9-d230-5167-8878-38e08932a071"
+          },
+          {
+            "type": "text",
+            "text": " and takes a -2 circumstance penalty to its Fortitude DC against the nosferatu's Drink Blood ability until the end of the nosferatu's next turn."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Critical Failure",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " As failure, and the target is "
+          },
+          {
+            "type": "ref",
+            "id": "4218b8f3-1756-50cd-a914-6ce750659a62",
+            "label": "Frightened 2"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.EsbdyB9DwvPvhCCC"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The nosferatu overlord's last action was a successful claw Strike"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "a4435d5b-9e76-5665-aa5e-0017b7025458",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-plague-of-ancients",
+    "name": "(Vampire, Nosferatu) Plague of Ancients",
+    "rarity": "common",
+    "traits": ["disease", "virulent"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " (use a high DC for the nosferatu's level)"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Onset",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " 1 day"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 1"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 2"
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 2"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 1"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "ref",
+            "id": "fa3d4a94-c2f9-519b-b0a3-82d2612e188b",
+            "label": "Drained 3"
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "ref",
+            "id": "5aa15fa8-99a7-56a4-8237-f605177275dd",
+            "label": "Enfeebled 3"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "cd164d22-2d8e-5fd2-b8b2-03e1360df1e7",
+            "label": "Doomed 2"
+          },
+          {
+            "type": "text",
+            "text": ", drained 3, and enfeebled 3 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "ref",
+            "id": "e1a78dad-4887-518e-9120-e58b7009ebfd"
+          },
+          {
+            "type": "text",
+            "text": " (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 6",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " death"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.NgiwaeUqMPfkYvQq"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f7f1623c-f081-521a-a63a-a7fea8d312fa",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-plagued-coffin-restoration",
+    "name": "(Vampire, Nosferatu) Plagued Coffin Restoration",
+    "rarity": "common",
+    "traits": ["divine", "void"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Unlike other undead, a nosferatu isn't destroyed at 0 HP. Instead, they disperse into an immense number of individual rats heading in every direction in an attempt to return to their coffin. If even a single rat reaches the coffin, the nosferatu can recover. A nosferatu regains their strength through resting in earth taken from the grave of a creature who died of plague. If their body rests in their earth-filled coffin for 1 hour, the nosferatu gains 1 HP, after which their fast healing begins to function normally. If the coffin doesn't contain this plagued grave dirt, they instead need to rest in their coffin for 1 day before they gain 1 HP and regain their fast healing."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hOOXkWcTw9EFKJev"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "318d653b-6b25-564a-95a9-c944555751d8",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-fast-healing",
+    "name": "(Vampire, Nosferatu Thrall) Fast Healing",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A nosferatu thrall gains "
+          },
+          {
+            "type": "ref",
+            "id": "73fc1e79-23d3-5ae8-8906-3764c9b4a92a",
+            "label": "Fast Healing 5"
+          },
+          {
+            "type": "text",
+            "text": " from being sustained by their master's blood."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2BjqIO36k0Y6tgZf"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "c728a907-497b-5ab1-9a0c-860f4025a557",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-mindbound",
+    "name": "(Vampire, Nosferatu Thrall) Mindbound",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A nosferatu master exerts a fierce hold over their thrall's mind. If any creature other than the thrall's master targets them with an effect that would give them the "
+          },
+          {
+            "type": "ref",
+            "id": "3f5dc8b4-dcc0-5a99-8501-aff382e8d341"
+          },
+          {
+            "type": "text",
+            "text": " condition, the thrall's master rolls a counteract check against it using their Dominate DC - 10 as the counteract check modifier."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.LKxsPOf0hAS32Sp8"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "fc808626-4bb2-5731-8e7e-b5f8cace079f",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-mortal-shield",
+    "name": "(Vampire, Nosferatu Thrall) Mortal Shield",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall's master would take damage from a Strike or spell attack and is in an adjacent square"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall throws themself in front of their master, taking half the damage of the attack (before applying any weaknesses or resistances). The thrall's master takes the remaining damage, applying any weaknesses or resistances as normal."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OQt7nHInDBAmHaG6"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The thrall's master would take damage from a Strike or spell attack and is in an adjacent square"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "58c69e9d-5a57-583b-9026-18a78af02034",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-rally",
+    "name": "(Vampire, Nosferatu Thrall) Rally",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall ends their turn more than 30 feet away from their master"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The thrall Strides up to their Speed toward their master."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.IL8wtCi23ch62zXG"
+    },
+    "data": {
+      "cost": "reaction",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The thrall ends their turn more than 30 feet away from their master"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "27a7622e-3faf-5ada-a2f5-e56bb9d61d2d",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:vampire-nosferatu-thrall-weakness",
+    "name": "(Vampire, Nosferatu Thrall) Weakness",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The strain of being controlled wears on the nosferatu thrall's mind, giving them weakness 10 to mental damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["mental"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.8MACWp05F4SacE7E"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8636c974-8208-5075-9a97-09c713a74405",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:zombie-ankle-biter",
+    "name": "(Zombie) Ankle Biter",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This zombie fights just as well on the ground as it does standing. While "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", the zombie isn't "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": ", it ignores the status penalty to its attack rolls, and it gains a +2 circumstance bonus to Athletics checks to "
+          },
+          {
+            "type": "ref",
+            "id": "6257c7f0-f483-53d3-a791-d73a616cbce4"
+          },
+          {
+            "type": "text",
+            "text": ". The zombie can also move up to half its Speed when it Crawls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["skill:athletics"],
+        "type": "circumstance",
+        "value": 2,
+        "predicate": ["action:trip", "self:condition:prone"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.CdjqkgAexKk8khbB"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "7a3b7f0f-ebd1-596c-ac6c-38602002547f",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:zombie-persistent-limbs",
+    "name": "(Zombie) Persistent Limbs",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The first time the zombie is critically hit with a melee or ranged Strike, a limb falls off its body and continues to attack. The limb acts on the zombie's initiative; each round it can Stride up to half the zombie's Speed and make a Strike. The limb uses and contributes to the zombie's multiple attack penalty."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qZnZriRRtjK7FtP8"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5d18f0cc-fab8-51a6-ac81-c8e0cbfc3fe9",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:zombie-putrid-stench",
+    "name": "(Zombie) Putrid Stench",
+    "rarity": "common",
+    "traits": ["aura", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "15 feet. The zombie's rotting flesh is particularly malodorous. A creature that enters the area must attempt a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save. On a failure, the creature is "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": ", and on a critical failure, the creature also takes a -5-foot status penalty to its Speeds for 1 round. While within the aura, the creature takes a -2 circumstance penalty to saves to recover from the sickened condition. A creature that succeeds at its save is temporarily immune to all zombies' putrid stenches for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "969b8c3d-e25e-5051-bf06-cabd59bd07d8"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "zombie-putrid-stench",
+        "radius": 15,
+        "traits": ["olfactory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.Ez8sVqv1EBcJuorK"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "4043ffbd-cba1-559b-88d4-39cc64f8f3ad",
+    "pack": "bestiary-3",
+    "kind": "action",
+    "slug": "action:zombie-unholy-speed",
+    "name": "(Zombie) Unholy Speed",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-3"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The zombie gains a +10 status bonus to all its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["all-speeds"],
+        "type": "status",
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.2k0X7JdI9MMt4pp0"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  }
+]

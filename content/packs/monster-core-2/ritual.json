@@ -113,7 +113,8 @@
         "checks": [],
         "casters": 0
       }
-    }
+    },
+    "supersedes": ["77c496b7-3c90-51bc-899e-c95d1454180e"]
   },
   {
     "id": "32669a2d-a2e7-500a-8f72-b956e9685ea6",
@@ -230,6 +231,7 @@
         "checks": [],
         "casters": 2
       }
-    }
+    },
+    "supersedes": ["56af34a9-3a40-5299-8d38-57b72b423b1d"]
   }
 ]

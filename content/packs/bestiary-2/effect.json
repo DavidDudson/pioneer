@@ -1,0 +1,1139 @@
+[
+  {
+    "id": "1f4a69ae-cc1c-569f-b601-33bdfab7e40e",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-protection-solar",
+    "name": "Effect: Aura of Protection (Solar)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in the solar's aura gain a +2 status bonus to AC against evil creatures and a +2 status bonus to saves against effects from evil creatures. The bonus increases to +4 against control by evil creatures and attacks by evil summoned creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["origin:trait:evil"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 4,
+        "slug": "more-protection",
+        "predicate": [
+          "origin:trait:evil",
+          {
+            "or": [
+              "inflicts:controlled",
+              {
+                "and": ["option:attack", "origin:trait:summoned"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.s16XQpDz2HNzR9BB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "b6b31c52-ad63-5ae1-bccc-89ee07c805f8",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-righteousness-planetar",
+    "name": "Effect: Aura of Righteousness (Planetar)",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in the planetar's aura gain a +2 status bonus to AC against evil creatures and a +2 status bonus to damage rolls against evil creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["origin:trait:evil"]
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:trait:evil"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.I5Fd4TkIKRJT6WXf"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "741cded0-5314-528e-a3e3-afddbf8a9518",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-aura-of-vitality",
+    "name": "Effect: Aura of Vitality",
+    "level": 10,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in the movanic deva's aura gain a +1 status bonus to all saving throws, resistance 10 to vitality and void damage, and are unharmed by the effects of a plane's vitality and void traits. Animals in the aura of 12th level or lower don't attack the movanic deva or the deva's allies unless they are controlled or otherwise forced to attack."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "Resistance",
+        "type": ["void", "vitality"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.RjrsiEloXs7ze1TZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9ae143b1-a18c-5ce3-a25f-e0cc54f01bcb",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-bastion-aura",
+    "name": "Effect: Bastion Aura",
+    "level": 20,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "All good-aligned creatures in the aura have fast healing 30 for as long as they remain in range, and they gain a +2 status bonus to attack rolls and damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 30,
+        "type": "fast-healing"
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.4tGVIEqwH4TQoF0O"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "0c69def5-66a1-5bad-84f6-cb5145339f4b",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-blood-siphon-critical-failure",
+    "name": "Effect: Blood Siphon (Critical Failure)",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to AC and saves and is quickened. It can use its extra action only to Strike."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac", "saving-throw"],
+        "type": "status",
+        "value": 2
+      },
+      {
+        "key": "GrantItem",
+        "item": "6517bbf2-8085-534b-be6a-187d52739fa0"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ceOkHxhJNTcvZkCy"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-end"
+      }
+    }
+  },
+  {
+    "id": "c6ab442c-3c84-56bf-a78c-0e36c7a6c8ec",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-call-to-blood",
+    "name": "Effect: Call to Blood",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +2 status bonus to attack rolls against "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "status",
+        "value": 2,
+        "predicate": ["target:condition:off-guard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.v54mj5jknAynlCM9"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "9b43d15b-de65-56d5-9154-1ecac7f6f10a",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-ghonhatine-feed",
+    "name": "Effect: Ghonhatine Feed",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains fast healing 5 and a +2 status bonus to damage rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 5
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["damage"],
+        "type": "status",
+        "value": 2
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.wPW6kVscJgBLPVKZ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "ae12ba71-c2b7-582d-8b09-aedb77c56ec2",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-impaling-chain",
+    "name": "Effect: Impaling Chain",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target is impaled and anchored in place, becoming grabbed by the chain. The creature is unable to recover from persistent bleed damage until it gets free."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["pd-recovery-check"],
+        "adjustment": {
+          "success": "to-failure",
+          "criticalSuccess": "to-failure"
+        },
+        "predicate": ["item:damage:type:bleed"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.gjo8LR6uOhDM5W7L"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "fe352c3a-b97c-5682-8690-118746a321c6",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-instinctual-tinker-critical-success",
+    "name": "Effect: Instinctual Tinker (Critical Success)",
+    "level": 2,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains a +1 circumstance bonus to attack rolls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack"],
+        "type": "circumstance",
+        "value": 1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.TEzLEXBZzNCp6flg"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "a0530710-a308-53d6-a1c3-08c9df97db1d",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-lurkers-glow-critical-failure",
+    "name": "Effect: Lurker's Glow (Critical Failure)",
+    "level": 5,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature sheds bright light in a 20-foot emanation for the duration of the effect."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.6E8bOkwFzFuQ3ZAw"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "272ba716-ad0b-5897-8938-67af40b67f09",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-mist-cloud",
+    "name": "Effect: Mist Cloud",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the aura are concealed."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "f410da96-b56a-5c7c-857b-7096defec0a1",
+        "allowDuplicate": false
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.5SLAqVPYa0kliRDt"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "34fc4527-9d40-502e-ba99-87c905bf1d9f",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-natures-infusion",
+    "name": "Effect: Nature's Infusion",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The blodeuwedd gains 15 temporary Hit Points."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "TempHP",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.0vJlwvjFghLdfvn5"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "hour",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d5b8acc8-ed47-57fb-8a46-e970a08f5b74",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-soul-crush-healing",
+    "name": "Effect: Soul Crush (Healing)",
+    "level": 13,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The thanadaemon gains fast healing 15 for 1 minute."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FastHealing",
+        "value": 15
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.oKNFSWJW2jat8Dli"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "minute",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "b402c70d-af4a-5215-9789-a31622194a91",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-spiritual-warden",
+    "name": "Effect: Spiritual Warden",
+    "level": 12,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Allies in the aura gain a +2 status bonus to saving throws against death effects and effects that target or manipulate their souls."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["saving-throw"],
+        "type": "status",
+        "value": 2,
+        "predicate": [
+          {
+            "or": ["option:death", "option:manipulate-soul"]
+          }
+        ]
+      },
+      {
+        "key": "RollOption",
+        "domain": "saving-throw",
+        "option": "option:manipulate-soul",
+        "toggleable": true,
+        "display": {
+          "label": "Defending against manipulation of your soul"
+        }
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.kOGRUuyK04MjLc3m"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "7199b3b4-8b4f-519f-8dc8-dc32b2c29e4c",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-stoke-the-fervent",
+    "name": "Effect: Stoke the Fervent",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Each ally that hears the call gains a +1 status bonus to attack rolls, damage rolls, and saving throws, and takes a –1 status penalty to AC. Affected allies must use at least one of their actions to Strike each round, if they are able (even if it means attacking an ally, object, or thin air)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The effect duration has been set to the average duration of 2d4 rounds. Set the duration to the correct value when the effect is added.",
+            "marks": ["emphasis"]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["attack", "damage", "saving-throw"],
+        "type": "status",
+        "value": 1
+      },
+      {
+        "key": "FlatModifier",
+        "selectors": ["ac"],
+        "type": "status",
+        "value": -1
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.eE3FEpjk2HdZDzSA"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 5,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "cc079cc2-79aa-5361-827d-d62a10e6e415",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-surgical-rend",
+    "name": "Effect: Surgical Rend",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Until the creature is restored to its maximum Hit Points, thus closing the wound, Strikes against the creature deal 1d6 extra precision damage."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.9iL6CeZlmtIuAZOJ"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "881714f2-1938-510b-bcfa-4f7ab3dd453a",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-tenacious-flames",
+    "name": "Effect: Tenacious Flames",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Creatures in the emanation cannot recover from persistent fire damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "AdjustDegreeOfSuccess",
+        "selectors": ["pd-recovery-check"],
+        "adjustment": {
+          "success": "to-failure",
+          "criticalSuccess": "to-failure"
+        },
+        "predicate": ["item:damage:type:fire"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.ekpt4mFw1kJkZ2pK"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "9be13afd-07d4-5bb0-b6f5-3fb15d97e2a2",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-volcanic-purge",
+    "name": "Effect: Volcanic Purge",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The target takes "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "4d6",
+                "damageType": "fire",
+                "category": "persistent"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage, and as long as it has this persistent fire damage, it also takes a -10-foot status penalty to its Speeds."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "selectors": ["speed"],
+        "type": "status",
+        "value": -10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.7qoZauizAKfPIXeu"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "f53fa2a9-24a4-5b44-946b-fe3abc6008c7",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-vulnerable-to-curved-space",
+    "name": "Effect: Vulnerable to Curved Space",
+    "level": 1,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "When a hound of Tindalos is not adjacent to a structural angle of 90º (or more acute), its resistance to physical damage is suppressed and it becomes sickened 1."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "GrantItem",
+        "item": "5cfa1065-86f1-5622-a7de-7c91351dcdb8"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.V60TWjo1G1r5ZtPM"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "c7f65a6c-7cb7-5f52-a07a-751e86fbc117",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-witchflame-critical-failure",
+    "name": "Effect: Witchflame (Critical Failure)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness 10 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 10
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.McawF8weCe7O81um"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "03fcb314-fc94-56e8-94f0-85a853568b5d",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-witchflame-failure",
+    "name": "Effect: Witchflame (Failure)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness 5 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.L7SiTshdimUPWfnB"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  },
+  {
+    "id": "259e3ee1-f01c-5938-bb12-e2a420b3d741",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-witchflame-success",
+    "name": "Effect: Witchflame (Success)",
+    "level": 9,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature gains weakness 5 to fire."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Weakness",
+        "type": ["fire"],
+        "value": 5
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.NHwmrSyF0e8HUE3m"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "time",
+        "count": 1,
+        "unit": "round",
+        "expiry": "turn-start"
+      }
+    }
+  },
+  {
+    "id": "d67a8c41-01bc-5b01-b56e-f33db101feee",
+    "pack": "bestiary-2",
+    "kind": "effect",
+    "slug": "effect:effect-wrath-of-fate",
+    "name": "Effect: Wrath of Fate",
+    "level": 3,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-2"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "An affected creature can choose to roll twice when it attempts an attack, saving throw, or skill check and take the lower result. After this the effect ends."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "option:wrath-of-fate",
+        "toggleable": true
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["attack-roll"],
+        "keep": "lower",
+        "predicate": ["option:wrath-of-fate"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["saving-throw"],
+        "keep": "lower",
+        "predicate": ["option:wrath-of-fate"]
+      },
+      {
+        "key": "RollTwice",
+        "selectors": ["skill-check"],
+        "keep": "lower",
+        "predicate": ["option:wrath-of-fate"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-effects.Item.QSy3KaLI1AYTR7rP"
+    },
+    "data": {
+      "category": "other",
+      "duration": {
+        "type": "unlimited"
+      }
+    }
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "e2837da1-a510-55b9-bc6e-c6ae980d076e",
+    "pack": "bestiary-1",
+    "kind": "weapon",
+    "slug": "weapon:aklys",
+    "name": "Aklys",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["ranged-trip", "tethered", "thrown-20", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The aklys is a throwing club with a hook on one end and a lengthy cord attached to the other. Though aklyses aren't available in most shops, one might be purchased for 5 gp from a vendor that specializes in strange weapons."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.YnPYSKCQBLIOtm0J"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 5
+        }
+      },
+      "bulk": 1,
+      "category": "advanced",
+      "group": "club",
+      "baseItem": "aklys",
+      "damage": {
+        "dice": 1,
+        "die": "d6",
+        "damageType": "bludgeoning"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "one"
+      }
+    }
+  },
+  {
+    "id": "bed220e4-035c-564d-beb9-8c506041bda1",
+    "pack": "bestiary-1",
+    "kind": "weapon",
+    "slug": "weapon:ogre-hook",
+    "name": "Ogre Hook",
+    "level": 0,
+    "rarity": "uncommon",
+    "traits": ["deadly-d10", "trip"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ogres are known for using immense, curved picks called ogre hooks."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.Oiq3QgLrM4i3W5Hg"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 1
+        }
+      },
+      "bulk": 2,
+      "category": "martial",
+      "group": "pick",
+      "baseItem": "ogre-hook",
+      "damage": {
+        "dice": 1,
+        "die": "d10",
+        "damageType": "piercing"
+      },
+      "usage": {
+        "type": "held",
+        "hands": "two"
+      }
+    }
+  }
+]

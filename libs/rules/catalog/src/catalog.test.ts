@@ -68,6 +68,9 @@ const advancedPlayersGuide = PackId.parse('advanced-players-guide');
 const bookOfTheDead = PackId.parse('book-of-the-dead');
 const gamemasteryGuide = PackId.parse('gamemastery-guide');
 const darkArchive = PackId.parse('dark-archive');
+const bestiary1 = PackId.parse('bestiary-1');
+const bestiary2 = PackId.parse('bestiary-2');
+const bestiary3 = PackId.parse('bestiary-3');
 const theShowMustGoOn = PackId.parse('the-show-must-go-on');
 const gmCore = PackId.parse('gm-core');
 const humanId = AncestryId.parse(contentId(playerCore, EntrySlug.parse('ancestry:human')));
@@ -82,6 +85,9 @@ describe('content catalog', () => {
       ancestryGuide,
       bastionOfBlasphemies,
       battlecry,
+      bestiary1,
+      bestiary2,
+      bestiary3,
       bookOfTheDead,
       characterGuide,
       chelaxInfernalInheritance,

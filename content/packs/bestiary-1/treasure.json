@@ -1,0 +1,31 @@
+[
+  {
+    "id": "e620ca61-3a7c-5e13-8994-82510863ca90",
+    "pack": "bestiary-1",
+    "kind": "treasure",
+    "slug": "treasure:virtuoso-silver-flute",
+    "name": "Virtuoso silver flute",
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.equipment-srd.Item.nzT4kWzAdLMcESWl"
+    },
+    "data": {
+      "price": {
+        "coins": {
+          "gp": 25
+        }
+      },
+      "bulk": "negligible"
+    }
+  }
+]

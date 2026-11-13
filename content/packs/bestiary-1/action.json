@@ -1,0 +1,1199 @@
+[
+  {
+    "id": "bf07a5ad-cd7f-586c-846a-c27340fcf558",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:dragon-change-shape",
+    "name": "(Dragon) Change Shape",
+    "rarity": "common",
+    "traits": ["arcane", "concentrate", "polymorph"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change its Speed or attack and damage bonuses with its Strikes, but might change the damage type its Strikes deal (typically to bludgeoning)."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The monster changes its shape indefinitely. It can use this action again to return to its natural shape or adopt a new shape. Unless otherwise noted, a monster cannot use Change Shape to appear as a specific individual. Using Change Shape counts as creating a disguise for the "
+          },
+          {
+            "type": "ref",
+            "id": "9d26c6da-04e9-5491-86c1-7a4b23fe9da3"
+          },
+          {
+            "type": "text",
+            "text": " use of Deception. The monster's transformation automatically defeats Perception DCs to determine whether the creature is a member of the ancestry or creature type into which it transformed, and it gains a +4 status bonus to its Deception DC to prevent others from seeing through its disguise. Change Shape abilities specify what shapes the monster can adopt. The monster doesn't gain any special abilities of the new shape, only its physical form. For example, in each shape, it replaces its normal Speeds and Strikes, and might potentially change its senses or size. Any changes are listed in its stat block."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mEbrInCpag7YThH2"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d21c7003-90b5-56bc-8593-7a317397f1b3",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghast-consume-flesh",
+    "name": "(Ghast) Consume Flesh",
+    "rarity": "common",
+    "traits": ["manipulate"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ghast is adjacent to the corpse of a creature that died within the last hour."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The ghast devours a chunk of the corpse and regains "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points plus 1d6 for every 2 levels it has."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It can regain Hit Points from any given corpse only once."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.m6teF5ADh7vuM8Zr"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive",
+      "requirementsText": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ghast is adjacent to the corpse of a creature that died within the last hour."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "f38a5fb0-b41e-5b4a-9a22-a3ec7f405bdc",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghast-ghast-fever",
+    "name": "(Ghast) Ghast Fever",
+    "rarity": "common",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " carrier with no ill effect (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and regains half as many Hit Points from all healing (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " as stage 2 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "3d8",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and gains no benefit from healing (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " as stage 4 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 6",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " dead, and rises as a Ghast the next midnight"
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.hA6HsM4i4yPfEsDH"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "48f9be2c-fefb-5cee-b9d9-ae8c94f3431f",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghast-paralysis",
+    "name": "(Ghast) Paralysis",
+    "rarity": "common",
+    "traits": ["incapacitation", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any living creature hit by a ghast's attack must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ". It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.bVZ6KizWVTLJUBXi"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "5545aecc-5d31-535e-8c4f-de3a63231fef",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghast-stench",
+    "name": "(Ghast) Stench",
+    "rarity": "common",
+    "traits": ["aura", "olfactory"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "10 feet. A creature entering the aura or starting its turn in the aura must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "5cfa1065-86f1-5622-a7de-7c91351dcdb8",
+            "label": "Sickened 1"
+          },
+          {
+            "type": "text",
+            "text": " (plus "
+          },
+          {
+            "type": "ref",
+            "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+            "label": "Slowed 1"
+          },
+          {
+            "type": "text",
+            "text": " as long as it's sickened on a critical failure)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "While within the aura, the creature takes a -2 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "ref",
+            "id": "58136a99-c29f-5c86-8747-f290a6557cd6"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Aura",
+        "slug": "ghast-stench",
+        "radius": 10,
+        "traits": ["olfactory"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.SEzkqVJxr2eJDsuJ"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "433d46ee-1172-5d2c-ab30-956ed10766c4",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghoul-ghoul-fever",
+    "name": "(Ghoul) Ghoul Fever",
+    "rarity": "common",
+    "traits": ["disease"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Saving Throw",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 1",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " carrier with no ill effect (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 2",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and regains half as many Hit Points from all healing (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 3",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " as stage 2 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 4",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "2d6",
+                "damageType": "void"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage and gains no benefit from healing (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 5",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " as stage 4 (1 day)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Stage 6",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " dead, and rises as a Ghoul the next midnight."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.N7UV5CZXtcoxDxCF"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "6df59c90-cbc4-5a74-be4a-02dfaaa5a73b",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:ghoul-paralysis",
+    "name": "(Ghoul) Paralysis",
+    "rarity": "common",
+    "traits": ["incapacitation", "occult"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save or become "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": ". It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.FW4KAUHb7r8WkxUc"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "1ddf9ceb-f89d-5dfc-a7e3-e25850610dfd",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:golem-golem-antimagic",
+    "name": "(Golem) Golem Antimagic",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "harmed by [damageType] (0d8 damage, 0d4 damage from areas or persistent damage); healed by [damageType] (area "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "0d4"
+              }
+            ],
+            "healing": true
+          },
+          {
+            "type": "text",
+            "text": " Hit Points); slowed by [damageType]"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A golem is immune to spells and magical abilities other than its own, but each type of golem is affected by a few types of magic in special ways. These exceptions are listed in shortened form in the golem's stat block, with the full rules appearing here. If an entry lists multiple types (such as \"cold and water\"), either type of spell can affect the golem."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Harmed By",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any magic of this type that targets the golem causes it to take the listed amount of damage (this damage has no type) instead of the usual effect. If the golem starts its turn in an area of magic of this type or is affected by a persistent effect of the appropriate type, it takes the damage listed in the parenthetical."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Healed By",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any magic of this type that targets the golem makes the golem lose the slowed condition and gain HP equal to half the damage the spell would have dealt. If the golem starts its turn in an area of this type of magic, it gains the HP listed in the parenthetical."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Slowed By",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Any magic of this type that targets the golem causes it to be "
+                },
+                {
+                  "type": "ref",
+                  "id": "13584c6a-a624-511c-a5de-0c36a9136b9e",
+                  "label": "Slowed 1"
+                },
+                {
+                  "type": "text",
+                  "text": " for 2d6 rounds instead of the usual effect. If the golem starts its turn in an area of this type of magic, it's slowed 1 for that round."
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Vulnerable To",
+                  "marks": ["strong"]
+                },
+                {
+                  "type": "text",
+                  "text": " Each golem is vulnerable to one or more specific spells, with the effects described in its stat block."
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.r34QDwKiWZoVymJa"
+    },
+    "data": {
+      "category": "defensive"
+    }
+  },
+  {
+    "id": "a1a3c293-2788-57b8-98dd-e7a2b91aa348",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:golem-inexorable-march",
+    "name": "(Golem) Inexorable March",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "[save effect]"
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The golem Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a Fortitude save."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.qt2exWwQTzoObKfW"
+    },
+    "data": {
+      "cost": "one",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "d5a66a12-355d-5e99-b7ee-e030d0245790",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:greater-barghest-mutation-poison-fangs",
+    "name": "(Greater Barghest) Mutation - Poison Fangs",
+    "rarity": "common",
+    "traits": ["poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The barghest grows elongated fangs that seep poison. Its jaws deal 1d6 additional poison damage and 1d6 persistent poison damage."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison"
+      },
+      {
+        "key": "DamageDice",
+        "selectors": ["jaws-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "poison",
+        "category": "persistent"
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.wlhvSroB6r5cSd8Y"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "f427d03d-48e3-5065-bf5f-13150ecbff04",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:greater-barghest-mutation-toxic-breath",
+    "name": "(Greater Barghest) Mutation - Toxic Breath",
+    "rarity": "common",
+    "traits": ["divine", "poison"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The barghest breathes a cloud of toxic gas that deals "
+          },
+          {
+            "type": "damage",
+            "instances": [
+              {
+                "formula": "8d6",
+                "damageType": "poison"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " damage to all creatures in a "
+          },
+          {
+            "type": "template",
+            "shape": "cone",
+            "size": 30
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude",
+            "dc": 25,
+            "basic": true
+          },
+          {
+            "type": "text",
+            "text": " save)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "It can't use Toxic Breath again for 1d4 rounds."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.KcUHCVhHnkMD8j3k"
+    },
+    "data": {
+      "cost": "two",
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "49ef115b-7925-5e17-881b-a21107944db0",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:greater-barghest-mutation-vestigial-arm-strike",
+    "name": "(Greater Barghest) Mutation - Vestigial Arm Strike",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Frequency",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " once per round"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Trigger",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The barghest completes a Strike."
+          }
+        ]
+      },
+      {
+        "type": "rule"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Effect",
+            "marks": ["strong"]
+          },
+          {
+            "type": "text",
+            "text": " The barghest makes a claw Strike with a shriveled third arm hanging from its torso. This attack doesn't count for the barghest's multiple attack penalty, nor does that penalty apply on the attack."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mwEig0MYM7EIibSU"
+    },
+    "data": {
+      "cost": "free",
+      "category": "offensive",
+      "trigger": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The barghest completes a Strike."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "7a63b35c-f85b-55db-8d15-30746a375930",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:greater-barghest-mutation-wings",
+    "name": "(Greater Barghest) Mutation - Wings",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The barghest has malformed wings extending from its back. It gains a fly Speed of 25 feet."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "Change",
+        "selector": "speed:fly",
+        "mode": "upgrade",
+        "value": 25
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.OD3VPUalSKDTYFmF"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "9492280a-f3cd-5c48-a56f-ce7f36edbe55",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:lich-paralyzing-touch",
+    "name": "(Lich) Paralyzing Touch",
+    "rarity": "common",
+    "traits": ["arcane", "curse", "incapacitation"],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "A creature damaged by the lich's hand Strike must succeed at a "
+          },
+          {
+            "type": "check",
+            "statistic": "save:fortitude"
+          },
+          {
+            "type": "text",
+            "text": " save against the lich's spell DC-4."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature becomes "
+          },
+          {
+            "type": "ref",
+            "id": "7802f1d9-5ced-5b9b-8a08-98ec0adb9947"
+          },
+          {
+            "type": "text",
+            "text": " for 1 round on a failure. On a critical failure, the creature is paralyzed permanently, falls "
+          },
+          {
+            "type": "ref",
+            "id": "73c08daf-ef8e-5d9c-a2ac-dcdbfdafd759"
+          },
+          {
+            "type": "text",
+            "text": ", and seems dead. A "
+          },
+          {
+            "type": "check",
+            "statistic": "skill:medicine",
+            "dc": 25
+          },
+          {
+            "type": "text",
+            "text": " check reveals the victim is alive."
+          }
+        ]
+      }
+    ],
+    "rules": [],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-family-ability-glossary.Item.XvPm866TKSfclErJ"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  },
+  {
+    "id": "8417e881-821c-55bd-be3c-6441eb69987a",
+    "pack": "bestiary-1",
+    "kind": "action",
+    "slug": "action:sneak-attack",
+    "name": "Sneak Attack",
+    "rarity": "common",
+    "traits": [],
+    "sources": [
+      {
+        "kind": "book",
+        "book": "bestiary-1"
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The creature's Strikes deal an additional 1d6 precision damage to "
+          },
+          {
+            "type": "ref",
+            "id": "071324e5-bb4c-5ed2-9e2f-28185b65ded7"
+          },
+          {
+            "type": "text",
+            "text": " creatures."
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selectors": ["strike-damage"],
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "category": "precision",
+        "predicate": ["target:condition:off-guard"]
+      }
+    ],
+    "externalIds": {
+      "foundry": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.AWvNPE4U0kEJSL1T"
+    },
+    "data": {
+      "category": "offensive"
+    }
+  }
+]

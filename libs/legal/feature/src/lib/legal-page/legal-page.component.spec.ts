@@ -135,6 +135,9 @@ describe('LegalPage', () => {
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
+      'https://github.com/foundryvtt/pf2e/releases/tag/pf2e-8.6.0',
       'https://github.com/foundryvtt/pf2e',
     ]);
   });
@@ -195,6 +198,9 @@ describe('LegalPage', () => {
       'Book of the Dead',
       'Gamemastery Guide',
       'Dark Archive',
+      'Bestiary',
+      'Bestiary 2',
+      'Bestiary 3',
       'The Show Must Go On',
     ]);
     const licenses = books.map((book) => /Paizo · (?<license>.+)$/u.exec(book.textContent.trim())?.groups?.['license']);
@@ -204,7 +210,7 @@ describe('LegalPage', () => {
       ...Array.from({ length: 2 }, () => 'ORC License'),
       ...Array.from({ length: 3 }, () => 'Open Game License 1.0a'),
       ...Array.from({ length: 29 }, () => 'ORC License'),
-      ...Array.from({ length: 6 }, () => 'Open Game License 1.0a'),
+      ...Array.from({ length: 9 }, () => 'Open Game License 1.0a'),
     ]);
   });
 
@@ -236,6 +242,9 @@ describe('LegalPage', () => {
       expect.stringMatching(/^Book of the Dead\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Gamemastery Guide\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Dark Archive\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Bestiary\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Bestiary 2\s*Foundry release pf2e-8\.6\.0$/u),
+      expect.stringMatching(/^Bestiary 3\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^The Show Must Go On\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Impossible Magic\s*Foundry release pf2e-8\.6\.0$/u),
       expect.stringMatching(/^Guns & Gears\s*Foundry release pf2e-8\.6\.0$/u),

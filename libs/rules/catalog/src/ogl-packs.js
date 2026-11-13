@@ -150,3 +150,34 @@ export async function darkArchivePack() {
     import('@pioneer/content/packs/dark-archive/weapon.json'),
   ]);
 }
+
+export async function bestiary1Pack() {
+  return pack(import('@pioneer/content/packs/bestiary-1/pack.json'), [
+    import('@pioneer/content/packs/bestiary-1/action.json'),
+    import('@pioneer/content/packs/bestiary-1/consumable.json'),
+    import('@pioneer/content/packs/bestiary-1/deity.json'),
+    import('@pioneer/content/packs/bestiary-1/effect.json'),
+    import('@pioneer/content/packs/bestiary-1/equipment.json'),
+    import('@pioneer/content/packs/bestiary-1/treasure.json'),
+    import('@pioneer/content/packs/bestiary-1/weapon.json'),
+  ]);
+}
+
+export async function bestiary2Pack() {
+  return pack(import('@pioneer/content/packs/bestiary-2/pack.json'), [
+    import('@pioneer/content/packs/bestiary-2/action.json'),
+    import('@pioneer/content/packs/bestiary-2/consumable.json'),
+    import('@pioneer/content/packs/bestiary-2/deity.json'),
+    import('@pioneer/content/packs/bestiary-2/effect.json'),
+    import('@pioneer/content/packs/bestiary-2/ritual.json'),
+  ]);
+}
+
+export async function bestiary3Pack() {
+  return pack(import('@pioneer/content/packs/bestiary-3/pack.json'), [
+    import('@pioneer/content/packs/bestiary-3/action.json'),
+    import('@pioneer/content/packs/bestiary-3/deity.json'),
+    import('@pioneer/content/packs/bestiary-3/effect.json'),
+    import('@pioneer/content/packs/bestiary-3/ritual.json'),
+  ]);
+}
